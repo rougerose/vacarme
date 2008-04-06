@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<BOUCLE_principale(RUBRIQUES){id_rubrique}>[(#REM) pour les rubriques parentes de l'Index]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=#CHARSET"/>
+
+  <title>#NOM_SITE_SPIP / [(#TITRE|supprimer_numero|textebrut)]</title>
+  <meta name="description" lang="#LANG" content="index des num&eacute;ros de Vacarme, revue trimestrielle culturelle, politique et sociale, constitu&eacute;e &agrave; la fois d'enqu&ecirc;tes de terrain, d'articles d'opinion et de cr&eacute;ations litt&eacute;raires, &agrave; mi-chemin des revues de recherche et des magazines." />
+  <script src="js/prototype.lite.js" type="text/javascript"></script>
+  <script src="js/moo.fx.js" type="text/javascript"></script>
+  <script src="js/moo.fx.pack.js" type="text/javascript"></script>
+  <script src="js/FilAriane.js" type="text/javascript"></script>
+  <link rel="shortcut icon" href="favicon.png" type="image/png" /><link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/papier.css" type="text/css" media="print" />
+  <link rel="stylesheet" href="css/ecran.css" type="text/css" media="screen" />
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="#URL_PAGE{backend}" />
+</head>
+
+<body>
+  <div id="FondPage">
+    <div id="FondPageHaut">&nbsp;</div>
+    <div id="Conteneur">
+      <div id="Entete">
+        <INCLURE{fond=logo}>
+        <INCLURE{fond=navigation}{id_rubrique=115}>
+      </div>
+      <INCLURE{fond=FilArianeArticle}{id_rubrique}>
+      <div id="Contenu" class="Index">
+        
+        <div id="ColPrincipale" class="CPIndex">
+          <B_test_sommaire_complet><BOUCLE_test_sommaire_complet(RUBRIQUES){id_rubrique}{titre==Vacarme}>
+          <?php $num_rub = #ID_RUBRIQUE; ?>
+          <INCLURE{fond=indexNumeros.inc}{id_rubrique}{lang=#ENV{lang,fr}}>
+          </BOUCLE_test_sommaire_complet></B_test_sommaire_complet>
+          <BOUCLE_rubrique_numero(HIERARCHIE){tout}{1,1}><?php $num_rub = #ID_RUBRIQUE; ?></BOUCLE_rubrique_numero>
+          <INCLURE{fond=indexNumerosSommairePartiel.inc}{id_rubrique}{lang=#ENV{lang,fr}}><//B_test_sommaire_complet>
+        </div>
+        <div id="ColSecondaire">
+          <div class="CS">
+            <div id="BIndexCategories">
+              <div id="BIC">
+                <ul id="IndexCategories">
+                  <BOUCLE_index(RUBRIQUES){titre==index}>
+                  <li class="select"><a href="#URL_RUBRIQUE" title="tous les num&eacute;ros de Vacarme" class="noborder">par num&eacute;ro</a></li>
+                  <li><a href="#URL_RUBRIQUE?auteur=^a" title="tous les auteurs de Vacarme" class="noborder">par auteur</a></li>
+                  <li><a href="#URL_RUBRIQUE?theme=^a" title="tous les th&egrave;mes des articles et dossiers de Vacarme" class="noborder">par th&egrave;me</a></li>
+                </ul>
+              </div>
+            </div>
+            <div id="BIndexResultats">
+              <ul id="IndexResultats">
+                
+                <BOUCLE_liste_numeros(RUBRIQUES){id_parent}{par titre}{inverse}>
+                <li<?php if ($num_rub == #ID_RUBRIQUE) {echo " class=\"select\"";}?>><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></li>
+                </BOUCLE_liste_numeros></BOUCLE_index>
+              </ul>
+            </div>
+            <div class="rien"> </div>
+            </div>
+            
+            #FORMULAIRE_RECHERCHE
+            <INCLURE{fond=actuellement.inc}>
+          
+        </div>
+        <div class="rien"> </div>
+        <INCLURE{fond=PiedPage}>
+      </div>
+    </div>
+    <div id="FondPageBas">&nbsp;</div>
+  </div>
+  <?php
+    define("_BBC_PAGE_NAME", "Rubrique #ID_RUBRIQUE / [(#TITRE|texte_script|supprimer_numero|lignes_longues{20})]");
+    define("_BBCLONE_DIR", "bbclone/");
+    define("COUNTER", _BBCLONE_DIR."mark_page.php");
+    if (is_readable(COUNTER)) include_once(COUNTER);
+  ?>
+</body>
+</html>
+</BOUCLE_principale>

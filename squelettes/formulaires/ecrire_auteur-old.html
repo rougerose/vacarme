@@ -1,0 +1,54 @@
+
+
+[<div class="alerte">
+          <a id="formulaire_ecrire_auteur#ENV{id}" name="formulaire_ecrire_auteur#ENV{id}"></a>
+          (#ENV*{sujetko}) <:form_prop_indiquer_sujet:>
+        </div>]
+        [<div class="alerte">
+          (#ENV*{mailko}) <:form_prop_indiquer_email:>
+        </div>]
+        
+        
+        [<fieldset class="reponse_formulaire">
+        <legend><:envoyer_message:></legend>
+        <p>(#ENV*{mailenvoye})</p>
+        </fieldset>]
+        
+        
+        [(#ENV**{mailenvoye}|?{'',' '})
+
+        <form action="#SELF#formulaire_ecrire_auteur#ENV{id}" method="post" class="Formulaire">
+        [(#REM) Previsualisation... ]
+        [<input type="hidden" name="num_formulaire_ecrire_auteur" value="(#ENV{valide})" />]
+        [<fieldset class="previsu">
+        <legend><:previsualisation:></legend>
+        <p><em>votre adresse mail&nbsp;:</em> #ENV{mail}<br />
+          <em>le sujet&nbsp;:</em> #ENV{sujet}</p>
+          <div class="PreviewMessage">
+            [<p><em>Votre message&nbsp;:</em> (#ENV{texte}|nl2br)</p>]
+          </div>
+          <div class="BoutonDroite">
+            <input type="submit"  class="bouton" name="confirmer#ENV{id}"
+            value="(#ENV{boutonconfirmation})" />
+          </div>
+        </fieldset>]
+
+        [(#REM) Sinon, formulaire normal ]
+
+        <fieldset class="spip_encadrer">
+        <legend><:envoyer_message:></legend>
+        <p><label for="email_message_auteur#ENV{id}"><:form_pet_votre_email:><span class="obligatoire"> *</span><br />
+        <input type="text" class="ChampsTexte" name="email_message_auteur[(#ENV{id})]" id="email_message_auteur[(#ENV{id})]" value="#ENV{mail}" size="30" /></label></p>
+        <p><label for="sujet_message_auteur#ENV{id}"><:form_prop_sujet:><span class="obligatoire"> *</span><br />
+        <input type="text" class="ChampsTexte" name="sujet_message_auteur[(#ENV{id})]" id="sujet_message_auteur[(#ENV{id})]" value="#ENV{sujet}" size="30" /></label></p>
+        <p><label for="texte_message_auteur#ENV{id}"><:info_texte_message:><span class="obligatoire"> *</span><br />
+        <textarea class="ChampsTexte" name="texte_message_auteur[(#ENV{id})]" id="texte_message_auteur[(#ENV{id})]" rows='10' cols='40' class='ChampsTexte'>#ENV{texte}</textarea></label></p>
+
+        <div class="BoutonDroite">
+        <input type="submit" class="bouton" name="valide" value="[(#ENV{bouton})]" />
+        </fieldset>
+        </div>
+        <p class="obligatoire">* champs obligatoires</p>
+
+        </form>
+        ]

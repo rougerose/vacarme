@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<BOUCLE_principale(ARTICLES){id_article}><BOUCLE_exclu_mots_techniques(MOTS){id_article}{type==^@}{doublons meta}></BOUCLE_exclu_mots_techniques>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=#CHARSET"/>
+
+  <title>#NOM_SITE_SPIP / [(#TITRE|supprimer_numero|textebrut)]</title>
+  [<meta name="description" lang="#LANG" content="(#DESCRIPTIF|textebrut)" />]
+  <B_mots_meta>
+  <meta name="keywords" lang="#LANG" content="<BOUCLE_mots_meta(MOTS){id_article}{par titre}{doublons meta}{", "}>[(#TITRE|supprimer_numero|textebrut)]</BOUCLE_mots_meta>" />
+  </B_mots_meta>
+  <script src="js/prototype.lite.js" type="text/javascript"></script>
+  <script src="js/moo.fx.js" type="text/javascript"></script>
+  <script src="js/moo.fx.pack.js" type="text/javascript"></script>
+  <script src="js/FilAriane.js" type="text/javascript"></script>
+  <link rel="shortcut icon" href="favicon.png" type="image/png" /><link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/papier.css" type="text/css" media="print" />
+  <link rel="stylesheet" href="css/ecran.css" type="text/css" media="screen" />
+  <!--[if gte ie 5.5000]><link rel="stylesheet" type="text/css" href="css/ie.css" media="screen" /><![endif]-->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="#URL_PAGE{backend}" />
+</head>
+<?php
+/*
+* Fonction auteur_et_auteur()
+* Auteur : Philippe Rivière <fil@rezo.net>
+* Copyright : GNU Public Licence
+* Rajouter un "et" à la place de la virgule entre les deux derniers 
+* auteurs d'une liste
+*/
+function auteur_et_auteur($texte) {
+  return ereg_replace(", ([^,]*)$"," &amp; \\1",$texte);
+}?>
+<body>
+  <div id="FondPage">
+    <div id="FondPageHaut">&nbsp;</div>
+    <div id="Conteneur">
+      <div id="Entete">
+        <INCLURE{fond=logo}>
+        <INCLURE{fond=navigation}{id_rubrique}>
+      </div>
+      <INCLURE{fond=FilArianeArticle}{id_rubrique}{id_article}>
+      <div id="Contenu" class="Textes">
+        <div id="ColTitre">
+          <p class="tetiere"><BOUCLE_numero_encours(HIERARCHIE){tout}{1,1}><BOUCLE_rub_Vac(RUBRIQUES){id_rubrique}{doublons tetiere}> </BOUCLE_rub_Vac>[(#TITRE|supprimer_numero) / ]</BOUCLE_numero_encours><BOUCLE_tetiere_mot(MOTS){id_article}{type=@rubriques}>[(#TITRE|supprimer_numero)]</BOUCLE_tetiere_mot><BOUCLE_tetiere(RUBRIQUES){id_rubrique}{doublons tetiere}>[ <strong>(#TITRE|supprimer_numero)</strong>]</BOUCLE_tetiere></p>
+          
+          [<p class="surtitre">(#SURTITRE)</p>]
+          <h1 class="Titre">[(#TITRE|supprimer_numero)]</h1>
+          [<p class="soustitre">(#SOUSTITRE)</p>]
+        </div>
+        <div id="ColPrincipale">
+          <?php $tous_auteurs = auteur_et_auteur('<BOUCLE_signature(AUTEURS){id_article}{par nom}{nom!==^@} {", "}>[(#NOM|prenom|texte_script) ][(#NOM|nom|texte_script)]</BOUCLE_signature>'); if ($tous_auteurs) echo "<h2 class=\"Auteur\"><BOUCLE_entretien(MOTS){id_article}{type==@technique}{titre==entretien}><:entretien:> </BOUCLE_entretien><BOUCLE_propos(MOTS){id_article}{type==@technique}{titre==propos}><:propos:> </BOUCLE_propos><:par_auteur:> ".$tous_auteurs."</h2>"; ?>
+          
+          <BOUCLE_traductions(ARTICLES){traduction}{exclus}>
+          <p class="lienTraduction"><a href="#URL_ARTICLE" rel="alternate" hreflang="#LANG"><:traduction:></a></p>
+          </BOUCLE_traductions>
+          
+          
+          [<div id="chapo">
+            (#CHAPO)
+          </div>]
+          <BOUCLE_article_numero_spe(ARTICLES){id_article}{titre_mot=numero special}{doublons special}></BOUCLE_article_numero_spe>
+          <B_article_integral><BOUCLE_article_integral(ARTICLES){id_article}{age>=365}{doublons special}>
+          [<div id="texte">
+            (#TEXTE)
+          </div>]
+          [<div id="ps">
+            (#PS)
+          </div>]
+          [<div id="notes">
+            (#NOTES)
+          </div>]
+          </BOUCLE_article_integral></B_article_integral>
+          <B_article_numero_special><BOUCLE_article_numero_special(ARTICLES){id_article}{titre_mot=numero special}{age>=780}{doublons special2}>
+          <div id="texte">
+              [(#TEXTE)]
+              
+              <INCLURE{fond=portfolioArticle}{id_article}>
+          </div>]
+          [<div id="ps">
+              (#PS)
+          </div>]
+          [<div id="notes">
+              (#NOTES)
+          </div>]
+          
+          </BOUCLE_article_numero_special></B_article_numero_special>
+          <B_article_consultable><BOUCLE_article_consultable(ARTICLES){id_article}{titre_mot=article consultable}{doublons special2}>
+          <div id="texte">
+            [(#TEXTE)]
+            <INCLURE{fond=portfolioArticle}{id_article}>
+          </div>
+          
+          [<div id="ps">
+            (#PS)
+          </div>]
+          [<div id="notes">
+            (#NOTES)
+          </div>]
+          
+          </BOUCLE_article_consultable></B_article_consultable>
+          <BOUCLE_aucun_article(ARTICLES){id_article}{doublons special}{doublons special2}></BOUCLE_aucun_article>
+          </B_aucun_article>
+          <div id="texte">
+              [(#TEXTE|couper_intro{1500})]
+            </div>
+          
+          
+           <div class="ombre"><div class="ombreInterieur">
+            <div id="texte" class="ArticleIncomplet">
+              <p class="Descriptif">L'int&eacute;gralit&eacute; de cet article est disponible dans le num&eacute;ro actuellement en vente en librairies ou sur commande.</p>
+              <ul>
+                <li>Chercher <BOUCLE_librairies(RUBRIQUES){titre==librairies}><a href="#URL_RUBRIQUE">un libraire</a></BOUCLE_librairies></li>
+                <li><BOUCLE_commande(RUBRIQUES){titre==commander}><a href="#URL_RUBRIQUE">Commander en ligne</a></BOUCLE_commande></li>
+              </ul>
+            </div>
+            </div>
+          </div>
+          <div class="rien"> </div>
+          
+          [<div id="ps">
+            (#PS)
+          </div>]
+          [<div id="notes">
+            (#NOTES)
+          </div>]
+         
+          
+          <//B_aucun_article>
+          <//B_article_consultable>
+          <//B_article_numero_special>
+          <//B_article_integral>
+          
+          
+
+        </div>
+        <div id="ColSecondaire">
+          <div class="CS">
+            <BOUCLE_numero(HIERARCHIE){id_article}{1,1}{lang_select}>
+            <h2><BOUCLE_trad_publication(ARTICLES){id_article}><:publie:></BOUCLE_trad_publication> <a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)] <BOUCLE_saison(ARTICLES){id_article}>[(#DATE|saison)] [(#DATE|annee)]</BOUCLE_saison></a></h2>
+            <dl class="NumeroContexte">
+              <dt>
+                  <a href="#URL_RUBRIQUE" title="consulter le sommaire de [(#TITRE|supprimer_numero|textebrut)] <BOUCLE_saison2(ARTICLES){id_article}>([(#DATE|saison)] [(#DATE|annee)])</BOUCLE_saison2>" class="noborder">[(#LOGO_RUBRIQUE||image_reduire{140,0}|inserer_attribut{alt,[(#TITRE|supprimer_numero|textebrut)]})]</a>
+              </dt>
+              <dd><a href="#URL_RUBRIQUE" class="plus"><span>&raquo;</span> consulter le sommaire</a></dd>
+              <BOUCLE_abonnement(ARTICLES){id_article}{age<=92}>
+              <dd><a href="rubrique11.html" class="plus"><span>&raquo;</span> s'abonner</a></dd>
+              </BOUCLE_abonnement>
+              <dd><a href="rubrique127.html" class="plus"><span>&raquo;</span> commander</a></dd>
+            </dl>
+            </BOUCLE_numero>
+            
+            
+            <BOUCLE_test_GrandDossier(MOTS){id_article}{type=@rubriques}{id_mot!=11}{id_mot!=5}{doublons}>
+            <h2>[(#TITRE|supprimer_numero)]<BOUCLE_titre_rubrique(ARTICLES){id_article}{id_mot}{0,1}><BOUCLE_titre_rub(RUBRIQUES){id_rubrique}> [<span>(#TITRE|supprimer_numero)</span>]&nbsp;</BOUCLE_titre_rub></BOUCLE_titre_rubrique>/ sommaire</h2>
+            <ul class="ContexteListes">
+              <BOUCLE_sommaire(ARTICLES){id_mot}{id_rubrique}{par num titre, date}>
+              <li[ class="(#EXPOSE{select})"]><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a><B_auteurs_sommaire><br /><BOUCLE_auteurs_sommaire(AUTEURS){id_article}{par nom}{nom!==^@} {", "}>[(#NOM|prenom_nom)]</BOUCLE_auteurs_sommaire></B_auteurs_sommaire></li>
+              </BOUCLE_sommaire>
+            </ul>
+            </BOUCLE_test_GrandDossier><BOUCLE_test_PetitDossier(MOTS){id_article}{type=@petit dossier}{doublons}>
+            <h2>dossier [<span>(#TITRE|supprimer_numero)</span>]&nbsp;/ sommaire</h2>
+            <ul class="ContexteListes">
+              <BOUCLE_sommaire2(ARTICLES){id_mot}{id_rubrique}{par num titre, date}>
+              <li[ class="(#EXPOSE{select})"]><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a><B_auteurs_sommaire2><br /><BOUCLE_auteurs_sommaire2(AUTEURS){id_article}{par nom}{nom!==^@} {", "}>[(#NOM|prenom_nom)]</BOUCLE_auteurs_sommaire2></B_auteurs_sommaire2></li>
+              </BOUCLE_sommaire2>
+            </ul>
+            </BOUCLE_test_PetitDossier><BOUCLE_test_Feuilletons(MOTS){id_article}{type=@feuilletons}{doublons}>
+            <h2>feuilleton de Vacarme [<span>(#TITRE|supprimer_numero)</span>]</h2>
+            <ul class="ContexteListes">
+              <BOUCLE_sommaire3(ARTICLES){id_mot}{par date}>
+              <li[ class="(#EXPOSE{select})"]><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a><B_auteurs_sommaire3><br /><BOUCLE_auteurs_sommaire3(AUTEURS){id_article}{par nom}{nom!==^@} {", "}>[(#NOM|prenom_nom)]</BOUCLE_auteurs_sommaire3></B_auteurs_sommaire3></li>
+              </BOUCLE_sommaire3>
+            </ul>
+            </BOUCLE_test_Feuilletons><BOUCLE_test_lignes(MOTS){id_article}{type=@lignes}{doublons}>
+            <h2>lignes de Vacarme [<span>(#TITRE|supprimer_numero)</span>]</h2>
+            <ul class="ContexteListes">
+              <BOUCLE_sommaire4(ARTICLES){id_mot}{par date}>
+              <li[ class="(#EXPOSE{select})"]><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a><B_auteurs_sommaire4><br /><BOUCLE_auteurs_sommaire4(AUTEURS){id_article}{par nom}{nom!==^@} {", "}>[(#NOM|prenom_nom)]</BOUCLE_auteurs_sommaire4></B_auteurs_sommaire2></li>
+              </BOUCLE_sommaire4>
+            </ul>
+            </BOUCLE_test_lignes>
+            
+            <BOUCLE_exclusion_doc(DOCUMENTS){id_article}{extension!==jpg|png|gif}{mode=document}{doublons excluDoc}></BOUCLE_exclusion_doc>
+            <BOUCLE_portfolio_article_numero_spe(ARTICLES){id_article}{titre_mot=numero special}{doublons specialPortfolio}></BOUCLE_portfolio_article_numero_spe>
+            <B_portfolio_article_integral><BOUCLE_portfolio_article_integral(ARTICLES){id_article}{age>=365}{doublons specialPortfolio}><B_documents1>
+            <h2>portfolio</h2>
+            <dl class="NumeroContexte">
+              <BOUCLE_documents1(DOCUMENTS){id_article}{mode=document}{doublons excluDoc}{0,1}>
+              <dt><a href="[(#URL_PAGE{portfolio}|parametre_url{'id_article',#ID_ARTICLE}|parametre_url{'id_document',#ID_DOCUMENT})]" class="noborder">[(#LOGO_DOCUMENT||image_reduire{135,0})]</a></dt>
+              </BOUCLE_documents1>
+            </dl></B_documents1>
+            </BOUCLE_portfolio_article_integral></B_portfolio_article_integral>
+            
+            <B_portfolio_article_numero_special><BOUCLE_portfolio_article_numero_special(ARTICLES){id_article}{titre_mot=numero special}{age>=730}{doublons specialPortfolio2}><B_documents2>
+            <h2>portfolio</h2>
+            <dl class="NumeroContexte">
+              <BOUCLE_documents2(DOCUMENTS){id_article}{mode=document}{doublons excluDoc}{0,1}>
+              <dt><a href="[(#URL_PAGE{portfolio}|parametre_url{'id_article',#ID_ARTICLE}|parametre_url{'id_document',#ID_DOCUMENT})]" class="noborder">[(#LOGO_DOCUMENT||image_reduire{135,0})]</a></dt>
+              </BOUCLE_documents2>
+            </dl></B_documents2>
+            </BOUCLE_portfolio_article_numero_special></B_portfolio_article_numero_special>
+            
+            <B_portfolio_article_consultable><BOUCLE_portfolio_article_consultable(ARTICLES){id_article}{titre_mot=article consultable}{doublons specialPortfolio2}><B_documents3>
+            <h2>portfolio</h2>
+            <dl class="NumeroContexte">
+              <BOUCLE_documents3(DOCUMENTS){id_article}{mode=document}{doublons excluDoc}{0,1}>
+              <dt><a href="[(#URL_PAGE{portfolio}|parametre_url{'id_article',#ID_ARTICLE}|parametre_url{'id_document',#ID_DOCUMENT})]" class="noborder">[(#LOGO_DOCUMENT||image_reduire{135,0})]</a></dt>
+              </BOUCLE_documents3>
+            </dl></B_documents3>
+            </BOUCLE_portfolio_article_consultable></B_portfolio_article_consultable>
+            <//B_portfolio_article_consultable>
+            <//B_portfolio_article_numero_special>
+            <//B_portfolio_article_integral>
+            
+            <BOUCLE_documenta(MOTS){id_article}{type=documenta}{0,1}>
+            <h2>Documenta 12 magazine</h2>
+            <p class="logoDocumenta">[<a href="article589.html" title="[Cet article (#DESCRIPTIF|textebrut)]" class="noborder">(#LOGO_MOT||image_reduire{120,0})</a>]<br />[Cet article (#DESCRIPTIF|PtoBR)]</p>
+            </BOUCLE_documenta>
+            <BOUCLE_exclusion_portfolio(DOCUMENTS){id_article}{extension==jpg|png|gif}{mode=document}{doublons}></BOUCLE_exclusion_portfolio>
+            <BOUCLE_doc_article_numero_spe(ARTICLES){id_article}{titre_mot=numero special}{doublons specialDoc}></BOUCLE_doc_article_numero_spe>
+            <B_doc_article_integral><BOUCLE_doc_article_integral(ARTICLES){id_article}{age>=365}{doublons specialDoc}><B_documents4>
+            <h2>documents associ&eacute;s</h2>
+            <ul class="ContexteListes">
+              <BOUCLE_documents4(DOCUMENTS){id_article}{mode=document}{doublons}>
+              <li><a href="#URL_DOCUMENT">[(#TITRE|supprimer_numero)]</a> &#091;#TYPE_DOCUMENT, [(#TAILLE|taille_en_octets)]&#093;[<br />(#DESCRIPTIF|PtoBR)]</li>
+              </BOUCLE_documents4>
+            </ul></B_documents4>
+            </BOUCLE_doc_article_integral></B_doc_article_integral>
+            
+            <B_doc_article_numero_special><BOUCLE_doc_article_numero_special(ARTICLES){id_article}{titre_mot=numero special}{age>=730}{doublons specialDoc2}><B_documents5>
+            <h2>documents associ&eacute;s</h2>
+            <ul class="ContexteListes">
+              <BOUCLE_documents5(DOCUMENTS){id_article}{mode=document}{doublons}>
+              <li><a href="#URL_DOCUMENT">[(#TITRE|supprimer_numero)]</a> &#091;#TYPE_DOCUMENT, [(#TAILLE|taille_en_octets)]&#093;[<br />(#DESCRIPTIF|PtoBR)]</li>
+              </BOUCLE_documents5>
+            </ul></B_documents5>
+            </BOUCLE_doc_article_numero_special></B_doc_article_numero_special>
+
+            <B_doc_article_consultable><BOUCLE_doc_article_consultable(ARTICLES){id_article}{titre_mot=article consultable}{doublons specialDoc2}><B_documents6>
+            <h2>documents associ&eacute;s</h2>
+            <ul class="ContexteListes">
+              <BOUCLE_documents6(DOCUMENTS){id_article}{mode=document}{doublons}>
+              <li><a href="#URL_DOCUMENT">[(#TITRE|supprimer_numero)]</a> &#091;#TYPE_DOCUMENT, [(#TAILLE|taille_en_octets)]&#093;[<br />(#DESCRIPTIF|PtoBR)]</li>
+              </BOUCLE_documents6>
+            </ul></B_documents6>
+            </BOUCLE_doc_article_consultable></B_doc_article_consultable>
+            <//B_doc_article_consultable>
+            <//B_doc_article_numero_special>
+            <//B_doc_article_integral>
+            
+            
+            <B_themes>
+            <h2>th&egrave;mes</h2>
+            <ul class="ContexteListes">
+              <BOUCLE_themes(MOTS){id_article}{type!==^@}{par titre}>
+              <li><a href="#URL_MOT" title="sur le m&ecirc;me th&egrave;me">[(#TITRE|supprimer_numero)]</a></li>
+              </BOUCLE_themes>
+            </ul>
+            </B_themes>
+            <B_precedents_entretiens>
+            <h2>les entretiens de Vacarme</h2>
+            <ul class="ContexteListes">
+              <BOUCLE_precedents_entretiens(MOTS){id_article}{titre=entretien}>
+              <BOUCLE_liste_precedents(ARTICLES){id_mot}{par date}{inverse}{0,5}{exclus}>
+              <li><a href="#URL_ARTICLE" title="lire l'entretien"><BOUCLE_rubrique_entretien(RUBRIQUES){id_rubrique}>[(#TITRE|supprimer_numero)&nbsp;: ]</BOUCLE_rubrique_entretien>[(#TITRE|supprimer_numero)]</a></li>
+              </BOUCLE_liste_precedents>
+              </BOUCLE_precedents_entretiens>
+            </ul>
+            </B_precedents_entretiens>
+            
+            #FORMULAIRE_RECHERCHE
+            <INCLURE{fond=actuellement.inc}>
+            
+          </div>
+        </div>
+        <div class="rien"> </div>
+        <INCLURE{fond=PiedPage}>
+      </div>
+    </div>
+    <div id="FondPageBas">&nbsp;</div>
+  </div>
+  <?php
+    define("_BBC_PAGE_NAME", "Article #ID_ARTICLE / [(#TITRE|texte_script|supprimer_numero|lignes_longues{20})]");
+    define("_BBCLONE_DIR", "bbclone/");
+    define("COUNTER", _BBCLONE_DIR."mark_page.php");
+    if (is_readable(COUNTER)) include_once(COUNTER);
+  ?>
+</body>
+</html>
+</BOUCLE_principale>

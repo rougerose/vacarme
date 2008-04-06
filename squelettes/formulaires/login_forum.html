@@ -1,0 +1,35 @@
+[(#REM)
+
+	Formulaire d'identification sur le forum
+
+	Si la session est authentifiee, on propose la deconnexion
+
+	Si la session n'est pas authentifiee, on presente un formulaire nom/email
+
+	Pour les forums sur abonnement, un squelette specifique presente les regles
+
+]
+
+<fieldset><legend><:forum_qui_etes_vous:></legend>
+
+[(#SESSION{auth}|?{' '})
+    <!-- <div style="float:#LANG_RIGHT;"><small>
+    (<a href="#URL_LOGOUT"><:icone_deconnecter:></a>)
+    </small></div> -->
+	<p><label for="session_nom">Votre nom</label>
+	<input type="text" class="forml" name="session_nom" id="session_nom" value="[(#SESSION**{nom}|entites_html)]" size="40" /></p>
+	<p><label for="session_email"><:forum_votre_email:></label>
+	<input type="text" class="forml" name="session_email" id="session_email" value="[(#SESSION**{email}|entites_html)]" size="40" /></p>
+]
+
+[(#SESSION{auth}|?{'',' '})
+<!-- <div style="float:#LANG_RIGHT;"><small>
+    (<a href="[(#URL_PAGE{login}|parametre_url{url,#SELF})]"><:login:></a>)
+    </small></div> -->
+	<p><label for="session_nom">Votre nom</label>
+	<input type="text" class="forml" name="session_nom" id="session_nom" value="[(#SESSION**{nom}|sinon{#SESSION**{session_nom}}|entites_html)]" size="40" /></p>
+	<p><label for="session_email"><:forum_votre_email:></label>
+	<input type="text" class="forml" name="session_email" id="session_email" value="[(#SESSION**{email}|sinon{#SESSION**{session_email}}|entites_html)]" size="40" /></p>
+]
+
+</fieldset>

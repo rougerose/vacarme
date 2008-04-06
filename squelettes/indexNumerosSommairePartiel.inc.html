@@ -1,0 +1,49 @@
+<BOUCLE_couverture(HIERARCHIE){tout}{1,1}>
+          <h1 class="Titre">[(#TITRE|supprimer_numero)] - <BOUCLE_saison_couv1(ARTICLES){branche}{par date}{inverse}{0,1}{lang=#ENV{lang,fr}}>[(#DATE|saison)] [(#DATE|annee)]</BOUCLE_saison_couv1></h1>
+          <div id="Couverture">
+            <dl class="NumeroContexte">
+              <dt>
+                  <a href="#gdformat" title="afficher la couverture de [(#TITRE|supprimer_numero|textebrut)] <BOUCLE_saison_couv2(ARTICLES){id_rubrique}{par date}{inverse}{0,1}>([(#DATE|saison)] [(#DATE|annee)])</BOUCLE_saison_couv2>" class="noborder" id="CouvVacarme">[(#LOGO_RUBRIQUE||image_reduire{100,0}|inserer_attribut{alt,[(#TITRE|supprimer_numero|textebrut)]})][<span>(#LOGO_RUBRIQUE||inserer_attribut{class,Couverture})</span>]</a>
+              </dt>
+              <dd><a href="#URL_RUBRIQUE" class="plus"><span>&raquo;</span> consulter le sommaire</a></dd>
+              <BOUCLE_abonnement_couv(ARTICLES){id_rubrique}{age<=92}>
+              <dd><a href="rubrique11.html" class="plus"><span>&raquo;</span> s'abonner</a></dd>
+              </BOUCLE_abonnement_couv>
+              <dd><a href="rubrique12.html" class="plus"><span>&raquo;</span> commander</a></dd>
+            </dl>
+            </BOUCLE_couverture>
+            <p class="nb">Le point vert &#091;<img src="images/commun/puce-article-integral.png" width="9" height="9" alt="article en version int&eacute;grale" class="articleIntegral" />&#093; indique que le  texte est disponible en version int&eacute;grale.<br /><br />Vacarme aime la gratuit&eacute;, mais l'avenir d'une revue d&eacute;pend <a href="rubrique11.html">de ses abonn&eacute;s.</a></p>
+            <BOUCLE_rub_encours(RUBRIQUES){id_rubrique}><BOUCLE_documenta(MOTS){id_rubrique}{type=Documenta}>
+            <p class="nb documenta">[<a href="article589.html" class="noborder">(#LOGO_MOT||image_reduire{100,0}|inserer_attribut{alt,[Ce num&eacute;ro (#DESCRIPTIF|textebrut)]})</a>]<br />[Ce num&eacute;ro (#DESCRIPTIF|PtoBR)]</p>
+            </BOUCLE_documenta></BOUCLE_rub_encours>
+          </div>
+          
+          <div id="IndexNumAut">
+            <div id="IN">
+              <BOUCLE_rub_courante(RUBRIQUES){id_rubrique}>
+              <p class="Descriptif infos">Vous consultez la rubrique 
+                <B_mot_rub><BOUCLE_mot_rub(MOTS){id_rubrique}{type=@rubriques}>
+                [<em>(#TITRE|supprimer_numero)</em>] de 
+                </BOUCLE_mot_rub></B_mot_rub>
+                [<em>(#TITRE|supprimer_numero)</em>] de 
+                <//B_mot_rub>
+                <BOUCLE_couverture2(HIERARCHIE){tout}{1,1}><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></BOUCLE_couverture2>.
+                <B_definition><BOUCLE_definition(MOTS){id_rubrique}{type=@definitions}>[ (#TEXTE|PtoBR)]</BOUCLE_definition></B_definition>
+                 Le sommaire complet de <BOUCLE_couverture3(HIERARCHIE){tout}{1,1}><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a> est disponible <a href="#URL_RUBRIQUE">sur ce lien</a>.</BOUCLE_couverture3></p>
+              </BOUCLE_rub_courante>
+              <BOUCLE_sommaire_rub_numero2(RUBRIQUES){id_rubrique}>
+              <h2><BOUCLE_type_rub2(MOTS){id_rubrique}{type=@rubriques}><span> [(#TITRE|supprimer_numero)]&nbsp;/ </BOUCLE_type_rub2>[(#TITRE|supprimer_numero)]</span></h2>
+              <dl>
+                <BOUCLE_sommaire_rub_articles(ARTICLES){id_rubrique}{par num titre, titre}{doublons}{lang=#ENV{lang,fr}}>
+                <dt><B_auteurs2><a href="#URL_ARTICLE" title="lire &laquo; [(#TITRE|supprimer_numero|textebrut)] &raquo;" class="INauteurs"><BOUCLE_auteurs2(AUTEURS){id_article}{par nom}{nom!==^@} {", "}>[(#NOM|prenom_nom)]</BOUCLE_auteurs2></a>&nbsp;/ </B_auteurs2><a href="#URL_ARTICLE" title="lire &laquo; [(#TITRE|supprimer_numero|textebrut)] &raquo;">[(#TITRE|supprimer_numero)]</a><B_test_age><BOUCLE_test_age(ARTICLES){id_article}{age>365}>&nbsp;<img src="images/commun/puce-article-integral.png" width="9" height="9" alt="article en version int&eacute;grale" class="articleIntegral" /></BOUCLE_test_age></B_test_age><B_consultable><BOUCLE_consultable(MOTS){id_article}{id_mot=7}>&nbsp;<img src="images/commun/puce-article-integral.png" width="9" height="9" alt="article en version int&eacute;grale"  class="articleIntegral" /></BOUCLE_consultable></B_consultable><//B_test_age></dt>
+                <dd>[(#DESCRIPTIF)]</dd>
+                <BOUCLE_traductions(ARTICLES){traduction}{exclus}>
+                <dd class="lienTraduction"><a href="#URL_ARTICLE"><:traduction:></a></dd>
+                </BOUCLE_traductions>
+                </BOUCLE_sommaire_rub_articles>
+              </dl>
+              </BOUCLE_sommaire_rub_numero2>
+            </div>
+          </div>
+          
+          

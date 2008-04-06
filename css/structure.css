@@ -1,0 +1,183 @@
+body{
+  background:#fff;
+  text-align:center;
+  margin:0;
+  font-family:Georgia,Times,"Times New Roman",sans-serif;
+  color:#333;
+  line-height:140%;
+  font-size:80%;
+}
+#FondPage {
+  background:#fff url(../images/commun/FondPage.png) repeat-y 50% 0;
+  width:770px;
+  margin:5px auto 0;
+}
+#FondPageHaut {
+  background:transparent url(../images/commun/FondPageHaut.png) no-repeat 50% 0;
+  height:38px;
+}
+#FondPageBas {
+  background:#fff url(../images/commun/FondPageBas.png) no-repeat 50% 0;
+  height:38px;
+  padding-bottom:1em;
+}
+#Conteneur {
+  text-align:left;
+  width:750px;
+}
+#Entete {
+  position:relative;
+  margin:0 20px 0 50px;
+  height:54px;
+}
+#Contenu, #Contenu1 {
+  margin:30px 0 0 34px;
+  padding:1em 0 0 26px;
+  background:url(../images/commun/Filet.png) no-repeat 0 0;
+}
+#Contenu2 {
+  margin:2em 0 0 34px;
+  padding:0 0 0 26px;
+  background:url(../images/commun/FiletTopArticle.png) no-repeat 0 0;
+}
+.Index #ColPrincipale.CPIndex {
+  width:420px;
+  float:left;
+}
+.Textes #ColPrincipale {
+  width:450px;
+  float:left;
+}
+
+.Textes #sectionSecondaire {
+	clear: both;
+}
+
+.Textes #colPrincipaleSectionSecondaire {
+	float: left;
+	width: 450px;
+}
+
+.zoneAbonnes .Textes #ColPrincipale {
+	width: 650px;
+	float: none;
+}
+
+.CAccueil #ColPrincipale, .CRubrique #ColPrincipale, .Apropos, .Accueil {
+  width:470px;
+  float:left;
+}
+
+.zoneAbonnes #ColPrincipale.Accueil {
+	width: 670px;
+	float: left;
+}
+
+.CRubrique #ColPrincipale.Abonner, #Contenu1 .Abonner {
+  width:670px;
+}
+.CRubrique #ColPrincipale.Librairies, #Contenu1 .Info {
+  margin:0 20px 0 0;
+  width:204px;
+  float:left;
+  voice-family: "\"\"";
+  voice-family:inherit;
+  width:184px;
+}
+#CPCol1, #CPCol2, #CPCol3 {
+  float:left;
+  background:url(../images/commun/Filet.png) no-repeat 50% 0;
+  width:225px;
+  padding-top:1em;
+}
+#CPCol2 {
+  margin:0 20px;
+  width:265px;
+  voice-family: "\"\"";
+  voice-family:inherit;
+  width:225px;
+}
+#CPCol3 {
+  background-position:100% 0;
+  width:200px;
+  float:right;
+}
+#CPCol1.Librairies {
+  width:184px;
+}
+#CPCol3.Librairies {
+  width:241px;
+}
+#ColTitre {
+  padding-right:250px;
+}
+#ColSecondaire {
+  float:right;
+  width:200px;
+}
+#ColSecondaire .CS, #CPCol3 .CS {
+  padding-right:20px;
+}
+#ColSecondaire.CRTypeB {
+  float:left;
+  width:auto;
+}
+#ColSecondaire.CRTypeB .CS {
+  float:left; padding-right:0;
+}
+.CS .CScol1, .CS .CScol2 {
+  width:225px; float:left;
+}
+.Librairies .CS .CScol2 {
+  margin-left:20px;
+}
+.CRTypeC {
+}
+.col1, .col2 {
+  width:225px;
+  margin-right:20px;
+  float:left;
+
+}
+.col3 {float:left;}
+
+div.Index #ColSecondaire {
+  width:240px;
+}
+#Couverture {
+  width:110px;
+  float:left;
+  margin-top:1em;
+}
+#IndexNumAut {
+  width:310px;
+  float:left;
+}
+#IN {
+  margin:1em 0 0 10px;
+}
+#BIndexCategories {
+  width:110px;
+  float:right;
+}
+#BIndexResultats {
+  width:110px;
+  float:left;
+}/*
+#BIndexResultats.Auteurs {
+  font-size:1em;
+  text-align:center;
+  width:90px;
+  margin-left:40px;
+  float:left;
+  voice-family: "\"\"";
+  voice-family:inherit;
+  width:50px;
+}
+html > #BIndexResultats.Auteurs {
+  width:50px;
+}*/
+#PiedDePage {
+  background:url(../images/commun/FiletPiedDePage.png) no-repeat 100% 0;
+  margin:1.5em 0 0; padding:0.9em 2em 0 0;
+}

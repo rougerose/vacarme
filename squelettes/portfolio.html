@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<BOUCLE_principale(ARTICLES){id_article}>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
+<head>
+  <title>#NOM_SITE_SPIP / [(#TITRE|supprimer_numero|textebrut)]</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=#CHARSET"/>
+  <link rel="shortcut icon" href="favicon.png" type="image/png" /><link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/ecran_portfolio.css" type="text/css" media="screen" />
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="#URL_PAGE{backend}" />
+</head>
+<!-- mise en page originale http://dbowman.com/photos/ -->
+<body id="Portfolio">
+  <div id="Contenu">
+    
+    <BOUCLE_compteur(DOCUMENTS){id_article}{extension==jpg|gif|png}></BOUCLE_compteur><?php $total=#TOTAL_BOUCLE; ?><//B_compteur>
+    <?php $tableau_doc = array (<BOUCLE_position(DOCUMENTS){id_article}{extension==jpg|gif|png}{","}>#COMPTEUR_BOUCLE => #ID_DOCUMENT</BOUCLE_position>); ?>
+    
+    <B_document>
+    <BOUCLE_document(DOCUMENTS){id_article}{extension==jpg|gif|png}{mode=document}{id_document=#ENV{id_document}}>
+    <div id="Descriptif">
+      <h1>[(#TITRE|supprimer_numero|sinon{"&nbsp;"})]</h1>
+      [<p>(#DESCRIPTIF|PtoBR)</p>]
+    </div>
+
+    <div id="DescriptifSupp">
+      <ul>
+        <li class="Compteur">
+        <?php 
+        while ($cle_doc = current($tableau_doc)) { 
+          if ($cle_doc == '#ID_DOCUMENT') { 
+            echo "photo ".key($tableau_doc); 
+          } 
+          next($tableau_doc);
+          } echo " sur ".$total; ?>
+        </li>
+        <li class="Date">[(#DATE|affdate)]</li>
+      </ul>
+    </div>
+
+    <div id="Principal">
+      <p id="photo"><span>[(#FICHIER|image_reduire{520,0}|inserer_attribut{'alt',#TITRE}|inserer_attribut{'title',#TITRE}|inserer_attribut{'style', ' '})]</span></p>
+    </div>
+    
+    <?php $h = #HAUTEUR; ?>
+    
+    <div id="PrecedenteSuivante">
+      <BOUCLE_photo_courante1(DOCUMENTS){id_document}>
+      <B_photo_precedente><BOUCLE_photo_precedente(DOCUMENTS){id_article}{id_document<#ENV{id_document}}{par id_document}{inverse}{0,1}{mode=document}{extension==jpg|gif|png}>
+      <div id="PhotoPrecedente">
+        <span class="Vignette"><em style="background-image:url('[(#LOGO_DOCUMENT||image_reduire{100,0}|extraire_attribut{src})]'); width:105px; height:<?php $hauteur = [(#LOGO_DOCUMENT||image_reduire{100,0}|extraire_attribut{height})]+5; echo $hauteur; ?>px;"><a href="[(#SELF|parametre_url{'id_document',#ID_DOCUMENT})]" style="width:105px; height:<?php echo $hauteur; ?>px;"><strong style="width:300px; height:<?php echo $h; ?>px;">photo pr&eacute;c&eacute;dente</strong>[ (#TITRE|supprimer_numero|sinon{"&nbsp;"})]</a></em></span>
+      </div>
+      </BOUCLE_photo_precedente></B_photo_precedente>
+      </BOUCLE_photo_courante1>
+
+      <BOUCLE_photo_courante2(DOCUMENTS){id_document}>
+      <BOUCLE_photo_suivante(DOCUMENTS){id_article}{id_document>#ENV{id_document}}{par id_document}{0,1}{mode=document}{extension==jpg|gif|png}>
+      <div id="PhotoSuivante">
+        <span class="Vignette"><em style="background-image:url('[(#LOGO_DOCUMENT||image_reduire{100,0}|extraire_attribut{src})]'); width:105px; height:<?php $hauteur = [(#LOGO_DOCUMENT||image_reduire{100,0}|extraire_attribut{height})]+5; echo $hauteur; ?>px;"><a href="[(#SELF|parametre_url{'id_document',#ID_DOCUMENT})]" style="width:105px; height:<?php echo $hauteur; ?>px;"><strong style="width:300px; height:<?php echo $h; ?>px;">photo suivante</strong>[ (#TITRE|supprimer_numero|sinon{"&nbsp;"})]</a></em></span>
+      </div>
+      </BOUCLE_photo_suivante>
+      </BOUCLE_photo_courante2>
+    </div>
+
+    </BOUCLE_document>
+    </B_document>
+    <p>Il n'y a aucune image &agrave; cette adresse. Retour &agrave; <a href="/">la page d'accueil du site</a></p>
+    <//B_document>
+  </div>
+  
+  <div id="FA">
+    <p><a href="/" title="accueil">accueil</a><B_hierarchie> &raquo; <BOUCLE_hierarchie(HIERARCHIE){id_article}{" &raquo; "}><a href="#URL_RUBRIQUE" title="[(#TITRE|supprimer_numero|textebrut)]" class="noborder">[(#TITRE|supprimer_numero)]</a></BOUCLE_hierarchie><BOUCLE_article_courant2(ARTICLES){id_article}> &raquo; <a href="#URL_ARTICLE"  title="[(#TITRE|supprimer_numero|textebrut)]" class="noborder">[(#TITRE|supprimer_numero)]</a></BOUCLE_article_courant2> &raquo; <a href="#SELF" class="select noborder">portfolio<BOUCLE_titre_document(DOCUMENTS){id_document=#ENV{id_document}}>[ : (#TITRE|supprimer_numero)]</BOUCLE_titre_document></a></p>
+  </div>
+  
+  <div id="PiedPage">
+    <hr class="invisible" />
+    <p class="droits">Sauf mention contraire, les droits de reproduction des images pr&eacute;sent&eacute;es dans ce portfolio appartiennent &agrave; son auteur-e.<br />Pour toute reproduction d'une ou plusieurs images, veuillez <a href="#URL_PAGE{contact}">nous contacter</a>.</p>
+    <hr class="invisible" />
+    <p class="mentions">La mise en page de ce portfolio est r&eacute;alis&eacute;e d'apr&egrave;s <a href="http://dbowman.com/photos/">une r&eacute;alisation originale</a> de D. Bowman.</p>
+  </div>
+  <?php
+    define("_BBC_PAGE_NAME", "Portfolio article #ID_ARTICLE / [(#TITRE|texte_script|supprimer_numero)]");
+    define("_BBCLONE_DIR", "bbclone/");
+    define("COUNTER", _BBCLONE_DIR."mark_page.php");
+    if (is_readable(COUNTER)) include_once(COUNTER);
+  ?>
+</body>
+</html>
+</BOUCLE_principale>

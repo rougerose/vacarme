@@ -1,0 +1,26 @@
+<BOUCLE_logo(ARTICLES){id_article}>
+<div class="cadeau" style="background:transparent url([(#LOGO_ARTICLE||image_reduire{#ENV{image_reduire},0}|extraire_attribut{src})]) no-repeat top left;">
+    <div class="cadeauTexte" style="background-image: url([(#LOGO_ARTICLE||image_reduire{#ENV{image_reduire},0}|image_recadre{#ENV{image_recadre_largeur},#ENV{image_recadre_hauteur},right bottom}|image_alpha{#ENV{image_alpha}}|image_gamma{#ENV{image_gamma}}|extraire_attribut{src})]); background-repeat: no-repeat; background-position:top left;">
+        <BOUCLE_doc(DOCUMENTS){id_document}>
+        <dl class='spip_document_#ID_DOCUMENT documents[ spip_documents_(#ENV{align})][ (#ENV{class})] spip_lien_ok'[ style='float:(#ENV{align}|match{left|right});']>
+            [<dt class='doc_titre'>(#TITRE)</dt>][
+            <dd class='doc_descriptif'>(#DESCRIPTIF|PtoBR)</dd>]
+            <dd class='doc_streaming'>
+                <object type='application/x-shockwave-flash' data='#EVAL{_DIR_PLUGIN_PLAYER}dewplayer.swf' width='200' height='20'>
+                <param name="wmode" value="transparent" />
+                <param name='movie' value='#EVAL{_DIR_PLUGIN_PLAYER}dewplayer.swf' />
+                <param name="FlashVars" value='son=[(#URL_DOCUMENT|url_absolue)]' />
+                [<span><a href='(#URL_DOCUMENT)' rel='enclosure'>#URL_DOCUMENT</a></span>]
+                </object>
+            
+            </dd>
+            [<dd class='doc_telechargement'>(#ENV{telechargement}|=={1}|?{' '})<a href="#URL_DOCUMENT" class="noborder" title="t&eacute;l&eacute;charger">t&eacute;l&eacute;charger</a></dd>]
+            [<dd class='doc_credit'>
+                (#ENV*{credit}|propre|PtoBR)
+            </dd>]
+        </dl>
+        
+        </BOUCLE_doc>
+    </div>
+</div>
+</BOUCLE_logo>

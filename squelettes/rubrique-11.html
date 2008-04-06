@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<BOUCLE_principale(RUBRIQUES){id_rubrique}>[(#REM) pour la rubrique S'abonner]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=#CHARSET"/>
+
+  <title>#NOM_SITE_SPIP / [(#TITRE|supprimer_numero)]</title>
+  <meta name="description" lang="#LANG" content="Vacarme est une revue trimestrielle culturelle, politique et sociale, constitu&eacute;e &agrave; la fois d'enqu&ecirc;tes de terrain, d'articles d'opinion et de cr&eacute;ations litt&eacute;raires, &agrave; mi-chemin des revues de recherche et des magazines." />
+  <script src="js/prototype.lite.js" type="text/javascript"></script>
+  <script src="js/moo.fx.js" type="text/javascript"></script>
+  <script src="js/moo.fx.pack.js" type="text/javascript"></script>
+  <script src="js/FilAriane.js" type="text/javascript"></script>
+  <link rel="shortcut icon" href="favicon.png" type="image/png" /><link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/papier.css" type="text/css" media="print" />
+  <link rel="stylesheet" href="css/ecran.css" type="text/css" media="screen" />
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="#URL_PAGE{backend}" />
+  <link rel='stylesheet' href='spip_admin.css' type='text/css' />
+</head>
+
+<body>
+  <div id="FondPage">
+    <div id="FondPageHaut">&nbsp;</div>
+    <div id="Conteneur">
+      <div id="Entete">
+        <INCLURE{fond=logo}>
+        <INCLURE{fond=navigation}{id_rubrique}>
+      </div>
+      <INCLURE{fond=FilArianeArticle}{id_rubrique}{id_article}>
+      <div id="Contenu1" class="CRubrique">
+        <div id="ColPrincipale" class="CRTypeB Abonner">
+          <BOUCLE_article_abonnement(ARTICLES){id_rubrique}{par num titre}{0,1}{doublons}>
+          <h2>[(#TITRE|supprimer_numero)]</h2>
+          [<div id="texte">
+            (#TEXTE)
+          </div>]
+          <div class="CRTypeC">
+            <div class="col1">
+              <div class="Tarifs">
+                <h3>4 num&eacute;ros (1 an)</h3>
+                <ul>
+                  <li><img src="images/commun/badge-35euros.png" alt="35 euros" /><br />au lieu de 40 euros <span>(pour la France. Pour l'international, l'abonnement &agrave; 4 num&eacute;ros est de 5O euros)</span></li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="col2">
+              <div class="Tarifs">
+                <h3>8 num&eacute;ros (2 ans)</h3>
+                <ul>
+                  <li><img src="images/commun/badge-65euros.png" alt="65 euros" /><br />au lieu de 80 euros <span>(pour la France. Pour l'international, l'abonnement &agrave; 8 num&eacute;ros est de 9O euros)</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col3">
+              <div class="Bulletin">
+                <BOUCLE_doc_abonnement(DOCUMENTS){id_article}{0,1}{mode=document}>
+                <h3>[(#TITRE)]</h3>
+                <ul>
+                  <li>[(#LOGO_DOCUMENT|#URL_DOCUMENT)][<br />(#DESCRIPTIF)]</li>
+                </ul>
+                </BOUCLE_doc_abonnement>
+              </div>
+            </div>
+          </div>
+          <div class="rien"> </div>
+          </BOUCLE_article_abonnement>
+        </div>
+        
+        <div class="rien"> </div>
+      </div>
+
+      <div id="Contenu2" class="CRubrique">
+        <div id="CPCol1">
+          <B_actuellement>
+          <BOUCLE_actuellement(RUBRIQUES){titre==index}><BOUCLE_dernier_numero(RUBRIQUES){id_parent}{par titre}{inverse}{0,1}>
+          <h2>actuellement en librairies</h2>
+          <dl class="NumeroContexte">
+            <dt>
+              <a href="#URL_RUBRIQUE" title="consulter le sommaire de [(#TITRE|supprimer_numero|textebrut)] <BOUCLE_saison3(ARTICLES){id_article}>([(#DATE|saison)] [(#DATE|annee)])</BOUCLE_saison3>" class="noborder">[(#LOGO_RUBRIQUE||image_reduire{140,0}|inserer_attribut{alt,[(#TITRE|supprimer_numero|textebrut)]})]</a>
+            </dt>
+            <dd><a href="#URL_RUBRIQUE" class="plus" title="consulter le sommaire"><span>&raquo;</span> consulter le sommaire</a></dd>
+            <dd><a href="rubrique11.html" class="plus"><span>&raquo;</span> s'abonner</a></dd>
+            <dd><a href="rubrique12.html" class="plus"><span>&raquo;</span> commander</a></dd>
+            <dd><a href="rubrique127.html" class="plus"><span>&raquo;</span> acheter en librairie</a></dd>
+            </BOUCLE_dernier_numero></BOUCLE_actuellement>
+          </dl>
+          </B_actuellement>
+        </div>
+
+        <div id="CPCol2">
+          <B_actu>
+          <h2>l'actualit&eacute; de Vacarme</h2>
+          <BOUCLE_actu(ARTICLES){id_rubrique=82}{!par date}{0,5}{age<180}>
+          <div class="Actu">
+            <h3>[(#DATE|affdate) &ndash; ]<a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
+            <p class="Descriptif">[<span class="Date">(#DATE|affdate) &ndash; </span>][(#INTRODUCTION) <a href="#URL_ARTICLE"><span>&raquo;</span> la suite</a>]</p>
+          </div>
+          </BOUCLE_actu>
+          </B_actu>
+        </div>
+
+        <div id="CPCol3">
+          #FORMULAIRE_RECHERCHE
+          <h2>la lettre de Vacarme</h2>
+          <p class="Descriptif">Recevez par email l'actualit&eacute; de Vacarme</p>
+          <div class="CS">
+            <form action="#URL_PAGE{lettre}" method="post" class="Formulaire" id="FormLettre">
+              <p><input name="email" id="ChampsLettre" class="ChampsTexte" value="votre email" size="15" onfocus="this.value='';" />
+              <input type="submit" name="submit" value="envoyer" id="Ok" class="bouton" /></p>
+            </form>
+          </div>
+
+        </div>
+
+        <div class="rien"> </div>
+        <INCLURE{fond=PiedPage}>
+      </div>
+    </div>
+    <div id="FondPageBas">&nbsp;</div>
+  </div>
+  <?php
+    define("_BBC_PAGE_NAME", "Rubrique #ID_RUBRIQUE / [(#TITRE|texte_script|supprimer_numero|lignes_longues{20})]");
+    define("_BBCLONE_DIR", "bbclone/");
+    define("COUNTER", _BBCLONE_DIR."mark_page.php");
+    if (is_readable(COUNTER)) include_once(COUNTER);
+  ?>
+</body>
+</html>
+</BOUCLE_principale>

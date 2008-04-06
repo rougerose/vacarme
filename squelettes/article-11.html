@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<BOUCLE_principale(ARTICLES){id_article}>[(#REM) provoque une redirection automatique vers la rubrique parente. Le descriptif de l'article s'affiche]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=#CHARSET"/>
+
+  <title>#NOM_SITE_SPIP / [(#TITRE|supprimer_numero|textebrut)]</title>
+  [<meta name="description" lang="#LANG" content="(#DESCRIPTIF|textebrut)" />]
+  <BOUCLE_mots_meta(MOTS){id_article}{par titre}>
+  [<meta name="keywords" lang="#LANG" content="(#TITRE|supprimer_numero|textebrut)" />]
+  </BOUCLE_mots_meta>
+  <meta http-equiv="refresh" content="10;url=<BOUCLE_redirection(RUBRIQUES){id_rubrique}>#URL_SITE_SPIP/#URL_RUBRIQUE</BOUCLE_redirection>">
+  <script src="js/prototype.lite.js" type="text/javascript"></script>
+  <script src="js/moo.fx.js" type="text/javascript"></script>
+  <script src="js/moo.fx.pack.js" type="text/javascript"></script>
+  <script src="js/FilAriane.js" type="text/javascript"></script>
+  <link rel="shortcut icon" href="favicon.png" type="image/png" /><link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/papier.css" type="text/css" media="print" />
+  <link rel="stylesheet" href="css/ecran.css" type="text/css" media="screen" />
+  <!--[if gte ie 5.5000]><link rel="stylesheet" type="text/css" href="css/ie.css" /><![endif]-->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="#URL_PAGE{backend}" />
+</head>
+<?php
+/*
+* Fonction auteur_et_auteur()
+* Auteur : Philippe Rivière <fil@rezo.net>
+* Copyright : GNU Public Licence
+* Rajouter un "et" à la place de la virgule entre les deux derniers 
+* auteurs d'une liste
+*/
+function auteur_et_auteur($texte) {
+  return ereg_replace(", ([^,]*)$"," &amp; \\1",$texte);
+}?>
+<body>
+  <div id="FondPage">
+    <div id="FondPageHaut">&nbsp;</div>
+    <div id="Conteneur">
+      <div id="Entete">
+        <INCLURE{fond=logo}>
+        <INCLURE{fond=navigation}{id_rubrique}>
+      </div>
+      <INCLURE{fond=FilArianeArticle}{id_rubrique}{id_article}>
+      <div id="Contenu" class="Textes">
+        <div id="ColTitre">
+          [<p class="surtitre">(#SURTITRE)</p>]
+          <h1 class="Titre">[(#TITRE|supprimer_numero)]</h1>
+          [<p class="soustitre">(#SOUSTITRE)</p>]
+        </div>
+        <div id="ColPrincipale">
+          <?php $tous_auteurs = auteur_et_auteur('<BOUCLE_signature(AUTEURS){id_article}{par nom}{nom!==^@} {", "}>[(#NOM|prenom_nom|texte_script) ]</BOUCLE_signature>'); if ($tous_auteurs) echo "<h2 class=\"Auteur\">par ".$tous_auteurs."</h2>"; ?>
+          
+          [<div id="chapo">
+            (#CHAPO)
+          </div>]
+
+          [<div id="texte">
+            (#DESCRIPTIF)
+          </div>]
+          [<div id="ps">
+            (#PS)
+          </div>]
+          [<div id="notes">
+            (#NOTES)
+          </div>]
+
+        </div>
+        <div id="ColSecondaire">
+          <div class="CS">
+            <h2 class="DateSeule"><span>publi&eacute; le [(#DATE|affdate)]</h2>
+            
+            <BOUCLE_test_PetitDossier(MOTS){id_article}{type=@petit dossier}{doublons}>
+              <h2><span>dossier</span> [(#TITRE|supprimer_numero)]<span >&nbsp;/ sommaire</span></h2>
+              <ul class="ContexteListes">
+                <BOUCLE_sommaire2(ARTICLES){id_mot}{id_rubrique}{par num titre, date}>
+                <li[ class="(#EXPOSE{select})"]><BOUCLE_auteurs_sommaire2(AUTEURS){id_article}{par nom}{nom!==^@} {", "}><a href="#URL_AUTEUR">[(#NOM|prenom_nom)]</a></BOUCLE_auteurs_sommaire2>&nbsp;/ </B_auteurs_sommaire2><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></li>
+                </BOUCLE_sommaire2>
+              </ul>
+              </BOUCLE_test_PetitDossier>
+            
+            <B_themes>
+            <h2>th&egrave;mes</h2>
+            <ul class="ContexteListes">
+              <BOUCLE_themes(MOTS){id_article}{type!==^@}{par titre}>
+              <li><a href="#URL_MOT" title="sur le m&ecirc;me th&egrave;me">[(#TITRE|supprimer_numero)]</a></li>
+              </BOUCLE_themes>
+            </ul>
+            </B_themes>
+            
+            #FORMULAIRE_RECHERCHE
+            <INCLURE{fond=actuellement.inc}>
+            
+          </div>
+        </div>
+        <div class="rien"> </div>
+        <INCLURE{fond=PiedPage}>
+      </div>
+    </div>
+    <div id="FondPageBas">&nbsp;</div>
+  </div>
+<?php
+  define("_BBC_PAGE_NAME", "Article #ID_ARTICLE / [(#TITRE|texte_script|supprimer_numero|lignes_longues{20})]");
+  define("_BBCLONE_DIR", "bbclone/");
+  define("COUNTER", _BBCLONE_DIR."mark_page.php");
+  if (is_readable(COUNTER)) include_once(COUNTER);
+?>
+</body>
+</html>
+</BOUCLE_principale>

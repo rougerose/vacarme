@@ -1,0 +1,181 @@
+#CACHE{3*3600}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=#CHARSET"/>
+
+  <title>[(#NOM_SITE_SPIP|textebrut)]</title>
+  <meta name="description" lang="#LANG" content="Vacarme est une revue trimestrielle culturelle, politique et sociale, constitu&eacute;e &agrave; la fois d'enqu&ecirc;tes de terrain, d'articles d'opinion et de cr&eacute;ations litt&eacute;raires, &agrave; mi-chemin des revues de recherche et des magazines." />
+  <meta name="verify-v1" content="LlT+Qhp5DI0J6a5r2HHcmqvO9Fh4KUq/cUXxlzRDkNI=" />
+  <script src="js/prototype.lite.js" type="text/javascript"></script>
+   <script src="js/moo.fx.js" type="text/javascript"></script>
+  <script src="js/moo.fx.pack.js" type="text/javascript"></script>
+  <script src="js/FilAriane.js" type="text/javascript"></script>
+  <link rel="shortcut icon" href="favicon.png" type="image/png" /><link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/papier.css" type="text/css" media="print" />
+  <link rel="stylesheet" href="css/ecran.css" type="text/css" media="screen" />
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="#URL_PAGE{backend}" />
+</head>
+
+<body>
+  <div id="FondPage">
+    <div id="FondPageHaut">&nbsp;</div>
+    <div id="Conteneur">
+      <div id="Entete">
+        <a href="/" title="retour &agrave; la page d'accueil du site" id="Logo" class="noborder"><img src="images/commun/vacarme.png" width="215" height="54" alt="Vacarme" /></a>
+
+        <div id="Navigation"><BOUCLE_exclusion_temporaire(RUBRIQUES){titre==V1}{doublons temp}></BOUCLE_exclusion_temporaire><BOUCLE_zone_abonne(RUBRIQUES){id_zone=1}{doublons temp}></BOUCLE_zone_abonne>
+          <ul>
+            <li><a href="/" title="retour &agrave; la page d'accueil" class="select">accueil</a></li>
+            <BOUCLE_navigation(RUBRIQUES){racine}{par num titre}{doublons temp}>
+            <li><a href="#URL_RUBRIQUE"[ class="(#EXPOSE{select})"] title="[(#TITRE|supprimer_numero|textebrut)]">[(#TITRE|supprimer_numero)]</a></li>
+            </BOUCLE_navigation>
+          </ul>
+        </div>
+        <div class="rien"> </div>
+      </div>
+      <div id="FilAriane">
+        <a href="javascript:effet.toggle()" id="VEI" class="noborder" title="Vous consultez actuellement"><img src="images/commun/VousEtesIci.png" alt="Vous consultez actuellement" /></a>
+        <div id="FA"><p><a href="/" title="accueil" class="select">accueil</a></p>
+        </div>
+      </div>
+      
+      <div id="Contenu1" class="CAccueil">
+        <BOUCLE_index(RUBRIQUES){titre==index}><BOUCLE_actuellement(RUBRIQUES){id_parent}{!par titre}{0,1}{doublons}>
+        <div id="ColPrincipale" class="Accueil">
+          <h2>actuellement en librairies&nbsp;: [(#TITRE|supprimer_numero)]<BOUCLE_saison(ARTICLES){id_rubrique}{par date}{0,1}> - [(#DATE|saison)] [(#DATE|annee)]</BOUCLE_saison></h2>
+          <a href="#URL_RUBRIQUE" title="consulter le sommaire de [(#TITRE|supprimer_numero|textebrut)]" class="ActuellementCouv noborder">[(#LOGO_RUBRIQUE||image_reduire{210,0}|inserer_attribut{alt,[(#TITRE|supprimer_numero|textebrut)]})]</a>
+          <div class="ActuellementSommaire">
+            <h3>&agrave; la une</h3>
+            
+            <dl class="SommaireCourt">
+              <B_sommaire_court>
+              <BOUCLE_sommaire_court(RUBRIQUES){id_parent}{titre_mot==affichage Une}>
+              <dt><BOUCLE_rubrique_numero(MOTS){id_rubrique}{type=@rubriques}><span>[(#TITRE|supprimer_numero)]&nbsp;/</span></BOUCLE_rubrique_numero>[ <a href="#URL_RUBRIQUE">(#TITRE|supprimer_numero)</a>]</dt>
+              [<dd>(#DESCRIPTIF)</dd>]
+              </BOUCLE_sommaire_court>
+              </B_sommaire_court>
+              <BOUCLE_sommaire_court_art(ARTICLES){branche}{titre_mot==affichage Une}>
+              <dt><!-- [(#LESAUTEURS)&nbsp;/ ]-->[<a href="#URL_RUBRIQUE">(#TITRE|supprimer_numero)</a>]</dt>
+              <dd>[(#DESCRIPTIF)]</dd>
+              </BOUCLE_sommaire_court_art>
+            </dl>
+            
+            <ul>
+              <li><a href="#URL_RUBRIQUE" class="plus"><span>&raquo;</span> le sommaire complet</a></li>
+              <li><a href="rubrique11.html" class="plus"><span>&raquo;</span> vous abonner</a></li>
+              <li><a href="rubrique12.html" class="plus"><span>&raquo;</span> commander</a></li>
+              <li><a href="rubrique127.html" class="plus"><span>&raquo;</span> acheter en librairie</a></li>
+            </ul>
+          </div>
+          
+          <div class="rien"> </div>
+        </div>
+        
+        <div id="ColSecondaire">
+          <div class="CS">
+            <h4 id="ArtEnligne">articles en ligne</h4>
+            <dl>
+              <BOUCLE_articles_dispo(ARTICLES){branche}{titre_mot=article consultable}{par hasard}{0,4}{lang=fr}>
+              <dt><BOUCLE_auteurs_articles_dispo(AUTEURS){id_article}{par nom}{nom!==^@}{", "}>[(#NOM|prenom_nom)]</BOUCLE_auteurs_articles_dispo>&nbsp;/ </B_auteurs_articles_dispo><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></dt>
+              [<dd>(#DESCRIPTIF)</dd>]
+              </BOUCLE_articles_dispo>
+              </B_articles_dispo>
+              <dt>aucun article n'est disponible actuellement</dt>
+              <//B_articles_dispo>
+            </dl>
+            <ul>
+              <li><a href="#URL_RUBRIQUE" class="plus"><span>&raquo;</span> le sommaire complet</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="rien"> </div>
+        </div>
+        </BOUCLE_actuellement></BOUCLE_index>
+        <div id="Contenu2" class="CAccueil">
+          <div id="CPCol1">
+            <h2>pr&eacute;c&eacute;dents num&eacute;ros</h2>
+            <BOUCLE_index2(RUBRIQUES){titre==index}><BOUCLE_exclusion_speciaux(RUBRIQUES){id_parent}{titre_mot=numero special}{doublons}></BOUCLE_exclusion_speciaux>
+            <BOUCLE_precedents(RUBRIQUES){id_parent}{titre_mot!=numero special}{!par titre}{0,4}{doublons}>
+            <div class="NumeroApercu">
+              <a href="#URL_RUBRIQUE" class="imgCouv noborder" title="consulter le sommaire de [(#TITRE|supprimer_numero|textebrut)]<BOUCLE_saison_num_preced(ARTICLES){branche}{0,1}{par date}>[ - (#DATE|saison)] [(#DATE|annee)]</BOUCLE_saison_num_preced>">[(#LOGO_RUBRIQUE||image_reduire{120,0}|inserer_attribut{alt,[(#TITRE|supprimer_numero|textebrut)]})]</a>
+              <div class="NA">
+                <h3>[(#TITRE|supprimer_numero)]<BOUCLE_saison_num_preced2(ARTICLES){branche}{par date}{0,1}{lang=fr}>[ - (#DATE|saison)] [(#DATE|annee)]</BOUCLE_saison_num_preced2></h3>
+                
+                <dl>
+                  <B_sommaire_court2>
+                  <BOUCLE_sommaire_court2(RUBRIQUES){id_parent}{titre_mot==affichage Une}>
+                  <dt><BOUCLE_rubrique_numero2(MOTS){id_rubrique}{type=@rubriques}><span>[(#TITRE|supprimer_numero)]&nbsp;/</span></BOUCLE_rubrique_numero2>[ <a href="#URL_RUBRIQUE">(#TITRE|supprimer_numero)</a>]</dt>
+                  [<dd>(#DESCRIPTIF)</dd>]
+                  </BOUCLE_sommaire_court2>
+                  </B_sommaire_court2>
+                  <dt>[(#DESCRIPTIF)]</dt>
+                  <//B_sommaire_court2>
+                </dl>
+                
+                <ul>
+                  <li><a href="#URL_RUBRIQUE" class="plus"><span>&raquo;</span> le sommaire complet</a></li>
+                  <li><a href="rubrique12.html" class="plus"><span>&raquo;</span> commander</a></li>
+                  <li><a href="rubrique127.html" class="plus"><span>&raquo;</span> acheter en librairie</a></li>
+                </ul>
+              </div>
+              <div class="rien"> </div>
+            </div>
+            </BOUCLE_precedents>
+            <div class="NumeroApercuLien">
+              <p class="ActuSuite">[<strong>(#TITRE|supprimer_numero) de Vacarme</strong>] &raquo; <a href="#URL_RUBRIQUE">consulter tous les num&eacute;ros</a></p>
+            </div>
+            </BOUCLE_index2>
+          </div>
+          
+          <div id="CPCol2">
+            <BOUCLE_rubrique_actu(RUBRIQUES){id_rubrique=82}>
+            <B_actus_recentes>
+            <h2>l'actualit&eacute; de Vacarme</h2>
+            <BOUCLE_actus_recentes(ARTICLES){id_rubrique}{titre_mot=affichage Une}{par date}{inverse}>
+            <div class="Actu">
+              <h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
+              <p class="Descriptif">[<span class="Date">(#DATE|affdate) &ndash; </span>][(#DESCRIPTIF)]&nbsp;<a href="#URL_ARTICLE"><span>&raquo;</span> la suite</a></p>
+            </div>
+            </BOUCLE_actus_recentes>
+            </B_actus_recentes>
+            <div class="Actu">
+              <p class="ActuSuite">[<strong>(#TITRE|supprimer_numero)</strong>] &raquo; <a href="#URL_RUBRIQUE">consulter toutes les actualit&eacute;s</a></p>
+            </div>
+            </BOUCLE_rubrique_actu>
+          </div>
+          
+          <div id="CPCol3">
+            #FORMULAIRE_RECHERCHE
+            <h2>la lettre de Vacarme</h2>
+            <p class="Descriptif">Recevez par email l'actualit&eacute; de Vacarme</p>
+            <div class="CS">
+            <form action="#URL_PAGE{lettre}" method="post" class="Formulaire" id="FormLettre">
+              <p><input name="email" id="ChampsLettre" class="ChampsTexte" value="votre email" size="15" onfocus="this.value='';" />
+              <input type="submit" name="submit" value="envoyer" id="Ok" class="bouton" /></p>
+            </form>
+            </div>
+            <BOUCLE_rub_apropos(RUBRIQUES){id_rubrique=10}>
+            <h2 class="TitreFilet">&agrave; propos de Vacarme</h2>
+            <div class="CS">
+            <p class="Descriptif"><BOUCLE_art_apropos(ARTICLES){id_rubrique}{par num titre}{0,1}>[(#DESCRIPTIF)]</BOUCLE_art_apropos>&nbsp;<a href="#URL_RUBRIQUE"><span>&raquo;</span> la suite</a></p>
+            </div>
+            </BOUCLE_rub_apropos>
+          </div>
+          
+        <div class="rien"> </div>
+        <INCLURE{fond=PiedPage}>
+      </div>
+    </div>
+    <div id="FondPageBas">&nbsp;</div>
+  </div>
+<?php
+  define("_BBC_PAGE_NAME", "accueil site");
+  define("_BBCLONE_DIR", "bbclone/");
+  define("COUNTER", _BBCLONE_DIR."mark_page.php");
+  if (is_readable(COUNTER)) include_once(COUNTER);
+?>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<BOUCLE_principale(ARTICLES){id_article=47}>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=#CHARSET"/>
+
+  <title>#NOM_SITE_SPIP / [(#TITRE|supprimer_numero|textebrut)]</title>
+  [<meta name="description" lang="#LANG" content="(#DESCRIPTIF|textebrut)" />]
+  <BOUCLE_mots_meta(MOTS){id_article}{par titre}>
+  [<meta name="keywords" lang="#LANG" content="(#TITRE|supprimer_numero|textebrut)" />]
+  </BOUCLE_mots_meta>
+  <script src="js/prototype.lite.js" type="text/javascript"></script>
+  <script src="js/moo.fx.js" type="text/javascript"></script>
+  <script src="js/moo.fx.pack.js" type="text/javascript"></script>
+  <script src="js/FilAriane.js" type="text/javascript"></script>
+  <link rel="shortcut icon" href="favicon.png" type="image/png" /><link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/papier.css" type="text/css" media="print" />
+  <link rel="stylesheet" href="css/ecran.css" type="text/css" media="screen" />
+  <!--[if gte ie 5.5000]><link rel="stylesheet" type="text/css" href="css/ie.css" /><![endif]-->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="#URL_PAGE{backend}" />
+</head>
+
+<body>
+  <div id="FondPage">
+    <div id="FondPageHaut">&nbsp;</div>
+    <div id="Conteneur">
+      <div id="Entete">
+        <INCLURE{fond=logo}>
+        <INCLURE{fond=navigation}{id_rubrique}>
+      </div>
+      <INCLURE{fond=FilArianeArticle}{id_rubrique}{id_article}>
+      <div id="Contenu" class="Textes">
+        <div id="ColTitre">
+          [<p class="surtitre">(#SURTITRE)</p>]
+          <h1 class="Titre">[(#TITRE|supprimer_numero)]</h1>
+          [<p class="soustitre">(#SOUSTITRE)</p>]
+        </div>
+        <div id="ColPrincipale">
+          
+          
+
+          [<div id="texte">
+            (#TEXTE)
+          </div>]
+          [<div id="ps">
+            (#PS)
+          </div>]
+          [<div id="notes">
+            (#NOTES)
+          </div>]
+          #FORMULAIRE_ECRIRE_AUTEUR
+
+        </div>
+        <div id="ColSecondaire">
+          <div class="CS">
+            #FORMULAIRE_RECHERCHE
+            <INCLURE{fond=actuellement.inc}>
+            
+          </div>
+        </div>
+        <div class="rien"> </div>
+        <INCLURE{fond=PiedPage}>
+      </div>
+    </div>
+    <div id="FondPageBas">&nbsp;</div>
+  </div>
+  <?php
+    define("_BBC_PAGE_NAME", "Article #ID_ARTICLE / [(#TITRE|texte_script|supprimer_numero)]");
+    define("_BBCLONE_DIR", "bbclone/");
+    define("COUNTER", _BBCLONE_DIR."mark_page.php");
+    if (is_readable(COUNTER)) include_once(COUNTER);
+  ?>
+</body>
+</html>
+</BOUCLE_principale>

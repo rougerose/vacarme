@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=#CHARSET"/>
+  <title>[(#NOM_SITE_SPIP|textebrut)] | Recherche</title>
+  <meta name="description" lang="#LANG" content="Vacarme est une revue trimestrielle culturelle, politique et sociale, constitu&eacute;e &agrave; la fois d'enqu&ecirc;tes de terrain, d'articles d'opinion et de cr&eacute;ations litt&eacute;raires, &agrave; mi-chemin des revues de recherche et des magazines." />
+  <script src="js/prototype.lite.js" type="text/javascript"></script>
+  <script src="js/moo.fx.js" type="text/javascript"></script>
+  <script src="js/moo.fx.pack.js" type="text/javascript"></script>
+  <script src="js/FilAriane.js" type="text/javascript"></script>
+  <link rel="shortcut icon" href="favicon.png" type="image/png" /><link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/papier.css" type="text/css" media="print" />
+  <link rel="stylesheet" href="css/ecran.css" type="text/css" media="screen" />
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="#URL_PAGE{backend}" />
+</head>
+
+<body>
+  <div id="FondPage">
+    <div id="FondPageHaut">&nbsp;</div>
+    <div id="Conteneur">
+      <div id="Entete">
+        <a href="/" title="retour &agrave; la page d'accueil du site" id="Logo" class="noborder"><img src="images/commun/vacarme.png" width="215" height="54" alt="Vacarme" /></a>
+
+        <div id="Navigation">
+          <ul>
+            <li><a href="/" title="retour &agrave; la page d'accueil">accueil</a></li>
+            <BOUCLE_navigation(RUBRIQUES){racine}{par num titre}>
+            <li><a href="#URL_RUBRIQUE"[ class="(#EXPOSE{select})"] title="[(#TITRE|supprimer_numero|textebrut)]">[(#TITRE|supprimer_numero)]</a></li>
+            </BOUCLE_navigation>
+          </ul>
+        </div>
+        <div class="rien"> </div>
+      </div>
+      <div id="FilAriane">
+        <a href="javascript:effet.toggle()" id="VEI" class="noborder" title="Vous consultez actuellement"><img src="images/commun/VousEtesIci.png" alt="Vous consultez actuellement" /></a>
+        <div id="FA"><p><a href="/" title="accueil">accueil</a> &raquo; <a href="#URL_PAGE{recherche}" title="recherche" class="select">recherche</a></p>
+        </div>
+      </div>
+        
+      <div id="Contenu" class="Textes">
+        <div id="ColTitre">
+          <h1 class="Titre">Recherche&nbsp;: #RECHERCHE</h1>
+        </div>
+        <div id="ColPrincipale">
+        <BOUCLE_exclusion_mots(MOTS){type=@technique}{doublons}></BOUCLE_exclusion_mots> [(#REM) exclusion des mots-clés et articles]
+        <BOUCLE_rubriques(RUBRIQUES){recherche}{par points}{inverse}{0,10}{doublons}>
+      	<?php
+      	$string = '[(#TITRE|supprimer_numero|texte_script) ]';
+      	$string .= '[(#DESCRIPTIF|textebrut|texte_script) ]';
+      	$string .= '[(#TEXTE|textebrut|texte_script) ]';
+      	$tab_result["url"][] = '#URL_RUBRIQUE';
+      	$tab_result["titre"][] = '[(#TITRE|supprimer_numero|texte_script)]';
+      	$googlelike = google_like($string);
+      	if ($googlelike) {
+      		$tab_result["texte"][] = $googlelike;
+      	}
+      	else {
+      		$tab_result["texte"][] = '[(#DESCRIPTIF|texte_script)]';
+      	}
+      	// surpondération des rubriques
+      	$points = #POINTS * 2.5;
+      	$tab_result["points"][] = $points ;
+      	?></BOUCLE_rubriques>
+      <BOUCLE_mots(MOTS) {recherche} {par points} {inverse} {0,20}{doublons}>
+      	<?php
+      	$string = '[(#TITRE|supprimer_numero|texte_script) ]';
+      	$string .= '[(#DESCRIPTIF|textebrut|texte_script) ]';
+      	$string .= '[(#TEXTE|textebrut|texte_script) ]';
+      	$tab_result["url"][] = '#URL_MOT';
+      	$tab_result["titre"][] = '[(#TITRE|supprimer_numero|texte_script)]';
+      	$googlelike = google_like($string);
+      	if ($googlelike) {
+      		$tab_result["texte"][] = $googlelike;
+      	}
+      	else {
+      		$tab_result["texte"][] = '[(#DESCRIPTIF|texte_script)]';
+      	}
+      	// surpondération normale des mots-clefs
+      	$points = #POINTS * 2.5;
+      	$tab_result["points"][] = $points ;
+      	?></BOUCLE_mots>
+        <BOUCLE_auteurs(AUTEURS) {recherche} {par points} {inverse} {0,10}{doublons}>
+        	<?php
+        	$string = '[(#NOM|prenom_nom|texte_script) ]';
+        	$tab_result["url"][] = '#URL_AUTEUR';
+        	$tab_result["titre"][] = '[(#NOM|prenom_nom|texte_script)]';
+        	$googlelike = google_like($string);
+        	if ($googlelike) {
+        		$tab_result["texte"][] = $googlelike;
+        	}
+        	else {
+        		$tab_result["texte"][] = '';
+        	}
+        	// 
+        	$points = #POINTS * 3.5;
+        	$tab_result["points"][] = $points ;
+        	?>
+        </BOUCLE_auteurs>
+      <BOUCLE_articles(ARTICLES) {recherche} {par points} {inverse} {0,40}{doublons}>
+      	<?php
+      	$string = '[(#TITRE|supprimer_numero|texte_script) ]';
+      	$string .= '[(#SOUSTITRE|texte_script) ]';
+      	$string .= '[(#DESCRIPTIF|textebrut|texte_script) ]';
+      	$string .= '[(#TEXTE|textebrut|texte_script)]';
+      	$tab_result["url"][] = '#URL_ARTICLE';
+      	$tab_result["titre"][] = '[(#TITRE|supprimer_numero|texte_script)] ';
+      	$googlelike = google_like($string);
+      	if ($googlelike) {
+      		$tab_result["texte"][] = $googlelike;
+      	}
+      	else {
+      		$tab_result["texte"][] = '[(#CHAPO|couper{100}|texte_script)]';
+      	}
+      	// pondération normale des articles
+      	$points = #POINTS * 1;
+      	$tab_result["points"][] = $points ;
+      	?></BOUCLE_articles>
+
+      <BOUCLE_breves(BREVES) {recherche} {par points} {inverse} {0,30}{doublons}>
+      	<?php
+      	$string = '[(#TITRE|supprimer_numero|texte_script) ]';
+      	$string .= '[(#TEXTE|textebrut|texte_script)]';
+      	$tab_result["url"][] = '#URL_BREVE';
+      	$tab_result["titre"][] = '[(#TITRE|supprimer_numero|texte_script)] ';
+      	$googlelike = google_like($string);
+      	if ($googlelike) {
+      		$tab_result["texte"][] = $googlelike;
+      	}
+      	else {
+      		$tab_result["texte"][] = '[(#INTRODUCTION|texte_script)]';
+      	}
+      	// pondération normale des brèves
+      	$points = #POINTS * 1;
+      	$tab_result["points"][] = $points ;
+      	?></BOUCLE_breves>
+      <BOUCLE_sites(SITES) {recherche} {par points} {inverse} {0,10}{doublons}>
+      	<?php
+      	$string = '[(#NOM_SITE|supprimer_numero|texte_script) ]';
+      	$string .= '[(#DESCRIPTIF|textebrut|texte_script) ]';
+      	$tab_result["url"][] = 'site#ID_SYNDIC.html?var_recherche=[(#RECHERCHE|texte_script)]';
+      	$tab_result["titre"][] = '[(#NOM_SITE|supprimer_numero|texte_script)]';
+      	$googlelike = google_like($string);
+      	if ($googlelike) {
+      		$tab_result["texte"][] = $googlelike;
+      	}
+      	else {
+      		$tab_result["texte"][] = '[(#DESCRIPTIF|texte_script)]';
+      	}
+      	// sous-pondération des sites externes
+      	$points = #POINTS * 0.1;
+      	$tab_result["points"][] = $points ;
+      	?>
+      </BOUCLE_sites>
+      <?php
+      if ($tab_result["points"]) {
+      	$total = count ($tab_result["titre"]);
+      	echo "<p class='spip RechercheNbre'>".$total." r&eacute;sultat".($total>1?"s":"")."</p>\n";
+      	// on trie le tableau selon le classement de correspondance
+      	arsort($tab_result["points"]);
+      	// Affichage des résultats triés
+      	$compteur = 1;
+      	foreach(array_keys($tab_result["points"]) as $key) {
+      		echo "<h3 class='recherche'>".$compteur.". ";
+      		echo $tab_result["titre"][$key]."</h3>\n";
+      		echo "<p class='RechercheDescriptif'>".$tab_result["texte"][$key]."</p>\n";
+      		echo "<p class='RechercheUrl'><a href='".$tab_result["url"][$key]."'>#URL_SITE_SPIP/".$tab_result["url"][$key]."</a></p>\n";
+      		$compteur++;
+      	}
+      }
+      else {
+      	echo "<p class='spip'>Aucun r&eacute;sultat</p>\n";
+      }
+      ?>
+          
+          
+        </div>
+        <div id="ColSecondaire">
+          <div class="CS">
+            
+            #FORMULAIRE_RECHERCHE
+            <INCLURE{fond=actuellement.inc}>
+            
+          </div>
+        </div>
+        <div class="rien"> </div>
+        <INCLURE{fond=PiedPage}>
+      </div>
+    </div>
+    <div id="FondPageBas">&nbsp;</div>
+  </div>
+  <?php
+    define("_BBC_PAGE_NAME", "Recherche");
+    define("_BBCLONE_DIR", "bbclone/");
+    define("COUNTER", _BBCLONE_DIR."mark_page.php");
+    if (is_readable(COUNTER)) include_once(COUNTER);
+  ?>
+</body>
+</html>

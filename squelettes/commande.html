@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<BOUCLE_principale(RUBRIQUES){id_rubrique=12}> [(#REM) a partir de la rubrique 'commande' page de résultats]
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=#CHARSET"/>
+
+  <title>#NOM_SITE_SPIP / [(#TITRE|supprimer_numero)]</title>
+  <meta name="description" lang="#LANG" content="Vacarme est une revue trimestrielle culturelle, politique et sociale, constitu&eacute;e &agrave; la fois d'enqu&ecirc;tes de terrain, d'articles d'opinion et de cr&eacute;ations litt&eacute;raires, &agrave; mi-chemin des revues de recherche et des magazines." />
+  <script src="js/prototype.lite.js" type="text/javascript"></script>
+  <script src="js/moo.fx.js" type="text/javascript"></script>
+  <script src="js/moo.fx.pack.js" type="text/javascript"></script>
+  <script src="js/FilAriane.js" type="text/javascript"></script>
+  <script src="js/commande.js" type="text/javascript"></script>
+  <script src="js/verification_formulaire.js" type="text/javascript"></script>
+  <link rel="shortcut icon" href="favicon.png" type="image/png" /><link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="css/papier.css" type="text/css" media="print" />
+  <link rel="stylesheet" href="css/ecran.css" type="text/css" media="screen" />
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="#URL_PAGE{backend}" />
+</head>
+<body id="Commande">
+  <div id="FondPage">
+    <div id="FondPageHaut">
+      &nbsp;
+    </div>
+    <div id="Conteneur">
+      <div id="Entete">
+        <INCLURE{fond=logo}>
+        <INCLURE{fond=navigation}{id_rubrique}>
+      </div>
+      <INCLURE{fond=FilArianeArticle}{id_rubrique}{id_article}>
+      <div id="Contenu" class="Textes">
+        <div id="ColPrincipale">
+          <BOUCLE_article_1(ARTICLES){id_rubrique}{par num titre}{0,1}{doublons}>
+          <h1>bon de commande</h1>
+          [<p class="Descriptif">(#TEXTE|PtoBR)</p>]
+          </BOUCLE_article_1>
+          <BOUCLE_mot_numeros_epuises(MOTS){id_mot=108}><BOUCLE_rubriques_liees(RUBRIQUES){id_mot}{doublons}></BOUCLE_rubriques_liees></BOUCLE_mot_numeros_epuises>
+          <?php
+          $MessageErreur = "<div class=\"alerte\">\n<p>Vous n'avez command&eacute; aucun exemplaire de Vacarme, veuillez compl&eacute;ter votre commande &agrave; <a href=\"#URL_RUBRIQUE\">la page pr&eacute;c&eacute;dente</a></p>\n</div>";
+          $ListePays = array (1 => "Afrique du Sud", "Albanie", "Alg&eacute;rie", "Allemagne", "Andorre", "Angola", "Antigua-et-Barbuda", "Arabie saoudite", "Argentine", "Arm&eacute;nie", "Australie", "Autriche", "Azerba&iuml;djan", "Bahamas", "Bahre&iuml;n", "Bangladesh", "Barbade", "B&eacute;larus", "Belgique", "Belize", "B&eacute;nin", "Bhoutan", "Bolivie", "Bosnie-Herz&eacute;govine", "Botswana", "Br&eacute;sil", "Brun&eacute;i Darussalam", "Bulgarie", "Burkina Faso", "Burundi", "Cambodge", "Cameroun", "Canada", "Cap-Vert", "Chili", "Chine", "Chypre", "Colombie", "Comores", "Congo", "Congo (R&eacute;publique d&eacute;mocratique du)", "Cor&eacute;e du Nord", "Cor&eacute;e du Sud", "Costa Rica", "C&ocirc;te d'Ivoire", "Croatie", "Cuba", "Danemark", "Djibouti", "Dominique", "&Eacute;gypte", "El Salvador", "&Eacute;mirats arabes unis", "&Eacute;quateur", "&Eacute;rythr&eacute;e", "Espagne", "Estonie", "&Eacute;tats-Unis d'Am&eacute;rique", "&Eacute;thiopie", "Fidji", "Finlande", "France", "Gabon", "Gambie", "G&eacute;orgie", "Ghana", "Gr&egrave;ce", "Grenade", "Guatemala", "Guin&eacute;e", "Guin&eacute;e &eacute;quatoriale", "Guin&eacute;e-Bissau", "Guyana", "Ha&iuml;ti", "Honduras", "Hongrie", "Inde", "Indon&eacute;sie", "Iran", "Iraq", "Irlande", "Islande", "Isra&euml;l", "Italie", "Jama&iuml;que", "Japon", "Jordanie", "Kazakhstan", "Kenya", "Kirghizistan", "Kiribati", "Kowe&iuml;t", "Laos", "Lesotho", "Lettonie", "Liban", "Lib&eacute;ria", "Libye", "Liechtenstein", "Lituanie", "Luxembourg", "Mac&eacute;doine", "Madagascar", "Malaisie", "Malawi", "Maldives", "Mali", "Malte", "Maroc", "Marshall (&Icirc;les)", "Maurice", "Mauritanie", "Mexique", "Micron&eacute;sie", "Moldova (R&eacute;publique de)", "Monaco", "Mongolie", "Mozambique", "Myanmar", "Namibie", "Nauru", "N&eacute;pal", "Nicaragua", "Niger", "Nig&eacute;ria", "Norv&egrave;ge", "Nouvelle-Z&eacute;lande", "Oman", "Ouganda", "Ouzb&eacute;kistan", "Pakistan", "Palaos", "Panama", "Papouasie-Nouvelle-Guin&eacute;e", "Paraguay", "Pays-Bas", "P&eacute;rou", "Philippines", "Pologne", "Portugal", "Qatar", "R&eacute;publique centrafricaine", "R&eacute;publique dominicaine", "Roumanie", "Royaume-Uni", "Russie", "Rwanda", "Sainte-Lucie", "Saint-Kitts-et-Nevis", "Saint-Marin", "Saint-Vincent-et-Grenadines", "Salomon (&Icirc;les)", "Samoa", "Sao Tom&eacute;-et-Principe", "S&eacute;n&eacute;gal", "Serbie-et-Mont&eacute;n&eacute;gro", "Seychelles", "Sierra Leone", "Singapour", "Slovaquie", "Slov&eacute;nie", "Somalie", "Soudan", "Sri Lanka", "Su&egrave;de", "Suisse", "Suriname", "Swaziland", "Syrie", "Tadjikistan", "Taiwan", "Tanzanie", "Tchad", "Tch&egrave;que (R&eacute;publique)", "Tha&iuml;lande", "Timor-Leste", "Togo", "Tonga (Royaume des)", "Trinit&eacute;-et-Tobago", "Tunisie", "Turkm&eacute;nistan", "Turquie", "Tuvalu", "Ukraine", "Uruguay", "Vatican", "Vanuatu", "Venezuela", "Viet Nam", "Y&eacute;men", "Zambie", "Zimbabwe");
+          
+          setlocale(LC_ALL, "fr_FR");
+          $DateJour = "<p class=\"Date\">".strftime("%A %d %B %Y")."</p>\n";
+          $Coordonnees = "<div id=\"Coordonnees\">\n";
+          $Coordonnees .= "<h3>vos coordonn&eacute;es</h3>\n";
+          $Coordonnees .= "<p class=\"Nom\">".htmlspecialchars($_POST['Titre'])." <span>".htmlspecialchars($_POST['Nom'])."</span> ".$_POST['Prenom']."</p>\n";
+          $Coordonnees .= "<p class=\"Adresse\">";
+          $Coordonnees .= (empty($_POST['Organisme'])) ? '' : htmlspecialchars($_POST['Organisme'])."<br />";
+          $Coordonnees .= (empty($_POST['Immeuble'])) ? '' : htmlspecialchars($_POST['Immeuble'])."<br />";
+          $Coordonnees .= htmlspecialchars($_POST['Adresse']);
+          $Coordonnees .= (empty($_POST['Complement'])) ? '' : "<br />".htmlspecialchars($_POST['Complement']);
+          $Coordonnees .= "</p>\n";
+          $Coordonnees .= "<p><span class=\"CP\">".htmlspecialchars($_POST['CodePostal'])."</span> <span class=\"Ville\">".htmlspecialchars($_POST['Ville'])."</span></p>\n";
+          $Coordonnees .= "<p class=\"Pays\">".$ListePays[htmlspecialchars($_POST['Pays'])]."</p>\n";
+          $Coordonnees .= (empty($_POST['email'])) ? '' : "<p class=\"Email\">".htmlspecialchars($_POST['email'])."</p>\n";
+          $Coordonnees .= "</div>";
+          
+          <BOUCLE_compteur_numeros(RUBRIQUES){titre==index}><BOUCLE_numeros(RUBRIQUES){id_parent}{par titre}{inverse}{doublons}></BOUCLE_numeros>
+          [$NumerosDispo=(#TOTAL_BOUCLE)];
+          <//B_numeros>
+          </BOUCLE_compteur_numeros>
+          
+          if ($_POST) {
+            // test de verification du nombre d'exemplaires commandes
+            $NumerosNonCommandes=0;
+            foreach ($_POST As $k => $v)
+            {
+              if (ereg("^Vacarme",$k) && $v=='') {$NumerosNonCommandes++;}
+            }
+            if ($NumerosDispo == $NumerosNonCommandes)
+            {
+              echo $MessageErreur;
+            }
+            
+            echo $DateJour;
+            echo $Coordonnees;
+            
+            // début du tableau des commandes
+            echo "<h3>votre commande</h3>\n";
+            echo "<table>\n";
+            echo "<thead>\n<tr>\n<th>Num&eacute;ro(s) command&eacute;(s)</th>\n<th>Quantit&eacute;</th>\n<th>Prix unitaire</th>\n<th>Frais de port</th>\n<th>Total</th>\n</tr>\n</thead>";
+            echo "<tbody>\n";
+            $ligne = 1;
+            foreach ($_POST as $indice => $valeur)
+            {
+              if (ereg("Vacarme[[:digit:]]+$",$indice) && $valeur!='')
+              {
+                if (ereg("^Vacarme[[:digit:]]+$",$indice))
+                {
+                  $Numero = ereg_replace("Vacarme", "Vacarme ", $indice);
+                  $Quantite = $valeur;
+                  $Frais = $Quantite*0;
+                  $NumeroC = substr($indice,7);
+                }
+                if (ereg("^PrixVacarme[[:digit:]]+$",$indice) && $NumeroC == substr($indice,11))
+                {
+                  $Prix = $valeur;
+                  $TotalLigne = ($Quantite*$Prix)+$Frais;
+                  $TotalColonne += $TotalLigne;
+                  $PairImpair = ($ligne % 2 == 1) ? "impair" : "pair";
+                  echo "<tr class=\"$PairImpair\">\n<td>$Numero</td>\n<td>$Quantite</td>\n<td>$Prix &euro;</td>\n<td>offerts</td>\n<td>$TotalLigne &euro;</td>\n";
+                  $ligne++;
+                }
+              }
+            }
+            echo "<tr class=\"Total\">\n<td colspan=\"4\">Total</td>\n<td>$TotalColonne &euro;</td>\n";
+            echo "</tbody>\n";
+            echo "</table>\n";
+          }
+          else {
+            echo $MessageErreur;
+          }
+          ?>
+        </div>
+        <div id="ColSecondaire">
+          <div class="CS">
+            #FORMULAIRE_RECHERCHE
+            <div id="InstructionCommande">
+              <h3>et maintenant ?</h3>
+              <p>Votre bon de commande est pr&ecirc;t.</p>
+              <ol>
+                <li>Veuillez imprimer cette page&nbsp;;</li>
+                <li>Pr&eacute;parez votre ch&egrave;que &agrave; l'ordre de <strong>Vacarme</strong>&nbsp;;</li>
+                <li>Envoyez le bon de commande accompagn&eacute; de votre r&egrave;glement &agrave;&nbsp;:<br /><strong>Vacarme<br />59 rue Louis Blanc<br />75010 Paris</strong>.</li>
+              </ol>
+              <p>Votre commande vous parviendra par retour de courrier dans un d&eacute;lai de quinze jours environ. Merci</p>
+            </div>
+            <INCLURE{fond=actuellement.inc}>
+          </div>
+        </div>
+        <div class="rien"> </div>
+        <INCLURE{fond=PiedPage}>
+      </div>
+    </div>
+    <div id="FondPageBas">&nbsp;</div>
+  </div>
+  <?php
+    define("_BBC_PAGE_NAME", "Commande page 2");
+    define("_BBCLONE_DIR", "bbclone/");
+    define("COUNTER", _BBCLONE_DIR."mark_page.php");
+    if (is_readable(COUNTER)) include_once(COUNTER);
+  ?>
+  </BOUCLE_principale>
+</body>
+</html>
