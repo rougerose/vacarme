@@ -102,7 +102,7 @@ function auteur_et_auteur($texte) {
           <BOUCLE_aucun_article(ARTICLES){id_article}{doublons special}{doublons special2}></BOUCLE_aucun_article>
           </B_aucun_article>
           <div id="texte">
-              [(#TEXTE|couper_intro{1500})]
+              [(#TEXTE*|intro|propre)]
             </div>
           
           

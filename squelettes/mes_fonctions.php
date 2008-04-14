@@ -1,6 +1,12 @@
 <?php
 $GLOBALS['puce'] = "<img src='images/commun/Puce.png' alt='-' class='puce'>";
 
+function intro($texte) {
+    preg_match("#<intro>([^<]*)<\/intro>#",$texte,$matches);
+    return $matches[1]." [&hellip;]";
+}
+
+
 function couper_intro($texte, $long) {
 	$texte = extraire_multi(eregi_replace("(</?)intro>", "\\1intro>", $texte)); // minuscules
 	$intro = '';
