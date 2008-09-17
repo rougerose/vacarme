@@ -1,8 +1,9 @@
 <hr class="invisible" />
               <div id="Recherche">
-                <form action="[(#ENV{lien})]" method="get" class="FormRecherche">
-                  [(#ENV{lien}|form_hidden)]
-                  <p><input name="recherche" id="ChampsRecherche" class="ChampsTexte" value="[(#ENV*{recherche_securisee})]" size="15" onfocus="this.value='';" /></p>
+                <form action="[(#ENV{action})]" method="get" class="FormRecherche">
+                  [(#ENV{action}|form_hidden)]
+                  [<input type="hidden" name="lang" value="(#ENV{lang})" />]
+                  <p><input name="recherche" id="ChampsRecherche" class="ChampsTexte" value="[(#ENV{recherche})]" size="15" onfocus="this.value='';" /></p>
                 </form>
               </div>
               

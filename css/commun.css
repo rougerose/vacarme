@@ -154,6 +154,7 @@ h3 {font-size:1.6em;}
 h3.recherche {
   font-size:1.9em;
   color:#000;
+  margin-left:5px;
 }
 h1.Titre {
   font-size:2em;
@@ -561,17 +562,21 @@ blockquote.spip {
 /* -------------
 =Recherche
 --------------- */
+div.encadrement {
+    margin: 2.5em 0;
+}
+
 p.RechercheNbre {
   font:1.6em Helvetica,Arial,sans-serif;
   color:#90c;
 }
 p.RechercheDescriptif {
-  margin:0;
+  margin:0 0 0 5px;
   font-size:1.2em;
   line-height:1.4em;
 }
 p.RechercheUrl {
-  margin:0.3em 0 1.3em;
+  margin:0.3em 0 1.3em 5px;
   font-size:1.2em;
 }
 
@@ -1120,4 +1125,9 @@ ol.messagesForum p.auteurForum {
 	border: 1px solid #333;
 	margin: 0 2px;
 	padding: 1px;
+}
+
+p.pagination {
+    text-align:right;
+    margin: 1.5em 0;
 }

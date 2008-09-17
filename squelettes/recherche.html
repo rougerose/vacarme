@@ -44,135 +44,67 @@
         </div>
         <div id="ColPrincipale">
         <BOUCLE_exclusion_mots(MOTS){type=@technique}{doublons}></BOUCLE_exclusion_mots> [(#REM) exclusion des mots-clés et articles]
-        <BOUCLE_rubriques(RUBRIQUES){recherche}{par points}{inverse}{0,10}{doublons}>
-      	<?php
-      	$string = '[(#TITRE|supprimer_numero|texte_script) ]';
-      	$string .= '[(#DESCRIPTIF|textebrut|texte_script) ]';
-      	$string .= '[(#TEXTE|textebrut|texte_script) ]';
-      	$tab_result["url"][] = '#URL_RUBRIQUE';
-      	$tab_result["titre"][] = '[(#TITRE|supprimer_numero|texte_script)]';
-      	$googlelike = google_like($string);
-      	if ($googlelike) {
-      		$tab_result["texte"][] = $googlelike;
-      	}
-      	else {
-      		$tab_result["texte"][] = '[(#DESCRIPTIF|texte_script)]';
-      	}
-      	// surpondération des rubriques
-      	$points = #POINTS * 2.5;
-      	$tab_result["points"][] = $points ;
-      	?></BOUCLE_rubriques>
-      <BOUCLE_mots(MOTS) {recherche} {par points} {inverse} {0,20}{doublons}>
-      	<?php
-      	$string = '[(#TITRE|supprimer_numero|texte_script) ]';
-      	$string .= '[(#DESCRIPTIF|textebrut|texte_script) ]';
-      	$string .= '[(#TEXTE|textebrut|texte_script) ]';
-      	$tab_result["url"][] = '#URL_MOT';
-      	$tab_result["titre"][] = '[(#TITRE|supprimer_numero|texte_script)]';
-      	$googlelike = google_like($string);
-      	if ($googlelike) {
-      		$tab_result["texte"][] = $googlelike;
-      	}
-      	else {
-      		$tab_result["texte"][] = '[(#DESCRIPTIF|texte_script)]';
-      	}
-      	// surpondération normale des mots-clefs
-      	$points = #POINTS * 2.5;
-      	$tab_result["points"][] = $points ;
-      	?></BOUCLE_mots>
-        <BOUCLE_auteurs(AUTEURS) {recherche} {par points} {inverse} {0,10}{doublons}>
-        	<?php
-        	$string = '[(#NOM|prenom_nom|texte_script) ]';
-        	$tab_result["url"][] = '#URL_AUTEUR';
-        	$tab_result["titre"][] = '[(#NOM|prenom_nom|texte_script)]';
-        	$googlelike = google_like($string);
-        	if ($googlelike) {
-        		$tab_result["texte"][] = $googlelike;
-        	}
-        	else {
-        		$tab_result["texte"][] = '';
-        	}
-        	// 
-        	$points = #POINTS * 3.5;
-        	$tab_result["points"][] = $points ;
-        	?>
-        </BOUCLE_auteurs>
-      <BOUCLE_articles(ARTICLES) {recherche} {par points} {inverse} {0,40}{doublons}>
-      	<?php
-      	$string = '[(#TITRE|supprimer_numero|texte_script) ]';
-      	$string .= '[(#SOUSTITRE|texte_script) ]';
-      	$string .= '[(#DESCRIPTIF|textebrut|texte_script) ]';
-      	$string .= '[(#TEXTE|textebrut|texte_script)]';
-      	$tab_result["url"][] = '#URL_ARTICLE';
-      	$tab_result["titre"][] = '[(#TITRE|supprimer_numero|texte_script)] ';
-      	$googlelike = google_like($string);
-      	if ($googlelike) {
-      		$tab_result["texte"][] = $googlelike;
-      	}
-      	else {
-      		$tab_result["texte"][] = '[(#CHAPO|couper{100}|texte_script)]';
-      	}
-      	// pondération normale des articles
-      	$points = #POINTS * 1;
-      	$tab_result["points"][] = $points ;
-      	?></BOUCLE_articles>
 
-      <BOUCLE_breves(BREVES) {recherche} {par points} {inverse} {0,30}{doublons}>
-      	<?php
-      	$string = '[(#TITRE|supprimer_numero|texte_script) ]';
-      	$string .= '[(#TEXTE|textebrut|texte_script)]';
-      	$tab_result["url"][] = '#URL_BREVE';
-      	$tab_result["titre"][] = '[(#TITRE|supprimer_numero|texte_script)] ';
-      	$googlelike = google_like($string);
-      	if ($googlelike) {
-      		$tab_result["texte"][] = $googlelike;
-      	}
-      	else {
-      		$tab_result["texte"][] = '[(#INTRODUCTION|texte_script)]';
-      	}
-      	// pondération normale des brèves
-      	$points = #POINTS * 1;
-      	$tab_result["points"][] = $points ;
-      	?></BOUCLE_breves>
-      <BOUCLE_sites(SITES) {recherche} {par points} {inverse} {0,10}{doublons}>
-      	<?php
-      	$string = '[(#NOM_SITE|supprimer_numero|texte_script) ]';
-      	$string .= '[(#DESCRIPTIF|textebrut|texte_script) ]';
-      	$tab_result["url"][] = 'site#ID_SYNDIC.html?var_recherche=[(#RECHERCHE|texte_script)]';
-      	$tab_result["titre"][] = '[(#NOM_SITE|supprimer_numero|texte_script)]';
-      	$googlelike = google_like($string);
-      	if ($googlelike) {
-      		$tab_result["texte"][] = $googlelike;
-      	}
-      	else {
-      		$tab_result["texte"][] = '[(#DESCRIPTIF|texte_script)]';
-      	}
-      	// sous-pondération des sites externes
-      	$points = #POINTS * 0.1;
-      	$tab_result["points"][] = $points ;
-      	?>
-      </BOUCLE_sites>
-      <?php
-      if ($tab_result["points"]) {
-      	$total = count ($tab_result["titre"]);
-      	echo "<p class='spip RechercheNbre'>".$total." r&eacute;sultat".($total>1?"s":"")."</p>\n";
-      	// on trie le tableau selon le classement de correspondance
-      	arsort($tab_result["points"]);
-      	// Affichage des résultats triés
-      	$compteur = 1;
-      	foreach(array_keys($tab_result["points"]) as $key) {
-      		echo "<h3 class='recherche'>".$compteur.". ";
-      		echo $tab_result["titre"][$key]."</h3>\n";
-      		echo "<p class='RechercheDescriptif'>".$tab_result["texte"][$key]."</p>\n";
-      		echo "<p class='RechercheUrl'><a href='".$tab_result["url"][$key]."'>#URL_SITE_SPIP/".$tab_result["url"][$key]."</a></p>\n";
-      		$compteur++;
-      	}
-      }
-      else {
-      	echo "<p class='spip'>Aucun r&eacute;sultat</p>\n";
-      }
-      ?>
+          <B_articles>
+          <div class="encadrement">
+            #ANCRE_PAGINATION
+            
+            <h2>Dans les articles : [(#GRAND_TOTAL) [(#GRAND_TOTAL|>{1}|?{'r&eacute;sultats','r&eacute;sultat'})]]</h2>
+            [<p class="pagination">page (#PAGINATION{page})</p>]
+            <BOUCLE_articles(ARTICLES){recherche}{par points}{inverse}{pagination 5}>
+            <h3 class="recherche">[(#COMPTEUR_BOUCLE|plus{#ENV{debut}}). ]<a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
+            [<p class="RechercheDescriptif">(#DESCRIPTIF|PtoBR)</p>]
+            <p class="RechercheUrl"><a href="#URL_ARTICLE">[(#URL_ARTICLE|url_absolue)]</a></p>
+            </BOUCLE_articles>
+            [<p class="pagination">page (#PAGINATION{page})</p>]
+          </div>
+          </B_articles>
           
+          <B_breves>
+            <div class="encadrement">
+              #ANCRE_PAGINATION
+              
+              <h2>Dans les br&egrave;ves : [(#GRAND_TOTAL) [(#GRAND_TOTAL|>{1}|?{'r&eacute;sultats','r&eacute;sultat'})]]</h2>
+              [<p class="pagination">page (#PAGINATION{page})</p>]
+              <BOUCLE_breves(BREVES){recherche}{par points}{inverse}{pagination 5}>
+              <h3 class="recherche">[(#COMPTEUR_BOUCLE|plus{#ENV{debut}}). ]<a href="#URL_BREVE">[(#TITRE|supprimer_numero)]</a></h3>
+              [<p class="RechercheDescriptif">(#DESCRIPTIF|PtoBR)</p>]
+              <p class="RechercheUrl"><a href="#URL_BREVE">[(#URL_BREVE|url_absolue)]</a></p>
+              </BOUCLE_breves>
+              [<p class="pagination">page (#PAGINATION{page})</p>]
+            </div>
+            </B_breves>
+          
+          <B_rubriques>
+          <div class="encadrement">
+              #ANCRE_PAGINATION
+              
+              <h2>Dans les rubriques : [(#GRAND_TOTAL) [(#GRAND_TOTAL|>{1}|?{'r&eacute;sultats','r&eacute;sultat'})]]</h2>
+              [<p class="pagination">page (#PAGINATION{page})</p>]
+              <BOUCLE_rubriques(RUBRIQUES){recherche}{par points}{inverse}{pagination 5}>
+              <h3 class="recherche">[(#COMPTEUR_BOUCLE|plus{#ENV{debut}}). ]<a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></h3>
+              [<p class="RechercheDescriptif">(#DESCRIPTIF|PtoBR)</p>]
+              <p class="RechercheUrl"><a href="#URL_RUBRIQUE">[(#URL_RUBRIQUE|url_absolue)]</a></p>
+              </BOUCLE_rubriques>
+              [<p class="pagination">page (#PAGINATION{page})</p>]
+            </div>
+            </B_rubriques>
+            
+            <B_mots>
+              <div class="encadrement">
+                #ANCRE_PAGINATION
+                
+                <h2>Dans les mots-cl&eacute;s : [(#GRAND_TOTAL) [(#GRAND_TOTAL|>{1}|?{'r&eacute;sultats','r&eacute;sultat'})]]</h2>
+                [<p class="pagination">page (#PAGINATION{page})</p>]
+                <BOUCLE_mots(MOTS){recherche}{par points}{inverse}{pagination 5}{doublons}>
+                <h3 class="recherche">[(#COMPTEUR_BOUCLE|plus{#ENV{debut}}). ]<a href="#URL_MOT">[(#TITRE|supprimer_numero)]</a></h3>
+                [<p class="RechercheDescriptif">(#DESCRIPTIF|PtoBR)</p>]
+                <p class="RechercheUrl"><a href="#URL_MOT">[(#URL_MOT|url_absolue)]</a></p>
+                </BOUCLE_mots>
+                [<p class="pagination">page (#PAGINATION{page})</p>]
+              </div>
+              </B_mots>
+            
           
         </div>
         <div id="ColSecondaire">
