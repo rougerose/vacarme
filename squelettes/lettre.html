@@ -88,15 +88,15 @@
           <div class="CS">
             <BOUCLE_article_apropos(ARTICLES){id_rubrique}{par num titre}{0,1}{doublons}>
             <h2>[<a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a>]</h2>
-            [<p class="Descriptif">(#DESCRIPTIF) <a href="#URL_ARTICLE"><span>&raquo;</span> la suite</a></p>]
+            [<p class="Descriptif">(#DESCRIPTIF|PtoBR) <a href="#URL_ARTICLE"><span>&raquo;</span> la suite</a></p>]
             </BOUCLE_article_apropos>
             <BOUCLE_cr(ARTICLES){id_rubrique}{par num titre}{0,1}{doublons}>
             <h2>[<a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a>]</h2>
-            [<p class="Descriptif">(#DESCRIPTIF) <a href="#URL_ARTICLE"><span>&raquo;</span> la suite</a></p>]
+            [<p class="Descriptif">(#DESCRIPTIF|PtoBR) <a href="#URL_ARTICLE"><span>&raquo;</span> la suite</a></p>]
             </BOUCLE_cr>
             <BOUCLE_contact(ARTICLES){id_rubrique}{par num titre}{0,1}{doublons}>
             <h2>[<a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a>]</h2>
-            [<p class="Descriptif">(#DESCRIPTIF) <a href="#URL_ARTICLE"><span>&raquo;</span> la suite</a></p>]
+            [<p class="Descriptif">(#DESCRIPTIF|PtoBR) <a href="#URL_ARTICLE"><span>&raquo;</span> la suite</a></p>]
             </BOUCLE_contact>
           </div>
         </div>
@@ -108,7 +108,7 @@
           <BOUCLE_autres_art_apropos2(ARTICLES){id_rubrique}{par num titre}{doublons}>
           <div class="Actu">
             <h2>[<a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a>]</h2>
-            [<p class="Descriptif">(#DESCRIPTIF) <a href="#URL_ARTICLE"><span>&raquo;</span> la suite</a></p>]
+            [<p class="Descriptif">(#DESCRIPTIF|PtoBR) <a href="#URL_ARTICLE"><span>&raquo;</span> la suite</a></p>]
           </div>
           </BOUCLE_autres_art_apropos2>
         </div>
@@ -119,7 +119,7 @@
           <BOUCLE_actu(ARTICLES){id_rubrique}{!par date}{0,5}>
           <div class="Actu">
             <h3>[(#DATE|affdate) &ndash; ]<a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
-            [<p class="Descriptif">(#DESCRIPTIF) <a href="#URL_ARTICLE"><span>&raquo;</span> la suite</a></p>]
+            [<p class="Descriptif">(#DESCRIPTIF|PtoBR) <a href="#URL_ARTICLE"><span>&raquo;</span> la suite</a></p>]
           </div>
           </BOUCLE_actu>
           </BOUCLE_rubrique_actu>

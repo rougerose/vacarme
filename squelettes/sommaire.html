@@ -54,12 +54,12 @@
               <B_sommaire_court>
               <BOUCLE_sommaire_court(RUBRIQUES){id_parent}{titre_mot==affichage Une}>
               <dt><BOUCLE_rubrique_numero(MOTS){id_rubrique}{type=@rubriques}><span>[(#TITRE|supprimer_numero)]&nbsp;/</span></BOUCLE_rubrique_numero>[ <a href="#URL_RUBRIQUE">(#TITRE|supprimer_numero)</a>]</dt>
-              [<dd>(#DESCRIPTIF)</dd>]
+              [<dd>(#DESCRIPTIF|PtoBR)</dd>]
               </BOUCLE_sommaire_court>
               </B_sommaire_court>
               <BOUCLE_sommaire_court_art(ARTICLES){branche}{titre_mot==affichage Une}>
               <dt><!-- [(#LESAUTEURS)&nbsp;/ ]-->[<a href="#URL_RUBRIQUE">(#TITRE|supprimer_numero)</a>]</dt>
-              <dd>[(#DESCRIPTIF)]</dd>
+              <dd>[(#DESCRIPTIF|PtoBR)]</dd>
               </BOUCLE_sommaire_court_art>
             </dl>
             
@@ -80,7 +80,7 @@
             <dl>
               <BOUCLE_articles_dispo(ARTICLES){branche}{titre_mot=article consultable}{par hasard}{0,4}{lang=fr}>
               <dt><BOUCLE_auteurs_articles_dispo(AUTEURS){id_article}{par nom}{nom!==^@}{", "}>[(#NOM|prenom_nom)]</BOUCLE_auteurs_articles_dispo>&nbsp;/ </B_auteurs_articles_dispo><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></dt>
-              [<dd>(#DESCRIPTIF)</dd>]
+              [<dd>(#DESCRIPTIF|PtoBR)</dd>]
               </BOUCLE_articles_dispo>
               </B_articles_dispo>
               <dt>aucun article n'est disponible actuellement</dt>
@@ -108,10 +108,10 @@
                   <B_sommaire_court2>
                   <BOUCLE_sommaire_court2(RUBRIQUES){id_parent}{titre_mot==affichage Une}>
                   <dt><BOUCLE_rubrique_numero2(MOTS){id_rubrique}{type=@rubriques}><span>[(#TITRE|supprimer_numero)]&nbsp;/</span></BOUCLE_rubrique_numero2>[ <a href="#URL_RUBRIQUE">(#TITRE|supprimer_numero)</a>]</dt>
-                  [<dd>(#DESCRIPTIF)</dd>]
+                  [<dd>(#DESCRIPTIF|PtoBR)</dd>]
                   </BOUCLE_sommaire_court2>
                   </B_sommaire_court2>
-                  <dt>[(#DESCRIPTIF)]</dt>
+                  <dt>[(#DESCRIPTIF|PtoBR)]</dt>
                   <//B_sommaire_court2>
                 </dl>
                 
@@ -134,10 +134,10 @@
             <BOUCLE_rubrique_actu(RUBRIQUES){id_rubrique=82}>
             <B_actus_recentes>
             <h2>l'actualit&eacute; de Vacarme</h2>
-            <BOUCLE_actus_recentes(ARTICLES){id_rubrique}{titre_mot=affichage Une}{par date}{inverse}>
+            <BOUCLE_actus_recentes(ARTICLES){id_rubrique}{titre_mot=affichage Une}{par date}{inverse}{0,10}>
             <div class="Actu">
               <h3><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></h3>
-              <p class="Descriptif">[<span class="Date">(#DATE|affdate) &ndash; </span>][(#DESCRIPTIF)]&nbsp;<a href="#URL_ARTICLE"><span>&raquo;</span> la suite</a></p>
+              <p class="Descriptif">[<span class="Date">(#DATE|affdate) &ndash; </span>][(#DESCRIPTIF|PtoBR)]&nbsp;<a href="#URL_ARTICLE"><span>&raquo;</span> la suite</a></p>
             </div>
             </BOUCLE_actus_recentes>
             </B_actus_recentes>
@@ -160,7 +160,7 @@
             <BOUCLE_rub_apropos(RUBRIQUES){id_rubrique=10}>
             <h2 class="TitreFilet">&agrave; propos de Vacarme</h2>
             <div class="CS">
-            <p class="Descriptif"><BOUCLE_art_apropos(ARTICLES){id_rubrique}{par num titre}{0,1}>[(#DESCRIPTIF)]</BOUCLE_art_apropos>&nbsp;<a href="#URL_RUBRIQUE"><span>&raquo;</span> la suite</a></p>
+            <p class="Descriptif"><BOUCLE_art_apropos(ARTICLES){id_rubrique}{par num titre}{0,1}>[(#DESCRIPTIF|PtoBR)]</BOUCLE_art_apropos>&nbsp;<a href="#URL_RUBRIQUE"><span>&raquo;</span> la suite</a></p>
             </div>
             </BOUCLE_rub_apropos>
           </div>
