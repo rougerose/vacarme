@@ -150,13 +150,7 @@
           <div id="CPCol3">
             #FORMULAIRE_RECHERCHE
             <h2>la lettre de Vacarme</h2>
-            <p class="Descriptif">Recevez par email l'actualit&eacute; de Vacarme</p>
-            <div class="CS">
-            <form action="#URL_PAGE{lettre}" method="post" class="Formulaire" id="FormLettre">
-              <p><input name="email" id="ChampsLettre" class="ChampsTexte" value="votre email" size="15" onfocus="this.value='';" />
-              <input type="submit" name="submit" value="envoyer" id="Ok" class="bouton" /></p>
-            </form>
-            </div>
+            <p class="Descriptif"><a href="http://listes.rezo.net/mailman/listinfo/vacarme-infos">Recevez par email</a> l'actualit&eacute; de Vacarme</p>
             <BOUCLE_rub_apropos(RUBRIQUES){id_rubrique=10}>
             <h2 class="TitreFilet">&agrave; propos de Vacarme</h2>
             <div class="CS">
@@ -171,11 +165,5 @@
     </div>
     <div id="FondPageBas">&nbsp;</div>
   </div>
-<?php
-  define("_BBC_PAGE_NAME", "accueil site");
-  define("_BBCLONE_DIR", "bbclone/");
-  define("COUNTER", _BBCLONE_DIR."mark_page.php");
-  if (is_readable(COUNTER)) include_once(COUNTER);
-?>
 </body>
 </html>
