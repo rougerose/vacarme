@@ -1,13 +1,14 @@
+<BOUCLE_principale(ARTICLES){id_article}>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<BOUCLE_principale(ARTICLES){id_article}>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
 <head>
   <title>#NOM_SITE_SPIP / [(#TITRE|supprimer_numero|textebrut)]</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=#CHARSET"/>
-  <link rel="shortcut icon" href="favicon.png" type="image/png" /><link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="css/ecran_portfolio.css" type="text/css" media="screen" />
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="#URL_PAGE{backend}" />
+  [<meta name="description" lang="#LANG" content="(#DESCRIPTIF|textebrut)" />]
+  <BOUCLE_mots_meta(MOTS){id_article}{par titre}>
+  [<meta name="keywords" lang="#LANG" content="(#TITRE|supprimer_numero|textebrut)" />]
+  </BOUCLE_mots_meta>
+  <INCLURE{fond=inc-head}>
 </head>
 <!-- mise en page originale http://dbowman.com/photos/ -->
 <body id="Portfolio">

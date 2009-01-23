@@ -1,25 +1,15 @@
+<BOUCLE_principale(ARTICLES){id_article}>[(#REM) provoque une redirection automatique vers la rubrique parente. Le descriptif de l'article s'affiche]
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<BOUCLE_principale(ARTICLES){id_article}>[(#REM) provoque une redirection automatique vers la rubrique parente. Le descriptif de l'article s'affiche]
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=#CHARSET"/>
-
   <title>#NOM_SITE_SPIP / [(#TITRE|supprimer_numero|textebrut)]</title>
   [<meta name="description" lang="#LANG" content="(#DESCRIPTIF|textebrut)" />]
   <BOUCLE_mots_meta(MOTS){id_article}{par titre}>
   [<meta name="keywords" lang="#LANG" content="(#TITRE|supprimer_numero|textebrut)" />]
   </BOUCLE_mots_meta>
   <meta http-equiv="refresh" content="10;url=<BOUCLE_redirection(RUBRIQUES){id_rubrique}>#URL_SITE_SPIP/#URL_RUBRIQUE</BOUCLE_redirection>">
-  <script src="js/prototype.lite.js" type="text/javascript"></script>
-  <script src="js/moo.fx.js" type="text/javascript"></script>
-  <script src="js/moo.fx.pack.js" type="text/javascript"></script>
-  <script src="js/FilAriane.js" type="text/javascript"></script>
-  <link rel="shortcut icon" href="favicon.png" type="image/png" /><link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-  <link rel="stylesheet" href="css/papier.css" type="text/css" media="print" />
-  <link rel="stylesheet" href="css/ecran.css" type="text/css" media="screen" />
-  <!--[if gte ie 5.5000]><link rel="stylesheet" type="text/css" href="css/ie.css" /><![endif]-->
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="#URL_PAGE{backend}" />
+  <INCLURE{fond=inc-head}>
 </head>
 <?php
 /*
