@@ -1,28 +1,29 @@
-#CACHE{0}[(#HTTP_HEADER{Content-type: text/xml[; charset=(#CHARSET)]})]<?xml 
-version="1.0"[ encoding="(#CHARSET)"]?>
-<!DOCTYPE vacarme [
-    <!ELEMENT vacarme (numero+) >
-    <!ELEMENT numero (titre, url, article*) >
-    <!ATTLIST numero id ID #REQUIRED>
-    <!ELEMENT article (titre, url, descriptif?) >
-    <!ELEMENT titre (#PCDATA) >
-    <!ELEMENT url (#PCDATA) >
-    <!ELEMENT descriptif (#PCDATA )>
-]>
+#CACHE{0}[(#HTTP_HEADER{Content-type: text/xml[; charset=(#CHARSET)]})]<?xml version="1.0"[ encoding="(#CHARSET)"]?>
 <vacarme>
-    <BOUCLE_index(RUBRIQUES){titre==index}><BOUCLE_numero(RUBRIQUES){id_parent}{par titre}>
-    <numero id="[(#TITRE|substr{8,3}|replace{/})]">
-        <titre>[(#TITRE|supprimer_numero|texte_backend)]</titre>
-        <url>[(#URL_RUBRIQUE|url_absolue)]</url><B_sommaire_court><BOUCLE_sommaire_court(RUBRIQUES){id_parent}{titre_mot==affichage Une}>
-        <article>
-            <titre><BOUCLE_rubrique_type(MOTS){id_rubrique}{type=@rubriques}>[(#TITRE|supprimer_numero|texte_backend)&#160;&#047; ]</BOUCLE_rubrique_type>[(#TITRE|supprimer_numero|texte_backend)]</titre>
-            <url>[(#URL_RUBRIQUE|url_absolue)]</url>
-            [<descriptif>(#DESCRIPTIF|texte_backend)</descriptif>]</BOUCLE_sommaire_court>
-        </article></B_sommaire_court><BOUCLE_articles(ARTICLES){branche}{titre_mot==affichage Une}>
-        <article>
-            [<titre>(#TITRE|supprimer_numero|texte_backend)</titre>]
-            [<url>(#URL_ARTICLE|url_absolue)</url>]
-            [<descriptif>(#DESCRIPTIF|texte_backend)</descriptif>]
-        </article></BOUCLE_articles><//B_sommaire_court>
-    </numero></BOUCLE_numero></BOUCLE_index>
+   <BOUCLE_index(RUBRIQUES){titre==index}>
+      <BOUCLE_numero(RUBRIQUES){id_parent}{par titre}>
+         <numero id="[(#TITRE|substr{8,3}|replace{/})]" [logo="#URL_SITE_SPIP/IMG/(#LOGO_RUBRIQUE_NORMAL|fichier)"]
+               <BOUCLE_prix(MOTS){id_rubrique}{type=@prix}>
+               [prix="(#TITRE)"]
+            </BOUCLE_prix>
+            >
+
+            <BOUCLE_sommaire_court(RUBRIQUES){id_parent}{titre_mot==affichage Une}>
+               <article>
+                  <titre><BOUCLE_rubrique_type(MOTS){id_rubrique}{type=@rubriques}>[(#TITRE|supprimer_numero|texte_backend)&#160;&#047; ]</BOUCLE_rubrique_type>[(#TITRE|supprimer_numero|texte_backend)]</titre>
+                  <url>[(#URL_RUBRIQUE|url_absolue)]</url>
+                  [<descriptif>(#DESCRIPTIF|texte_backend)</descriptif>]
+               </article>
+            </BOUCLE_sommaire_court>
+               <BOUCLE_articles(ARTICLES){branche}{titre_mot==affichage Une}>
+                  <article>
+                     [<titre>(#TITRE|supprimer_numero|texte_backend)</titre>]
+                     [<url>(#URL_ARTICLE|url_absolue)</url>]
+                     [<descriptif>(#DESCRIPTIF|texte_backend)</descriptif>]
+                  </article>
+               </BOUCLE_articles>
+            <//B_sommaire_court>
+         </numero>
+      </BOUCLE_numero>
+   </BOUCLE_index>
 </vacarme>
