@@ -7,7 +7,8 @@
                [prix="(#TITRE)"]
             </BOUCLE_prix>
             >
-
+            <url>[(#URL_RUBRIQUE|url_absolue)]</url>
+            [<descriptif>(#DESCRIPTIF|texte_backend)</descriptif>]
             <BOUCLE_sommaire_court(RUBRIQUES){id_parent}{titre_mot==affichage Une}>
                <article>
                   <titre><BOUCLE_rubrique_type(MOTS){id_rubrique}{type=@rubriques}>[(#TITRE|supprimer_numero|texte_backend)&#160;&#047; ]</BOUCLE_rubrique_type>[(#TITRE|supprimer_numero|texte_backend)]</titre>
@@ -15,14 +16,14 @@
                   [<descriptif>(#DESCRIPTIF|texte_backend)</descriptif>]
                </article>
             </BOUCLE_sommaire_court>
-               <BOUCLE_articles(ARTICLES){branche}{titre_mot==affichage Une}>
-                  <article>
+            <BOUCLE_articles(ARTICLES){branche}{titre_mot==affichage Une}>
+                <article>
                      [<titre>(#TITRE|supprimer_numero|texte_backend)</titre>]
                      [<url>(#URL_ARTICLE|url_absolue)</url>]
                      [<descriptif>(#DESCRIPTIF|texte_backend)</descriptif>]
-                  </article>
-               </BOUCLE_articles>
-            <//B_sommaire_court>
+                </article>
+            </BOUCLE_articles>
+           
          </numero>
       </BOUCLE_numero>
    </BOUCLE_index>
