@@ -1,7 +1,7 @@
 <?php
 // include("/usr/local/share/shim/www/_securite_/ecran_securite.php");
 
-$type_urls = "html";
+// $type_urls = "html";
 
 define ('_ID_WEBMESTRES', '1:153');
 
