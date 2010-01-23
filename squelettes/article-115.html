@@ -29,7 +29,7 @@ function auteur_et_auteur($texte) {
         <INCLURE{fond=logo}>
         <INCLURE{fond=navigation}{id_rubrique}>
       </div>
-      <INCLURE{fond=FilArianeArticle}{id_rubrique}{id_article}>
+      
       <div id="Contenu" class="Textes">
         <div id="ColTitre">
           <p class="tetiere"><BOUCLE_numero_encours(HIERARCHIE){tout}{1,1}><BOUCLE_rub_Vac(RUBRIQUES){id_rubrique}{doublons tetiere}> </BOUCLE_rub_Vac>[(#TITRE|supprimer_numero) / ]</BOUCLE_numero_encours><BOUCLE_tetiere_mot(MOTS){id_article}{type=@rubriques}>[(#TITRE|supprimer_numero)]</BOUCLE_tetiere_mot><BOUCLE_tetiere(RUBRIQUES){id_rubrique}{doublons tetiere}>[ <strong>(#TITRE|supprimer_numero)</strong>]</BOUCLE_tetiere></p>
