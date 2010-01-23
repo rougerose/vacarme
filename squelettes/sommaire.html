@@ -16,11 +16,11 @@
     <div id="FondPageHaut">&nbsp;</div>
     <div id="Conteneur">
       <div id="Entete">
-        <a href="/" title="retour &agrave; la page d'accueil du site" id="Logo" class="noborder"><img src="images/commun/vacarme.png" width="215" height="54" alt="Vacarme" /></a>
+        <a href="#URL_SITE_SPIP" title="retour &agrave; la page d'accueil du site" id="Logo" class="noborder">[<img src="(#CHEMIN{images/commun/vacarme.png})" width="215" height="54" alt="Vacarme" />]</a>
 
         <div id="Navigation"><BOUCLE_exclusion_temporaire(RUBRIQUES){titre==V1}{doublons temp}></BOUCLE_exclusion_temporaire><BOUCLE_zone_abonne(RUBRIQUES){id_zone=1}{doublons temp}></BOUCLE_zone_abonne>
           <ul>
-            <li><a href="/" title="retour &agrave; la page d'accueil" class="select">accueil</a></li>
+            <li><a href="#URL_SITE_SPIP" title="retour &agrave; la page d'accueil" class="select">accueil</a></li>
             <BOUCLE_navigation(RUBRIQUES){racine}{par num titre}{doublons temp}>
             <li><a href="#URL_RUBRIQUE"[ class="(#EXPOSE{select})"] title="[(#TITRE|supprimer_numero|textebrut)]">[(#TITRE|supprimer_numero)]</a></li>
             </BOUCLE_navigation>
@@ -28,11 +28,7 @@
         </div>
         <div class="rien"> </div>
       </div>
-      <div id="FilAriane">
-        <a href="javascript:effet.toggle()" id="VEI" class="noborder" title="Vous consultez actuellement"><img src="images/commun/VousEtesIci.png" alt="Vous consultez actuellement" /></a>
-        <div id="FA"><p><a href="/" title="accueil" class="select">accueil</a></p>
-        </div>
-      </div>
+      
       
       <div id="Contenu1" class="CAccueil">
         <BOUCLE_index(RUBRIQUES){titre==index}><BOUCLE_actuellement(RUBRIQUES){id_parent}{!par titre}{0,1}{doublons}>

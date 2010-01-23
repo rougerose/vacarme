@@ -12,11 +12,11 @@
     <div id="FondPageHaut">&nbsp;</div>
     <div id="Conteneur">
       <div id="Entete">
-        <a href="/" title="retour &agrave; la page d'accueil du site" id="Logo" class="noborder"><img src="images/commun/vacarme.png" width="215" height="54" alt="Vacarme" /></a>
+        <a href="#URL_SITE_SPIP" title="retour &agrave; la page d'accueil du site" id="Logo" class="noborder">[<img src="(#CHEMIN{images/commun/vacarme.png})" width="215" height="54" alt="Vacarme" />]</a>
 
         <div id="Navigation">
           <ul>
-            <li><a href="/" title="retour &agrave; la page d'accueil">accueil</a></li>
+            <li><a href="#URL_SITE_SPIP" title="retour &agrave; la page d'accueil">accueil</a></li>
             <BOUCLE_navigation(RUBRIQUES){racine}{par num titre}>
             <li><a href="#URL_RUBRIQUE"[ class="(#EXPOSE{select})"] title="[(#TITRE|supprimer_numero|textebrut)]">[(#TITRE|supprimer_numero)]</a></li>
             </BOUCLE_navigation>
@@ -24,11 +24,7 @@
         </div>
         <div class="rien"> </div>
       </div>
-      <div id="FilAriane">
-        <a href="javascript:effet.toggle()" id="VEI" class="noborder" title="Vous consultez actuellement"><img src="images/commun/VousEtesIci.png" alt="Vous consultez actuellement" /></a>
-        <div id="FA"><p><a href="/" title="accueil">accueil</a> &raquo; <a href="#URL_PAGE{recherche}" title="recherche" class="select">recherche</a></p>
-        </div>
-      </div>
+      
         
       <div id="Contenu" class="Textes">
         <div id="ColTitre">
