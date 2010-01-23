@@ -1,5 +1,5 @@
 <?php
-$GLOBALS['puce'] = "<img src='images/commun/Puce.png' alt='-' class='puce'>";
+$GLOBALS['puce'] = "<img src='squelettes/images/commun/Puce.png' alt='-' class='puce'>";
 
 function intro($texte) {
     preg_match("#<intro>([^<]*)<\/intro>#",$texte,$matches);

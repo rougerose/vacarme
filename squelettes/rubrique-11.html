@@ -16,7 +16,7 @@
         <INCLURE{fond=logo}>
         <INCLURE{fond=navigation}{id_rubrique}>
       </div>
-      <INCLURE{fond=FilArianeArticle}{id_rubrique}{id_article}>
+      
       <div id="Contenu1" class="CRubrique">
         <div id="ColPrincipale" class="CRTypeB Abonner">
           <BOUCLE_article_abonnement(ARTICLES){id_rubrique}{par num titre}{0,1}{doublons}>
@@ -29,7 +29,7 @@
               <div class="Tarifs">
                 <h3>4 num&eacute;ros (1 an)</h3>
                 <ul>
-                  <li><img src="images/commun/badge-35euros.png" alt="35 euros" /><br />au lieu de 40 euros <span>(pour la France. Pour l'international, l'abonnement &agrave; 4 num&eacute;ros est de 5O euros)</span></li>
+                  <li>[<img src="(#CHEMIN{images/commun/badge-35euros.png})" alt="35 euros" />]<br />au lieu de 40 euros <span>(pour la France. Pour l'international, l'abonnement &agrave; 4 num&eacute;ros est de 5O euros)</span></li>
                 </ul>
               </div>
             </div>
@@ -38,7 +38,7 @@
               <div class="Tarifs">
                 <h3>8 num&eacute;ros (2 ans)</h3>
                 <ul>
-                  <li><img src="images/commun/badge-65euros.png" alt="65 euros" /><br />au lieu de 80 euros <span>(pour la France. Pour l'international, l'abonnement &agrave; 8 num&eacute;ros est de 9O euros)</span></li>
+                  <li>[<img src="(#CHEMIN{images/commun/badge-65euros.png})" alt="65 euros" />]<br />au lieu de 80 euros <span>(pour la France. Pour l'international, l'abonnement &agrave; 8 num&eacute;ros est de 9O euros)</span></li>
                 </ul>
               </div>
             </div>
