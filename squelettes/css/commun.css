@@ -220,6 +220,8 @@ ul li, ol li {
 ol {
   margin-left:10px; padding-left:5px;
 }
+#texte li { margin-top: .5em; margin-bottom: 1.3em;}
+#texte li li { margin: 0 0 0 15px;}
 
 /* -------------
 =Page Accueil
