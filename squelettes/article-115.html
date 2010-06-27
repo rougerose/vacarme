@@ -14,7 +14,7 @@
 	#SET{type,apercu}
 	<BOUCLE_mots_techniques(MOTS){id_article}{id_groupe=5}>
 		[(#REM) texte intégral ? ]
-		[(#ID_MOT|match{^(7)?}|?{[(#SET{type,integral})],''})]
+		[(#ID_MOT|match{^(7)$}|?{[(#SET{type,integral})]})]
 	</BOUCLE_mots_techniques>
 	[(#REM) les articles de plus d'un an sont systématiquement en texte integral ]
 	<BOUCLE_age(ARTICLES){id_article}{age>=365}>[(#SET{type,integral})]</BOUCLE_age>
