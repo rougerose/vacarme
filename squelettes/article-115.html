@@ -21,6 +21,16 @@
 function auteur_et_auteur($texte) {
   return ereg_replace(", ([^,]*)$"," &amp; \\1",$texte);
 }?>
+
+[(#REM)  constantes et vérifications ]
+#SET{type,apercu}
+<BOUCLE_mots_techniques(MOTS){id_article}{id_groupe=5}>
+[(#REM) texte intégral ? ]
+[(#ID_MOT|match{7}|?{[(#SET{type,integral})]})]
+</BOUCLE_mots_techniques>
+[(#REM) les articles de plus d'un an sont systématiquement en texte integral ]
+<BOUCLE_age(ARTICLES){id_article}{age>=365}>[(#SET{type,integral})]</BOUCLE_age>
+<!-- mode #GET{type} -->
 <body>
   <div id="FondPage">
     <div id="FondPageHaut">&nbsp;</div>
@@ -49,6 +59,10 @@ function auteur_et_auteur($texte) {
           [<div id="chapo">
             (#CHAPO)
           </div>]
+[(#REM) aperçu du texte ou version intégrale ? ]
+[(#GET{type}|match{apercu}|?{
+	
+})]
           <BOUCLE_article_numero_spe(ARTICLES){id_article}{titre_mot=numero special}{doublons special}></BOUCLE_article_numero_spe>
           <B_article_integral><BOUCLE_article_integral(ARTICLES){id_article}{age>=365}{doublons special}>
           [<div id="texte">
@@ -93,7 +107,7 @@ function auteur_et_auteur($texte) {
           </B_aucun_article>
           <div id="texte">
               [(#TEXTE*|intro|propre)]
-            </div>
+          </div>
           
           
            <div class="ombre"><div class="ombreInterieur">
