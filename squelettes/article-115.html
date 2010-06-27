@@ -51,93 +51,45 @@ function auteur_et_auteur($texte) {
 				</div>
 				<div id="ColPrincipale">
 					<?php $tous_auteurs = auteur_et_auteur('<BOUCLE_signature(AUTEURS){id_article}{par nom}{nom!==^@} {", "}>[(#NOM|prenom|texte_script) ][(#NOM|nom|texte_script)]</BOUCLE_signature>'); if ($tous_auteurs) echo "<h2 class=\"Auteur\"><BOUCLE_entretien(MOTS){id_article}{type==@technique}{titre==entretien}><:entretien:> </BOUCLE_entretien><BOUCLE_propos(MOTS){id_article}{type==@technique}{titre==propos}><:propos:> </BOUCLE_propos><:par_auteur:> ".$tous_auteurs."</h2>"; ?>
-
-						<BOUCLE_traductions(ARTICLES){traduction}{exclus}>
-						<p class="lienTraduction"><a href="#URL_ARTICLE" rel="alternate" hreflang="#LANG"><:traduction:></a></p>
-						</BOUCLE_traductions>
-
-
-						[<div id="chapo">
-							(#CHAPO)
-						</div>]
-						[(#REM) aperçu du texte ou version intégrale ? ]
-						[(#GET{type}|match{apercu}|?{
-
-						})]
-						<BOUCLE_article_numero_spe(ARTICLES){id_article}{titre_mot=numero special}{doublons special}></BOUCLE_article_numero_spe>
-						<B_article_integral><BOUCLE_article_integral(ARTICLES){id_article}{age>=365}{doublons special}>
-						[<div id="texte">
-							(#TEXTE)
-						</div>]
-						[<div id="ps">
-							(#PS)
-						</div>]
-						[<div id="notes">
-							(#NOTES)
-						</div>]
-						</BOUCLE_article_integral></B_article_integral>
-						<B_article_numero_special><BOUCLE_article_numero_special(ARTICLES){id_article}{titre_mot=numero special}{age>=780}{doublons special2}>
-						<div id="texte">
-							[(#TEXTE)]
-
-							<INCLURE{fond=portfolioArticle}{id_article}>
-						</div>]
-						[<div id="ps">
-							(#PS)
-						</div>]
-						[<div id="notes">
-							(#NOTES)
-						</div>]
-
-						</BOUCLE_article_numero_special></B_article_numero_special>
-						<B_article_consultable><BOUCLE_article_consultable(ARTICLES){id_article}{titre_mot=article consultable}{doublons special2}>
-						<div id="texte">
-							[(#TEXTE)]
-							<INCLURE{fond=portfolioArticle}{id_article}>
-						</div>
-
-						[<div id="ps">
-							(#PS)
-						</div>]
-						[<div id="notes">
-							(#NOTES)
-						</div>]
-
-						</BOUCLE_article_consultable></B_article_consultable>
-						<BOUCLE_aucun_article(ARTICLES){id_article}{doublons special}{doublons special2}></BOUCLE_aucun_article>
-						</B_aucun_article>
+					<BOUCLE_traductions(ARTICLES){traduction}{exclus}>
+					<p class="lienTraduction"><a href="#URL_ARTICLE" rel="alternate" hreflang="#LANG"><:traduction:></a></p>
+					</BOUCLE_traductions>
+						
+					[<div id="chapo">
+						(#CHAPO)
+					</div>]
+						
+					[(#REM) aperçu du texte ? ]
+					[(#GET{type}|match{apercu}|?{
 						<div id="texte">
 							[(#TEXTE*|intro|propre)]
 						</div>
-
-
-						<div class="ombre"><div class="ombreInterieur">
-							<div id="texte" class="ArticleIncomplet">
-								<p class="Descriptif">L'int&eacute;gralit&eacute; de cet article est disponible dans le num&eacute;ro actuellement en vente en librairies ou sur commande.</p>
-								<ul>
-									<li>Chercher <BOUCLE_librairies(RUBRIQUES){titre==librairies}><a href="#URL_RUBRIQUE">un libraire</a></BOUCLE_librairies></li>
-									<li><BOUCLE_commande(RUBRIQUES){titre==commander}><a href="#URL_RUBRIQUE">Commander en ligne</a></BOUCLE_commande></li>
-								</ul>
-							</div>
+						
+						[(#INCLURE{fond=inc-numero-papier})]
+						<div class="rien"> </div>
+						
+						[<div id="ps">
+							(#PS)
+						</div>]
+						[<div id="notes">
+							(#NOTES)
+						</div>]
+					})]
+					
+					[(#REM) ou bien version intégrale ? ]
+					[(#GET{type}|match{integral}|?{
+						<div id="texte">
+							[(#TEXTE)]
+							[(#INCLURE{fond=portfolioArticle}{id_article})]
 						</div>
-					</div>
-					<div class="rien"> </div>
-
-					[<div id="ps">
-						(#PS)
-					</div>]
-					[<div id="notes">
-						(#NOTES)
-					</div>]
-
-
-					<//B_aucun_article>
-					<//B_article_consultable>
-					<//B_article_numero_special>
-					<//B_article_integral>
-
-
-
+						
+						[<div id="ps">
+							(#PS)
+						</div>]
+						[<div id="notes">
+							(#NOTES)
+						</div>]
+					})]
 				</div>
 				<div id="ColSecondaire">
 					<div class="CS">
