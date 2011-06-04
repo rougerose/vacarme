@@ -27,7 +27,7 @@ dt a.INauteurs {
 /*  font-size:1.1em;*/
 }
 a:visited {
-  color:#300;
+  xcolor:#300;
   border-bottom:1px dotted #c00;
 }
 #BIndexCategories a:visited, #BIndexResultats a:visited {
