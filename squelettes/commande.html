@@ -17,7 +17,7 @@
         <INCLURE{fond=logo}>
         <INCLURE{fond=navigation}{id_rubrique}>
       </div>
-      
+
       <div id="Contenu" class="Textes">
         <div id="ColPrincipale">
           <BOUCLE_article_1(ARTICLES){id_rubrique}{par num titre}{0,1}{doublons}>
@@ -28,7 +28,7 @@
           <?php
           $MessageErreur = "<div class=\"alerte\">\n<p>Vous n'avez command&eacute; aucun exemplaire de Vacarme, veuillez compl&eacute;ter votre commande &agrave; <a href=\"#URL_RUBRIQUE\">la page pr&eacute;c&eacute;dente</a></p>\n</div>";
           $ListePays = array (1 => "Afrique du Sud", "Albanie", "Alg&eacute;rie", "Allemagne", "Andorre", "Angola", "Antigua-et-Barbuda", "Arabie saoudite", "Argentine", "Arm&eacute;nie", "Australie", "Autriche", "Azerba&iuml;djan", "Bahamas", "Bahre&iuml;n", "Bangladesh", "Barbade", "B&eacute;larus", "Belgique", "Belize", "B&eacute;nin", "Bhoutan", "Bolivie", "Bosnie-Herz&eacute;govine", "Botswana", "Br&eacute;sil", "Brun&eacute;i Darussalam", "Bulgarie", "Burkina Faso", "Burundi", "Cambodge", "Cameroun", "Canada", "Cap-Vert", "Chili", "Chine", "Chypre", "Colombie", "Comores", "Congo", "Congo (R&eacute;publique d&eacute;mocratique du)", "Cor&eacute;e du Nord", "Cor&eacute;e du Sud", "Costa Rica", "C&ocirc;te d'Ivoire", "Croatie", "Cuba", "Danemark", "Djibouti", "Dominique", "&Eacute;gypte", "El Salvador", "&Eacute;mirats arabes unis", "&Eacute;quateur", "&Eacute;rythr&eacute;e", "Espagne", "Estonie", "&Eacute;tats-Unis d'Am&eacute;rique", "&Eacute;thiopie", "Fidji", "Finlande", "France", "Gabon", "Gambie", "G&eacute;orgie", "Ghana", "Gr&egrave;ce", "Grenade", "Guatemala", "Guin&eacute;e", "Guin&eacute;e &eacute;quatoriale", "Guin&eacute;e-Bissau", "Guyana", "Ha&iuml;ti", "Honduras", "Hongrie", "Inde", "Indon&eacute;sie", "Iran", "Iraq", "Irlande", "Islande", "Isra&euml;l", "Italie", "Jama&iuml;que", "Japon", "Jordanie", "Kazakhstan", "Kenya", "Kirghizistan", "Kiribati", "Kowe&iuml;t", "Laos", "Lesotho", "Lettonie", "Liban", "Lib&eacute;ria", "Libye", "Liechtenstein", "Lituanie", "Luxembourg", "Mac&eacute;doine", "Madagascar", "Malaisie", "Malawi", "Maldives", "Mali", "Malte", "Maroc", "Marshall (&Icirc;les)", "Maurice", "Mauritanie", "Mexique", "Micron&eacute;sie", "Moldova (R&eacute;publique de)", "Monaco", "Mongolie", "Mozambique", "Myanmar", "Namibie", "Nauru", "N&eacute;pal", "Nicaragua", "Niger", "Nig&eacute;ria", "Norv&egrave;ge", "Nouvelle-Z&eacute;lande", "Oman", "Ouganda", "Ouzb&eacute;kistan", "Pakistan", "Palaos", "Panama", "Papouasie-Nouvelle-Guin&eacute;e", "Paraguay", "Pays-Bas", "P&eacute;rou", "Philippines", "Pologne", "Portugal", "Qatar", "R&eacute;publique centrafricaine", "R&eacute;publique dominicaine", "Roumanie", "Royaume-Uni", "Russie", "Rwanda", "Sainte-Lucie", "Saint-Kitts-et-Nevis", "Saint-Marin", "Saint-Vincent-et-Grenadines", "Salomon (&Icirc;les)", "Samoa", "Sao Tom&eacute;-et-Principe", "S&eacute;n&eacute;gal", "Serbie-et-Mont&eacute;n&eacute;gro", "Seychelles", "Sierra Leone", "Singapour", "Slovaquie", "Slov&eacute;nie", "Somalie", "Soudan", "Sri Lanka", "Su&egrave;de", "Suisse", "Suriname", "Swaziland", "Syrie", "Tadjikistan", "Taiwan", "Tanzanie", "Tchad", "Tch&egrave;que (R&eacute;publique)", "Tha&iuml;lande", "Timor-Leste", "Togo", "Tonga (Royaume des)", "Trinit&eacute;-et-Tobago", "Tunisie", "Turkm&eacute;nistan", "Turquie", "Tuvalu", "Ukraine", "Uruguay", "Vatican", "Vanuatu", "Venezuela", "Viet Nam", "Y&eacute;men", "Zambie", "Zimbabwe");
-          
+
           setlocale(LC_ALL, "fr_FR");
           $DateJour = "<p class=\"Date\">".strftime("%A %d %B %Y")."</p>\n";
           $Coordonnees = "<div id=\"Coordonnees\">\n";
@@ -44,12 +44,12 @@
           $Coordonnees .= "<p class=\"Pays\">".$ListePays[htmlspecialchars($_POST['Pays'])]."</p>\n";
           $Coordonnees .= (empty($_POST['email'])) ? '' : "<p class=\"Email\">".htmlspecialchars($_POST['email'])."</p>\n";
           $Coordonnees .= "</div>";
-          
+
           <BOUCLE_compteur_numeros(RUBRIQUES){titre==index}><BOUCLE_numeros(RUBRIQUES){id_parent}{par titre}{inverse}{doublons}></BOUCLE_numeros>
           [$NumerosDispo=(#TOTAL_BOUCLE)];
           <//B_numeros>
           </BOUCLE_compteur_numeros>
-          
+
           if ($_POST) {
             // test de verification du nombre d'exemplaires commandes
             $NumerosNonCommandes=0;
@@ -61,10 +61,10 @@
             {
               echo $MessageErreur;
             }
-            
+
             echo $DateJour;
             echo $Coordonnees;
-            
+
             // début du tableau des commandes
             echo "<h3>votre commande</h3>\n";
             echo "<table>\n";
@@ -111,7 +111,7 @@
               <ol>
                 <li>Veuillez imprimer cette page&nbsp;;</li>
                 <li>Pr&eacute;parez votre ch&egrave;que &agrave; l'ordre de <strong>Vacarme</strong>&nbsp;;</li>
-                <li>Envoyez le bon de commande accompagn&eacute; de votre r&egrave;glement &agrave;&nbsp;:<br /><strong>Vacarme<br />59 rue Louis Blanc<br />75010 Paris</strong>.</li>
+                <li>Envoyez le bon de commande accompagn&eacute; de votre r&egrave;glement &agrave;&nbsp;:<br /><strong>Vacarme<br />50 rue Bichat<br />75010 Paris</strong>.</li>
               </ol>
               <p>Votre commande vous parviendra par retour de courrier dans un d&eacute;lai de quinze jours environ. Merci</p>
             </div>
