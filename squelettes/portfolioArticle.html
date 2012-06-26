@@ -1,9 +1,8 @@
-              <B_portfolio_article>
-              <h3 class="spip">portfolio</h3>
-              <BOUCLE_portfolio_article(DOCUMENTS){id_article}{extension IN jpg,gif,png}{mode=document}{doublons portfolioArticle}{par num titre, titre}>
-              <div class="VignettePortfolioArticle">
-                <a href="[(#URL_PAGE{portfolio}|parametre_url{'id_article',#ID_ARTICLE}|parametre_url{'id_document',#ID_DOCUMENT})]" class="noborder">[(#LOGO_DOCUMENT||image_masque{masque.png}|image_reduire{100})]</a>
-                </div>
-                </BOUCLE_portfolio_article>
-                </B_portfolio_article>
-                
+<B_portfolio_article>
+<h3 class="spip">portfolio</h3>
+<BOUCLE_portfolio_article(DOCUMENTS){id_article}{extension IN jpg,gif,png}{mode=document}{doublons portfolioArticle}{par num titre, titre}>
+<div class="VignettePortfolioArticle">
+   <a href="#URL_DOCUMENT" class="noborder mediabox">[(#LOGO_DOCUMENT||image_reduire{266,0}|image_recadre{133,133,center}|inserer_attribut{alt,#TITRE|attribut_html})]</a>
+</div>
+</BOUCLE_portfolio_article>
+</B_portfolio_article>

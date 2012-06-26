@@ -9,7 +9,7 @@
 	<meta name="keywords" lang="#LANG" content="<BOUCLE_mots_meta(MOTS){id_article}{par titre}{doublons meta}{", "}>[(#TITRE|supprimer_numero|textebrut)]</BOUCLE_mots_meta>" />
 	</B_mots_meta>
 	<INCLURE{fond=inc-head}>
-	
+
 	[(#REM)  constantes et vérifications ]
 	#SET{type,apercu}
 	<BOUCLE_mots_techniques(MOTS){id_article}{id_groupe=5}>
@@ -24,7 +24,7 @@
 * Fonction auteur_et_auteur()
 * Auteur : Philippe Rivière <fil@rezo.net>
 * Copyright : GNU Public Licence
-* Rajouter un "et" à la place de la virgule entre les deux derniers 
+* Rajouter un "et" à la place de la virgule entre les deux derniers
 * auteurs d'une liste
 */
 function auteur_et_auteur($texte) {
@@ -53,20 +53,20 @@ function auteur_et_auteur($texte) {
 					<BOUCLE_traductions(ARTICLES){traduction}{exclus}>
 					<p class="lienTraduction"><a href="#URL_ARTICLE" rel="alternate" hreflang="#LANG"><:traduction:></a></p>
 					</BOUCLE_traductions>
-						
+
 					[<div id="chapo">
 						(#CHAPO)
 					</div>]
-						
+
 					[(#REM) aperçu du texte ? ]
 					[(#GET{type}|match{apercu}|?{
 						<div id="texte">
 							[(#TEXTE*|intro|propre)]
 						</div>
-						
+
 						[(#INCLURE{fond=inc-numero-papier})]
 						<div class="rien"> </div>
-						
+
 						[<div id="ps">
 							(#PS)
 						</div>]
@@ -74,14 +74,16 @@ function auteur_et_auteur($texte) {
 							(#NOTES)
 						</div>]
 					})]
-					
+
 					[(#REM) ou bien version intégrale ? ]
 					[(#GET{type}|match{integral}|?{
 						<div id="texte">
 							[(#TEXTE)]
-							[(#INCLURE{fond=portfolioArticle}{id_article})]
+                     [<div id="pf">
+                        (#INCLURE{fond=portfolioArticle}{id_article})
+                     </div><!-- #pf -->]
 						</div>
-						
+
 						[<div id="ps">
 							(#PS)
 						</div>]
@@ -138,36 +140,7 @@ function auteur_et_auteur($texte) {
 						</BOUCLE_test_lignes>
 
 						<BOUCLE_exclusion_doc(DOCUMENTS){id_article}{extension!==jpg|png|gif}{mode=document}{doublons excluDoc}></BOUCLE_exclusion_doc>
-						<BOUCLE_portfolio_article_numero_spe(ARTICLES){id_article}{titre_mot=numero special}{doublons specialPortfolio}></BOUCLE_portfolio_article_numero_spe>
-						<B_portfolio_article_integral><BOUCLE_portfolio_article_integral(ARTICLES){id_article}{age>=365}{doublons specialPortfolio}><B_documents1>
-						<h2>portfolio</h2>
-						<dl class="NumeroContexte">
-							<BOUCLE_documents1(DOCUMENTS){id_article}{mode=document}{doublons excluDoc}{0,1}>
-							<dt><a href="[(#URL_PAGE{portfolio}|parametre_url{'id_article',#ID_ARTICLE}|parametre_url{'id_document',#ID_DOCUMENT})]" class="noborder">[(#LOGO_DOCUMENT||image_reduire{135,0})]</a></dt>
-							</BOUCLE_documents1>
-						</dl></B_documents1>
-						</BOUCLE_portfolio_article_integral></B_portfolio_article_integral>
 
-						<B_portfolio_article_numero_special><BOUCLE_portfolio_article_numero_special(ARTICLES){id_article}{titre_mot=numero special}{age>=730}{doublons specialPortfolio2}><B_documents2>
-						<h2>portfolio</h2>
-						<dl class="NumeroContexte">
-							<BOUCLE_documents2(DOCUMENTS){id_article}{mode=document}{doublons excluDoc}{0,1}>
-							<dt><a href="[(#URL_PAGE{portfolio}|parametre_url{'id_article',#ID_ARTICLE}|parametre_url{'id_document',#ID_DOCUMENT})]" class="noborder">[(#LOGO_DOCUMENT||image_reduire{135,0})]</a></dt>
-							</BOUCLE_documents2>
-						</dl></B_documents2>
-						</BOUCLE_portfolio_article_numero_special></B_portfolio_article_numero_special>
-
-						<B_portfolio_article_consultable><BOUCLE_portfolio_article_consultable(ARTICLES){id_article}{titre_mot=article consultable}{doublons specialPortfolio2}><B_documents3>
-						<h2>portfolio</h2>
-						<dl class="NumeroContexte">
-							<BOUCLE_documents3(DOCUMENTS){id_article}{mode=document}{doublons excluDoc}{0,1}>
-							<dt><a href="[(#URL_PAGE{portfolio}|parametre_url{'id_article',#ID_ARTICLE}|parametre_url{'id_document',#ID_DOCUMENT})]" class="noborder">[(#LOGO_DOCUMENT||image_reduire{135,0})]</a></dt>
-							</BOUCLE_documents3>
-						</dl></B_documents3>
-						</BOUCLE_portfolio_article_consultable></B_portfolio_article_consultable>
-						<//B_portfolio_article_consultable>
-						<//B_portfolio_article_numero_special>
-						<//B_portfolio_article_integral>
 
 						<BOUCLE_documenta(MOTS){id_article}{type=documenta}{0,1}>
 						<h2>Documenta 12 magazine</h2>
