@@ -8,7 +8,7 @@
   [<meta name="description" lang="#LANG" content="(#DESCRIPTIF_SITE_SPIP|textebrut)" />]
   <meta name="verify-v1" content="6i/5GHVmIKr6dBO/QkNcnkz0FdlUnTxjkAsaDaeoHEA=" />
   <INCLURE{fond=inc-head}>
-  
+
 </head>
 
 <body>
@@ -28,16 +28,16 @@
         </div>
         <div class="rien"> </div>
       </div>
-      
-      
+
+
       <div id="Contenu1" class="CAccueil">
         <BOUCLE_index(RUBRIQUES){titre==index}><BOUCLE_actuellement(RUBRIQUES){id_parent}{!par titre}{0,1}{doublons}>
         <div id="ColPrincipale" class="Accueil">
           <h2>actuellement en librairies&nbsp;: [(#TITRE|supprimer_numero)]<BOUCLE_saison(ARTICLES){id_rubrique}{par date}{0,1}> - [(#DATE|saison)] [(#DATE|annee)]</BOUCLE_saison></h2>
-          <a href="#URL_RUBRIQUE" title="consulter le sommaire de [(#TITRE|supprimer_numero|textebrut)]" class="ActuellementCouv noborder">[(#LOGO_RUBRIQUE||image_reduire{210,0}|inserer_attribut{alt,[(#TITRE|supprimer_numero|textebrut)]})]</a>
+          <a href="#URL_RUBRIQUE" title="consulter le sommaire de [(#TITRE|supprimer_numero|textebrut)]" class="ActuellementCouv noborder">[(#LOGO_RUBRIQUE||image_reduire{210,0}|inserer_attribut{alt,[(#TITRE|supprimer_numero|textebrut)]}|inserer_attribut{class,"couverture"})]</a>
           <div class="ActuellementSommaire">
             <h3>&agrave; la une</h3>
-            
+
             <dl class="SommaireCourt">
               <B_sommaire_court>
               <BOUCLE_sommaire_court(RUBRIQUES){id_parent}{titre_mot==affichage Une}>
@@ -50,7 +50,7 @@
               <dd>[(#DESCRIPTIF|PtoBR)]</dd>
               </BOUCLE_sommaire_court_art>
             </dl>
-            
+
             <ul>
               <li><a href="#URL_RUBRIQUE" class="plus"><span>&raquo;</span> le sommaire complet</a></li>
               <li><a href="rubrique11.html" class="plus"><span>&raquo;</span> vous abonner</a></li>
@@ -58,10 +58,10 @@
               <li><a href="rubrique127.html" class="plus"><span>&raquo;</span> acheter en librairie</a></li>
             </ul>
           </div>
-          
+
           <div class="rien"> </div>
         </div>
-        
+
         <div id="ColSecondaire">
           <div class="CS">
             <h4 id="ArtEnligne">articles en ligne</h4>
@@ -88,10 +88,10 @@
             <BOUCLE_index2(RUBRIQUES){titre==index}><BOUCLE_exclusion_speciaux(RUBRIQUES){id_parent}{titre_mot=numero special}{doublons}></BOUCLE_exclusion_speciaux>
             <BOUCLE_precedents(RUBRIQUES){id_parent}{titre_mot!=numero special}{!par titre}{0,4}{doublons}>
             <div class="NumeroApercu">
-              <a href="#URL_RUBRIQUE" class="imgCouv noborder" title="consulter le sommaire de [(#TITRE|supprimer_numero|textebrut)]<BOUCLE_saison_num_preced(ARTICLES){branche}{0,1}{par date}>[ - (#DATE|saison)] [(#DATE|annee)]</BOUCLE_saison_num_preced>">[(#LOGO_RUBRIQUE||image_reduire{120,0}|inserer_attribut{alt,[(#TITRE|supprimer_numero|textebrut)]})]</a>
+              <a href="#URL_RUBRIQUE" class="imgCouv noborder" title="consulter le sommaire de [(#TITRE|supprimer_numero|textebrut)]<BOUCLE_saison_num_preced(ARTICLES){branche}{0,1}{par date}>[ - (#DATE|saison)] [(#DATE|annee)]</BOUCLE_saison_num_preced>">[(#LOGO_RUBRIQUE||image_reduire{120,0}|inserer_attribut{alt,[(#TITRE|supprimer_numero|textebrut)]}|inserer_attribut{class,couverture})]</a>
               <div class="NA">
                 <h3>[(#TITRE|supprimer_numero)]<BOUCLE_saison_num_preced2(ARTICLES){branche}{par date}{0,1}{lang=fr}>[ - (#DATE|saison)] [(#DATE|annee)]</BOUCLE_saison_num_preced2></h3>
-                
+
                 <dl>
                   <B_sommaire_court2>
                   <BOUCLE_sommaire_court2(RUBRIQUES){id_parent}{titre_mot==affichage Une}>
@@ -102,7 +102,7 @@
                   <dt>[(#DESCRIPTIF|PtoBR)]</dt>
                   <//B_sommaire_court2>
                 </dl>
-                
+
                 <ul>
                   <li><a href="#URL_RUBRIQUE" class="plus"><span>&raquo;</span> le sommaire complet</a></li>
                   <li><a href="rubrique12.html" class="plus"><span>&raquo;</span> commander</a></li>
@@ -117,7 +117,7 @@
             </div>
             </BOUCLE_index2>
           </div>
-          
+
           <div id="CPCol2">
             <BOUCLE_rubrique_actu(RUBRIQUES){id_rubrique=82}>
             <B_actus_recentes>
@@ -134,7 +134,7 @@
             </div>
             </BOUCLE_rubrique_actu>
           </div>
-          
+
           <div id="CPCol3">
             #FORMULAIRE_RECHERCHE
             <h2>la lettre de Vacarme</h2>
@@ -146,7 +146,7 @@
             </div>
             </BOUCLE_rub_apropos>
           </div>
-          
+
         <div class="rien"> </div>
         <INCLURE{fond=PiedPage}>
       </div>

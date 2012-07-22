@@ -181,3 +181,11 @@ html > #BIndexResultats.Auteurs {
   background:url(../images/commun/FiletPiedDePage.png) no-repeat 100% 0;
   margin:1.5em 0 0; padding:0.9em 2em 0 0;
 }
+
+/* Couvertures numéros */
+.couverture {
+   -webkit-box-shadow: 5px 5px 8px rgba(0,0,0,0.6);
+      -moz-box-shadow: 5px 5px 8px rgba(0,0,0,0.6);
+        -o-box-shadow: 5px 5px 8px rgba(0,0,0,0.6);
+           box-shadow: 5px 5px 8px rgba(0,0,0,0.6);
+}

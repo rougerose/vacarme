@@ -3,7 +3,8 @@
           <div id="Couverture">
             <dl class="NumeroContexte">
               <dt>
-                  <a href="#gdformat" title="afficher la couverture de [(#TITRE|supprimer_numero|textebrut)] <BOUCLE_saison_couv2(ARTICLES){id_rubrique}{par date}{inverse}{0,1}>([(#DATE|saison)] [(#DATE|annee)])</BOUCLE_saison_couv2>" class="noborder" id="CouvVacarme">[(#LOGO_RUBRIQUE||image_reduire{100,0}|inserer_attribut{alt,[(#TITRE|supprimer_numero|textebrut)]})][<span>(#LOGO_RUBRIQUE||inserer_attribut{class,Couverture})</span>]</a>
+                 [(#SET{url_logo,[(#LOGO_RUBRIQUE|#URL_DOCUMENT|image_reduire{400,0}|extraire_attribut{src})]})]
+                  <a href="[(#GET{url_logo})]" title="afficher la couverture de [(#TITRE|supprimer_numero|textebrut)] <BOUCLE_saison_couv2(ARTICLES){id_rubrique}{par date}{inverse}{0,1}>([(#DATE|saison)] [(#DATE|annee)])</BOUCLE_saison_couv2>" class="noborder mediabox" id="CouvVacarme">[(#LOGO_RUBRIQUE||image_reduire{100,0}|inserer_attribut{class,couverture}|inserer_attribut{alt,[(#TITRE|supprimer_numero|textebrut)]})]</a>
               </dt>
               <dd><a href="#URL_RUBRIQUE" class="plus"><span>&raquo;</span> consulter le sommaire</a></dd>
               <BOUCLE_abonnement_couv(ARTICLES){id_rubrique}{age<=92}>
@@ -17,15 +18,15 @@
             <p class="nb documenta">[<a href="article589.html" class="noborder">(#LOGO_MOT||image_reduire{100,0}|inserer_attribut{alt,[Ce num&eacute;ro (#DESCRIPTIF|textebrut)]})</a>]<br />[Ce num&eacute;ro (#DESCRIPTIF|PtoBR)]</p>
             </BOUCLE_documenta></BOUCLE_rub_encours>
           </div>
-          
+
           <div id="IndexNumAut">
             <div id="IN">
               <BOUCLE_rub_courante(RUBRIQUES){id_rubrique}>
-              <p class="Descriptif infos">Vous consultez la rubrique 
+              <p class="Descriptif infos">Vous consultez la rubrique
                 <B_mot_rub><BOUCLE_mot_rub(MOTS){id_rubrique}{type=@rubriques}>
-                [<em>(#TITRE|supprimer_numero)</em>] de 
+                [<em>(#TITRE|supprimer_numero)</em>] de
                 </BOUCLE_mot_rub></B_mot_rub>
-                [<em>(#TITRE|supprimer_numero)</em>] de 
+                [<em>(#TITRE|supprimer_numero)</em>] de
                 <//B_mot_rub>
                 <BOUCLE_couverture2(HIERARCHIE){tout}{1,1}><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></BOUCLE_couverture2>.
                 <B_definition><BOUCLE_definition(MOTS){id_rubrique}{type=@definitions}>[ (#TEXTE|PtoBR)]</BOUCLE_definition></B_definition>
@@ -45,5 +46,4 @@
               </BOUCLE_sommaire_rub_numero2>
             </div>
           </div>
-          
-          
+

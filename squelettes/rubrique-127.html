@@ -16,20 +16,20 @@
         <INCLURE{fond=logo}>
         <INCLURE{fond=navigation}{id_rubrique}>
       </div>
-      
+
       <div id="Contenu1" class="CRubrique">
         <div id="ColPrincipale" class="CRTypeB Librairies Info">
-          
+
           <h2>Vacarme en libraires</h2>
           [<p class="Descriptif">(#DESCRIPTIF|PtoBR)</p>]
-          
+
 
           <div id="notes">
             <h3>Votre librairie n'est pas dans les r&eacute;sultats propos&eacute;s&nbsp;?</h3>
             <p class="DescriptifNotes">[<img src="(#CHEMIN{images/commun/Puce.png})" width="6" height="13" alt="-" />] <em>Vous &ecirc;tes lectrice/lecteur :</em> vous pouvez commander un num&eacute;ro soit aupr&egrave;s de votre libraire (pr&eacute;cisez-lui que Vacarme est diffus&eacute;e par les Belles Lettres) soit <a href="rubrique12.html">directement sur notre site</a>.</p>
             <p class="DescriptifNotes">[<img src="(#CHEMIN{images/commun/Puce.png})" width="6" height="13" alt="-" />] <em>Vous &ecirc;tes libraire :</em> vous souhaitez &ecirc;tre r&eacute;pertori&eacute; dans notre liste des librairies vendant r&eacute;guli&egrave;rement Vacarme ? <a href="#URL_PAGE{contact}">Contactez-nous</a>.</p>
           </div>
-          
+
           <div class="rien"> </div>
         </div>
 
@@ -56,7 +56,7 @@
               </dl>
               </BOUCLE_critere>
             </div>
-            
+
             <div class="CScol2">
               <form action="#SELF" method="get" class="Formulaire">
                 <p class="Label"><label for="MenuPays">Librairies &agrave; l'&eacute;tranger :<br />recherche par pays</label></p>
@@ -68,7 +68,7 @@
                 </select>
                 <input type="submit" value="ok" class="bouton" /></p>
               </form>
-              
+
               <BOUCLE_critere2(MOTS){id_mot=#ENV{pays}}{par titre}>
               <h2>[(#TITRE|supprimer_numero)] <BOUCLE_compteur2(BREVES){id_mot}></BOUCLE_compteur2>[&#040;(#TOTAL_BOUCLE)[(#TOTAL_BOUCLE|>{1}|?{' librairies',' librairie'})]&#041;]<//B_compteur2></h2>
               <dl class="Librairies">
@@ -78,7 +78,7 @@
                 </BOUCLE_resultats2>
               </dl>
               </BOUCLE_critere2>
-              
+
             </div>
           </div>
         </div>
@@ -92,7 +92,7 @@
           <h2>actuellement en librairies</h2>
           <dl class="NumeroContexte">
             <dt>
-              <a href="#URL_RUBRIQUE" title="consulter le sommaire de [(#TITRE|supprimer_numero|textebrut)] <BOUCLE_saison3(ARTICLES){id_article}>([(#DATE|saison)] [(#DATE|annee)])</BOUCLE_saison3>" class="noborder">[(#LOGO_RUBRIQUE||image_reduire{140,0}|inserer_attribut{alt,[(#TITRE|supprimer_numero|textebrut)]})]</a>
+              <a href="#URL_RUBRIQUE" title="consulter le sommaire de [(#TITRE|supprimer_numero|textebrut)] <BOUCLE_saison3(ARTICLES){id_article}>([(#DATE|saison)] [(#DATE|annee)])</BOUCLE_saison3>" class="noborder">[(#LOGO_RUBRIQUE||image_reduire{140,0}|inserer_attribut{class,couverture}|inserer_attribut{alt,[(#TITRE|supprimer_numero|textebrut)]})]</a>
             </dt>
             <dd><a href="#URL_RUBRIQUE" class="plus" title="consulter le sommaire"><span>&raquo;</span> consulter le sommaire</a></dd>
             <dd><a href="rubrique11.html" class="plus"><span>&raquo;</span> s'abonner</a></dd>

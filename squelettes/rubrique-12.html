@@ -17,7 +17,7 @@
         <INCLURE{fond=logo}>
         <INCLURE{fond=navigation}{id_rubrique}>
       </div>
-      
+
       <div id="Contenu" class="Textes">
         <div id="ColPrincipale">
           <BOUCLE_article_1(ARTICLES){id_rubrique}{par num titre}{0,1}{doublons}>
@@ -30,7 +30,7 @@
             <BOUCLE_numeros(RUBRIQUES){id_parent}{par titre}{inverse}>
                 <li id="<?php $id = ereg_replace("[[:space:]]","","[(#TITRE|supprimer_numero|texte_script)]");echo $id;?>" class="CommandeItem<BOUCLE_numero_epuise(MOTS){id_rubrique}{id_mot=108}> Indisponible</BOUCLE_numero_epuise>">
                   <div class="CommandeItemImage">
-                    [<a href="#URL_RUBRIQUE" class="noborder" title="Consulter le sommaire de [(#TITRE|supprimer_numero|textebrut)]">(#LOGO_RUBRIQUE||image_reduire{100,0}|inserer_attribut{alt,[(#TITRE|supprimer_numero|textebrut)]})</a>]
+                    [<a href="#URL_RUBRIQUE" class="noborder" title="Consulter le sommaire de [(#TITRE|supprimer_numero|textebrut)]">(#LOGO_RUBRIQUE||image_reduire{100,0}|inserer_attribut{class,couverture}|inserer_attribut{alt,[(#TITRE|supprimer_numero|textebrut)]})</a>]
                   </div>
                   <p>[(#TITRE|supprimer_numero)] <span class="prix"><BOUCLE_prix(MOTS){id_rubrique}{type=@prix}>[(#TITRE|supprimer_numero) &euro;]</BOUCLE_prix></span></p>
                   <BOUCLE_numero_epuise_image(MOTS){id_rubrique}{id_mot=108}>[<img src="(#CHEMIN{images/commun/numero-epuise.png})" width="123" height="36" alt="Num&eacute;ro &eacute;puis&eacute;" class="Indisponible" />]</BOUCLE_numero_epuise_image>
@@ -38,7 +38,7 @@
                     <p><label for="<?php $id = ereg_replace("[[:space:]]","","[(#TITRE|supprimer_numero|texte_script)]");echo $id;?>" class="Commande">Nombre d'exemplaire</label>
                     <select name="<?php $id = ereg_replace("[[:space:]]","","[(#TITRE|supprimer_numero|texte_script)]");echo $id;?>" onchange="Commande(this)" class="ChampsTexte"<BOUCLE_numero_epuise2(MOTS){id_rubrique}{id_mot=108}> disabled</BOUCLE_numero_epuise2>>
                       <option selected="selected"></option>
-                      <?php 
+                      <?php
                       for ($i=1; $i <= 10; $i++) {
                         echo "<option value=\"".$i."\">".$i."</option>"."\n                      ";
                       }

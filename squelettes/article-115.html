@@ -98,7 +98,7 @@ function auteur_et_auteur($texte) {
 						<h2><BOUCLE_trad_publication(ARTICLES){id_article}><:publie:></BOUCLE_trad_publication> <a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)] <BOUCLE_saison(ARTICLES){id_article}>[(#DATE|saison)] [(#DATE|annee)]</BOUCLE_saison></a></h2>
 						<dl class="NumeroContexte">
 							<dt>
-								<a href="#URL_RUBRIQUE" title="consulter le sommaire de [(#TITRE|supprimer_numero|textebrut)] <BOUCLE_saison2(ARTICLES){id_article}>([(#DATE|saison)] [(#DATE|annee)])</BOUCLE_saison2>" class="noborder">[(#LOGO_RUBRIQUE||image_reduire{140,0}|inserer_attribut{alt,[(#TITRE|supprimer_numero|textebrut)]})]</a>
+								<a href="#URL_RUBRIQUE" title="consulter le sommaire de [(#TITRE|supprimer_numero|textebrut)] <BOUCLE_saison2(ARTICLES){id_article}>([(#DATE|saison)] [(#DATE|annee)])</BOUCLE_saison2>" class="noborder">[(#LOGO_RUBRIQUE||image_reduire{140,0}|inserer_attribut{class,couverture}|inserer_attribut{alt,[(#TITRE|supprimer_numero|textebrut)]})]</a>
 							</dt>
 							<dd><a href="#URL_RUBRIQUE" class="plus"><span>&raquo;</span> consulter le sommaire</a></dd>
 							<BOUCLE_abonnement(ARTICLES){id_article}{age<=92}>
