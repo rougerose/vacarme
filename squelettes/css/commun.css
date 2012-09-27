@@ -89,7 +89,7 @@ a:hover, #FilAriane a:hover, #Portfolio #FA a:hover, dt a.INauteurs:hover {
   float:left;
   margin:0;
   padding:0;
-  
+
 }
 #Navigation a, #PiedDePage a {
   display:block;
@@ -426,7 +426,7 @@ padding: 2px;
 
 #CouvVacarme:hover span{ /*CSS for enlarged image on hover*/
 visibility: visible;
-left: 100px; /*position where enlarged image should offset horizontally */ 
+left: 100px; /*position where enlarged image should offset horizontally */
 }
 
 /* -------------
@@ -482,7 +482,7 @@ p.lienTraduction {
   background:url(../images/commun/Puce.png) no-repeat 0 -2px;
 }
 #ps, #notes {
-  font-size:1em; 
+  font-size:1em;
   line-height:1.2em;
   margin-bottom:1.5em;
 }
@@ -511,10 +511,9 @@ blockquote.spip {
   border: 0 none;
 }
 .spip_doc_titre, .spip_doc_descriptif {
-  font-family: Helvetica,Arial,sans-serif;
-  color:#666;
-  text-align:center;
-  font-size:.9em;
+   font: 0.9em/1.2em Helvetica,Arial,sans-serif;
+   color:#666;
+   text-align:center;
 }
 .spip_documents {
   margin:O;
@@ -528,6 +527,10 @@ blockquote.spip {
 }
 .spip_documents_center {
   text-align:center;
+}
+.spip_documents_center .spip_doc_titre,
+.spip_documents_center .spip_doc_descriptif {
+   margin: 0 auto;
 }
 .ombre {
   float: left;
@@ -663,7 +666,7 @@ ul.ContexteListes li.select {
 }
 #ColPrincipale.CRTypeB #notes {
   font-size:1.1em; line-height:1.4em;
-  padding:5px; 
+  padding:5px;
   margin-bottom:0;
   margin-top:.5em;
   background-color:#eee;
@@ -1028,9 +1031,9 @@ table.spip td {
 .cadeauTexte .documents {
 	margin:0 0 2em;
 	padding: 0;
-	
+
 }
-	
+
 .cadeauTexte .doc_titre, .cadeauTexte .doc_descriptif, .cadeauTexte .doc_telechargement, .cadeauTexte .doc_credit, .cadeauTexte .doc_streaming {
 	color: #fff;
 	font-size: .95em;
@@ -1133,4 +1136,10 @@ ol.messagesForum p.auteurForum {
 p.pagination {
     text-align:right;
     margin: 1.5em 0;
+}
+
+#texte ins {
+   font-size: 1.1em;
+   font-weight: bold;
+   text-decoration: none;
 }
