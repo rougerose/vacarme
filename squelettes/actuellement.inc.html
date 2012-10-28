@@ -1,14 +1,13 @@
 <BOUCLE_index(RUBRIQUES){racine}{titre==index}{0,1}><B_actuellement>
-            <h2 class="TitreFilet">actuellement en librairies</h2>
-            <dl class="NumeroContexte">
-              <BOUCLE_actuellement(RUBRIQUES){id_parent}{par titre}{inverse}{0,1}>
-              <dt>
-                  <a href="#URL_RUBRIQUE" title="consulter le sommaire de [(#TITRE|supprimer_numero|textebrut)] <BOUCLE_saison3(ARTICLES){id_article}>([(#DATE|saison)] [(#DATE|annee)])</BOUCLE_saison3>" class="noborder">[(#LOGO_RUBRIQUE||image_reduire{140,0}|inserer_attribut{class,couverture}|inserer_attribut{alt,[(#TITRE|supprimer_numero|textebrut)]})]</a>
-              </dt>
-              <dd><a href="#URL_RUBRIQUE" class="plus" title="consulter le sommaire"><span>&raquo;</span> consulter le sommaire</a></dd>
-              <dd><a href="rubrique11.html" class="plus"><span>&raquo;</span> s'abonner</a></dd>
-              <dd><a href="rubrique12.html" class="plus"><span>&raquo;</span> commander</a></dd>
-              <dd><a href="rubrique127.html" class="plus"><span>&raquo;</span> acheter en librairie</a></dd>
-              </BOUCLE_actuellement>
-            </dl>
-            </B_actuellement></BOUCLE_index>
+<h2 class="TitreFilet">actuellement en librairies</h2>
+<dl class="NumeroContexte">
+  <BOUCLE_actuellement(RUBRIQUES){id_parent}{par titre}{inverse}{0,1}>
+  <dt>
+      <a href="#URL_RUBRIQUE" title="consulter le sommaire de [(#TITRE|supprimer_numero|textebrut)] <BOUCLE_saison3(ARTICLES){id_article}>([(#DATE|saison)] [(#DATE|annee)])</BOUCLE_saison3>" class="noborder">[(#LOGO_RUBRIQUE||image_reduire{140,0}|inserer_attribut{class,couverture}|inserer_attribut{alt,[(#TITRE|supprimer_numero|textebrut)]})]</a>
+  </dt>
+  <dd>
+     #INCLURE{fond=inclure/liens_numero,id_rubrique}
+  </dd>
+  </BOUCLE_actuellement>
+</dl>
+</B_actuellement></BOUCLE_index>

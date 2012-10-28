@@ -609,7 +609,7 @@ dl.NumeroContexte {
   line-height:1.2em;
 }
 dl.NumeroContexte dt {
-  margin:0 0 0 16px;
+  margin:0 0 .8em 16px;
 }
 dl.NumeroContexte dd {
   margin:0 0 0 16px; padding-bottom:0.2em;
@@ -619,7 +619,7 @@ dl.NumeroContexte dd {
   margin:0;
 }
 #Couverture dl.NumeroContexte dt, #Couverture dl.NumeroContexte dd {
-  margin:0;
+  margin:0 0 .8em;
 }
 ul.ContexteListes {
   font-size:1.1em;

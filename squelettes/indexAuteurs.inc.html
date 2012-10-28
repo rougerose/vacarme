@@ -4,7 +4,7 @@
           <div id="IndexNumAut">
             <div id="IA">
               <dl>
-                <dt class="nb">Le point vert &#091;[<img src="(#CHEMIN{images/commun/puce-article-integral.png})" width="9" height="9" alt="article en version int&eacute;grale" class="articleIntegral" />]&#093; indique que le  texte est disponible en version int&eacute;grale.<br />Vacarme aime la gratuit&eacute;, mais l'avenir d'une revue d&eacute;pend <a href="rubrique11.html">de ses abonn&eacute;s.</a></dt>
+                <dt class="nb">Le point vert &#091;[<img src="(#CHEMIN{images/commun/puce-article-integral.png})" width="9" height="9" alt="article en version int&eacute;grale" class="articleIntegral" />]&#093; indique que le  texte est disponible en version int&eacute;grale.</dt>
                 <BOUCLE_auteurs(AUTEURS){nom==#ENV{auteur,^aA}}{par nom}>
                 <dt id="[(#NOM|nom|supprimer_espace|supprimer_tags)]">[(#NOM|prenom_nom)]</dt>
                 <BOUCLE_articles_auteurs(ARTICLES){id_auteur}{par date}{inverse}>
@@ -13,4 +13,3 @@
               </dl>
             </div>
           </div>
-          

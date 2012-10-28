@@ -6,13 +6,11 @@
                  [(#SET{url_logo,[(#LOGO_RUBRIQUE|#URL_DOCUMENT|image_reduire{400,0}|extraire_attribut{src})]})]
                   <a href="[(#GET{url_logo})]" title="afficher la couverture de [(#TITRE|supprimer_numero|textebrut)] <BOUCLE_saison_couv2(ARTICLES){id_rubrique}{par date}{inverse}{0,1}>([(#DATE|saison)] [(#DATE|annee)])</BOUCLE_saison_couv2>" class="noborder mediabox" id="CouvVacarme">[(#LOGO_RUBRIQUE||image_reduire{100,0}|inserer_attribut{class,couverture}|inserer_attribut{alt,[(#TITRE|supprimer_numero|textebrut)]})]</a>
               </dt>
-              <dd><a href="#URL_RUBRIQUE" class="plus"><span>&raquo;</span> consulter le sommaire</a></dd>
-              <BOUCLE_abonnement_couv(ARTICLES){id_rubrique}{age<=92}>
-              <dd><a href="rubrique11.html" class="plus"><span>&raquo;</span> s'abonner</a></dd>
-              </BOUCLE_abonnement_couv>
-              <dd><a href="rubrique12.html" class="plus"><span>&raquo;</span> commander</a></dd>
+              <dd>
+                 #INCLURE{fond=inclure/liens_numero,id_rubrique,sommaire=non}
+              </dd>
             </dl>
-            <p class="nb">Le point vert &#091;[<img src="(#CHEMIN{images/commun/puce-article-integral.png})" width="9" height="9" alt="article en version int&eacute;grale" class="articleIntegral" />]&#093; indique que le  texte est disponible en version int&eacute;grale.<br /><br />Vacarme aime la gratuit&eacute;, mais l'avenir d'une revue d&eacute;pend <a href="rubrique11.html">de ses abonn&eacute;s.</a></p>
+            <p class="nb">Le point vert &#091;[<img src="(#CHEMIN{images/commun/puce-article-integral.png})" width="9" height="9" alt="article en version int&eacute;grale" class="articleIntegral" />]&#093; indique que le  texte est disponible en version int&eacute;grale.</p>
             <BOUCLE_documenta(MOTS){id_rubrique}{type=Documenta}>
             <p class="nb documenta">[<a href="article589.html" class="noborder">(#LOGO_MOT||image_reduire{100,0}|inserer_attribut{alt,[Ce num&eacute;ro (#DESCRIPTIF|textebrut)]})</a>]<br />[Ce num&eacute;ro (#DESCRIPTIF|PtoBR)]</p>
             </BOUCLE_documenta>

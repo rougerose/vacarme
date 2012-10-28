@@ -11,6 +11,7 @@ body{
   background:#fff url(../images/commun/FondPage.png) repeat-y 50% 0;
   width:770px;
   margin:5px auto 0;
+  position: relative;
 }
 #FondPageHaut {
   background:transparent url(../images/commun/FondPageHaut.png) no-repeat 50% 0;

@@ -17,44 +17,11 @@
        </div>
       <div id="Contenu1" class="CRubrique">
         <div id="ColPrincipale" class="CRTypeB Abonner">
-          <BOUCLE_article_abonnement(ARTICLES){id_rubrique}{par num titre}{0,1}{doublons}>
           <h2>[(#TITRE|supprimer_numero)]</h2>
           [<div id="texte">
             (#TEXTE)
           </div>]
-          <div class="CRTypeC">
-            <div class="col1">
-              <div class="Tarifs">
-                <h3>4 num&eacute;ros (1 an)</h3>
-                <ul>
-                  <li>[<img src="(#CHEMIN{images/commun/badge-1an.png})" alt="40 euros" />]<br />40 &euro; au lieu de 48 &euro; <span>(pour la France. Pour l'international, l'abonnement &agrave; 4 num&eacute;ros est de 55 &euro;)</span></li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="col2">
-              <div class="Tarifs">
-                <h3>8 num&eacute;ros (2 ans)</h3>
-                <ul>
-                  <li>[<img src="(#CHEMIN{images/commun/badge-2ans.png})" alt="75 euros" />]<br />75 &euro; au lieu de 96 &euro; <span>(pour la France. Pour l'international, l'abonnement &agrave; 8 num&eacute;ros est de 100 &euro;)</span></li>
-                </ul>
-              </div>
-            </div>
-            <div class="col3">
-              <div class="Bulletin">
-                <BOUCLE_doc_abonnement(DOCUMENTS){id_article}{0,1}{mode=document}>
-                <h3>[(#TITRE)]</h3>
-                <ul>
-                  <li>[(#LOGO_DOCUMENT|#URL_DOCUMENT)][<br />(#DESCRIPTIF|PtoBR)]</li>
-                </ul>
-                </BOUCLE_doc_abonnement>
-              </div>
-            </div>
-          </div>
-          <div class="rien"> </div>
-          </BOUCLE_article_abonnement>
         </div>
-
         <div class="rien"> </div>
       </div>
 
@@ -67,10 +34,9 @@
             <dt>
               <a href="#URL_RUBRIQUE" title="consulter le sommaire de [(#TITRE|supprimer_numero|textebrut)] <BOUCLE_saison3(ARTICLES){id_article}>([(#DATE|saison)] [(#DATE|annee)])</BOUCLE_saison3>" class="noborder">[(#LOGO_RUBRIQUE||image_reduire{140,0}|inserer_attribut{class,couverture}|inserer_attribut{alt,[(#TITRE|supprimer_numero|textebrut)]})]</a>
             </dt>
-            <dd><a href="#URL_RUBRIQUE" class="plus" title="consulter le sommaire"><span>&raquo;</span> consulter le sommaire</a></dd>
-            <dd><a href="rubrique11.html" class="plus"><span>&raquo;</span> s'abonner</a></dd>
-            <dd><a href="rubrique12.html" class="plus"><span>&raquo;</span> commander</a></dd>
-            <dd><a href="rubrique127.html" class="plus"><span>&raquo;</span> acheter en librairie</a></dd>
+            <dd>
+               #INCLURE{fond=inclure/liens_numero,id_rubrique}
+            </dd>
             </BOUCLE_dernier_numero></BOUCLE_actuellement>
           </dl>
           </B_actuellement>
