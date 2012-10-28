@@ -1,9 +1,10 @@
 <hr class="invisible" />
-              <div id="Recherche">
-                <form action="[(#ENV{action})]" method="get" class="FormRecherche">
-                  [(#ENV{action}|form_hidden)]
-                  [<input type="hidden" name="lang" value="(#ENV{lang})" />]
-                  <p><input name="recherche" id="ChampsRecherche" class="ChampsTexte" value="[(#ENV{recherche})]" size="15" onfocus="this.value='';" /></p>
-                </form>
-              </div>
-              
+
+<div class="formulaire_spip formulaire_recherche" id="formulaire_recherche">
+<form action="[(#ENV{action})]" method="get"><div>
+	[(#ENV{action}|form_hidden)]
+	[<input type="hidden" name="lang" value="(#ENV{lang})" />]
+	<label class="label" for="recherche"><:info_rechercher_02:></label>
+	<input type="text" class="text" size="10" name="recherche" id="recherche"[ value="(#ENV{recherche})"] accesskey="4" /><input type="submit" class="submit" value="recherche" title="<:info_rechercher:>" />
+</div></form>
+</div>

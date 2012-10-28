@@ -1140,3 +1140,11 @@ p.pagination {
    font-weight: bold;
    text-decoration: none;
 }
+
+/* Boutons admin Spip */
+#spip-admin {
+   left: 0; right: auto;
+   font-family: Menlo, Courier, monospace;
+   font-size: 11px;
+
+}

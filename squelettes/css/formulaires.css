@@ -1,22 +1,5 @@
-#Recherche {
+form, fieldset {
   margin:0; padding:0;
-  text-align:right;
-  position:absolute;
-  top:82px;
-  top:43px;
-  left:auto;
-  width:180px;
-}
-#Recherche p {
-  margin:0;
-  text-align:right;
-}
-form {
-  margin:0; padding:0;
-}
-fieldset {
-  margin:1em 0;
-  border:1px solid gray;
 }
 #FormLettre {
   margin-bottom:2em;
@@ -84,7 +67,7 @@ select.error {
 .obligatoire {
   font-weight:bold;
   font-family:"Lucida Grande",Arial,sans-serif;
-  color:#900;
+  xcolor:#900;
 }
 .PreviewMail {
   font:1.1em "Lucida Grande",Arial,sans-serif;
@@ -93,9 +76,52 @@ select.error {
 }
 /*.PreviewMail h2,*/ legend {
   font-family:Helvetica,Verdana,Arial,sans-serif;
-  color:#900;
   font-size:1.2em;
 }
 .PreviewMessage {
   margin:.5em 0;
 }
+
+/* formulaire recherche */
+#formulaire_recherche {
+  margin:0; padding:0;
+  margin-right: 30px;
+  position:absolute; top:1em; right: 0;
+}
+#formulaire_recherche .label {display: none;}
+#formulaire_recherche .text {
+   width: 180px;
+}
+#formulaire_recherche .submit {
+   margin-left: 5px;
+}
+
+/* formulaire ecrire auteur */
+.formulaire_ecrire_auteur fieldset {border: none;}
+.formulaire_ecrire_auteur legend {
+   font-size: 1.5em;
+   color: #000;
+   margin: 0; padding: 0 0 1em;
+}
+.formulaire_ecrire_auteur .previsu {
+   border: 2px solid #900;
+   margin-bottom: 2em;
+   padding: 5px;
+}
+.formulaire_ecrire_auteur .previsu legend {color: #900;}
+.formulaire_ecrire_auteur li {margin-bottom: 1em;}
+.formulaire_ecrire_auteur label {
+   display: block;
+   margin-bottom: 0.5em;
+}
+.formulaire_ecrire_auteur textarea,
+.formulaire_ecrire_auteur .text {
+   font-size: 1.1em;
+   font-family: Menlo, Courier, monospace;
+   width: 440px;
+}
+
+/* Elements communs */
+.boutons {text-align: right;}
+.boutons .submit {font-size: 1.2em;}
+.erreur_message {font-weight: normal; color: #900;}
