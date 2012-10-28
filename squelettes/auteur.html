@@ -5,25 +5,24 @@
 <head>
   <title>#NOM_SITE_SPIP / [(#NOM|prenom_nom|textebrut)]</title>
   <meta name="description" lang="#LANG" content="index des articles de [(#NOM|prenom_nom|textebrut)] publi&eacute;s dans Vacarme" />
-  <INCLURE{fond=inc-head}>
+  <INCLURE{fond=inclure/head,env} />
 </head>
 
 <body>
   <div id="FondPage">
     <div id="FondPageHaut">&nbsp;</div>
     <div id="Conteneur">
-      <div id="Entete">
-        <INCLURE{fond=logo}>
-        
-        <INCLURE{fond=navigation}{id_rubrique=115}>
-      </div>
-      
+       <div id="Entete">
+          #INCLURE{fond=inclure/navigation,id_secteur=115,composition=rubrique}
+       </div>
+
+
       <div id="Contenu" class="Index">
-        
+
         <div id="ColPrincipale" class="CPIndex">
-          
+
           <INCLURE{fond=indexAuteurUnique.inc}{id_auteur}>
-          
+
         </div>
         <div id="ColSecondaire">
           <div class="CS">
@@ -56,11 +55,11 @@
             </div>
             <div class="rien"> </div>
             </div>
-            
+
             #FORMULAIRE_RECHERCHE
             <INCLURE{fond=actuellement.inc}>
-            
-          
+
+
         </div>
         <div class="rien"> </div>
         <INCLURE{fond=PiedPage}>

@@ -5,19 +5,18 @@
 <head>
   <title>#NOM_SITE_SPIP / [(#TITRE|supprimer_numero)]</title>
   [<meta name="description" lang="#LANG" content="(#DESCRIPTIF|textebrut)" />]
-  <INCLURE{fond=inc-head}>
-  
+  <INCLURE{fond=inclure/head,env} />
+
 </head>
 
 <body>
   <div id="FondPage">
     <div id="FondPageHaut">&nbsp;</div>
     <div id="Conteneur">
-      <div id="Entete">
-        <INCLURE{fond=logo}>
-        <INCLURE{fond=navigation}{id_rubrique}>
-      </div>
-      
+       <div id="Entete">
+          #INCLURE{fond=inclure/navigation,id_secteur,composition=rubrique}
+       </div>
+
       <div id="Contenu1" class="CRubrique">
         <div id="ColPrincipale" class="Apropos">
           <h1>[(#TITRE|supprimer_numero)]</h1>
@@ -48,7 +47,7 @@
             <p class="Descriptif">[<span class="Date">(#DATE|affdate) &ndash; </span>][(#INTRODUCTION) <a href="#URL_ARTICLE"><span>&raquo;</span> la suite</a>]</p>
           </div>
           </BOUCLE_articles_rub2>
-          
+
         </div>
 
         <div id="CPCol3">
@@ -56,7 +55,7 @@
           <h2>la lettre de Vacarme</h2>
           <p class="Descriptif"><a href="http://listes.rezo.net/mailman/listinfo/vacarme-infos">Recevez par email</a> l'actualit&eacute; de Vacarme</p>
           <INCLURE{fond=actuellement.inc}>
-          
+
         </div>
 
         <div class="rien"> </div>

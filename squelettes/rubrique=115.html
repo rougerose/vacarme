@@ -4,21 +4,19 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
 <head>
   <title>#NOM_SITE_SPIP / index des[(#ENV{numero}|=={''}|?{'',' '}) num&eacute;ros publi&eacute;s][(#ENV{auteur}|=={''}|?{'',' '}) auteurs publi&eacute;s][(#ENV{theme}|=={''}|?{'',' '}) th&egrave;mes][(#ENV{numero}|=={''}|?{' ',''})[(#ENV{auteur}|=={''}|?{' ',''})[(#ENV{theme}|=={''}|?{' ',''}) num&eacute;ros publi&eacute;s]]]</title>
-  <INCLURE{fond=inc-head}>
+  <INCLURE{fond=inclure/head,env} />
 </head>
 
 <body>
   <div id="FondPage">
     <div id="FondPageHaut">&nbsp;</div>
     <div id="Conteneur">
-      <div id="Entete">
-        <INCLURE{fond=logo}>
-        
-        <INCLURE{fond=navigation}{id_rubrique}>
-      </div>
-      
+       <div id="Entete">
+          #INCLURE{fond=inclure/navigation,id_secteur,composition=rubrique}
+       </div>
+
       <div id="Contenu" class="Index">
-        
+
         <div id="ColPrincipale" class="CPIndex">
           <B_index_auteurs>
           <BOUCLE_index_auteurs(AUTEURS){nom==#ENV{auteur,^aA}}{0,1}>
@@ -38,8 +36,8 @@
           <INCLURE{fond=indexNumeros.inc}{id_rubrique}{lang=#ENV{lang,fr}}>
           </BOUCLE_numero_encours2>
           <//B_numero_encours><//B_index_themes><//B_index_auteurs>
-          
-          
+
+
         </div>
         <div id="ColSecondaire">
           <div class="CS">
@@ -84,10 +82,10 @@
             </div>
             <div class="rien"> </div>
             </div>
-            
+
             #FORMULAIRE_RECHERCHE
             <INCLURE{fond=actuellement.inc}>
-          
+
         </div>
         <div class="rien"> </div>
         <INCLURE{fond=PiedPage}>

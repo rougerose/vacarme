@@ -4,24 +4,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG" lang="#LANG">
 <head>
   <title>#NOM_SITE_SPIP / [(#TITRE|supprimer_numero|textebrut)]</title>
-  <INCLURE{fond=inc-head}>
+  <INCLURE{fond=inclure/head,env} />
 </head>
 
 <body>
   <div id="FondPage">
     <div id="FondPageHaut">&nbsp;</div>
     <div id="Conteneur">
-      <div id="Entete">
-        <INCLURE{fond=logo}>
-        <INCLURE{fond=navigation}{id_rubrique=115}>
-      </div>
-      
+       <div id="Entete">
+          #INCLURE{fond=inclure/navigation,id_secteur=115,composition=rubrique}
+       </div>
+
       <div id="Contenu" class="Index">
-        
+
         <div id="ColPrincipale" class="CPIndex">
-          
+
           <INCLURE{fond=indexThemeUnique.inc}{id_mot}>
-          
+
         </div>
         <div id="ColSecondaire">
           <div class="CS">
@@ -37,7 +36,7 @@
             </div>
             <div id="BIndexResultats" class="Auteurs">
               <ul id="IndexResultats">
-                
+
                 <?php //affiche un abecedaire des themes
                 setlocale (LC_ALL, 'fr_FR');
                 $alphaMot=array();
@@ -49,16 +48,16 @@
                 foreach ($alphaMot as $valeurMot) {
                     echo "<li".($valeurMot == $selectMot ? " class=\"select\"" : "")."><a href=\"#URL_RUBRIQUE?theme=^$valeurMot\" title=\"Les th&egrave;mes commen&ccedil;ant par $valeurMot\">$valeurMot</a></li>\n";
                 } ?>
-                
+
               </ul>
               </BOUCLE_index>
             </div>
             <div class="rien"> </div>
             </div>
-            
+
             #FORMULAIRE_RECHERCHE
             <INCLURE{fond=actuellement.inc}>
-          
+
         </div>
         <div class="rien"> </div>
         <INCLURE{fond=PiedPage}>

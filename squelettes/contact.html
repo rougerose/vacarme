@@ -8,18 +8,18 @@
   <BOUCLE_mots_meta(MOTS){id_article}{par titre}>
   [<meta name="keywords" lang="#LANG" content="(#TITRE|supprimer_numero|textebrut)" />]
   </BOUCLE_mots_meta>
-  <INCLURE{fond=inc-head}>
+  <INCLURE{fond=inclure/head,env} />
 </head>
 
 <body>
   <div id="FondPage">
     <div id="FondPageHaut">&nbsp;</div>
     <div id="Conteneur">
-      <div id="Entete">
-        <INCLURE{fond=logo}>
-        <INCLURE{fond=navigation}{id_rubrique}>
-      </div>
-      
+       <div id="Entete">
+          #INCLURE{fond=inclure/navigation,id_secteur=10,composition=rubrique}
+       </div>
+
+
       <div id="Contenu" class="Textes">
         <div id="ColTitre">
           [<p class="surtitre">(#SURTITRE)</p>]
@@ -27,8 +27,8 @@
           [<p class="soustitre">(#SOUSTITRE)</p>]
         </div>
         <div id="ColPrincipale">
-          
-          
+
+
 
           [<div id="texte">
             (#TEXTE)
@@ -46,7 +46,7 @@
           <div class="CS">
             #FORMULAIRE_RECHERCHE
             <INCLURE{fond=actuellement.inc}>
-            
+
           </div>
         </div>
         <div class="rien"> </div>

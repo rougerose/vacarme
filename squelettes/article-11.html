@@ -9,14 +9,14 @@
   [<meta name="keywords" lang="#LANG" content="(#TITRE|supprimer_numero|textebrut)" />]
   </BOUCLE_mots_meta>
   <meta http-equiv="refresh" content="10;url=<BOUCLE_redirection(RUBRIQUES){id_rubrique}>#URL_SITE_SPIP/#URL_RUBRIQUE</BOUCLE_redirection>">
-  <INCLURE{fond=inc-head}>
+  <INCLURE{fond=inclure/head,env} />
 </head>
 <?php
 /*
 * Fonction auteur_et_auteur()
 * Auteur : Philippe Rivière <fil@rezo.net>
 * Copyright : GNU Public Licence
-* Rajouter un "et" à la place de la virgule entre les deux derniers 
+* Rajouter un "et" à la place de la virgule entre les deux derniers
 * auteurs d'une liste
 */
 function auteur_et_auteur($texte) {
@@ -26,11 +26,9 @@ function auteur_et_auteur($texte) {
   <div id="FondPage">
     <div id="FondPageHaut">&nbsp;</div>
     <div id="Conteneur">
-      <div id="Entete">
-        <INCLURE{fond=logo}>
-        <INCLURE{fond=navigation}{id_rubrique}>
-      </div>
-      
+       <div id="Entete">
+          #INCLURE{fond=inclure/navigation,id_rubrique,composition=rubrique}
+       </div>
       <div id="Contenu" class="Textes">
         <div id="ColTitre">
           [<p class="surtitre">(#SURTITRE)</p>]
@@ -39,7 +37,7 @@ function auteur_et_auteur($texte) {
         </div>
         <div id="ColPrincipale">
           <?php $tous_auteurs = auteur_et_auteur('<BOUCLE_signature(AUTEURS){id_article}{par nom}{nom!==^@} {", "}>[(#NOM|prenom_nom|texte_script) ]</BOUCLE_signature>'); if ($tous_auteurs) echo "<h2 class=\"Auteur\">par ".$tous_auteurs."</h2>"; ?>
-          
+
           [<div id="chapo">
             (#CHAPO)
           </div>]
@@ -58,7 +56,7 @@ function auteur_et_auteur($texte) {
         <div id="ColSecondaire">
           <div class="CS">
             <h2 class="DateSeule"><span>publi&eacute; le [(#DATE|affdate)]</h2>
-            
+
             <BOUCLE_test_PetitDossier(MOTS){id_article}{type=@petit dossier}{doublons}>
               <h2><span>dossier</span> [(#TITRE|supprimer_numero)]<span >&nbsp;/ sommaire</span></h2>
               <ul class="ContexteListes">
@@ -67,7 +65,7 @@ function auteur_et_auteur($texte) {
                 </BOUCLE_sommaire2>
               </ul>
               </BOUCLE_test_PetitDossier>
-            
+
             <B_themes>
             <h2>th&egrave;mes</h2>
             <ul class="ContexteListes">
@@ -76,10 +74,10 @@ function auteur_et_auteur($texte) {
               </BOUCLE_themes>
             </ul>
             </B_themes>
-            
+
             #FORMULAIRE_RECHERCHE
             <INCLURE{fond=actuellement.inc}>
-            
+
           </div>
         </div>
         <div class="rien"> </div>

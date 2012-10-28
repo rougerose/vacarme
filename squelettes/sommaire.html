@@ -7,8 +7,7 @@
   <title>[(#NOM_SITE_SPIP|textebrut)]</title>
   [<meta name="description" lang="#LANG" content="(#DESCRIPTIF_SITE_SPIP|textebrut)" />]
   <meta name="verify-v1" content="6i/5GHVmIKr6dBO/QkNcnkz0FdlUnTxjkAsaDaeoHEA=" />
-  <INCLURE{fond=inc-head}>
-
+  <INCLURE{fond=inclure/head,env} />
 </head>
 
 <body>
@@ -16,20 +15,8 @@
     <div id="FondPageHaut">&nbsp;</div>
     <div id="Conteneur">
       <div id="Entete">
-        <a href="#URL_SITE_SPIP" title="retour &agrave; la page d'accueil du site" id="Logo" class="noborder">[<img src="(#CHEMIN{images/commun/vacarme.png})" width="215" height="54" alt="Vacarme" />]</a>
-
-        <div id="Navigation"><BOUCLE_exclusion_temporaire(RUBRIQUES){titre==V1}{doublons temp}></BOUCLE_exclusion_temporaire><BOUCLE_zone_abonne(RUBRIQUES){id_zone=1}{doublons temp}></BOUCLE_zone_abonne>
-          <ul>
-            <li><a href="#URL_SITE_SPIP" title="retour &agrave; la page d'accueil" class="select">accueil</a></li>
-            <BOUCLE_navigation(RUBRIQUES){racine}{par num titre}{doublons temp}>
-            <li><a href="#URL_RUBRIQUE"[ class="(#EXPOSE{select})"] title="[(#TITRE|supprimer_numero|textebrut)]">[(#TITRE|supprimer_numero)]</a></li>
-            </BOUCLE_navigation>
-          </ul>
-        </div>
-        <div class="rien"> </div>
+         #INCLURE{fond=inclure/navigation,id_secteur,composition=sommaire}
       </div>
-
-
       <div id="Contenu1" class="CAccueil">
         <BOUCLE_index(RUBRIQUES){titre==index}><BOUCLE_actuellement(RUBRIQUES){id_parent}{!par titre}{0,1}{doublons}>
         <div id="ColPrincipale" class="Accueil">

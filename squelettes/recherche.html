@@ -4,28 +4,16 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=#CHARSET"/>
   <title>[(#NOM_SITE_SPIP|textebrut)] | Recherche</title>
-  <INCLURE{fond=inc-head}>
+  <INCLURE{fond=inclure/head,env} />
 </head>
 
 <body>
   <div id="FondPage">
     <div id="FondPageHaut">&nbsp;</div>
     <div id="Conteneur">
-      <div id="Entete">
-        <a href="#URL_SITE_SPIP" title="retour &agrave; la page d'accueil du site" id="Logo" class="noborder">[<img src="(#CHEMIN{images/commun/vacarme.png})" width="215" height="54" alt="Vacarme" />]</a>
-
-        <div id="Navigation">
-          <ul>
-            <li><a href="#URL_SITE_SPIP" title="retour &agrave; la page d'accueil">accueil</a></li>
-            <BOUCLE_navigation(RUBRIQUES){racine}{par num titre}>
-            <li><a href="#URL_RUBRIQUE"[ class="(#EXPOSE{select})"] title="[(#TITRE|supprimer_numero|textebrut)]">[(#TITRE|supprimer_numero)]</a></li>
-            </BOUCLE_navigation>
-          </ul>
-        </div>
-        <div class="rien"> </div>
-      </div>
-      
-        
+       <div id="Entete">
+          #INCLURE{fond=inclure/navigation,id_secteur,composition=rubrique}
+       </div>
       <div id="Contenu" class="Textes">
         <div id="ColTitre">
           <h1 class="Titre">Recherche&nbsp;: #RECHERCHE</h1>
@@ -36,7 +24,7 @@
           <B_articles>
           <div class="encadrement">
             #ANCRE_PAGINATION
-            
+
             <h2>Dans les articles : [(#GRAND_TOTAL) [(#GRAND_TOTAL|>{1}|?{'r&eacute;sultats','r&eacute;sultat'})]]</h2>
             [<p class="pagination">page (#PAGINATION{page})</p>]
             <BOUCLE_articles(ARTICLES){recherche}{par points}{inverse}{pagination 5}>
@@ -47,11 +35,11 @@
             [<p class="pagination">page (#PAGINATION{page})</p>]
           </div>
           </B_articles>
-          
+
           <B_breves>
             <div class="encadrement">
               #ANCRE_PAGINATION
-              
+
               <h2>Dans les br&egrave;ves : [(#GRAND_TOTAL) [(#GRAND_TOTAL|>{1}|?{'r&eacute;sultats','r&eacute;sultat'})]]</h2>
               [<p class="pagination">page (#PAGINATION{page})</p>]
               <BOUCLE_breves(BREVES){recherche}{par points}{inverse}{pagination 5}>
@@ -62,11 +50,11 @@
               [<p class="pagination">page (#PAGINATION{page})</p>]
             </div>
             </B_breves>
-          
+
           <B_rubriques>
           <div class="encadrement">
               #ANCRE_PAGINATION
-              
+
               <h2>Dans les rubriques : [(#GRAND_TOTAL) [(#GRAND_TOTAL|>{1}|?{'r&eacute;sultats','r&eacute;sultat'})]]</h2>
               [<p class="pagination">page (#PAGINATION{page})</p>]
               <BOUCLE_rubriques(RUBRIQUES){recherche}{par points}{inverse}{pagination 5}>
@@ -77,11 +65,11 @@
               [<p class="pagination">page (#PAGINATION{page})</p>]
             </div>
             </B_rubriques>
-            
+
             <B_mots>
               <div class="encadrement">
                 #ANCRE_PAGINATION
-                
+
                 <h2>Dans les mots-cl&eacute;s : [(#GRAND_TOTAL) [(#GRAND_TOTAL|>{1}|?{'r&eacute;sultats','r&eacute;sultat'})]]</h2>
                 [<p class="pagination">page (#PAGINATION{page})</p>]
                 <BOUCLE_mots(MOTS){recherche}{par points}{inverse}{pagination 5}{doublons}>
@@ -92,15 +80,15 @@
                 [<p class="pagination">page (#PAGINATION{page})</p>]
               </div>
               </B_mots>
-            
-          
+
+
         </div>
         <div id="ColSecondaire">
           <div class="CS">
-            
+
             #FORMULAIRE_RECHERCHE
             <INCLURE{fond=actuellement.inc}>
-            
+
           </div>
         </div>
         <div class="rien"> </div>

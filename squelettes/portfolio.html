@@ -8,16 +8,16 @@
   <BOUCLE_mots_meta(MOTS){id_article}{par titre}>
   [<meta name="keywords" lang="#LANG" content="(#TITRE|supprimer_numero|textebrut)" />]
   </BOUCLE_mots_meta>
-  <INCLURE{fond=inc-head}>
+  <INCLURE{fond=inclure/head,env} />
   [<link rel="stylesheet" href="(#CHEMIN{css/ecran_portfolio.css})" type="text/css" media="screen" />]
 </head>
 <!-- mise en page originale http://dbowman.com/photos/ -->
 <body id="Portfolio">
   <div id="Contenu">
-    
+
     <BOUCLE_compteur(DOCUMENTS){id_article}{extension==jpg|gif|png}></BOUCLE_compteur><?php $total=#TOTAL_BOUCLE; ?><//B_compteur>
     <?php $tableau_doc = array (<BOUCLE_position(DOCUMENTS){id_article}{extension==jpg|gif|png}{","}>#COMPTEUR_BOUCLE => #ID_DOCUMENT</BOUCLE_position>); ?>
-    
+
     <B_document>
     <BOUCLE_document(DOCUMENTS){id_article}{extension==jpg|gif|png}{mode=document}{id_document=#ENV{id_document}}>
     <div id="Descriptif">
@@ -28,11 +28,11 @@
     <div id="DescriptifSupp">
       <ul>
         <li class="Compteur">
-        <?php 
-        while ($cle_doc = current($tableau_doc)) { 
-          if ($cle_doc == '#ID_DOCUMENT') { 
-            echo "photo ".key($tableau_doc); 
-          } 
+        <?php
+        while ($cle_doc = current($tableau_doc)) {
+          if ($cle_doc == '#ID_DOCUMENT') {
+            echo "photo ".key($tableau_doc);
+          }
           next($tableau_doc);
           } echo " sur ".$total; ?>
         </li>
@@ -43,9 +43,9 @@
     <div id="Principal">
       <p id="photo"><span>[(#FICHIER|image_reduire{520,0}|inserer_attribut{'alt',#TITRE}|inserer_attribut{'title',#TITRE}|inserer_attribut{'style', ' '})]</span></p>
     </div>
-    
+
     <?php $h = #HAUTEUR; ?>
-    
+
     <div id="PrecedenteSuivante">
       <BOUCLE_photo_courante1(DOCUMENTS){id_document}>
       <B_photo_precedente><BOUCLE_photo_precedente(DOCUMENTS){id_article}{id_document<#ENV{id_document}}{par id_document}{inverse}{0,1}{mode=document}{extension==jpg|gif|png}>
@@ -69,11 +69,11 @@
     <p>Il n'y a aucune image &agrave; cette adresse. Retour &agrave; <a href="/">la page d'accueil du site</a></p>
     <//B_document>
   </div>
-  
+
   <div id="FA">
     <p><a href="/" title="accueil">accueil</a><B_hierarchie> &raquo; <BOUCLE_hierarchie(HIERARCHIE){id_article}{" &raquo; "}><a href="#URL_RUBRIQUE" title="[(#TITRE|supprimer_numero|textebrut)]" class="noborder">[(#TITRE|supprimer_numero)]</a></BOUCLE_hierarchie><BOUCLE_article_courant2(ARTICLES){id_article}> &raquo; <a href="#URL_ARTICLE"  title="[(#TITRE|supprimer_numero|textebrut)]" class="noborder">[(#TITRE|supprimer_numero)]</a></BOUCLE_article_courant2> &raquo; <a href="#SELF" class="select noborder">portfolio<BOUCLE_titre_document(DOCUMENTS){id_document=#ENV{id_document}}>[ : (#TITRE|supprimer_numero)]</BOUCLE_titre_document></a></p>
   </div>
-  
+
   <div id="PiedPage">
     <hr class="invisible" />
     <p class="droits">Sauf mention contraire, les droits de reproduction des images pr&eacute;sent&eacute;es dans ce portfolio appartiennent &agrave; son auteur-e.<br />Pour toute reproduction d'une ou plusieurs images, veuillez <a href="#URL_PAGE{contact}">nous contacter</a>.</p>

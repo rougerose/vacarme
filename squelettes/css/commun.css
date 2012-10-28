@@ -2,8 +2,8 @@
 =Typographie
 --------------- */
 a.plus, #Navigation, #PiedDePage, #FilAriane, #BIndexCategories, #BIndexResultats {
-  font:1em "Lucida Grande", Verdana, sans-serif;
-  letter-spacing:-0.09em;
+  font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  font-size: 1em;
 }
 
 /* -------------
@@ -14,7 +14,7 @@ a {
   color:#900;
 }
 #Navigation a, #PiedDePage a {
-  color:#444;
+  color:#999;
 }
 a.plus, h2 a {
   color:#90c;
@@ -24,17 +24,15 @@ a.plus {
 }
 dt a.INauteurs {
   color:#777;
-/*  font-size:1.1em;*/
 }
 a:visited {
-  xcolor:#300;
   border-bottom:1px dotted #c00;
 }
 #BIndexCategories a:visited, #BIndexResultats a:visited {
   border:none;
 }
 #Navigation a:visited, #PiedDePage a {
-  color:#444;
+  color:#999;
   border:none;
 }
 #FilAriane a:visited, #Portfolio #FA a:visited {
@@ -69,10 +67,9 @@ a:hover, #FilAriane a:hover, #Portfolio #FA a:hover, dt a.INauteurs:hover {
 =Navigation & =Pied de page
 --------------- */
 #Navigation, #PiedDePage {
-  word-spacing:0.2em;
   float:left;
   line-height:0.9em;
-  font-size:1em;
+  font-size:1.1em;
 }
 #Navigation {
   margin-left:230px;
@@ -102,7 +99,7 @@ a:hover, #FilAriane a:hover, #Portfolio #FA a:hover, dt a.INauteurs:hover {
 /* End IE5-Mac hack */
 #Navigation a:hover, #PiedDePage a:hover, #Navigation a.select {
   background-position:0% -38px;
-  color:#000;
+  color:#000; font-weight: normal;
 }
 
 /* -------------

@@ -8,7 +8,7 @@
 	<B_mots_meta>
 	<meta name="keywords" lang="#LANG" content="<BOUCLE_mots_meta(MOTS){id_article}{par titre}{doublons meta}{", "}>[(#TITRE|supprimer_numero|textebrut)]</BOUCLE_mots_meta>" />
 	</B_mots_meta>
-	<INCLURE{fond=inc-head}>
+	<INCLURE{fond=inclure/head,env} />
 
 	[(#REM)  constantes et vérifications ]
 	#SET{type,apercu}
@@ -35,11 +35,9 @@ function auteur_et_auteur($texte) {
 	<div id="FondPage">
 		<div id="FondPageHaut">&nbsp;</div>
 		<div id="Conteneur">
-			<div id="Entete">
-				<INCLURE{fond=logo}>
-				<INCLURE{fond=navigation}{id_rubrique}>
-			</div>
-
+         <div id="Entete">
+            #INCLURE{fond=inclure/navigation,id_secteur,composition=rubrique}
+         </div>
 			<div id="Contenu" class="Textes">
 				<div id="ColTitre">
 					<p class="tetiere"><BOUCLE_numero_encours(HIERARCHIE){tout}{1,1}><BOUCLE_rub_Vac(RUBRIQUES){id_rubrique}{doublons tetiere}> </BOUCLE_rub_Vac>[(#TITRE|supprimer_numero) / ]</BOUCLE_numero_encours><BOUCLE_tetiere_mot(MOTS){id_article}{type=@rubriques}>[(#TITRE|supprimer_numero)]</BOUCLE_tetiere_mot><BOUCLE_tetiere(RUBRIQUES){id_rubrique}{doublons tetiere}>[ <strong>(#TITRE|supprimer_numero)</strong>]</BOUCLE_tetiere></p>

@@ -1,0 +1,11 @@
+<a href="#URL_SITE_SPIP" title="retour &agrave; la page d'accueil du site" id="Logo" class="noborder" rel="start home">[<img src="(#CHEMIN{images/commun/vacarme.png})" width="215" height="54" alt="Vacarme" />]</a>
+<div id="Navigation">[(#REM) les entrées en dur. Plus propre, plus tard. ]
+   <ul>
+      <li><a href="#URL_SITE_SPIP" title="retour &agrave; la page d'accueil"[(#ENV{composition}|=={sommaire}|oui) class="select"] rel="start home">accueil</a></li>
+      <li><a href="#URL_RUBRIQUE{10}"[(#ENV{composition}|=={rubrique}|oui|et{#ENV{id_secteur}|=={10}|oui}) class="select"]>[(#INFO_TITRE{rubrique,10}|supprimer_numero)]</a></li>
+      <li><a href="#URL_RUBRIQUE{115}"[(#ENV{composition}|=={rubrique}|oui|et{#ENV{id_secteur}|=={115}|oui}) class="select"]>[(#INFO_TITRE{rubrique,115}|supprimer_numero)]</a></li>
+      <li><a href="http://commande.vacarme.org/?rubrique1">s'abonner</a></li>
+      <li><a href="http://commande.vacarme.org/?rubrique2">acheter</a></li>
+   </ul>
+</div>
+<div class="rien"> </div>

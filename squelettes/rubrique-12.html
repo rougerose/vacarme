@@ -5,7 +5,7 @@
 <head>
   <title>#NOM_SITE_SPIP / [(#TITRE|supprimer_numero)]</title>
   [<meta name="description" lang="#LANG" content="(#DESCRIPTIF|textebrut)" />]
-  <INCLURE{fond=inc-head}>
+  <INCLURE{fond=inclure/head,env} />
 </head>
 <body id="Commande">
   <div id="FondPage">
@@ -13,10 +13,9 @@
       &nbsp;
     </div>
     <div id="Conteneur">
-      <div id="Entete">
-        <INCLURE{fond=logo}>
-        <INCLURE{fond=navigation}{id_rubrique}>
-      </div>
+       <div id="Entete">
+          #INCLURE{fond=inclure/navigation,id_secteur,composition=rubrique}
+       </div>
 
       <div id="Contenu" class="Textes">
         <div id="ColPrincipale">
