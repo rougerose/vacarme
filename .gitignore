@@ -2,12 +2,34 @@
 .DS_Store
 
 # projet spip : tous les fichiers et dossiers sont ignores
-/*
+/ecrire
+/extensions
+/IMG
+/local
+/plugins
+/local
+/prive
+/squelettes-dist
+/tmp
+
+.tm_properties
+.ok
+.htaccess
+chmod.php
+connect.php
+index.php
+rien.gif
+spip.php
+svn.revision
+# sublime texte
+*.sublime-project
+*.sublime-workspace
 
 # excepte
-!.gitignore
-!/squelettes
-!/css
-!/images
-!/js
-!README
+#!.gitignore
+#!/squelettes
+#!/css
+#!/images
+#!/js
+#!README
+#!/config/mes_options.php
