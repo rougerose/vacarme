@@ -38,5 +38,6 @@ function autoriser_rubrique_redacteurchef_voirextra_dist($faire, $type, $id, $qu
     return autoriser('modifierextra', $type, $id, $qui, $opt);
 }
 
+// restrictions sur numéros de pages, voir mes_fonctions.php
 
 ?>
