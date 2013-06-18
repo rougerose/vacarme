@@ -1,4 +1,8 @@
 <?php
+// champs extra : restriction numeros de page : début/fin/total. Uniquement au secteur 115
+include_spip('inc/cextras_autoriser');
+restreindre_extras('article', array('page_debut','page_fin','pages_total'), 115, 'secteur');
+
 $GLOBALS['puce'] = "<img src='squelettes/images/commun/Puce.png' alt='-' class='puce'>";
 
 function intro($texte) {
