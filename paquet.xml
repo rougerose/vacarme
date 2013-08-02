@@ -1,0 +1,13 @@
+<paquet categorie="squelette" compatibilite="[3.0.10;[" etat="dev" logo="img/vacarme-128.png" prefix="vacarme" version="1.0.0">
+    <nom>Vacarme</nom>
+    <auteur lien="http://rouge-rose.net">christophe le drean</auteur>
+    <licence>GNU/GPL</licence>
+    <!-- <pipeline inclure="hepcoalition_pipelines.php" nom="insert_head_css"/>-->
+    <!-- <pipeline inclure="hepcoalition_pipelines.php" nom="insert_head"/>-->
+    <necessite compatibilite="[2.0.1;[" nom="Z5"/>
+    <necessite compatibilite="[2.2.1;[" nom="Zcore"/>
+    <!-- <necessite compatibilite="[3.3.2;[" nom="compositions"/> -->
+    <!-- <utilise nom="mll" compatibilite="[1.1.9;[" /> -->
+    <!-- <utilise compatibilite="[1.2.4;]" nom="menus"/>-->
+    <chemin path=""/>
+</paquet>
