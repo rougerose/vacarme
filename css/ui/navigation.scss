@@ -14,8 +14,8 @@
         top: 0;
         z-index: 200;
         padding-top: 6.6em;
-        // background-color: #ccc;
         // les éléments de navigation
+        // ======================================
         nav {
             background-color: #ccc;
             .js & {
@@ -39,15 +39,11 @@
             position: absolute;
             top: 0;
             left: -100%;
-            background-color: red;
         }
         // Affichage avec js
         // ======================================
         .js & {
-            // width: 70%;
-            // height: 100%;
-            // left: -70%;
-            background-color: #333;
+            background-color: $nav-bg;
         }
     }
 }
@@ -62,6 +58,7 @@
     .js & {
         .btn--nav-close {
             left: auto;
+            right: $base-spacing-unit;
         }
     }
     .js & {
@@ -82,34 +79,6 @@
         -o-backface-visibility: hidden;
         backface-visibility: hidden;
     }
-    // .csstransforms3d.js & nav {
-    //     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
-    //     opacity: 0.7;
-    //     -webkit-transition: opacity 300ms 100ms, -webkit-transform 500ms ease;
-    //     -webkit-transition-delay: ease, 0s;
-    //     -moz-transition: opacity 300ms 100ms ease, -moz-transform 500ms ease;
-    //     -o-transition: opacity 300ms 100ms ease, -o-transform 500ms ease;
-    //     transition: opacity 300ms 100ms ease, transform 500ms ease;
-    //     -webkit-transform: translate3d(70%, 0, 0) scale3d(0.9, 0.9, 0.9);
-    //     -moz-transform: translate3d(70%, 0, 0) scale3d(0.9, 0.9, 0.9);
-    //     -ms-transform: translate3d(70%, 0, 0) scale3d(0.9, 0.9, 0.9);
-    //     -o-transform: translate3d(70%, 0, 0) scale3d(0.9, 0.9, 0.9);
-    //     transform: translate3d(70%, 0, 0) scale3d(0.9, 0.9, 0.9);
-    //     -webkit-transform-origin: 50% 0%;
-    //     -moz-transform-origin: 50% 0%;
-    //     -ms-transform-origin: 50% 0%;
-    //     -o-transform-origin: 50% 0%;
-    //     transform-origin: 50% 0%;
-    // }
-    // .csstransforms3d.js & nav {
-    //     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-    //     opacity: 1;
-    //     -webkit-transform: translate3d(0, 0, 0);
-    //     -moz-transform: translate3d(0, 0, 0);
-    //     -ms-transform: translate3d(0, 0, 0);
-    //     -o-transform: translate3d(0, 0, 0);
-    //     transform: translate3d(0, 0, 0);
-    // }
 }
 
 /*-----  End of navigation  ------*/

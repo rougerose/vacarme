@@ -1722,6 +1722,99 @@ label,
   display: none; }
 
 /*------------------------------------*\
+    $SPRITE
+\*------------------------------------*/
+/**
+ * Giving an element a class of `.sprite` will throw it into ‘sprite’ mode and apply
+ * a background image e.g.:
+ *
+   <a class="sprite  sprite--question-mark">More info&hellip;</a>
+ *
+ * or
+ *
+   <a href=#><i class="sprite  sprite--question-mark"></i> Help and FAQ</a>
+ *
+ * Giving an element a class of `.icon` will throw it into ‘icon’ mode and will
+ * not add a background, but should be used for icon fonts and is populated
+ * through a `data-icon` attribute and the `:after` pseudo-element, e.g.:
+ *
+   <a href=#><i class=icon data-icon="&#xF000;"></i> View your favourites</a>
+ *
+ * Where ‘&#xF000;’ might map to a star in your particular icon font.
+ *
+ * These all require extension in your theme stylesheet, e.g. in your own CSS:
+ *
+   .sprite{
+       background-image:url(path/to/your/sprite.png);
+   }
+   .sprite--link{ background-position:0   0  ; }
+   .sprite--star{ background-position:0 -16px; }
+ *
+ * Demo: jsfiddle.net/inuitcss/6TKuS
+ *
+ */
+.sprite,
+.icon {
+  display: inline-block;
+  line-height: 1;
+  position: relative;
+  vertical-align: middle;
+  zoom: 1;
+  /**
+   * So using `.icon` on certain elements doesn’t make a visual difference.
+   */
+  font-style: normal;
+  font-weight: normal;
+  /**
+   * So icons added using `.icon` sit in the centre of the element.
+   */
+  text-align: center; }
+
+.sprite {
+  /**
+   * The typical size of most icons. Override in your theme stylesheet.
+   */
+  width: 16px;
+  height: 16px;
+  top: -1px;
+  /*
+   * H5BP method image replacement:
+   * github.com/h5bp/html5-boilerplate/commit/adecc5da035d6d76b77e3fa95c6abde841073da2
+   */
+  overflow: hidden;
+  *text-indent: -9999px; }
+  .sprite:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 100%; }
+
+/**
+ * Set up icon font
+ */
+.icon {
+  font-size: 16px;
+  /**
+   * Place the icon in a box the exact same dimensions as the icon itself.
+   */
+  width: 1em;
+  height: 1em; }
+  .icon:before {
+    content: attr(data-icon); }
+
+/**
+ * Icon size modifiers.
+ */
+.icon--large {
+  font-size: 32px; }
+
+.icon--huge {
+  font-size: 64px; }
+
+.icon--natural {
+  font-size: inherit; }
+
+/*------------------------------------*\
     $BEAUTONS.CSS
 \*------------------------------------*/
 /**
@@ -3073,17 +3166,17 @@ a {
       .navigation .btn--nav-close {
         position: absolute;
         top: 0;
-        left: -100%;
-        background-color: red; }
+        left: -100%; }
       .js .navigation {
-        background-color: #333; } }
+        background-color: #282831; } }
 
 /* :target et animations css */
 #nav:not(:target) {
   z-index: 1;
   height: 0; }
 #nav:target .btn--nav-close, .js #nav .btn--nav-close {
-  left: auto; }
+  left: auto;
+  right: 24px; }
 .js #nav {
   height: 100%;
   width: 70%;
@@ -3113,6 +3206,57 @@ a {
 /*===============================
 =            sprites            =
 ===============================*/
+.icon {
+  height: 24px;
+  width: 24px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #282831; }
+
+.icon__legend {
+  position: absolute;
+  left: -9999px;
+  top: -9999px; }
+
+.icon--navigation {
+  margin-top: -6px;
+  margin-left: -3px;
+  padding: 2px;
+  width: 28px;
+  font-size: 23px;
+  font-size: 1.4375rem;
+  line-height: 1.04348;
+  line-height: 0.7;
+  font-weight: bold;
+  border-radius: 2px;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+  -webkit-transition: all 0.35s ease-in 0.1s;
+  -moz-transition: all 0.35s ease-in 0.1s;
+  -ms-transition: all 0.35s ease-in 0.1s;
+  -o-transition: all 0.35s ease-in 0.1s;
+  transition: all 0.35s ease-in 0.1s; }
+  .icon--navigation:hover {
+    color: #000;
+    background-color: #e6e6e6; }
+
+.icon--close {
+  padding-left: 1px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  line-height: 0.9;
+  background-color: #999;
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+  -webkit-transition: all 0.35s ease-in 0.1s;
+  -moz-transition: all 0.35s ease-in 0.1s;
+  -ms-transition: all 0.35s ease-in 0.1s;
+  -o-transition: all 0.35s ease-in 0.1s;
+  transition: all 0.35s ease-in 0.1s; }
+  .icon--close:hover {
+    background-color: #fff;
+    color: #000; }
+
 /*-----  End of sprites  ------*/
 /*============================
 =            misc            =

@@ -40,7 +40,7 @@ $use-this-or-this:  false;
 $use-link-complex:  false;
 $use-flyout:        false;
 $use-arrows:        false;
-$use-sprite:        false;
+$use-sprite:        true;
 $use-icon-text:     false;
 $use-beautons:      true;
 $use-lozenges:      false;
@@ -69,4 +69,8 @@ $base-font-family: 'Plantin', serif;
  * Place any of your own variables that sit on top of inuit.css here.
  */
 
- $mono-font: "Geneva", "Consolas", "Menlo", monospace;
+// fonts
+$mono-font: "Geneva", "Consolas", "Menlo", monospace;
+
+// couleurs
+$nav-bg: #282831;
