@@ -3111,7 +3111,7 @@ a {
   z-index: 100; }
   @media only screen and (max-width: 480px) {
     .page-head {
-      padding-top: 2em;
+      padding-top: 2.5em;
       border-bottom: 1px solid #000; }
       .page-head .btn--nav-open {
         position: absolute;
@@ -3212,11 +3212,6 @@ a {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #282831; }
 
-.icon__legend {
-  position: absolute;
-  left: -9999px;
-  top: -9999px; }
-
 .icon--navigation {
   margin-top: -6px;
   margin-left: -3px;
@@ -3228,15 +3223,10 @@ a {
   line-height: 0.7;
   font-weight: bold;
   border-radius: 2px;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
-  -webkit-transition: color 0.35s ease-in 0.1s, background-color 0.35s ease-in 0.1s;
-  -moz-transition: color 0.35s ease-in 0.1s, background-color 0.35s ease-in 0.1s;
-  -ms-transition: color 0.35s ease-in 0.1s, background-color 0.35s ease-in 0.1s;
-  -o-transition: color 0.35s ease-in 0.1s, background-color 0.35s ease-in 0.1s;
-  transition: color 0.35s ease-in 0.1s, background-color 0.35s ease-in 0.1s; }
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3); }
   .icon--navigation:hover {
-    color: #000;
-    background-color: #e6e6e6; }
+    color: #fff;
+    background-color: #ccccda; }
 
 .icon--close {
   padding-left: 1px;
@@ -3247,14 +3237,9 @@ a {
   line-height: 0.9;
   background-color: #999;
   font-weight: bold;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
-  -webkit-transition: color 0.35s ease-in 0.1s, background-color 0.35s ease-in 0.1s;
-  -moz-transition: color 0.35s ease-in 0.1s, background-color 0.35s ease-in 0.1s;
-  -ms-transition: color 0.35s ease-in 0.1s, background-color 0.35s ease-in 0.1s;
-  -o-transition: color 0.35s ease-in 0.1s, background-color 0.35s ease-in 0.1s;
-  transition: color 0.35s ease-in 0.1s, background-color 0.35s ease-in 0.1s; }
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3); }
   .icon--close:hover {
-    background-color: #fff;
+    background-color: #ccccda;
     color: #000; }
 
 /*-----  End of sprites  ------*/
