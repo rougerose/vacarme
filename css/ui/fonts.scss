@@ -1,0 +1,64 @@
+/*==============================
+=            =fonts            =
+==============================*/
+
+@font-face {
+    font-family: 'HelveticaNeueLTStdCnRegular';
+    src: url('font/helveticaneueltstd_cn-webfont.eot');
+    src: url('font/helveticaneueltstd_cn-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/helveticaneueltstd_cn-webfont.woff') format('woff'),
+         url('font/helveticaneueltstd_cn-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'HelveticaNeueLTStdCnBold';
+    src: url('font/helveticaneueltstd_bdcn-webfont.eot');
+    src: url('font/helveticaneueltstd_bdcn-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/helveticaneueltstd_bdcn-webfont.woff') format('woff'),
+         url('font/helveticaneueltstd_bdcn-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'HelveticaNeueLTStdLtCnRegular';
+    src: url('font/helveticaneueltstd_ltcn-webfont.eot');
+    src: url('font/helveticaneueltstd_ltcn-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/helveticaneueltstd_ltcn-webfont.woff') format('woff'),
+         url('font/helveticaneueltstd_ltcn-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+   font-family: 'Plantin';
+    src: url('font/PlantinStd/PlantinStd.eot?') format('eot'),
+         url('font/PlantinStd/PlantinStd.otf')  format('opentype'),
+         url('font/PlantinStd/PlantinStd.woff') format('woff'),
+         url('font/PlantinStd/PlantinStd.ttf')  format('truetype'),
+         url('font/PlantinStd/PlantinStd.svg#PlantinStd') format('svg');
+        font-weight: normal;
+        font-style: normal;
+}
+@font-face {
+   font-family: 'Plantin';
+    src: url('font/PlantinStd-Italic/PlantinStd-Italic.eot?') format('eot'),
+         url('font/PlantinStd-Italic/PlantinStd-Italic.otf')  format('opentype'),
+         url('font/PlantinStd-Italic/PlantinStd-Italic.woff') format('woff'),
+         url('font/PlantinStd-Italic/PlantinStd-Italic.ttf')  format('truetype'),
+         url('font/PlantinStd-Italic/PlantinStd-Italic.svg#PlantinStd-Italic') format('svg');
+        font-weight: normal;
+        font-style: italic;
+}
+@font-face {
+    font-family: 'Plantin';
+    src: url('font/PlantinStd-Bold/PlantinStd-Bold.eot?') format('eot'), 
+         url('font/PlantinStd-Bold/PlantinStd-Bold.otf')  format('opentype'),
+         url('font/PlantinStd-Bold/PlantinStd-Bold.woff') format('woff'), 
+         url('font/PlantinStd-Bold/PlantinStd-Bold.ttf')  format('truetype'),
+         url('font/PlantinStd-Bold/PlantinStd-Bold.svg#PlantinStd-Bold') format('svg');
+         font-weight: bold;
+         font-style: normal;
+}
+
+/*-----  End of =fonts  ------*/
+

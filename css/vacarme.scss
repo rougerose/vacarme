@@ -24,4 +24,23 @@
 /**
  * She’s all yours, cap’n... Begin importing your stuff here.
  */
-//@import "ui/example";
+
+// fonts
+@import "ui/fonts";
+@import "ui/headings";
+
+// links 
+@import "ui/links";
+
+// page
+@import "ui/page";
+@import "ui/page-head";
+@import "ui/navigation";
+
+// objets
+@import "ui/buttons";
+
+// images
+@import "ui/sprites";
+
+@import "ui/misc";

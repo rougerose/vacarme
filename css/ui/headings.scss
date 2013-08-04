@@ -1,0 +1,14 @@
+/*================================
+=            headings            =
+================================*/
+
+.hN {
+    font-weight: normal;
+    .navigation & {
+        font-family: 'HelveticaNeueLTStdCnBold','Helvetica Neue',helvetica,sans-serif;
+        @include font-size(16px);
+    }
+}
+
+/*-----  End of headings  ------*/
+
