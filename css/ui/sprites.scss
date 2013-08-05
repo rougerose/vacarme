@@ -23,10 +23,9 @@
     font-weight: bold;
     border-radius: 2px;
     text-shadow: 0 1px 2px rgba(#fff,0.3);
-    // @include vendor(transition, color 0.35s ease-in 0.1s, background-color 0.35s ease-in 0.1s);
     &:hover {
         color: #fff;
-        background-color: #ccccda;
+        background-color: $gray-light;
     }
 }
 .icon--close {
@@ -37,9 +36,8 @@
     background-color: #999;
     font-weight: bold;
     text-shadow: 0 1px 2px rgba(#fff,0.3);
-    // @include vendor(transition, color 0.35s ease-in 0.1s, background-color 0.35s ease-in 0.1s);
     &:hover {
-        background-color: #ccccda;
+        background-color: $gray-light;
         color: #000;
     }
 }

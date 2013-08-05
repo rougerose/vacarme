@@ -5,6 +5,7 @@
 a {
     color: #000;
     text-decoration: none;
+    @include vendor(transition,color 0.35s ease-in 0.1s);
 }
 
 /*-----  End of links  ------*/

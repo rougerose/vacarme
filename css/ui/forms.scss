@@ -1,0 +1,52 @@
+/*=============================
+=            forms            =
+=============================*/
+
+input[type="search"] {
+    -webkit-appearance: none;
+    border: 0;
+    outline: none;
+}
+
+/*==========  recherche  ==========*/
+.search__form {
+    position: relative;
+    border: 1px solid rgba($gray-light,0);
+    border-radius: 5px;
+    @include vendor(transition,border-color 0.35s ease-in 0.1s);
+    &:hover,
+    &.active-search {
+        border-color: rgba(#8f8f99,0.7);
+    }
+}
+    .search__label {
+        position: absolute;
+        line-height: 1.9;
+        text-indent: -9999px;
+    }
+    .search__field {
+        border: 0;
+        border-radius: 5px;
+        width: 0;
+        padding: 6px 12px 0 0; 
+        @include vendor(transition,all 0.35s ease-in 0.1s);
+        .search__form:hover &,
+        &:focus {
+            width: 12.5em;
+            padding-left: 12px;
+        }      
+    }
+    .search__submit {
+        background: transparent url(../img/css/icon__search.svg) no-repeat 0 0.375em; // 0 6px
+        -webkit-background-size: 1em 6em; 
+        border: none;
+        padding: 6px 12px 0;
+        text-indent: -9999px;
+        .search__form:hover &,
+        .search__form .search__field:focus + & {
+            background-position: 0 -1.625em; // 0 38px
+        }
+    }
+
+
+/*-----  End of forms  ------*/
