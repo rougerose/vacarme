@@ -3171,28 +3171,29 @@ a {
         background-color: #282831; } }
 
 /* :target et animations css */
-#nav:not(:target) {
-  z-index: 1;
-  height: 0; }
-#nav:target .btn--nav-close, .js #nav .btn--nav-close {
-  left: auto;
-  right: 24px; }
-.js #nav {
-  height: 100%;
-  width: 70%;
-  left: -70%; }
-.csstransforms3d.js #nav {
-  left: 0;
-  -webkit-transform: translate3d(-100%, 0, 0);
-  -moz-transform: translate3d(-100%, 0, 0);
-  -ms-transform: translate3d(-100%, 0, 0);
-  -o-transform: translate3d(-100%, 0, 0);
-  transform: translate3d(-100%, 0, 0);
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility: hidden;
-  -ms-backface-visibility: hidden;
-  -o-backface-visibility: hidden;
-  backface-visibility: hidden; }
+@media only screen and (max-width: 480px) {
+  #nav:not(:target) {
+    z-index: 1;
+    height: 0; }
+  #nav:target .btn--nav-close, .js #nav .btn--nav-close {
+    left: auto;
+    right: 24px; }
+  .js #nav {
+    height: 100%;
+    width: 70%;
+    left: -70%; }
+  .csstransforms3d.js #nav {
+    left: 0;
+    -webkit-transform: translate3d(-100%, 0, 0);
+    -moz-transform: translate3d(-100%, 0, 0);
+    -ms-transform: translate3d(-100%, 0, 0);
+    -o-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden; } }
 
 /*-----  End of navigation  ------*/
 /*===============================

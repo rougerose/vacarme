@@ -50,34 +50,36 @@
 
 /* :target et animations css */
 #nav {
-    &:not(:target) {
-        z-index: 1;
-        height: 0;
-    }
-    &:target,
-    .js & {
-        .btn--nav-close {
-            left: auto;
-            right: $base-spacing-unit;
+    @include media-query(palm) {
+        &:not(:target) {
+            z-index: 1;
+            height: 0;
         }
-    }
-    .js & {
-        height: 100%;
-        width: 70%;
-        left: -70%;
-    }
-    .csstransforms3d.js & {
-        left: 0;
-        -webkit-transform: translate3d(-100%, 0, 0);
-        -moz-transform: translate3d(-100%, 0, 0);
-        -ms-transform: translate3d(-100%, 0, 0);
-        -o-transform: translate3d(-100%, 0, 0);
-        transform: translate3d(-100%, 0, 0);
-        -webkit-backface-visibility: hidden;
-        -moz-backface-visibility: hidden;
-        -ms-backface-visibility: hidden;
-        -o-backface-visibility: hidden;
-        backface-visibility: hidden;
+        &:target,
+        .js & {
+            .btn--nav-close {
+                left: auto;
+                right: $base-spacing-unit;
+            }
+        }
+        .js & {
+            height: 100%;
+            width: 70%;
+            left: -70%;
+        }
+        .csstransforms3d.js & {
+            left: 0;
+            -webkit-transform: translate3d(-100%, 0, 0);
+            -moz-transform: translate3d(-100%, 0, 0);
+            -ms-transform: translate3d(-100%, 0, 0);
+            -o-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -ms-backface-visibility: hidden;
+            -o-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
     }
 }
 
