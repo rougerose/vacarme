@@ -3151,7 +3151,7 @@ a {
 /*==================================
 =            navigation            =
 ==================================*/
-/* affichage par défaut */
+/*==========  affichage par défaut (et sans js, version palm)  ==========*/
 .navigation {
   width: 100%;
   overflow: hidden; }
@@ -3166,6 +3166,32 @@ a {
         background-color: #282831; }
       .navigation .nav {
         margin-bottom: 0; } }
+
+@media only screen and (min-width: 1024px) {
+  .nav--principale {
+    margin-left: -24px;
+    font-family: "HelveticaNeueLTStdCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase; }
+    .nav--principale .nav {
+      border-bottom: 2px solid #000; }
+    .nav--principale a {
+      color: #ccccda; }
+      .nav--principale a:hover {
+        color: #000; }
+    .nav--principale .nav--item {
+      padding-left: 24px;
+      width: 16.666%; }
+      .nav--principale .nav--item.site-search {
+        width: 33.333%;
+        text-transform: none; } }
+
+@media only screen and (min-width: 1024px) {
+  .nav--secondaire {
+    margin-left: -24px; }
+    .nav--secondaire .nav {
+      display: inline-block;
+      padding-left: 24px;
+      width: 33.333%; } }
 
 @media only screen and (max-width: 480px) {
   .nav--item {
@@ -3185,8 +3211,13 @@ a {
           background-color: rgba(255, 255, 255, 0.2); }
     .nav--item.site-search {
       margin: 1.3em 0;
-      padding: 0 1.5em 1.875em;
+      padding: 0 1.5em 0;
       border-bottom-width: 0; } }
+@media only screen and (min-width: 1024px) {
+  .nav--secondaire ul > .nav--item {
+    display: list-item; }
+    .nav--secondaire ul > .nav--item > a {
+      display: block; } }
 
 /* :target et animations css */
 @media only screen and (max-width: 480px) {
@@ -3198,7 +3229,7 @@ a {
   #nav:target .btn--nav-close {
     display: block; } }
 
-/* avec js */
+/*==========  affichage avec js et transformations (version palm)  ==========*/
 @media only screen and (max-width: 480px) {
   .js #nav {
     height: 100%;
@@ -3242,16 +3273,6 @@ input[type="search"] {
 .search__form {
   position: relative;
   border-radius: 5px; }
-  @media only screen and (min-width: 1024px) {
-    .search__form {
-      border: 1px solid rgba(204, 204, 218, 0);
-      -webkit-transition: border-color 0.35s ease-in 0.1s;
-      -moz-transition: border-color 0.35s ease-in 0.1s;
-      -ms-transition: border-color 0.35s ease-in 0.1s;
-      -o-transition: border-color 0.35s ease-in 0.1s;
-      transition: border-color 0.35s ease-in 0.1s; }
-      .search__form:hover, .search__form.active-search {
-        border-color: rgba(143, 143, 153, 0.7); } }
   @media only screen and (max-width: 480px) {
     .search__form {
       background-color: #fff; } }
@@ -3264,10 +3285,9 @@ input[type="search"] {
 .search__field {
   border: 0;
   border-radius: 5px;
-  padding: 6px 12px 0; }
+  padding-top: 6px; }
   @media only screen and (min-width: 1024px) {
     .search__field {
-      padding: 6px 12px 0 0;
       width: 0px;
       -webkit-transition: all 0.35s ease-in 0.1s;
       -moz-transition: all 0.35s ease-in 0.1s;
@@ -3275,21 +3295,24 @@ input[type="search"] {
       -o-transition: all 0.35s ease-in 0.1s;
       transition: all 0.35s ease-in 0.1s; }
       .search__form:hover .search__field, .search__field:focus {
-        width: 12.5em;
-        padding-left: 12px; } }
+        width: 13em;
+        padding-left: 6px;
+        background-color: #ccccda; } }
   @media only screen and (max-width: 480px) {
     .search__field {
       width: 17em; }
       .js .search__field {
-        width: 10em; } }
+        width: 9em; } }
 
 .search__submit {
   background: transparent url(../img/css/icon__search.svg) no-repeat 0 0.375em;
   -webkit-background-size: 1em 6em;
   border: none;
-  padding: 6px 12px 0;
+  padding-top: 6px;
+  margin-left: 3px;
+  width: 16px;
   text-indent: -9999px; }
-  .search__form:hover .search__submit, .search__form .search__field:focus + .search__submit {
+  .search__submit:hover {
     background-position: 0 -1.625em; }
 
 /*-----  End of forms  ------*/
@@ -3306,7 +3329,8 @@ input[type="search"] {
   margin-left: -6px;
   background-color: #fff; }
   .btn--nav-open:hover {
-    background-color: #282831; }
+    background-color: #282831;
+    color: #fff; }
 
 .btn--nav-close {
   position: absolute;

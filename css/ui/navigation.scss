@@ -2,7 +2,7 @@
 =            navigation            =
 ==================================*/
 
-/* affichage par défaut */
+/*==========  affichage par défaut (et sans js, version palm)  ==========*/
 .navigation {
     width: 100%;
     overflow: hidden;
@@ -17,6 +17,40 @@
         }
         .nav {
             margin-bottom: 0;
+        }
+    }
+}
+.nav--principale {
+    @include media-query(desk) {
+        margin-left: -24px; // .grid
+        font-family: $HCReg-font;
+        text-transform: uppercase;
+        .nav {
+            border-bottom: 2px solid #000;
+        }
+        a {
+            color: $gray-light;
+            &:hover {
+                color: #000;
+            }
+        }
+        .nav--item {
+            padding-left: 24px; // .grid__item
+            width: 16.666%; // .desk-one-sixth
+            &.site-search {
+                width: 33.333%; // desk-two-sixths
+                text-transform: none;
+            }
+        }
+    }
+}
+.nav--secondaire {
+    @include media-query(desk) {
+        margin-left: -24px; // .grid
+        .nav {
+            display: inline-block;
+            padding-left: 24px; // .grid__item
+            width: 33.333%; // .desk-one-third
         }
     }
 }
@@ -37,8 +71,16 @@
         }
         &.site-search {
             margin: 1.3em 0;
-            padding: 0 1.5em 1.875em;
+            padding: 0 1.5em 0;
             border-bottom-width: 0;
+        }
+    }
+    @include media-query(desk) {
+        .nav--secondaire ul > & {
+            display: list-item;
+            > a {
+                display: block;
+            }
         }
     }
 }
@@ -59,7 +101,7 @@
     }
 }
 
-/* avec js */
+/*==========  affichage avec js et transformations (version palm)  ==========*/
 .js {
     #nav {
         @include media-query(palm) {
