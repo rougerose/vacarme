@@ -3302,7 +3302,7 @@ input[type="search"] {
     .search__field {
       width: 17em; }
       .js .search__field {
-        width: 9em; } }
+        width: 8.7em; } }
 
 .search__submit {
   background: transparent url(../img/css/icon__search.svg) no-repeat 0 0.375em;
