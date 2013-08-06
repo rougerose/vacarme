@@ -11,12 +11,17 @@ input[type="search"] {
 /*==========  recherche  ==========*/
 .search__form {
     position: relative;
-    border: 1px solid rgba($gray-light,0);
     border-radius: 5px;
-    @include vendor(transition,border-color 0.35s ease-in 0.1s);
-    &:hover,
-    &.active-search {
-        border-color: rgba(#8f8f99,0.7);
+    @include media-query(desk) {
+        border: 1px solid rgba($gray-light,0);
+        @include vendor(transition,border-color 0.35s ease-in 0.1s);
+        &:hover,
+        &.active-search {
+            border-color: rgba(#8f8f99,0.7);
+        }
+    }
+    @include media-query(palm) {
+        background-color: #fff;
     }
 }
     .search__label {
@@ -27,14 +32,23 @@ input[type="search"] {
     .search__field {
         border: 0;
         border-radius: 5px;
-        width: 0;
-        padding: 6px 12px 0 0; 
-        @include vendor(transition,all 0.35s ease-in 0.1s);
-        .search__form:hover &,
-        &:focus {
-            width: 12.5em;
-            padding-left: 12px;
-        }      
+        padding: 6px 12px 0;
+        @include media-query(desk) {
+            padding: 6px 12px 0 0;
+            width: 0px;
+            @include vendor(transition,all 0.35s ease-in 0.1s);
+            .search__form:hover &,
+            &:focus {
+                width: 12.5em;
+                padding-left: 12px;
+            }
+        } 
+        @include media-query(palm) {
+            width: 17em;
+            .js & {
+                width: 10em;
+            }
+        }    
     }
     .search__submit {
         background: transparent url(../img/css/icon__search.svg) no-repeat 0 0.375em; // 0 6px

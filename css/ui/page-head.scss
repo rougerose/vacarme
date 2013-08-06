@@ -8,12 +8,6 @@
     // background-color: #fff;
     @include media-query(palm) {
         padding-top: 2.5em;
-        border-bottom: 1px solid #000;
-        // bouton ouvrir nav
-        .btn--nav-open {
-            position: absolute;
-            top: 0;
-        }
     }
 }
 

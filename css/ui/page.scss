@@ -22,39 +22,28 @@
             left: 0;
         }
         .csstransforms3d.js & {
-            -webkit-transform-style: preserve-3d;
             left: 0 !important;
-            -webkit-transform: translate3d(0, 0, 0);
-            -moz-transform: translate3d(0, 0, 0);
-            -ms-transform: translate3d(0, 0, 0);
-            -o-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
+            @include vendor(transform,translate3d(0,0,0));
             -webkit-transition: -webkit-transform 500ms ease;
             -moz-transition: -moz-transform 500ms ease;
             -o-transition: -o-transform 500ms ease;
             transition: transform 500ms ease;
-            -webkit-backface-visibility: hidden;
-            -moz-backface-visibility: hidden;
-            -ms-backface-visibility: hidden;
-            -o-backface-visibility: hidden;
-            backface-visibility: hidden;
+            @include vendor(backface-visibility,hidden);
         }
         .js-nav & {
             left: 70%;
         }
         .csstransforms3d.js-nav & {
-            -webkit-transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
-            -moz-transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
-            -ms-transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
-            -o-transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
-            transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
+            @include vendor(transform,translate3d(70%,0,0) scale3d(1, 1, 1));
         }
     }
 }
 
 .wrap {
     max-width: 1100px;
-    padding-top: 2em;
+    @include media-query(desk) {
+        padding-top: 2em;
+    }
 }
 
 /*==========  .block  ==========*/

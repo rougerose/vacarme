@@ -14,28 +14,20 @@
 }
 
 .icon--navigation {
-    margin-top: -6px;
-    margin-left: -3px;
-    padding: 2px;
-    width: 28px;
     @include font-size(23px);
-    line-height: 0.7;
     font-weight: bold;
-    border-radius: 2px;
-    text-shadow: 0 1px 2px rgba(#fff,0.3);
+    // text-shadow: 0 1px 2px rgba(#fff,0.3);
     &:hover {
         color: #fff;
-        background-color: $gray-light;
     }
 }
 .icon--close {
-    padding-left: 1px;
     border-radius: 50%;
-    @include font-size(20px);
+    @include font-size(23px);
     line-height: 0.9;
     background-color: #999;
     font-weight: bold;
-    text-shadow: 0 1px 2px rgba(#fff,0.3);
+    // text-shadow: 0 1px 2px rgba(#fff,0.3);
     &:hover {
         background-color: $gray-light;
         color: #000;

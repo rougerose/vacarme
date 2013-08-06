@@ -3,8 +3,26 @@
 ===============================*/
 
 .btn--nav {
-    padding: 0;
-    line-height: 2.5;
+    padding: 3px 6px;
+    line-height: 1.8;
+}
+
+.btn--nav-open {
+    position: absolute;
+    top: .5em;
+    margin-left: -6px;
+    background-color: #fff;
+    &:hover {
+        background-color: $nav-bg;
+    }
+}
+
+.btn--nav-close {
+    position: absolute;
+    z-index: -1;
+    top: .5em;
+    left: 18px;
+    background-color: $nav-bg;
 }
 
 /*-----  End of buttons  ------*/
