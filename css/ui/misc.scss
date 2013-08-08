@@ -2,11 +2,22 @@
 =            misc            =
 ============================*/
 
+/*==========  push (push)  ==========*/
+
+[class*="push--"]{ position:relative; }
+
+@include media-query(desk) {
+    .push--desk-one-quarter {
+        left: 25%;
+    }
+}
+
+
 /*==========  spip-admin  ==========*/
 body {
     .spip-admin-bloc,
     .spip-admin-float {
-        z-index: 99999; top: 10%; left: auto; right: 0;
+        z-index: 99999; top: 1%; left: auto; right: 0;
     }
 }
 #spip-admin .spip-admin-boutons {
@@ -14,7 +25,7 @@ body {
     display: block;
     text-align: center;
     margin-bottom: 5px;
-    border-radius: 0 5px 5px 0;
+    border-radius: 5px 0 0 5px;
 }
 
 /*-----  End of misc  ------*/

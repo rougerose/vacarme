@@ -2641,6 +2641,111 @@ label,
 /**
  * Push classes, to move grid items over to the right by certain amounts.
  */
+/**
+ * Whole
+ */
+.push--one-whole {
+  left: 100%; }
+
+/**
+ * Halves
+ */
+.push--one-half, .push--two-quarters, .push--three-sixths, .push--four-eighths, .push--five-tenths, .push--six-twelfths {
+  left: 50%; }
+
+/**
+ * Thirds
+ */
+.push--one-third, .push--two-sixths, .push--four-twelfths {
+  left: 33.333%; }
+
+.push--two-thirds, .push--four-sixths, .push--eight-twelfths {
+  left: 66.666%; }
+
+/**
+ * Quarters
+ */
+.push--one-quarter, .push--two-eighths, .push--three-twelfths {
+  left: 25%; }
+
+.push--three-quarters, .push--six-eighths, .push--nine-twelfths {
+  left: 75%; }
+
+/**
+ * Fifths
+ */
+.push--one-fifth, .push--two-tenths {
+  left: 20%; }
+
+.push--two-fifths, .push--four-tenths {
+  left: 40%; }
+
+.push--three-fifths, .push--six-tenths {
+  left: 60%; }
+
+.push--four-fifths, .push--eight-tenths {
+  left: 80%; }
+
+/**
+ * Sixths
+ */
+.push--one-sixth, .push--two-twelfths {
+  left: 16.666%; }
+
+.push--five-sixths, .push--ten-twelfths {
+  left: 83.333%; }
+
+/**
+ * Eighths
+ */
+.push--one-eighth {
+  left: 12.5%; }
+
+.push--three-eighths {
+  left: 37.5%; }
+
+.push--five-eighths {
+  left: 62.5%; }
+
+.push--seven-eighths {
+  left: 87.5%; }
+
+/**
+ * Tenths
+ */
+.push--one-tenth {
+  left: 10%; }
+
+.push--three-tenths {
+  left: 30%; }
+
+.push--seven-tenths {
+  left: 70%; }
+
+.push--nine-tenths {
+  left: 90%; }
+
+/**
+ * Twelfths
+ */
+.push--one-twelfth {
+  left: 8.333%; }
+
+.push--five-twelfths {
+  left: 41.666%; }
+
+.push--seven-twelfths {
+  left: 58.333%; }
+
+.push--eleven-twelfths {
+  left: 91.666%; }
+
+/**
+ * Not a particularly great selector, but the DRYest way to do things.
+ */
+[class*="push--"] {
+  position: relative; }
+
 /*------------------------------------*\
     $PULL
 \*------------------------------------*/
@@ -3107,30 +3212,29 @@ a {
   max-width: 1100px; }
   @media only screen and (min-width: 1024px) {
     .wrap {
-      padding-top: 2em; } }
-
-/*==========  .block  ==========*/
-.block {
-  padding-right: 24px;
-  padding-left: 24px; }
+      padding-top: 3em;
+      padding-left: 24px;
+      position: relative; } }
+  @media only screen and (max-width: 480px) {
+    .wrap {
+      padding-left: 12px; } }
 
 /*-----  End of page  ------*/
 /*=================================
 =            page-head            =
 =================================*/
-.page-head {
-  position: relative;
-  z-index: 100; }
-  @media only screen and (max-width: 480px) {
-    .page-head {
-      padding-top: 2.5em; } }
+@media only screen and (max-width: 480px) {
+  .page-head {
+    position: relative;
+    z-index: 100;
+    padding-top: 2.5em; } }
 
 .site-logo {
   display: block;
   font-family: 'HelveticaNeueLTStdCnBold',Helvetica,Arial,sans-serif;
-  font-size: 60px;
-  font-size: 3.75rem;
-  line-height: 1.2;
+  font-size: 45px;
+  font-size: 2.8125rem;
+  line-height: 1.06667;
   text-transform: uppercase;
   white-space: nowrap; }
   @media only screen and (max-width: 480px) {
@@ -3138,6 +3242,9 @@ a {
       font-size: 45px;
       font-size: 2.8125rem;
       line-height: 1.06667; } }
+  @media only screen and (min-width: 1024px) {
+    .site-logo {
+      margin-top: 0.95em; } }
 
 .baseline {
   margin-bottom: 0;
@@ -3145,9 +3252,26 @@ a {
   font-style: italic;
   font-size: 14px;
   font-size: 0.875rem;
-  line-height: 1.71429; }
+  line-height: 1.71429;
+  color: #dbdbe5; }
+  @media only screen and (min-width: 1024px) {
+    .baseline {
+      position: absolute;
+      right: 0;
+      top: .5em;
+      font-size: 18px;
+      font-size: 1.125rem;
+      line-height: 1.33333; } }
 
 /*-----  End of page-head  ------*/
+/*====================================
+=            page-content            =
+====================================*/
+@media only screen and (min-width: 1024px) {
+  .page-content {
+    padding-top: 6em; } }
+
+/*-----  End of page-content  ------*/
 /*==================================
 =            navigation            =
 ==================================*/
@@ -3173,7 +3297,8 @@ a {
     font-family: "HelveticaNeueLTStdCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-transform: uppercase; }
     .nav--principale .nav {
-      border-bottom: 2px solid #000; }
+      border-bottom: 2px solid #000;
+      margin-bottom: 1em; }
     .nav--principale a {
       color: #ccccda; }
       .nav--principale a:hover {
@@ -3191,7 +3316,8 @@ a {
     .nav--secondaire .nav {
       display: inline-block;
       padding-left: 24px;
-      width: 33.333%; } }
+      width: 33.333%;
+      margin-bottom: 0.5em; } }
 
 @media only screen and (max-width: 480px) {
   .nav--item {
@@ -3340,6 +3466,31 @@ input[type="search"] {
   background-color: #282831; }
 
 /*-----  End of buttons  ------*/
+/*============================
+=            self            =
+============================*/
+@media only screen and (min-width: 1024px) {
+  .self__chapo {
+    padding-right: 12px;
+    font-size: 20px;
+    font-size: 1.25rem;
+    line-height: 1.2; }
+
+  .self__texte {
+    width: 66.666%;
+    padding-right: 6px;
+    color: #444; } }
+.exergue {
+  margin-left: 25%;
+  margin-right: -25%;
+  font-size: 26px;
+  font-size: 1.625rem;
+  line-height: 1.84615;
+  line-height: 1.3;
+  font-style: italic;
+  color: #565669; }
+
+/*-----  End of self  ------*/
 /*===============================
 =            sprites            =
 ===============================*/
@@ -3373,11 +3524,18 @@ input[type="search"] {
 /*============================
 =            misc            =
 ============================*/
+/*==========  push (push)  ==========*/
+[class*="push--"] {
+  position: relative; }
+
+@media only screen and (min-width: 1024px) {
+  .push--desk-one-quarter {
+    left: 25%; } }
 /*==========  spip-admin  ==========*/
 body .spip-admin-bloc,
 body .spip-admin-float {
   z-index: 99999;
-  top: 10%;
+  top: 1%;
   left: auto;
   right: 0; }
 
@@ -3386,6 +3544,6 @@ body .spip-admin-float {
   display: block;
   text-align: center;
   margin-bottom: 5px;
-  border-radius: 0 5px 5px 0; }
+  border-radius: 5px 0 0 5px; }
 
 /*-----  End of misc  ------*/

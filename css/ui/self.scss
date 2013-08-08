@@ -1,0 +1,29 @@
+/*============================
+=            self            =
+============================*/
+
+@include media-query(desk) {
+    // .self__header {}
+    .self__chapo {
+        padding-right: 12px;
+        @include font-size(20px);
+    }
+    // .self__body {}
+    .self__texte {
+        width: 66.666%;
+        padding-right: 6px;
+        color: #444;
+    }
+}
+
+.exergue {
+    margin-left: 25%;
+    margin-right: -25%;
+    @include font-size(26px);
+    line-height: 1.3;
+    font-style: italic;
+    color: lighten($nav-bg,20%);
+}
+
+/*-----  End of self  ------*/
+

@@ -35,6 +35,7 @@
 // page
 @import "ui/page";
 @import "ui/page-head";
+@import "ui/page-content";
 @import "ui/navigation";
 
 // forms
@@ -42,6 +43,8 @@
 
 // objets
 @import "ui/buttons";
+
+@import "ui/self";
 
 // images
 @import "ui/sprites";

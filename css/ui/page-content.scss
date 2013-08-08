@@ -1,0 +1,12 @@
+/*====================================
+=            page-content            =
+====================================*/
+
+.page-content {
+    @include media-query(desk) {
+        padding-top: 6em;
+    }
+}
+
+/*-----  End of page-content  ------*/
+

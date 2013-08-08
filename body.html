@@ -4,7 +4,7 @@
             <div class="wrap">
                 <div class="grid page">
                     <div class="grid__item desk-one-quarter">
-                        <header id="top" class="page-head block" role="banner">
+                        <header id="top" class="page-head" role="banner">
                             <INCLURE{fond=header/#ENV{type-page},env} />
                         </header><!-- /.page-head -->
                     </div><!-- /.grid__item -->
@@ -14,14 +14,12 @@
                         </div><!-- /.navigation -->
                     </div><!-- /.grid__item -->
                     <div class="grid__item">
-                        <div class="page-content block">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores, veniam, dolore, placeat laudantium ullam quidem quis aspernatur id alias repudiandae illum impedit soluta voluptatem enim officiis distinctio laborum. Incidunt, ut?</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, quae, deserunt, sit nulla quidem blanditiis impedit accusamus totam libero architecto qui soluta veritatis mollitia reprehenderit doloremque assumenda magnam nemo facilis.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, obcaecati, aperiam illo quidem qui laudantium incidunt id quo nisi tenetur numquam iure adipisci distinctio! Laborum, laudantium velit ratione impedit iusto?</p>
+                        <div class="page-content">
+                            <INCLURE{fond=content/#ENV{type-page},env} />
                         </div><!-- /.page-content -->
                     </div><!-- /.grid__item -->
                     <div class="grid__item">
-                        <footer class="page-foot block">
+                        <footer class="page-foot">
                             <p>footer</p>
                         </footer><!-- /.page-foot -->
                     </div><!-- /.grid__item -->

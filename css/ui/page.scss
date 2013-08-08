@@ -2,9 +2,7 @@
 =            page            =
 ============================*/
 
-.page {
-    // @extend .grid;
-}
+// .page {}
 
 /*==========  .wrap  ==========*/
 
@@ -42,14 +40,13 @@
 .wrap {
     max-width: 1100px;
     @include media-query(desk) {
-        padding-top: 2em;
+        padding-top: 3em;
+        padding-left: $base-spacing-unit;
+        position: relative;
     }
-}
-
-/*==========  .block  ==========*/
-.block {
-    padding-right: $base-spacing-unit;
-    padding-left: $base-spacing-unit;
+    @include media-query(palm) {
+        padding-left: $base-spacing-unit/2;
+    }
 }
 
 /*-----  End of page  ------*/

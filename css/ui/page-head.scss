@@ -3,10 +3,9 @@
 =================================*/
 
 .page-head {
-    position: relative;
-    z-index: 100;
-    // background-color: #fff;
     @include media-query(palm) {
+        position: relative;
+        z-index: 100;
         padding-top: 2.5em;
     }
 }
@@ -15,15 +14,15 @@
 .site-logo {
     display: block;
     font-family: 'HelveticaNeueLTStdCnBold',Helvetica,Arial,sans-serif;
-    @include font-size(60px);
+    @include font-size(45px);
     text-transform: uppercase;
     white-space: nowrap;
-
     @include media-query(palm) {
-        // text-align: center;
         @include font-size(45px);
     }
-
+    @include media-query(desk) {
+        margin-top: 0.95em;
+    }
 }
 
 .baseline {
@@ -31,6 +30,13 @@
     text-align: right;
     font-style: italic;
     @include font-size(14px);
+    color: lighten($gray-light,5%);
+    @include media-query(desk) {
+        position: absolute;
+        right: 0;
+        top: .5em;
+        @include font-size(18px);
+    }
 }
 
 /*-----  End of page-head  ------*/

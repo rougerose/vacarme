@@ -1,0 +1,61 @@
+<BOUCLE_article(ARTICLES){id_article}>
+<div class="grid">
+    <article class="self article" itemscope itemtype="http://schema.org/Article">
+        <div class="grid__item desk-three-quarters push--desk-one-quarter">
+            <header class="self__header">
+                [<p class="#EDIT{surtitre} surtitre">(#SURTITRE)</p>]
+                <h1 itemprop="name" class="hN">
+                    <span class="#EDIT{titre} titre">#TITRE</span>[
+                    <small class="#EDIT{soustitre} soustitre">(#SOUSTITRE)</small>]
+                </h1>
+            </header>
+        </div><!-- /.grid__item -->
+        <div class="grid__item desk-three-quarters push--desk-one-quarter">
+            [<meta itemprop="description" content="(#DESCRIPTIF|sinon{#INTRODUCTION}|textebrut)" />]
+            [<div class="#EDIT{chapo} self__chapo surlignable">
+                (#CHAPO|image_reduire{500,0})
+            </div>]
+        </div><!-- /.grid__item -->
+        <div class="grid__item desk-three-quarters float--right">
+            <div class="self__body">
+                [<div class="#EDIT{texte} self__texte surlignable">
+                    (#TEXTE|image_reduire{500,0})
+                </div>]
+                [<section class="#EDIT{ps} self__ps ps surlignable">
+                    <h2><:info_ps:></h2>
+                    (#PS|image_reduire{500,0})
+                </section>]
+                [<section class="self__notes">
+                    <h2><:info_notes:></h2>
+                    (#NOTES)
+                </section>]
+                [<section>
+                    (#INCLURE{fond=inclure/documents,id_article})
+                </section>]
+            </div>
+        </div><!-- /.grid__item -->
+        <div class="grid__item desk-one-quarter float--left">
+            <aside>
+                <p class="authors">[<:par_auteur:> (#LESAUTEURS)]</p>
+            </aside>
+        </div><!-- /.grid__item -->
+        <aside>
+            [(#REM)  bio auteur + lien vers profil auteur. ]
+            <BOUCLE_auteur(AUTEURS){id_article}>
+            <h2>#NOM</h2>
+            <div>#BIO</div>
+            </BOUCLE_auteur>
+        </aside>
+        <footer>
+            <time pubdate="pubdate" datetime="[(#DATE|date_iso)]"><i class="icon-calendar"></i> [(#DATE|nom_jour) ][(#DATE|affdate)]</time>
+            [(#REM) 
+                - pagination (début/fin/total)
+                - date du publication
+                - numéro de publication + ISBN (?)
+                - permalien ? 
+            ]
+        </footer>
+    </article>
+</div>
+<!-- /.grid -->
+</BOUCLE_article>
