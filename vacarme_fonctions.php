@@ -6,7 +6,7 @@ function prenom_nom($texte) {
         $prenom = prenom($texte);
         $nom = nom($texte);
         if ($prenom && $nom) {
-            return $prenom.' '.$nom;
+            return $prenom.'&nbsp;'.$nom;
         } else {
             $prenom.$nom;
         }
@@ -17,7 +17,7 @@ function prenom_nom($texte) {
 
 function prenom($texte) {
     if(strstr($texte,"*")) {
-        if ($prenom = trim(preg_replace('/^(.*)\*(.*)/', '$2', $texte))) {
+        if ($prenom = trim(preg_replace('#^(.*)\*(.*)#', '$2', $texte))) {
             return $prenom;
         } else {
             return "";
@@ -29,7 +29,7 @@ function prenom($texte) {
 
 function nom($texte) {
     if(strstr($texte,"*")) {
-        if ($nom = trim(preg_replace('/^(.*)\*(.*)/', '$1', $texte))) {
+        if ($nom = trim(preg_replace('#^(.*)\*(.*)#', '$1', $texte))) {
             return $nom;
         } else {
             return "";
