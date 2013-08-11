@@ -1,0 +1,22 @@
+/*==============================
+=            person            =
+==============================*/
+
+// .person {}
+.person-signature {
+    font-style: italic;
+}
+
+.person-about {
+    .name {
+        margin-bottom: 0;
+        @include font-size(18px);
+        font-style: italic;
+    }
+    .bio {
+        @include font-size(14px);
+    }
+}
+
+/*-----  End of person  ------*/
+

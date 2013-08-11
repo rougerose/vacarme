@@ -6,4 +6,9 @@
 	(pour un objet ayant un champ lesauteurs dans la base, la balise affiche directement la valeur du champ)
 	
 ]
-<B_auteurs><span itemscope itemtype="http://schema.org/Person"><BOUCLE_auteurs(AUTEURS){id_objet}{objet}{par nom}>[(#COMPTEUR_BOUCLE|=={1}|?{'',[(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|?{' &amp;&nbsp;',', '})]})][<a itemprop="name" class="name spip_in" href="#URL_AUTEUR">(#NOM|prenom_nom)</a>]</BOUCLE_auteurs></span></B_auteurs>
+<B_auteurs>
+<aside itemscope itemtype="http://schema.org/Person" class="person person-signature related related--aside">
+    <h2 class="hN intertitre-section--aside visuallyhidden">[(#TOTAL_BOUCLE|singulier_ou_pluriel{local:author_singular,local:author_pural})]</h2>
+    <p><:par_auteur:> <BOUCLE_auteurs(AUTEURS){id_objet}{objet}{par nom}>[(#COMPTEUR_BOUCLE|=={1}|?{'',[(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|?{' &amp;&nbsp;',', '})]})][<span class="name" itemprop="name"><a itemprop="url" class="spip_in" href="#URL_AUTEUR" rel="author">(#NOM|prenom_nom)</a></span>]</BOUCLE_auteurs></p>
+</aside>
+</B_auteurs>

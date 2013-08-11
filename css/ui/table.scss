@@ -1,0 +1,24 @@
+/*=============================
+=            table            =
+=============================*/
+
+.table {
+    display: table;
+    margin-left: -$base-spacing-unit; // .grid
+    width: 100%;
+}
+.table--cell {
+    display: table-cell;
+    padding-left: $base-spacing-unit; // .grid__item
+}
+
+/*==========  table--cell size  ==========*/
+.table--cell-25 {
+    width: 25%;
+}
+.table--cell-75 {
+    width: 75%;
+}
+
+/*-----  End of table  ------*/
+

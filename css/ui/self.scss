@@ -2,19 +2,43 @@
 =            self            =
 ============================*/
 
+// .self__body {}
+.self__texte {
+    p {
+        &:last-of-type {
+            &:after {
+                content: '\00a0\25FC';
+                color: #000;
+            }
+        }
+    }
+}
+
+// .self__notes { }
+.self__notes__body {
+    width: 75%;
+    p {
+        @include font-size(14px);
+    }
+}
+
 @include media-query(desk) {
-    // .self__header {}
     .self__chapo {
         padding-right: 12px;
         @include font-size(20px);
     }
     // .self__body {}
     .self__texte {
-        width: 66.666%;
         padding-right: 6px;
-        color: #444;
+    }
+    .self__texte,
+    .self__ps,
+    .self__notes {
+        width: 66.666%;
     }
 }
+
+/*==========  exergues dans le #TEXTE  ==========*/
 
 .exergue {
     margin-left: 25%;
@@ -24,6 +48,7 @@
     font-style: italic;
     color: lighten($nav-bg,20%);
 }
+
 
 /*-----  End of self  ------*/
 

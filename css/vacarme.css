@@ -3032,6 +3032,18 @@ label,
   font-weight: bold;
   font-style: normal; }
 
+@font-face {
+  font-family: 'Plantin';
+  src: url("font/PlantinStd-BoldItalic/PlantinStd-BoldItalic.eot?") format("eot"), url("font/PlantinStd-BoldItalic/PlantinStd-BoldItalic.otf") format("opentype"), url("font/PlantinStd-BoldItalic/PlantinStd-BoldItalic.woff") format("woff"), url("font/PlantinStd-BoldItalic/PlantinStd-BoldItalic.ttf") format("truetype"), url("font/PlantinStd-BoldItalic/PlantinStd-BoldItalic.svg#PlantinStd-BoldItalic") format("svg");
+  font-weight: bold;
+  font-style: italic; }
+
+@font-face {
+  font-family: 'PlantinBC';
+  src: url("font/PlantinStd-BoldCondensed/PlantinStd-BoldCondensed.eot?") format("eot"), url("font/PlantinStd-BoldCondensed/PlantinStd-BoldCondensed.otf") format("opentype"), url("font/PlantinStd-BoldCondensed/PlantinStd-BoldCondensed.woff") format("woff"), url("font/PlantinStd-BoldCondensed/PlantinStd-BoldCondensed.ttf") format("truetype"), url("font/PlantinStd-BoldCondensed/PlantinStd-BoldCondensed.svg#PlantinStd-BoldCondensed") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
 /*-----  End of =fonts  ------*/
 /*================================
 =            headings            =
@@ -3048,6 +3060,47 @@ label,
     line-height: 1.5;
     text-transform: uppercase;
     color: #fff; }
+
+.soustitre {
+  display: block;
+  font-style: italic;
+  font-size: 1em; }
+
+/*==========  intertitres texte (spip)  ==========*/
+h2.spip,
+h3.spip,
+h4.spip,
+h5.spip,
+h6.spip {
+  font-weight: normal; }
+
+/*==========  intertitres section  ==========*/
+.intertitre-section {
+  border-bottom: 1px solid #000;
+  padding-left: 12px;
+  margin-left: -12px;
+  display: inline-block; }
+
+.intertitre-section--aside {
+  border-bottom-color: #999;
+  margin-bottom: 0;
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.33333;
+  line-height: 1;
+  font-style: italic; }
+
+.intertitre-section--content {
+  border-bottom-color: #7f807b;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-style: italic; }
+
+.intertitre-meta {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5; }
 
 /*-----  End of headings  ------*/
 /*=============================
@@ -3361,9 +3414,40 @@ input[type="search"] {
   background-color: #282831; }
 
 /*-----  End of buttons  ------*/
+/*=============================
+=            table            =
+=============================*/
+.table {
+  display: table;
+  margin-left: -24px;
+  width: 100%; }
+
+.table--cell {
+  display: table-cell;
+  padding-left: 24px; }
+
+/*==========  table--cell size  ==========*/
+.table--cell-25 {
+  width: 25%; }
+
+.table--cell-75 {
+  width: 75%; }
+
+/*-----  End of table  ------*/
 /*============================
 =            self            =
 ============================*/
+.self__texte p:last-of-type:after {
+  content: '\00a0\25FC';
+  color: #000; }
+
+.self__notes__body {
+  width: 75%; }
+  .self__notes__body p {
+    font-size: 14px;
+    font-size: 0.875rem;
+    line-height: 1.71429; }
+
 @media only screen and (min-width: 1024px) {
   .self__chapo {
     padding-right: 12px;
@@ -3372,9 +3456,13 @@ input[type="search"] {
     line-height: 1.2; }
 
   .self__texte {
-    width: 66.666%;
-    padding-right: 6px;
-    color: #444; } }
+    padding-right: 6px; }
+
+  .self__texte,
+  .self__ps,
+  .self__notes {
+    width: 66.666%; } }
+/*==========  exergues dans le #TEXTE  ==========*/
 .exergue {
   margin-left: 25%;
   margin-right: -25%;
@@ -3386,6 +3474,69 @@ input[type="search"] {
   color: #565669; }
 
 /*-----  End of self  ------*/
+/*==============================
+=            person            =
+==============================*/
+.person-signature {
+  font-style: italic; }
+
+.person-about .name {
+  margin-bottom: 0;
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.33333;
+  font-style: italic; }
+.person-about .bio {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.71429; }
+
+/*-----  End of person  ------*/
+/*===============================
+=            related            =
+===============================*/
+.related--aside {
+  font-size: 15px;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #aba49e; }
+  .related--aside a {
+    border-bottom: 1px solid #fff;
+    color: #7f776f; }
+    .related--aside a:hover {
+      border-bottom-color: #8888a7;
+      color: #8888a7; }
+
+.related--content {
+  color: #7f807b; }
+
+/*-----  End of related  ------*/
+/*============================
+=            meta            =
+============================*/
+/*-----  End of meta  ------*/
+/*============================
+=            list            =
+============================*/
+.list {
+  margin-left: 0;
+  list-style: none; }
+  .list li {
+    margin-left: 1em;
+    position: relative; }
+    .list li:before {
+      position: absolute;
+      left: -1em;
+      content: '–'; }
+
+.list--aside li:before {
+  color: #8888a7; }
+.list--aside .hN {
+  font-size: 15px;
+  font-size: 0.9375rem;
+  line-height: 1.6; }
+
+/*-----  End of list  ------*/
 /*===============================
 =            sprites            =
 ===============================*/

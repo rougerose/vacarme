@@ -1,0 +1,21 @@
+[(#SET{bio,''})][(#SET{authors,#ARRAY})
+]<B_test_about_authors>
+    <BOUCLE_test_about_authors(AUTEURS){id_article}{par nom}>
+        [(#BIO|oui)#SET{bio,' '}][(#SET_PUSH{authors,#ID_AUTEUR})]
+    </BOUCLE_test_about_authors>
+<B_about_authors>
+<aside class="related related--content person person-about table" itemscope itemtype="http://schema.org/Person">
+    <h2 class="hN table--cell table--cell-25 text--right">[<span class="intertitre-section intertitre-section--content">(#TOTAL_BOUCLE|singulier_ou_pluriel{local:author_about_singular,local:author_about_plural})</span>]</h2>
+    <ul class="list table--cell table--cell-75">
+        <BOUCLE_about_authors(AUTEURS){id_auteur IN #GET{authors}}{si #GET{bio}}>
+        <li>
+            <h3 class="hN name" itemprop="name">[<a href="#URL_AUTEUR" itemprop="url" class="spip_in" rel="author">(#NOM|prenom_nom)</a>]</h3>
+            <div class="bio" itemprop="description">
+                #BIO
+            </div>
+        </li>
+        </BOUCLE_about_authors>
+    </ul>
+</aside>
+</B_about_authors>
+</B_test_about_authors>
