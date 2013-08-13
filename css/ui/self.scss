@@ -27,7 +27,7 @@
 
 @include media-query(desk) {
     .self__chapo {
-        padding-right: 24px;
+        padding-right: $base-spacing-unit*2;
         @include font-size(20px);
     }
     // .self__body {}

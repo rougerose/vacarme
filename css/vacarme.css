@@ -3568,7 +3568,7 @@ input[type="search"] {
 
 @media only screen and (min-width: 1024px) {
   .self__chapo {
-    padding-right: 12px;
+    padding-right: 48px;
     font-size: 20px;
     font-size: 1.25rem;
     line-height: 1.2; }
@@ -3652,6 +3652,10 @@ input[type="search"] {
   transition: border-color 0.35s ease-in 0.1s; }
   .media__img:hover {
     border-color: #d2d2d2; }
+
+/*==========  logo  ==========*/
+.media--full {
+  width: 100%; }
 
 /*-----  End of media  ------*/
 /*===============================

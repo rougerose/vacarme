@@ -9,13 +9,19 @@
                 </h1>
             </header>
         </div><!-- /.grid__item -->
-        [<div class="grid__item">
-            <div class="media landmark">
-                <img src="(#LOGO_ARTICLE|image_reduire{1100,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="media--full">
-            </div>
-        </div>]
+        [(#REM) logo format XL ? ][
+        
+        (#COMPOSITION|=={'numero-logoXL'}|et{#LOGO_ARTICLE}|oui)
+            #INCLURE{fond=inclure/objets/logo-article-XL,id_article}
+        ]
         <div class="grid__item desk-three-quarters push--desk-one-quarter">
-            [(#REM) schema/article : description
+            [(#REM) logo format par défaut ? ][
+            
+            (#COMPOSITION|=={'numero'}|et{#LOGO_ARTICLE}|oui)
+                #INCLURE{fond=inclure/objets/logo-article-defaut,id_article}
+            ][
+            
+            (#REM) schema/article : description
             ][<meta itemprop="description" content="(#DESCRIPTIF|sinon{#INTRODUCTION{300}}|textebrut)" />]
             [<div class="#EDIT{chapo} self__chapo landmark surlignable">
                 (#CHAPO|image_reduire{500,0})

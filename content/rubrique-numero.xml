@@ -1,0 +1,7 @@
+<composition>
+    <nom>Rubrique Numéros</nom>
+    <description>Composition pour les rubriques des numéros de Vacarme</description>
+    <icon>images/objet-liste-contenus-dates.png</icon>
+    <branche type="article" composition="numero" />
+    <branche type="rubrique" composition="numero" />
+</composition>
