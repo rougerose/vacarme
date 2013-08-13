@@ -1,4 +1,9 @@
+#SET{logo_article,''}
+
 <BOUCLE_article(ARTICLES){id_article}>
+
+[(#LOGO_ARTICLE|oui) #SET{logo_article,' '}  ]
+
 <div class="grid">
     <article class="self article" itemscope itemtype="http://schema.org/Article">
         <div class="grid__item desk-three-quarters push--desk-one-quarter">
