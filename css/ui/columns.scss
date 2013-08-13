@@ -1,0 +1,28 @@
+/*===============================
+=            columns            =
+===============================*/
+
+.col {
+    @include media-query(desk) {
+        margin-left: -$base-spacing-unit;
+    }
+}
+
+.col__item {
+    p {
+        margin-right: $base-spacing-unit;
+    }
+    @include media-query(desk) {
+        display: inline-block;
+        padding-left: 24px;
+        width: 100%;
+        vertical-align: top;
+    }
+}
+
+.col__item--50 {
+    width: 50%;
+}
+
+/*-----  End of columns  ------*/
+

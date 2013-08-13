@@ -1,0 +1,16 @@
+/*=============================
+=            media            =
+=============================*/
+
+.media__img {
+    border: 1px solid #eee;
+    border-color: rgba(#eee,0.8);
+    margin-right:$base-spacing-unit/2;
+    @include vendor(transition,border-color 0.35s ease-in 0.1s);
+    &:hover {
+        border-color: rgb(210,210,210);
+    }
+}
+
+/*-----  End of media  ------*/
+

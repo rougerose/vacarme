@@ -1,0 +1,9 @@
+
+@font-face {
+	font-family: 'PlantinStd-Semibold';
+	src: url('PlantinStd-Semibold.eot?') format('eot'), 
+	     url('PlantinStd-Semibold.otf')  format('opentype'),
+	     url('PlantinStd-Semibold.woff') format('woff'), 
+	     url('PlantinStd-Semibold.ttf')  format('truetype'),
+	     url('PlantinStd-Semibold.svg#PlantinStd-Semibold') format('svg');
+}

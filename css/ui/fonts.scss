@@ -56,7 +56,7 @@
          url('font/PlantinStd-Bold/PlantinStd-Bold.woff') format('woff'), 
          url('font/PlantinStd-Bold/PlantinStd-Bold.ttf')  format('truetype'),
          url('font/PlantinStd-Bold/PlantinStd-Bold.svg#PlantinStd-Bold') format('svg');
-         font-weight: bold;
+         font-weight: 800;
          font-style: normal;
 }
 @font-face {
@@ -66,11 +66,11 @@
          url('font/PlantinStd-BoldItalic/PlantinStd-BoldItalic.woff') format('woff'), 
          url('font/PlantinStd-BoldItalic/PlantinStd-BoldItalic.ttf')  format('truetype'),
          url('font/PlantinStd-BoldItalic/PlantinStd-BoldItalic.svg#PlantinStd-BoldItalic') format('svg');
-         font-weight: bold;
+         font-weight: 800;
          font-style: italic;
 }
 @font-face {
-    font-family: 'PlantinBC';
+    font-family: 'PlantinBC'; // bold condensed
     src: url('font/PlantinStd-BoldCondensed/PlantinStd-BoldCondensed.eot?') format('eot'), 
          url('font/PlantinStd-BoldCondensed/PlantinStd-BoldCondensed.otf')  format('opentype'),
          url('font/PlantinStd-BoldCondensed/PlantinStd-BoldCondensed.woff') format('woff'), 
@@ -78,6 +78,26 @@
          url('font/PlantinStd-BoldCondensed/PlantinStd-BoldCondensed.svg#PlantinStd-BoldCondensed') format('svg');
          font-weight: normal;
          font-style: normal;
+}
+@font-face {
+    font-family: 'Plantin';
+    src: url('font/PlantinStd-Semibold/PlantinStd-Semibold.eot?') format('eot'), 
+         url('font/PlantinStd-Semibold/PlantinStd-Semibold.otf')  format('opentype'),
+         url('font/PlantinStd-Semibold/PlantinStd-Semibold.woff') format('woff'), 
+         url('font/PlantinStd-Semibold/PlantinStd-Semibold.ttf')  format('truetype'),
+         url('font/PlantinStd-Semibold/PlantinStd-Semibold.svg#PlantinStd-Semibold') format('svg');
+         font-weight: 600;
+         font-style: normal;
+}
+@font-face {
+    font-family: 'Plantin';
+    src: url('font/PlantinStd-SemiboldItalic/PlantinStd-SemiboldItalic.eot?') format('eot'), 
+         url('font/PlantinStd-SemiboldItalic/PlantinStd-SemiboldItalic.otf')  format('opentype'),
+         url('font/PlantinStd-SemiboldItalic/PlantinStd-SemiboldItalic.woff') format('woff'), 
+         url('font/PlantinStd-SemiboldItalic/PlantinStd-SemiboldItalic.ttf')  format('truetype'),
+         url('font/PlantinStd-SemiboldItalic/PlantinStd-SemiboldItalic.svg#PlantinStd-SemiboldItalic') format('svg');
+         font-weight: 600;
+         font-style: italic;
 }
 
 /*-----  End of =fonts  ------*/

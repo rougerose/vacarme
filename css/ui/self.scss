@@ -7,8 +7,11 @@
     p {
         &:last-of-type {
             &:after {
-                content: '\00a0\25FC';
+                // content: '\00a0\25FC';
+                content: ' ■';
                 color: #000;
+                // font-size: 80%;
+                // line-height: 1;
             }
         }
     }
@@ -24,7 +27,7 @@
 
 @include media-query(desk) {
     .self__chapo {
-        padding-right: 12px;
+        padding-right: 24px;
         @include font-size(20px);
     }
     // .self__body {}

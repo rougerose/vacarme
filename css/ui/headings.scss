@@ -32,37 +32,29 @@ h6.spip {
 
 /*==========  intertitres section  ==========*/
 .intertitre-section {
-    border-bottom: 1px solid #000;
-    // padding: 0 0 0 $base-spacing-unit/2;
+    font-style: italic;
+}
+// .intertitre-section--aside {}
+
+// .intertitre-section--content {}
+
+/*==========  levels  ==========*/
+
+.intertitre-section--first {
+    display: inline-block;
+    border-bottom: 1px solid #7f807b;
     padding-left: $base-spacing-unit/2;
     margin-left: -$base-spacing-unit/2;
-    display: inline-block;
-}
-.intertitre-section--aside {
-    // border-bottom-color: lighten($gray-blue,15%);
-    border-bottom-color: #999;
-    // margin-top: .188em;
-    margin-bottom: 0;
-    // color: $gray-blue;
     @include font-size(18px);
-    // font-size: 1em; // 14px défini au niveau du bloc parent
-    line-height: 1;
-    // text-transform: uppercase;
-    // font-family: $HCReg-font;
-    font-style: italic;
+    // line-height: 1;
 }
-.intertitre-section--content {
-    border-bottom-color: #7f807b;
-    @include font-size(16px);
-    // text-transform: uppercase;
+.intertitre-section--second {
+    margin-bottom: 0;
+    font-family: "Plantin";
+    font-weight: 600;
     font-style: italic;
-}
-
-.intertitre-meta {
     @include font-size(16px);
 }
-
-
 
 /*-----  End of headings  ------*/
 

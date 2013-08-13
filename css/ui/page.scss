@@ -46,6 +46,7 @@
     }
     @include media-query(palm) {
         padding-left: $base-spacing-unit/2;
+        padding-right: $base-spacing-unit/2;
     }
 }
 

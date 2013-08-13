@@ -2,10 +2,16 @@
 =            related            =
 ===============================*/
 
-// .related {}
+.related {
+    &.article {
+        p {
+            @include font-size(14px);
+            margin-bottom: 0;
+        }
+    }
+}
 .related--aside {
     @include font-size(15px);
-    // color: $gray-blue;
     color: $warm-gray;
     a {
         border-bottom: 1px solid #fff;

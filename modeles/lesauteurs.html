@@ -7,8 +7,8 @@
 	
 ]
 <B_auteurs>
-<aside itemscope itemtype="http://schema.org/Person" class="person person-signature related related--aside">
+<aside class="person person-signature related related--aside landmark">
     <h2 class="hN intertitre-section--aside visuallyhidden">[(#TOTAL_BOUCLE|singulier_ou_pluriel{local:author_singular,local:author_pural})]</h2>
-    <p><:par_auteur:> <BOUCLE_auteurs(AUTEURS){id_objet}{objet}{par nom}>[(#COMPTEUR_BOUCLE|=={1}|?{'',[(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|?{' &amp;&nbsp;',', '})]})][<span class="name" itemprop="name"><a itemprop="url" class="spip_in" href="#URL_AUTEUR" rel="author">(#NOM|prenom_nom)</a></span>]</BOUCLE_auteurs></p>
+    <p><:par_auteur:> <BOUCLE_auteurs(AUTEURS){id_objet}{objet}{par nom}>[(#COMPTEUR_BOUCLE|=={1}|?{'',[(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|?{' &amp;&nbsp;',', '})]})][<span class="name"><a class="spip_in" href="#URL_AUTEUR" rel="author" itemprop="author">(#NOM|prenom_nom)</a></span>]</BOUCLE_auteurs></p>
 </aside>
 </B_auteurs>

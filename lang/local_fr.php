@@ -8,6 +8,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'author_singular'       => "L’auteur",
     
     // C
+    'category_plural'       => 'Catégories',
+    'category_singular'     => 'Catégorie',
     'close'                 => "Fermer",
     
     // I
@@ -17,10 +19,22 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'navigation'            => "Navigation",
     
     // P
-    'publication_about' => "À propos de l’article",
+    'page'                  => 'page&nbsp;@debut@.',
+    'page_abrev'            => 'pp.&nbsp;@debut@-@fin@.',
+    'publication_about'     => "À propos de l’article",
+    'published_in'          => 'Publiée dans',
+    'published_date'        => 'Publiée le',
     
     // R
-    'read_also'             => 'Lire également'
+    'read_also'             => 'Lire également',
+    
+    // T
+    'tag_plural'            => 'Mots-clés',
+    'tag_singular'          => 'Mot-clé',
+    
+    // V
+    'version_online'        => "Version en ligne",
+    'version_print'         => "Version imprimée"
    
    );
 ?>

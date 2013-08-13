@@ -10,15 +10,14 @@
 .table--cell {
     display: table-cell;
     padding-left: $base-spacing-unit; // .grid__item
+    // vertical-align: top;
 }
 
 /*==========  table--cell size  ==========*/
-.table--cell-25 {
-    width: 25%;
-}
-.table--cell-75 {
-    width: 75%;
-}
+.table--cell-25 {width: 25%;}
+.table--cell-37 {width: 37.5%;}
+.table--cell-50 {width: 50%;}
+.table--cell-75 {width: 75%;}
 
 /*-----  End of table  ------*/
 

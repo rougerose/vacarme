@@ -794,7 +794,7 @@ textarea:focus {
  * Extend the clearfix class with Sass to avoid the `.cf` class appearing over
  * and over in your markup.
  */
-.cf:after, .nav:after {
+.cf:after, .nav:after, .media:after {
   content: "";
   display: table;
   clear: both; }
@@ -1720,6 +1720,57 @@ label,
   content: "\002C" "\00A0"; }
 .nav--keywords > li:last-child:after {
   display: none; }
+
+/*------------------------------------*\
+    $MEDIA
+\*------------------------------------*/
+/**
+ * Place any image- and text-like content side-by-side, as per:
+ * stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
+ * E.g.:
+ *
+   <div class=media>
+       <img src=http://placekitten.com/200/300 alt="" class=media__img>
+       <p class=media__body>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+       sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+   </div>
+ *
+ * Demo: jsfiddle.net/inuitcss/cf4Qs
+ *
+ */
+.media {
+  display: block; }
+
+.media__img {
+  float: left;
+  margin-right: 24px; }
+
+/**
+ * Reversed image location (right instead of left).
+ */
+.media__img--rev {
+  float: right;
+  margin-left: 24px; }
+
+.media__img img,
+.media__img--rev img {
+  display: block; }
+
+.media__body {
+  overflow: hidden; }
+
+.media__body,
+.media__body > :last-child {
+  margin-bottom: 0; }
+
+/**
+ * `.img`s in `.islet`s need an appropriately sized margin.
+ */
+.islet .media__img {
+  margin-right: 12px; }
+
+.islet .media__img--rev {
+  margin-left: 12px; }
 
 /*------------------------------------*\
     $SPRITE
@@ -3029,13 +3080,13 @@ label,
 @font-face {
   font-family: 'Plantin';
   src: url("font/PlantinStd-Bold/PlantinStd-Bold.eot?") format("eot"), url("font/PlantinStd-Bold/PlantinStd-Bold.otf") format("opentype"), url("font/PlantinStd-Bold/PlantinStd-Bold.woff") format("woff"), url("font/PlantinStd-Bold/PlantinStd-Bold.ttf") format("truetype"), url("font/PlantinStd-Bold/PlantinStd-Bold.svg#PlantinStd-Bold") format("svg");
-  font-weight: bold;
+  font-weight: 800;
   font-style: normal; }
 
 @font-face {
   font-family: 'Plantin';
   src: url("font/PlantinStd-BoldItalic/PlantinStd-BoldItalic.eot?") format("eot"), url("font/PlantinStd-BoldItalic/PlantinStd-BoldItalic.otf") format("opentype"), url("font/PlantinStd-BoldItalic/PlantinStd-BoldItalic.woff") format("woff"), url("font/PlantinStd-BoldItalic/PlantinStd-BoldItalic.ttf") format("truetype"), url("font/PlantinStd-BoldItalic/PlantinStd-BoldItalic.svg#PlantinStd-BoldItalic") format("svg");
-  font-weight: bold;
+  font-weight: 800;
   font-style: italic; }
 
 @font-face {
@@ -3043,6 +3094,18 @@ label,
   src: url("font/PlantinStd-BoldCondensed/PlantinStd-BoldCondensed.eot?") format("eot"), url("font/PlantinStd-BoldCondensed/PlantinStd-BoldCondensed.otf") format("opentype"), url("font/PlantinStd-BoldCondensed/PlantinStd-BoldCondensed.woff") format("woff"), url("font/PlantinStd-BoldCondensed/PlantinStd-BoldCondensed.ttf") format("truetype"), url("font/PlantinStd-BoldCondensed/PlantinStd-BoldCondensed.svg#PlantinStd-BoldCondensed") format("svg");
   font-weight: normal;
   font-style: normal; }
+
+@font-face {
+  font-family: 'Plantin';
+  src: url("font/PlantinStd-Semibold/PlantinStd-Semibold.eot?") format("eot"), url("font/PlantinStd-Semibold/PlantinStd-Semibold.otf") format("opentype"), url("font/PlantinStd-Semibold/PlantinStd-Semibold.woff") format("woff"), url("font/PlantinStd-Semibold/PlantinStd-Semibold.ttf") format("truetype"), url("font/PlantinStd-Semibold/PlantinStd-Semibold.svg#PlantinStd-Semibold") format("svg");
+  font-weight: 600;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Plantin';
+  src: url("font/PlantinStd-SemiboldItalic/PlantinStd-SemiboldItalic.eot?") format("eot"), url("font/PlantinStd-SemiboldItalic/PlantinStd-SemiboldItalic.otf") format("opentype"), url("font/PlantinStd-SemiboldItalic/PlantinStd-SemiboldItalic.woff") format("woff"), url("font/PlantinStd-SemiboldItalic/PlantinStd-SemiboldItalic.ttf") format("truetype"), url("font/PlantinStd-SemiboldItalic/PlantinStd-SemiboldItalic.svg#PlantinStd-SemiboldItalic") format("svg");
+  font-weight: 600;
+  font-style: italic; }
 
 /*-----  End of =fonts  ------*/
 /*================================
@@ -3076,33 +3139,38 @@ h6.spip {
 
 /*==========  intertitres section  ==========*/
 .intertitre-section {
-  border-bottom: 1px solid #000;
+  font-style: italic; }
+
+/*==========  levels  ==========*/
+.intertitre-section--first {
+  display: inline-block;
+  border-bottom: 1px solid #7f807b;
   padding-left: 12px;
   margin-left: -12px;
-  display: inline-block; }
-
-.intertitre-section--aside {
-  border-bottom-color: #999;
-  margin-bottom: 0;
   font-size: 18px;
   font-size: 1.125rem;
-  line-height: 1.33333;
-  line-height: 1;
-  font-style: italic; }
+  line-height: 1.33333; }
 
-.intertitre-section--content {
-  border-bottom-color: #7f807b;
-  font-size: 16px;
-  font-size: 1rem;
-  line-height: 1.5;
-  font-style: italic; }
-
-.intertitre-meta {
+.intertitre-section--second {
+  margin-bottom: 0;
+  font-family: "Plantin";
+  font-weight: 600;
+  font-style: italic;
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5; }
 
 /*-----  End of headings  ------*/
+/*==============================
+=            images            =
+==============================*/
+img[height],
+img[width] {
+  height: auto;
+  width: auto;
+  max-width: 100%; }
+
+/*-----  End of images  ------*/
 /*=============================
 =            links            =
 =============================*/
@@ -3165,7 +3233,8 @@ a {
       position: relative; } }
   @media only screen and (max-width: 480px) {
     .wrap {
-      padding-left: 12px; } }
+      padding-left: 12px;
+      padding-right: 12px; } }
 
 /*-----  End of page  ------*/
 /*=================================
@@ -3430,15 +3499,64 @@ input[type="search"] {
 .table--cell-25 {
   width: 25%; }
 
+.table--cell-37 {
+  width: 37.5%; }
+
+.table--cell-50 {
+  width: 50%; }
+
 .table--cell-75 {
   width: 75%; }
 
 /*-----  End of table  ------*/
 /*============================
+=            list            =
+============================*/
+.list {
+  margin-left: 0;
+  list-style: none; }
+
+.list--dash li {
+  margin-left: 1em;
+  position: relative; }
+  .list--dash li:before {
+    position: absolute;
+    left: -1em;
+    content: '–'; }
+
+.list--aside li:before {
+  color: #8888a7; }
+.list--aside .hN {
+  font-size: 15px;
+  font-size: 0.9375rem;
+  line-height: 1.6; }
+
+/*-----  End of list  ------*/
+/*===============================
+=            columns            =
+===============================*/
+@media only screen and (min-width: 1024px) {
+  .col {
+    margin-left: -24px; } }
+
+.col__item p {
+  margin-right: 24px; }
+@media only screen and (min-width: 1024px) {
+  .col__item {
+    display: inline-block;
+    padding-left: 24px;
+    width: 100%;
+    vertical-align: top; } }
+
+.col__item--50 {
+  width: 50%; }
+
+/*-----  End of columns  ------*/
+/*============================
 =            self            =
 ============================*/
 .self__texte p:last-of-type:after {
-  content: '\00a0\25FC';
+  content: ' ■';
   color: #000; }
 
 .self__notes__body {
@@ -3479,22 +3597,27 @@ input[type="search"] {
 ==============================*/
 .person-signature {
   font-style: italic; }
+  .person-signature a {
+    font-weight: 600; }
 
-.person-about .name {
-  margin-bottom: 0;
-  font-size: 18px;
-  font-size: 1.125rem;
-  line-height: 1.33333;
-  font-style: italic; }
 .person-about .bio {
   font-size: 14px;
   font-size: 0.875rem;
   line-height: 1.71429; }
+  @media only screen and (min-width: 1024px) {
+    .person-about .bio {
+      width: 75%; } }
 
 /*-----  End of person  ------*/
 /*===============================
 =            related            =
 ===============================*/
+.related.article p {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.71429;
+  margin-bottom: 0; }
+
 .related--aside {
   font-size: 15px;
   font-size: 0.9375rem;
@@ -3515,28 +3638,22 @@ input[type="search"] {
 =            meta            =
 ============================*/
 /*-----  End of meta  ------*/
-/*============================
-=            list            =
-============================*/
-.list {
-  margin-left: 0;
-  list-style: none; }
-  .list li {
-    margin-left: 1em;
-    position: relative; }
-    .list li:before {
-      position: absolute;
-      left: -1em;
-      content: '–'; }
+/*=============================
+=            media            =
+=============================*/
+.media__img {
+  border: 1px solid #eee;
+  border-color: rgba(238, 238, 238, 0.8);
+  margin-right: 12px;
+  -webkit-transition: border-color 0.35s ease-in 0.1s;
+  -moz-transition: border-color 0.35s ease-in 0.1s;
+  -ms-transition: border-color 0.35s ease-in 0.1s;
+  -o-transition: border-color 0.35s ease-in 0.1s;
+  transition: border-color 0.35s ease-in 0.1s; }
+  .media__img:hover {
+    border-color: #d2d2d2; }
 
-.list--aside li:before {
-  color: #8888a7; }
-.list--aside .hN {
-  font-size: 15px;
-  font-size: 0.9375rem;
-  line-height: 1.6; }
-
-/*-----  End of list  ------*/
+/*-----  End of media  ------*/
 /*===============================
 =            sprites            =
 ===============================*/

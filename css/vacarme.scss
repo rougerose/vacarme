@@ -27,7 +27,12 @@
 
 // fonts
 @import "ui/fonts";
+
+// titres et typo
 @import "ui/headings";
+
+// images - base
+@import "ui/images";
 
 // links 
 @import "ui/links";
@@ -44,14 +49,17 @@
 // objets
 @import "ui/buttons";
 @import "ui/table";
+@import "ui/list";
+@import "ui/columns";
 
 @import "ui/self";
 @import "ui/person";
 @import "ui/related";
 @import "ui/meta";
-@import "ui/list";
 
 // images
+@import "ui/media";
 @import "ui/sprites";
+
 
 @import "ui/misc";

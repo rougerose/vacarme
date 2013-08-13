@@ -5,6 +5,9 @@
 .list {
     margin-left: 0;
     list-style: none;
+}
+
+.list--dash {
     li {
         margin-left: 1em;
         position: relative;
@@ -15,6 +18,7 @@
         }
     }
 }
+
 .list--aside {
     li {
         &:before {
@@ -25,7 +29,6 @@
         @include font-size(15px);
     }
 }
-
 
 /*-----  End of list  ------*/
 

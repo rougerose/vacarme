@@ -5,16 +5,18 @@
 // .person {}
 .person-signature {
     font-style: italic;
+    a {
+        font-weight: 600;
+    }
 }
 
 .person-about {
-    .name {
-        margin-bottom: 0;
-        @include font-size(18px);
-        font-style: italic;
-    }
+    // .name {}
     .bio {
         @include font-size(14px);
+        @include media-query(desk) {
+            width: 75%;
+        }
     }
 }
 
