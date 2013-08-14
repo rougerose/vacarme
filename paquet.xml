@@ -8,6 +8,6 @@
     <necessite compatibilite="[2.2.1;[" nom="Zcore"/>
     <!-- <necessite compatibilite="[3.3.2;[" nom="compositions"/> -->
     <!-- <utilise nom="mll" compatibilite="[1.1.9;[" /> -->
-     <utilise nom="IntertitresTdm" compatibilite="[0.9.5;[" />
+     <necessite nom="IntertitresTdm" compatibilite="[0.9.5;[" />
     <chemin path=""/>
 </paquet>
