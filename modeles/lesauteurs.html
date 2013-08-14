@@ -1,14 +1,10 @@
 [(#REM)
 
-	Affiche la liste des auteurs d'un objet, séparés par des virgules
-	
-	Modele pour la balise #LESAUTEURS, dans le cas des auteurs d'un objet
-	(pour un objet ayant un champ lesauteurs dans la base, la balise affiche directement la valeur du champ)
-	
+    Affiche la liste des auteurs d'un objet, séparés par des virgules
+    
+    Modele pour la balise #LESAUTEURS, dans le cas des auteurs d'un objet
+    (pour un objet ayant un champ lesauteurs dans la base, la balise affiche directement la valeur du champ)
+    
 ]
-<B_auteurs>
-<aside class="person person-signature related related--aside landmark">
-    <h2 class="hN intertitre-section--aside visuallyhidden">[(#TOTAL_BOUCLE|singulier_ou_pluriel{local:author_singular,local:author_pural})]</h2>
-    <p><:par_auteur:> <BOUCLE_auteurs(AUTEURS){id_objet}{objet}{par nom}>[(#COMPTEUR_BOUCLE|=={1}|?{'',[(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|?{' &amp;&nbsp;',', '})]})][<span class="name"><a class="spip_in" href="#URL_AUTEUR" rel="author" itemprop="author">(#NOM|prenom_nom)</a></span>]</BOUCLE_auteurs></p>
-</aside>
-</B_auteurs>
+<BOUCLE_auteurs(AUTEURS){id_objet}{objet}{par nom}{", "}>
+<span class="vcard author"><a class="url fn spip_in" href="#URL_AUTEUR">[(#NOM|prenom_nom)]</a></span></BOUCLE_auteurs>
