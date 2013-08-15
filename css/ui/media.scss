@@ -2,7 +2,19 @@
 =            media            =
 =============================*/
 
-.media__img {
+// .media__img {}
+
+
+
+/*==========  size  ==========*/
+
+.media--full {
+    width: 100%;
+    display: block;
+}
+
+/*==========  cover  ==========*/
+.cover {
     border: 1px solid #eee;
     border-color: rgba(#eee,0.8);
     margin-right:$base-spacing-unit/2;
@@ -10,12 +22,6 @@
     &:hover {
         border-color: rgb(210,210,210);
     }
-}
-
-/*==========  logo  ==========*/
-
-.media--full {
-    width: 100%;
 }
 
 /*-----  End of media  ------*/

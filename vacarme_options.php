@@ -6,7 +6,7 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 define('_NO_CACHE', 1);
 
 // intertitres
-$GLOBALS['debut_intertitre'] = "\n<h2 class='spip'>";
+$GLOBALS['debut_intertitre'] = "\n<h2>";
 $GLOBALS['fin_intertitre'] = "</h2>\n";
 
 ?>

@@ -15,6 +15,12 @@
             }
         }
     }
+    // VOIR TODO
+    // h2,h3,h4,h5,h6 {
+    //     &:first-child {
+    //         background-color: red;
+    //     }
+    // }
 }
 
 // .self__notes { }
@@ -28,7 +34,7 @@
 @include media-query(desk) {
     .self__chapo {
         padding-right: $base-spacing-unit*2;
-        @include font-size(20px);
+        @include font-size(18px);
     }
     // .self__body {}
     .self__texte {

@@ -3108,6 +3108,62 @@ label,
   font-style: italic; }
 
 /*-----  End of =fonts  ------*/
+/*============================
+=            page            =
+============================*/
+html {
+  color: #252525; }
+
+/*==========  .wrap  ==========*/
+.wrap-out {
+  position: relative;
+  overflow: hidden;
+  width: 100%; }
+
+.wrap-in {
+  position: relative;
+  width: 100%; }
+  @media only screen and (max-width: 480px) {
+    .js .wrap-in {
+      left: 0; }
+    .csstransforms3d.js .wrap-in {
+      left: 0 !important;
+      -webkit-transform: translate3d(0, 0, 0);
+      -moz-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+      -o-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      -webkit-transition: -webkit-transform 500ms ease;
+      -moz-transition: -moz-transform 500ms ease;
+      -o-transition: -o-transform 500ms ease;
+      transition: transform 500ms ease;
+      -webkit-backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
+      -ms-backface-visibility: hidden;
+      -o-backface-visibility: hidden;
+      backface-visibility: hidden; }
+    .js-nav .wrap-in {
+      left: 70%; }
+    .csstransforms3d.js-nav .wrap-in {
+      -webkit-transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
+      -moz-transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
+      -ms-transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
+      -o-transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
+      transform: translate3d(70%, 0, 0) scale3d(1, 1, 1); } }
+
+.wrap {
+  max-width: 1100px; }
+  @media only screen and (min-width: 1024px) {
+    .wrap {
+      padding-top: 3em;
+      padding-left: 24px;
+      position: relative; } }
+  @media only screen and (max-width: 480px) {
+    .wrap {
+      padding-left: 12px;
+      padding-right: 12px; } }
+
+/*-----  End of page  ------*/
 /*================================
 =            headings            =
 ================================*/
@@ -3184,59 +3240,6 @@ a {
   transition: color 0.35s ease-in 0.1s; }
 
 /*-----  End of links  ------*/
-/*============================
-=            page            =
-============================*/
-/*==========  .wrap  ==========*/
-.wrap-out {
-  position: relative;
-  overflow: hidden;
-  width: 100%; }
-
-.wrap-in {
-  position: relative;
-  width: 100%; }
-  @media only screen and (max-width: 480px) {
-    .js .wrap-in {
-      left: 0; }
-    .csstransforms3d.js .wrap-in {
-      left: 0 !important;
-      -webkit-transform: translate3d(0, 0, 0);
-      -moz-transform: translate3d(0, 0, 0);
-      -ms-transform: translate3d(0, 0, 0);
-      -o-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-      -webkit-transition: -webkit-transform 500ms ease;
-      -moz-transition: -moz-transform 500ms ease;
-      -o-transition: -o-transform 500ms ease;
-      transition: transform 500ms ease;
-      -webkit-backface-visibility: hidden;
-      -moz-backface-visibility: hidden;
-      -ms-backface-visibility: hidden;
-      -o-backface-visibility: hidden;
-      backface-visibility: hidden; }
-    .js-nav .wrap-in {
-      left: 70%; }
-    .csstransforms3d.js-nav .wrap-in {
-      -webkit-transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
-      -moz-transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
-      -ms-transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
-      -o-transform: translate3d(70%, 0, 0) scale3d(1, 1, 1);
-      transform: translate3d(70%, 0, 0) scale3d(1, 1, 1); } }
-
-.wrap {
-  max-width: 1100px; }
-  @media only screen and (min-width: 1024px) {
-    .wrap {
-      padding-top: 3em;
-      padding-left: 24px;
-      position: relative; } }
-  @media only screen and (max-width: 480px) {
-    .wrap {
-      padding-left: 12px;
-      padding-right: 12px; } }
-
-/*-----  End of page  ------*/
 /*=================================
 =            page-head            =
 =================================*/
@@ -3493,7 +3496,8 @@ input[type="search"] {
 
 .table--cell {
   display: table-cell;
-  padding-left: 24px; }
+  padding-left: 24px;
+  vertical-align: top; }
 
 /*==========  table--cell size  ==========*/
 .table--cell-25 {
@@ -3569,9 +3573,9 @@ input[type="search"] {
 @media only screen and (min-width: 1024px) {
   .self__chapo {
     padding-right: 48px;
-    font-size: 20px;
-    font-size: 1.25rem;
-    line-height: 1.2; }
+    font-size: 18px;
+    font-size: 1.125rem;
+    line-height: 1.33333; }
 
   .self__texte {
     padding-right: 6px; }
@@ -3592,6 +3596,19 @@ input[type="search"] {
   color: #565669; }
 
 /*-----  End of self  ------*/
+/*=============================
+=            chapo            =
+=============================*/
+.chapo-logo--vertical {
+  float: left;
+  margin-right: 24px;
+  margin-bottom: 12px;
+  width: 49%; }
+
+.chapo-text--vertical {
+  margin-left: 25.5%; }
+
+/*-----  End of chapo  ------*/
 /*==============================
 =            person            =
 ==============================*/
@@ -3641,7 +3658,13 @@ input[type="search"] {
 /*=============================
 =            media            =
 =============================*/
-.media__img {
+/*==========  size  ==========*/
+.media--full {
+  width: 100%;
+  display: block; }
+
+/*==========  cover  ==========*/
+.cover {
   border: 1px solid #eee;
   border-color: rgba(238, 238, 238, 0.8);
   margin-right: 12px;
@@ -3650,12 +3673,8 @@ input[type="search"] {
   -ms-transition: border-color 0.35s ease-in 0.1s;
   -o-transition: border-color 0.35s ease-in 0.1s;
   transition: border-color 0.35s ease-in 0.1s; }
-  .media__img:hover {
+  .cover:hover {
     border-color: #d2d2d2; }
-
-/*==========  logo  ==========*/
-.media--full {
-  width: 100%; }
 
 /*-----  End of media  ------*/
 /*===============================
@@ -3697,7 +3716,10 @@ input[type="search"] {
 
 @media only screen and (min-width: 1024px) {
   .push--desk-one-quarter {
-    left: 25%; } }
+    left: 25%; }
+
+  .push--desk-one-eighth {
+    left: 12.5%; } }
 /*==========  spip-admin  ==========*/
 body .spip-admin-bloc,
 body .spip-admin-float {

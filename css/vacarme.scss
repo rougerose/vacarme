@@ -28,6 +28,9 @@
 // fonts
 @import "ui/fonts";
 
+// page
+@import "ui/page";
+
 // titres et typo
 @import "ui/headings";
 
@@ -37,10 +40,11 @@
 // links 
 @import "ui/links";
 
-// page
-@import "ui/page";
+// page-sections
 @import "ui/page-head";
 @import "ui/page-content";
+
+// navigation
 @import "ui/navigation";
 
 // forms
@@ -53,6 +57,7 @@
 @import "ui/columns";
 
 @import "ui/self";
+@import "ui/chapo";
 @import "ui/person";
 @import "ui/related";
 @import "ui/meta";

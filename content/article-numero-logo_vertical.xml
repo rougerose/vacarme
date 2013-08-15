@@ -1,0 +1,5 @@
+<composition>
+    <nom>Article d'un numéro + logo vertical</nom>
+    <description>Composition pour les articles d'un numéro de la revue, accompagné <strong>obligatoirement</strong> d'un logo vertical (format portrait) d'une largeur de XXX pixels.</description>
+    <icon>img/composition-article-numero-logoXL.png</icon>
+</composition>
