@@ -1,6 +1,6 @@
 <B_auteurs>
 <aside class="person person-signature related related--aside landmark">
     <h2 class="hN intertitre-section--aside visuallyhidden">[(#TOTAL_BOUCLE|singulier_ou_pluriel{local:author_singular,local:author_pural})]</h2>
-    <p><:par_auteur:> <BOUCLE_auteurs(AUTEURS){id_article}{par nom}>[(#COMPTEUR_BOUCLE|=={1}|?{'',[(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|?{' &amp;&nbsp;',', '})]})][<span class="name"><a class="spip_in" href="#URL_AUTEUR" rel="author" itemprop="author">(#NOM|prenom_nom)</a></span>]</BOUCLE_auteurs></p>
+    <p>[(#ENV{type-titre}) ]<BOUCLE_auteurs(AUTEURS){id_article}{par nom}>[(#COMPTEUR_BOUCLE|=={1}|?{'',[(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|?{' &amp;&nbsp;',', '})]})][<span class="name"><a class="spip_in" href="#URL_AUTEUR" rel="author" itemprop="author">(#NOM|prenom_nom)</a></span>]</BOUCLE_auteurs></p>
 </aside>
 </B_auteurs>

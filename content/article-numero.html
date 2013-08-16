@@ -1,9 +1,9 @@
 <BOUCLE_article(ARTICLES){id_article}>
 [   (#REM) Constantes
-]#SET{type,''}
-<BOUCLE_mots_techniques(MOTS){id_article}{id_groupe=5}{tout}>
-[(#ID_MOT|=={75}|oui)#SET{type,entretien}]
-</BOUCLE_mots_techniques>
+]#SET{type,''} #SET{type-titre,''}
+    <BOUCLE_mots_techniques(MOTS){id_article}{id_groupe=5}{tout}>
+    [(#ID_MOT|=={75}|oui)#SET{type,entretien}][(#SET{type-titre,#TITRE})]
+    </BOUCLE_mots_techniques>
 <div class="grid">
     <article class="self article" itemscope itemtype="http://schema.org/Article">
         <header class="self__header self__header--art landmark cf">
@@ -44,7 +44,7 @@
         <div class="grid__item desk-one-quarter float--left">
             [   (#REM) auteurs article/entretien
             ][      (#GET{type}|match{entretien}|oui)
-                        [(#INCLURE{fond=inclure/objets/authors-interview-aside,id_article})]
+                        [(#INCLURE{fond=inclure/objets/authors-interview-aside,id_article,type-titre=#GET{type-titre}})]
             ][  (#REM) articles liés ]
             <B_articles_lies>
             <aside class="related related--aside landmark">
