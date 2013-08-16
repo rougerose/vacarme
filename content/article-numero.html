@@ -1,22 +1,28 @@
 <BOUCLE_article(ARTICLES){id_article}>
+[   (#REM) Constantes
+]#SET{type,''}
+<BOUCLE_mots_techniques(MOTS){id_article}{id_groupe=5}{tout}>
+[(#ID_MOT|=={75}|oui)#SET{type,entretien}]
+</BOUCLE_mots_techniques>
 <div class="grid">
     <article class="self article" itemscope itemtype="http://schema.org/Article">
-        <div class="grid__item desk-three-quarters push--desk-one-quarter">
-            <header class="self__header landmark">
+        <header class="self__header self__header--art landmark cf">
+            <div class="grid__item desk-three-quarters float--right">
                 [<p class="#EDIT{surtitre} surtitre">(#SURTITRE)</p>]
-                <h1 itemprop="name" class="hN">
-                    <span class="#EDIT{titre} titre">#TITRE</span>[ <small class="#EDIT{soustitre} soustitre">(#SOUSTITRE)</small>]
+                <h1 itemprop="name" class="hN titre">
+                    <span class="#EDIT{titre}">#TITRE</span>[ <small class="#EDIT{soustitre} soustitre">(#SOUSTITRE)</small>]
                 </h1>
-            </header>
-        </div><!-- /.grid__item -->
-        [
-            (#REM) Le chapo et le logo de l'article
-
+            </div>
+            [(#GET{type}|non)
+                [(#INCLURE{fond=inclure/objets/authors-article,id_article})]
+            ]
+        </header>
+        [   (#REM) Le chapo et le logo de l'article
         ][
             (#INCLURE{fond=inclure/objets/chapo-logo-article,id_article,composition=#ENV{composition}})
         ]
         <div class="grid__item desk-three-quarters float--right">
-            <div class="self__body">
+            <div class="self__body self__body--article">
                 [<div class="#EDIT{texte} self__texte landmark surlignable">
                     (#TEXTE|image_reduire{500,0})
                 </div>]
@@ -36,12 +42,10 @@
             </div>
         </div><!-- /.grid__item -->
         <div class="grid__item desk-one-quarter float--left">
-            [
-                (#REM) auteurs article/entretien
-            ][
-                (#INCLURE{fond=inclure/objets/authors-aside,id_article})
-            ][
-                (#REM) articles liés ]
+            [   (#REM) auteurs article/entretien
+            ][      (#GET{type}|match{entretien}|oui)
+                        [(#INCLURE{fond=inclure/objets/authors-interview-aside,id_article})]
+            ][  (#REM) articles liés ]
             <B_articles_lies>
             <aside class="related related--aside landmark">
                 <h2 class="hN intertitre-section intertitre-section--first intertitre-section--aside"><:local:read_also:></h2>
@@ -71,12 +75,12 @@
                         </li>
                         <li class="col__item col__item--50">
                             <div class="media" itemscope itemtype="http://schema.org/Book">
-                                [<a href="#URL_RUBRIQUE" itemprop="url">(#LOGO_RUBRIQUE||image_reduire{80,0}|inserer_attribut{class,media__img cover}|inserer_attribut{itemprop,image})</a>]
+                                [<a href="#URL_RUBRIQUE" itemprop="url">(#LOGO_RUBRIQUE||image_reduire{80,0}|inserer_attribut{class,media__img cover cover--thumb}|inserer_attribut{itemprop,image})</a>]
                                 <BOUCLE_numero(HIERARCHIE){id_article}{1,1}>
                                 <BOUCLE_rubrique_numero(RUBRIQUES){id_rubrique}>
                                 <div class="media__body">
                                     <h3 class="hN intertitre-section intertitre-section--second"><:local:version_print:></h3>
-                                    <p><:local:published_in:> <a href="#URL_RUBRIQUE" itemprop="name">#TITRE</a>[, <span itemprop="datePublished" content="[(#SAISON_ANNEE|affdate{Y-m-d})]">(#SAISON_ANNEE|saison)[ (#SAISON_ANNEE|annee)]</span>][, (#PAGE_DEBUT|>{0}|oui)
+                                    <p><:local:published_in:> <a href="#URL_RUBRIQUE" itemprop="name">#TITRE</a>[, <span itemprop="datePublished" content="[(#SAISON_ANNEE|affdate{Y-m-d})]">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</span>][, (#PAGE_DEBUT|>{0}|oui)
                                         [(#PAGE_DEBUT|=={#PAGE_FIN}|?{<:local:page{debut=#PAGE_DEBUT}:>,<:local:page_abrev{debut=#PAGE_DEBUT,fin=#PAGE_FIN}:>})]
                                     ]</p>
                                 </div>
