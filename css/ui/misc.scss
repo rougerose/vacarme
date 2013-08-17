@@ -15,6 +15,15 @@
     }
 }
 
+@include media-query(lap-and-up) {
+    .push--lap-and-up-one-quarter {
+        left: 25%;
+    }
+    .push--lap-and-up-one-eighth {
+        left: 12.5%;
+    }
+}
+
 
 /*==========  spip-admin  ==========*/
 body {

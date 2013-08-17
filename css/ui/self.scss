@@ -4,17 +4,7 @@
 
 // .self__body {}
 .self__texte {
-    p {
-        &:last-of-type {
-            &:after {
-                // content: '\00a0\25FC';
-                content: ' ■';
-                color: #000;
-                // font-size: 80%;
-                // line-height: 1;
-            }
-        }
-    }
+    
     // VOIR TODO
     // h2,h3,h4,h5,h6 {
     //     &:first-child {
@@ -25,7 +15,9 @@
 
 // .self__notes { }
 .self__notes__body {
-    width: 75%;
+    @include media-query(lap-and-up) {
+        width: 75%;
+    }
     p {
         @include font-size(14px);
     }
@@ -46,6 +38,54 @@
         width: 66.666%;
     }
 }
+
+/*==========  self__header  ==========*/
+.self__header--rubrique {
+    text-transform: uppercase;
+    .titre {
+        font-family: "HelveticaNeueLTStdCnBold", sans-serif;
+        @include font-size(48px);
+    }
+    .soustitre {
+        font-family: "HelveticaNeueLTStdLtCnRegular", sans-serif;
+        font-style: normal;
+        font-size: .7em;
+    }
+}
+
+/*==========  self__body  ==========*/
+/* article */
+.self__body--article {
+    p {
+        &:last-of-type {
+            &:after {
+                content: ' ■';
+                color: #000;
+            }
+        }
+    }
+}
+
+/*==========  test  ==========*/
+
+
+.sommaire-art {
+    background-color: #FFF;
+}
+.sommaire-art-header {
+    background-color: #fff;
+}
+.sommaire-art-figure {
+    background-color: #FFF;
+}
+.sommaire-art-desc {
+    background-color: #FFF;
+}
+
+.auth {
+    background-color: #fff;
+}
+
 
 /*==========  exergues dans le #TEXTE  ==========*/
 

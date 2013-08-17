@@ -29,11 +29,14 @@
     margin-bottom: 0;
     text-align: right;
     font-style: italic;
-    @include font-size(14px);
-    color: lighten($gray-light,5%);
+    // @include font-size(14px);
+    // color: lighten($gray-light,5%);
+    @include media-query(lap) {
+        @include font-size(18px);
+    }
     @include media-query(desk) {
         position: absolute;
-        right: 0;
+        right: $base-spacing-unit/2;
         top: .5em;
         @include font-size(18px);
     }
