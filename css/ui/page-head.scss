@@ -3,7 +3,7 @@
 =================================*/
 
 .page-head {
-    @include media-query(palm) {
+    @include media-query(portable) {
         position: relative;
         z-index: 100;
         padding-top: 2.5em;
@@ -17,7 +17,7 @@
     @include font-size(45px);
     text-transform: uppercase;
     white-space: nowrap;
-    @include media-query(palm) {
+    @include media-query(portable) {
         @include font-size(45px);
     }
     @include media-query(desk) {

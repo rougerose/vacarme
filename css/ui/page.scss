@@ -19,7 +19,7 @@ html {
 .wrap-in {
     position: relative;
     width: 100%;
-    @include media-query(palm) {
+    @include media-query(portable) {
         .js & {
             left: 0;
         }
@@ -32,11 +32,21 @@ html {
             transition: transform 500ms ease;
             @include vendor(backface-visibility,hidden);
         }
+    }
+    @include media-query(palm) {
         .js-nav & {
             left: 70%;
         }
         .csstransforms3d.js-nav & {
             @include vendor(transform,translate3d(70%,0,0) scale3d(1, 1, 1));
+        }
+    }
+    @include media-query(lap) {
+        .js-nav & {
+            left: 50%;
+        }
+        .csstransforms3d.js-nav & {
+            @include vendor(transform,translate3d(50%,0,0) scale3d(1, 1, 1));
         }
     }
 }
@@ -46,9 +56,10 @@ html {
     @include media-query(desk) {
         padding-top: 3em;
         padding-left: $base-spacing-unit;
+        padding-right: $base-spacing-unit/2;
         position: relative;
     }
-    @include media-query(palm) {
+    @include media-query(portable) {
         padding-left: $base-spacing-unit/2;
         padding-right: $base-spacing-unit/2;
     }

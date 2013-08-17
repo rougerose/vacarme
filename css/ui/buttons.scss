@@ -10,11 +10,13 @@
 .btn--nav-open {
     position: absolute;
     top: .5em;
-    margin-left: -6px;
     background-color: #fff;
     &:hover {
         background-color: $nav-bg;
         color: #fff;
+    }
+    .js & {
+        margin-left: -6px;
     }
 }
 
@@ -22,7 +24,6 @@
     position: absolute;
     z-index: -1;
     top: .5em;
-    left: 18px;
     background-color: $nav-bg;
 }
 

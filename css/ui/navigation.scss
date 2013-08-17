@@ -6,7 +6,7 @@
 .navigation {
     width: 100%;
     overflow: hidden;
-    @include media-query(palm) {
+    @include media-query(portable) {
         /* conteneur */
         position: absolute;
         top: 0;
@@ -57,7 +57,8 @@
     }
 }
 .nav--item {
-    @include media-query(palm) {
+    white-space: nowrap;
+    @include media-query(portable) {
         border-bottom: 1px solid lighten($nav-bg,3%);
         ul > & {
             display: list-item;
@@ -89,7 +90,7 @@
 
 /* :target et animations css */
 #nav {
-    @include media-query(palm) {
+    @include media-query(portable) {
         .btn--nav-close {
             display: none;
         }
@@ -107,9 +108,17 @@
 .js {
     #nav {
         @include media-query(palm) {
-            height: 100%;
             width: 70%;
             left: -70%;
+        }
+        @include media-query(lap) {
+            width: 50%;
+            left: -50%;
+        }
+        @include media-query(portable) {
+            height: 100%;
+            // width: 70%;
+            // left: -70%;
             background-color: $nav-bg;
             .btn--nav-close {
                 top: .6em;
@@ -122,14 +131,14 @@
 }
 .js-nav {
     #nav {
-        @include media-query(palm) {
+        @include media-query(portable) {
             -webkit-overflow-scrolling:touch; // http://www.levibeach.com/articles/scrolling-touch
         }
     }
 }
 .csstransforms3d.js {
     #nav {
-        @include media-query(palm) {
+        @include media-query(portable) {
             left: 0;
             @include vendor(transform,translate3d(-100%,0,0));
             @include vendor(backface-visibility,hidden);

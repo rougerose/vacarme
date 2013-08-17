@@ -12,7 +12,7 @@ input[type="search"] {
 .search__form {
     position: relative;
     border-radius: 5px;
-    @include media-query(palm) {
+    @include media-query(portable) {
         background-color: #fff;
     }
 }
@@ -31,15 +31,13 @@ input[type="search"] {
             .search__form:hover &,
             &:focus {
                 width: 13em;
+                width: 85%;
                 padding-left: 6px;
                 background-color: $gray-light;
             }
         } 
-        @include media-query(palm) {
-            width: 17em;
-            .js & {
-                width: 8.7em;
-            }
+        @include media-query(portable) {
+            width: 85%;
         }    
     }
     .search__submit {
