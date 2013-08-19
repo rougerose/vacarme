@@ -2,6 +2,7 @@
 [   (#REM) Constantes
 ]#SET{type,''} #SET{type-titre,''}
     <BOUCLE_mots_techniques(MOTS){id_article}{id_groupe=5}{tout}>
+    [(#REM) l'article est un entretien ?]
     [(#ID_MOT|=={75}|oui)#SET{type,entretien}][(#SET{type-titre,#TITRE})]
     </BOUCLE_mots_techniques>
 <div class="grid">
@@ -13,9 +14,9 @@
                     <span class="#EDIT{titre}">#TITRE</span>[ <small class="#EDIT{soustitre} soustitre">(#SOUSTITRE)</small>]
                 </h1>
             </div>
-            [(#GET{type}|non)
-                [(#INCLURE{fond=inclure/objets/authors-article,id_article})]
-            ]
+            <BOUCLE_auteurs(AUTEURS){id_article}{0,1}{si #GET{type}|non}>
+            [(#INCLURE{fond=inclure/objets/authors-article,id_article})]
+            </BOUCLE_auteurs>
         </header>
         [   (#REM) Le chapo et le logo de l'article
         ][

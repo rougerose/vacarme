@@ -1,5 +1,3 @@
-<B_auteurs>
-<div class="grid__item lap-and-up-one-quarter float--left">
-    <p class="person person-signature related"><:par_auteur:> <BOUCLE_auteurs(AUTEURS){id_article}{par nom}>[(#COMPTEUR_BOUCLE|=={1}|?{'',[(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|?{' &amp;&nbsp;',', '})]})][<a class="spip_in" href="#URL_AUTEUR" rel="author" itemprop="author">(#NOM|prenom_nom)</a>]</BOUCLE_auteurs></p>
-</div>
-</B_auteurs>
+[<div class="grid__item lap-and-up-one-quarter float--left">
+    <p class="person person-signature related"><:par_auteur:>(#MODELE{authors,id_article=#ENV{id_article}})</p>
+</div>]

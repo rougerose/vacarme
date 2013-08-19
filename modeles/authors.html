@@ -1,0 +1,1 @@
+<BOUCLE_auteurs(AUTEURS){id_article=#ENV{id_article}}{par nom}>[(#COMPTEUR_BOUCLE|=={1}|?{'',[(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|?{' &amp;&nbsp;',', '})]})][<a class="spip_in" href="#URL_AUTEUR" rel="author" itemprop="author">(#NOM|prenom_nom)</a>]</BOUCLE_auteurs>
