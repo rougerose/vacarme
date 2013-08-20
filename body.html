@@ -3,26 +3,20 @@
         <div id="wrap-in" class="wrap-in">
             <div class="wrap">
                 <div class="grid page">
-                    <div class="grid__item desk-one-quarter">
-                        <header id="top" class="page-head landmark" role="banner">
-                            <INCLURE{fond=header/#ENV{type-page},env} />
-                        </header><!-- /.page-head -->
-                    </div><!-- /.grid__item -->
+                    <header id="top" class="grid__item desk-one-quarter page-head landmark" role="banner">
+                        <INCLURE{fond=header/#ENV{type-page},env} />
+                    </header><!-- /.page-head -->
                     <div class="grid__item desk-three-quarters">
                         <div id="nav" class="navigation" role="navigation">
                             <INCLURE{fond=nav/navigation-site,env} />
                         </div><!-- /.navigation -->
                     </div><!-- /.grid__item -->
-                    <div class="grid__item">
-                        <div class="page-content">
-                            <INCLURE{fond=content/#ENV{type-page},env} />
-                        </div><!-- /.page-content -->
-                    </div><!-- /.grid__item -->
-                    <div class="grid__item">
-                        <footer class="page-foot">
-                            <p>footer</p>
-                        </footer><!-- /.page-foot -->
-                    </div><!-- /.grid__item -->
+                    <div class="grid__item page-content">
+                        <INCLURE{fond=content/#ENV{type-page},env} />
+                    </div><!-- /.page-content -->
+                    <footer class="grid__item page-foot">
+                        <p>footer</p>
+                    </footer><!-- /.page-foot -->
                 </div><!-- /.page -->
             </div><!-- /.wrap -->
         </div><!-- /.wrap-in -->
