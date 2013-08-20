@@ -3,27 +3,17 @@
 ===============================*/
 
 .related {
-    &.article {
-        p {
-            @include font-size(14px);
-            margin-bottom: 0;
-        }
+    p {
+        @include font-size(15px);
+        margin-bottom: 0;
     }
 }
 .related--aside {
-    @include font-size(15px);
-    color: $warm-gray;
-    a {
-        border-bottom: 1px solid #fff;
-        color: #7f776f; // #5E5E74;
-        &:hover {
-            border-bottom-color: $gray-blue;
-            color: $gray-blue;
-        }
-    }
+    // @include font-size(15px);
+    // color: $warm-gray;
 }
 .related--content {
-    color: #7f807b;
+    // color: #7f807b;
 }
 
 /*-----  End of related  ------*/

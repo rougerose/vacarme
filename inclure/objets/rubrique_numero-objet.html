@@ -1,0 +1,31 @@
+[(#REM)
+    Afficher le contenu d'un objet (article ou rubrique) d'un numéro
+    ================================================================
+]
+[(#REM)
+    Les constantes
+    **********************************
+    objet = article/rubrique
+    id_objet = id_article/id_rubrique
+    logo_objet = oui/non
+    logo_format = paysage/portrait
+    type = entretien/dossier
+]
+<article class="toc__item[ toc__item--(#ENV{objet}) ] resume resume-rubrique landmark">
+    <div class="grid">
+        [<div class="grid__item[ (#ENV{logo_objet}|=={oui}|?{'lap-and-up-one-half'})]">
+            (#ENV{logo_objet}|=={oui}|?{
+                [(#INCLURE{fond=inclure/objets/rubrique_numero-objet-logo,
+                    objet=#ENV{objet},
+                    id_objet=#ENV{id_objet},
+                    type=#ENV{type},
+                    logo_format=#ENV{logo_format}})
+                ]}) 
+        </div><!-- /.grid__item -->]
+        <div class="grid__item[ (#ENV{logo_objet}|=={oui}|?{'lap-and-up-one-half','lap-and-up-three-quarters push--lap-and-up-one-quarter'})]">
+            [(#SET{fichier_inclus,#VAL{inclure/objets/rubrique_numero-objet}|concat{-#ENV{objet}}})]
+            [(#INCLURE{fond=#GET{fichier_inclus},id_objet=#ENV{id_objet}})]
+        </div><!-- /.grid__item -->
+    </div><!-- /.grid -->
+</article>
+#FILTRE{trim}

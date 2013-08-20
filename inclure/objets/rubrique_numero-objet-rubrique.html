@@ -1,0 +1,13 @@
+<BOUCLE_rubrique_numero_objet_rubrique(RUBRIQUES){id_rubrique=#ENV{id_objet}}>
+    <header>
+        <h1 class="hN resume-rubrique__titre">#TITRE</h1>
+    </header>
+    [<div class="resume-rubrique__desc landmark">
+        (#DESCRIPTIF)
+    </div>]
+    <BOUCLE_articles_rubrique(ARTICLES){id_rubrique}{par num titre, titre}>
+    <article class="toc__item toc__item--article resume resume-article">
+        [(#INCLURE{fond=inclure/objets/rubrique_numero-objet-article,id_objet=#ID_ARTICLE})]
+    </article>
+    </BOUCLE_articles_rubrique>
+</BOUCLE_rubrique_numero_objet_rubrique>

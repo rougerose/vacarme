@@ -1,0 +1,29 @@
+/*=========================================
+=            table of content (toc)            =
+=========================================*/
+
+// .toc {}
+.toc__title {
+    position: relative;
+    padding-left: $base-spacing-unit;
+    font-family: 'HelveticaNeueLTStdLtCnRegular';
+    font-style: normal;
+    @include font-size(36px);
+    text-transform: uppercase;
+    @include media-query(palm) {
+        left: 33.333%;
+    }
+    @include media-query(lap-and-up) {
+        left: 25%;
+    }
+}
+.toc__img {
+    @include media-query(lap-and-up) {
+        & img {
+            float: right;
+        }
+    }
+}
+
+/*-----  End of table of content (toc)  ------*/
+

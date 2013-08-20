@@ -9,11 +9,17 @@
         font-weight: 600;
     }
 }
-
+.person-signature--author {
+    &.related {
+        @include media-query(lap-and-up) {
+            margin-top: 3.5em;
+        }
+    }
+}
+// .person-signature--itw {}
 .person-about {
     // .name {}
     .bio {
-        @include font-size(14px);
         @include media-query(desk) {
             width: 75%;
         }

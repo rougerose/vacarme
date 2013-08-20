@@ -17,11 +17,16 @@
 .cover {
     border: 1px solid #eee;
     border-color: rgba(#eee,0.8);
+}
+.cover--thumb {
     margin-right:$base-spacing-unit/2;
     @include vendor(transition,border-color 0.35s ease-in 0.1s);
     &:hover {
         border-color: rgb(210,210,210);
     }
+}
+.cover--issue {
+    float: right;
 }
 
 /*-----  End of media  ------*/

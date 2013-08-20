@@ -29,6 +29,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'read_also'             => 'Lire également',
     
     // T
+    'table_of_content' => "Sommaire",
     'tag_plural'            => 'Mots-clés',
     'tag_singular'          => 'Mot-clé',
     

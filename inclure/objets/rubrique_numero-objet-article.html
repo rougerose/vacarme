@@ -1,0 +1,14 @@
+<BOUCLE_rubrique_numero_article(ARTICLES){id_article=#ENV{id_objet}}>
+<header>
+    [<p class="surtitre resume-article__surtitre">(#SURTITRE)</p>]
+    <h1 class="hN resume-article__titre">
+        <span class=""><a href="#URL_ARTICLE">#TITRE</a></span>[ <small class="soustitre resume-article__soustitre">(#SOUSTITRE)</small>]
+    </h1>
+</header>
+[<p class="person person-signature person-signature--author"><:par_auteur:>(#MODELE{authors,id_article=#ENV{id_article}})</p>]
+[<div class="descriptif">
+    (#DESCRIPTIF)
+    <p class="more"><a href=""><:local:more:></a></p>
+</div>]
+[(#REM) AJOUTS ? les traductions éventuelles de l'article + les articles secondaires qui pourraient être minorés par rapport aux articles principaux ? ]
+</BOUCLE_rubrique_numero_article>

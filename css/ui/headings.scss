@@ -18,7 +18,6 @@
 .soustitre {
     display: block;
     font-style: italic;
-    font-size: 1em;
 }
 
 /*==========  intertitres texte (spip)  ==========*/
@@ -46,7 +45,9 @@ h6.spip {
     padding-left: $base-spacing-unit/2;
     margin-left: -$base-spacing-unit/2;
     @include font-size(18px);
-    // line-height: 1;
+    .toc & {
+        margin-bottom: 0;
+    }
 }
 .intertitre-section--second {
     margin-bottom: 0;

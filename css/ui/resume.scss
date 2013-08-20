@@ -1,0 +1,24 @@
+/*==============================
+=            resume            =
+==============================*/
+
+/*==========  .resume-rubrique  ==========*/
+
+.resume-rubrique__titre {
+    @include font-size(44px);
+    font-weight: 600;
+}
+.resume-rubrique__desc {
+    @include font-size(18px);
+    width: 75%;
+}
+
+/*==========  .resume-article  ==========*/
+
+.resume-article__titre {
+    margin-bottom: 0;
+    @include font-size(24px);
+}
+
+/*-----  End of resume  ------*/
+

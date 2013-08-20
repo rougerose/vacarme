@@ -1,6 +1,6 @@
 <BOUCLE_article(ARTICLES){id_article}>
 [   (#REM) Constantes
-]#SET{type,''} #SET{type-titre,''}
+]   #SET{type,''} #SET{type-titre,''}
     <BOUCLE_mots_techniques(MOTS){id_article}{id_groupe=5}{tout}>
     [(#REM) l'article est un entretien ?]
     [(#ID_MOT|=={75}|oui)#SET{type,entretien}][(#SET{type-titre,#TITRE})]
