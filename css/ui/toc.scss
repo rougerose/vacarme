@@ -18,11 +18,11 @@
     }
 }
 .toc__img {
-    @include media-query(lap-and-up) {
-        & img {
-            float: right;
-        }
-    }
+    // @include media-query(lap-and-up) {
+    //     & img {
+    //         float: right;
+    //     }
+    // }
 }
 
 /*-----  End of table of content (toc)  ------*/

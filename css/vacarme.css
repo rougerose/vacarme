@@ -3216,8 +3216,6 @@ h6.spip {
   font-size: 18px;
   font-size: 1.125rem;
   line-height: 1.33333; }
-  .toc .intertitre-section--first {
-    margin-bottom: 0; }
 
 .intertitre-section--second {
   margin-bottom: 0;
@@ -3508,6 +3506,9 @@ input[type="search"] {
   margin-left: -24px;
   width: 100%; }
 
+.table--row {
+  display: table-row; }
+
 .table--cell {
   display: table-cell;
   padding-left: 24px;
@@ -3526,6 +3527,9 @@ input[type="search"] {
 .table--cell-75 {
   width: 75%; }
 
+@media only screen and (min-width: 768px) {
+  .desk-table--cell-50 {
+    width: 50%; } }
 /*-----  End of table  ------*/
 /*============================
 =            list            =
@@ -3666,9 +3670,9 @@ input[type="search"] {
 /*==========  .resume-article  ==========*/
 .resume-article__titre {
   margin-bottom: 0;
-  font-size: 24px;
-  font-size: 1.5rem;
-  line-height: 1; }
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5; }
 
 /*-----  End of resume  ------*/
 /*=============================
@@ -3719,10 +3723,6 @@ input[type="search"] {
   @media only screen and (min-width: 481px) {
     .toc__title {
       left: 25%; } }
-
-@media only screen and (min-width: 481px) {
-  .toc__img img {
-    float: right; } }
 
 /*-----  End of table of content (toc)  ------*/
 /*===============================

@@ -7,6 +7,9 @@
     margin-left: -$base-spacing-unit; // .grid
     width: 100%;
 }
+.table--row {
+    display:table-row;
+}
 .table--cell {
     display: table-cell;
     padding-left: $base-spacing-unit; // .grid__item
@@ -18,6 +21,10 @@
 .table--cell-37 {width: 37.5%;}
 .table--cell-50 {width: 50%;}
 .table--cell-75 {width: 75%;}
+
+@include media-query(desk) {
+    .desk-table--cell-50 {width: 50%;};
+}
 
 /*-----  End of table  ------*/
 

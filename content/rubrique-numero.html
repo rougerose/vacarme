@@ -47,12 +47,12 @@
                 <section class="grid__item">
                     <BOUCLE_type_rubriques(MOTS){id_rubrique}{id_groupe=4}{tout}>
                     [(#SET{type,''})]
-                    [(#TITRE|match{entretien}|?{#SET{type,entretien}},#SET{type,dossier})]
+                    [(#TITRE|match{entretien}|?{#SET{type,entretien},#SET{type,dossier}})]
                     <h2 class="hN intertitre-section intertitre-section--first">#TITRE</h2>
                     </BOUCLE_type_rubriques>
                     [(#REM) si la rubrique est un entretien, l'article et son logo sont affichés directement. Sinon le contenu de la rubrique. ]
                     <BOUCLE_entretien(ARTICLES){id_rubrique}{id_mot=11}{si #GET{type}|match{entretien}}>
-                    [(#SET{logo_objet,non})][(#SET{logo_format,''})]
+                    #SET{logo_objet,non} #SET{logo_format,''}
                     [(#REM) Y a-t-il un logo et quel est son format (paysage ou portrait) ? ]
                         [(#LOGO_ARTICLE|?{#SET{logo_objet,oui}})]
                         [(#LOGO_ARTICLE|largeur|>{#LOGO_ARTICLE|hauteur}|?{
@@ -66,7 +66,7 @@
                         logo_format=#GET{logo_format}})
                     ]
                     </BOUCLE_entretien>
-                    [(#SET{logo_objet,non})][(#SET{logo_format,''})]
+                    #SET{logo_objet,non} #SET{logo_format,''}
                     [(#REM) Y a-t-il un logo et quel est son format (paysage ou portrait) ? ]
                         [(#LOGO_RUBRIQUE|fichier|match{^rubon#ID_RUBRIQUE}|?{#SET{logo_objet,oui}})]
                         [(#LOGO_RUBRIQUE|largeur|>{#LOGO_RUBRIQUE|hauteur}|?{
