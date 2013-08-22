@@ -10,9 +10,6 @@
     font-style: normal;
     @include font-size(36px);
     text-transform: uppercase;
-    @include media-query(palm) {
-        left: 33.333%;
-    }
     @include media-query(lap-and-up) {
         left: 25%;
     }

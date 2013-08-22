@@ -1,3 +1,46 @@
-<p style="font-weight:600;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, saepe, eos beatae exercitationem laboriosam sunt inventore animi dolorem necessitatibus eligendi velit alias nesciunt facere maxime placeat ipsa ex suscipit soluta.</p>
-<p style="font-weight: 600; font-family:'PlantinSemi';">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, asperiores, doloribus, suscipit nemo soluta quod harum quos odio saepe labore maiores expedita magni quae sapiente sed iure est! Voluptatem, ex?</p>
-<p style="font-weight:800;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, possimus, expedita, deleniti, molestias tempore nulla officia dolores repellat minima perspiciatis corporis reiciendis itaque consequuntur placeat eius accusantium sit dolore veniam?</p>
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique=299}>
+<div class="grid">
+    <div class="grid__item">
+        <div class="table">
+            <div class="table--cell table--cell-50">
+                <img src="[(#LOGO_RUBRIQUE|image_reduire{520,0}|extraire_attribut{src})]" alt="">
+            </div>
+            <div class="table--cell table--cell-50">
+                <h3>#TITRE</h3>
+                <div>#DESCRIPTIF</div>
+            </div>
+        </div>
+    </div>
+    <BOUCLE_articles(ARTICLES){id_rubrique}{par num titre}{doublons}>
+    <div class="grid__item one-quarter">
+        <h4>#TITRE</h4>
+        <div>#DESCRIPTIF</div>
+    </div>
+    </BOUCLE_articles>
+</div>
+
+<div class="grid">
+    <div class="grid__item one-half">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, incidunt, consequatur facere magni nemo ratione corporis natus expedita minus veritatis aperiam earum vero doloremque neque ducimus quisquam nesciunt assumenda alias.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, amet fugit aliquam eum officiis minus nisi delectus suscipit voluptate labore nostrum inventore veniam eaque libero error velit repellendus ut! Nihil?</p>
+    </div>
+    <div class="grid__item one-half">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor quaerat quo veniam optio sint natus doloremque molestiae. Animi, harum, praesentium, eius, esse unde ullam aliquam aliquid odit hic ex nobis.</p>
+    </div>
+    <div class="grid__item one-quarter">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, ipsum, ipsa, vel, aut possimus magnam totam placeat accusantium hic culpa necessitatibus sunt minima corrupti dicta enim laboriosam at in. Hic!</p>
+    </div>
+    <div class="grid__item one-quarter">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor quaerat quo veniam optio sint natus doloremque molestiae. Animi, harum, praesentium, eius, esse unde ullam aliquam aliquid odit hic ex nobis.</p>
+    </div>
+    <div class="grid__item one-quarter">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, ipsum, ipsa, vel, aut possimus magnam totam placeat accusantium hic culpa necessitatibus sunt minima corrupti dicta enim laboriosam at in. Hic!</p>
+    </div>
+    <div class="grid__item one-quarter">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor quaerat quo veniam optio sint natus doloremque molestiae. Animi, harum, praesentium, eius, esse unde ullam aliquam aliquid odit hic ex nobis.</p>
+    </div>
+    <div class="grid__item one-quarter">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, ipsum, ipsa, vel, aut possimus magnam totam placeat accusantium hic culpa necessitatibus sunt minima corrupti dicta enim laboriosam at in. Hic!</p>
+    </div>
+</div>
+</BOUCLE_rubrique>

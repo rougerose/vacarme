@@ -3503,8 +3503,7 @@ input[type="search"] {
 =============================*/
 .table {
   display: table;
-  margin-left: -24px;
-  width: 100%; }
+  margin-left: -24px; }
 
 .table--row {
   display: table-row; }
@@ -3527,9 +3526,24 @@ input[type="search"] {
 .table--cell-75 {
   width: 75%; }
 
-@media only screen and (min-width: 768px) {
-  .desk-table--cell-50 {
-    width: 50%; } }
+@media only screen and (min-width: 481px) {
+  .lap-and-up-table {
+    display: table;
+    margin-left: -24px; }
+
+  .lap-and-up-table--cell {
+    display: table-cell;
+    padding-left: 24px;
+    vertical-align: top; }
+
+  .lap-and-up-table--cell-25 {
+    width: 25%; }
+
+  .lap-and-up-table--cell-50 {
+    width: 50%; }
+
+  .lap-and-up-table--cell-75 {
+    width: 75%; } }
 /*-----  End of table  ------*/
 /*============================
 =            list            =
@@ -3717,9 +3731,6 @@ input[type="search"] {
   font-size: 2.25rem;
   line-height: 1.33333;
   text-transform: uppercase; }
-  @media only screen and (max-width: 480px) {
-    .toc__title {
-      left: 33.333%; } }
   @media only screen and (min-width: 481px) {
     .toc__title {
       left: 25%; } }
@@ -3761,9 +3772,6 @@ input[type="search"] {
   transition: border-color 0.35s ease-in 0.1s; }
   .cover--thumb:hover {
     border-color: #d2d2d2; }
-
-.cover--issue {
-  float: right; }
 
 /*-----  End of media  ------*/
 /*===============================

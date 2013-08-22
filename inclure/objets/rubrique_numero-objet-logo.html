@@ -8,17 +8,12 @@
 
 -->]
 [(#SET{logo_format,#ENV{logo_format}})]
-[(#REM) <!-- à garder pour une redimensionnement de l'image en aléatoire. Les tailles de colonne ne sont pas utilisées -->]
-[(#SET{tailles,#ARRAY{0,S,1,M,2,L}})]
-[(#SET{taille_image,#ARRAY{0,316,1,384,2,520}})]
-[(#SET{taille_colonne,#ARRAY{0,lap-and-up-five-eighths,1,lap-and-up-six-eighths,2,lap-and-up-one-whole}})]
-
 <BOUCLE_article_logo(ARTICLES){id_article=#ENV{id_objet}}{si #ENV{objet}|=={article}}>
-[(#GET{logo_format}|=={portrait}|oui)
-    [<figure class="toc__img"><img src="(#LOGO_ARTICLE|image_reduire{250,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]"></figure>]
-][(#GET{logo_format}|=={paysage}|oui)
-    [<figure class="toc__img"><img src="(#LOGO_ARTICLE|image_reduire{#GET{taille_image}|table_valeur{#GET{taille}},0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]"></figure>]
-]</BOUCLE_article_logo>
+[(#GET{logo_format}|=={portrait}|?{
+    [<figure class="toc__img"><img src="(#LOGO_ARTICLE|image_reduire{250,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="media--full"></figure>],
+    [<figure class="toc__img"><img src="(#LOGO_ARTICLE|image_reduire{520,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="media--full"></figure>]
+})]
+</BOUCLE_article_logo>
 
 <BOUCLE_rubrique_logo(RUBRIQUES){id_rubrique=#ENV{id_objet}}{si #ENV{objet}|=={rubrique}}>
 [(#REM) 
@@ -26,9 +21,8 @@
     donc test sur le nom du fichier car l'automatisme n'est pas souhaité ici.
 
 ][(#LOGO_RUBRIQUE|fichier|match{^rubon#ID_RUBRIQUE}|oui)
-    [(#GET{logo_format}|=={portrait}|oui)
-        [<figure class="toc__img"><img src="(#LOGO_RUBRIQUE|image_reduire{250,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]"></figure>]
-    ][(#GET{logo_format}|=={paysage}|oui)
-        [<figure class="toc__img"><img src="(#LOGO_RUBRIQUE|image_reduire{520,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]"></figure>]
-    ]
+    [(#GET{logo_format}|=={portrait}|?{
+        [<figure class="toc__img"><img src="(#LOGO_RUBRIQUE|image_reduire{250,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="media--full"></figure>],
+        [<figure class="toc__img"><img src="(#LOGO_RUBRIQUE|image_reduire{520,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="media--full"></figure>]
+    })]
 ]</BOUCLE_rubrique_logo>

@@ -1,16 +1,13 @@
 <BOUCLE_numero(RUBRIQUES){id_rubrique}>
-[(#REM)
-    Les constantes
-] [(#SET{logo_objet,non})] [(#SET{logo_format,''})] [(#SET{objet,''})] [(#SET{id_objet,''})] [(#SET{type,''})]
 <div class="grid">
     <article class="self rubrique" itemscope itemtype="http://schema.org/Book">
         <header class="self__header self__header--rubrique landmark">
-            <div class="grid__item palm-one-third lap-and-up-one-quarter">
+            <div class="grid__item lap-and-up-one-quarter">
                 <figure>
-                    [<img src="(#LOGO_RUBRIQUE|image_reduire{188,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="float--right" itemprop="image" />]
+                    [<img src="(#LOGO_RUBRIQUE|image_reduire{365,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="media--full" itemprop="image" />]
                 </figure>
             </div><!-- /.grid__item -->
-            <div class="grid__item palm-two-thirds lap-and-up-three-quarters">
+            <div class="grid__item lap-and-up-three-quarters">
                 <h1 itemprop="name" class="hN titre"><span class="#EDIT{titre}">#TITRE</span>[ <small class="soustitre">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</small>]</h1>
                 [<div class="self__body">
                     <div class="#EDIT{texte} self__texte landmark surlignable" itemprop="description">
@@ -24,66 +21,57 @@
                 <h2 class="hN intertitre-section toc__title"><:local:table_of_content:></h2>
                 [(#REM) L'éditorial du numéro. L'article est publié dans la rubrique ]
                 <BOUCLE_editorial(ARTICLES){id_rubrique}{0,1}{!par date}>
+                [(#SET{logo_objet,non})] [(#SET{logo_format,''})] [(#SET{titre_descriptif,oui})]
                 <section class="grid__item">
                     <BOUCLE_type_edito(MOTS){id_article}{id_groupe=4}{tout}{0,1}>
                     <h2 class="hN intertitre-section intertitre-section--first">#TITRE</h2>
                     </BOUCLE_type_edito>
-                    [(#REM) Y a-t-il un logo et quel est son format (paysage ou portrait) ? ]
-                        [(#SET{logo_objet,non})][(#SET{logo_format,''})]
-                        [(#LOGO_ARTICLE|?{#SET{logo_objet,oui}})]
+                    [(#LOGO_ARTICLE|oui)
+                        #SET{logo_objet,oui}
                         [(#LOGO_ARTICLE|largeur|>{#LOGO_ARTICLE|hauteur}|?{
-                            #SET{logo_format,paysage},#SET{logo_format,portrait}})
-                        ]
-                    [(#INCLURE{fond=inclure/objets/rubrique_numero-objet,
-                        id_objet=#ID_ARTICLE,
-                        objet=article,
-                        logo_objet=#GET{logo_objet},
-                        logo_format=#GET{logo_format}})
-                    ]
-                </section>
+                            #SET{logo_format,paysage},#SET{logo_format,portrait}
+                        })]
+                    ][(#INCLURE{fond=inclure/objets/rubrique_numero-2col,
+                        objet=article,id_objet=#ID_ARTICLE,
+                        logo_objet=#GET{logo_objet},logo_format=#GET{logo_format},
+                        titre_descriptif=#GET{titre_descriptif}
+                    })]
+                </section><!-- /.grid__item -->
                 </BOUCLE_editorial>
                 [(#REM) Les rubriques du numéro ]
                 <BOUCLE_rubriques_numero(RUBRIQUES){id_parent}{par num titre, titre}>
+                #SET{logo_objet,non} #SET{logo_format,''} #SET{compo,''}
+                #SET{titre_descriptif,oui} #SET{id_objet,#ID_RUBRIQUE} #SET{objet,rubrique}
                 <section class="grid__item">
                     <BOUCLE_type_rubriques(MOTS){id_rubrique}{id_groupe=4}{tout}>
-                    [(#SET{type,''})]
-                    [(#TITRE|match{entretien}|?{#SET{type,entretien},#SET{type,dossier}})]
+                    [(#TITRE|match{#_rubriques_numero:TITRE}|oui) #SET{titre_descriptif,non} ]
                     <h2 class="hN intertitre-section intertitre-section--first">#TITRE</h2>
                     </BOUCLE_type_rubriques>
-                    [(#REM) si la rubrique est un entretien, l'article et son logo sont affichés directement. Sinon le contenu de la rubrique. ]
-                    <BOUCLE_entretien(ARTICLES){id_rubrique}{id_mot=11}{si #GET{type}|match{entretien}}>
-                    #SET{logo_objet,non} #SET{logo_format,''}
-                    [(#REM) Y a-t-il un logo et quel est son format (paysage ou portrait) ? ]
-                        [(#LOGO_ARTICLE|?{#SET{logo_objet,oui}})]
-                        [(#LOGO_ARTICLE|largeur|>{#LOGO_ARTICLE|hauteur}|?{
-                            #SET{logo_format,paysage},#SET{logo_format,portrait}})
-                        ]
-                    [(#INCLURE{fond=inclure/objets/rubrique_numero-objet,
-                        id_objet=#ID_ARTICLE,
-                        objet=article,
-                        type=#GET{type},
-                        logo_objet=#GET{logo_objet},
-                        logo_format=#GET{logo_format}})
-                    ]
-                    </BOUCLE_entretien>
-                    #SET{logo_objet,non} #SET{logo_format,''}
-                    [(#REM) Y a-t-il un logo et quel est son format (paysage ou portrait) ? ]
-                        [(#LOGO_RUBRIQUE|fichier|match{^rubon#ID_RUBRIQUE}|?{#SET{logo_objet,oui}})]
-                        [(#LOGO_RUBRIQUE|largeur|>{#LOGO_RUBRIQUE|hauteur}|?{
+                    <B_combien><BOUCLE_combien(ARTICLES){id_rubrique}> </BOUCLE_combien>[(#TOTAL_BOUCLE|>{3}|?{#SET{compo,4col},#SET{compo,2col}})]</B_combien>
+                    [(#REM) un logo ?]
+                        [(#LOGO_RUBRIQUE|fichier|match{^rubon#ID_RUBRIQUE}|?{
+                            #SET{logo_objet,oui}
+                            [(#LOGO_RUBRIQUE|largeur|>{#LOGO_RUBRIQUE|hauteur}|?{
                                 #SET{logo_format,paysage},#SET{logo_format,portrait}})
-                        ]
-                    [(#INCLURE{fond=inclure/objets/rubrique_numero-objet,
-                        id_objet=#ID_RUBRIQUE,
-                        objet=rubrique,
-                        type=#GET{type},
-                        logo_objet=#GET{logo_objet},
-                        logo_format=#GET{logo_format}})
-                    ]
-                    <//B_entretien>
-                </section><!-- /.toc -->
+                            ]
+                        })]
+                    [(#GET{compo}|=={2col}|?{
+                        [(#INCLURE{fond=inclure/objets/rubrique_numero-2col,
+                            objet=#GET{objet}, id_objet=#GET{id_objet},
+                            logo_objet=#GET{logo_objet}, logo_format=#GET{logo_format},
+                            titre_descriptif=#GET{titre_descriptif}
+                        })]
+                    })]
+                    [(#GET{compo}|=={4col}|?{
+                        [(#INCLURE{fond=inclure/objets/rubrique_numero-4col,
+                            objet=#GET{objet}, id_objet=#GET{id_objet},
+                            logo_objet=#GET{logo_objet}, logo_format=#GET{logo_format},
+                            titre_descriptif=#GET{titre_descriptif}
+                        })]
+                    })]
+                </section><!-- /.grid__item -->
                 </BOUCLE_rubriques_numero>
-            </section>
-
+            </section><!-- /.toc -->
             [<section class="self__notes landmark">
                 <h2 class="hN intertitre-section intertitre-section--first"><:info_notes:></h2>
                 <div class="self__notes__body">

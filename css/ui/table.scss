@@ -5,7 +5,7 @@
 .table {
     display: table;
     margin-left: -$base-spacing-unit; // .grid
-    width: 100%;
+    // width: 100%; non sinon décalage par rapport à la version .grid/.grid__item
 }
 .table--row {
     display:table-row;
@@ -22,8 +22,19 @@
 .table--cell-50 {width: 50%;}
 .table--cell-75 {width: 75%;}
 
-@include media-query(desk) {
-    .desk-table--cell-50 {width: 50%;};
+@include media-query(lap-and-up) {
+    .lap-and-up-table {
+        display: table;
+        margin-left: -$base-spacing-unit; // .grid
+    }
+    .lap-and-up-table--cell {
+        display: table-cell;
+        padding-left: $base-spacing-unit; // .grid__item
+        vertical-align: top;
+    }
+    .lap-and-up-table--cell-25 {width: 25%}
+    .lap-and-up-table--cell-50 {width: 50%;}
+    .lap-and-up-table--cell-75 {width: 75%;}
 }
 
 /*-----  End of table  ------*/
