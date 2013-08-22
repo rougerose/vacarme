@@ -5,7 +5,10 @@
         <span class=""><a href="#URL_ARTICLE">#TITRE</a></span>[ <small class="soustitre resume-article__soustitre">(#SOUSTITRE)</small>]
     </h1>
 </header>
-[<p class="person person-signature person-signature--author"><:par_auteur:>(#MODELE{authors,id_article=#ENV{id_article}})</p>]
+<BOUCLE_mots_techniques(MOTS){id_article}{id_groupe=5}{tout}>[
+    (#REM) l'article est un entretien ?
+    ][(#ID_MOT|=={75}|oui)#SET{type,entretien}]</BOUCLE_mots_techniques>
+[(#GET{type}|!={entretien}|?{[<p class="person person-signature person-signature--author"><:par_auteur:>(#MODELE{authors,id_article=#ENV{id_article},contexte=resume})</p>]})]
 [<div class="descriptif">
     (#DESCRIPTIF)
     <p class="more"><a href=""><:local:more:></a></p>
