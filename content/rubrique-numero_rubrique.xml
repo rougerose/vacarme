@@ -1,0 +1,6 @@
+<composition>
+    <nom>Rubrique d'un numéro</nom>
+    <description>Composition pour la rubrique d'un numéro (entretien, chantier, cahier, etc.)</description>
+    <icon>images/objet-liste-contenus-dates.png</icon>
+    <branche type="article" composition="numero" />
+</composition>

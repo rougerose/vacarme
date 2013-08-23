@@ -2,3 +2,6 @@
  ☐ pied de page article : version plus simple (sans "à propos de l'article + version en ligne") pour les articles hors du secteur 115 ?
  ☐ article = gérer les versions intégrales et les aperçus.
  ☐ article = régler l'interlignage si l'intertitre est le premier élément du texte.
+ ☐ rubrique-numero_rubrique = le sommaire du numéro intégrale est repris. Modifier dans un second temps. Principe envisageable : 
+   - contenu de la rubrique
+   - le reste du numéro.

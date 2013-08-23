@@ -1,0 +1,7 @@
+<BOUCLE_rubrique-numero_rubrique(RUBRIQUES){id_rubrique}>
+    <BOUCLE_select_numero(HIERARCHIE){id_rubrique}{1,1}>
+        <BOUCLE_numero(RUBRIQUES){id_rubrique}>
+        <INCLURE{fond=head/rubrique-numero,id_rubrique,env}>
+        </BOUCLE_numero>
+    </BOUCLE_select_numero>
+</BOUCLE_rubrique-numero_rubrique>

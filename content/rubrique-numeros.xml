@@ -1,0 +1,7 @@
+<composition>
+    <nom>Les numéros</nom>
+    <description>Composition pour l'index des numéros</description>
+    <icon>images/objet-liste-contenus-dates.png</icon>
+    <branche type="article" composition="numero" />
+    <branche type="rubrique" composition="numero" />
+</composition>

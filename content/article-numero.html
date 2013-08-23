@@ -76,9 +76,9 @@
                         </li>
                         <li class="col__item desk-col__item--50 landmark">
                             <div class="media" itemscope itemtype="http://schema.org/Book">
-                                [<a href="#URL_RUBRIQUE" itemprop="url">(#LOGO_RUBRIQUE||image_reduire{80,0}|inserer_attribut{class,media__img cover cover--thumb}|inserer_attribut{itemprop,image})</a>]
                                 <BOUCLE_numero(HIERARCHIE){id_article}{1,1}>
                                 <BOUCLE_rubrique_numero(RUBRIQUES){id_rubrique}>
+                                [<a href="#URL_RUBRIQUE" itemprop="url">(#LOGO_RUBRIQUE||image_reduire{80,0}|inserer_attribut{class,media__img cover cover--thumb}|inserer_attribut{itemprop,image})</a>]
                                 <div class="media__body">
                                     <h3 class="hN intertitre-section intertitre-section--second"><:local:version_print:></h3>
                                     <p><:local:published_in:> <a href="#URL_RUBRIQUE" itemprop="name">#TITRE</a>[, <span itemprop="datePublished" content="[(#SAISON_ANNEE|affdate{Y-m-d})]">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</span>][, (#PAGE_DEBUT|>{0}|oui)
