@@ -6,7 +6,7 @@
 .toc__title {
     position: relative;
     padding-left: $base-spacing-unit;
-    font-family: 'HelveticaNeueLTStdLtCnRegular';
+    font-family: 'HelveticaNeueLTStdCnRegular', sans-serif;
     font-style: normal;
     @include font-size(36px);
     text-transform: uppercase;
@@ -15,11 +15,8 @@
     }
 }
 .toc__img {
-    // @include media-query(lap-and-up) {
-    //     & img {
-    //         float: right;
-    //     }
-    // }
+    margin-bottom: 2em;
+    padding-bottom: 0.5em;
 }
 
 /*-----  End of table of content (toc)  ------*/

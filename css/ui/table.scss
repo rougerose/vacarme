@@ -30,7 +30,7 @@
     .lap-and-up-table--cell {
         display: table-cell;
         padding-left: $base-spacing-unit; // .grid__item
-        vertical-align: top;
+        vertical-align: bottom;
     }
     .lap-and-up-table--cell-25 {width: 25%}
     .lap-and-up-table--cell-50 {width: 50%;}

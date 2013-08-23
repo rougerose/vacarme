@@ -14,6 +14,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     
     // I
     'info_ps'               => 'Post-scriptum',
+    'issue_about' => "À propos de ce numéro",
+
+    // M
+    'more' => 'Lire <em> → </em>',
     
     // N
     'navigation'            => "Navigation",

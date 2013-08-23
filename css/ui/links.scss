@@ -5,7 +5,23 @@
 a {
     color: #000;
     text-decoration: none;
-    @include vendor(transition,color 0.35s ease-in 0.1s);
+    @include vendor(transition,color 0.35s ease-out);
+}
+.more {
+    a, em {
+        @include vendor(transition,all 0.35s ease-out);
+    }
+    a {
+        border-bottom: 1px dotted #888;
+        color: #888;
+        &:hover {
+            color: #000;
+            border-bottom-style: solid;
+            em {
+                padding-left: .5em;
+            }
+        }
+    }
 }
 
 /*-----  End of links  ------*/

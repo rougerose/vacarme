@@ -72,21 +72,21 @@
                 </section><!-- /.grid__item -->
                 </BOUCLE_rubriques_numero>
             </section><!-- /.toc -->
+        </div><!-- /.grid__item -->
+        <div class="grid__item push--lap-and-up-one-quarter">
             [<section class="self__notes landmark">
                 <h2 class="hN intertitre-section intertitre-section--first"><:info_notes:></h2>
                 <div class="self__notes__body">
                     (#NOTES)
                 </div>
             </section>]
-        </div><!-- /.grid__item -->
-        <div class="grid__item">
-            <footer>
-                <h2>À propos de ce numéro</h2>
+            <footer class="related">
+                <h2 class="hN intertitre-section intertitre-section--first intertitre-section--content"><:local:issue_about:></h2>
                 [(#SET{redac_chef,#ARRAY})][(#SET{redac_chef,[(#LISTER_VALEURS**{redacteurchef})]})]
                 <B_redac><p>Rédaction en chef : <BOUCLE_redac(AUTEURS){id_auteur IN #GET{redac_chef}}{par nom}>[(#COMPTEUR_BOUCLE|=={1}|?{'',[(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|?{' &amp;&nbsp;',', '})]})][(#NOM|prenom_nom)]</BOUCLE_redac></p></B_redac>
-                <p>[<span itemprop="numberOfPages">(#PAGES_TOTAL)</span> pages, ] format ?</p>
+                [<p><span itemprop="numberOfPages">(#PAGES_TOTAL)</span> pages</p>]
                 <p>Editeur Vacarme. Diffusion Les Belles Lettres.</p>
-                <p>ISBN <span itemprop="isbn">[(#ISBN)]</span> </p>
+                [<p>ISBN <span itemprop="isbn">(#ISBN)</span> </p>]
             </footer>
         </div>
         <!-- /.grid__item -->

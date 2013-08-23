@@ -3193,7 +3193,8 @@ html {
 
 .soustitre {
   display: block;
-  font-style: italic; }
+  font-style: italic;
+  line-height: inherit; }
 
 /*==========  intertitres texte (spip)  ==========*/
 h2.spip,
@@ -3237,11 +3238,26 @@ h6.spip {
 a {
   color: #000;
   text-decoration: none;
-  -webkit-transition: color 0.35s ease-in 0.1s;
-  -moz-transition: color 0.35s ease-in 0.1s;
-  -ms-transition: color 0.35s ease-in 0.1s;
-  -o-transition: color 0.35s ease-in 0.1s;
-  transition: color 0.35s ease-in 0.1s; }
+  -webkit-transition: color 0.35s ease-out;
+  -moz-transition: color 0.35s ease-out;
+  -ms-transition: color 0.35s ease-out;
+  -o-transition: color 0.35s ease-out;
+  transition: color 0.35s ease-out; }
+
+.more a, .more em {
+  -webkit-transition: all 0.35s ease-out;
+  -moz-transition: all 0.35s ease-out;
+  -ms-transition: all 0.35s ease-out;
+  -o-transition: all 0.35s ease-out;
+  transition: all 0.35s ease-out; }
+.more a {
+  border-bottom: 1px dotted #888;
+  color: #888; }
+  .more a:hover {
+    color: #000;
+    border-bottom-style: solid; }
+    .more a:hover em {
+      padding-left: .5em; }
 
 /*-----  End of links  ------*/
 /*=================================
@@ -3534,7 +3550,7 @@ input[type="search"] {
   .lap-and-up-table--cell {
     display: table-cell;
     padding-left: 24px;
-    vertical-align: top; }
+    vertical-align: bottom; }
 
   .lap-and-up-table--cell-25 {
     width: 25%; }
@@ -3614,22 +3630,21 @@ input[type="search"] {
   .self__notes {
     width: 66.666%; } }
 /*==========  self__header  ==========*/
-.self__header--rubrique {
-  text-transform: uppercase; }
-  .self__header--rubrique .titre {
-    font-family: "HelveticaNeueLTStdCnBold", sans-serif;
-    font-size: 48px;
-    font-size: 3rem;
-    line-height: 1; }
-    @media only screen and (max-width: 480px) {
-      .self__header--rubrique .titre {
-        font-size: 36px;
-        font-size: 2.25rem;
-        line-height: 1.33333; } }
-  .self__header--rubrique .soustitre {
-    font-family: "HelveticaNeueLTStdLtCnRegular", sans-serif;
-    font-style: normal;
-    font-size: .7em; }
+.self__header--rubrique .titre {
+  font-family: "HelveticaNeueLTStdCnBold", sans-serif;
+  text-transform: uppercase;
+  font-size: 48px;
+  font-size: 3rem;
+  line-height: 1; }
+  @media only screen and (max-width: 480px) {
+    .self__header--rubrique .titre {
+      font-size: 36px;
+      font-size: 2.25rem;
+      line-height: 1.33333; } }
+.self__header--rubrique .soustitre {
+  font-family: "HelveticaNeueLTStdLtCnRegular", sans-serif;
+  font-style: normal;
+  font-size: .7em; }
 
 /*==========  self__body  ==========*/
 /* article */
@@ -3670,23 +3685,43 @@ input[type="search"] {
 ==============================*/
 /*==========  .resume-rubrique  ==========*/
 .resume-rubrique__titre {
-  font-size: 44px;
-  font-size: 2.75rem;
-  line-height: 1.09091;
+  font-size: 40px;
+  font-size: 2.5rem;
+  line-height: 1.2;
   font-weight: 600; }
 
 .resume-rubrique__desc {
-  font-size: 18px;
-  font-size: 1.125rem;
-  line-height: 1.33333;
-  width: 75%; }
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 1.09091;
+  color: #888; }
+  @media only screen and (min-width: 481px) {
+    .resume-rubrique__desc {
+      width: 75%; } }
 
 /*==========  .resume-article  ==========*/
+.resume-article {
+  margin-bottom: 2em;
+  line-height: 1.125; }
+  @media only screen and (max-width: 480px) {
+    .resume-article {
+      border-bottom: 1px dotted #ddd; } }
+
 .resume-article__titre {
   margin-bottom: 0;
-  font-size: 16px;
-  font-size: 1rem;
-  line-height: 1.5; }
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.1;
+  font-weight: 600;
+  min-height: 3.3em; }
+
+.resume-article__soustitre {
+  margin-top: 0.25em;
+  color: #888; }
+
+@media only screen and (min-width: 960px) {
+  .resume-article__desc {
+    padding-right: 48px; } }
 
 /*-----  End of resume  ------*/
 /*=============================
@@ -3710,9 +3745,11 @@ input[type="search"] {
   .person-signature a {
     font-weight: 600; }
 
-@media only screen and (min-width: 481px) {
-  .person-signature--author.related {
-    margin-top: 3.5em; } }
+.person-signature--author {
+  margin-bottom: .5em; }
+  @media only screen and (min-width: 481px) {
+    .person-signature--author.related {
+      margin-top: 3.5em; } }
 
 @media only screen and (min-width: 768px) {
   .person-about .bio {
@@ -3725,7 +3762,7 @@ input[type="search"] {
 .toc__title {
   position: relative;
   padding-left: 24px;
-  font-family: 'HelveticaNeueLTStdLtCnRegular';
+  font-family: 'HelveticaNeueLTStdCnRegular', sans-serif;
   font-style: normal;
   font-size: 36px;
   font-size: 2.25rem;
@@ -3734,6 +3771,10 @@ input[type="search"] {
   @media only screen and (min-width: 481px) {
     .toc__title {
       left: 25%; } }
+
+.toc__img {
+  margin-bottom: 2em;
+  padding-bottom: 0.5em; }
 
 /*-----  End of table of content (toc)  ------*/
 /*===============================

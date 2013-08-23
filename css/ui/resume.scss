@@ -2,22 +2,46 @@
 =            resume            =
 ==============================*/
 
+// .resume {}
+
 /*==========  .resume-rubrique  ==========*/
 
 .resume-rubrique__titre {
-    @include font-size(44px);
+    @include font-size(40px);
     font-weight: 600;
 }
 .resume-rubrique__desc {
-    @include font-size(18px);
-    width: 75%;
+    @include font-size(22px);
+    color: #888;
+    @include media-query(lap-and-up) {
+        width: 75%;
+    }
 }
 
 /*==========  .resume-article  ==========*/
-
+.resume-article {
+    margin-bottom: 2em;
+    // padding-bottom: 0.5em;
+    line-height: 1.125; // 16px
+    @include media-query(palm) {
+        border-bottom: 1px dotted #ddd;
+    }
+}
 .resume-article__titre {
     margin-bottom: 0;
-    @include font-size(16px);
+    @include font-size(18px,$line-height:false);
+    line-height: 1.1;
+    font-weight: 600;
+    min-height: 3.3em;
+}
+.resume-article__soustitre {
+    margin-top: 0.25em;
+    color: #888;
+}
+.resume-article__desc {
+    @media only screen and (min-width: 960px) {
+        padding-right: $base-spacing-unit*2;
+    }
 }
 
 /*-----  End of resume  ------*/

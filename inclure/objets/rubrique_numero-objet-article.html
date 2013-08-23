@@ -1,6 +1,5 @@
 <BOUCLE_rubrique_numero_article(ARTICLES){id_article=#ENV{id_objet}}>
 <header>
-    [<p class="surtitre resume-article__surtitre">(#SURTITRE)</p>]
     <h1 class="hN resume-article__titre">
         <span class=""><a href="#URL_ARTICLE">#TITRE</a></span>[ <small class="soustitre resume-article__soustitre">(#SOUSTITRE)</small>]
     </h1>
@@ -9,9 +8,7 @@
     (#REM) l'article est un entretien ?
     ][(#ID_MOT|=={75}|oui)#SET{type,entretien}]</BOUCLE_mots_techniques>
 [(#GET{type}|!={entretien}|?{[<p class="person person-signature person-signature--author"><:par_auteur:>(#MODELE{authors,id_article=#ENV{id_article},contexte=resume})</p>]})]
-[<div class="descriptif">
-    (#DESCRIPTIF)
-    <p class="more"><a href=""><:local:more:></a></p>
-</div>]
+[<p class="resume-article__desc">(#DESCRIPTIF|PtoBR)</p>]
+<p class="more"><a href="#URL_ARTICLE"><:local:more:></a></p>
 [(#REM) AJOUTS ? les traductions éventuelles de l'article + les articles secondaires qui pourraient être minorés par rapport aux articles principaux ? ]
 </BOUCLE_rubrique_numero_article>
