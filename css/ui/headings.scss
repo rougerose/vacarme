@@ -26,7 +26,11 @@ h3.spip,
 h4.spip,
 h5.spip,
 h6.spip {
+    margin-top:2 * $base-spacing-unit;
+    margin-top:(2 * $base-spacing-unit / $base-font-size)*1rem;
     font-weight: normal;
+    line-height: 1;
+    color: #000;
 }
 
 /*==========  intertitres section  ==========*/

@@ -55,54 +55,36 @@
         font-size: .7em;
     }
 }
+.self__header--art {
+    .surtitre {
+        margin-bottom: 0;
+        margin-top: -1em;
+        @include font-size(22px);
+    }
+    .titre {
+        margin-top: 0.15em;
+        color: #000;
+    }
+    .soustitre {
+        font-size: 71%; // 26px;
+        color: $text-color;
+    }
+}
 
 /*==========  self__body  ==========*/
 /* article */
 .self__body--article {
-    .self__texte {
-        p {
-            &:last-of-type {
-                &:after {
-                    content: ' ■';
-                    color: #000;
-                }
-            }
-        }
-    }
+    // .self__texte {
+    //     p {
+    //         &:last-of-type {
+    //             &:after {
+    //                 content: ' ■';
+    //                 color: #000;
+    //             }
+    //         }
+    //     }
+    // }
 }
-
-/*==========  test  ==========*/
-
-
-.sommaire-art {
-    background-color: #FFF;
-}
-.sommaire-art-header {
-    background-color: #fff;
-}
-.sommaire-art-figure {
-    background-color: #FFF;
-}
-.sommaire-art-desc {
-    background-color: #FFF;
-}
-
-.auth {
-    background-color: #fff;
-}
-
-
-/*==========  exergues dans le #TEXTE  ==========*/
-
-.exergue {
-    margin-left: 25%;
-    margin-right: -25%;
-    @include font-size(26px);
-    line-height: 1.3;
-    font-style: italic;
-    color: lighten($nav-bg,20%);
-}
-
 
 /*-----  End of self  ------*/
 

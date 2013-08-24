@@ -46,7 +46,8 @@
             [   (#REM) auteurs article/entretien
             ][      (#GET{type}|match{entretien}|oui)
                         [(#INCLURE{fond=inclure/objets/authors-interview-aside,id_article,type-titre=#GET{type-titre}})]
-            ][  (#REM) articles liés ]
+            ][(#INCLURE{fond=inclure/objets/credit-logo,id_article})]
+            [  (#REM) articles liés ]
             <B_articles_lies>
             <aside class="related related--aside landmark">
                 <h2 class="hN intertitre-section intertitre-section--first intertitre-section--aside"><:local:read_also:></h2>
@@ -62,7 +63,7 @@
             </B_articles_lies>
         </div><!-- /.grid__item -->
         <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
-            [(#MODELE{authors-about})]
+            [(#INCLURE{fond=inclure/objets/authors-about,id_article})]
             [(#REM) pied de page simplifié ? voir Todo ]
             <footer class="related related--content article landmark">
                 <h2 class="hN intertitre-section intertitre-section--first intertitre-section--content"><:local:publication_about:></h2>

@@ -4,11 +4,12 @@
 
 .related {
     p {
-        @include font-size(15px);
+        // @include font-size(15px);
         margin-bottom: 0;
     }
 }
 .related--aside {
+    margin-bottom: 1.5em;
     // @include font-size(15px);
     // color: $warm-gray;
 }

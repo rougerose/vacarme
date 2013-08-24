@@ -37,5 +37,33 @@
     .lap-and-up-table--cell-75 {width: 75%;}
 }
 
+/*==========  tableaux spip  ==========*/
+table.spip {
+      @extend .table--bordered;
+      @extend .table--striped;
+      // @include font-size(1px);
+      font-family: $HCReg-font;
+      max-width: 100%;
+      th {color: #000; font-weight: normal;}
+      td {color: #666;}
+      th, td {
+         border-color: #ddd;
+         border-width: 1px 0 0;
+      }
+      tr:last-child th,
+      tr:last-child td {
+         border-bottom-width: 1px;
+      }
+      tbody tr:nth-of-type(odd),
+      .row_odd {
+         background: #f9f9f9;
+      }
+      caption {
+         color: #999;
+         margin-bottom: 1em;
+         text-transform: uppercase;
+      }
+   }
+
 /*-----  End of table  ------*/
 

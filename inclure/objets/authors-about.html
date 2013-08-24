@@ -1,7 +1,7 @@
-[(#SET{bio,''})][(#SET{authors,#ARRAY})
-]<B_test_about_authors>
+[(#SET{bio,''})][(#SET{authors,#ARRAY})]
+<B_test_about_authors>
     <BOUCLE_test_about_authors(AUTEURS){id_article}{par nom}>
-        [(#BIO|oui)#SET{bio,' '}][(#SET_PUSH{authors,#ID_AUTEUR})]
+        [(#BIO|oui)[(#SET{bio,' '})][(#SET_PUSH{authors,#ID_AUTEUR})]]
     </BOUCLE_test_about_authors>
 <B_about_authors>
 <aside class="related related--content person-about landmark">
