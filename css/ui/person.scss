@@ -11,6 +11,9 @@
 }
 .person-signature--author {
     margin-bottom: .5em;
+    .resume & {
+        color: #555;
+    }
     &.related {
         @include media-query(lap-and-up) {
             margin-top: 3.5em;

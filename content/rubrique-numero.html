@@ -2,18 +2,20 @@
 <div class="grid">
     <article class="self rubrique" itemscope itemtype="http://schema.org/Book">
         <header class="self__header self__header--rubrique landmark">
-            <div class="grid__item lap-and-up-one-quarter">
-                <figure>
-                    [<img src="(#LOGO_RUBRIQUE|image_reduire{500,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="media--full" itemprop="image" />]
-                </figure>
-            </div><!-- /.grid__item -->
-            <div class="grid__item lap-and-up-three-quarters">
-                <h1 itemprop="name" class="hN titre"><span class="#EDIT{titre}">#TITRE</span>[ <small class="soustitre">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</small>]</h1>
-                [<div class="self__body">
-                    <div class="#EDIT{texte} self__texte landmark surlignable" itemprop="description">
-                        (#TEXTE|image_reduire{500,0})
+            <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
+                <div class="grid">
+                    <div class="grid__item lap-and-up-one-third">
+                        [<img src="(#LOGO_RUBRIQUE|image_reduire{500,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="cover cover--issue" itemprop="image" />]
                     </div>
-                </div>]
+                    <div class="grid__item lap-and-up-two-thirds">
+                        <h1 itemprop="name" class="hN titre"><span class="#EDIT{titre}">#TITRE</span>[ <small class="soustitre">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</small>]</h1>
+                        [<div class="self__body">
+                            <div class="#EDIT{texte} self__texte landmark surlignable" itemprop="description">
+                                (#TEXTE|image_reduire{500,0})
+                            </div>
+                        </div>]
+                    </div>
+                </div>
             </div><!-- /.grid__item -->
         </header>
         <div class="grid__item">

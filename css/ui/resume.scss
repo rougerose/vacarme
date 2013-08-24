@@ -7,8 +7,10 @@
 /*==========  .resume-rubrique  ==========*/
 
 .resume-rubrique__titre {
-    @include font-size(40px);
+    @include font-size(40px,$line-height:false);
+    line-height: 0.9;
     font-weight: 600;
+    color: #555;
 }
 .resume-rubrique__desc {
     @include font-size(22px);
@@ -21,7 +23,6 @@
 /*==========  .resume-article  ==========*/
 .resume-article {
     margin-bottom: 2em;
-    // padding-bottom: 0.5em;
     line-height: 1.125; // 16px
     @include media-query(palm) {
         border-bottom: 1px dotted #ddd;

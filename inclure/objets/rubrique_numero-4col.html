@@ -1,8 +1,5 @@
 [(#ENV{logo_objet}|=={oui}|oui)
-    [(#ENV{logo_format}|=={portrait}|?{
-        #SET{colonne_logo,lap-and-up-one-quarter} #SET{colonne_contenu,lap-and-up-three-quarters} #SET{nombre_articles,3},
-        #SET{colonne_logo,lap-and-up-one-half} #SET{colonne_contenu,lap-and-up-one-whole} #SET{nombre_articles,2}
-    })]
+    [(#ENV{logo_format}|=={portrait}|?{#SET{nombre_articles,2},#SET{nombre_articles,2}})]
 ]
 [(#SET{fichier_inclus,#VAL{inclure/objets/rubrique_numero-objet}|concat{-#ENV{objet}}})]
 <article class="toc__item resume resume-rubrique landmark">
@@ -11,19 +8,19 @@
         <BOUCLE_test_logo(CONDITION){si #ENV{logo_objet}|=={oui}}>
         <div class="grid__item">
             <div class="lap-and-up-table">
-                <div class="lap-and-up-table--cell[ (#ENV{logo_format}|=={paysage}|?{palm-table--cell-100 lap-and-up-table--cell-50,palm-table--cell-100 lap-and-up-table--cell-25})]">
+                <div class="lap-and-up-table--cell palm-table--cell-100 lap-and-up-table--cell-50[ (#ENV{logo_format}|=={portrait}|?{psh--lap-and-up-one-half})]">
                     [(#INCLURE{fond=inclure/objets/rubrique_numero-objet-logo,
                         objet=#ENV{objet},id_objet=#ENV{id_objet},
                         logo_format=#ENV{logo_format}
                     })]
                 </div><!-- /.table--cell -->
-                <div class="lap-and-up-table--cell[ (#ENV{logo_format}|=={paysage}|?{lap-and-up-table--cell-50,lap-and-up-table--cell-75})]">
-                    [(#ENV{titre_descriptif}|=={oui})
+                <div class="lap-and-up-table--cell[ (#ENV{logo_format}|=={paysage}|?{lap-and-up-table--cell-50,lap-and-up-table--cell-50})]">
+                    [(#ENV{titre_descriptif}|=={oui}|oui)
                         [(#INCLURE{fond=#GET{fichier_inclus},id_objet=#ENV{id_objet}})]]
                     <B_articles_ligne1>
                     <div class="grid">
-                        <BOUCLE_articles_ligne1(ARTICLES){id_rubrique=#ENV{id_objet}}{si #ENV{titre_descriptif}|=={non}}{0,#GET{nombre_articles}}{doublons}>
-                        <div class="grid__item[ (#ENV{logo_format}=={paysage}|?{lap-and-up-one-half,lap-and-up-one-third})] ">
+                        <BOUCLE_articles_ligne1(ARTICLES){id_rubrique=#ENV{id_objet}}{par num titre,titre}{si #ENV{titre_descriptif}|=={non}}{0,#GET{nombre_articles}}{doublons}>
+                        <div class="grid__item[ (#ENV{logo_format}=={paysage}|?{lap-and-up-one-half,lap-and-up-one-half})] ">
                             <article class="toc__item resume resume-article">
                                 [(#INCLURE{fond=inclure/objets/rubrique_numero-objet-article,id_objet=#ID_ARTICLE})]
                             </article>
@@ -36,18 +33,22 @@
         </div><!-- /.grid__item -->
         </BOUCLE_test_logo>
         [(#REM) pas de logo, mais avec le titre de la rubrique ]
-        [<div class="grid__item">
+        [<div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
             (#ENV{logo_objet}|=={non}|et{#ENV{titre_descriptif}|=={oui}}|?{
                 [(#INCLURE{fond=#GET{fichier_inclus},id_objet=#ENV{id_objet}})]
             })
         </div>]
-        <BOUCLE_articles_rubrique(ARTICLES){id_rubrique=#ENV{id_objet}}{par num titre, titre}{si #ENV{objet}|=={rubrique}}{doublons}>
-        <div class="grid__item lap-and-up-one-quarter">
-            <article class="toc__item resume resume-article">
-                [(#INCLURE{fond=inclure/objets/rubrique_numero-objet-article,id_objet=#ID_ARTICLE})]
-            </article>
-        </div><!-- /.grid__item -->
-        </BOUCLE_articles_rubrique>
+        <B_articles_rubrique>
+        <div class="psh--lap-and-up-one-quarter">
+            <BOUCLE_articles_rubrique(ARTICLES){id_rubrique=#ENV{id_objet}}{par num titre, titre}{si #ENV{objet}|=={rubrique}}{doublons}>
+            <div class="grid__item lap-and-up-one-third">
+                <article class="toc__item resume resume-article">
+                    [(#INCLURE{fond=inclure/objets/rubrique_numero-objet-article,id_objet=#ID_ARTICLE})]
+                </article>
+            </div><!-- /.grid__item -->
+            </BOUCLE_articles_rubrique>
+        </div>
+        </B_articles_rubrique>
     </div><!-- /.grid -->
 </article>
 #FILTRE{trim}

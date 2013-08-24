@@ -3687,8 +3687,9 @@ input[type="search"] {
 .resume-rubrique__titre {
   font-size: 40px;
   font-size: 2.5rem;
-  line-height: 1.2;
-  font-weight: 600; }
+  line-height: 0.9;
+  font-weight: 600;
+  color: #555; }
 
 .resume-rubrique__desc {
   font-size: 22px;
@@ -3747,6 +3748,8 @@ input[type="search"] {
 
 .person-signature--author {
   margin-bottom: .5em; }
+  .resume .person-signature--author {
+    color: #555; }
   @media only screen and (min-width: 481px) {
     .person-signature--author.related {
       margin-top: 3.5em; } }
@@ -3863,7 +3866,17 @@ input[type="search"] {
     left: 25%; }
 
   .push--lap-and-up-one-eighth {
-    left: 12.5%; } }
+    left: 12.5%; }
+
+  .push--lap-and-up-two-quarters {
+    left: 50%; }
+
+  .psh--lap-and-up-one-quarter {
+    padding-left: 25%; }
+
+  .psh--lap-and-up-one-half .toc__img {
+    width: 48%;
+    float: right; } }
 /*==========  spip-admin  ==========*/
 body .spip-admin-bloc,
 body .spip-admin-float {
