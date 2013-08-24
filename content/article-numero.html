@@ -25,7 +25,7 @@
         <div class="grid__item lap-and-up-three-quarters float--right">
             <div class="self__body self__body--article">
                 [<div class="#EDIT{texte} self__texte landmark surlignable">
-                    (#TEXTE|image_reduire{500,0})
+                    (#TEXTE|image_reduire{800,0})
                 </div>]
                 [<section class="#EDIT{ps} self__ps landmark ps surlignable">
                     <h2 class="hN intertitre-section intertitre-section--first"><:info_ps:></h2>
@@ -55,7 +55,6 @@
                     <BOUCLE_articles_lies(ARTICLES){id_article IN #ARTICLES_LIES}>
                     <li>
                         <h3 class="hN"><a href="[(#URL_ARTICLE)]" rel="next">#TITRE</a>[ <small class="soustitre">(#SOUSTITRE)</small>]</h3>
-                        [<p>(#DESCRIPTIF|PtoBR)</p>]
                     </li>
                     </BOUCLE_articles_lies>
                 <ul>

@@ -18,6 +18,9 @@
     display: block;
     font-style: italic;
     line-height: inherit;
+    .related & {
+        font-size: 100%;
+    }
 }
 
 /*==========  intertitres texte (spip)  ==========*/

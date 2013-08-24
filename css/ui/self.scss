@@ -4,6 +4,9 @@
 
 // .self__body {}
 .self__texte {
+    blockquote {
+        margin-left: $base-spacing-unit*2;
+    }
     
     // VOIR TODO
     // h2,h3,h4,h5,h6 {

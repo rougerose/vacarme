@@ -3223,6 +3223,8 @@ html {
   display: block;
   font-style: italic;
   line-height: inherit; }
+  .related .soustitre {
+    font-size: 100%; }
 
 /*==========  intertitres texte (spip)  ==========*/
 h2.spip,
@@ -3676,6 +3678,9 @@ ol.spip {
 /*============================
 =            self            =
 ============================*/
+.self__texte blockquote {
+  margin-left: 48px; }
+
 @media only screen and (min-width: 481px) {
   .self__notes__body {
     width: 75%; } }
