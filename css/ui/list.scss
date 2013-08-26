@@ -32,7 +32,10 @@
 
 /*==========  liste spip  ==========*/
 ul.spip {
-    margin-left: 0;
+    margin-left: $base-spacing-unit;
+    @include media-query(lap-and-up) {
+        margin-left: 0;
+    }
     list-style-type: square;
     ul.spip {
         margin-left:$base-spacing-unit;
@@ -40,7 +43,10 @@ ul.spip {
     }
 }
 ol.spip {
-    margin-left: 0;
+    margin-left: $base-spacing-unit;
+    @include media-query(lap-and-up) {
+        margin-left: 0;
+    }
     ol.spip {
         margin-left:$base-spacing-unit;
         margin-left:($base-spacing-unit / $base-font-size)*1rem;

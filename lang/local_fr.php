@@ -13,6 +13,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'close'                 => "Fermer",
 
     // D
+    'documents_fichier' => 'Documents associés',
     'documents_image' => 'Images associées',
     
     // I

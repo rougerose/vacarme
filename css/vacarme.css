@@ -3661,14 +3661,20 @@ table.spip {
 
 /*==========  liste spip  ==========*/
 ul.spip {
-  margin-left: 0;
+  margin-left: 24px;
   list-style-type: square; }
+  @media only screen and (min-width: 481px) {
+    ul.spip {
+      margin-left: 0; } }
   ul.spip ul.spip {
     margin-left: 24px;
     margin-left: 1.5rem; }
 
 ol.spip {
-  margin-left: 0; }
+  margin-left: 24px; }
+  @media only screen and (min-width: 481px) {
+    ol.spip {
+      margin-left: 0; } }
   ol.spip ol.spip {
     margin-left: 24px;
     margin-left: 1.5rem; }
