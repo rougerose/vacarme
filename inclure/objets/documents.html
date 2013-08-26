@@ -5,7 +5,8 @@
    <h1 class="hN intertitre-section intertitre-section--first"><:local:documents_image:></h1>
    <BOUCLE_documents_portfolio(DOCUMENTS){id_article?}{id_rubrique?}{mode=document}{extension IN png,jpg,gif}{par num titre, date}{vu=non}>
    <figure class="document portfolio media">
-      [<a class="mediabox media__link" href="(#URL_DOCUMENT)" type="#MIME_TYPE" rel="documents_portfolio[-a(#ID_ARTICLE)][-r(#ID_RUBRIQUE)]" [ title="(#TITRE|attribut_html|couper{80})"]>[(#FICHIER|image_reduire{250,0}|inserer_attribut{class,spip_logos media__img}|inserer_attribut{alt,[(#TITRE|attribut_html|couper{80})]})]</a>]
+      [<a class="mediabox media__link" href="(#URL_DOCUMENT)" type="#MIME_TYPE" rel="documents_portfolio[-a(#ID_ARTICLE)][-r(#ID_RUBRIQUE)]" [ title="(#TITRE|attribut_html|couper{80})"]>
+      [<img src="(#FICHIER|image_reduire{250,0}|extraire_attribut{src})" class="media__img" alt="[(#TITRE|attribut_html|couper{80})]">]</a>]
       [<figcaption class="spip_doc_legende media__body">
          (#TITRE|ou{#DESCRIPTIF}|ou{#CREDITS}|oui)
          [<h2 class="#EDIT{titre} hN spip_doc_titre">(#TITRE)</h2>][
