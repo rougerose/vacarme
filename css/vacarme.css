@@ -3115,13 +3115,15 @@ label,
 ============================*/
 .exergue {
   margin-left: 25%;
-  margin-right: -25%;
   font-size: 26px;
   font-size: 1.625rem;
   line-height: 1.84615;
   line-height: 1.3;
   font-style: italic;
   color: #565669; }
+  @media only screen and (min-width: 800px) {
+    .exergue {
+      margin-right: -25%; } }
 
 hr.spip {
   border: 0;
@@ -3265,6 +3267,15 @@ h6.spip {
 /*==============================
 =            images            =
 ==============================*/
+/*==========  image avec mediabox  ==========*/
+#colorbox, #colorbox:before, #colorbox:after {
+  /* content-box au lieu de border-box sur le conteneur sinon l'image est partiellement masquée. */
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -ms-box-sizing: content-box;
+  -o-box-sizing: content-box;
+  box-sizing: content-box; }
+
 /*-----  End of images  ------*/
 /*=============================
 =            links            =
@@ -3555,6 +3566,9 @@ input[type="search"] {
   display: table;
   margin-left: -24px; }
 
+.table-100 {
+  width: 100%; }
+
 .table--row {
   display: table-row; }
 
@@ -3580,6 +3594,11 @@ input[type="search"] {
   .lap-and-up-table {
     display: table;
     margin-left: -24px; }
+    .lap-and-up-table > .lap-and-up-table--row {
+      display: table-row; }
+
+  .lap-and-up-table-100 {
+    width: 100%; }
 
   .lap-and-up-table--cell {
     display: table-cell;
@@ -3697,8 +3716,8 @@ ol.spip {
     line-height: 1.33333; }
 
   .self__texte {
-    padding-right: 6px; }
-
+    padding-right: 6px; } }
+@media only screen and (min-width: 800px) {
   .self__texte,
   .self__ps,
   .self__notes {
@@ -3819,9 +3838,11 @@ ol.spip {
   font-size: 0.875rem;
   line-height: 1.71429; }
 
-@media only screen and (min-width: 768px) {
-  .person-about .bio {
-    width: 75%; } }
+.person-about .bio {
+  margin-bottom: 1.5em; }
+  @media only screen and (min-width: 768px) {
+    .person-about .bio {
+      width: 75%; } }
 
 /*-----  End of person  ------*/
 /*=========================================
@@ -3881,6 +3902,58 @@ ol.spip {
   transition: border-color 0.35s ease-in 0.1s; }
   .cover--thumb:hover {
     border-color: #d2d2d2; }
+
+/*==========  spip_documents  ==========*/
+/* légendes */
+.spip_doc_legende {
+  color: #888; }
+
+.spip_doc_titre {
+  font-weight: 600;
+  font-style: italic; }
+
+/* insérés dans le texte */
+.self__texte .spip_documents {
+  margin-top: 4px;
+  margin-bottom: 1em; }
+  .self__texte .spip_documents img {
+    display: block; }
+  @media only screen and (max-width: 767px) {
+    .self__texte .spip_documents img[height],
+    .self__texte .spip_documents img[width] {
+      height: auto;
+      width: auto;
+      max-width: 100%; } }
+.self__texte .spip_doc_titre,
+.self__texte .spip_doc_descriptif {
+  display: inline;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.71429; }
+
+.spip_documents_left {
+  float: left;
+  margin-right: 24px; }
+
+.spip_documents_right {
+  float: right;
+  margin-left: 24px; }
+
+.spip_documents_center img {
+  margin-left: auto;
+  margin-right: auto; }
+
+/* documents joints */
+.document .spip_doc_titre,
+.document .spip_doc_descriptif {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5; }
+.document .spip_doc_titre {
+  margin-bottom: 0; }
+
+.fichier {
+  padding-bottom: 1.5em; }
 
 /*-----  End of media  ------*/
 /*===============================

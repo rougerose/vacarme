@@ -28,6 +28,7 @@
 .person-about {
     // .name {}
     .bio {
+        margin-bottom: 1.5em;
         @include media-query(desk) {
             width: 75%;
         }

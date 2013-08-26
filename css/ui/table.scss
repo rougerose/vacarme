@@ -7,6 +7,9 @@
     margin-left: -$base-spacing-unit; // .grid
     // width: 100%; non sinon décalage par rapport à la version .grid/.grid__item
 }
+.table-100 {
+  width: 100%;
+}
 .table--row {
     display:table-row;
 }
@@ -26,6 +29,12 @@
     .lap-and-up-table {
         display: table;
         margin-left: -$base-spacing-unit; // .grid
+        & > .lap-and-up-table--row {
+            display:table-row;
+        }
+    }
+    .lap-and-up-table-100 {
+      width: 100%;
     }
     .lap-and-up-table--cell {
         display: table-cell;

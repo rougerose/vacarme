@@ -11,6 +11,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'category_plural'       => 'Catégories',
     'category_singular'     => 'Catégorie',
     'close'                 => "Fermer",
+
+    // D
+    'documents_image' => 'Images associées',
     
     // I
     'info_ps'               => 'Post-scriptum',
