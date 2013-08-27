@@ -3737,9 +3737,7 @@ ol.spip {
   line-height: 1; }
   @media only screen and (max-width: 480px) {
     .self__header--rubrique .titre {
-      font-size: 36px;
-      font-size: 2.25rem;
-      line-height: 1.33333; } }
+      text-align: center; } }
 .self__header--rubrique .soustitre {
   font-family: "HelveticaNeueLTStdLtCnRegular", sans-serif;
   font-style: normal;
@@ -3790,12 +3788,14 @@ ol.spip {
       border-bottom: 1px dotted #ddd; } }
 
 .resume-article__titre {
-  margin-bottom: 0;
   font-size: 18px;
   font-size: 1.125rem;
   line-height: 1.1;
-  font-weight: 600;
-  min-height: 3.3em; }
+  font-weight: 600; }
+  @media only screen and (min-width: 481px) {
+    .resume-article__titre {
+      margin-bottom: 0;
+      min-height: 3.3em; } }
 
 .resume-article__soustitre {
   margin-top: 0.25em;

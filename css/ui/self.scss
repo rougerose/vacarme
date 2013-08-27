@@ -51,7 +51,8 @@
         text-transform: uppercase;
         @include font-size(48px);
         @include media-query(palm) {
-            @include font-size(36px);
+            // @include font-size(36px);
+            text-align: center;
         }
     }
     .soustitre {
