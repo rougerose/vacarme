@@ -3922,7 +3922,7 @@ ol.spip {
   margin-bottom: 1em; }
   .self__texte .spip_documents img {
     display: block; }
-  @media only screen and (max-width: 767px) {
+  @media only screen and (max-width: 1100px) {
     .self__texte .spip_documents img[height],
     .self__texte .spip_documents img[width] {
       height: auto;
