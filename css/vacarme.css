@@ -3810,7 +3810,8 @@ ol.spip {
   float: left;
   margin-right: 24px;
   margin-bottom: 12px;
-  width: 49%; }
+  width: 49%;
+  text-align: right; }
 
 .chapo-text--vertical {
   margin-left: 25.5%; }
