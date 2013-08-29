@@ -3735,9 +3735,6 @@ ol.spip {
   font-size: 48px;
   font-size: 3rem;
   line-height: 1; }
-  @media only screen and (max-width: 480px) {
-    .self__header--rubrique .titre {
-      text-align: center; } }
 .self__header--rubrique .soustitre {
   font-family: "HelveticaNeueLTStdLtCnRegular", sans-serif;
   font-style: normal;
