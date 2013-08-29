@@ -4,3 +4,7 @@
     <p class="person person-signature person-signature--itw">[(#ENV{type-titre}) ]<BOUCLE_auteurs(AUTEURS){id_article}{par nom}>[(#COMPTEUR_BOUCLE|=={1}|?{'',[(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|?{' &amp;&nbsp;',', '})]})][<span class="name" itemprop="name"><a class="spip_in" href="#URL_AUTEUR" itemprop="url">(#NOM|prenom_nom)</a></span>]</BOUCLE_auteurs></p>
 </aside>
 </B_auteurs>
+<BOUCLE_credit_logo(ARTICLES){id_article}>[(#CREDIT_LOGO|oui)
+[<aside class="related related--aside">
+    (#INCLURE{fond=inclure/objets/credit-logo,id_article})
+</aside>]]</BOUCLE_credit_logo>

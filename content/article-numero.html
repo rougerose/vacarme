@@ -15,7 +15,9 @@
                 </h1>
             </div>
             <BOUCLE_auteurs(AUTEURS){id_article}{0,1}{si #GET{type}|non}>
+            <div class="grid__item lap-and-up-one-quarter float--left">
             [(#INCLURE{fond=inclure/objets/authors-article,id_article})]
+            </div>
             </BOUCLE_auteurs>
         </header>
         [   (#REM) Le chapo et le logo de l'article
@@ -44,8 +46,7 @@
             [   (#REM) auteurs article/entretien
             ][      (#GET{type}|match{entretien}|oui)
                         [(#INCLURE{fond=inclure/objets/authors-interview-aside,id_article,type-titre=#GET{type-titre}})]
-            ][(#INCLURE{fond=inclure/objets/credit-logo,id_article})]
-            [  (#REM) articles liés ]
+            ][  (#REM) articles liés ]
             <B_articles_lies>
             <aside class="related related--aside landmark">
                 <h2 class="hN intertitre-section intertitre-section--first intertitre-section--aside"><:local:read_also:></h2>
