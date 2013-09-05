@@ -1,7 +1,7 @@
 #HTTP_HEADER{Content-Type: text/css;}[
 (#REM)
     La couleur principale d'un numéro définie depuis l'interface privée.
-    La couleur par défaut est #000
+    La couleur par défaut (couleur_site) est identique a $color-site dans _vars.scss
 ]
 <BOUCLE_index_numeros(RUBRIQUES){id_rubrique=115}>[(#SET{couleur_defaut,#ID_RUBRIQUE|couleur_rubrique|sinon{#ID_RUBRIQUE|couleur_site}})]
 <B_numero><BOUCLE_numero(RUBRIQUES){id_parent}{par titre}>
