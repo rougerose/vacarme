@@ -7,14 +7,16 @@
                     [<img src="(#LOGO_RUBRIQUE|image_reduire{500,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="cover cover--issue" itemprop="image" />]
                 </div><!-- /.grid__item -->
                 <div class="grid__item lap-and-up-two-thirds">
-                    <header class="self__header self__header--rubrique landmark">
-                        <h1 itemprop="name" class="hN titre titre-numero"><span class="#EDIT{titre}">#TITRE</span>[ <small class="soustitre soustitre-numero">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</small>]</h1>
-                    </header>
-                    [<div class="self__body">
-                        <div class="#EDIT{texte} self__texte landmark surlignable" itemprop="description">
-                            (#TEXTE|image_reduire{500,0})
-                        </div>
-                    </div>]
+                    <div class="landmark">
+                        <header class="self__header self__header--rubrique">
+                            <h1 itemprop="name" class="hN titre titre-numero"><span class="#EDIT{titre}">#TITRE</span>[ <small class="soustitre soustitre-numero">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</small>]</h1>
+                        </header>
+                        [<div class="self__body">
+                            <div class="#EDIT{texte} self__texte landmark surlignable" itemprop="description">
+                                (#TEXTE|image_reduire{500,0})
+                            </div>
+                        </div>]
+                    </div>
                 </div><!-- /.grid__item -->
             </div><!-- /.grid -->
         </div><!-- /.grid__item -->

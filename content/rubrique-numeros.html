@@ -1,15 +1,17 @@
 <BOUCLE_les_numeros(RUBRIQUES){id_rubrique}> [(#SET{logo_feature,#LOGO_RUBRIQUE|image_reduire{520,0}|image_recadre{520,400,'top left'}|extraire_attribut{src}|sinon{http://placehold.it/520x400/ff5230/ffffff&text=logo+obligatoire+!}})]
 <div class="grid">#GET{logo_dernier_numero}
-    <article class="self rubrique index">[(#PRODUIRE{css/numero-couleur.css})]
+    <article class="self rubrique index">
         <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
-            <header class="self__header self__header--rubrique landmark">
-                <h1 itemprop="name" class="hN titre"><span class="#EDIT{titre}">#TITRE</span></h1>
-            </header>
-            [<div class="self__body">
-                <div class="#EDIT{texte} self__texte landmark surlignable">
-                    (#TEXTE|image_reduire{500,0})
-                </div>
-            </div>]
+            <div class="landmark">
+                <header class="self__header self__header--rubrique">
+                    <h1 itemprop="name" class="hN titre"><span class="#EDIT{titre}">#TITRE</span></h1>
+                </header>
+                [<div class="self__body">
+                    <div class="#EDIT{texte} self__texte surlignable">
+                        (#TEXTE|image_reduire{500,0})
+                    </div>
+                </div>]
+            </div>
         </div><!-- /.grid__item -->
         <div class="grid__item">
             <B_dernier_numero>
