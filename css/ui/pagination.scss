@@ -1,0 +1,39 @@
+/*==================================
+=            pagination            =
+==================================*/
+
+.pagination {
+    text-align: center;
+    // background-color: #eee;
+    // background-color: rgba(#eee,0.5);
+    @include font-size(14px,$line-height:false);
+    line-height: 1.2;
+    // border: 1px solid #000;
+    // border-width: 1px 0;
+    > li {
+        border-right: 1px solid #ddd;
+        // margin-bottom: 6px;
+        &:last-child {
+            border-right-width: 0;
+        }
+    }
+    a {
+        color: $soft-black;
+        &:hover {
+            color: #000;
+        }
+    }
+}
+.pagination .on,
+.pagination-element {
+    display: inline-block;
+    margin: 0 6px;
+}
+.pagination .on {
+    color: #000;
+}
+.tbc {
+    color: #999;
+}
+
+/*-----  End of pagination  ------*/

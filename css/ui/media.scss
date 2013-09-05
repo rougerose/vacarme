@@ -15,15 +15,33 @@
 .cover {
     border: 1px solid #eee;
     border-color: rgba(#eee,0.8);
+    @include vendor(transition,border-color 0.35s ease-in 0.1s);
 }
 .cover--thumb {
     margin-right:$base-spacing-unit/2;
-    @include vendor(transition,border-color 0.35s ease-in 0.1s);
     &:hover {
         border-color: rgb(210,210,210);
     }
 }
-// .cover--issue {}
+.cover--issue {
+    a:hover & {
+        border-color: rgb(210,210,210);
+    }
+}
+
+.cover-feature--large {
+    display: block;
+    margin-top: -46px;
+    // margin-left: -12px;
+    @include media-query(palm) {
+        display: none;
+    }
+}
+.cover-feature--small {
+    @include media-query(lap-and-up) {
+        display: none;
+    }
+}
 
 /*==========  spip_documents  ==========*/
 // .spip_documents {}
@@ -37,7 +55,7 @@
     font-style: italic;
     
 }
-.spip_doc_descriptif {}
+// .spip_doc_descriptif {}
 
 /* insérés dans le texte */
 .self__texte {

@@ -7,10 +7,20 @@
 /*==========  .resume-rubrique  ==========*/
 
 .resume-rubrique__titre {
-    @include font-size(40px,$line-height:false);
-    line-height: 0.9;
-    font-weight: 600;
-    color: #555;
+    .toc__item & {
+        @include font-size(40px,$line-height:false);
+        line-height: 0.9;
+        font-weight: 600;
+        color: #555;
+    }
+    .index-feature & {
+        @include font-size(18px);
+        margin-bottom: 0;
+    }
+    .index-issues & {
+        @include font-size(16px);
+        margin-bottom: 0;
+    }
 }
 .resume-rubrique__desc {
     @include font-size(22px);

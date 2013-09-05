@@ -23,6 +23,26 @@
     }
 }
 
+.titre-numero {
+    font-family: "HelveticaNeueLTStdCnBold", sans-serif;
+    text-transform: uppercase;
+    .self__header--rubrique &,
+    .index-feature & {
+        @include font-size(48px);
+    }
+    .index-issues & {
+        @include font-size(28px);
+    }
+}
+.soustitre-numero {
+    font-family: "HelveticaNeueLTStdLtCnRegular", sans-serif;
+    font-style: normal;
+    .self__header--rubrique &,
+    .index-feature & {
+        font-size: .7em;
+    }
+}
+
 /*==========  intertitres texte (spip)  ==========*/
 h2.spip,
 h3.spip,

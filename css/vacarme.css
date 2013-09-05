@@ -3228,6 +3228,24 @@ html {
   .related .soustitre {
     font-size: 100%; }
 
+.titre-numero {
+  font-family: "HelveticaNeueLTStdCnBold", sans-serif;
+  text-transform: uppercase; }
+  .self__header--rubrique .titre-numero, .index-feature .titre-numero {
+    font-size: 48px;
+    font-size: 3rem;
+    line-height: 1; }
+  .index-issues .titre-numero {
+    font-size: 28px;
+    font-size: 1.75rem;
+    line-height: 1.71429; }
+
+.soustitre-numero {
+  font-family: "HelveticaNeueLTStdLtCnRegular", sans-serif;
+  font-style: normal; }
+  .self__header--rubrique .soustitre-numero, .index-feature .soustitre-numero {
+    font-size: .7em; }
+
 /*==========  intertitres texte (spip)  ==========*/
 h2.spip,
 h3.spip,
@@ -3283,11 +3301,15 @@ h6.spip {
 a {
   color: #000;
   text-decoration: none;
-  -webkit-transition: color 0.35s ease-out;
-  -moz-transition: color 0.35s ease-out;
-  -ms-transition: color 0.35s ease-out;
-  -o-transition: color 0.35s ease-out;
-  transition: color 0.35s ease-out; }
+  border-bottom: 1px solid transparent;
+  -webkit-transition: color 0.35s ease-out, border-color 0.35s ease-out;
+  -moz-transition: color 0.35s ease-out, border-color 0.35s ease-out;
+  -ms-transition: color 0.35s ease-out, border-color 0.35s ease-out;
+  -o-transition: color 0.35s ease-out, border-color 0.35s ease-out;
+  transition: color 0.35s ease-out, border-color 0.35s ease-out; }
+
+.nav a:hover {
+  border-bottom-color: #000; }
 
 .more a, .more em {
   -webkit-transition: all 0.35s ease-out;
@@ -3700,6 +3722,35 @@ ol.spip {
   .desk-col__item--50 {
     width: 50%; } }
 /*-----  End of columns  ------*/
+/*==================================
+=            pagination            =
+==================================*/
+.pagination {
+  text-align: center;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.2; }
+  .pagination > li {
+    border-right: 1px solid #ddd; }
+    .pagination > li:last-child {
+      border-right-width: 0; }
+  .pagination a {
+    color: #555555; }
+    .pagination a:hover {
+      color: #000; }
+
+.pagination .on,
+.pagination-element {
+  display: inline-block;
+  margin: 0 6px; }
+
+.pagination .on {
+  color: #000; }
+
+.tbc {
+  color: #999; }
+
+/*-----  End of pagination  ------*/
 /*============================
 =            self            =
 ============================*/
@@ -3729,17 +3780,6 @@ ol.spip {
   .self__notes {
     width: 66.666%; } }
 /*==========  self__header  ==========*/
-.self__header--rubrique .titre {
-  font-family: "HelveticaNeueLTStdCnBold", sans-serif;
-  text-transform: uppercase;
-  font-size: 48px;
-  font-size: 3rem;
-  line-height: 1; }
-.self__header--rubrique .soustitre {
-  font-family: "HelveticaNeueLTStdLtCnRegular", sans-serif;
-  font-style: normal;
-  font-size: .7em; }
-
 .self__header--art .surtitre {
   margin-bottom: 0;
   margin-top: -1em;
@@ -3760,12 +3800,22 @@ ol.spip {
 =            resume            =
 ==============================*/
 /*==========  .resume-rubrique  ==========*/
-.resume-rubrique__titre {
+.toc__item .resume-rubrique__titre {
   font-size: 40px;
   font-size: 2.5rem;
   line-height: 0.9;
   font-weight: 600;
   color: #555; }
+.index-feature .resume-rubrique__titre {
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.33333;
+  margin-bottom: 0; }
+.index-issues .resume-rubrique__titre {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 0; }
 
 .resume-rubrique__desc {
   font-size: 22px;
@@ -3870,6 +3920,21 @@ ol.spip {
   padding-bottom: 0.5em; }
 
 /*-----  End of table of content (toc)  ------*/
+/*=============================
+=            index            =
+=============================*/
+/*==========  index-numeros  ==========*/
+/*==========  index-feature  ==========*/
+.index-feature {
+  border: 1px solid #80b83f;
+  border-color: #eee;
+  border-width: 0 0 1px; }
+
+/*==========  index-issues  ==========*/
+.index-issues .issue {
+  margin-bottom: 3em; }
+
+/*-----  End of index  ------*/
 /*===============================
 =            related            =
 ===============================*/
@@ -3895,17 +3960,31 @@ ol.spip {
 /*==========  cover  ==========*/
 .cover {
   border: 1px solid #eee;
-  border-color: rgba(238, 238, 238, 0.8); }
-
-.cover--thumb {
-  margin-right: 12px;
+  border-color: rgba(238, 238, 238, 0.8);
   -webkit-transition: border-color 0.35s ease-in 0.1s;
   -moz-transition: border-color 0.35s ease-in 0.1s;
   -ms-transition: border-color 0.35s ease-in 0.1s;
   -o-transition: border-color 0.35s ease-in 0.1s;
   transition: border-color 0.35s ease-in 0.1s; }
+
+.cover--thumb {
+  margin-right: 12px; }
   .cover--thumb:hover {
     border-color: #d2d2d2; }
+
+a:hover .cover--issue {
+  border-color: #d2d2d2; }
+
+.cover-feature--large {
+  display: block;
+  margin-top: -46px; }
+  @media only screen and (max-width: 480px) {
+    .cover-feature--large {
+      display: none; } }
+
+@media only screen and (min-width: 481px) {
+  .cover-feature--small {
+    display: none; } }
 
 /*==========  spip_documents  ==========*/
 /* légendes */

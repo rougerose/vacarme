@@ -5,7 +5,13 @@
 a {
     color: #000;
     text-decoration: none;
-    @include vendor(transition,color 0.35s ease-out);
+    border-bottom: 1px solid transparent;
+    @include vendor(transition,color 0.35s ease-out, border-color 0.35s ease-out);
+}
+.nav a {
+    &:hover {
+        border-bottom-color: #000;
+    }
 }
 .more {
     a, em {

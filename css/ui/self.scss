@@ -45,18 +45,7 @@
 }
 
 /*==========  self__header  ==========*/
-.self__header--rubrique {
-    .titre {
-        font-family: "HelveticaNeueLTStdCnBold", sans-serif;
-        text-transform: uppercase;
-        @include font-size(48px);
-    }
-    .soustitre {
-        font-family: "HelveticaNeueLTStdLtCnRegular", sans-serif;
-        font-style: normal;
-        font-size: .7em;
-    }
-}
+// .self__header--rubrique {}
 .self__header--art {
     .surtitre {
         margin-bottom: 0;
@@ -75,18 +64,7 @@
 
 /*==========  self__body  ==========*/
 /* article */
-.self__body--article {
-    // .self__texte {
-    //     p {
-    //         &:last-of-type {
-    //             &:after {
-    //                 content: ' ■';
-    //                 color: #000;
-    //             }
-    //         }
-    //     }
-    // }
-}
+// .self__body--article {}
 
 /*-----  End of self  ------*/
 
