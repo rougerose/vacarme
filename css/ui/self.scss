@@ -45,7 +45,14 @@
 }
 
 /*==========  self__header  ==========*/
-// .self__header--rubrique {}
+.self__header--rubrique {
+    .titre {
+        @extend .intertitre-section--first;
+        font-style: italic;
+        font-weight: 600;
+        // @include font-size(24px);
+    }
+}
 .self__header--art {
     .surtitre {
         margin-bottom: 0;
@@ -65,6 +72,10 @@
 /*==========  self__body  ==========*/
 /* article */
 // .self__body--article {}
-
+.self__body--rubrique {
+    .self__texte {
+        width: 75%;
+    }
+}
 /*-----  End of self  ------*/
 

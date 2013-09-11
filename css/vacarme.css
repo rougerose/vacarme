@@ -3263,7 +3263,7 @@ h6.spip {
   font-style: italic; }
 
 /*==========  levels  ==========*/
-.intertitre-section--first {
+.intertitre-section--first, .self__header--rubrique .titre {
   display: inline-block;
   border-bottom: 1px solid #7f807b;
   padding-left: 12px;
@@ -3780,6 +3780,10 @@ ol.spip {
   .self__notes {
     width: 66.666%; } }
 /*==========  self__header  ==========*/
+.self__header--rubrique .titre {
+  font-style: italic;
+  font-weight: 600; }
+
 .self__header--art .surtitre {
   margin-bottom: 0;
   margin-top: -1em;
@@ -3795,6 +3799,9 @@ ol.spip {
 
 /*==========  self__body  ==========*/
 /* article */
+.self__body--rubrique .self__texte {
+  width: 75%; }
+
 /*-----  End of self  ------*/
 /*==============================
 =            resume            =
@@ -3928,7 +3935,8 @@ ol.spip {
 .index-feature {
   border: 1px solid #80b83f;
   border-color: #eee;
-  border-width: 0 0 1px; }
+  border-width: 0 0 1px;
+  margin-top: 2em; }
 
 /*==========  index-issues  ==========*/
 .index-issues .issue {
