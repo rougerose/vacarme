@@ -17,6 +17,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'documents_image' => 'Images associées',
     
     // I
+    'info_contact' => "Gardons le contact",
+    'info_contact_coordonnees' => "Par courrier",
+    'info_contact_facebook' => "Via Facebook",
+    'info_contact_mail' => "Par email",
+    'info_contact_newsletter' => "S'inscrire à la newsletter",
     'info_ps'               => 'Post-scriptum',
     'issue_about' => "À propos de ce numéro",
 
