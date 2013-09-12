@@ -11,9 +11,10 @@ input[type="search"] {
 /*==========  recherche  ==========*/
 .search__form {
     position: relative;
-    border-radius: 5px;
+    // border-radius: 5px;
+
     @include media-query(portable) {
-        background-color: #fff;
+        // background-color: #fff;
     }
 }
     .search__label {
@@ -22,35 +23,34 @@ input[type="search"] {
         text-indent: -9999px;
     }
     .search__field {
-        border: 0;
-        border-radius: 5px;
-        padding-top: 6px;
-        @include media-query(desk) {
-            width: 0px;
-            @include vendor(transition,all 0.35s ease-in 0.1s);
-            .search__form:hover &,
-            &:focus {
-                width: 13em;
-                width: 85%;
-                padding-left: 6px;
-                background-color: $gray-light;
-            }
-        } 
-        @include media-query(portable) {
-            width: 85%;
-        }    
+        padding-left: 18px;
+        margin-top: 0.2em;
+        width: 80%;
+        -webkit-appearance: none;
+        background: none;
+        @include font-size(36px,$line-height:false);
+        line-height: 1.5;
+        color:#444;
     }
     .search__submit {
-        background: transparent url(../img/css/icon__search.svg) no-repeat 0 0.375em; // 0 6px
-        -webkit-background-size: 1em 6em; 
+        float: right;
+        padding: 6px 0 0;
+        // margin-top: 0.4em;
         border: none;
-        padding-top: 6px;
-        margin-left: 3px;
-        width: 16px;
-        text-indent: -9999px;
+        background: none;
+        width: 15%;
+        color:#fff;
+        @include font-size(36px,$line-height:false);
+        line-height: inherit;
         &:hover {
-            background-position: 0 -1.625em; // 0 38px
+            color: #444;
         }
     }
+
+/*==========  placeholder  ==========*/
+input[type="search"]::-webkit-input-placeholder {color: #fff;}
+input[type="search"]:-moz-placeholder {color: #fff;/* Firefox 18- */}
+input[type="search"]::-moz-placeholder {color: #fff;/* Firefox 19+ */}
+input[type="search"]:-ms-input-placeholder {color: #fff;}
 
 /*-----  End of forms  ------*/

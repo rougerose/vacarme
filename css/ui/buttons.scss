@@ -8,15 +8,11 @@
 }
 
 .btn--nav-open {
-    position: absolute;
-    top: .5em;
+    margin-left: 6px;
     background-color: #fff;
     &:hover {
         background-color: $nav-bg;
         color: #fff;
-    }
-    .js & {
-        margin-left: -6px;
     }
 }
 
@@ -25,6 +21,12 @@
     z-index: -1;
     top: .5em;
     background-color: $nav-bg;
+}
+
+.btn--search {
+    float:right;
+    padding-top: 3px;
+    line-height: 1.8;
 }
 
 /*-----  End of buttons  ------*/

@@ -126,10 +126,10 @@
             };
 
             // open nav with main "nav" button
-            document.getElementById('bno').addEventListener('click', app.toggleNav, false);
+            document.getElementById('bnNO').addEventListener('click', app.toggleNav, false);
 
             // close nav with main "close" button
-            document.getElementById('bnc').addEventListener('click', app.toggleNav, false);
+            document.getElementById('bnNC').addEventListener('click', app.toggleNav, false);
 
             // close nav by touching the partial off-screen content
             document.addEventListener('click', function(e)

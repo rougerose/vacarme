@@ -53,8 +53,8 @@ html {
 
 .wrap {
     max-width: 1100px;
-    @include media-query(desk) {
-        padding-top: 3em;
+    @include media-query(lap-and-up) {
+        padding-top: 4em;
         padding-left: $base-spacing-unit;
         padding-right: $base-spacing-unit/2;
         position: relative;

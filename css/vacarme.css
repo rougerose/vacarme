@@ -47,7 +47,7 @@
 /*------------------------------------*\
     INUIT.CSS
 \*------------------------------------*/
-/**
+/*!*
  *
  * inuitcss.com -- @inuitcss -- @csswizardry
  *
@@ -383,7 +383,7 @@
  *
  * We work out your end points for you:
  */
-/* normalize.css v2.1.0 | MIT License | git.io/normalize */
+/*! normalize.css v2.1.0 | MIT License | git.io/normalize */
 /* ==========================================================================
    HTML5 display definitions
    ========================================================================== */
@@ -1890,7 +1890,7 @@ label,
  * limitations under the License.
  * 
  */
-/**
+/*!*
  * 
  * @csswizardry -- csswizardry.com/beautons
  * 
@@ -3193,9 +3193,9 @@ html {
 
 .wrap {
   max-width: 1100px; }
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 481px) {
     .wrap {
-      padding-top: 3em;
+      padding-top: 4em;
       padding-left: 24px;
       padding-right: 12px;
       position: relative; } }
@@ -3334,7 +3334,7 @@ a {
   .page-head {
     position: relative;
     z-index: 100;
-    padding-top: 2.5em; } }
+    padding-top: 3.5em; } }
 
 .site-logo {
   display: block;
@@ -3413,10 +3413,7 @@ a {
         color: #000; }
     .nav--principale .nav--item {
       padding-left: 24px;
-      width: 16.666%; }
-      .nav--principale .nav--item.site-search {
-        width: 33.333%;
-        text-transform: none; } }
+      width: 16.666%; } }
 
 @media only screen and (min-width: 768px) {
   .nav--secondaire {
@@ -3444,11 +3441,7 @@ a {
           -o-transition: background-color 0.35s ease-in 0.1s;
           transition: background-color 0.35s ease-in 0.1s; }
           ul > .nav--item > a:hover {
-            background-color: rgba(255, 255, 255, 0.2); }
-      .nav--item.site-search {
-        margin: 1.3em 0;
-        padding: 0 1.5em 0;
-        border-bottom-width: 0; } }
+            background-color: rgba(255, 255, 255, 0.2); } }
   @media only screen and (min-width: 768px) {
     .nav--secondaire ul > .nav--item {
       display: list-item; }
@@ -3502,6 +3495,54 @@ a {
     -o-backface-visibility: hidden;
     backface-visibility: hidden; } }
 
+/*==========  barre-raccourcis  ==========*/
+.barre-raccourcis {
+  position: absolute;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff; }
+  .barre-raccourcis .btn {
+    margin-top: .5em;
+    margin-bottom: .5em; }
+
+/*==========  search-bar  ==========*/
+.search-bar {
+  position: fixed;
+  z-index: 102;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #e6e6e6;
+  -webkit-transform: translate(0, -100%);
+  -moz-transform: translate(0, -100%);
+  -ms-transform: translate(0, -100%);
+  -o-transform: translate(0, -100%);
+  transform: translate(0, -100%);
+  -webkit-transition: 0.2s ease-in-out;
+  -moz-transition: 0.2s ease-in-out;
+  -ms-transition: 0.2s ease-in-out;
+  -o-transition: 0.2s ease-in-out;
+  transition: 0.2s ease-in-out; }
+
+@media only screen and (max-width: 767px) {
+  #search:target,
+  .search-bar--open {
+    -webkit-transform: translate(0, 50px);
+    -moz-transform: translate(0, 50px);
+    -ms-transform: translate(0, 50px);
+    -o-transform: translate(0, 50px);
+    transform: translate(0, 50px); } }
+@media only screen and (min-width: 481px) {
+  #search:target,
+  .search-bar--open {
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0); } }
+
 /*-----  End of navigation  ------*/
 /*=============================
 =            forms            =
@@ -3513,11 +3554,7 @@ input[type="search"] {
 
 /*==========  recherche  ==========*/
 .search__form {
-  position: relative;
-  border-radius: 5px; }
-  @media only screen and (max-width: 767px) {
-    .search__form {
-      background-color: #fff; } }
+  position: relative; }
 
 .search__label {
   position: absolute;
@@ -3525,36 +3562,43 @@ input[type="search"] {
   text-indent: -9999px; }
 
 .search__field {
-  border: 0;
-  border-radius: 5px;
-  padding-top: 6px; }
-  @media only screen and (min-width: 768px) {
-    .search__field {
-      width: 0px;
-      -webkit-transition: all 0.35s ease-in 0.1s;
-      -moz-transition: all 0.35s ease-in 0.1s;
-      -ms-transition: all 0.35s ease-in 0.1s;
-      -o-transition: all 0.35s ease-in 0.1s;
-      transition: all 0.35s ease-in 0.1s; }
-      .search__form:hover .search__field, .search__field:focus {
-        width: 13em;
-        width: 85%;
-        padding-left: 6px;
-        background-color: #ccccda; } }
-  @media only screen and (max-width: 767px) {
-    .search__field {
-      width: 85%; } }
+  padding-left: 18px;
+  margin-top: 0.2em;
+  width: 80%;
+  -webkit-appearance: none;
+  background: none;
+  font-size: 36px;
+  font-size: 2.25rem;
+  line-height: 1.5;
+  color: #444; }
 
 .search__submit {
-  background: transparent url(../img/css/icon__search.svg) no-repeat 0 0.375em;
-  -webkit-background-size: 1em 6em;
+  float: right;
+  padding: 6px 0 0;
   border: none;
-  padding-top: 6px;
-  margin-left: 3px;
-  width: 16px;
-  text-indent: -9999px; }
+  background: none;
+  width: 15%;
+  color: #fff;
+  font-size: 36px;
+  font-size: 2.25rem;
+  line-height: inherit; }
   .search__submit:hover {
-    background-position: 0 -1.625em; }
+    color: #444; }
+
+/*==========  placeholder  ==========*/
+input[type="search"]::-webkit-input-placeholder {
+  color: #fff; }
+
+input[type="search"]:-moz-placeholder {
+  color: #fff;
+  /* Firefox 18- */ }
+
+input[type="search"]::-moz-placeholder {
+  color: #fff;
+  /* Firefox 19+ */ }
+
+input[type="search"]:-ms-input-placeholder {
+  color: #fff; }
 
 /*-----  End of forms  ------*/
 /*===============================
@@ -3565,20 +3609,22 @@ input[type="search"] {
   line-height: 1.8; }
 
 .btn--nav-open {
-  position: absolute;
-  top: .5em;
+  margin-left: 6px;
   background-color: #fff; }
   .btn--nav-open:hover {
     background-color: #282831;
     color: #fff; }
-  .js .btn--nav-open {
-    margin-left: -6px; }
 
 .btn--nav-close {
   position: absolute;
   z-index: -1;
   top: .5em;
   background-color: #282831; }
+
+.btn--search {
+  float: right;
+  padding-top: 3px;
+  line-height: 1.8; }
 
 /*-----  End of buttons  ------*/
 /*=============================
@@ -4076,6 +4122,12 @@ a:hover .cover--issue {
     background-color: #ccccda;
     color: #000; }
 
+.icon--search {
+  background: transparent url(../img/css/icon__search.svg) no-repeat 0 0.375em; }
+  @media only screen and (min-width: 481px) {
+    .icon--search {
+      background-position: 0 0.2em; } }
+
 /*-----  End of sprites  ------*/
 /*============================
 =            misc            =
@@ -4110,9 +4162,17 @@ a:hover .cover--issue {
 body .spip-admin-bloc,
 body .spip-admin-float {
   z-index: 99999;
-  top: 1%;
+  top: 10%;
   left: auto;
-  right: 0; }
+  right: -7%;
+  -webkit-transition: right 0.35s ease-in 0.1s;
+  -moz-transition: right 0.35s ease-in 0.1s;
+  -ms-transition: right 0.35s ease-in 0.1s;
+  -o-transition: right 0.35s ease-in 0.1s;
+  transition: right 0.35s ease-in 0.1s; }
+  body .spip-admin-bloc:hover,
+  body .spip-admin-float:hover {
+    right: 0; }
 
 #spip-admin .spip-admin-boutons {
   font: 10px/1 "Geneva", "Consolas", "Menlo", monospace;
