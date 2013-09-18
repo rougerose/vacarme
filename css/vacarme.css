@@ -3495,15 +3495,15 @@ a {
     -o-backface-visibility: hidden;
     backface-visibility: hidden; } }
 
-/*==========  barre-raccourcis  ==========*/
-.barre-raccourcis {
+/*==========  nav-raccourcis  ==========*/
+.nav-raccourcis {
   position: absolute;
   z-index: 100;
   top: 0;
   left: 0;
   width: 100%;
   background: #fff; }
-  .barre-raccourcis .btn {
+  .nav-raccourcis .btn {
     margin-top: .5em;
     margin-bottom: .5em; }
 
