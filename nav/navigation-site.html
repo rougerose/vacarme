@@ -1,16 +1,9 @@
-<nav class="nav--principale">
-    <h2 class="hN visuallyhidden--desk">La revue</h2>
-    <ul class="nav">
-        <li class="nav--item"><a href="#">À propos</a></li>
-        <li class="nav--item"><a href="#">Les numéros</a></li>
-        <li class="nav--item"><a href="#">S'abonner</a></li>
-        <li class="nav--item"><a href="#">Acheter</a></li>
-        <li class="nav--item"><a href="#">Actualités</a></li>
-        <li class="nav--item search"><a id="btn-search-nav" href="#search"><span class="icon icon--search"> </span></a></li>
-    </ul>
-</nav><!-- /.nav--principale -->
+[<nav class="nav--principale">
+    <h2 class="hN visuallyhidden--desk"><:local:navigation-revue:></h2>
+    (#INCLURE{fond=inclure/menu,env,identifiant=nav_principale})
+</nav><!-- /.nav--principale -->]
 <nav class="nav--secondaire">
-    <h2 class="hN visuallyhidden--desk">Par thème</h2>
+    <h2 class="hN visuallyhidden--desk"><:local:navigation-theme:></h2>
     <ul class="nav">
         <li class="nav--item"><a href="#">Entretiens</a></li>
         <li class="nav--item"><a href="#">Tribunes</a></li>
