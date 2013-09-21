@@ -14,6 +14,7 @@ a {
     }
 }
 .more {
+    @include font-size(18px);
     a, em {
         @include vendor(transition,all 0.35s ease-out);
     }

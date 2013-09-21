@@ -2,7 +2,29 @@
 =            resume            =
 ==============================*/
 
-// .resume {}
+.resume {
+    margin-bottom: 3.5em;
+    line-height: 1.125; // 16px
+    @include media-query(palm) {
+        border-bottom: 1px dotted #ddd;
+        margin-bottom: 2em;
+    }
+}
+
+.resume__titre {
+    @include font-size(18px,$line-height:false);
+    line-height: 1.1;
+    font-weight: 600;
+    @include media-query(lap-and-up) {
+        margin-bottom: 0;
+        min-height: 3.3em;
+    }
+}
+.resume__desc {
+    @media only screen and (min-width: 960px) {
+        padding-right: $base-spacing-unit*2;
+    }
+}
 
 /*==========  .resume-rubrique  ==========*/
 
@@ -31,31 +53,13 @@
 }
 
 /*==========  .resume-article  ==========*/
-.resume-article {
-    margin-bottom: 2em;
-    line-height: 1.125; // 16px
-    @include media-query(palm) {
-        border-bottom: 1px dotted #ddd;
-    }
-}
-.resume-article__titre {
-    @include font-size(18px,$line-height:false);
-    line-height: 1.1;
-    font-weight: 600;
-    @include media-query(lap-and-up) {
-        margin-bottom: 0;
-        min-height: 3.3em;
-    }
-}
+.resume-article {}
+.resume-article__titre {}
 .resume-article__soustitre {
     margin-top: 0.25em;
     color: #888;
 }
-.resume-article__desc {
-    @media only screen and (min-width: 960px) {
-        padding-right: $base-spacing-unit*2;
-    }
-}
+.resume-article__desc {}
 
 /*-----  End of resume  ------*/
 

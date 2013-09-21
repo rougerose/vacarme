@@ -1,0 +1,16 @@
+<B_articles>
+#ANCRE_PAGINATION
+<section class="articles search-results landmark">
+    <h2 class="hN intertitre-section intertitre-section--first">[(#GRAND_TOTAL|singulier_ou_pluriel{local:article_number,local:articles_number})]</h2>
+    <div class="grid">
+        <ul class="list">
+            <BOUCLE_articles(ARTICLES){id_article IN #ENV{selection}}{pagination 20}>
+            <li class="grid__item lap-and-up-one-third">
+                #INCLURE{fond=inclure/resumes/article,id_article}
+            </li><!-- /.grid__item -->
+            </BOUCLE_articles>
+        </ul>
+    </div><!-- /.grid -->
+    [<nav>(#PAGINATION{precedent_suivant_compteur,class="pagination-bottom"})</nav>]
+</section>
+</B_articles>

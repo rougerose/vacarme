@@ -1,0 +1,46 @@
+/*================================
+=            sections            =
+================================*/
+
+/*==========  toc  ==========*/
+
+.toc__title {
+    position: relative;
+    padding-left: $base-spacing-unit;
+    font-family: 'HelveticaNeueLTStdCnRegular', sans-serif;
+    font-style: normal;
+    @include font-size(36px);
+    text-transform: uppercase;
+    @include media-query(lap-and-up) {
+        left: 25%;
+    }
+}
+.toc__img {
+    margin-bottom: 2em;
+    padding-bottom: 0.5em;
+}
+
+/*==========  index  ==========*/
+
+/* index-feature */
+
+.index-feature {
+    border: 1px solid #80b83f;
+    border-color: #eee;
+    border-width: 0 0 1px;
+    margin-top: 2em;
+}
+/* index-issues */
+.index-issues {
+    .issue {
+        margin-bottom: 3em;
+    }
+}
+
+/*==========  search-results  ==========*/
+.search-results {
+    border-bottom: 1px dotted $soft-black;
+}
+
+/*-----  End of sections  ------*/
+

@@ -18,10 +18,9 @@
     (#SET{item, #ENV{page_courante}|moins{2}|mult{#ENV{pas}} })
 
     ]
-    <ul class="nav pagination">
-        [<li><a href='[(#ENV{url}|parametre_url{#ENV{debut},''})]##ENV{ancre}'
-    class='pagination-element' rel='nofollow'>(#GET{premiere}|>{1}|?{#GET{d}#GET{f}})</a></li>
-        <li><span class="tbc pagination-element">&hellip;</span></li
+    <ul class="nav pagination pagination--page">
+        [<li class="pagination__item"><a href='[(#ENV{url}|parametre_url{#ENV{debut},''})]##ENV{ancre}' rel='nofollow'>(#GET{premiere}|>{1}|?{#GET{d}#GET{f}})</a></li>
+        <li class="pagination__item"><span class="tbc">&hellip;</span></li
         >]<BOUCLE_numeros(POUR){tableau #GET{pages}}>[
         (#SET{item, #VALEUR|moins{1}|mult{#ENV{pas}} })
         ][
@@ -33,7 +32,7 @@
             [(#SET{n,#GET{d}})],
             [(#SET{n,#GET{d}|concat{#GET{fleche}}|concat{#GET{f}}})]
         })][
-        <li>(#ENV{url}
+        <li class="pagination__item">(#ENV{url}
         |parametre_url{#ENV{debut},#GET{item}|?{#GET{item}}}
         |ancre_url{#ENV{ancre}}
         |lien_ou_expose{#GET{n},#VALEUR|=={#ENV{page_courante}},lien_pagination pagination-element,'',nofollow})</li
@@ -49,10 +48,10 @@
             [(#SET{f,#GET{d}|concat{#GET{fleche}|concat{#GET{f}}}})]
         })
         ][
-        <li><span class="tbc pagination-element">&hellip;</span></li>
-        <li><a
+        <li class="pagination__item"><span class="tbc">&hellip;</span></li>
+        <li class="pagination__item"><a
     href='[(#ENV{url}|parametre_url{#ENV{debut},#ENV{nombre_pages}|moins{1}|mult{#ENV{pas}}})]##ENV{ancre}'
-    class='lien_pagination pagination-element'
+    class='lien_pagination'
     rel='nofollow'>(#GET{derniere}|<{#ENV{nombre_pages}}|?{#GET{f}})</a></li>
         ][
     (#SET{item, #ENV{page_courante}|mult{#ENV{pas}} })

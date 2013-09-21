@@ -59,6 +59,10 @@ h6.spip {
 /*==========  intertitres section  ==========*/
 .intertitre-section {
     font-style: italic;
+    .recherche & {
+        color: #000;
+        font-weight: 600;
+    }
 }
 // .intertitre-section--aside {}
 
@@ -68,19 +72,14 @@ h6.spip {
 
 .intertitre-section--first {
     display: inline-block;
-    border-bottom: 1px solid #7f807b;
+    border-bottom: 1px solid $soft-black; //background-color: $gray-light;
     padding-left: $base-spacing-unit/2;
     margin-left: -$base-spacing-unit/2;
     @include font-size(18px);
-    .toc & {
-        // margin-bottom: 0;
-    }
 }
 .intertitre-section--second {
     margin-bottom: 0;
-    font-family: "Plantin";
     font-weight: 600;
-    font-style: italic;
     @include font-size(16px);
 }
 

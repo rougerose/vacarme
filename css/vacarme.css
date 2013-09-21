@@ -3261,11 +3261,14 @@ h6.spip {
 /*==========  intertitres section  ==========*/
 .intertitre-section {
   font-style: italic; }
+  .recherche .intertitre-section {
+    color: #000;
+    font-weight: 600; }
 
 /*==========  levels  ==========*/
 .intertitre-section--first, .self__header--rubrique .titre {
   display: inline-block;
-  border-bottom: 1px solid #7f807b;
+  border-bottom: 1px solid #555555;
   padding-left: 12px;
   margin-left: -12px;
   font-size: 18px;
@@ -3274,9 +3277,7 @@ h6.spip {
 
 .intertitre-section--second {
   margin-bottom: 0;
-  font-family: "Plantin";
   font-weight: 600;
-  font-style: italic;
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5; }
@@ -3311,20 +3312,24 @@ a {
 .nav a:hover {
   border-bottom-color: #000; }
 
-.more a, .more em {
-  -webkit-transition: all 0.35s ease-out;
-  -moz-transition: all 0.35s ease-out;
-  -ms-transition: all 0.35s ease-out;
-  -o-transition: all 0.35s ease-out;
-  transition: all 0.35s ease-out; }
-.more a {
-  border-bottom: 1px dotted #888;
-  color: #888; }
-  .more a:hover {
-    color: #000;
-    border-bottom-style: solid; }
-    .more a:hover em {
-      padding-left: .5em; }
+.more {
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.33333; }
+  .more a, .more em {
+    -webkit-transition: all 0.35s ease-out;
+    -moz-transition: all 0.35s ease-out;
+    -ms-transition: all 0.35s ease-out;
+    -o-transition: all 0.35s ease-out;
+    transition: all 0.35s ease-out; }
+  .more a {
+    border-bottom: 1px dotted #888;
+    color: #888; }
+    .more a:hover {
+      color: #000;
+      border-bottom-style: solid; }
+      .more a:hover em {
+        padding-left: .5em; }
 
 /*-----  End of links  ------*/
 /*=================================
@@ -3785,16 +3790,22 @@ ol.spip {
     .pagination a:hover {
       color: #000; }
 
-.pagination .on,
-.pagination-element {
+.pagination__item a, .pagination__item span, .pagination__item .on {
   display: inline-block;
   margin: 0 6px; }
 
-.pagination .on {
+.tbc {
+  color: #ccccda; }
+
+/*==========  top/bottom  ==========*/
+/*==========  pagination--page  ==========*/
+.pagination--page .on {
   color: #000; }
 
-.tbc {
-  color: #999; }
+/*==========  pagination--prev-next  ==========*/
+.pagination--prev-next .disabled .on {
+  color: #ccccda;
+  font-weight: normal; }
 
 /*-----  End of pagination  ------*/
 /*============================
@@ -3852,6 +3863,28 @@ ol.spip {
 /*==============================
 =            resume            =
 ==============================*/
+.resume {
+  margin-bottom: 3.5em;
+  line-height: 1.125; }
+  @media only screen and (max-width: 480px) {
+    .resume {
+      border-bottom: 1px dotted #ddd;
+      margin-bottom: 2em; } }
+
+.resume__titre {
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.1;
+  font-weight: 600; }
+  @media only screen and (min-width: 481px) {
+    .resume__titre {
+      margin-bottom: 0;
+      min-height: 3.3em; } }
+
+@media only screen and (min-width: 960px) {
+  .resume__desc {
+    padding-right: 48px; } }
+
 /*==========  .resume-rubrique  ==========*/
 .toc__item .resume-rubrique__titre {
   font-size: 40px;
@@ -3880,30 +3913,9 @@ ol.spip {
       width: 75%; } }
 
 /*==========  .resume-article  ==========*/
-.resume-article {
-  margin-bottom: 2em;
-  line-height: 1.125; }
-  @media only screen and (max-width: 480px) {
-    .resume-article {
-      border-bottom: 1px dotted #ddd; } }
-
-.resume-article__titre {
-  font-size: 18px;
-  font-size: 1.125rem;
-  line-height: 1.1;
-  font-weight: 600; }
-  @media only screen and (min-width: 481px) {
-    .resume-article__titre {
-      margin-bottom: 0;
-      min-height: 3.3em; } }
-
 .resume-article__soustitre {
   margin-top: 0.25em;
   color: #888; }
-
-@media only screen and (min-width: 960px) {
-  .resume-article__desc {
-    padding-right: 48px; } }
 
 /*-----  End of resume  ------*/
 /*=============================
@@ -3952,9 +3964,10 @@ ol.spip {
       width: 75%; } }
 
 /*-----  End of person  ------*/
-/*=========================================
-=            table of content (toc)            =
-=========================================*/
+/*================================
+=            sections            =
+================================*/
+/*==========  toc  ==========*/
 .toc__title {
   position: relative;
   padding-left: 24px;
@@ -3972,23 +3985,23 @@ ol.spip {
   margin-bottom: 2em;
   padding-bottom: 0.5em; }
 
-/*-----  End of table of content (toc)  ------*/
-/*=============================
-=            index            =
-=============================*/
-/*==========  index-numeros  ==========*/
-/*==========  index-feature  ==========*/
+/*==========  index  ==========*/
+/* index-feature */
 .index-feature {
   border: 1px solid #80b83f;
   border-color: #eee;
   border-width: 0 0 1px;
   margin-top: 2em; }
 
-/*==========  index-issues  ==========*/
+/* index-issues */
 .index-issues .issue {
   margin-bottom: 3em; }
 
-/*-----  End of index  ------*/
+/*==========  search-results  ==========*/
+.search-results {
+  border-bottom: 1px dotted #555555; }
+
+/*-----  End of sections  ------*/
 /*===============================
 =            related            =
 ===============================*/

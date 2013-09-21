@@ -19,16 +19,39 @@
         }
     }
 }
-.pagination .on,
-.pagination-element {
-    display: inline-block;
-    margin: 0 6px;
-}
-.pagination .on {
-    color: #000;
+.pagination__item {
+    a,span,.on {
+        display: inline-block;
+        margin: 0 6px;
+    }
 }
 .tbc {
-    color: #999;
+    color: $gray-light;
+}
+
+/*==========  top/bottom  ==========*/
+.pagination-bottom {
+    // border: 1px solid $gray-light;
+    // border-width: 1px 0;
+    // border-top-style: dotted;
+    // border-bottom: 1px solid $gray-light;
+    // padding: .5em 0 .25em;
+    // padding-bottom: 0.5em;
+}
+
+/*==========  pagination--page  ==========*/
+.pagination--page .on {
+    color: #000;
+}
+
+/*==========  pagination--prev-next  ==========*/
+.pagination--prev-next {
+    .disabled {
+        .on {
+            color: $gray-light;
+            font-weight: normal;
+        }
+    }
 }
 
 /*-----  End of pagination  ------*/

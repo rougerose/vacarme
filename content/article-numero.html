@@ -81,7 +81,7 @@
                                 <div class="media__body">
                                     <h3 class="hN intertitre-section intertitre-section--second"><:local:version_print:></h3>
                                     <p><:local:published_in:> <a href="#URL_RUBRIQUE" itemprop="name">#TITRE</a>[, <span itemprop="datePublished" content="[(#SAISON_ANNEE|affdate{Y-m-d})]">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</span>][, (#PAGE_DEBUT|>{0}|oui)
-                                        [(#PAGE_DEBUT|=={#PAGE_FIN}|?{<:local:page{debut=#PAGE_DEBUT}:>,<:local:page_abrev{debut=#PAGE_DEBUT,fin=#PAGE_FIN}:>})]
+                                        [(#PAGE_DEBUT|=={#PAGE_FIN}|?{<:local:page_number{debut=#PAGE_DEBUT}:>,<:local:page_abrev{debut=#PAGE_DEBUT,fin=#PAGE_FIN}:>})]
                                     ]</p>
                                 </div>
                                 </BOUCLE_rubrique_numero>
