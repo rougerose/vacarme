@@ -9,6 +9,6 @@
     ][(#ID_MOT|=={75}|oui)#SET{type,entretien}]</BOUCLE_mots_techniques>
 [(#GET{type}|!={entretien}|?{[<p class="person person-signature person-signature--author"><:par_auteur:>(#MODELE{authors,id_article=#ENV{id_article},contexte=resume})</p>]})]
 [<p class="resume-article__desc">(#DESCRIPTIF|PtoBR)</p>]
-<p class="more"><a href="#URL_ARTICLE"><:local:more:></a></p>
+<p class="more more--read"><a href="#URL_ARTICLE"><:local:more_read:></a></p>
 [(#REM) AJOUTS ? les traductions éventuelles de l'article + les articles secondaires qui pourraient être minorés par rapport aux articles principaux ? ]
 </BOUCLE_rubrique_numero_article>

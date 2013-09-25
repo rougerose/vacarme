@@ -53,9 +53,11 @@
 }
 
 /*==========  .resume-article  ==========*/
-.resume-article {}
-.resume-article__titre {
-    font-weight: 600;
+.resume-article {
+    .resume-article__titre {
+        font-weight: 600;
+        @include font-size(18px);
+    }
 }
 .resume-article__soustitre {
     // margin-top: 0.25em;
@@ -66,7 +68,6 @@
 /*==========  resume-article--list  ==========*/
 .resume-article--list {
     margin-bottom: 2em;
-    // border-bottom: 1px dotted $gray-light;
     &:after {
         content: '— ❡ —';
         display: block;

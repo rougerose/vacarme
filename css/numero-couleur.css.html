@@ -5,7 +5,7 @@
 ]
 <BOUCLE_index_numeros(RUBRIQUES){id_rubrique=115}>[(#SET{couleur_defaut,#ID_RUBRIQUE|couleur_rubrique|sinon{#ID_RUBRIQUE|couleur_site}})]
 <B_numero><BOUCLE_numero(RUBRIQUES){id_parent}{par titre}>
-.rubrique#ID_RUBRIQUE .titre-numero a:hover {
+.rubrique#ID_RUBRIQUE .numero-titre a:hover {
     border-bottom-width: 0; border-bottom-color: transparent;
     color: [#(#ID_RUBRIQUE|couleur_rubrique|sinon{#GET{couleur_defaut}});]
 }
