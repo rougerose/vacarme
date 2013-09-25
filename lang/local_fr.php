@@ -2,14 +2,18 @@
 if (!defined('_ECRIRE_INC_VERSION')) return;
 $GLOBALS[$GLOBALS['idx_lang']] = array(
     // A
+    'article_auteur' => "1 article publié dans Vacarme",
+    'articles_auteur' => '@nb@ articles publiés dans Vacarme',
+    'article_auteur_aucun' => 'Aucun article publié dans <i>Vacarme</i> à ce jour.',
     'article_number' => '1 article',
     'articles_number' => '@nb@ articles',
+    'auteurs_tous_back' => '⟵ Tous les auteurs',
     'author_about_plural'   => "À propos des auteurs",
     'author_about_singular' => "À propos de l’auteur",
     'author_number' => '1 auteur',
     'authors_number' => '@nb@ auteurs',
-    'author_plural'         => "Les auteurs",
-    'author_singular'       => "L’auteur",
+    'authors'         => "Les auteurs",
+    'author'       => "L’auteur",
     
     // C
     'category_plural'       => 'Catégories',
@@ -35,7 +39,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'keywords_number' => '@nb@ mot-clés',
 
     // M
-    'more' => '<em>&#8594;</em>',
+    // 'more' => '<em>&#8594;</em>',
+    'more_arrow' => '<em>⟶</em>',
+    'more_read' => 'Lire <em>⟶</em>',
     
     // N
     'navigation'            => "Navigation",

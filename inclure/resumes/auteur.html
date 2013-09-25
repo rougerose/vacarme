@@ -1,9 +1,9 @@
 <BOUCLE_auteur_resume(AUTEURS){id_auteur}>
 <article class="resume resume-auteur">
     <header>
-        <h1 class="hN resume__titre"><a href="#URL_AUTEUR">#NOM</a></h1>
+        <h1 class="hN resume__titre"><a href="#URL_AUTEUR">[(#NOM|prenom_nom)]</a></h1>
     </header>
-    [<p class="resume__desc">(#BIO|PtoBR)</p>]
+    [<p class="resume__desc">(#BIO|couper{100}|PtoBR)</p>]
     <p class="more"><a href="#URL_AUTEUR"><:local:more:></a></p>
 </article>
 </BOUCLE_auteur_resume>

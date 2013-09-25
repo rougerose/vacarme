@@ -1,1 +1,24 @@
-<p>Cette page n'est pas encore réalisée.</p>
+<BOUCLE_auteur(AUTEURS){id_auteur}>
+<div class="grid">
+    <article class="self auteur">
+        <div class="grid__item desk-three-quarters push--desk-one-quarter">
+            <header class="self__header landmark">
+                <h1 class="hN"><span class="#EDIT{nom} titre">[(#NOM|prenom_nom)]</span></h1>
+            </header>
+            [<div class="#EDIT{chapo} self__chapo landmark surlignable">
+                (#BIO)
+            </div>]
+            [(#INCLURE{fond=liste/auteur-articles,env,ajax})]
+            <nav class="subnav">
+                <div class="grid">
+                    <ul class="nav">
+                        <li class="grid__item one-quarter"><span class="subnav__item subnav__item--back"><a href="#URL_PAGE{auteurs}"><:local:auteurs_tous_back:></a></span></li
+                        ><li class="grid__item one-quarter"><span class="subnav__item subnav__item--prev"><a href="#" class="link-anim link-anim--rev">⟵</a></span></li
+                        ><li class="grid__item one-quarter"><span class="subnav__item subnav__item--next"><a href="#" class="link-anim">⟶</a></span></li>
+                    </ul>
+                </div><!-- /.grid -->
+            </nav>
+        </div><!-- /.grid__item -->
+    </article>
+</div><!-- /.grid -->
+</BOUCLE_auteur>

@@ -14,20 +14,46 @@ a {
     }
 }
 .more {
-    @include font-size(18px);
-    a, em {
+    font-style: italic;
+    em {
+        font-style: normal;
+        color: lighten($gris-soustitre,10%);
         @include vendor(transition,all 0.35s ease-out);
     }
     a {
-        border-bottom: 1px dotted #888;
-        color: #888;
+        border-bottom: 1px dotted $gris-soustitre;
+        color: $gris-soustitre;
         &:hover {
             color: #000;
-            border-bottom-style: solid;
+            border-bottom: 1px solid #000;
             em {
-                padding-left: .5em;
+                color: #000;
+                padding-left: 1em;
             }
         }
+    }
+}
+.more--read {
+    em {
+        margin-left: .5em;
+    }
+}
+.more--inline {
+    margin-left: .5em;
+    display: inline-block;
+    @include font-size(16px,$line-height:false);
+}
+/*==========  link-anim  ==========*/
+.link-anim {
+    @include vendor(transition,padding 0.35s ease-out);
+    &:hover {
+        padding-left: 1em;
+    }
+}
+.link-anim--rev {
+    &:hover {
+        padding-left: 0;
+        padding-right: 1em;
     }
 }
 

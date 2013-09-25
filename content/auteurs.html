@@ -1,0 +1,51 @@
+[(#SET{debut,#ARRAY})][(#SET{alphabet, [(#VAL{ABCDEFGHIJKLMNOPQRSTUVWXYZ}|str_split)]})
+]<BOUCLE_liste_alpha(AUTEURS){par nom}>[
+(#SET_PUSH{commence_par[(#NOM|initiale_az)],#ID_AUTEUR})
+][
+(#SET_PUSH{auteurs_alpha,#NOM|initiale_az})
+]</BOUCLE_liste_alpha>[
+(#SET{debut,#GET{auteurs_alpha}|array_sort|table_valeur{0}})
+]
+<div class="grid">
+    <article class="self auteurs">
+        <div class="grid__item">
+            <header class="self__header self__header--rubrique">
+                <h1 class="hN titre"><:local:authors:></h1>
+            </header>
+        </div><!-- /.grid__item -->
+        <div class="grid__item desk-three-quarters push--desk-one-quarter">
+            <B_pagination_abc>
+            <nav class="pagination pagination--top pagination--abc">
+                <ul class="nav">
+                    <BOUCLE_pagination_abc(POUR){tableau #GET{alphabet}}>[(#SET{actif,#VALEUR|=={#ENV{lettre,#GET{debut}}}|?{' ',''}})][(#SET{content,#VALEUR|in_array{#GET{auteurs_alpha}}|?{' ',''}})
+                    ]<li class="pagination__item pagination--abc__item[ (#GET{content}|non)disabled][ (#VALEUR|=={[(#ENV{lettre,#GET{debut} })]}|?{on})]"
+                    >[(#GET{content}|?{<a[ class="(#GET{actif}|?{on})"] href="[(#SELF|parametre_url{lettre,#VALEUR})]">,<span>})]#VALEUR[(#GET{content}|?{</a>,</span>})]</li
+                    ></BOUCLE_pagination_abc>
+                </ul>
+            </nav>
+            </B_pagination_abc>
+
+            <B_artlettre>
+            <section class="index index-auteurs resume-auteur resume-auteur--list">
+                <h2 class="hN index-auteurs__titre">#ENV{lettre,#GET{debut}}</h2>
+                <ul id="accordeon" class="list">
+                    <BOUCLE_artlettre(AUTEURS){id_auteur IN #GET{commence_par#ENV{lettre,#GET{debut}}}}{par nom}>
+                    <li>
+                        <h3 class="hN resume-auteur__nom">[(#NOM|prenom_nom)] <span class="more more--inline"><a href="#URL_AUTEUR"><:local:more_arrow:></a></span></h3>
+                        <B_articles>
+                        <ul class="list accordeon">
+                            <BOUCLE_articles(ARTICLES){id_auteur}{!par date}>
+                            [<li>
+                                (#INCLURE{fond=inclure/resumes/article-list,contexte=accordeon,id_article})
+                            </li>]
+                            </BOUCLE_articles>
+                        </ul>
+                        </B_articles>
+                    </li>
+                    </BOUCLE_artlettre>
+                </ul>
+            </section>
+            </B_artlettre>
+        </div><!-- /.grid__item -->
+    </article><!-- /.self auteurs -->
+</div><!-- /.grid -->

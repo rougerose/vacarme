@@ -23,7 +23,7 @@
     }
 }
 
-.titre-numero {
+.numero-titre {
     font-family: "HelveticaNeueLTStdCnBold", sans-serif;
     text-transform: uppercase;
     .self__header--rubrique &,
@@ -34,9 +34,10 @@
         @include font-size(28px);
     }
 }
-.soustitre-numero {
+.numero-soustitre {
     font-family: "HelveticaNeueLTStdLtCnRegular", sans-serif;
     font-style: normal;
+    color: $gris-soustitre;
     .self__header--rubrique &,
     .index-feature & {
         font-size: .7em;

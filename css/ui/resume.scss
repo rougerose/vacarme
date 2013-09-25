@@ -54,12 +54,49 @@
 
 /*==========  .resume-article  ==========*/
 .resume-article {}
-.resume-article__titre {}
+.resume-article__titre {
+    font-weight: 600;
+}
 .resume-article__soustitre {
-    margin-top: 0.25em;
-    color: #888;
+    // margin-top: 0.25em;
+    color: $gris-soustitre;
 }
 .resume-article__desc {}
+
+/*==========  resume-article--list  ==========*/
+.resume-article--list {
+    margin-bottom: 2em;
+    // border-bottom: 1px dotted $gray-light;
+    &:after {
+        content: '— ❡ —';
+        display: block;
+        text-align: center;
+        color: $gray-light;
+    }
+    .resume-article__titre {
+        @include font-size(18px);
+    }
+}
+
+/*==========  resume-numero--list  ==========*/
+.resume-numero--list {
+    .resume-numero__titre {
+        @include font-size(18px,$line-height:false);
+        line-height: 1;
+    }
+    .resume-numero__soustitre {
+        line-height: 1.5;
+    }
+}
+
+/*==========  resume-auteur--list  ==========*/
+.resume-auteur--list {
+    .resume-auteur__nom {
+        border-bottom: 1px solid #000;
+        line-height: 1.2;
+        color: #000;
+    }
+}
 
 /*-----  End of resume  ------*/
 

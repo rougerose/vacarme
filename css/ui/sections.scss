@@ -22,6 +22,7 @@
 
 /*==========  index  ==========*/
 
+
 /* index-feature */
 
 .index-feature {
@@ -37,10 +38,17 @@
     }
 }
 
-/*==========  search-results  ==========*/
-.search-results {
-    border-bottom: 1px dotted $soft-black;
+/* index-auteurs */
+.index-auteurs__titre {
+    text-align: center;
+    @include font-size(40px);
+    color: lighten($gray-light,10%);
+
 }
+
+
+/*==========  search-results  ==========*/
+// .search-results {}
 
 /*-----  End of sections  ------*/
 
