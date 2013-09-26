@@ -1,0 +1,15 @@
+<BOUCLE_grappe_carousel(GRAPPES){id_grappe=1}>
+<div class="flexslider__container">
+    <div id="flexslider" class="flexslider">
+        <B_articles_carousel>
+        <ul class="slides">
+            <BOUCLE_articles_carousel(ARTICLES){id_grappe}>
+            <li class="slides__item">
+                #INCLURE{fond=inclure/resumes/article-carousel,id_article}
+            </li>
+            </BOUCLE_articles_carousel>
+        </ul>
+        </B_articles_carousel>
+    </div><!-- /.flexslider -->
+</div><!-- /.flexslider__container -->
+</BOUCLE_grappe_carousel>

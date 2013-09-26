@@ -1,0 +1,22 @@
+<BOUCLE_article_carousel(ARTICLES){id_article}>
+<article class="resume resume-carousel resume-sommaire">
+    <div class="article-container">
+        [(#LOGO_ARTICLE|largeur|>{959}|oui) [
+            (#LOGO_ARTICLE|largeur|>{#LOGO_ARTICLE|hauteur}|oui)[
+                <img src="(#LOGO_ARTICLE|image_reduire{960,0}|image_recadre{960,640,'top left'}|extraire_attribut{src})" alt="">] ] ]
+        <div class="resume-sommaire__body w50">
+            <BOUCLE_cat_thematique(MOTS){id_article}{id_groupe=19}{0,1}>
+            [<p class="category">(#TITRE)</p>]
+            </BOUCLE_cat_thematique>
+            [<p class="category">(#INFO_TITRE{rubrique,#ID_RUBRIQUE})</p>]
+            <//B_cat_thematique>
+            <header>
+                <h1 class="hN resume__titre resume-article__titre">
+                    <a href="#URL_ARTICLE">#TITRE</a>[ <small class="soustitre resume-article__soustitre">(#SOUSTITRE)</small>]
+                </h1>
+            </header>
+            [<p class="descriptif">(#DESCRIPTIF|PtoBR)</p>]
+        </div>
+    </div>
+</article>
+</BOUCLE_article_carousel>

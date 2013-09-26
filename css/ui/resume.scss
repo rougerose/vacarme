@@ -101,5 +101,35 @@
     }
 }
 
+/*==========  resume-sommaire  ==========*/
+.resume-sommaire {
+    position: relative;
+}
+.resume-sommaire__body {
+    position: absolute;
+    left: 0;
+    bottom: $base-spacing-unit;
+    background-color: rgba($site-color,0.7);
+    padding: $base-spacing-unit/2 $base-spacing-unit/2 $base-spacing-unit/4;
+
+}
+/* todo: à modifier avec nom de class plus adaptés */
+.category {
+    @extend .intertitre-section--first;
+    margin-left: 0;
+    border-bottom-color: #fff;
+    font-style: italic;
+    @include font-size(16px);
+    color: #fff;
+}
+.w50 {width: 50%;}
+.w100 {width: 100%;}
+
+
+/*==========  resume-carousel  ==========*/
+.resume-carousel {
+    margin-bottom: 0;
+}
+
 /*-----  End of resume  ------*/
 

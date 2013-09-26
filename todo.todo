@@ -11,8 +11,9 @@
  ☐ article : ajouter subnav
  ☐ iphone : formulaire recherche ne peut rester apparent.
  ☐ mot : la maquette devra varier selon les mots-clés (entretiens, dossiers, autres ?) sur le même modèle que le sommaire d'un numéro (avec photos).
- ☐ descriptif mot : certains mots-clés ont un descriptif. 1/ basculer le contenu dans Texte
+ ☐ descriptif mot : certains mots-clés ont un descriptif. Basculer le contenu dans Texte
  ☐ recherche : inclure les résultats sous forme de liste n'est pas nécessaire. Et permettrait d'inclure un seul fichier (inclure/objets/articles par exemple).
  ☐ inclure/articles.html : section devrait avoir un titre. Remplacer par div ?
  ☐ styles liens : dans le texte, sans spip_in/spip_out les liens ne se voient pas suffisamment.
  ☐ ajouter fil d'ariane sur tous squelettes.
+ ☐ article version portfolio

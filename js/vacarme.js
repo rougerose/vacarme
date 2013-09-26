@@ -36,4 +36,22 @@ $(document).ready(function() {
             return false;
         });
     });
+
+    // flexslider
+    $('#flexslider').flexslider({
+       animation: "slide",
+       slideshow: false,
+       start: function(slider){
+         slider.viewport.css({"overflow":"visible"});
+         slider.newSlides.css({'opacity':0.3});
+         slider.slides.eq(slider.currentSlide).fadeTo('slow',1);
+        },
+        before: function(slider) {
+            slider.slides.fadeTo('slow',0.3);
+        },
+        after: function(slider) {
+            // console.log(slider.currentSlide);
+            slider.slides.eq(slider.currentSlide).fadeTo('slow',1);
+        }
+    }); 
 });

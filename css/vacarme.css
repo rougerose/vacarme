@@ -1119,7 +1119,7 @@ h2.spip, h3.spip, h4.spip, h5.spip, h6.spip { margin-top: 48px; margin-top: 3rem
 .recherche .intertitre-section { color: #000; font-weight: 600; }
 
 /*==========  levels  ==========*/
-.intertitre-section--first, .self__header--rubrique .titre { display: inline-block; border-bottom: 1px solid #555555; padding-left: 12px; margin-left: -12px; font-size: 18px; font-size: 1.125rem; line-height: 1.33333; }
+.intertitre-section--first, .self__header--rubrique .titre, .category { display: inline-block; border-bottom: 1px solid #555555; padding-left: 12px; margin-left: -12px; font-size: 18px; font-size: 1.125rem; line-height: 1.33333; }
 
 .intertitre-section--second { margin-bottom: 0; font-weight: 600; font-size: 16px; font-size: 1rem; line-height: 1.5; }
 
@@ -1355,6 +1355,14 @@ ol.spip ol.spip { margin-left: 24px; margin-left: 1.5rem; }
 .js .accordeon__content--closed { display: none; }
 
 /*-----  End of accordeon  ------*/
+/*================================
+=            carousel            =
+================================*/
+.js .flexslider__container { overflow: hidden; }
+
+.flexslider { border-width: 0; -webkit-box-shadow: none; -moz-box-shadow: none; -ms-box-shadow: none; -o-box-shadow: none; box-shadow: none; }
+
+/*-----  End of carousel  ------*/
 /*===============================
 =            columns            =
 ===============================*/
@@ -1464,6 +1472,21 @@ ol.spip ol.spip { margin-left: 24px; margin-left: 1.5rem; }
 
 /*==========  resume-auteur--list  ==========*/
 .resume-auteur--list .resume-auteur__nom { border-bottom: 1px solid #000; line-height: 1.2; color: #000; }
+
+/*==========  resume-sommaire  ==========*/
+.resume-sommaire { position: relative; }
+
+.resume-sommaire__body { position: absolute; left: 0; bottom: 24px; background-color: rgba(124, 136, 211, 0.7); padding: 12px 12px 6px; }
+
+/* todo: à modifier avec nom de class plus adaptés */
+.category { margin-left: 0; border-bottom-color: #fff; font-style: italic; font-size: 16px; font-size: 1rem; line-height: 1.5; color: #fff; }
+
+.w50 { width: 50%; }
+
+.w100 { width: 100%; }
+
+/*==========  resume-carousel  ==========*/
+.resume-carousel { margin-bottom: 0; }
 
 /*-----  End of resume  ------*/
 /*=============================
