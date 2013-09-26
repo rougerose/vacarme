@@ -41,7 +41,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     // M
     // 'more' => '<em>&#8594;</em>',
     'more_arrow' => '<em>⟶</em>',
-    'more_read' => 'Lire <em>&#10230;</em>',
+    'more_read' => 'Lire <em>⟶</em>',
     
     // N
     'navigation'            => "Navigation",

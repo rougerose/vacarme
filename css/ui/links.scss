@@ -17,6 +17,7 @@ a {
     font-style: italic;
     em {
         font-style: normal;
+        font-family: serif;
         color: lighten($gris-soustitre,10%);
         @include vendor(transition,all 0.35s ease-out);
     }

@@ -1,9 +1,12 @@
  ✔ navigation : styles avec js désactivé @done (13-08-06 12:59)
- ☐ pied de page article : version plus simple (sans "à propos de l'article + version en ligne") pour les articles hors du secteur 115 ?
- ☐ article = gérer les versions intégrales et les aperçus.
+ ✔ pied de page article : version plus simple (sans "à propos de l'article + version en ligne") pour les articles hors du secteur 115 ? @done (13-09-26 00:04)
+ ☐ article = gérer les versions intégrales et les aperçus. !! IMPORTANT !!
  ☐ article = régler l'interlignage si l'intertitre est le premier élément du texte.
  ☐ rubrique-numero_rubrique = le sommaire du numéro intégrale est repris. Modifier dans un second temps. Principe envisageable : 
    - contenu de la rubrique
    - le reste du numéro.
  ☐ rubrique-numero: schema + figure pour img n'est pas nécessaire ?
  ☐ rubrique-numero : revoir les styles resume-rubrique et resume-article
+ ☐ auteur : subnav : ajouter lien prev et next
+ ☐ article : ajouter subnav
+ ☐ iphone : formulaire recherche ne peut rester apparent.

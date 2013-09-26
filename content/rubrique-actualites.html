@@ -1,0 +1,23 @@
+<BOUCLE_rubrique_actualites(RUBRIQUES){id_rubrique}>
+<div class="grid">
+    <article class="rubrique self">
+        <div class="grid__item">
+            <div class="landmark">
+                <header class="self__header self__header--rubrique">
+                    <h1 class="hN titre"><span class="#EDIT{titre}">#TITRE</span></h1>
+                </header>
+                [<div class="self__body self__body--rubrique">
+                    <div class="#EDIT{texte} self__texte surlignable">
+                        (#TEXTE|image_reduire{500,0})
+                    </div>
+                </div>]
+            </div>
+        </div><!-- /.grid__item -->
+        <div class="grid__item">
+            <div class="grid">
+                [(#INCLURE{fond=inclure/objets/articles,id_rubrique,env,ajax})]
+            </div><!-- /.grid -->
+        </div><!-- /.grid__item -->
+    </article>
+</div><!-- /.grid -->
+</BOUCLE_rubrique_actualites>

@@ -1139,7 +1139,7 @@ a { color: #000; text-decoration: none; border-bottom: 1px solid transparent; -w
 .nav a:hover { border-bottom-color: #000; }
 
 .more { font-style: italic; }
-.more em { font-style: normal; color: #9488a0; -webkit-transition: all 0.35s ease-out; -moz-transition: all 0.35s ease-out; -ms-transition: all 0.35s ease-out; -o-transition: all 0.35s ease-out; transition: all 0.35s ease-out; }
+.more em { font-style: normal; font-family: serif; color: #9488a0; -webkit-transition: all 0.35s ease-out; -moz-transition: all 0.35s ease-out; -ms-transition: all 0.35s ease-out; -o-transition: all 0.35s ease-out; transition: all 0.35s ease-out; }
 .more a { border-bottom: 1px dotted #7b6d88; color: #7b6d88; }
 .more a:hover { color: #000; border-bottom: 1px solid #000; }
 .more a:hover em { color: #000; padding-left: 1em; }
@@ -1186,7 +1186,7 @@ a { color: #000; text-decoration: none; border-bottom: 1px solid transparent; -w
 
 @media only screen and (min-width: 768px) { .nav--principale { margin-left: -24px; font-family: "HelveticaNeueLTStdCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase; }
   .nav--principale .nav { border-bottom: 2px solid #000; margin-bottom: 1em; }
-  .nav--principale a { color: #ccccda; }
+  .nav--principale a { color: #ccccda; border: none; }
   .nav--principale a:hover { color: #000; }
   .nav--principale .nav--item { padding-left: 24px; width: 16.666%; } }
 
@@ -1366,7 +1366,7 @@ ol.spip ol.spip { margin-left: 24px; margin-left: 1.5rem; }
 /*==================================
 =            pagination            =
 ==================================*/
-.pagination { position: relative; font-size: 16px; font-size: 1rem; line-height: 1.2; }
+.pagination { position: relative; font-size: 15px; font-size: 0.9375rem; line-height: 1.2; }
 .pagination a { color: #777777; }
 .pagination a:hover { color: #000; }
 
@@ -1445,9 +1445,11 @@ ol.spip ol.spip { margin-left: 24px; margin-left: 1.5rem; }
 @media only screen and (min-width: 481px) { .resume-rubrique__desc { width: 75%; } }
 
 /*==========  .resume-article  ==========*/
-.resume-article .resume-article__titre { font-weight: 600; font-size: 18px; font-size: 1.125rem; line-height: 1.33333; }
+.resume-article .resume-article__titre { font-weight: 600; font-size: 16px; font-size: 1rem; }
 
 .resume-article__soustitre { color: #7b6d88; }
+
+.resume-article__desc { font-size: 15px; font-size: 0.9375rem; line-height: 1.6; }
 
 /*==========  resume-article--list  ==========*/
 .resume-article--list { margin-bottom: 2em; }

@@ -31,8 +31,10 @@
         }
         a {
             color: $gray-light;
+            border: none;
             &:hover {
                 color: #000;
+                // border: none;
             }
         }
         .nav--item {

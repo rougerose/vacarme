@@ -60,35 +60,19 @@
             </B_articles_lies>
         </div><!-- /.grid__item -->
         <div class="grid__item desk-three-quarters push--desk-one-quarter">
-            [(#MODELE{authors-about})]
             [(#REM) pied de page simplifié ? voir Todo ]
             <footer class="related related--content article landmark">
                 <h2 class="hN intertitre-section intertitre-section--first intertitre-section--content"><:local:publication_about:></h2>
-                <div class="col">
+                <div class="grid">
                     <ul class="list">
-                        <li class="col__item col__item--50">
+                        <li class="grid__item lap-and-up-one-half">
                             <h3 class="hN intertitre-section intertitre-section--second"><:local:version_online:></h3>
                             <p><:local:published_date:> <time pubdate datetime="[(#DATE|date_iso)]" itemprop="datePublished" content="[(#DATE|affdate{Y-m-d})]">[(#DATE|affdate)]</time></p>
                             [<p>(#INCLURE{fond=inclure/objets/categories,id_objet=#ID_ARTICLE,objet=article})</p>]
                             [<p>(#INCLURE{fond=inclure/objets/mots,id_objet=#ID_ARTICLE,objet=article})</p>]
                         </li>
-                        <li class="col__item col__item--50">
-                            <div class="media" itemscope itemtype="http://schema.org/Book">
-                                [<a href="#URL_RUBRIQUE" itemprop="url">(#LOGO_RUBRIQUE||image_reduire{80,0}|inserer_attribut{class,media__img}|inserer_attribut{itemprop,image})</a>]
-                                <BOUCLE_numero(HIERARCHIE){id_article}{1,1}>
-                                <BOUCLE_rubrique_numero(RUBRIQUES){id_rubrique}>
-                                <div class="media__body">
-                                    <h3 class="hN intertitre-section intertitre-section--second"><:local:version_print:></h3>
-                                    <p><:local:published_in:> <a href="#URL_RUBRIQUE" itemprop="name">#TITRE</a>[, <span itemprop="datePublished" content="[(#SAISON_ANNEE|affdate{Y-m-d})]">(#SAISON_ANNEE|saison)[ (#SAISON_ANNEE|annee)]</span>][, (#PAGE_DEBUT|>{0}|oui)
-                                        [(#PAGE_DEBUT|=={#PAGE_FIN}|?{<:local:page_number{debut=#PAGE_DEBUT}:>,<:local:page_abrev{debut=#PAGE_DEBUT,fin=#PAGE_FIN}:>})]
-                                    ]</p>
-                                </div>
-                                </BOUCLE_rubrique_numero>
-                                </BOUCLE_numero>
-                            </div>
-                        </li>
                     </ul>
-                </div><!-- /.col -->
+                </div><!-- /.grid -->
             </footer>
         </div><!-- /.grid__item -->
     </article>
