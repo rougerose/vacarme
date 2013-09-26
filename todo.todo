@@ -2,7 +2,7 @@
  ✔ pied de page article : version plus simple (sans "à propos de l'article + version en ligne") pour les articles hors du secteur 115 ? @done (13-09-26 00:04)
  ☐ article = gérer les versions intégrales et les aperçus. !! IMPORTANT !!
  ☐ article = régler l'interlignage si l'intertitre est le premier élément du texte.
- ☐ rubrique-numero_rubrique = le sommaire du numéro intégrale est repris. Modifier dans un second temps. Principe envisageable : 
+ ☐ rubrique-numero_rubrique = pour le moment, le sommaire du numéro intégrale est repris. Modifier dans un second temps. Principe envisageable : 
    - contenu de la rubrique
    - le reste du numéro.
  ☐ rubrique-numero: schema + figure pour img n'est pas nécessaire ?
@@ -10,3 +10,7 @@
  ☐ auteur : subnav : ajouter lien prev et next
  ☐ article : ajouter subnav
  ☐ iphone : formulaire recherche ne peut rester apparent.
+ ☐ mot : la maquette devra varier selon les mots-clés (entretiens, dossiers, autres ?) sur le même modèle que le sommaire d'un numéro (avec photos).
+ ☐ descriptif mot : certains mots-clés ont un descriptif. 1/ basculer le contenu dans Texte
+ ☐ recherche : inclure les résultats sous forme de liste n'est pas nécessaire. Et permettrait d'inclure un seul fichier (inclure/objets/articles par exemple).
+ ☐ inclure/articles.html : section devrait avoir un titre. Remplacer par div ?

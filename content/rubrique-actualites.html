@@ -2,21 +2,17 @@
 <div class="grid">
     <article class="rubrique self">
         <div class="grid__item">
-            <div class="landmark">
-                <header class="self__header self__header--rubrique">
-                    <h1 class="hN titre"><span class="#EDIT{titre}">#TITRE</span></h1>
-                </header>
-                [<div class="self__body self__body--rubrique">
-                    <div class="#EDIT{texte} self__texte surlignable">
-                        (#TEXTE|image_reduire{500,0})
-                    </div>
-                </div>]
-            </div>
+            <header class="self__header self__header--rubrique">
+                <h1 class="hN titre"><span class="#EDIT{titre}">#TITRE</span></h1>
+            </header>
         </div><!-- /.grid__item -->
-        <div class="grid__item">
-            <div class="grid">
-                [(#INCLURE{fond=inclure/objets/articles,id_rubrique,env,ajax})]
-            </div><!-- /.grid -->
+        <div class="grid__item desk-three-quarters push--desk-one-quarter">
+            [<div class="self__body self__body--rubrique landmark">
+                <div class="#EDIT{texte} self__texte surlignable">
+                    (#TEXTE|image_reduire{500,0})
+                </div>
+            </div>]
+            [(#INCLURE{fond=inclure/objets/articles,id_rubrique,afficher_date=oui,env,ajax})]
         </div><!-- /.grid__item -->
     </article>
 </div><!-- /.grid -->

@@ -1,23 +1,23 @@
 [<nav class="nav--principale">
-    <h2 class="hN visuallyhidden--desk"><:local:navigation-revue:></h2>
-    (#INCLURE{fond=inclure/menu,env,identifiant=nav_principale})
+    <h2 class="hN visuallyhidden--desk"><:local:navigation_revue:></h2>
+    (#INCLURE{fond=inclure/menu,env,identifiant=nav_revue})
 </nav><!-- /.nav--principale -->]
 <nav class="nav--secondaire">
-    <h2 class="hN visuallyhidden--desk"><:local:navigation-theme:></h2>
+    <h2 class="hN visuallyhidden--desk"><:local:navigation_theme:></h2>
     <ul class="nav">
-        <li class="nav--item"><a href="#">Entretiens</a></li>
-        <li class="nav--item"><a href="#">Tribunes</a></li>
-        <li class="nav--item"><a href="#">Dossiers</a></li>
+        <li class="nav--item"><a href="#INFO_URL{mot,11}">#INFO_TITRE{mot,11}</a></li>
+        <li class="nav--item"><a href="#INFO_URL{mot,231}">#INFO_TITRE{mot,231}</a></li>
+        <li class="nav--item"><a href="#INFO_URL{mot,227}">#INFO_TITRE{mot,227}</a></li>
     </ul>
     <ul class="nav">
-        <li class="nav--item"><a href="#">Écritures</a></li>
-        <li class="nav--item"><a href="#">Feuilletons</a></li>
-        <li class="nav--item"><a href="#">Critiques</a></li>
+        <li class="nav--item"><a href="#INFO_URL{mot,4}">#INFO_TITRE{mot,4}</a></li>
+        <li class="nav--item"><a href="#INFO_URL{mot,442}">#INFO_TITRE{mot,442}</a></li>
+        <li class="nav--item"><a href="#INFO_URL{mot,302}">#INFO_TITRE{mot,302}</a></li>
     </ul>
     <ul class="nav">
-        <li class="nav--item"><a href="#">Société</a></li>
-        <li class="nav--item"><a href="#">Auteurs</a></li>
-        <li class="nav--item"><a href="#">Tous les mots-clés</a></li>
+        <li class="nav--item"><a href="#INFO_URL{mot,447}">#INFO_TITRE{mot,447}</a></li>
+        <li class="nav--item"><a href="#URL_PAGE{auteurs}">Auteurs</a></li>
+        <li class="nav--item"><a href="#URL_PAGE{mots}">Tous les mots-clés</a></li>
     </ul>
 </nav><!-- /.nav--secondaire -->
 <a id="btn-nav-close" href="#top" class="btn btn--nav btn--nav-close visuallyhidden--desk">
