@@ -39,6 +39,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'keywords_number' => '@nb@ mot-clés',
 
     // M
+    'message_404_title'              => "Page indisponible.",
+    'message_404_desc'               => "Nous sommes désolé-e-s, la page que vous recherchez n'est pas disponible.<br />Revenir à <a href='@urlsite@' class='spip_in'>la page d'accueil du site</a>.",
     // 'more' => '<em>&#8594;</em>',
     'more_arrow' => '<em>&#8594;</em>',
     'more_read' => 'Lire <em>&#8594;</em>',

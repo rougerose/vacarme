@@ -14,3 +14,5 @@
  ☐ descriptif mot : certains mots-clés ont un descriptif. 1/ basculer le contenu dans Texte
  ☐ recherche : inclure les résultats sous forme de liste n'est pas nécessaire. Et permettrait d'inclure un seul fichier (inclure/objets/articles par exemple).
  ☐ inclure/articles.html : section devrait avoir un titre. Remplacer par div ?
+ ☐ styles liens : dans le texte, sans spip_in/spip_out les liens ne se voient pas suffisamment.
+ ☐ ajouter fil d'ariane sur tous squelettes.
