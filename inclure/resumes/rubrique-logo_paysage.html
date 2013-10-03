@@ -1,0 +1,18 @@
+<BOUCLE_rubrique_logo_paysage(RUBRIQUES){id_rubrique=#ENV{id_rubrique}}>
+<a href="#URL_RUBRIQUE">[
+    (#LOGO_RUBRIQUE|largeur|>{959}|oui) [
+        (#LOGO_RUBRIQUE|largeur|>{#LOGO_RUBRIQUE|hauteur}|oui)[
+    <img src="(#LOGO_RUBRIQUE|image_reduire{960,0}|image_recadre{960,640,'top left'}|extraire_attribut{src})" alt="">] ]]
+    <div class="resume-sommaire__body">
+        <BOUCLE_cat_thematique(MOTS){id_rubrique}{id_groupe=19}{0,1}>
+        [<p class="resume__category">(#TITRE)</p>]
+        </BOUCLE_cat_thematique>
+        <div class="resume-sommaire__cartouche resume-sommaire__cartouche--paysage[ (#ENV{largeur_cartouche})]">
+            <header>
+                <h1 class="hN resume__titre resume-rubrique__titre resume-sommaire__titre">#TITRE</h1>
+            </header>
+            [<p class="resume__desc resume-sommaire__desc">(#DESCRIPTIF|PtoBR)</p>]
+        </div>
+    </div>
+</a>
+</BOUCLE_rubrique_logo_paysage>

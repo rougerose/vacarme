@@ -41,6 +41,9 @@ $(document).ready(function() {
     $('#flexslider').flexslider({
        animation: "slide",
        slideshow: false,
+       controlNav: false,
+       prevText: "&#12296;",
+       nextText: "&#12297;",
        start: function(slider){
          slider.viewport.css({"overflow":"visible"});
          slider.newSlides.css({'opacity':0.3});

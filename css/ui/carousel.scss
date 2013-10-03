@@ -14,5 +14,27 @@
     @include vendor(box-shadow,none);
 }
 
+.flex-direction-nav {
+    @extend .nav;
+    position: absolute;
+    bottom: $base-spacing-unit/2;
+    width: 100%;
+    text-align: right;
+    a {
+        margin: 0 6px;
+        padding: 0 12px 3px;
+        border: none;
+        background: rgba($site-color,0);
+        color: #fff;
+        @include font-size(24px,$line-height:false);
+        font-family: Georgia,Times,serif;
+        @include vendor(transition,all 0.35s ease-out);
+        &:hover {
+            color: #000;
+            background: rgba($site-color,0.9);
+        }
+    }
+}
+
 /*-----  End of carousel  ------*/
 

@@ -1,13 +1,27 @@
-<BOUCLE_grappe_carousel(GRAPPES){id_grappe=1}>
+<BOUCLE_grappe_carousel(GRAPPES){id_grappe=1}>[
+(#SET{contenus, #ARRAY})
+]<BOUCLE_objets(spip_grappes_liens){id_grappe}{0,10}{par rang}>[
+(#SET_MERGE{contenus,#GET{contenus},#ARRAY{#OBJET#ID_OBJET,#ARRAY{#OBJET,#ID_OBJET}}})
+]</BOUCLE_objets>
 <div class="flexslider__container">
     <div id="flexslider" class="flexslider">
-        <B_articles_carousel>
+        <B_carousel>
         <ul class="slides">
-            <BOUCLE_articles_carousel(ARTICLES){id_grappe}>
+            <BOUCLE_carousel(POUR){tableau #GET{contenus}}>
+            <BOUCLE_test_rubrique(POUR){tableau #VALEUR}{cle==rubrique}>
             <li class="slides__item">
-                #INCLURE{fond=inclure/resumes/article-carousel,id_article}
+                [<article class="resume resume-carousel resume-sommaire">
+                (#INCLURE{fond=inclure/resumes/rubrique-logo_paysage,id_rubrique=#VALEUR,largeur_cartouche=''})
+                </article>]
             </li>
-            </BOUCLE_articles_carousel>
+            </BOUCLE_test_rubrique><BOUCLE_test_article(POUR){tableau #VALEUR}{cle==article}>
+            <li class="slides__item">
+                [<article class="resume resume-carousel resume-sommaire">
+                (#INCLURE{fond=inclure/resumes/article-logo_paysage,id_article=#VALEUR,largeur_cartouche=w50})
+                </article>]
+            </li>
+            </BOUCLE_test_article>
+            </BOUCLE_carousel>
         </ul>
         </B_articles_carousel>
     </div><!-- /.flexslider -->

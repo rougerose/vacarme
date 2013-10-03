@@ -17,13 +17,21 @@
     font-weight: 600;
     @include media-query(lap-and-up) {
         margin-bottom: 0;
-        min-height: 3.3em;
+        // min-height: 3.3em; // définir une class plus précise en fonction du contexte (pas de hauteur dans le sommaire)
     }
 }
 .resume__desc {
-    @media only screen and (min-width: 960px) {
-        padding-right: $base-spacing-unit*2;
-    }
+    //@media only screen and (min-width: 960px) {padding-right: $base-spacing-unit*2;}
+}
+
+.resume__category {
+    @extend .intertitre-section--first;
+    margin-left: 0;
+    margin-bottom: $base-spacing-unit/2;
+    border-bottom-color: #fff;
+    font-style: italic;
+    @include font-size(16px);
+    color: #fff;
 }
 
 /*==========  .resume-rubrique  ==========*/
@@ -108,23 +116,31 @@
 .resume-sommaire__body {
     position: absolute;
     left: 0;
-    bottom: $base-spacing-unit;
-    background-color: rgba($site-color,0.7);
-    padding: $base-spacing-unit/2 $base-spacing-unit/2 $base-spacing-unit/4;
-
+    bottom: $base-spacing-unit/2;
+    width: 100%;
 }
-/* todo: à modifier avec nom de class plus adaptés */
-.category {
-    @extend .intertitre-section--first;
-    margin-left: 0;
-    border-bottom-color: #fff;
-    font-style: italic;
-    @include font-size(16px);
-    color: #fff;
-}
-.w50 {width: 50%;}
-.w100 {width: 100%;}
-
+    .resume-sommaire__cartouche {
+        background-color: rgba($site-color,0.9);
+        padding: $base-spacing-unit/2 $base-spacing-unit/2 $base-spacing-unit/4;
+    }
+    .resume-sommaire__cartouche--paysage {
+        width: 60%;
+    }
+    .resume-sommaire__titre {
+        @include font-size(22px);
+    }
+    .resume-sommaire__soustitre {
+        .resume-sommaire__cartouche & {
+            margin-top: .25em;
+            color: #000;
+            @include font-size(15px,$line-height:false);
+        }
+    }
+    .resume-sommaire__desc {
+        margin-top: .5em;
+        margin-bottom: 0;
+        @include font-size(15px,$line-height:false);
+    }
 
 /*==========  resume-carousel  ==========*/
 .resume-carousel {
