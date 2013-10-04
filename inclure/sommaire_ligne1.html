@@ -9,11 +9,13 @@
     (#LOGO_RUBRIQUE|largeur|>{599}|oui) 
         [(#LOGO_RUBRIQUE|hauteur|>{#LOGO_RUBRIQUE|largeur}|oui)
             #SET{logo," "}
-            [(#INCLURE{fond=inclure/resumes/rubrique-logo-sommaire,id_rubrique,format_logo=portrait})]
+            [(#INCLURE{fond=inclure/resumes/rubrique-logo-sommaire,
+                id_rubrique,format_logo=portrait,section=section-first})]
         ]
     ][
     (#GET{logo}|non)
-        [(#INCLURE{fond=inclure/resumes/rubrique,id_rubrique,class_modif=sommaire,section=section-first})]
+        [(#INCLURE{fond=inclure/resumes/rubrique,
+            id_rubrique,class_modif=sommaire,section=section-first})]
     ][
     (#SET{logo,""})
     ]</BOUCLE_rubrique>
@@ -24,7 +26,8 @@
     [(#LOGO_ARTICLE|largeur|>{599}|oui)
         [(#LOGO_ARTICLE|hauteur|>{#LOGO_ARTICLE|largeur}|oui)
             #SET{logo," "}
-            [(#INCLURE{fond=inclure/resumes/article-logo-sommaire,id_article,format_logo=portrait})]
+            [(#INCLURE{fond=inclure/resumes/article-logo-sommaire,
+                id_article,format_logo=portrait,section=section-first})]
         ]
     ][
     (#GET{logo}|non)

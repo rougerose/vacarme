@@ -13,9 +13,9 @@
             </BOUCLE_cat_thematique>
             <div class="resume-sommaire__cartouche[ (#GET{f}|=={py}|?{resume-sommaire__cartouche--paysage,resume-sommaire__cartouche--portrait})]">
                 <header>
-                    <h1 class="hN resume__titre resume-rubrique__titre">#TITRE</h1>
+                    <h1 class="hN resume__titre resume-rubrique__titre[ (#ENV{section}|?{[(#VAL{resume__titre--}|concat{#ENV{section}})]})]">#TITRE</h1>
                 </header>
-                [<p class="resume__desc resume-rubrique__desc--sommaire">(#DESCRIPTIF|PtoBR)</p>]
+                [<p class="resume__desc resume-rubrique__desc[ (#ENV{section}|?{[(#VAL{resume__desc--}|concat{#ENV{section}})]})]">(#DESCRIPTIF|PtoBR)</p>]
             </div>
         </div>
     </a>
