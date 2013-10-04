@@ -9,15 +9,11 @@
     (#LOGO_RUBRIQUE|largeur|>{599}|oui) 
         [(#LOGO_RUBRIQUE|hauteur|>{#LOGO_RUBRIQUE|largeur}|oui)
             #SET{logo," "}
-        [<article class="resume resume-sommaire resume-sommaire--logo">
-            (#INCLURE{fond=inclure/resumes/rubrique-logo-sommaire,id_rubrique,format_logo=portrait})
-        </article>]
+            [(#INCLURE{fond=inclure/resumes/rubrique-logo-sommaire,id_rubrique,format_logo=portrait})]
         ]
     ][
     (#GET{logo}|non)
-        [<article class="resume resume-sommaire">
-            (#INCLURE{fond=inclure/resumes/rubrique-texte-sommaire,id_rubrique})
-        </article>]
+        [(#INCLURE{fond=inclure/resumes/rubrique,id_rubrique,class_modif=sommaire,section=section-first})]
     ][
     (#SET{logo,""})
     ]</BOUCLE_rubrique>
@@ -28,15 +24,11 @@
     [(#LOGO_ARTICLE|largeur|>{599}|oui)
         [(#LOGO_ARTICLE|hauteur|>{#LOGO_ARTICLE|largeur}|oui)
             #SET{logo," "}
-        [<article class="resume resume-sommaire resume-sommaire--logo">
-            (#INCLURE{fond=inclure/resumes/article-logo-sommaire,id_article,format_logo=portrait})
-        </article>]
+            [(#INCLURE{fond=inclure/resumes/article-logo-sommaire,id_article,format_logo=portrait})]
         ]
     ][
     (#GET{logo}|non)
-        [<article class="resume resume-sommaire">
-            (#INCLURE{fond=inclure/resumes/article-texte-sommaire,id_article,})
-        </article>]
+        [(#INCLURE{fond=inclure/resumes/article,id_article,section=section-first})]
     ][
     (#SET{logo,""})
     ]</BOUCLE_article>

@@ -12,17 +12,15 @@
             (#LOGO_RUBRIQUE|largeur|>{959}|oui)[
                 (#LOGO_RUBRIQUE|largeur|>{#LOGO_RUBRIQUE|hauteur}|oui)
                 <li class="slides__item">
-                    [<article class="resume resume-carousel resume-sommaire resume-sommaire--logo">
-                        (#INCLURE{fond=inclure/resumes/rubrique-logo-sommaire,id_rubrique,format_logo=paysage})
-                    </article>]
+                    [(#INCLURE{fond=inclure/resumes/rubrique-logo-sommaire,
+                        id_rubrique,format_logo=paysage,class_carousel=resume-carousel})]
                 </li>]
             ]</BOUCLE_rubrique></BOUCLE_test_rubrique><BOUCLE_test_article(POUR){tableau #VALEUR}{cle==article}><BOUCLE_article(ARTICLES){id_article=#VALEUR}>[
             (#LOGO_ARTICLE|largeur|>{959}|oui)[
                 (#LOGO_ARTICLE|largeur|>{#LOGO_ARTICLE|hauteur}|oui)
                 <li class="slides__item">
-                    [<article class="resume resume-carousel resume-sommaire resume-sommaire--logo">
-                        (#INCLURE{fond=inclure/resumes/article-logo-sommaire,id_article,format_logo=paysage})
-                    </article>]
+                    [(#INCLURE{fond=inclure/resumes/article-logo-sommaire,
+                        id_article,format_logo=paysage,class_carousel=resume-carousel})]
                 </li>]
             ]</BOUCLE_article></BOUCLE_test_article>
             </BOUCLE_carousel>

@@ -1362,7 +1362,7 @@ ol.spip ol.spip { margin-left: 24px; margin-left: 1.5rem; }
 
 .flexslider { border-width: 0; -webkit-box-shadow: none; -moz-box-shadow: none; -ms-box-shadow: none; -o-box-shadow: none; box-shadow: none; }
 
-.flex-direction-nav { position: absolute; bottom: 12px; width: 100%; text-align: right; }
+.flex-direction-nav { position: absolute; z-index: 5; bottom: 12px; right: 0; }
 .flex-direction-nav a { margin: 0 6px; padding: 0 12px 3px; border: none; background: rgba(124, 136, 211, 0); color: #fff; font-size: 24px; font-size: 1.5rem; font-family: Georgia,Times,serif; -webkit-transition: all 0.35s ease-out; -moz-transition: all 0.35s ease-out; -ms-transition: all 0.35s ease-out; -o-transition: all 0.35s ease-out; transition: all 0.35s ease-out; }
 .flex-direction-nav a:hover { color: #000; background: rgba(124, 136, 211, 0.9); }
 
@@ -1448,6 +1448,8 @@ ol.spip ol.spip { margin-left: 24px; margin-left: 1.5rem; }
 .resume__titre { font-size: 18px; font-size: 1.125rem; line-height: 1.1; font-weight: 600; }
 @media only screen and (min-width: 481px) { .resume__titre { margin-bottom: 0; } }
 
+@media only screen and (min-width: 960px) { .resume__desc { padding-right: 48px; } }
+
 .resume__category { margin-left: 0; margin-bottom: 12px; border-bottom-color: #000; font-style: italic; font-size: 16px; font-size: 1rem; line-height: 1.5; color: #000; }
 
 /*==========  .resume-rubrique  ==========*/
@@ -1455,15 +1457,16 @@ ol.spip ol.spip { margin-left: 24px; margin-left: 1.5rem; }
 .index-feature .resume-rubrique__titre { font-size: 18px; font-size: 1.125rem; line-height: 1.33333; margin-bottom: 0; }
 .index-issues .resume-rubrique__titre { font-size: 16px; font-size: 1rem; line-height: 1.5; margin-bottom: 0; }
 
-.resume-rubrique__desc { font-size: 22px; font-size: 1.375rem; line-height: 1.09091; color: #888; }
-@media only screen and (min-width: 481px) { .resume-rubrique__desc { width: 75%; } }
+.resume-rubrique__desc { font-size: 22px; font-size: 1.375rem; line-height: 1.09091; }
+
+.ligne1 .resume-rubrique__desc--sommaire { font-size: 18px; font-size: 1.125rem; line-height: 1.33333; }
 
 /*==========  .resume-article  ==========*/
-.resume-article .resume-article__titre { font-weight: 600; font-size: 16px; font-size: 1rem; }
+.resume-article__titre { min-height: 3em; color: #000; font-size: 16px; font-size: 1rem; }
 
-.resume-article__soustitre { color: #7b6d88; }
+.resume-article__soustitre { font-size: 15px; font-size: 0.9375rem; color: #999; }
 
-.resume-article__desc { font-size: 15px; font-size: 0.9375rem; line-height: 1.6; }
+.resume-article__desc { font-size: 15px; font-size: 0.9375rem; line-height: 1.313; }
 
 /*==========  resume-article--list  ==========*/
 .resume-article--list { margin-bottom: 2em; }
@@ -1478,23 +1481,23 @@ ol.spip ol.spip { margin-left: 24px; margin-left: 1.5rem; }
 .resume-auteur--list .resume-auteur__nom { border-bottom: 1px solid #000; line-height: 1.2; color: #000; }
 
 /*==========  resume-sommaire  ==========*/
-.resume-sommaire { position: relative; }
-
-.resume-sommaire__body { position: absolute; left: 0; bottom: 12px; width: 100%; }
+.resume-sommaire__body { position: absolute; z-index: 10; left: 0; bottom: 12px; width: 100%; }
 
 .resume-sommaire__cartouche { background-color: rgba(124, 136, 211, 0.9); padding: 12px 12px 6px; }
+.resume-sommaire__cartouche .resume__titre { font-size: 22px; font-size: 1.375rem; line-height: 1.09091; min-height: 0; }
+.resume-sommaire__cartouche .resume-article__soustitre { font-size: 15px; font-size: 0.9375rem; color: #b5bce6; }
+.resume-sommaire__cartouche .resume__desc { margin-bottom: 0; }
 
 .resume-sommaire__cartouche--paysage { width: 60%; }
 
-.resume-sommaire__titre { font-size: 22px; font-size: 1.375rem; line-height: 1.09091; }
-
-.resume-sommaire__cartouche .resume-sommaire__soustitre { margin-top: .25em; color: #000; font-size: 15px; font-size: 0.9375rem; }
-
-.resume-sommaire__desc { font-size: 15px; font-size: 0.9375rem; }
-
 /* variantes avec logo ou texte uniquement */
+.resume-sommaire--logo { position: relative; }
 .resume-sommaire--logo .resume__category { border-bottom-color: #fff; color: #fff; }
-.resume-sommaire--logo .resume-sommaire__desc { margin: .5em 0 0; }
+
+/*==========  sommaire : section-first  ==========*/
+.resume__titre--section-first { font-size: 22px; font-size: 1.375rem; line-height: 1.09091; min-height: 3em; }
+
+.resume__desc--section-first { font-size: 18px; font-size: 1.125rem; line-height: 1.33333; }
 
 /*==========  resume-carousel  ==========*/
 .resume-carousel { margin-bottom: 0; }
@@ -1543,7 +1546,9 @@ ol.spip ol.spip { margin-left: 24px; margin-left: 1.5rem; }
 /* index-auteurs */
 .index-auteurs__titre { text-align: center; font-size: 40px; font-size: 2.5rem; line-height: 1.2; color: #eaeaef; }
 
-/*==========  search-results  ==========*/
+/*==========  sommaire__section  ==========*/
+.sommaire__section { margin-bottom: 2em; }
+
 /*-----  End of sections  ------*/
 /*===============================
 =            related            =

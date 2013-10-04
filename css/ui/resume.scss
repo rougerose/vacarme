@@ -15,15 +15,11 @@
     @include font-size(18px,$line-height:false);
     line-height: 1.1;
     font-weight: 600;
-    @include media-query(lap-and-up) {
-        margin-bottom: 0;
-        // min-height: 3.3em; // définir une class plus précise en fonction du contexte (pas de hauteur dans le sommaire)
-    }
+    @include media-query(lap-and-up) {margin-bottom: 0;}
 }
 .resume__desc {
-    //@media only screen and (min-width: 960px) {padding-right: $base-spacing-unit*2;}
+    @media only screen and (min-width: 960px) {padding-right: $base-spacing-unit*2;}
 }
-
 .resume__category {
     @extend .intertitre-section--first;
     margin-left: 0;
@@ -52,27 +48,37 @@
         margin-bottom: 0;
     }
 }
+.resume-rubrique__titre--sommaire {
+    // min-height: 3em;
+}
 .resume-rubrique__desc {
     @include font-size(22px);
-    color: #888;
-    @include media-query(lap-and-up) {
-        width: 75%;
+    // rétablir avec class plus spécifique
+    // color: #888;
+    // @include media-query(lap-and-up) {
+    //     width: 75%;
+    // }
+}
+.resume-rubrique__desc--sommaire {
+    .ligne1 & {
+        @include font-size(18px);
     }
 }
 
 /*==========  .resume-article  ==========*/
-.resume-article {
-    .resume-article__titre {
-        font-weight: 600;
-        @include font-size(16px,$line-height:false);
-    }
+// .resume-article {}
+.resume-article__titre {
+    min-height: 3em;
+    color: #000;
+    @include font-size(16px,$line-height:false);
 }
 .resume-article__soustitre {
-    // margin-top: 0.25em;
-    color: $gris-soustitre;
+    @include font-size(15px,$line-height:false);
+    color: #999;
 }
 .resume-article__desc {
-    @include font-size(15px);
+    @include font-size(15px,$line-height:false);
+    line-height: 1.313;
 }
 
 /*==========  resume-article--list  ==========*/
@@ -110,11 +116,10 @@
 }
 
 /*==========  resume-sommaire  ==========*/
-.resume-sommaire {
-    position: relative;
-}
+// .resume-sommaire {}
 .resume-sommaire__body {
     position: absolute;
+    z-index: 10;
     left: 0;
     bottom: $base-spacing-unit/2;
     width: 100%;
@@ -122,39 +127,38 @@
     .resume-sommaire__cartouche {
         background-color: rgba($site-color,0.9);
         padding: $base-spacing-unit/2 $base-spacing-unit/2 $base-spacing-unit/4;
-    }
-    .resume-sommaire__cartouche--paysage {
-        width: 60%;
-    }
-    .resume-sommaire__titre {
-        @include font-size(22px);
-    }
-    .resume-sommaire__soustitre {
-        .resume-sommaire__cartouche & {
-            margin-top: .25em;
-            color: #000;
-            @include font-size(15px,$line-height:false);
+        .resume__titre {
+            @include font-size(22px);
+            min-height: 0;
         }
+        .resume-article__soustitre {
+            @include font-size(15px,$line-height:false);
+            color: lighten($site-color,15%);
+        }
+        .resume__desc {margin-bottom: 0;}
     }
-    .resume-sommaire__desc {
-        @include font-size(15px,$line-height:false);
-    }
+    .resume-sommaire__cartouche--paysage {width: 60%;}
 
 /* variantes avec logo ou texte uniquement */
 .resume-sommaire--logo {
+    position: relative;
     .resume__category {
         border-bottom-color: #fff;
         color: #fff;
     }
-    .resume-sommaire__desc {
-        margin: .5em 0 0;
-    }
+}
+
+/*==========  sommaire : section-first  ==========*/
+.resume__titre--section-first {
+    @include font-size(22px);
+    min-height: 3em;
+}
+.resume__desc--section-first {
+    @include font-size(18px);
 }
 
 /*==========  resume-carousel  ==========*/
-.resume-carousel {
-    margin-bottom: 0;
-}
+.resume-carousel {margin-bottom: 0;}
 
 /*-----  End of resume  ------*/
 

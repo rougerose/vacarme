@@ -17,9 +17,9 @@
 .flex-direction-nav {
     @extend .nav;
     position: absolute;
+    z-index: 5;
     bottom: $base-spacing-unit/2;
-    width: 100%;
-    text-align: right;
+    right: 0;
     a {
         margin: 0 6px;
         padding: 0 12px 3px;
