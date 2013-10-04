@@ -28,10 +28,10 @@
     @extend .intertitre-section--first;
     margin-left: 0;
     margin-bottom: $base-spacing-unit/2;
-    border-bottom-color: #fff;
+    border-bottom-color: #000;
     font-style: italic;
     @include font-size(16px);
-    color: #fff;
+    color: #000;
 }
 
 /*==========  .resume-rubrique  ==========*/
@@ -137,10 +137,19 @@
         }
     }
     .resume-sommaire__desc {
-        margin-top: .5em;
-        margin-bottom: 0;
         @include font-size(15px,$line-height:false);
     }
+
+/* variantes avec logo ou texte uniquement */
+.resume-sommaire--logo {
+    .resume__category {
+        border-bottom-color: #fff;
+        color: #fff;
+    }
+    .resume-sommaire__desc {
+        margin: .5em 0 0;
+    }
+}
 
 /*==========  resume-carousel  ==========*/
 .resume-carousel {

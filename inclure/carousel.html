@@ -1,5 +1,4 @@
-<BOUCLE_grappe_carousel(GRAPPES){id_grappe=1}>[
-(#SET{contenus, #ARRAY})
+[(#SET{contenus, #ARRAY})
 ]<BOUCLE_objets(spip_grappes_liens){id_grappe}{0,10}{par rang}>[
 (#SET_MERGE{contenus,#GET{contenus},#ARRAY{#OBJET#ID_OBJET,#ARRAY{#OBJET,#ID_OBJET}}})
 ]</BOUCLE_objets>
@@ -9,21 +8,25 @@
         <ul class="slides">
             <BOUCLE_carousel(POUR){tableau #GET{contenus}}>
             <BOUCLE_test_rubrique(POUR){tableau #VALEUR}{cle==rubrique}>
-            <li class="slides__item">
-                [<article class="resume resume-carousel resume-sommaire">
-                (#INCLURE{fond=inclure/resumes/rubrique-logo_paysage,id_rubrique=#VALEUR,largeur_cartouche=''})
-                </article>]
-            </li>
-            </BOUCLE_test_rubrique><BOUCLE_test_article(POUR){tableau #VALEUR}{cle==article}>
-            <li class="slides__item">
-                [<article class="resume resume-carousel resume-sommaire">
-                (#INCLURE{fond=inclure/resumes/article-logo_paysage,id_article=#VALEUR,largeur_cartouche=w50})
-                </article>]
-            </li>
-            </BOUCLE_test_article>
+            <BOUCLE_rubrique(RUBRIQUES){id_rubrique=#VALEUR}>[
+            (#LOGO_RUBRIQUE|largeur|>{959}|oui)[
+                (#LOGO_RUBRIQUE|largeur|>{#LOGO_RUBRIQUE|hauteur}|oui)
+                <li class="slides__item">
+                    [<article class="resume resume-carousel resume-sommaire resume-sommaire--logo">
+                        (#INCLURE{fond=inclure/resumes/rubrique-logo-sommaire,id_rubrique,format_logo=paysage})
+                    </article>]
+                </li>]
+            ]</BOUCLE_rubrique></BOUCLE_test_rubrique><BOUCLE_test_article(POUR){tableau #VALEUR}{cle==article}><BOUCLE_article(ARTICLES){id_article=#VALEUR}>[
+            (#LOGO_ARTICLE|largeur|>{959}|oui)[
+                (#LOGO_ARTICLE|largeur|>{#LOGO_ARTICLE|hauteur}|oui)
+                <li class="slides__item">
+                    [<article class="resume resume-carousel resume-sommaire resume-sommaire--logo">
+                        (#INCLURE{fond=inclure/resumes/article-logo-sommaire,id_article,format_logo=paysage})
+                    </article>]
+                </li>]
+            ]</BOUCLE_article></BOUCLE_test_article>
             </BOUCLE_carousel>
         </ul>
-        </B_articles_carousel>
+        </B_carousel>
     </div><!-- /.flexslider -->
 </div><!-- /.flexslider__container -->
-</BOUCLE_grappe_carousel>

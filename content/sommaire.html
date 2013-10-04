@@ -2,20 +2,15 @@
     [(#REM) ligne 1]
     <div class="grid__item ligne1">
         <div class="grid">
+            <BOUCLE_grappe_carousel(GRAPPES){id_grappe=1}>
             <div class="grid__item two-quarters">
-                <INCLURE{fond=inclure/carousel} />
+                <INCLURE{fond=inclure/carousel,id_grappe} />
             </div><!-- /.grid__item -->
+            </BOUCLE_grappe_carousel>
             <BOUCLE_grappe_ligne1(GRAPPES){id_grappe=2}>
             <div class="grid__item two-quarters">
                 <div class="grid">
-                    <BOUCLE_article_grappe_ligne1(ARTICLES){id_grappe}>
-                    <div class="grid__item one-half">
-                        [(#LOGO_ARTICLE|?{
-                            [(#INCLURE{fond=inclure/resumes/article-image-portrait,id_article})],
-                            [(#INCLURE{fond=inclure/resumes/article,id_article})]
-                        })]
-                    </div>
-                    </BOUCLE_article_grappe_ligne1>
+                    <INCLURE{fond=inclure/sommaire_ligne1,id_grappe} />
                 </div>
                 <!-- /.grid -->
             </div><!-- /.grid__item -->

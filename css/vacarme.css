@@ -1448,7 +1448,7 @@ ol.spip ol.spip { margin-left: 24px; margin-left: 1.5rem; }
 .resume__titre { font-size: 18px; font-size: 1.125rem; line-height: 1.1; font-weight: 600; }
 @media only screen and (min-width: 481px) { .resume__titre { margin-bottom: 0; } }
 
-.resume__category { margin-left: 0; margin-bottom: 12px; border-bottom-color: #fff; font-style: italic; font-size: 16px; font-size: 1rem; line-height: 1.5; color: #fff; }
+.resume__category { margin-left: 0; margin-bottom: 12px; border-bottom-color: #000; font-style: italic; font-size: 16px; font-size: 1rem; line-height: 1.5; color: #000; }
 
 /*==========  .resume-rubrique  ==========*/
 .toc__item .resume-rubrique__titre { font-size: 40px; font-size: 2.5rem; line-height: 0.9; font-weight: 600; color: #555; }
@@ -1490,7 +1490,11 @@ ol.spip ol.spip { margin-left: 24px; margin-left: 1.5rem; }
 
 .resume-sommaire__cartouche .resume-sommaire__soustitre { margin-top: .25em; color: #000; font-size: 15px; font-size: 0.9375rem; }
 
-.resume-sommaire__desc { margin-top: .5em; margin-bottom: 0; font-size: 15px; font-size: 0.9375rem; }
+.resume-sommaire__desc { font-size: 15px; font-size: 0.9375rem; }
+
+/* variantes avec logo ou texte uniquement */
+.resume-sommaire--logo .resume__category { border-bottom-color: #fff; color: #fff; }
+.resume-sommaire--logo .resume-sommaire__desc { margin: .5em 0 0; }
 
 /*==========  resume-carousel  ==========*/
 .resume-carousel { margin-bottom: 0; }

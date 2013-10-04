@@ -1,0 +1,45 @@
+[(#SET{contenus, #ARRAY})][(#SET{logo,""})
+]<BOUCLE_objets(spip_grappes_liens){id_grappe}{0,2}{par rang}>[
+(#SET_MERGE{contenus,#GET{contenus},#ARRAY{#OBJET#ID_OBJET,#ARRAY{#OBJET,#ID_OBJET}}})
+]</BOUCLE_objets>
+<BOUCLE_affichage(POUR){tableau #GET{contenus}}>
+    <BOUCLE_test_rubrique(POUR){tableau #VALEUR}{cle==rubrique}>
+<div class="grid__item one-half">
+    <BOUCLE_rubrique(RUBRIQUES){id_rubrique=#VALEUR}>[
+    (#LOGO_RUBRIQUE|largeur|>{599}|oui) 
+        [(#LOGO_RUBRIQUE|hauteur|>{#LOGO_RUBRIQUE|largeur}|oui)
+            #SET{logo," "}
+        [<article class="resume resume-sommaire resume-sommaire--logo">
+            (#INCLURE{fond=inclure/resumes/rubrique-logo-sommaire,id_rubrique,format_logo=portrait})
+        </article>]
+        ]
+    ][
+    (#GET{logo}|non)
+        [<article class="resume resume-sommaire">
+            (#INCLURE{fond=inclure/resumes/rubrique-texte-sommaire,id_rubrique})
+        </article>]
+    ][
+    (#SET{logo,""})
+    ]</BOUCLE_rubrique>
+</div>
+</BOUCLE_test_rubrique><BOUCLE_test_article(POUR){tableau #VALEUR}{cle==article}>
+<div class="grid__item one-half">
+    <BOUCLE_article(ARTICLES){id_article=#VALEUR}>
+    [(#LOGO_ARTICLE|largeur|>{599}|oui)
+        [(#LOGO_ARTICLE|hauteur|>{#LOGO_ARTICLE|largeur}|oui)
+            #SET{logo," "}
+        [<article class="resume resume-sommaire resume-sommaire--logo">
+            (#INCLURE{fond=inclure/resumes/article-logo-sommaire,id_article,format_logo=portrait})
+        </article>]
+        ]
+    ][
+    (#GET{logo}|non)
+        [<article class="resume resume-sommaire">
+            (#INCLURE{fond=inclure/resumes/article-texte-sommaire,id_article,})
+        </article>]
+    ][
+    (#SET{logo,""})
+    ]</BOUCLE_article>
+</div>
+</BOUCLE_test_article>
+</BOUCLE_affichage>
