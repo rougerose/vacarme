@@ -56,5 +56,8 @@ $(document).ready(function() {
             // console.log(slider.currentSlide);
             slider.slides.eq(slider.currentSlide).fadeTo('slow',1);
         }
-    }); 
+    });
+
+    // tabs jquery ui
+    $( "#tabs" ).tabs();
 });

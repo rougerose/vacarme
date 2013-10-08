@@ -1367,6 +1367,17 @@ ol.spip ol.spip { margin-left: 24px; margin-left: 1.5rem; }
 .flex-direction-nav a:hover { color: #000; background: rgba(124, 136, 211, 0.9); }
 
 /*-----  End of carousel  ------*/
+/*============================
+=            tabs            =
+============================*/
+.tabs-nav__item a { color: #999; }
+.tabs-nav__item:hover, .tabs-nav__item.ui-tabs-selected { border-bottom: 1px solid #7c88d3; }
+.tabs-nav__item:hover a, .tabs-nav__item.ui-tabs-selected a { color: #000; }
+
+@media only screen and (min-width: 481px) { .tabs { margin-top: -2.8em; }
+  .tabs-nav { border-bottom: 1px solid #ccc; margin-bottom: 2em; }
+  .tabs-nav__item { margin-bottom: -1px; } }
+/*-----  End of tabs  ------*/
 /*===============================
 =            columns            =
 ===============================*/

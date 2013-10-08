@@ -1,0 +1,34 @@
+/*============================
+=            tabs            =
+============================*/
+
+// .tabs {}
+// .tabs-nav {}
+.tabs-nav__item {
+    a {
+        color: #999;
+    }
+    &:hover,
+    &.ui-tabs-selected {
+        border-bottom: 1px solid $site-color;
+        a {
+            color: #000;
+        }
+    }
+}
+
+@include media-query(lap-and-up) {
+    .tabs {
+        margin-top: -2.8em;
+    }
+    .tabs-nav {
+        border-bottom: 1px solid #ccc;
+        margin-bottom: 2em;
+    }
+    .tabs-nav__item {
+        margin-bottom: -1px;
+    }
+}
+
+/*-----  End of tabs  ------*/
+

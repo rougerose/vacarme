@@ -23,6 +23,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     // D
     'documents_fichier' => 'Documents associés',
     'documents_image' => 'Images associées',
+
+    // E
+    'esprit_de_suite' => "Esprit de suite",
     
     // I
     'info_contact' => "Gardons le contact",
