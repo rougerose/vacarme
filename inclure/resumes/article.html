@@ -1,7 +1,25 @@
-<BOUCLE_article_resume(ARTICLES){id_article}>
+[(#REM) Constantes 
+][
+    (#SET{afficher_auteur,#ENV{afficher_auteur,oui}})
+][
+    (#SET{origine,''})
+][
+    (#SET{type,''})
+]<BOUCLE_article_resume(ARTICLES){id_article}>[
+    (#REM) L'article est publié dans la revue ? Si oui, on affiche l'auteur.
+    ][
+        (#ID_SECTEUR|=={115}|?{#SET{origine,revue}})
+    ][
+    (#REM) L'article est un entretien ? Si oui, l'auteur n'est pas affiché.
+    ]<BOUCLE_entretien(MOTS){id_article}{id_groupe=5}{tout}>[(#ID_MOT|=={75}|?{#SET{type,entretien}})]</BOUCLE_entretien>
 <article class="resume resume-article">
     <header>
         <h1 class="hN resume__titre resume-article__titre[ (#ENV{section}|?{[(#VAL{resume__titre--}|concat{#ENV{section}})]})]">#TITRE[ <small class="soustitre resume-article__soustitre">(#SOUSTITRE)</small>]</h1>
+        [(#GET{afficher_auteur}|=={oui}|oui)
+            [(#GET{origine}|=={revue}|oui)
+                [(#GET{type}|=={entretien}|non)
+                    [<p class="person person-signature person-signature--author"><:par_auteur:>(#MODELE{authors,id_article=#ENV{id_article},contexte=resume})</p>]
+        ] ] ]
     </header>
     [<p class="resume__desc resume-article__desc[ (#ENV{section}|?{[(#VAL{resume__desc--}|concat{#ENV{section}})]})]">[(#ENV{afficher_date}|=={oui}|?{#DATE|affdate_court}). ](#DESCRIPTIF|PtoBR)</p>]
     <p class="more more--read"><a href="#URL_ARTICLE"><:local:more_read:></a></p>
