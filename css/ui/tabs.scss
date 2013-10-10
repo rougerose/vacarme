@@ -3,12 +3,16 @@
 ============================*/
 
 // .tabs {}
-// .tabs-nav {}
+.tabs-nav {
+    margin-bottom: 2em;
+}
 .tabs-nav__item {
     a {
         color: #999;
+        &:hover {
+            color: #000;
+        }
     }
-    &:hover,
     &.ui-tabs-selected {
         border-bottom: 2px solid $site-color;
         a {
@@ -23,10 +27,12 @@
     }
     .tabs-nav {
         border-bottom: 1px solid #ccc;
-        margin-bottom: 2em;
     }
     .tabs-nav__item {
         margin-bottom: -1px;
+        &:hover {
+            border-bottom: 2px solid $site-color;
+        }
     }
 }
 

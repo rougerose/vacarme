@@ -33,11 +33,16 @@
 
 /* body et cartouche */
 .resume__body {
-    position: absolute;
-    z-index: 10;
-    left: 0;
-    bottom: $base-spacing-unit/2;
-    width: 100%;
+    @include media-query(lap-and-up) {
+        position: absolute;
+        z-index: 10;
+        left: 0;
+        bottom: $base-spacing-unit/2;
+        width: 100%;
+    }
+    @include media-query(palm) {
+        background-color: $site-color;
+    }
 }
     .resume__cartouche {
         background-color: rgba($site-color,0.9);
@@ -50,7 +55,11 @@
             color: lighten($site-color,15%);
         }
     }
-    .resume__cartouche--paysage {width: 60%;}
+    .resume__cartouche--paysage {
+        @include media-query(lap-and-up) {
+            width: 60%;
+        }
+    }
 
 /* figure */
 .resume__figure {margin-bottom: 0; position: relative;}
@@ -149,7 +158,12 @@
 /* resume--stack */
 .resume--stack {
     position: relative;
-    margin-bottom: 0;
+    @include media-query(palm) {
+        border: 0;
+    }
+    @include media-query(desk) {
+        margin-bottom: 0;
+    }
     .resume__category {
         border-bottom-color: #fff;
         color: #fff;

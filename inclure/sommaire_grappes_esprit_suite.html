@@ -1,8 +1,8 @@
 <B_mots_esprit>
-<div class="grid__item desk-three-quarters push--desk-one-quarter">
+<div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
     <ul class="grid tabs-nav">
         <BOUCLE_mots_esprit(mots spip_grappes_liens){id_grappe IN 4,5,6}>#SET_PUSH{grappe#ID_GRAPPE,#ID_MOT}
-        <li class="grid__item desk-one-third tabs-nav__item"><a href="#theme#ID_MOT">#TITRE</a></li>
+        <li class="grid__item lap-and-up-one-third tabs-nav__item"><a href="#theme#ID_MOT">#TITRE</a></li>
         </BOUCLE_mots_esprit>
     </ul><!-- /.grid -->
 </div><!-- /.grid__item -->
@@ -10,7 +10,7 @@
 <div id="[theme(#GET{grappe#ID_GRAPPE}|table_valeur{0})]" class="grid__item tabs-content">
     <div class="grid">
         <BOUCLE_articles(ARTICLES){id_grappe}{par rang}>
-        <div class="grid__item desk-one-quarter">
+        <div class="grid__item lap-and-up-one-quarter">
             [(#INCLURE{fond=inclure/resumes/article,id_article})]
         </div>
         </BOUCLE_articles>

@@ -4,7 +4,7 @@
 ]</BOUCLE_objets>
 <BOUCLE_affichage(POUR){tableau #GET{contenus}}>
     <BOUCLE_test_rubrique(POUR){tableau #VALEUR}{cle==rubrique}>
-<div class="grid__item one-half">
+<div class="grid__item desk-one-quarter lap-one-half">
     <BOUCLE_rubrique(RUBRIQUES){id_rubrique=#VALEUR}>[
     (#LOGO_RUBRIQUE|largeur|>{599}|oui) 
         [(#LOGO_RUBRIQUE|hauteur|>{#LOGO_RUBRIQUE|largeur}|oui)
@@ -21,7 +21,7 @@
     ]</BOUCLE_rubrique>
 </div>
 </BOUCLE_test_rubrique><BOUCLE_test_article(POUR){tableau #VALEUR}{cle==article}>
-<div class="grid__item one-half">
+<div class="grid__item desk-one-quarter lap-one-half">
     <BOUCLE_article(ARTICLES){id_article=#VALEUR}>
     [(#LOGO_ARTICLE|largeur|>{599}|oui)
         [(#LOGO_ARTICLE|hauteur|>{#LOGO_ARTICLE|largeur}|oui)

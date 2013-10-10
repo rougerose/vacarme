@@ -20,6 +20,12 @@
     z-index: 5;
     bottom: $base-spacing-unit/2;
     right: 0;
+    @include media-query(palm) {
+        top: $base-spacing-unit/4;
+    }
+    @include media-query(lap) {
+        bottom: 4em;
+    }
     a {
         margin: 0 6px;
         padding: 0 12px 3px;
