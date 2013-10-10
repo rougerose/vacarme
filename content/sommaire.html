@@ -1,5 +1,5 @@
 <div class="grid">
-    [(#REM) ligne 1 ]
+    [(#REM) ligne 1 features ]
     <section class="grid__item sommaire__section section--features">
         <div class="grid">
             <BOUCLE_grappe_carousel(GRAPPES){id_grappe=1}>
@@ -49,4 +49,21 @@
         </div><!-- /.grid -->
     </section><!-- /.grid__item -->
     </BOUCLE_grappe_archives>
+    [(#REM) ligne 5 - numéros ]
+    <BOUCLE_numeros(RUBRIQUES){id_rubrique=115}>
+    <section class="grid__item sommaire__section">
+        <h1 class="hN intertitre-section intertitre-section--first">#TITRE</h1>
+        <div class="grid">
+            <BOUCLE_numero(RUBRIQUES){id_parent}{!par titre}{0,7}>
+            [<div class="grid__item one-eighth">
+                (#INCLURE{fond=inclure/resumes/numero,id_rubrique,type_resume=logo})
+            </div><!-- /.grid__item -->]
+            </BOUCLE_numero>
+            <div class="grid__item one-eighth">
+                <a href="#INFO_URL{rubrique,115}" class="more-arrow--big">&#12297;</a>
+            </div><!-- /.grid__item -->
+            </B_numero>
+        </div><!-- /.grid -->
+    </section><!-- /.grid__item -->
+    </BOUCLE_numeros>
 </div><!-- /.grid -->

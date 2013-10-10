@@ -52,8 +52,8 @@
     }
     .resume__cartouche--paysage {width: 60%;}
 
-/* logo */
-.resume__logo {margin-bottom: 0; position: relative;}
+/* figure */
+.resume__figure {margin-bottom: 0; position: relative;}
 
 
 /*==========  .resume-rubrique  ==========*/
@@ -112,19 +112,23 @@
 /*==========  resume-numero  ==========*/
 // .resume-numero {}
 // .resume-numero--titre {}
-.resume-numero__titre--seul {
+.resume-numero__titre {
     margin-top: .5em;
     font-family: $HCReg-font; //$HCLtReg-font;
-    @include font-size(18px,$line-height:false);
     line-height: 1;
+}
+.resume-numero__titre--large {
+    @include font-size(18px,$line-height:false);
     .resume-numero__soustitre {display: inline; font-size: 100%;}
+}
+.resume-numero__titre--small {
+    @include font-size(16px,$line-height:false);
 }
 
 /*==========  resume-numero--list  ==========*/
 .resume-numero--list {
     .resume-numero__titre {
         @include font-size(18px,$line-height:false);
-        line-height: 1;
     }
     .resume-numero__soustitre {
         line-height: 1.5;

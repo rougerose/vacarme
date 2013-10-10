@@ -1,0 +1,11 @@
+<BOUCLE_numero(RUBRIQUES){id_rubrique}>
+<article class="resume resume-rubrique[ resume--(#GET{type_resume})]">
+    <a href="#URL_RUBRIQUE">
+        [(#INCLURE{fond=inclure/objets/logo-rubrique,
+            id_rubrique,logo_format=vignette-complete,resume_numero_titre=non,logo_class=cover})]
+        <header>
+            <h1 class="hN titre numero-titre resume-numero__titre resume-numero__titre--small">#TITRE[ <small class="soustitre numero-soustitre resume-numero__soustitre">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</small>]</h1>
+        </header>
+    </a>
+</article>
+</BOUCLE_numero>

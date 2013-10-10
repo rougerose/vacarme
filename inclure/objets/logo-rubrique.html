@@ -6,7 +6,8 @@
     Transmises dans l'environnement : 
     ---------------------------------
     - logo_objet : article ou secteur / rubrique
-    - logo_format : paysage / portrait / vignette
+    - logo_format : paysage / portrait / vignette-partielle / vignette-complete
+    - logo_class
     - resume_numero_titre : oui / non
 
 ]<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>[
@@ -16,8 +17,11 @@
     (#ENV{logo_format}|=={portrait}|?{
         [(#SET{logo,#LOGO_RUBRIQUE|image_reduire{0,368}|image_recadre{248,368,center}|extraire_attribut{src}})]
     })
-][<figure class="resume__logo">
-    <img src="(#GET{logo})"[ alt="(#GET{t})"]>
+    ][(#ENV{logo_format}|=={vignette-complete}|?{
+        [(#SET{logo,#LOGO_RUBRIQUE|image_reduire{100,0}|extraire_attribut{src}})]
+    })]
+[<figure class="resume__figure">
+    <img src="(#GET{logo})"[ alt="(#GET{t})"][ class="(#ENV{logo_class})"]>
     [(#ENV{resume_numero_titre}|=={oui}|oui)
         [<figcaption class="resume-numero resume-numero--titre">
             (#INCLURE{fond=inclure/resumes/numero-titre,id_rubrique})

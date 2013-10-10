@@ -48,6 +48,17 @@ a {
     display: inline-block;
     @include font-size(16px,$line-height:false);
 }
+.more-arrow--big {
+    display: block;
+    @include font-size(80px,$line-height:false);
+    line-height: 180px;
+    color: lighten($gris-soustitre,30%);
+    @include vendor(transition,all 0.35s ease-out);
+    &:hover {
+        color: #000;
+        margin-left: 20%;
+    }
+}
 /*==========  link-anim  ==========*/
 .link-anim {
     @include vendor(transition,padding 0.35s ease-out);
