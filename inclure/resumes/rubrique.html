@@ -1,9 +1,37 @@
-<BOUCLE_rubrique_resume(RUBRIQUES){id_rubrique}>
-<article class="resume resume-rubrique[ (#ENV{class_modif}|?{[(#VAL{resume-rubrique--}|concat{#ENV{class_modif}})]})]">
-    <header>
-        <h1 class="hN resume__titre resume-rubrique__titre[ (#ENV{class_modif}|?{[(#VAL{resume-rubrique__titre--}|concat{#ENV{class_modif}})]})][ (#ENV{section}|?{[(#VAL{resume__titre--}|concat{#ENV{section}})]})]">#TITRE</h1>
-    </header>
-    [<p class="resume__desc resume-rubrique__desc[ (#ENV{class_modif}|?{[(#VAL{resume-rubrique__desc--}|concat{#ENV{class_modif}})]})][ (#ENV{section}|?{[(#VAL{resume__desc--}|concat{#ENV{section}})]})]">(#DESCRIPTIF|PtoBR)</p>]
-    <p class="more more--read"><a href="#URL_RUBRIQUE"><:local:more_read:></a></p>
+[(#REM) 
+    -------------------------------------------------
+    Constantes
+    -------------------------------------------------
+    - type_resume : stack (logo + texte superposé) / logo / text
+    - logo_afficher : oui / non (défaut)
+    - logo_objet : article ou secteur / rubrique
+    - logo_format : paysage / portrait / vignette
+    - resume_numero_titre : oui / non (défaut)
+
+
+][(#SET{logo_afficher,#ENV{logo_afficher,non}})
+][(#SET{logo_format,#ENV{logo_format,paysage}})
+][(#SET{type_resume,#ENV{type_resume,text}})][
+(#SET{resume_numero_titre,#ENV{resume_numero_titre,non}})
+]<BOUCLE_rubrique_resume(RUBRIQUES){id_rubrique}>
+<article class="resume resume-rubrique[ resume--(#GET{type_resume})]">
+    [(#GET{type_resume}|=={stack}|?{<a href="#URL_RUBRIQUE">})]
+    [(#GET{logo_afficher}|=={oui}|?{
+        [(#INCLURE{fond=inclure/objets/logo-rubrique,
+            id_rubrique,logo_format=#ENV{logo_format},logo_objet=#ENV{logo_objet},resume_numero_titre=#GET{resume_numero_titre}})]
+    })]
+    [(#GET{type_resume}|=={stack}|oui)
+    <div class="resume__body">
+        [(#INCLURE{fond=inclure/objets/category-resume-rubrique,id_rubrique})]
+        <div class="resume__cartouche[ (#GET{logo_format}|match{paysage|portrait}|?{resume__cartouche--#GET{logo_format}})]">
+    ]
+            <header>
+                <h1 class="hN resume__titre resume-rubrique__titre[ resume__titre--(#GET{type_resume})]">#TITRE</h1>
+            </header>
+            [<p class="resume__desc resume-rubrique__desc[ resume__desc--(#GET{type_resume})]">(#DESCRIPTIF|PtoBR)</p>]
+            [(#GET{type_resume}|match{logo|text}|?{
+            <p class="more more--read"><a href="#URL_RUBRIQUE"><:local:more_read:></a></p>
+            })]
+    [(#GET{type_resume}|=={stack}|?{</div><!-- /.resume__cartouche --></div><!-- /.resume__body --></a>})]
 </article>
 </BOUCLE_rubrique_resume>

@@ -9,13 +9,13 @@
     (#LOGO_RUBRIQUE|largeur|>{599}|oui) 
         [(#LOGO_RUBRIQUE|hauteur|>{#LOGO_RUBRIQUE|largeur}|oui)
             #SET{logo," "}
-            [(#INCLURE{fond=inclure/resumes/rubrique-logo-sommaire,
-                id_rubrique,format_logo=portrait,section=section-first})]
+            [(#INCLURE{fond=inclure/resumes/rubrique,
+                id_rubrique,type_resume=stack,logo_afficher=oui,logo_objet=rubrique,logo_format=portrait})]
         ]
     ][
     (#GET{logo}|non)
         [(#INCLURE{fond=inclure/resumes/rubrique,
-            id_rubrique,class_modif=sommaire,section=section-first})]
+            id_rubrique,type_resume=text})]
     ][
     (#SET{logo,""})
     ]</BOUCLE_rubrique>
@@ -26,12 +26,12 @@
     [(#LOGO_ARTICLE|largeur|>{599}|oui)
         [(#LOGO_ARTICLE|hauteur|>{#LOGO_ARTICLE|largeur}|oui)
             #SET{logo," "}
-            [(#INCLURE{fond=inclure/resumes/article-logo-sommaire,
-                id_article,format_logo=portrait,section=section-first})]
+            [(#INCLURE{fond=inclure/resumes/article,
+                id_article,type_resume=stack,logo_afficher=oui,logo_objet=article,logo_logo=portrait})]
         ]
     ][
     (#GET{logo}|non)
-        [(#INCLURE{fond=inclure/resumes/article,id_article,section=section-first,afficher_auteur=non})]
+        [(#INCLURE{fond=inclure/resumes/article,id_article,afficher_auteur=non,type_resume=text})]
     ][
     (#SET{logo,""})
     ]</BOUCLE_article>

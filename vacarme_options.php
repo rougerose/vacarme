@@ -3,7 +3,7 @@
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
 // en dev, pas de cache
-define('_NO_CACHE', 1);
+// define('_NO_CACHE', 1);
 
 //define('_LOG_FILTRE_GRAVITE',7);
 //define('_LOG_FILELINE',true);

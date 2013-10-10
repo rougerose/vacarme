@@ -24,7 +24,7 @@
 }
 
 .numero-titre {
-    font-family: "HelveticaNeueLTStdCnBold", sans-serif;
+    // font-family: "HelveticaNeueLTStdCnBold", sans-serif;
     text-transform: uppercase;
     .self__header--rubrique &,
     .index-feature & {
@@ -35,7 +35,7 @@
     }
 }
 .numero-soustitre {
-    font-family: "HelveticaNeueLTStdLtCnRegular", sans-serif;
+    // font-family: "HelveticaNeueLTStdLtCnRegular", sans-serif;
     font-style: normal;
     color: $gris-soustitre;
     .self__header--rubrique &,

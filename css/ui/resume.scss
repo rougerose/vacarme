@@ -19,6 +19,8 @@
 .resume__desc {
     @media only screen and (min-width: 960px) {padding-right: $base-spacing-unit*2;}
 }
+
+/* category */
 .resume__category {
     @extend .intertitre-section--first;
     margin-left: 0;
@@ -28,6 +30,31 @@
     @include font-size(16px);
     color: #000;
 }
+
+/* body et cartouche */
+.resume__body {
+    position: absolute;
+    z-index: 10;
+    left: 0;
+    bottom: $base-spacing-unit/2;
+    width: 100%;
+}
+    .resume__cartouche {
+        background-color: rgba($site-color,0.9);
+        padding: $base-spacing-unit/2 $base-spacing-unit/2 $base-spacing-unit/4;
+        .resume__titre {
+            margin-bottom: .15em;
+        }
+        .resume-article__soustitre {
+            @include font-size(15px,$line-height:false);
+            color: lighten($site-color,15%);
+        }
+    }
+    .resume__cartouche--paysage {width: 60%;}
+
+/* logo */
+.resume__logo {margin-bottom: 0; position: relative;}
+
 
 /*==========  .resume-rubrique  ==========*/
 
@@ -48,7 +75,8 @@
     }
 }
 .resume-rubrique__desc {
-    @include font-size(22px);
+    @include font-size(15px,$line-height:false);
+    line-height: 1.313;
     // rétablir avec class plus spécifique
     // color: #888;
     // @include media-query(lap-and-up) {
@@ -58,18 +86,13 @@
 
 /*==========  .resume-article  ==========*/
 // .resume-article {}
-.resume-article__titre {
-    min-height: 3em;
-    color: #000;
-    @include font-size(16px,$line-height:false);
-}
+// .resume-article__titre {}
 .resume-article__soustitre {
     @include font-size(15px,$line-height:false);
     color: #999;
 }
 .resume-article__desc {
-    @include font-size(15px,$line-height:false);
-    line-height: 1.313;
+    @extend .resume-rubrique__desc;
 }
 
 /*==========  resume-article--list  ==========*/
@@ -84,6 +107,17 @@
     .resume-article__titre {
         @include font-size(18px);
     }
+}
+
+/*==========  resume-numero  ==========*/
+// .resume-numero {}
+// .resume-numero--titre {}
+.resume-numero__titre--seul {
+    margin-top: .5em;
+    font-family: $HCReg-font; //$HCLtReg-font;
+    @include font-size(18px,$line-height:false);
+    line-height: 1;
+    .resume-numero__soustitre {display: inline; font-size: 100%;}
 }
 
 /*==========  resume-numero--list  ==========*/
@@ -106,53 +140,45 @@
     }
 }
 
-/*==========  resume-sommaire  ==========*/
-// .resume-sommaire {}
-.resume-sommaire__body {
-    position: absolute;
-    z-index: 10;
-    left: 0;
-    bottom: $base-spacing-unit/2;
-    width: 100%;
-}
-    .resume-sommaire__cartouche {
-        background-color: rgba($site-color,0.9);
-        padding: $base-spacing-unit/2 $base-spacing-unit/2 $base-spacing-unit/4;
-        .resume-article__soustitre {
-            @include font-size(15px,$line-height:false);
-            color: lighten($site-color,15%);
-        }
-        .resume__desc {margin-bottom: 0;}
-    }
-    .resume-sommaire__cartouche--paysage {width: 60%;}
+/*==========  resumés variantes : stack / text / logo  ==========*/
 
-/* variantes avec logo ou texte uniquement */
-.resume-sommaire--logo {
+/* resume--stack */
+.resume--stack {
     position: relative;
+    margin-bottom: 0;
     .resume__category {
         border-bottom-color: #fff;
         color: #fff;
     }
 }
+.resume__titre--stack {
+    min-height: initial;
+    margin-bottom: .15em;
+}
+.resume__desc--stack {
+    margin-bottom: 0;
+}
 
-/*==========  sommaire : section-first  ==========*/
-.resume__titre--section-first {
-    @include font-size(22px);
+/* resume--text */
+.resume__titre--text {
     min-height: 3em;
-    .resume-sommaire__cartouche & {
-        min-height: 0;
-        margin-bottom: .15em;
+    color: #000;
+    @include font-size(16px,$line-height:false);
+    .section--features & {
+        @include font-size(22px);
     }
 }
-.resume__desc--section-first {
-    @include font-size(18px);
-    .resume-sommaire__cartouche & {
-        @extend .resume-article__desc;
+.resume__desc--text {
+    .section--features & {
+        @include font-size(18px);
     }
 }
 
-/*==========  resume-carousel  ==========*/
-.resume-carousel {margin-bottom: 0;}
+/* resume--logo */
+// .resume--logo {}
+.resume__titre--logo {
+    @extend .resume__titre--text;
+}
 
 /*-----  End of resume  ------*/
 

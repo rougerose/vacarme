@@ -1,27 +1,65 @@
-[(#REM) Constantes 
-][
-    (#SET{afficher_auteur,#ENV{afficher_auteur,oui}})
-][
-    (#SET{origine,''})
-][
-    (#SET{type,''})
+[(#REM) 
+    ************************************
+    Constantes
+    ************************************
+    
+    Transmises dans l'environnement : 
+    ----------------------------------
+    - type_resume : stack (logo + texte superposé) / logo / text
+    - logo_afficher : oui / non (défaut)
+    - logo_objet : article ou secteur / rubrique
+    - logo_format : paysage / portrait / vignette
+    - contexte
+    - afficher_auteur : oui (defaut) / non
+    - afficher_date : oui / non (défaut)
+    - resume_numero_titre : oui / non (défaut)
+
+    Calculées dans le squelette :
+    ------------------------------
+    - origine : revue
+    - type : entretien, (... ?)
+
+][(#SET{type_resume,#ENV{type_resume,text}})]
+[(#SET{afficher_auteur,#ENV{afficher_auteur,oui}})
+][(#SET{origine,''})
+][(#SET{type,''})
+][(#SET{logo_afficher,#ENV{logo_afficher,non}})
+][(#SET{logo_format,#ENV{logo_format,paysage}})]
+[(#SET{afficher_date,#ENV{afficher_date,non}})
+][(#SET{resume_numero_titre,#ENV{resume_numero_titre,non}})
 ]<BOUCLE_article_resume(ARTICLES){id_article}>[
-    (#REM) L'article est publié dans la revue ? Si oui, on affiche l'auteur.
-    ][
-        (#ID_SECTEUR|=={115}|?{#SET{origine,revue}})
-    ][
-    (#REM) L'article est un entretien ? Si oui, l'auteur n'est pas affiché.
+    
+    (#REM) Origine : l'article est publié dans la revue ? Si oui, on affiche l'auteur.
+    
+    ][(#ID_SECTEUR|=={115}|?{#SET{origine,revue}})][
+
+    (#REM) Type : l'article est un entretien ? Si oui, l'auteur n'est pas affiché.
+    
     ]<BOUCLE_entretien(MOTS){id_article}{id_groupe=5}{tout}>[(#ID_MOT|=={75}|?{#SET{type,entretien}})]</BOUCLE_entretien>
-<article class="resume resume-article">
-    <header>
-        <h1 class="hN resume__titre resume-article__titre[ (#ENV{section}|?{[(#VAL{resume__titre--}|concat{#ENV{section}})]})]">#TITRE[ <small class="soustitre resume-article__soustitre">(#SOUSTITRE)</small>]</h1>
-        [(#GET{afficher_auteur}|=={oui}|oui)
-            [(#GET{origine}|=={revue}|oui)
-                [(#GET{type}|=={entretien}|non)
-                    [<p class="person person-signature person-signature--author"><:par_auteur:>(#MODELE{authors,id_article=#ENV{id_article},contexte=resume})</p>]
-        ] ] ]
-    </header>
-    [<p class="resume__desc resume-article__desc[ (#ENV{section}|?{[(#VAL{resume__desc--}|concat{#ENV{section}})]})]">[(#ENV{afficher_date}|=={oui}|?{#DATE|affdate_court}). ](#DESCRIPTIF|PtoBR)</p>]
-    <p class="more more--read"><a href="#URL_ARTICLE"><:local:more_read:></a></p>
+<article class="resume resume-article[ resume--(#GET{type_resume})]">
+    [(#GET{type_resume}|=={stack}|?{<a href="#URL_ARTICLE">})]
+    [(#GET{logo_afficher}|=={oui}|?{
+        [(#INCLURE{fond=inclure/objets/logo-article,
+            id_article,logo_objet=#ENV{logo_objet},logo_format=#ENV{logo_format},resume_numero_titre=#GET{resume_numero_titre}})]
+    })]
+    [(#GET{type_resume}|=={stack}|oui)
+    <div class="resume__body">
+        [(#INCLURE{fond=inclure/objets/category-resume-article,id_article})]
+        <div class="resume__cartouche[ (#GET{logo_format}|match{paysage|portrait}|?{resume__cartouche--#GET{logo_format}})]">
+    ]
+            <header>
+                <h1 class="hN resume__titre resume-article__titre[ resume__titre--(#GET{type_resume})]">#TITRE[ <small class="soustitre resume-article__soustitre">(#SOUSTITRE)</small>]</h1>
+                [(#GET{afficher_auteur}|=={oui}|oui)
+                    [(#GET{origine}|=={revue}|oui)
+                        [(#GET{type}|=={entretien}|non)
+                            [<p class="person person-signature person-signature--author"><:par_auteur:>(#MODELE{authors,id_article=#ENV{id_article},contexte=resume})</p>]
+                ] ] ]
+            </header>
+            [<p class="resume__desc resume-article__desc[ resume__desc--(#GET{type_resume})]">[(#ENV{afficher_date}|=={oui}|?{#DATE|affdate_court}). ](#DESCRIPTIF|PtoBR)</p>]
+            [(#GET{type_resume}|match{logo|text}|?{
+            <p class="more more--read"><a href="#URL_ARTICLE"><:local:more_read:></a></p>
+            })]
+    [(#GET{type_resume}|=={stack}|?{</div><!-- /.resume__cartouche --></div><!-- /.resume__body --></a>})]
+    [(#GET{footer_numero}|=={oui}|?{#INCLURE{fond=inclure/objets/footer-numero,id_article,id_rubrique}})]
 </article>
 </BOUCLE_article_resume>

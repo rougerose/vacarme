@@ -1,6 +1,6 @@
 <div class="grid">
     [(#REM) ligne 1 ]
-    <section class="grid__item sommaire__section">
+    <section class="grid__item sommaire__section section--features">
         <div class="grid">
             <BOUCLE_grappe_carousel(GRAPPES){id_grappe=1}>
             <div class="grid__item two-quarters">
@@ -24,7 +24,7 @@
         <div class="grid">
             <BOUCLE_actus(ARTICLES){id_grappe}{par rang}>
             <div class="grid__item one-quarter">
-                [(#INCLURE{fond=inclure/resumes/article,id_article,env})]
+                [(#INCLURE{fond=inclure/resumes/article,id_article,afficher_date=oui,afficher_auteur=non})]
             </div><!-- /.grid__item -->
             </BOUCLE_actus>
         </div><!-- /.grid -->
@@ -40,4 +40,13 @@
         </div><!-- /.grid -->
     </section><!-- /.grid__item -->
     </BOUCLE_mot_esprit>
+    [(#REM) ligne 4 ]
+    <BOUCLE_grappe_archives(GRAPPES){id_grappe=7}>
+    <section class="grid__item sommaire__section">
+        <h1 class="hN intertitre-section intertitre-section--first">#TITRE</h1>
+        <div class="grid">
+            [(#INCLURE{fond=inclure/sommaire_grappe_archives,id_grappe})]
+        </div><!-- /.grid -->
+    </section><!-- /.grid__item -->
+    </BOUCLE_grappe_archives>
 </div><!-- /.grid -->
