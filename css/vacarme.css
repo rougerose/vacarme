@@ -1105,7 +1105,7 @@ html { color: #252525; }
 .related .soustitre { font-size: 100%; }
 
 .numero-titre { text-transform: uppercase; }
-.self__header--rubrique .numero-titre, .index-feature .numero-titre { font-size: 48px; font-size: 3rem; line-height: 1; }
+.self__header--rubrique .numero-titre, .index-feature .numero-titre { font-family: "HelveticaNeueLTStdCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 48px; font-size: 3rem; line-height: 1; }
 .index-issues .numero-titre { font-size: 28px; font-size: 1.75rem; line-height: 1.71429; }
 
 .numero-soustitre { font-style: normal; color: #7b6d88; }
@@ -1254,10 +1254,10 @@ input[type="search"] { -webkit-appearance: none; border: 0; outline: none; }
 
 .search__label { position: absolute; line-height: 1.9; text-indent: -9999px; }
 
-.search__field { padding-left: 18px; margin-top: 0.2em; width: 80%; -webkit-appearance: none; background: none; font-size: 36px; font-size: 2.25rem; line-height: 1.5; color: #444; }
+.search__field { padding-left: 18px; margin-top: 0.2em; width: 80%; -webkit-appearance: none; background: none; font-size: 36px; font-size: 2.25rem; line-height: 1.5; color: #555555; }
 
 .search__submit { float: right; padding: 6px 0 0; border: none; background: none; width: 15%; color: #fff; font-size: 36px; font-size: 2.25rem; line-height: inherit; }
-.search__submit:hover { color: #444; }
+.search__submit:hover { color: #555555; }
 
 /*==========  placeholder  ==========*/
 input[type="search"]::-webkit-input-placeholder { color: #fff; }
@@ -1485,16 +1485,19 @@ ol.spip ol.spip { margin-left: 24px; margin-left: 1.5rem; }
 
 /* figure */
 .resume__figure { margin-bottom: 0; position: relative; }
+.resume__figure figcaption { margin-top: .5em; }
 
 /*==========  .resume-rubrique  ==========*/
-.toc__item .resume-rubrique__titre { font-size: 40px; font-size: 2.5rem; line-height: 0.9; font-weight: 600; color: #555; }
+.toc__item .resume-rubrique__titre { font-size: 40px; font-size: 2.5rem; line-height: 0.9; font-weight: 600; color: #555555; }
 .index-feature .resume-rubrique__titre { font-size: 18px; font-size: 1.125rem; line-height: 1.33333; margin-bottom: 0; }
 .index-issues .resume-rubrique__titre { font-size: 16px; font-size: 1rem; line-height: 1.5; margin-bottom: 0; }
 
 .resume-rubrique__desc, .resume-article__desc { font-size: 15px; font-size: 0.9375rem; line-height: 1.313; }
 
 /*==========  .resume-article  ==========*/
-.resume-article__soustitre { font-size: 15px; font-size: 0.9375rem; color: #999; }
+.resume-article__soustitre { margin: .5em 0; font-size: 15px; font-size: 0.9375rem; color: #777777; }
+
+.resume-article__desc time { color: #777777; }
 
 /*==========  resume-article--list  ==========*/
 .resume-article--list { margin-bottom: 2em; }
@@ -1502,12 +1505,12 @@ ol.spip ol.spip { margin-left: 24px; margin-left: 1.5rem; }
 .resume-article--list .resume-article__titre { font-size: 18px; font-size: 1.125rem; line-height: 1.33333; }
 
 /*==========  resume-numero  ==========*/
-.resume-numero__titre { margin-top: .5em; font-family: "HelveticaNeueLTStdCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif; line-height: 1; }
+.resume-numero__titre { font-family: "HelveticaNeueLTStdCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif; line-height: 1; }
 
-.resume-numero__titre--large { font-size: 18px; font-size: 1.125rem; }
-.resume-numero__titre--large .resume-numero__soustitre { display: inline; font-size: 100%; }
+.resume-numero__titre--m { font-size: 18px; font-size: 1.125rem; }
+.resume-numero__titre--m .resume-numero__soustitre { display: inline; font-size: 100%; }
 
-.resume-numero__titre--small { font-size: 16px; font-size: 1rem; }
+.resume-numero__titre--s { margin-top: .5em; font-size: 16px; font-size: 1rem; }
 
 /*==========  resume-numero--list  ==========*/
 .resume-numero--list .resume-numero__titre { font-size: 18px; font-size: 1.125rem; }
@@ -1549,8 +1552,7 @@ ol.spip ol.spip { margin-left: 24px; margin-left: 1.5rem; }
 .person-signature { font-style: italic; }
 .person-signature a { font-weight: 600; }
 
-.person-signature--author { margin-bottom: .5em; }
-.resume .person-signature--author { color: #555; }
+.resume .person-signature--author { color: #777777; }
 @media only screen and (min-width: 481px) { .person-signature--author.related { margin-top: 4.3em; margin-bottom: 0; font-size: 14px; font-size: 0.875rem; line-height: 1.71429; } }
 
 .person-signature--itw { font-size: 14px; font-size: 0.875rem; line-height: 1.71429; }
@@ -1590,10 +1592,6 @@ ol.spip ol.spip { margin-left: 24px; margin-left: 1.5rem; }
 .related--aside { margin-bottom: 1.5em; }
 
 /*-----  End of related  ------*/
-/*============================
-=            meta            =
-============================*/
-/*-----  End of meta  ------*/
 /*=============================
 =            media            =
 =============================*/
@@ -1601,7 +1599,7 @@ ol.spip ol.spip { margin-left: 24px; margin-left: 1.5rem; }
 .media--full { width: 100%; display: block; }
 
 /*==========  cover  ==========*/
-.cover { border: 1px solid #eee; border-color: rgba(238, 238, 238, 0.8); -webkit-transition: border-color 0.35s ease-in 0.1s; -moz-transition: border-color 0.35s ease-in 0.1s; -ms-transition: border-color 0.35s ease-in 0.1s; -o-transition: border-color 0.35s ease-in 0.1s; transition: border-color 0.35s ease-in 0.1s; }
+.cover { border: 1px solid #eeeeee; border-color: rgba(238, 238, 238, 0.8); -webkit-transition: border-color 0.35s ease-in 0.1s; -moz-transition: border-color 0.35s ease-in 0.1s; -ms-transition: border-color 0.35s ease-in 0.1s; -o-transition: border-color 0.35s ease-in 0.1s; transition: border-color 0.35s ease-in 0.1s; }
 
 .cover--thumb { margin-right: 12px; }
 .cover--thumb:hover { border-color: #d2d2d2; }
@@ -1615,7 +1613,7 @@ a:hover .cover--issue { border-color: #d2d2d2; }
 
 /*==========  spip_documents  ==========*/
 /* légendes */
-.spip_doc_legende { color: #888; }
+.spip_doc_legende { color: #777777; }
 
 .spip_doc_titre { font-weight: 600; font-style: italic; }
 

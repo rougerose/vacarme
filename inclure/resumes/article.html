@@ -55,7 +55,7 @@
                             [<p class="person person-signature person-signature--author"><:par_auteur:>(#MODELE{authors,id_article=#ENV{id_article},contexte=resume})</p>]
                 ] ] ]
             </header>
-            [<p class="resume__desc resume-article__desc[ resume__desc--(#GET{type_resume})]">[(#ENV{afficher_date}|=={oui}|?{#DATE|affdate_court}). ](#DESCRIPTIF|PtoBR)</p>]
+            [<p class="resume__desc resume-article__desc[ resume__desc--(#GET{type_resume})]">[(#ENV{afficher_date}|=={oui}|?{[<time pubdate datetime="[(#DATE|date_iso)]">(#DATE|affdate_court)</time>.]}) ](#DESCRIPTIF|PtoBR)</p>]
             [(#GET{type_resume}|match{logo|text}|?{
             <p class="more more--read"><a href="#URL_ARTICLE"><:local:more_read:></a></p>
             })]

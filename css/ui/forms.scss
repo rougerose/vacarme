@@ -30,7 +30,7 @@ input[type="search"] {
         background: none;
         @include font-size(36px,$line-height:false);
         line-height: 1.5;
-        color:#444;
+        color:$soft-black;
     }
     .search__submit {
         float: right;
@@ -43,7 +43,7 @@ input[type="search"] {
         @include font-size(36px,$line-height:false);
         line-height: inherit;
         &:hover {
-            color: #444;
+            color: $soft-black;
         }
     }
 

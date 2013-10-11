@@ -13,8 +13,8 @@
 
 /*==========  cover  ==========*/
 .cover {
-    border: 1px solid #eee;
-    border-color: rgba(#eee,0.8);
+    border: 1px solid $gray-white;
+    border-color: rgba($gray-white,0.8);
     @include vendor(transition,border-color 0.35s ease-in 0.1s);
 }
 .cover--thumb {
@@ -48,7 +48,7 @@
 
 /* légendes */
 .spip_doc_legende {
-    color: #888;
+    color: $gray;
 }
 .spip_doc_titre {
     font-weight: 600;

@@ -10,9 +10,9 @@
     }
 }
 .person-signature--author {
-    margin-bottom: .5em;
+    // margin-bottom: .5em;
     .resume & {
-        color: #555;
+        color: $gray;
     }
     &.related {
         @include media-query(lap-and-up) {

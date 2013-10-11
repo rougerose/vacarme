@@ -1,5 +1,5 @@
 [(#REM) Les deux premiers items sont affichés en aléatoire et renouvellé toutes les 24h. Ce sont des articles qui ont plus d'un an afin qu'ils soient en version intégrale ]
-<BOUCLE_archives_hasard(ARTICLES){id_rubrique=406}{par hasard}{0,2}>
+<BOUCLE_archives_hasard(ARTICLES){id_secteur=115}{age>365}{par hasard}{0,2}>
 <div class="grid__item lap-and-up-one-quarter">
     [(#LOGO_ARTICLE|?{#SET{logo_objet,article},#SET{logo_objet,secteur}})]
     [(#INCLURE{fond=inclure/resumes/article,

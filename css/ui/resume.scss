@@ -62,17 +62,23 @@
     }
 
 /* figure */
-.resume__figure {margin-bottom: 0; position: relative;}
+.resume__figure {
+    margin-bottom: 0; position: relative;
+    figcaption {
+        margin-top: .5em;
+    }
+}
 
 
 /*==========  .resume-rubrique  ==========*/
+
 
 .resume-rubrique__titre {
     .toc__item & {
         @include font-size(40px,$line-height:false);
         line-height: 0.9;
         font-weight: 600;
-        color: #555;
+        color: $soft-black;
     }
     .index-feature & {
         @include font-size(18px);
@@ -97,11 +103,16 @@
 // .resume-article {}
 // .resume-article__titre {}
 .resume-article__soustitre {
+    margin: .5em 0;
     @include font-size(15px,$line-height:false);
-    color: #999;
+    color: $gray;
 }
 .resume-article__desc {
     @extend .resume-rubrique__desc;
+    time {
+        // font-style: italic;
+        color: $gray;
+    }
 }
 
 /*==========  resume-article--list  ==========*/
@@ -122,15 +133,15 @@
 // .resume-numero {}
 // .resume-numero--titre {}
 .resume-numero__titre {
-    margin-top: .5em;
-    font-family: $HCReg-font; //$HCLtReg-font;
+    font-family: $HCReg-font;
     line-height: 1;
 }
-.resume-numero__titre--large {
+.resume-numero__titre--m {
     @include font-size(18px,$line-height:false);
     .resume-numero__soustitre {display: inline; font-size: 100%;}
 }
-.resume-numero__titre--small {
+.resume-numero__titre--s {
+    margin-top: .5em;
     @include font-size(16px,$line-height:false);
 }
 

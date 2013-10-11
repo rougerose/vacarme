@@ -28,6 +28,7 @@
     text-transform: uppercase;
     .self__header--rubrique &,
     .index-feature & {
+        font-family: $HCReg-font;
         @include font-size(48px);
     }
     .index-issues & {
