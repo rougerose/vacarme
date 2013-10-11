@@ -6,7 +6,7 @@
     Transmises dans l'environnement : 
     ---------------------------------
     - logo_objet : article ou secteur / rubrique
-    - logo_format : paysage / portrait / vignette-complete / vignette-partielle
+    - logo_format : paysage / portrait / vignette-complete / vignette-partielle / paysage-archives
     - logo_class
     - resume_numero_titre : oui / non
 ]
@@ -14,15 +14,15 @@
     <BOUCLE_logo_secteur(HIERARCHIE){si #ENV{logo_objet}|=={secteur}}>[
     (#TITRE|match{vacarme}|oui)
         [(#SET{t,#TITRE})]
-        [(#SET{logo,#LOGO_RUBRIQUE|image_reduire{800,0}|image_recadre{248,248,'top left'}|extraire_attribut{src}})]
+        [(#SET{logo,#LOGO_RUBRIQUE|image_reduire{500,0}|image_recadre{248,312,'center left',000}|extraire_attribut{src}})]
     ]</BOUCLE_logo_secteur>
     [(#ENV{logo_objet}|=={article}|oui)
         [(#ENV{logo_format}|=={vignette-partielle}|oui)
-            [(#SET{logo,#LOGO_ARTICLE|image_reduire{480,0}|image_recadre{368,368,center}|extraire_attribut{src}})]
+            [(#SET{logo,#LOGO_ARTICLE|image_reduire{500,0}|image_recadre{248,312,'center left',000}|extraire_attribut{src}})]
         ][(#ENV{logo_format}|=={portrait}|oui)
-            [(#SET{logo,#LOGO_ARTICLE|image_reduire{0,368}|extraire_attribut{src}})]
+            [(#SET{logo,#LOGO_ARTICLE|image_reduire{0,1024}|extraire_attribut{src}})]
         ][(#ENV{logo_format}|=={paysage}|oui)
-            [(#SET{logo,#LOGO_ARTICLE|image_reduire{0,368}|extraire_attribut{src}})]
+            [(#SET{logo,#LOGO_ARTICLE|image_reduire{1024,0}|extraire_attribut{src}})]
         ]
     ]
 [<figure class="resume__figure">

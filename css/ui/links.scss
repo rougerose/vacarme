@@ -52,6 +52,7 @@ a {
     display: block;
     @include font-size(80px,$line-height:false);
     line-height: 180px;
+    text-align: center;
     color: lighten($gris-soustitre,30%);
     @include vendor(transition,all 0.35s ease-out);
     &:hover {
