@@ -1281,6 +1281,8 @@ input[type="search"]:-ms-input-placeholder { color: #fff; }
 
 .btn--search { float: right; padding-top: 3px; line-height: 1.8; }
 
+.btn--commande { border-radius: 3px; border: 1px solid #3c7c32; -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); -ms-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); -o-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); font-family: "HelveticaNeueLTStdCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase; }
+
 /*-----  End of buttons  ------*/
 /*=============================
 =            table            =
@@ -1488,7 +1490,7 @@ ol.spip ol.spip { margin-left: 24px; margin-left: 1.5rem; }
 .resume__figure figcaption { margin-top: .5em; }
 
 /*==========  .resume-rubrique  ==========*/
-.toc__item .resume-rubrique__titre { font-size: 40px; font-size: 2.5rem; line-height: 0.9; font-weight: 600; color: #555555; }
+.toc__item .resume-rubrique__titre { font-size: 40px; font-size: 2.5rem; line-height: 0.9; font-weight: 600; }
 .index-feature .resume-rubrique__titre { font-size: 18px; font-size: 1.125rem; line-height: 1.33333; margin-bottom: 0; }
 .index-issues .resume-rubrique__titre { font-size: 16px; font-size: 1rem; line-height: 1.5; margin-bottom: 0; }
 
@@ -1587,8 +1589,6 @@ ol.spip ol.spip { margin-left: 24px; margin-left: 1.5rem; }
 /*===============================
 =            related            =
 ===============================*/
-.related p { margin-bottom: 0; }
-
 .related--aside { margin-bottom: 1.5em; }
 
 /*-----  End of related  ------*/

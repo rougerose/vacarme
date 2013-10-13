@@ -78,7 +78,7 @@
         @include font-size(40px,$line-height:false);
         line-height: 0.9;
         font-weight: 600;
-        color: $soft-black;
+        // color: $soft-black;
     }
     .index-feature & {
         @include font-size(18px);

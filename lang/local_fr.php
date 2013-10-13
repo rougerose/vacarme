@@ -2,6 +2,8 @@
 if (!defined('_ECRIRE_INC_VERSION')) return;
 $GLOBALS[$GLOBALS['idx_lang']] = array(
     // A
+    'abonner' => "S’abonner",
+    'acheter' => 'Acheter',
     'article_auteur' => "1 article publié dans Vacarme",
     'articles_auteur' => '@nb@ articles publiés dans Vacarme',
     'article_auteur_aucun' => 'Aucun article publié dans <i>Vacarme</i> à ce jour.',
@@ -32,7 +34,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'info_contact_coordonnees' => "Par courrier",
     'info_contact_facebook' => "Via Facebook",
     'info_contact_mail' => "Par email",
-    'info_contact_newsletter' => "S'inscrire à la newsletter",
+    'info_contact_newsletter' => "S’inscrire à la newsletter",
     'info_page' => 'Page',
     'info_ps'               => 'Post-scriptum',
     'issue_about' => "À propos de ce numéro",
@@ -43,8 +45,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
     // M
     'message_404_title'              => "Page indisponible.",
-    'message_404_desc'               => "Nous sommes désolé-e-s, la page que vous recherchez n'est pas disponible.<br />Revenir à <a href='@urlsite@' class='spip_in'>la page d'accueil du site</a>.",
-    // 'more' => '<em>&#8594;</em>',
+    'message_404_desc'               => "Nous sommes désolé-e-s, la page que vous recherchez n’est pas disponible.<br />Revenir à <a href='@urlsite@' class='spip_in'>la page d'accueil du site</a>.",
+    'more_issue' => 'Le sommaire complet',
     'more_arrow' => '<em>&#8594;</em>',
     'more_read' => 'Lire <em>&#8594;</em>',
     
@@ -59,6 +61,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'page_abrev'            => 'pp.&nbsp;@debut@-@fin@.',
     'page_next' => 'Page suivante',
     'page_number'                  => 'page&nbsp;@debut@.',
+    'pages' => 'pages',
     'page_previous' => 'Page précédente',
     'publication_about'     => "À propos de l’article",
     'published_in'          => 'Publiée dans',
@@ -66,6 +69,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     
     // R
     'read_also'             => 'Lire également',
+    'redaction_en_chef' => "Rédaction en chef",
 
     // S
     'section_number' => '1 rubrique',

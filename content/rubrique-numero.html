@@ -53,12 +53,12 @@
                     </BOUCLE_type_rubriques>
                     <B_combien><BOUCLE_combien(ARTICLES){id_rubrique}> </BOUCLE_combien>[(#TOTAL_BOUCLE|>{3}|?{#SET{compo,4col},#SET{compo,2col}})]</B_combien>
                     [(#REM) un logo ?]
-                        [(#LOGO_RUBRIQUE|fichier|match{^rubon#ID_RUBRIQUE}|?{
-                            #SET{logo_objet,oui}
-                            [(#LOGO_RUBRIQUE|largeur|>{#LOGO_RUBRIQUE|hauteur}|?{
-                                #SET{logo_format,paysage},#SET{logo_format,portrait}})
-                            ]
-                        })]
+                    [(#LOGO_RUBRIQUE|fichier|match{^rubon#ID_RUBRIQUE}|?{
+                        #SET{logo_objet,oui}
+                        [(#LOGO_RUBRIQUE|largeur|>{#LOGO_RUBRIQUE|hauteur}|?{
+                            #SET{logo_format,paysage},#SET{logo_format,portrait}})
+                        ]
+                    })]
                     [(#GET{compo}|=={2col}|?{
                         [(#INCLURE{fond=inclure/objets/rubrique_numero-2col,
                             objet=#GET{objet}, id_objet=#GET{id_objet},
@@ -84,14 +84,11 @@
                     (#NOTES)
                 </div>
             </section>]
-            <footer class="related">
-                <h2 class="hN intertitre-section intertitre-section--first intertitre-section--content"><:local:issue_about:></h2>
-                [(#SET{redac_chef,#ARRAY})][(#SET{redac_chef,[(#LISTER_VALEURS**{redacteurchef})]})]
-                <B_redac><p>Rédaction en chef : <BOUCLE_redac(AUTEURS){id_auteur IN #GET{redac_chef}}{par nom}>[(#COMPTEUR_BOUCLE|=={1}|?{'',[(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|?{' &amp;&nbsp;',', '})]})][(#NOM|prenom_nom)]</BOUCLE_redac></p></B_redac>
-                [<p><span itemprop="numberOfPages">(#PAGES_TOTAL)</span> pages</p>]
-                <p>Editeur Vacarme. Diffusion Les Belles Lettres.</p>
-                [<p>ISBN <span itemprop="isbn">(#ISBN)</span> </p>]
-            </footer>
+            <BOUCLE_numero_related(RUBRIQUES){id_rubrique}>
+            [<footer class="related">
+                (#INCLURE{fond=inclure/objets/numero-related,id_rubrique})
+            </footer>]
+            </BOUCLE_numero_related>
         </div><!-- /.grid__item -->
     </article><!-- /.self rubrique -->
 </div><!-- /.grid -->
