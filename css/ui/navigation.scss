@@ -47,6 +47,9 @@
     }
 }
 .nav--secondaire {
+    .hN {
+        margin-top: 1em;
+    }
     @include media-query(desk) {
         margin-left: -24px; // .grid
         .nav {
@@ -116,8 +119,6 @@
         }
         @include media-query(portable) {
             height: 100%;
-            // width: 70%;
-            // left: -70%;
             background-color: $nav-bg;
             .btn--nav-close {
                 top: .6em;
@@ -157,6 +158,11 @@
         margin-bottom: .5em;
     }
 }
+.nav-raccourcis--search-bar-open {
+    @include media-query(portable) {
+        top: 50px;
+    }
+}
 
 /*==========  search-bar  ==========*/
 .search-bar {
@@ -172,7 +178,7 @@
 #search:target,
 .search-bar--open {
     @include media-query(portable) {
-        @include vendor(transform,translate(0, 50px));
+        @include vendor(transform,translate(0, 0));
     }
     @include media-query(lap-and-up) {
         @include vendor(transform,translate(0, 0));

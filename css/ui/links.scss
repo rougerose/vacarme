@@ -25,6 +25,12 @@ a {
     color: #000;
     &:hover {
         border-bottom-color: #000;
+        border-bottom-style: solid;
+    }
+    @include media-query(portable) {
+        &:hover {
+            border-bottom-color: transparent;
+        }
     }
 }
 .more {

@@ -2,8 +2,10 @@ $(document).ready(function() {
     // search
     $("#search").each(function(){
         var search = $(this);
+        var raccourcis = search.prev("div");
         $("#btn-search,#btn-search-nav").click(function(e){
             search.toggleClass("search-bar--open");
+            raccourcis.toggleClass("nav-raccourcis--search-bar-open");
             e.preventDefault();
         });
         if ($("html.page_recherche").length) {
