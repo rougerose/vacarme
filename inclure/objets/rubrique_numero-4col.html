@@ -21,7 +21,7 @@
                     <div class="grid">
                         <BOUCLE_articles_ligne1(ARTICLES){id_rubrique=#ENV{id_objet}}{par num titre,titre}{si #ENV{titre_descriptif}|=={non}}{0,#GET{nombre_articles}}{doublons}>
                         <div class="grid__item[ (#ENV{logo_format}=={paysage}|?{lap-and-up-one-half,lap-and-up-one-half})] ">
-                            [(#INCLURE{fond=inclure/resumes/article,id_article})]
+                            [(#INCLURE{fond=inclure/resumes/article,id_article,afficher_verrou=oui})]
                         </div><!-- /.grid__item -->
                         </BOUCLE_articles_ligne1>
                     </div>
@@ -40,7 +40,7 @@
         <div class="psh--lap-and-up-one-quarter">
             <BOUCLE_articles_rubrique(ARTICLES){id_rubrique=#ENV{id_objet}}{par num titre, titre}{si #ENV{objet}|=={rubrique}}{doublons}>
             <div class="grid__item lap-and-up-one-third">
-                [(#INCLURE{fond=inclure/resumes/article,id_article})]
+                [(#INCLURE{fond=inclure/resumes/article,id_article,afficher_verrou=oui})]
             </div><!-- /.grid__item -->
             </BOUCLE_articles_rubrique>
         </div>

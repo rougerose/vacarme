@@ -13,12 +13,13 @@
     - afficher_auteur : oui (defaut) / non
     - afficher_date : oui / non (défaut)
     - resume_numero_titre : oui / non (défaut)
+    - afficher_verrou : oui/non (défaut)
 
     Calculées dans le squelette :
     ------------------------------
     - origine : revue
     - type : entretien, (... ?)
-    - afficher_verrou
+    - gratuit
 
 ][(#SET{type_resume,#ENV{type_resume,text}})]
 [(#SET{afficher_auteur,#ENV{afficher_auteur,oui}})
@@ -28,7 +29,8 @@
 ][(#SET{logo_format,#ENV{logo_format,paysage}})]
 [(#SET{afficher_date,#ENV{afficher_date,non}})
 ][(#SET{resume_numero_titre,#ENV{resume_numero_titre,non}})
-][(#SET{afficher_verrou,#ENV{afficher_verrou,''}})
+][(#SET{afficher_verrou,#ENV{afficher_verrou,non}})
+][(#SET{article_gratuit,''})
 ]<BOUCLE_article_resume(ARTICLES){id_article}>
 
     [(#REM) Origine : l'article est publié dans la revue ? Si oui, on affiche l'auteur.]
@@ -41,11 +43,10 @@
     
     ]<BOUCLE_type(MOTS){id_article}{id_groupe=5}{tout}>
         [(#ID_MOT|=={75}|?{#SET{type,entretien}})]
-        [(#ID_MOT|=={7}|?{#SET{afficher_verrou,oui},#SET{afficher_verrou,''}})]
+        [(#ID_MOT|=={7}|?{#SET{article_gratuit,oui},#SET{article_gratuit,non} })]
     </BOUCLE_type>
-
-    [(#REM) L'article a plus d'un an ? Si oui, le verrou n'est pas affiché.
-    ]<BOUCLE_age(ARTICLES){id_article}{age>365}>[(#SET{afficher_verrou,''})]</BOUCLE_age>
+    [(#REM) L'article a moins d'un an ?.
+    ]<BOUCLE_age(ARTICLES){id_article}{age<365}> [(#GET{article_gratuit}|=={oui}|?{#SET{article_gratuit,oui}})] </BOUCLE_age> [(#GET{article_gratuit}|=={oui}|?{#SET{article_gratuit,non}})] <//B_age>
 
 <article class="resume resume-article[ resume--(#GET{type_resume})]">
     [(#GET{type_resume}|=={stack}|?{<a href="#URL_ARTICLE">})]
@@ -59,7 +60,7 @@
         <div class="resume__cartouche[ (#GET{logo_format}|match{paysage|portrait}|?{resume__cartouche--#GET{logo_format}})]">
     ]
             <header>
-                <h1 class="hN resume__titre resume-article__titre[ resume__titre--(#GET{type_resume})]">[(#GET{afficher_verrou}|?{<span class="icon icon--unlock"></span> })][(#TITRE)][ <small class="soustitre resume-article__soustitre">(#SOUSTITRE)</small>]</h1>
+                <h1 class="hN resume__titre resume-article__titre[ resume__titre--(#GET{type_resume})]">[(#GET{article_gratuit}|=={oui}|oui)[(#GET{afficher_verrou}|=={oui}|?{<span class="icon icon--unlock"></span> })]][(#TITRE)][ <small class="soustitre resume-article__soustitre">(#SOUSTITRE)</small>]</h1>
                 [(#GET{afficher_auteur}|=={oui}|oui)
                     [(#GET{origine}|=={revue}|oui)
                         [(#GET{type}|=={entretien}|non)
