@@ -1,9 +1,13 @@
 <BOUCLE_article(ARTICLES){id_article}>
 [   (#REM) Constantes
-]   #SET{type,''} #SET{type-titre,''}
+]   #SET{type,''} #SET{type-titre,''} #SET{integral,''}
+    [(#REM) l'article a plus d'un an ? ]
+    <BOUCLE_age(ARTICLES){id_article}{age>=365}> [(#SET{integral,oui})] </BOUCLE_age> [(#SET{integral,''})] <//B_age>
     <BOUCLE_mots_techniques(MOTS){id_article}{id_groupe=5}{tout}>
     [(#REM) l'article est un entretien ?]
     [(#ID_MOT|=={75}|oui)#SET{type,entretien}][(#SET{type-titre,#TITRE})]
+    [(#REM) version aperçu ou intégrale ?]
+    [(#ID_MOT|=={7}|?{#SET{integral,oui}})]
     </BOUCLE_mots_techniques>
 <div class="grid">
     <article class="self article" itemscope itemtype="http://schema.org/Article">
@@ -26,20 +30,8 @@
         ]
         <div class="grid__item lap-and-up-three-quarters float--right">
             <div class="self__body self__body--article">
-                [<div class="#EDIT{texte} self__texte landmark surlignable">
-                    (#TEXTE|image_reduire{800,0})
-                </div>]
-                [<section class="#EDIT{ps} self__ps landmark ps surlignable">
-                    <h2 class="hN intertitre-section intertitre-section--first"><:info_ps:></h2>
-                    (#PS|image_reduire{500,0})
-                </section>]
-                [<section class="self__notes landmark">
-                    <h2 class="hN intertitre-section intertitre-section--first"><:info_notes:></h2>
-                    <div class="self__notes__body">
-                        (#NOTES)
-                    </div>
-                </section>]
-                [(#INCLURE{fond=inclure/objets/documents,id_article})]
+                [(#REM) version apercu ou intégrale du texte, ps et documents liés ]
+                [(#INCLURE{fond=inclure/objets/article-numero-body,id_article,integral=#GET{integral}})]
             </div>
         </div><!-- /.grid__item -->
         <div class="grid__item lap-and-up-one-quarter float--left">
@@ -70,8 +62,8 @@
                         <li class="col__item desk-col__item--50 landmark">
                             <h3 class="hN intertitre-section intertitre-section--second"><:local:version_online:></h3>
                             <p><:local:published_date:> <time pubdate datetime="[(#DATE|date_iso)]" itemprop="datePublished" content="[(#DATE|affdate{Y-m-d})]">[(#DATE|affdate)]</time></p>
-                            [<p>(#INCLURE{fond=inclure/objets/categories,id_objet=#ID_ARTICLE,objet=article})</p>]
-                            [<p>(#INCLURE{fond=inclure/objets/mots,id_objet=#ID_ARTICLE,objet=article})</p>]
+                            [<p class="liens">(#INCLURE{fond=inclure/objets/categories,id_objet=#ID_ARTICLE,objet=article})</p>]
+                            [<p class="liens">(#INCLURE{fond=inclure/objets/mots,id_objet=#ID_ARTICLE,objet=article})</p>]
                         </li>
                         <li class="col__item desk-col__item--50 landmark">
                             <div class="media" itemscope itemtype="http://schema.org/Book">
@@ -80,7 +72,7 @@
                                 [<a href="#URL_RUBRIQUE" itemprop="url">(#LOGO_RUBRIQUE||image_reduire{80,0}|inserer_attribut{class,media__img cover cover--thumb}|inserer_attribut{itemprop,image})</a>]
                                 <div class="media__body">
                                     <h3 class="hN intertitre-section intertitre-section--second"><:local:version_print:></h3>
-                                    <p><:local:published_in:> <a href="#URL_RUBRIQUE" itemprop="name">#TITRE</a>[, <span itemprop="datePublished" content="[(#SAISON_ANNEE|affdate{Y-m-d})]">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</span>][, (#PAGE_DEBUT|>{0}|oui)
+                                    <p class="liens"><:local:published_in:> <a href="#URL_RUBRIQUE" itemprop="name">#TITRE</a>[, <span itemprop="datePublished" content="[(#SAISON_ANNEE|affdate{Y-m-d})]">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</span>][, (#PAGE_DEBUT|>{0}|oui)
                                         [(#PAGE_DEBUT|=={#PAGE_FIN}|?{<:local:page_number{debut=#PAGE_DEBUT}:>,<:local:page_abrev{debut=#PAGE_DEBUT,fin=#PAGE_FIN}:>})]
                                     ]</p>
                                 </div>

@@ -9,7 +9,7 @@
     <ul class="list">
         <BOUCLE_about_authors(AUTEURS){id_auteur IN #GET{authors}}{si #GET{bio}}>
         <li>
-            <h3 class="hN intertitre-section--second name">[<a href="#URL_AUTEUR" class="spip_in" rel="author">(#NOM|prenom_nom)</a>]</h3>
+            <h3 class="hN intertitre-section--second name">[(#NOM|prenom_nom) <span class="more more--inline"><a href="#URL_AUTEUR" trel="author"><:local:more_arrow:></a>]</h3>
             <div class="bio">
                 #BIO
             </div>

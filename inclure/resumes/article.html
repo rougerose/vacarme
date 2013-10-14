@@ -18,6 +18,7 @@
     ------------------------------
     - origine : revue
     - type : entretien, (... ?)
+    - afficher_verrou
 
 ][(#SET{type_resume,#ENV{type_resume,text}})]
 [(#SET{afficher_auteur,#ENV{afficher_auteur,oui}})
@@ -27,15 +28,25 @@
 ][(#SET{logo_format,#ENV{logo_format,paysage}})]
 [(#SET{afficher_date,#ENV{afficher_date,non}})
 ][(#SET{resume_numero_titre,#ENV{resume_numero_titre,non}})
-]<BOUCLE_article_resume(ARTICLES){id_article}>[
-    
-    (#REM) Origine : l'article est publié dans la revue ? Si oui, on affiche l'auteur.
-    
-    ][(#ID_SECTEUR|=={115}|?{#SET{origine,revue}})][
+][(#SET{afficher_verrou,#ENV{afficher_verrou,''}})
+]<BOUCLE_article_resume(ARTICLES){id_article}>
 
-    (#REM) Type : l'article est un entretien ? Si oui, l'auteur n'est pas affiché.
+    [(#REM) Origine : l'article est publié dans la revue ? Si oui, on affiche l'auteur.]
     
-    ]<BOUCLE_entretien(MOTS){id_article}{id_groupe=5}{tout}>[(#ID_MOT|=={75}|?{#SET{type,entretien}})]</BOUCLE_entretien>
+    [(#ID_SECTEUR|=={115}|?{#SET{origine,revue}})]
+    
+    [(#REM) Type : 
+        - l'article est un entretien (mot 75) ? Si oui, l'auteur n'est pas affiché.
+        - s'il est consultable (mot 7), le verrou est levé.
+    
+    ]<BOUCLE_type(MOTS){id_article}{id_groupe=5}{tout}>
+        [(#ID_MOT|=={75}|?{#SET{type,entretien}})]
+        [(#ID_MOT|=={7}|?{#SET{afficher_verrou,oui},#SET{afficher_verrou,''}})]
+    </BOUCLE_type>
+
+    [(#REM) L'article a plus d'un an ? Si oui, le verrou n'est pas affiché.
+    ]<BOUCLE_age(ARTICLES){id_article}{age>365}>[(#SET{afficher_verrou,''})]</BOUCLE_age>
+
 <article class="resume resume-article[ resume--(#GET{type_resume})]">
     [(#GET{type_resume}|=={stack}|?{<a href="#URL_ARTICLE">})]
     [(#GET{logo_afficher}|=={oui}|?{
@@ -48,7 +59,7 @@
         <div class="resume__cartouche[ (#GET{logo_format}|match{paysage|portrait}|?{resume__cartouche--#GET{logo_format}})]">
     ]
             <header>
-                <h1 class="hN resume__titre resume-article__titre[ resume__titre--(#GET{type_resume})]">#TITRE[ <small class="soustitre resume-article__soustitre">(#SOUSTITRE)</small>]</h1>
+                <h1 class="hN resume__titre resume-article__titre[ resume__titre--(#GET{type_resume})]">[(#GET{afficher_verrou}|?{<span class="icon icon--unlock"></span> })][(#TITRE)][ <small class="soustitre resume-article__soustitre">(#SOUSTITRE)</small>]</h1>
                 [(#GET{afficher_auteur}|=={oui}|oui)
                     [(#GET{origine}|=={revue}|oui)
                         [(#GET{type}|=={entretien}|non)

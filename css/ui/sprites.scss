@@ -39,5 +39,13 @@
     }
 }
 
+.icon--lock {
+    background: transparent url(../img/css/icon__lock.png) no-repeat 0 0;
+}
+.icon--unlock {
+    margin-top: -10px;
+    background: transparent url(../img/css/icon__lock.png) no-repeat 0 -24px;
+}
+
 /*-----  End of sprites  ------*/
 

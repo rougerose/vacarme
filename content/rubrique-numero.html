@@ -22,7 +22,12 @@
         </div><!-- /.grid__item -->
         <div class="grid__item">
             <section class="toc grid">
-                <h2 class="hN intertitre-section toc__title"><:local:table_of_content:></h2>
+                <div class="toc-header">
+                    <h2 class="hN intertitre-section toc__title"><:local:table_of_content:></h2>
+                    [(#REM) le numéro a-t-il moins d'un an ? Si oui, on affiche l'info relative à la gratuité de certains articles ]
+                    <BOUCLE_age_articles(ARTICLES){branche}{par date}{0,1}{age<365}> #SET{apercu_info_numero,oui} </BOUCLE_age_articles>
+                    [(#GET{apercu_info_numero}|?{<p class='toc__info'><:local:apercu_info_numero:></p>})]
+                </div>
                 [(#REM) L'éditorial du numéro. L'article est publié dans la rubrique ]
                 <BOUCLE_editorial(ARTICLES){id_rubrique}{0,1}{!par date}>
                 [(#SET{logo_objet,non})] [(#SET{logo_format,''})] [(#SET{titre_descriptif,oui})]

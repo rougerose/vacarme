@@ -1134,15 +1134,16 @@ h2.spip, h3.spip, h4.spip, h5.spip, h6.spip { margin-top: 48px; margin-top: 3rem
 /*=============================
 =            links            =
 =============================*/
-a { color: #000; text-decoration: none; border-bottom: 1px solid transparent; -webkit-transition: color 0.35s ease-out, border-color 0.35s ease-out; -moz-transition: color 0.35s ease-out, border-color 0.35s ease-out; -ms-transition: color 0.35s ease-out, border-color 0.35s ease-out; -o-transition: color 0.35s ease-out, border-color 0.35s ease-out; transition: color 0.35s ease-out, border-color 0.35s ease-out; }
+a { color: #252525; text-decoration: none; font-weight: 600; border-bottom: 1px dotted transparent; -webkit-transition: color 0.35s ease-out, border 0.35s ease-out; -moz-transition: color 0.35s ease-out, border 0.35s ease-out; -ms-transition: color 0.35s ease-out, border 0.35s ease-out; -o-transition: color 0.35s ease-out, border 0.35s ease-out; transition: color 0.35s ease-out, border 0.35s ease-out; }
+.liens a { border-bottom-color: #e88e0e; }
+.liens a:hover { color: #d8680d; border-bottom-style: solid; }
 
-.spip_in, .spip_out { font-weight: bold; }
-
+.nav a, .flex-direction-nav a { font-weight: normal; color: #000; }
 .nav a:hover, .flex-direction-nav a:hover { border-bottom-color: #000; }
 
 .more { font-style: italic; }
 .more em { font-style: normal; font-family: serif; color: #9488a0; -webkit-transition: all 0.35s ease-out; -moz-transition: all 0.35s ease-out; -ms-transition: all 0.35s ease-out; -o-transition: all 0.35s ease-out; transition: all 0.35s ease-out; }
-.more a { border-bottom: 1px dotted #7b6d88; color: #7b6d88; }
+.more a { border-bottom: 1px dotted #7b6d88; color: #7b6d88; font-weight: normal; }
 .more a:hover { color: #000; border-bottom: 1px solid #000; }
 .more a:hover em { color: #000; padding-left: 1em; }
 
@@ -1460,6 +1461,12 @@ ol.spip ol.spip { margin-left: 24px; margin-left: 1.5rem; }
 /* article */
 .self__body--rubrique .self__texte { width: 75%; }
 
+/* article version aperçu/integrale */
+.apercu__info { background: #222; color: #ddd; position: relative; padding: .5em .5em .25em; text-align: center; border-radius: 5px; }
+.apercu__info a { color: #fff; }
+
+.apercu__fade { width: 100%; position: absolute; left: 0; top: -150px; height: 150px; /* degradé */ background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 63%, white 100%); /* FF3.6+ */ background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(63%, white), color-stop(100%, white)); /* Chrome,Safari4+ */ background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 63%, white 100%); /* Chrome10+,Safari5.1+ */ background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 63%, white 100%); /* Opera 11.10+ */ background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, white 63%, white 100%); /* IE10+ */ background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, white 63%, white 100%); /* W3C */ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */ }
+
 /*-----  End of self  ------*/
 /*==============================
 =            resume            =
@@ -1567,8 +1574,14 @@ ol.spip ol.spip { margin-left: 24px; margin-left: 1.5rem; }
 =            sections            =
 ================================*/
 /*==========  toc  ==========*/
-.toc__title { position: relative; padding-left: 24px; font-family: 'HelveticaNeueLTStdCnRegular', sans-serif; font-style: normal; font-size: 36px; font-size: 2.25rem; line-height: 1.33333; text-transform: uppercase; }
-@media only screen and (min-width: 481px) { .toc__title { left: 25%; } }
+.toc { margin-top: 2em; }
+
+.toc-header { position: relative; padding-left: 24px; }
+@media only screen and (min-width: 481px) { .toc-header { left: 25%; width: 75%; } }
+
+.toc__title { font-family: 'HelveticaNeueLTStdCnRegular', sans-serif; font-style: normal; font-size: 36px; font-size: 2.25rem; line-height: 1.33333; text-transform: uppercase; }
+
+.toc__info { margin-bottom: 2em; }
 
 .toc__img { margin-bottom: 2em; padding-bottom: 0.5em; }
 
@@ -1649,6 +1662,10 @@ a:hover .cover--issue { border-color: #d2d2d2; }
 
 .icon--search { background: transparent url(../img/css/icon__search.svg) no-repeat 0 0.375em; }
 @media only screen and (min-width: 481px) { .icon--search { background-position: 0 0.2em; } }
+
+.icon--lock { background: transparent url(../img/css/icon__lock.png) no-repeat 0 0; }
+
+.icon--unlock { margin-top: -10px; background: transparent url(../img/css/icon__lock.png) no-repeat 0 -24px; }
 
 /*-----  End of sprites  ------*/
 /*============================

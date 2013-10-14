@@ -55,4 +55,22 @@ function array_sort($tableau) {
     return $tableau;
 }
 
+function intro($texte) {
+    // l'utisation de <intro> et <poesie> perturbait la fonction.
+    // on récupère un bout de la fonction de filtre_introduction_dist dans le code (récent) de spip
+    // http://trac.rezo.net/trac/spip/browser/spip/ecrire/public/composer.php#filtre_introduction_dist
+    $intro = '';
+    $texte = preg_replace(",(</?)intro>,i", "\\1intro>", $texte); // minuscules
+    while ($fin = strpos($texte, "</intro>")) {
+        $zone = substr($texte, 0, $fin);
+        $texte = substr($texte, $fin + strlen("</intro>"));
+        if ($deb = strpos($zone, "<intro>") OR substr($zone, 0, 7) == "<intro>")
+            $zone = substr($zone, $deb + 7);
+        $intro .= $zone;
+    }
+    if (strlen($intro))
+        $texte = $intro;
+    return $texte;
+}
+
 ?>
