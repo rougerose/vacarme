@@ -20,9 +20,9 @@
         [(#ENV{logo_format}|=={vignette-partielle}|oui)
             [(#SET{logo,#LOGO_ARTICLE|image_reduire{500,0}|image_recadre{248,312,'center left',000}|extraire_attribut{src}})]
         ][(#ENV{logo_format}|=={portrait}|oui)
-            [(#SET{logo,#LOGO_ARTICLE|image_reduire{0,1024}|extraire_attribut{src}})]
+            [(#SET{logo,#LOGO_ARTICLE|image_reduire{0,1024}|image_recadre{732,1024,'top center',000}|extraire_attribut{src}})]
         ][(#ENV{logo_format}|=={paysage}|oui)
-            [(#SET{logo,#LOGO_ARTICLE|image_reduire{1024,0}|extraire_attribut{src}})]
+            [(#SET{logo,#LOGO_ARTICLE|image_reduire{1024,0}|image_recadre{1024,683,'top center',000}|extraire_attribut{src}})]
         ]
     ]
 [<figure class="resume__figure">

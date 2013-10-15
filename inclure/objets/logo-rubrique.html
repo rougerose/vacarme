@@ -12,13 +12,13 @@
 
 ]<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>[
     (#ENV{logo_format}|=={paysage}|?{
-        [(#SET{logo,#LOGO_RUBRIQUE|image_reduire{1024,0}|extraire_attribut{src}})]
+        [(#SET{logo,#LOGO_RUBRIQUE|image_reduire{1024,0}|image_recadre{1024,683,'top center',000}|extraire_attribut{src}})]
     })][
     (#ENV{logo_format}|=={paysage-archives}|?{
-        [(#SET{logo,#LOGO_RUBRIQUE|image_reduire{520,0}|image_recadre{520,312,'center left',000}|extraire_attribut{src}})]
+        [(#SET{logo,#LOGO_RUBRIQUE|image_reduire{520,0}|image_recadre{520,312,'top center',000}|extraire_attribut{src}})]
     })][
     (#ENV{logo_format}|=={portrait}|?{
-        [(#SET{logo,#LOGO_RUBRIQUE|image_reduire{0,1024}|extraire_attribut{src}})]
+        [(#SET{logo,#LOGO_RUBRIQUE|image_reduire{732,0}|image_recadre{732,1024,'top center',000}|extraire_attribut{src}})]
     })
     ][(#ENV{logo_format}|=={vignette-complete}|?{
         [(#SET{logo,#LOGO_RUBRIQUE|image_reduire{200,0}|extraire_attribut{src}})]
