@@ -11,8 +11,8 @@
     - resume_numero_titre : oui / non
 ]
 <BOUCLE_article(ARTICLES){id_article}>#SET{t,#TITRE}
-    <BOUCLE_logo_secteur(HIERARCHIE){si #ENV{logo_objet}|=={secteur}}>[
-    (#TITRE|match{vacarme}|oui)
+    <BOUCLE_logo_secteur(HIERARCHIE){id_article}{si #ENV{logo_objet}|=={secteur}}>[
+    (#PROFONDEUR|=={1}|oui)
         [(#SET{t,#TITRE})]
         [(#SET{logo,#LOGO_RUBRIQUE|image_reduire{500,0}|image_recadre{248,312,'center left',000}|extraire_attribut{src}})]
     ]</BOUCLE_logo_secteur>
