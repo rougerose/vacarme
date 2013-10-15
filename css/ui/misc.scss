@@ -41,7 +41,7 @@
 body {
     .spip-admin-bloc,
     .spip-admin-float {
-        z-index: 99999; top: 10%; left: auto; right: -7%;
+        z-index: 99999; top: 10%; left: auto; right: -3%;
         @include vendor(transition,right 0.35s ease-in 0.1s);
         &:hover {
             right: 0;
