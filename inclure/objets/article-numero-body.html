@@ -3,7 +3,7 @@
 <BOUCLE_hierarchie(HIERARCHIE){id_article}>[(#PROFONDEUR|=={1}|?{#SET{titre_numero,#TITRE}})]</BOUCLE_hierarchie>
 [(#REM) version apercu ]
 [(#GET{integral}|non)
-   [<p>aperçu</p><div class="#EDIT{texte} self__texte landmark surlignable liens">
+   [<div class="#EDIT{texte} self__texte landmark surlignable liens">
        (#TEXTE*|intro|propre|image_reduire{800,0})
        <div class="apercu__info">
             <div class="apercu__fade"></div>
@@ -14,7 +14,7 @@
 ]
 [(#REM) version intégrale ]
 [(#GET{integral}|oui)
-    [<p>integrale</p><div class="#EDIT{texte} self__texte landmark surlignable liens">
+    [<div class="#EDIT{texte} self__texte landmark surlignable liens">
         (#TEXTE|image_reduire{800,0})
     </div>]
     [<section class="#EDIT{ps} self__ps landmark ps surlignable liens">
