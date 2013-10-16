@@ -9,30 +9,16 @@ a {
     border-bottom: 1px dotted transparent;
     @include vendor(transition,color 0.35s ease-out, border 0.35s ease-out);
     .liens & {
-        border-bottom-color: #e88e0e;
+        border-bottom-color: $link-color;
         &:hover {
-            color: #d8680d; //saturate(#e88e0e,10%);
+            color: #d8680d;
             border-bottom-style: solid;
         }
     }
 }
-.spip_in,
-.spip_out {
-    // font-weight: bold;
-}
-.nav a {
-    font-weight: normal;
-    color: #000;
-    &:hover {
-        border-bottom-color: #000;
-        border-bottom-style: solid;
-    }
-    @include media-query(portable) {
-        &:hover {
-            border-bottom-color: transparent;
-        }
-    }
-}
+// .spip_in,
+// .spip_out {}
+
 .more {
     font-style: italic;
     em {

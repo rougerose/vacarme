@@ -17,6 +17,9 @@
     @include media-query(lap-and-up) {margin-bottom: 0;}
 }
 .resume__desc {
+    time {
+        color: $gray;
+    }
     @media only screen and (min-width: 960px) {padding-right: $base-spacing-unit*2;}
 }
 
@@ -109,10 +112,6 @@
 }
 .resume-article__desc {
     @extend .resume-rubrique__desc;
-    time {
-        // font-style: italic;
-        color: $gray;
-    }
 }
 
 /*==========  resume-article--list  ==========*/

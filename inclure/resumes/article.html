@@ -30,8 +30,8 @@
 [(#SET{afficher_date,#ENV{afficher_date,non}})
 ][(#SET{resume_numero_titre,#ENV{resume_numero_titre,non}})
 ][(#SET{afficher_verrou,#ENV{afficher_verrou,non}})
-][(#SET{article_gratuit,''})
-]<BOUCLE_article_resume(ARTICLES){id_article}>
+][(#SET{article_gratuit,''})]
+<BOUCLE_article_resume(ARTICLES){id_article}>
 
     [(#REM) Origine : l'article est publié dans la revue ? Si oui, on affiche l'auteur.]
     
@@ -45,8 +45,9 @@
         [(#ID_MOT|=={75}|?{#SET{type,entretien}})]
         [(#ID_MOT|=={7}|?{#SET{article_gratuit,oui},#SET{article_gratuit,non} })]
     </BOUCLE_type>
-    [(#REM) L'article a moins d'un an ?.
-    ]<BOUCLE_age(ARTICLES){id_article}{age<365}> [(#GET{article_gratuit}|=={oui}|?{#SET{article_gratuit,oui}})] </BOUCLE_age> [(#GET{article_gratuit}|=={oui}|?{#SET{article_gratuit,non}})] <//B_age>
+    
+    [(#REM) L'article a moins d'un an ?.]
+    <BOUCLE_age(ARTICLES){id_article}{age<365}> [(#GET{article_gratuit}|=={oui}|?{#SET{article_gratuit,oui}})] </BOUCLE_age> [(#GET{article_gratuit}|=={oui}|?{#SET{article_gratuit,non}})] <//B_age>
 
 <article class="resume resume-article[ resume--(#GET{type_resume})]">
     [(#GET{type_resume}|=={stack}|?{<a href="#URL_ARTICLE">})]
@@ -67,7 +68,7 @@
                             [<p class="person person-signature person-signature--author"><:par_auteur:>(#MODELE{authors,id_article=#ENV{id_article},contexte=resume})</p>]
                 ] ] ]
             </header>
-            [<p class="resume__desc resume-article__desc[ resume__desc--(#GET{type_resume})]">[(#ENV{afficher_date}|=={oui}|?{[<time pubdate datetime="[(#DATE|date_iso)]">(#DATE|affdate_court)</time>.]}) ](#DESCRIPTIF|PtoBR)</p>]
+            [<p class="resume__desc resume-article__desc[ resume__desc--(#GET{type_resume})]">[(#ENV{afficher_date}|=={oui}|?{[<time pubdate datetime="[(#DATE|date_iso)]">(#DATE|affdate_court)</time>]}) ](#DESCRIPTIF|sinon{#INTRODUCTION|couper{100}}|PtoBR)</p>]
             [(#GET{type_resume}|match{logo|text}|?{
             <p class="more more--read"><a href="#URL_ARTICLE"><:local:more_read:></a></p>
             })]

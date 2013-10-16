@@ -4,20 +4,25 @@
 </nav><!-- /.nav--principale -->]
 <nav class="nav--secondaire">
     <h2 class="hN visuallyhidden--desk"><:local:navigation_theme:></h2>
+    [(#REM) liste des mots-clés : 11,231,227,4,302,451,452 ]
+    [(#SET{liste_mots,#LISTE{11,231,227,4,302,451}})]
+    <B_l1>
     <ul class="nav">
-        <li class="nav--item"><a href="#INFO_URL{mot,11}">#INFO_TITRE{mot,11}</a></li>
-        <li class="nav--item"><a href="#INFO_URL{mot,231}">#INFO_TITRE{mot,231}</a></li>
-        <li class="nav--item"><a href="#INFO_URL{mot,227}">#INFO_TITRE{mot,227}</a></li>
+        <BOUCLE_l1(MOTS){id_mot IN #GET{liste_mots}}{1/2}>
+        <li class="nav--item[ (#EXPOSE{active})]"><a href="#URL_MOT">#TITRE</a></li>
+        </BOUCLE_l1>
     </ul>
+    </B_l1><B_l2>
     <ul class="nav">
-        <li class="nav--item"><a href="#INFO_URL{mot,4}">#INFO_TITRE{mot,4}</a></li>
-        <li class="nav--item"><a href="#INFO_URL{mot,442}">#INFO_TITRE{mot,442}</a></li>
-        <li class="nav--item"><a href="#INFO_URL{mot,302}">#INFO_TITRE{mot,302}</a></li>
+        <BOUCLE_l2(MOTS){id_mot IN #GET{liste_mots}}{2/2}>
+        <li class="nav--item[ (#EXPOSE{active})]"><a href="#URL_MOT">#TITRE</a></li>
+        </BOUCLE_l2>
     </ul>
+    </B_l2>
     <ul class="nav">
-        <li class="nav--item"><a href="#INFO_URL{mot,447}">#INFO_TITRE{mot,447}</a></li>
-        <li class="nav--item"><a href="#URL_PAGE{auteurs}">Auteurs</a></li>
-        <li class="nav--item"><a href="#URL_PAGE{mots}">Tous les mots-clés</a></li>
+        <li class="nav--item[ (#ENV{id_mot}|=={447}|?{active})]"><a href="#INFO_URL{mot,447}">#INFO_TITRE{mot,452}</a></li>
+        <li class="nav--item[ (#ENV{page}|=={auteurs}|?{active})]"><a href="#URL_PAGE{auteurs}"><:local:authors:></a></li>
+        <li class="nav--item[ (#ENV{page}|=={mots}|?{active})]"><a href="#URL_PAGE{mots}"><:local:keywords_all:></a></li>
     </ul>
 </nav><!-- /.nav--secondaire -->
 <a id="btn-nav-close" href="#top" class="btn btn--nav btn--nav-close visuallyhidden--desk">
