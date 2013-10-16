@@ -1,5 +1,5 @@
 <composition>
     <nom>Article d'un numéro de la revue</nom>
-    <description>Composition <strong>par défaut</strong> pour les articles d'un numéro. Un logo d'article (facultatif) d'une largeur minimum de 805 pixels, format paysage, peut être affiché.</description>
+    <description>Composition <strong>par défaut</strong> pour les articles d'un numéro. Un logo d'article (facultatif) d'une largeur de 1100 pixels et d'une hauteur de 734 pixels, format paysage, peut être affiché.</description>
     <icon>img/composition-article-numero.png</icon>
 </composition>

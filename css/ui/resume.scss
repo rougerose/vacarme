@@ -167,6 +167,9 @@
 
 /* resume--stack */
 .resume--stack {
+    a {
+        font-weight: normal;
+    }
     position: relative;
     @include media-query(palm) {
         border: 0;
