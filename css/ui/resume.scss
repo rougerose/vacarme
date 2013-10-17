@@ -201,7 +201,7 @@
 }
 .resume__desc--text {
     .section--features & {
-        @include font-size(18px);
+        padding-right: 0;
     }
 }
 
