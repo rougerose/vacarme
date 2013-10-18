@@ -20,4 +20,6 @@
  ☐ faire squelette mots.html
  ☐ affichage palm, rubrique d'un numéro. Certains articles ont une marge gauche supérieure à certains autres.
  ☐ rubrique Au front : elle est invisible actuellement. Trouver une solution pour son emplacement et son affichage.
- ☐ @Fil : dépublier toutes les brèves. 
+ ☐ @Fil : dépublier toutes les brèves.
+ ☐ Page Entretiens : si on veut un index des interviews par nom de personne, il va falloir procéder autrement. En l'état, impossible a priori, de faire un tri alphabétique. Rajouter un mot-clé Personne à chaque entretien dont le titre sera noté Nom*prénom ? 
+ ☐ formulaire (notamment login et spip_pass) : mise en forme

@@ -67,6 +67,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'page_number'                                 => 'page&nbsp;@debut@.',
     'pages'                                       => 'pages',
     'page_previous'                               => 'Page précédente',
+    'pass_changer' => "Changer votre mot de passe",
     'publication_about'                           => "À propos de l’article",
     'published_in'                                => 'Publiée dans',
     'published_date'                              => 'Publiée le',
