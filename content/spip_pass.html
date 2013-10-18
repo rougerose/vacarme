@@ -1,0 +1,21 @@
+<div class="grid">
+    <article class="self login">
+        <div class="grid__item">
+            <header class="self__header self__header--rubrique">
+                <h1 class="hN titre"><:local:pass_changer:></h1>
+            </header>
+        </div><!-- /.grid__item -->
+        <div class="grid__item desk-three-quarters push--desk-one-quarter">
+            <div class="self__body self__body--rubrique landmark">
+                <div class="self__texte">
+                    [(#ENV{p}|non)
+                        #FORMULAIRE_OUBLI
+                    ]
+                    [(#ENV{p}|oui)
+                        #FORMULAIRE_MOT_DE_PASSE
+                    ]
+                </div>
+            </div>
+        </div><!-- /.grid__item -->
+    </article>
+</div><!-- /.grid -->
