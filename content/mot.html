@@ -1,32 +1,7 @@
+[(#SET{variantes_skel,#LISTE{11,227,231}})]
 <BOUCLE_mot(MOTS){id_mot}>
-<div class="grid">
-    <article class="self mot">
-        <div class="grid__item">
-            <header class="self__header self__header--rubrique">
-                <h1 class="hN titre"><span class="#EDIT{titre}">#TITRE</span></h1>
-            </header>
-        </div><!-- /.grid__item -->
-        <div class="grid__item desk-three-quarters push--desk-one-quarter">
-            [<div class="self__body self__body--rubrique landmark">
-                <div class="#EDIT{texte} self__texte surlignable">
-                    (#TEXTE|image_reduire{500,0})
-                </div>
-            </div>]
-            <BOUCLE_articles_mot(ARTICLES){id_mot}{0,1}> #SET{articles_mot,1}
-            [(#INCLURE{fond=inclure/objets/articles,id_mot,env,ajax})]
-            </BOUCLE_articles_mot>
-            #SET{articles_mot,0}
-            <//B_articles_mot>
-            <BOUCLE_rubriques_mot(RUBRIQUES){id_mot}{0,1}> #SET{rubriques_mot,1}
-            [(#INCLURE{fond=inclure/objets/rubriques,id_mot,env,ajax})]
-            </BOUCLE_rubriques_mot>
-            #SET{rubriques_mot,0}
-            <//B_rubriques_mot>
-
-            [(#GET{articles_mot}|=={0}|oui)
-                [(#GET{rubriques_mot}|=={0}|oui)<p>Aucun résultat.</p>]
-            ]
-        </div><!-- /.grid__item -->
-    </article>
-</div><!-- /.grid -->
+[(#GET{variantes_skel}|find{#ID_MOT}|?{
+    [(#INCLURE{fond=inclure/mot-contenu-#ID_MOT,id_mot})],
+    [(#INCLURE{fond=inclure/mot-contenu-standard,id_mot})]
+})]
 </BOUCLE_mot>

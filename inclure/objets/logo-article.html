@@ -8,6 +8,7 @@
     - logo_objet : article ou secteur / rubrique
     - logo_format : paysage / portrait / vignette-complete / vignette-partielle / paysage-archives
     - logo_class
+    - figure_class
     - resume_numero_titre : oui / non
 ]
 <BOUCLE_article(ARTICLES){id_article}>#SET{t,#TITRE}
@@ -25,7 +26,7 @@
             [(#SET{logo,#LOGO_ARTICLE|image_reduire{1024,0}|image_recadre{1024,683,'top center',000}|extraire_attribut{src}})]
         ]
     ]
-[<figure class="resume__figure">
+[<figure class="resume__figure[ (#ENV{figure_class})]">
     <img src="(#GET{logo})"[ alt="(#GET{t})"][ class="(#ENV{logo_class})"]>
     [(#ENV{resume_numero_titre}|=={oui}|oui)
         [<figcaption class="resume-numero resume-numero--titre">

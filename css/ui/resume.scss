@@ -71,6 +71,15 @@
         margin-top: .5em;
     }
 }
+.resume__figure--portrait {
+    @include media-query(lap-and-up) {
+        // width: 50%;
+        // left: 50%;
+        // padding-left: $base-spacing-unit;
+        // position: relative;
+        float: right;
+    }
+}
 
 
 /*==========  .resume-rubrique  ==========*/
