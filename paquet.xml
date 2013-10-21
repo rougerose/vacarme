@@ -7,5 +7,6 @@
     <necessite compatibilite="[2.2.1;[" nom="Zcore"/>
     <necessite nom="IntertitresTdm" compatibilite="[0.9.5;[" />
     <necessite nom="jqueryui" compatibilite="[1.8.21;[" />
+    <utilise nom="medias" compatibilite="[2.7.45;[" />
     <chemin path=""/>
 </paquet>
