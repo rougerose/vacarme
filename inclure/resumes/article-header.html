@@ -38,11 +38,11 @@
     [(#ID_SECTEUR|=={115}|?{#SET{origine,revue}})]
 
 [(#REM) Type : 
-    - l'article est un entretien (mot 75) ? Si oui, l'auteur n'est pas affiché.
+    - l'article est un entretien (mot 75 "entretien réalisé par" ou mot 240 "propos recueillis par") ? Si oui, l'auteur n'est pas affiché.
     - s'il est consultable (mot 7), le verrou est levé.
 
 ]<BOUCLE_type(MOTS){id_article}{id_groupe=5}{tout}>
-    [(#ID_MOT|=={75}|?{#SET{type,entretien}})]
+    [(#ID_MOT|match{75|240}|?{#SET{type,entretien}})]
     [(#ID_MOT|=={7}|?{#SET{article_gratuit,oui},#SET{article_gratuit,non} })]
 </BOUCLE_type>
 
