@@ -1,3 +1,7 @@
-<BOUCLE_issue(HIERARCHIE){id_rubrique}{tout}{1,1}>
-<h2 class="hN titre numero-titre resume-numero__titre resume-numero__titre--m"><a href="#URL_RUBRIQUE">#TITRE</a>[ <small class="soustitre numero-soustitre resume-numero__soustitre">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</small>]</h2>
-</BOUCLE_issue>
+[(#SET{hX,#ENV{hX,h1}})]
+<BOUCLE_issue(HIERARCHIE){id_rubrique}{tout}>[
+(#PROFONDEUR|=={1}|oui)
+    <[(#GET{hX})] class="hN titre numero-titre[ (#ENV{numero_titre_class})]">
+        [(#ENV{numero_titre_url}|=={oui}|?{<a href="#URL_RUBRIQUE">})]#TITRE[(#ENV{numero_titre_url}|=={oui}|?{</a>})][ <small class="soustitre numero-soustitre[ (#ENV{numero_soustitre_class})]">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</small>]
+    </[(#GET{hX})]>
+]</BOUCLE_issue>

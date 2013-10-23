@@ -9,7 +9,11 @@
     - logo_format : paysage / portrait / vignette-complete / vignette-partielle / paysage-archives
     - logo_class
     - figure_class
-    - resume_numero_titre : oui / non
+    - figcaption_numero_titre : oui / non
+    - logo_url : oui / non (défaut)
+    - hX : h1 (defaut)
+    - numero_titre_url : oui / non (defaut). Lien sur le titre du numéro logo > figcaption
+
 ]
 <BOUCLE_article(ARTICLES){id_article}>#SET{t,#TITRE}
     <BOUCLE_logo_secteur(HIERARCHIE){id_article}{si #ENV{logo_objet}|=={secteur}}>[
@@ -27,10 +31,12 @@
         ]
     ]
 [<figure class="resume__figure[ (#ENV{figure_class})]">
+    [(#ENV{logo_url}|=={oui}|?{<a href="#URL_ARTICLE">})]
     <img src="(#GET{logo})"[ alt="(#GET{t})"][ class="(#ENV{logo_class})"]>
-    [(#ENV{resume_numero_titre}|=={oui}|oui)
-        [<figcaption class="resume-numero resume-numero--titre">
-            (#INCLURE{fond=inclure/resumes/numero-titre,id_rubrique})
+    [(#ENV{logo_url}|=={oui}|?{</a>})]
+    [(#ENV{figcaption_numero_titre}|=={oui}|oui)
+        [<figcaption class="resume__figcaption">
+            (#INCLURE{fond=inclure/resumes/numero-titre,id_rubrique,hX=#ENV{hX},numero_titre_url=#ENV{numero_titre_url}})
         </figcaption>] ]
 </figure>]
 </BOUCLE_article>

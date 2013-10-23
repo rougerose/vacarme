@@ -1,4 +1,11 @@
-[(#REM) Les entretiens ]
+[(#REM) 
+    Les entretiens
+    =======================
+    1/ récupérer les articles qui ont le mot-clé Entretiens et qui ont un mot-clé du groupe 11 (Personnes).
+    2/ récupérer les mots-clés Personnes de l'article dans un tableau. Ce qui permettra de faire un tri par nom.
+    3/ récupérer le numéro dans un tableau. Ce qui permettra de faire un tri par numéro. 
+
+]
 <BOUCLE_mot_11_contenu(MOTS){id_mot}>
 <div class="grid">
     <article class="self mot">
@@ -14,14 +21,41 @@
                 </div>
             </div>
         </div><!-- /.grid__item -->]
-        <BOUCLE_rubrique_mot(RUBRIQUES){id_mot}{!par date}>
-        [(#REM) déterminer la composition ]
-        <B_combien>
-        <BOUCLE_combien(ARTICLES){id_rubrique}> </BOUCLE_combien>
-        [(#TOTAL_BOUCLE|>{3}|?{#SET{compo,multi-colonnes},#SET{compo,deux-colonnes}})]
-        </B_combien>
-        [(#INCLURE{fond=inclure/composition-deux-colonnes,id_rubrique})]
-        </BOUCLE_rubrique_mot>
+
+        <BOUCLE_entretiens(ARTICLES){id_mot}{id_groupe=11}>
+            #SET_PUSH{entretiens,#ID_ARTICLE}
+            <BOUCLE_noms(MOTS){id_article}{id_groupe=11}>
+                #SET_PUSH{noms,#ID_MOT} 
+            </BOUCLE_noms>
+            <BOUCLE_numeros(HIERARCHIE){id_rubrique}>
+                [(#PROFONDEUR|=={1}|?{#SET_PUSH{numeros,#ARRAY{numero,#ID_RUBRIQUE,article,#ID_ARTICLE}}})]
+            </BOUCLE_numeros>
+        </BOUCLE_entretiens>
+
+        [(#REM) Trier les tableaux par nom et par numéro. TODO : à voir si on garde. Pour le moment uniquement un liste par ordre alpha. ]
+        [(#SET{numeros,#GET{numeros}|tri_tableau{'numero'}})]
+
+        [(#REM) Définir le tri : trier par nom, par défaut. ]
+        [(#SET{tri,#ENV{tri,nom}})]
+
+        <BOUCLE_afficher_noms(MOTS){id_mot IN #GET{noms}}{par titre}{si #GET{tri}|=={nom}}>
+        <div class="grid__item">
+            <div class="grid">
+                <article class="resume resume-mot">
+                    [<header class="grid__item desk-three-quarters push--desk-one-quarter">
+                        <h1 class="hN resume__titre resume-mot__titre">(#TITRE|prenom_nom)</h1>
+                    </header>]
+                    <BOUCLE_afficher_entretien(ARTICLES){id_mot}{id_article IN #GET{entretiens}}{par titre}>
+                    <div class="grid__item">
+                        <div class="grid">
+                            [(#INCLURE{fond=inclure/resumes/article-conteneur,id_article,type_resume=hero,layout=4colonnes})]
+                        </div><!-- /.grid -->
+                    </div><!-- /.grid__item -->
+                    </BOUCLE_afficher_entretien>
+                </article>
+            </div><!-- /.grid -->
+        </div><!-- /.grid__item -->
+        </BOUCLE_afficher_noms>
     </article>
 </div><!-- /.grid -->
 </BOUCLE_mot_11_contenu>

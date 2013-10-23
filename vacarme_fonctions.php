@@ -73,4 +73,19 @@ function intro($texte) {
     return $texte;
 }
 
+function tri_tableau(&$array, $key,$reverse=false) {
+    $sorter=array();
+    $ret=array();
+    reset($array);
+    foreach ($array as $ii => $va) {
+        $sorter[$ii]=$va[$key];
+    }
+    ($reverse)? arsort($sorter) : asort($sorter);
+    foreach ($sorter as $ii => $va) {
+        $ret[$ii]=$array[$ii];
+    }
+    $array=$ret;
+    return $array;
+}
+
 ?>

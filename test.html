@@ -1,0 +1,59 @@
+<BOUCLE_entretiens(MOTS){id_mot=11}>
+<BOUCLE_art(ARTICLES){id_mot}{id_groupe=11}{!par date}> 
+#SET_PUSH{articles,#ID_ARTICLE} #SET_PUSH{rubriques,#ID_RUBRIQUE} #SET_PUSH{titre_rubrique,#INFO_TITRE{rubrique,#ID_RUBRIQUE}}
+
+<BOUCLE_mot_personne(MOTS){id_article}{id_groupe=11}>
+#SET_PUSH{noms,#ARRAY{article,#ID_ARTICLE,mot,#ID_MOT,nom,#TITRE}}
+#SET_PUSH{name,#ID_MOT}
+
+
+
+</BOUCLE_mot_personne>
+
+<BOUCLE_numeros(HIERARCHIE){id_rubrique}>
+[(#PROFONDEUR|=={1}|?{#SET_PUSH{numeros,#ARRAY{numero,#ID_RUBRIQUE,article,#ID_ARTICLE}}})]
+</BOUCLE_numeros>
+
+
+
+</BOUCLE_art>
+
+<BOUCLE_affiche_name(MOTS){id_mot IN #GET{name}}{par titre}>
+#TITRE <br>
+<BOUCLE_affiche_art(ARTICLES){id_mot}{id_article IN #GET{articles}}>
+#TITRE <br>
+</BOUCLE_affiche_art>
+</BOUCLE_affiche_name>
+
+
+<BOUCLE_mot(MOTS){id_groupe=11}{id_article IN #GET{articles}}>
+[(#SET{c,#COMPTEUR_BOUCLE|moins{1}})]
+
+[(#TITRE|in_array{#GET{t}}|oui)
+[(#GET{rubrique}|table_valeur{#GET{c}})]
+<p>inclusion de la rubrique</p>
+]
+</BOUCLE_mot>
+
+<hr>
+
+[(#SET{noms,#GET{noms}|tri_tableau{'nom'}})]
+<hr>
+<BOUCLE_d(DATA){source table,#GET{noms}}>
+<BOUCLE_v(DATA){source table,#VALEUR}{cle==mot}>
+[(#VALEUR|unique)] <br>
+</BOUCLE_v>
+</BOUCLE_d>
+
+<hr>
+[(#SET{numeros,#GET{numeros}|tri_tableau{'numero',true}})]
+<BOUCLE_nom_personnes(DATA){source table,#GET{numeros}}>
+<BOUCLE_article_personnes(DATA){source table,#VALEUR}{cle==numero}>
+#CLE => #VALEUR <br>
+</BOUCLE_article_personnes>
+</BOUCLE_nom_personnes>
+
+</BOUCLE_entretiens>
+
+
+

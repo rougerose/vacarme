@@ -3,18 +3,47 @@
 <div class="grid__item palm-one-half lap-and-up-one-quarter">
     [(#LOGO_ARTICLE|?{#SET{logo_objet,article},#SET{logo_objet,secteur}})]
     [(#INCLURE{fond=inclure/resumes/article,
-        id_article,type_resume=logo,logo_format=vignette-partielle,logo_afficher=oui,logo_objet=#GET{logo_objet},resume_numero_titre=oui,afficher_date=oui})]
+        id_article,
+        type_resume=logo,
+        logo_format=vignette-partielle,
+        logo_afficher=oui,
+        logo_objet=#GET{logo_objet},
+        logo_url=oui,
+        figcaption_numero_titre=oui,
+        afficher_date=oui,
+        hX=h2,
+        numero_titre_url=oui})]
 </div><!-- /.grid__item -->
 </BOUCLE_archives_hasard>
 [(#REM) Le troisième item est issu de la grappe. Il peut s'agir d'une rubrique ou d'un article ]
 <B_rubrique_archive><BOUCLE_rubrique_archive(RUBRIQUES){id_grappe}{0,1}>
 <div class="grid__item lap-and-up-two-quarters">
-    [(#INCLURE{fond=inclure/resumes/rubrique,id_rubrique,type_resume=logo,logo_afficher=oui,logo_objet=rubrique,logo_format=paysage-archives,resume_numero_titre=oui,afficher_date=oui})]
+    [(#INCLURE{fond=inclure/resumes/rubrique,
+        id_rubrique,
+        type_resume=logo,
+        logo_afficher=oui,
+        logo_objet=rubrique,
+        logo_format=paysage-archives,
+        logo_url=oui,
+        figcaption_numero_titre=oui,
+        afficher_date=oui,
+        hX=h2,
+        numero_titre_url=oui})]
 </div><!-- /.grid__item -->
 </BOUCLE_rubrique_archive></B_rubrique_archive>
 <BOUCLE_article_archive(ARTICLES){id_grappe}{0,1}>
 <div class="grid__item lap-and-up-two-quarters">
     [(#LOGO_ARTICLE|?{#SET{logo_objet,article},#SET{logo_objet,secteur}})]
-    [(#INCLURE{fond=inclure/resumes/article,id_article,type_resume=logo,logo_afficher=oui,logo_objet=#GET{logo_objet},logo_format=paysage-archives,resume_numero_titre=oui,afficher_date=oui})]
+    [(#INCLURE{fond=inclure/resumes/article,
+        id_article,
+        type_resume=logo,
+        logo_afficher=oui,
+        logo_objet=#GET{logo_objet},
+        logo_format=paysage-archives,
+        logo_url=oui,
+        figcaption_numero_titre=oui,
+        afficher_date=oui,
+        hX=h2,
+        numero_titre_url=oui})]
 </div><!-- /.grid__item -->
 </BOUCLE_article_archive><//B_rubrique_archive>

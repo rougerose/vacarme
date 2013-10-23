@@ -71,13 +71,23 @@
         margin-top: .5em;
     }
 }
+.resume__figcaption {
+    .numero-titre {
+        @include font-size(18px,$line-height:false);
+        line-height: 1;
+    }
+    .numero-soustitre {
+        display: inline; 
+        font-size: 100%;
+    }
+}
 .resume__figure--portrait {
     @include media-query(lap-and-up) {
         // width: 50%;
         // left: 50%;
         // padding-left: $base-spacing-unit;
         // position: relative;
-        float: right;
+        // float: right;
     }
 }
 
@@ -139,19 +149,40 @@
 
 /*==========  resume-numero  ==========*/
 // .resume-numero {}
-// .resume-numero--titre {}
 .resume-numero__titre {
-    font-family: $HCReg-font;
     line-height: 1;
 }
-.resume-numero__titre--m {
-    @include font-size(18px,$line-height:false);
+// SUPPRIMER
+// .resume-numero__titre--m {
+//     @include font-size(18px,$line-height:false);
+//     .resume-numero__soustitre {display: inline; font-size: 100%;}
+// }
+// .resume-numero__titre--s {
+//     @include font-size(16px,$line-height:false);
+// }
+
+/* variante : resume-numero--logoTitre (résumé numéro avec logo et titre uniquement) */
+.resume-numero--logoTitre {
+    text-align: center;
+    .resume__figure {
+        margin-bottom: .5em;
+    }
+    .resume-numero__titre {
+        @include font-size(16px,$line-height:false);
+    }
+}
+/* variante : resume-numero--titreSeul (résumé numéro avec titre uniquement) */
+.resume-numero--titreSeul {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: .5em;
+    float: left;
+    .resume-numero__titre {
+        margin-bottom: 0;
+        @include font-size(18px,$line-height:false);
+    }
     .resume-numero__soustitre {display: inline; font-size: 100%;}
 }
-.resume-numero__titre--s {
-    margin-top: .5em;
-    @include font-size(16px,$line-height:false);
-}
+
 
 /*==========  resume-numero--list  ==========*/
 .resume-numero--list {
@@ -172,7 +203,15 @@
     }
 }
 
-/*==========  resumés variantes : stack / text / logo  ==========*/
+/*==========  resume-mot  ==========*/
+.resume-mot__titre {
+    @extend .intertitre-section--first;
+    @include font-size(24px);
+    // border-bottom: 1px solid #000;
+    margin-bottom: 1.5em;
+}
+
+/*==========  resumés variantes : stack / text / logo / hero  ==========*/
 
 /* resume--stack */
 .resume--stack {
@@ -217,8 +256,28 @@
 /* resume--logo */
 // .resume--logo {}
 .resume__titre--logo {
-    @extend .resume__titre--text;
+    min-height: 3em;
+    color: #000;
+    @include font-size(16px,$line-height:false);
 }
+
+/* resume--hero */
+.resume__titre--hero {
+    min-height: 2.5em;
+    color: #000;
+    @include font-size(22px);
+    .soustitre {
+        @include font-size(18px,$line-height:false);
+        margin: 0;
+    }
+}
+.resume__desc--hero {
+    margin: 2em 0;
+    p {
+        @include font-size(16px);
+    }
+}
+
 
 /*-----  End of resume  ------*/
 

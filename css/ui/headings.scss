@@ -24,8 +24,9 @@
 }
 
 .numero-titre {
-    // font-family: "HelveticaNeueLTStdCnBold", sans-serif;
+    font-family: $HCReg-font;
     text-transform: uppercase;
+    a {font-weight:normal;}
     .self__header--rubrique &,
     .index-feature & {
         font-family: $HCReg-font;
@@ -76,6 +77,7 @@ h6.spip {
     display: inline-block;
     border-bottom: 1px solid $soft-black; //background-color: $gray-light;
     padding-left: $base-spacing-unit/2;
+    padding-right: $base-spacing-unit/2;
     margin-left: -$base-spacing-unit/2;
     @include font-size(18px);
 }

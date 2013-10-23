@@ -9,10 +9,13 @@
     - logo_format : paysage / portrait / vignette-partielle / vignette-complete
     - logo_class
     - figure_class
-    - lien_image : oui / non (défaut)
-    - resume_numero_titre : oui / non
+    - logo_url : oui / non (défaut)
+    - figcaption_numero_titre : oui / non
+    - hX = h1 (défaut)
+    - numero_titre_url : oui / non (defaut). Lien sur le titre du numéro logo > figcaption
 
-]<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>[
+]
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>[
     (#ENV{logo_format}|=={paysage}|?{
         [(#SET{logo,#LOGO_RUBRIQUE|image_reduire{1024,0}|image_recadre{1024,683,'top center',000}|extraire_attribut{src}})]
     })][
@@ -26,12 +29,12 @@
         [(#SET{logo,#LOGO_RUBRIQUE|image_reduire{200,0}|extraire_attribut{src}})]
     })]
 [<figure class="resume__figure[ (#ENV{figure_class})]">
-    [(#ENV{lien_image}|=={oui}|?{<a href="#URL_RUBRIQUE">})]
+    [(#ENV{logo_url}|=={oui}|?{<a href="#URL_RUBRIQUE">})]
         <img src="(#GET{logo})"[ alt="(#GET{t})"][ class="(#ENV{logo_class})"]>
-    [(#ENV{lien_image}|=={oui}|?{</a>})]
-    [(#ENV{resume_numero_titre}|=={oui}|oui)
-        [<figcaption class="resume-numero resume-numero--titre">
-            (#INCLURE{fond=inclure/resumes/numero-titre,id_rubrique})
+    [(#ENV{logo_url}|=={oui}|?{</a>})]
+    [(#ENV{figcaption_numero_titre}|=={oui}|oui)
+        [<figcaption class="resume__figcaption">
+            (#INCLURE{fond=inclure/resumes/numero-titre,id_rubrique,hX=#ENV{hX},numero_titre_url=#ENV{numero_titre_url}})
         </figcaption>] ]
 </figure>]
 </BOUCLE_rubrique>

@@ -1,0 +1,32 @@
+[(#REM) 
+    ************************************
+    Constantes
+    ************************************
+    
+    Transmises dans l'environnement : 
+    ----------------------------------
+    - type_resume : stack (logo + texte superposé) / logo / text
+    - afficher_date : oui / non (défaut)
+    - suite_afficher : oui (defaut) / non
+    - resume_numero_titre : oui / non (défaut)
+
+][(#SET{type_resume,#ENV{type_resume,text}})]
+[(#SET{afficher_date,#ENV{afficher_date,non}})]
+[(#SET{suite_afficher,#ENV{suite_afficher,' '}})]
+[(#SET{resume_numero_titre,#ENV{resume_numero_titre,''}})]
+<BOUCLE_article_descriptif(ARTICLES){id_article}>
+[<div class="resume__desc resume-article__desc[ resume__desc--(#GET{type_resume})]">
+    [(#GET{afficher_date}|=={oui}|?{[<time pubdate datetime="[(#DATE|date_iso)]">(#DATE|affdate_court)</time>]})]
+    (#DESCRIPTIF|sinon{#INTRODUCTION|couper{100}|wrap{<p>}})
+    [(#GET{suite_afficher}|?{
+    <p class="more more--read"><a href="#URL_ARTICLE"><:local:more_read:></a></p>})]
+</div>]
+[(#GET{resume_numero_titre}|oui)
+<aside class="resume-numero--titreSeul">
+    [(#INCLURE{fond=inclure/resumes/numero-titre,
+        id_rubrique,
+        numero_titre_class=resume-numero__titre,
+        numero_soustitre_class=resume-numero__soustitre,
+        numero_titre_url=oui})]
+</aside>]
+</BOUCLE_article_descriptif>
