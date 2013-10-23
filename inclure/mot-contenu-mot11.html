@@ -12,7 +12,7 @@
     <BOUCLE_noms(MOTS){id_article}{id_groupe=11}>
         #SET_PUSH{noms,#ID_MOT} 
     </BOUCLE_noms>
-    <BOUCLE_numeros(HIERARCHIE){id_rubrique}>
+    <BOUCLE_numeros(HIERARCHIE){id_article}>
         [(#PROFONDEUR|=={1}|?{#SET_PUSH{numeros,#ARRAY{numero,#ID_RUBRIQUE,article,#ID_ARTICLE}}})]
     </BOUCLE_numeros>
 </BOUCLE_entretiens>

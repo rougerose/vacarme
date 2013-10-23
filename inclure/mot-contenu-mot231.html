@@ -1,10 +1,9 @@
 <BOUCLE_mot_tribunes(MOTS){id_mot}>
 <BOUCLE_tribunes(ARTICLES){id_mot}>
-    <BOUCLE_numeros(HIERARCHIE){id_rubrique}>
+    <BOUCLE_numeros(HIERARCHIE){id_article}>
         [(#PROFONDEUR|=={1}|?{#SET_PUSH{numeros,#ARRAY{titre,#TITRE,id_article,#ID_ARTICLE}}})]
     </BOUCLE_numeros>
 </BOUCLE_tribunes>
-
 
 [(#REM) Trier les tableaux par nom et par numéro. TODO : à voir si on garde. Pour le moment uniquement un liste par ordre alpha. ]
 [(#SET{numeros,#GET{numeros}|tri_tableau{'titre',true}})]
