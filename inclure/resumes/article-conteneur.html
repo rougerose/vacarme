@@ -66,8 +66,12 @@
             </div></div>})]
         </div><!-- /.grid__item -->]
         <div class="grid__item[ (#GET{contenu_class})]">
+            [(#GET{logo}|non)
+            <div class="grid"><div class="grid__item lap-and-up-two-thirds">]
             [(#INCLURE{fond=inclure/resumes/article-header,id_article,type_resume=#GET{type_resume}})]
             [(#INCLURE{fond=inclure/resumes/article-descriptif,id_article,type_resume=#GET{type_resume},resume_numero_titre=oui})]
+            [(#GET{logo}|non)
+            </div></div>]
         </div><!-- /.grid__item -->
     </article>]
 

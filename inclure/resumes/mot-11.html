@@ -8,7 +8,7 @@
         <div class="grid">
             <BOUCLE_noms(MOTS){id_mot IN #GET{noms}}{par titre}{si #GET{tri}|=={nom}}{pagination 5}>
             <article class="resume resume-mot">
-                [<header class="grid__item desk-three-quarters push--desk-one-quarter">
+                [<header class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
                     <h1 class="hN resume__titre resume-mot__titre">(#TITRE|prenom_nom)</h1>
                 </header>]
                 <BOUCLE_entretien(ARTICLES){id_mot}{id_article IN #GET{entretiens}}{par titre}>
@@ -22,7 +22,7 @@
             </BOUCLE_noms>
         </div><!-- /.grid -->
     </div><!-- /.grid__item -->
-    <div class="grid__item desk-three-quarters push--desk-one-quarter">
+    <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
         [<nav class="pagination pagination--bottom pagination--page">
             (#PAGINATION{li})
         </nav>]

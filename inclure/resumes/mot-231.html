@@ -1,0 +1,24 @@
+#SET{numeros,#ENV{numeros}}
+#SET{tri,#ENV{tri}}
+
+<B_numeros>
+<section class="landmark">
+    #ANCRE_PAGINATION
+    <div class="grid__item">
+        <div class="grid">
+            <BOUCLE_numeros(DATA){source table,#GET{numeros}}{pagination 5}>
+                <BOUCLE_id_article(DATA){source table,#VALEUR}{cle=id_article}>
+                    <BOUCLE_article(ARTICLES){id_article=#VALEUR}>
+            [(#INCLURE{fond=inclure/resumes/article-conteneur,id_article,type_resume=hero,layout=4colonnes})]
+                    </BOUCLE_article>
+                </BOUCLE_id_article>
+            </BOUCLE_numeros>
+        </div><!-- /.grid -->
+    </div><!-- /.grid__item -->
+    <div class="grid__item desk-three-quarters push--desk-one-quarter">
+        [<nav class="pagination pagination--bottom pagination--page">
+            (#PAGINATION{li})
+        </nav>]
+    </div><!-- /.grid__item -->
+</section>
+</B_numeros>
