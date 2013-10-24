@@ -1,8 +1,8 @@
 [(#SET{debut,#ARRAY})][(#SET{alphabet, [(#VAL{ABCDEFGHIJKLMNOPQRSTUVWXYZ}|str_split)]})
 ]<BOUCLE_liste_alpha(AUTEURS){par nom}>[
-(#SET_PUSH{commence_par[(#NOM|initiale_az)],#ID_AUTEUR})
+(#SET_PUSH{commence_par[(#NOM|desaccentuer)],#ID_AUTEUR})
 ][
-(#SET_PUSH{auteurs_alpha,#NOM|initiale_az})
+(#SET_PUSH{auteurs_alpha,#NOM|desaccentuer})
 ]</BOUCLE_liste_alpha>[
 (#SET{debut,#GET{auteurs_alpha}|array_sort|table_valeur{0}})
 ]

@@ -40,14 +40,32 @@ function nom($texte) {
     }
 }
 
-function initiale_az($texte) {
+// Supprimer les caractères accentués sur la première lettre d'une chaîne.
+// Si couper = non, la chaîne est reconstituée sur 31 caractères.
+function desaccentuer($texte,$couper='oui') {
     $encoding = 'UTF-8';
-    $initiale = mb_substr($texte, 0,1,$encoding);
-    $initiale = mb_strtoupper($initiale,$encoding);
+    $t = trim($texte);
+    $initiale = mb_strtoupper(mb_substr($t,0,1,$encoding),$encoding);
     $accents = array('À' => 'A', 'Â' => 'A', 'Ä' => 'A', 'Æ' => 'A', 'É' => 'E', 'È' => 'E', 'Ê' => 'E', 'Ë' => 'E', 'Ì' => 'I', 'Í' => 'I', 'Î' => 'I', 'Ñ' => 'N', 'Œ' => 'O', 'Û' => 'U', 'Ù' => 'U', 'Ú' => 'U');
-    // ÀÁÂÃÄÅàáâãäåÒÓÔÕÖØòóôõöøÈÉÊËèéêëÇçÌÍÎÏìíîïÙÚÛÜùúûüÿÑñ
-    $initiale = strtr($initiale,$accents);
-    return $initiale;
+    $t_initiale = strtr($initiale,$accents);
+    if ($couper == 'non') {
+        $t_suite = mb_strtoupper(mb_substr($t,1,30,$encoding),$encoding);
+        $txt = $t_initiale.$t_suite;
+        return $txt;
+    }
+    return $t_initiale;
+}
+
+// Supprimer l'article au début d'une chaîne : la,le,les,l',des,du,de,d'. 
+// Et désaccentuation de la première lettre.
+function sans_article($texte) {
+    $encoding = 'UTF-8';
+    $t = trim($texte);
+    $recherche = '#^(\bles?|l\'|le|la|des?|d\'|de|du\b)#ui';
+    $remplacement = '';
+    $t = mb_strtoupper(trim(preg_replace($recherche,$remplacement,$t)),$encoding);
+    $texte = desaccentuer($t,'non');
+    return $texte;
 }
 
 function array_sort($tableau) {
@@ -72,7 +90,7 @@ function intro($texte) {
         $texte = $intro;
     return $texte;
 }
-
+/*
 function tri_tableau(&$array, $key,$reverse=false) {
     $sorter=array();
     $ret=array();
@@ -87,5 +105,5 @@ function tri_tableau(&$array, $key,$reverse=false) {
     $array=$ret;
     return $array;
 }
-
+*/
 ?>
