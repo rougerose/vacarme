@@ -90,7 +90,7 @@ function intro($texte) {
         $texte = $intro;
     return $texte;
 }
-/*
+
 function tri_tableau(&$array, $key,$reverse=false) {
     $sorter=array();
     $ret=array();
@@ -105,5 +105,5 @@ function tri_tableau(&$array, $key,$reverse=false) {
     $array=$ret;
     return $array;
 }
-*/
+
 ?>
