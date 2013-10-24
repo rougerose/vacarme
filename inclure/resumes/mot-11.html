@@ -6,7 +6,7 @@
     #ANCRE_PAGINATION
     <div class="grid__item">
         <div class="grid">
-            <BOUCLE_noms(MOTS){id_mot IN #GET{noms}}{par titre}{si #GET{tri}|=={nom}}{pagination 5}>
+            <BOUCLE_noms(MOTS){id_mot IN #GET{noms}}{par titre}{si #GET{tri}|=={nom}}{pagination 10}>
             <article class="resume resume-mot">
                 [<header class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
                     <h1 class="hN resume__titre resume-mot__titre">(#TITRE|prenom_nom)</h1>

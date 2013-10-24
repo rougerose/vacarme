@@ -6,7 +6,7 @@
     #ANCRE_PAGINATION
     <div class="grid__item">
         <div class="grid">
-            <BOUCLE_numeros(DATA){source table,#GET{numeros}}{pagination 5}>
+            <BOUCLE_numeros(DATA){source table,#GET{numeros}}{pagination 10}>
                 <BOUCLE_id_article(DATA){source table,#VALEUR}{cle=id_article}>
                     <BOUCLE_article(ARTICLES){id_article=#VALEUR}>
             [(#INCLURE{fond=inclure/resumes/article-conteneur,id_article,type_resume=hero,layout=4colonnes})]
