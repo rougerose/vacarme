@@ -1,0 +1,108 @@
+[(#REM) 
+    ************************************
+    Constantes
+    ************************************
+    
+    Transmises dans l'environnement : 
+    ----------------------------------
+    - type_resume : logo / text / hero
+    - logo_afficher : oui / non (défaut)
+    - logo_objet : article ou secteur / rubrique
+    - logo_format : paysage / portrait / vignette
+    - lien_image : oui / non (défaut)
+    - afficher_auteur : oui (defaut) / non
+    - afficher_date : oui / non (défaut)
+    - figcaption_numero_titre : oui / non (défaut)
+    - afficher_verrou : oui/non (défaut)
+    - suite_afficher : oui / non (défaut). Pour le descriptif.
+
+    Calculées dans le squelette :
+    ------------------------------
+    - origine : revue
+    - type : entretien, (... ?)
+    - gratuit
+    - logo : oui / non (défaut)
+    - figure_class : resume__figure--paysage / resume__figure--portrait. Calculé à partir du format du logo
+    - contenu_class 
+
+]
+#SET{type_resume,#ENV{type_resume,text}}
+#SET{afficher_auteur,#ENV{afficher_auteur,oui}}
+#SET{origine,''}
+#SET{type,''}
+#SET{logo_afficher,#ENV{logo_afficher,non}}
+#SET{logo_format,#ENV{logo_format,paysage}}
+#SET{lien_image,#ENV{lien_image,non}}
+#SET{afficher_date,#ENV{afficher_date,non}}
+#SET{figcaption_numero_titre,#ENV{figcaption_numero_titre,non}}
+#SET{afficher_verrou,#ENV{afficher_verrou,non}}
+#SET{suite_afficher,#ENV{suite_afficher,''}}
+#SET{article_gratuit,''}
+#SET{figure_class,''}
+#SET{logo,''}
+#SET{contenu_class,''}
+
+<BOUCLE_mot_conteneur(MOTS){id_mot}>
+[(#LOGO_MOT|oui)
+    [(#SET{logo,' '})]
+    [(#LOGO_MOT|largeur|>{#LOGO_MOT|hauteur}|?{
+        #SET{logo_format,paysage},#SET{logo_format,portrait}
+    })]
+    [(#SET{figure_class,#VAL{resume__figure--}|concat{#GET{logo_format}}})]
+]
+
+[(#REM) 
+    maquette sur 4 colonnes 
+    ------------------------------------
+    Variante : élément avec ses enfants.
+]
+<BOUCLE_test_layout(CONDITION){si #ENV{layout}|=={4colonnesElmtChld}|oui}>
+[(#GET{logo}|?{#SET{contenu_class,grid__item--bottom lap-and-up-one-half},#SET{contenu_class,lap-and-up-three-quarters push--lap-and-up-one-quarter}})]
+<article class="resume resume-mot[ resume--(#GET{type_resume})]">
+    <div class="grid__item">
+        <div class="grid">
+            [(#GET{logo}|oui)
+            <div class="group group--parent">
+                <div class="grid__item lap-and-up-one-half">
+                    [(#GET{logo_format}|=={portrait}|?{
+                    <div class="grid"><div class="grid__item lap-and-up-one-half push--lap-and-up-one-half">})]
+                        [(#INCLURE{fond=inclure/objets/logo-mot,
+                            id_mot,logo_format=#GET{logo_format},logo_objet=mot,
+                            figure_class=#GET{figure_class}})]
+                    [(#GET{logo_format}|=={portrait}|?{
+                    </div></div>})]
+                </div><!-- /.grid__item -->
+            ]
+                <div class="grid__item[ (#GET{contenu_class})]">
+                    [(#GET{logo}|non)
+                    <div class="grid"><div class="grid__item lap-and-up-five-sixths">]
+                    [(#INCLURE{fond=inclure/resumes/mot-header,id_mot,type_resume=#GET{type_resume}})]
+                    [(#INCLURE{fond=inclure/resumes/mot-descriptif,
+                        id_mot,type_resume=#GET{type_resume},suite_afficher=#GET{suite_afficher}})]
+                    [(#GET{logo}|non)
+                    </div></div>]
+                </div><!-- /.grid__item -->
+            [(#GET{logo}|oui)
+            </div>]
+        </div><!-- /.grid -->
+    </div><!-- /.grid__item -->
+    <B_articles_mot>
+    <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
+        <div class="grid">
+            <BOUCLE_articles_mot(ARTICLES){id_mot}{par num titre, titre}>
+            <div class="grid__item palm-one-half lap-and-up-one-third">
+                [(#INCLURE{fond=inclure/resumes/article-conteneur,
+                    id_article,
+                    logo_afficher=non,
+                    layout=1colonne,
+                    type_resume=text}
+                )]
+            </div><!-- /.grid__item -->
+            </BOUCLE_articles_mot>
+        </div><!-- /.grid -->
+    </div><!-- /.grid__item -->
+    </B_articles_mot>
+</article>
+</BOUCLE_test_layout>
+
+</BOUCLE_mot_conteneur>

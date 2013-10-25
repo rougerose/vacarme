@@ -17,6 +17,8 @@
     @include media-query(lap-and-up) {margin-bottom: 0;}
 }
 .resume__desc {
+    @include font-size(15px,$line-height:false);
+    line-height: 1.313;
     time {
         color: $gray;
     }
@@ -116,8 +118,6 @@
     }
 }
 .resume-rubrique__desc {
-    @include font-size(15px,$line-height:false);
-    line-height: 1.313;
     // rétablir avec class plus spécifique
     // color: #888;
     // @include media-query(lap-and-up) {
@@ -134,7 +134,7 @@
     color: $gray;
 }
 .resume-article__desc {
-    @extend .resume-rubrique__desc;
+    // @extend .resume-rubrique__desc;
 }
 
 /*==========  resume-article--list  ==========*/
@@ -182,7 +182,7 @@
     float: left;
     .resume-numero__titre {
         margin-bottom: 0;
-        @include font-size(18px,$line-height:false);
+        @include font-size(15px,$line-height:false);
     }
     .resume-numero__soustitre {display: inline; font-size: 100%;}
 }
@@ -209,11 +209,9 @@
 
 /*==========  resume-mot  ==========*/
 .resume-mot__titre {
-    @extend .intertitre-section--first;
-    @include font-size(24px);
-    border-bottom: none;
-    margin-bottom: 1em;
-    font-style: italic;
+    // &.resume__titre--hero {
+    //     @include font-size(24px);
+    // }
 }
 
 /*==========  resumés variantes : stack / text / logo / hero  ==========*/
@@ -278,9 +276,10 @@
     }
 }
 .resume__titre--hero {
-    min-height: 2.5em;
+    // min-height: 2.5em;
+    margin-bottom: 1em;
     color: #000;
-    @include font-size(20px);
+    @include font-size(24px);
     .soustitre {
         @include font-size(16px,$line-height:false);
         margin: 0;
@@ -288,9 +287,12 @@
 }
 .resume__desc--hero {
     margin: 2em 0;
-    p {
-        // @include font-size(16px);
+}
+.resume__desc--seul {
+    .grid__item--bottom & {
+        margin: 2em 0 0;
     }
+    p:last-child {margin-bottom: 0;}
 }
 
 

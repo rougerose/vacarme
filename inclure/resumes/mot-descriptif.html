@@ -1,0 +1,30 @@
+[(#REM) 
+    ************************************
+    Constantes
+    ************************************
+    
+    Transmises dans l'environnement : 
+    ----------------------------------
+    - type_resume : stack (logo + texte superposé) / logo / text / hero
+    - suite_afficher : oui / non (défaut)
+    - resume_numero_titre : oui / non (défaut)
+]
+#SET{type_resume,#ENV{type_resume,text}}
+#SET{resume_numero_titre,#ENV{resume_numero_titre,''}}
+#SET{suite_afficher,#ENV{suite_afficher,''}}
+[(#GET{resume_numero_titre}|non) [(#SET{type_resume,[(#GET{type_resume}) ]resume__desc--seul})]  ]
+<BOUCLE_mot_descriptif(MOTS){id_mot}>
+[<div class="resume__desc resume-mot__desc[ resume__desc--(#GET{type_resume})]">
+    (#DESCRIPTIF|sinon{#INTRODUCTION|couper{100}|wrap{<p>}})
+    [(#GET{suite_afficher}|?{
+    <p class="more more--read"><a href="#URL_MOT"><:local:more_read:></a></p>})]
+</div>]
+[(#GET{resume_numero_titre}|oui)
+<aside class="resume-numero--titreSeul">
+    [(#INCLURE{fond=inclure/resumes/numero-titre,
+        id_rubrique,
+        numero_titre_class=resume-numero__titre,
+        numero_soustitre_class=resume-numero__soustitre,
+        numero_titre_url=oui})]
+</aside>]
+</BOUCLE_mot_descriptif>

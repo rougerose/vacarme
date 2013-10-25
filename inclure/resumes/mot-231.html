@@ -1,3 +1,5 @@
+[(#REM) Tribunes ]
+<BOUCLE_mot(MOTS){id_mot}>
 #SET{numeros,#ENV{numeros}}
 #SET{tri,#ENV{tri}}
 
@@ -9,16 +11,17 @@
             <BOUCLE_numeros(DATA){source table,#GET{numeros}}{pagination 10}>
                 <BOUCLE_id_article(DATA){source table,#VALEUR}{cle=id_article}>
                     <BOUCLE_article(ARTICLES){id_article=#VALEUR}>
-            [(#INCLURE{fond=inclure/resumes/article-conteneur,id_article,type_resume=hero,layout=4colonnes})]
+            [(#INCLURE{fond=inclure/resumes/article-conteneur,id_article,layout=4colonnesElmt,type_resume=hero})]
                     </BOUCLE_article>
                 </BOUCLE_id_article>
             </BOUCLE_numeros>
         </div><!-- /.grid -->
     </div><!-- /.grid__item -->
-    <div class="grid__item desk-three-quarters push--desk-one-quarter">
+    <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
         [<nav class="pagination pagination--bottom pagination--page">
             (#PAGINATION{li})
         </nav>]
     </div><!-- /.grid__item -->
 </section>
 </B_numeros>
+</BOUCLE_mot>

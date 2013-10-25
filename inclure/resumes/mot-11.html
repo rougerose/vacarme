@@ -1,3 +1,4 @@
+<BOUCLE_mot(MOTS){id_mot}>
 #SET{noms,#ENV{noms}}
 #SET{tri,#ENV{tri}}
 #SET{entretiens,#ENV{entretiens}}
@@ -7,14 +8,14 @@
     <div class="grid__item">
         <div class="grid">
             <BOUCLE_noms(MOTS){id_mot IN #GET{noms}}{par titre}{si #GET{tri}|=={nom}}{pagination 10}>
-            <article class="resume resume-mot">
+            <article class="resume resume-mot resume--hero">
                 [<header class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
-                    <h1 class="hN resume__titre resume-mot__titre">(#TITRE|prenom_nom)</h1>
+                    <h1 class="hN resume__titre resume-mot__titre resume__titre--hero">(#TITRE|prenom_nom)</h1>
                 </header>]
-                <BOUCLE_entretien(ARTICLES){id_mot}{id_article IN #GET{entretiens}}{par titre}>
+                <BOUCLE_entretien(ARTICLES){id_mot}{id_article IN #GET{entretiens}}{!par date}>
                 <div class="grid__item">
                     <div class="grid">
-                        [(#INCLURE{fond=inclure/resumes/article-conteneur,id_article,type_resume=hero,layout=4colonnes})]
+                        [(#INCLURE{fond=inclure/resumes/article-conteneur,id_article,layout=4colonnesElmt})]
                     </div><!-- /.grid -->
                 </div><!-- /.grid__item -->
                 </BOUCLE_entretien>
@@ -29,3 +30,4 @@
     </div><!-- /.grid__item -->
 </section>
 </B_noms>
+</BOUCLE_mot>

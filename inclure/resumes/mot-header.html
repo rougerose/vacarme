@@ -1,0 +1,18 @@
+[(#REM) 
+    ************************************
+    Constantes
+    ************************************
+    
+    Transmises dans l'environnement : 
+    ----------------------------------
+    - type_resume : stack (logo + texte superposé) / logo / text / hero
+
+][(#SET{type_resume,#ENV{type_resume,text}})]
+
+<BOUCLE_mot_header(MOTS){id_mot}>
+<header>
+    <h1 class="hN resume__titre resume-mot__titre[ resume__titre--(#GET{type_resume})]">
+        [(#TITRE)]
+    </h1>
+</header>
+</BOUCLE_mot_header>

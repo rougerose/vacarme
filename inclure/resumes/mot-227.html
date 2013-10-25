@@ -1,0 +1,35 @@
+[(#REM) Dossiers ]
+<BOUCLE_mot(MOTS){id_mot}>
+#SET{dossiers,#ENV{dossiers}}
+<B_tri_titre>
+<section class="landmark">
+    #ANCRE_PAGINATION
+    <div class="grid__item">
+        <div class="grid">
+            <BOUCLE_tri_titre(DATA){source table,#GET{dossiers}}{par cle}{pagination 10}>
+                <BOUCLE_test_mot(DATA){source table,#VALEUR}{cle==mot}>
+                    <BOUCLE_donnees_mot(MOTS){id_mot=#VALEUR}>
+            [(#INCLURE{fond=inclure/resumes/mot-conteneur,
+                id_mot=#VALEUR,
+                type_resume=hero,
+                layout=4colonnesElmtChld}
+            )]
+                    </BOUCLE_donnees_mot>
+                </BOUCLE_test_mot>
+
+                <BOUCLE_test_rubrique(DATA){source table,#VALEUR}{cle==rub}>
+                    <BOUCLE_donnees_rubrique(RUBRIQUES){id_rubrique=#VALEUR}>
+                    
+                    </BOUCLE_donnees_rubrique>
+                </BOUCLE_test_rubrique>
+            </BOUCLE_tri_titre>
+        </div><!-- /.grid -->
+    </div><!-- /.grid__item -->
+    <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
+        [<nav class="pagination pagination--bottom pagination--page">
+            (#PAGINATION{li})
+        </nav>]
+    </div><!-- /.grid__item -->
+</section>
+</B_tri_titre>
+</BOUCLE_mot>
