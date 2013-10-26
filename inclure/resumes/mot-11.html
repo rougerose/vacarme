@@ -15,7 +15,11 @@
                 <BOUCLE_entretien(ARTICLES){id_mot}{id_article IN #GET{entretiens}}{!par date}>
                 <div class="grid__item">
                     <div class="grid">
-                        [(#INCLURE{fond=inclure/resumes/article-conteneur,id_article,layout=4colonnesElmt})]
+                        [(#INCLURE{fond=inclure/resumes/article-conteneur,
+                            id_article,
+                            layout=4colonnesElmt,
+                            resume_numero_titre=oui}
+                        )]
                     </div><!-- /.grid -->
                 </div><!-- /.grid__item -->
                 </BOUCLE_entretien>

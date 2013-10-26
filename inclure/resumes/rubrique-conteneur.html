@@ -14,9 +14,8 @@
     - afficher_date : oui / non (défaut)
     - figcaption_numero_titre : oui / non (défaut)
     - afficher_verrou : oui/non (défaut)
-    - suite_afficher : oui / non (défaut). Pour le descriptif.
-    - rubrique_parente : id_rubrique de la rubrique parente des articles liés au mot-clé. Effectif uniquement pour les dossiers.
-    - resume_numero_titre : oui / non (défaut)
+    - afficher_suite : oui / non (défaut). Pour le descriptif.
+    - resume_numero_titre : oui / non (défaut).
 
     Calculées dans le squelette :
     ------------------------------
@@ -43,13 +42,12 @@
 #SET{figure_class,''}
 #SET{logo,''}
 #SET{contenu_class,''}
-#SET{rubrique_parente,#ENV{rubrique_parente,''}}
 #SET{resume_numero_titre,#ENV{resume_numero_titre,''}}
 
-<BOUCLE_mot_conteneur(MOTS){id_mot}>
-[(#LOGO_MOT|oui)
+<BOUCLE_rubrique_conteneur(RUBRIQUES){id_rubrique}>
+[(#LOGO_RUBRIQUE|oui)
     [(#SET{logo,' '})]
-    [(#LOGO_MOT|largeur|>{#LOGO_MOT|hauteur}|?{
+    [(#LOGO_RUBRIQUE|largeur|>{#LOGO_RUBRIQUE|hauteur}|?{
         #SET{logo_format,paysage},#SET{logo_format,portrait}
     })]
     [(#SET{figure_class,#VAL{resume__figure--}|concat{#GET{logo_format}}})]
@@ -62,41 +60,42 @@
 ]
 <BOUCLE_test_layout(CONDITION){si #ENV{layout}|=={4colonnesElmtChld}|oui}>
 [(#GET{logo}|?{#SET{contenu_class,grid__item--bottom lap-and-up-one-half},#SET{contenu_class,lap-and-up-three-quarters push--lap-and-up-one-quarter}})]
-<article class="resume resume-mot[ resume--(#GET{type_resume})]">
+<article class="resume resume-rubrique[ resume--(#GET{type_resume})]">
     <div class="grid__item">
         <div class="grid">
+            [(#GET{logo}|oui)
             <div class="group group--parent">
-                [(#GET{logo}|oui)
                 <div class="grid__item lap-and-up-one-half">
                     [(#GET{logo_format}|=={portrait}|?{
                     <div class="grid"><div class="grid__item lap-and-up-one-half push--lap-and-up-one-half">})]
-                        [(#INCLURE{fond=inclure/objets/logo-mot,
-                            id_mot,logo_format=#GET{logo_format},logo_objet=mot,
+                        [(#INCLURE{fond=inclure/objets/logo-rubrique,
+                            id_rubrique,logo_format=#GET{logo_format},logo_objet=mot,
                             figure_class=#GET{figure_class}})]
                     [(#GET{logo_format}|=={portrait}|?{
                     </div></div>})]
                 </div><!-- /.grid__item -->
-                ]
+            ]
                 <div class="grid__item[ (#GET{contenu_class})]">
                     [(#GET{logo}|non)
                     <div class="grid"><div class="grid__item lap-and-up-five-sixths">]
-                    [(#INCLURE{fond=inclure/resumes/mot-header,id_mot,type_resume=#GET{type_resume}})]
-                    [(#INCLURE{fond=inclure/resumes/mot-descriptif,
-                        id_mot,
+                    [(#INCLURE{fond=inclure/resumes/rubrique-header,id_rubrique,type_resume=#GET{type_resume}})]
+                    [(#INCLURE{fond=inclure/resumes/rubrique-descriptif,
+                        id_rubrique,
                         type_resume=#GET{type_resume},
-                        suite_afficher=#GET{suite_afficher},
-                        resume_numero_titre=#GET{resume_numero_titre},
-                        rubrique_parente=#GET{rubrique_parente}})]
+                        afficher_suite=#GET{afficher_suite},
+                        resume_numero_titre=#GET{resume_numero_titre}}
+                    )]
                     [(#GET{logo}|non)
                     </div></div>]
                 </div><!-- /.grid__item -->
-            </div><!-- /.group.group--parent -->
+            [(#GET{logo}|oui)
+            </div>]
         </div><!-- /.grid -->
     </div><!-- /.grid__item -->
     <B_articles_mot>
     <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
         <div class="grid">
-            <BOUCLE_articles_mot(ARTICLES){id_mot}{par num titre, titre}>
+            <BOUCLE_articles_mot(ARTICLES){id_rubrique}{par num titre, titre}>
             <div class="grid__item palm-one-half lap-and-up-one-third">
                 [(#INCLURE{fond=inclure/resumes/article-conteneur,
                     id_article,
@@ -111,4 +110,4 @@
 </article>
 </BOUCLE_test_layout>
 
-</BOUCLE_mot_conteneur>
+</BOUCLE_rubrique_conteneur>

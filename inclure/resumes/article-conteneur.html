@@ -15,6 +15,7 @@
     - figcaption_numero_titre : oui / non (défaut)
     - afficher_verrou : oui/non (défaut)
     - resume_numero_titre : oui/non (défaut)
+    - suite_afficher : oui / non (défaut). Pour le descriptif.
 
     Calculées dans le squelette :
     ------------------------------
@@ -30,21 +31,22 @@
     #SET{afficher_auteur,#ENV{afficher_auteur,oui}}
     #SET{origine,''}
     #SET{type,''}
-    #SET{logo_afficher,#ENV{logo_afficher,non}}
+    #SET{logo_afficher,#ENV{logo_afficher,''}}
     #SET{logo_format,#ENV{logo_format,paysage}}
     #SET{lien_image,#ENV{lien_image,non}}
     #SET{afficher_date,#ENV{afficher_date,non}}
     #SET{figcaption_numero_titre,#ENV{figcaption_numero_titre,non}}
     #SET{afficher_verrou,#ENV{afficher_verrou,non}}
+    #SET{afficher_suite,#ENV{afficher_suite,''}}
     #SET{article_gratuit,''}
     #SET{figure_class,''}
     #SET{logo,''}
     #SET{contenu_class,''}
-    #SET{resume_numero_titre,#ENV{resume_titre,''}}
+    #SET{resume_numero_titre,#ENV{resume_numero_titre,''}}
 
 <BOUCLE_article_conteneur(ARTICLES){id_article}>
 [(#LOGO_ARTICLE|oui)
-    [(#SET{logo,' '})]
+    [(#GET{logo_afficher}|?{#SET{logo,' '}})]
     [(#LOGO_ARTICLE|largeur|>{#LOGO_ARTICLE|hauteur}|?{
         #SET{logo_format,paysage},#SET{logo_format,portrait}
     })]
@@ -83,7 +85,7 @@
             [(#INCLURE{fond=inclure/resumes/article-descriptif,
                 id_article,
                 type_resume=#GET{type_resume},
-                resume_numero_titre=#GET{resume_titre_numero}}
+                resume_numero_titre=#GET{resume_numero_titre},afficher_suite=#GET{afficher_suite}}
             )]
             [(#GET{logo}|non)
             </div></div>]
@@ -100,13 +102,15 @@
         #SET{contenu_class,lap-and-up-three-quarters push--lap-and-up-one-quarter}
     })]
     <article class="resume resume-article[ resume--(#GET{type_resume})]">
-        [(#INCLURE{fond=inclure/objets/logo-article,
-            id_article,
-            logo_format=#GET{logo_format},
-            logo_objet=article,
-            figure_class=#GET{figure_class},
-            lien_image=oui}
-        )]
+        [(#GET{logo}|?{
+            [(#INCLURE{fond=inclure/objets/logo-article,
+                id_article,
+                logo_format=#GET{logo_format},
+                logo_objet=article,
+                figure_class=#GET{figure_class},
+                lien_image=#GET{lien_image}}
+            )]
+        })]
         [(#INCLURE{fond=inclure/resumes/article-header,
             id_article,
             type_resume=#GET{type_resume}}

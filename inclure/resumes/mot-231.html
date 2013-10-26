@@ -11,7 +11,8 @@
             <BOUCLE_numeros(DATA){source table,#GET{numeros}}{pagination 10}>
                 <BOUCLE_id_article(DATA){source table,#VALEUR}{cle=id_article}>
                     <BOUCLE_article(ARTICLES){id_article=#VALEUR}>
-            [(#INCLURE{fond=inclure/resumes/article-conteneur,id_article,layout=4colonnesElmt,type_resume=hero})]
+            [(#INCLURE{fond=inclure/resumes/article-conteneur,
+                id_article,layout=4colonnesElmt,type_resume=hero,resume_numero_titre=' '})]
                     </BOUCLE_article>
                 </BOUCLE_id_article>
             </BOUCLE_numeros>
