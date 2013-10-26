@@ -26,6 +26,9 @@
  ☐ mot-contenu-11 (entretiens) : proposer un tri par numéro en plus du tri alpha qui est proposé par défaut ? 
  ☐ auteurs : revoir le html notamment au niveau du résumé auteur. Et utiliser pour le nom d'auteur la class resume--hero mise en place pour les entretiens, tribunes, etc. 
  ☐ mot-contenu-standard : seuls les articles sont affichés. Afficher également les rubriques ? Pour le moment, il s'agit d'afficher Critiques et Société uniquement, donc les rubriques n'ont pas beaucoup d'intérêt (?).
+ ☐ utiliser les compositions pour tous les articles ? 
+ ☐ le traitement des logos dans le squelette article et les compositions sont différentes. Il faut harmoniser. 
+ ☐ supprimer les sous-titres des pages accueil, rubrique, index, etc...
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:

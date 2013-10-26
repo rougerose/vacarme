@@ -1,7 +1,7 @@
 <BOUCLE_article_chapo_logo(ARTICLES){id_article}>
 [(#REM) 
 
-    Le chapo et le logo de l'article en fonction des 3 compositions possibles
+    Le chapo et le logo de l'article en fonction des 4 compositions possibles
     *************************************************************************
 
 ][
@@ -24,7 +24,7 @@
 
 (#REM)
 
-    2- Composiiton article-numero-logo_XL
+    2- Composition article-numero-logo_XL
     ------------------------------------------------------------------------
 
 ][(#COMPOSITION|=={numero-logo_XL}|oui)
@@ -50,6 +50,21 @@
     <div class="chapo-logo--vertical">
         [<img src="(#LOGO_ARTICLE|image_reduire{350,0}|extraire_attribut{src}sinon{http://placehold.it/527x600/ff5230/ffffff&text=logo+obligatoire+!})" alt="[(#TITRE|textebrut)]" class="logo--vertical">]
     </div>
+    [
+        (#REM) schema/article : description
+    ][<meta itemprop="description" content="(#DESCRIPTIF|sinon{#INTRODUCTION{300}}|textebrut)" />]
+    [<div class="#EDIT{chapo} self__chapo chapo-text--vertical landmark surlignable liens">
+        (#CHAPO|image_reduire{500,0})
+    </div>]
+</div><!-- /.grid__item -->][
+
+(#REM)
+
+    4- Composition article-numero-nologo
+    ------------------------------------------------------------------------
+
+][(#COMPOSITION|=={numero-nologo}|oui)
+<div class="grid__item">
     [
         (#REM) schema/article : description
     ][<meta itemprop="description" content="(#DESCRIPTIF|sinon{#INTRODUCTION{300}}|textebrut)" />]
