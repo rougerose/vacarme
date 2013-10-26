@@ -1,24 +1,13 @@
 <BOUCLE_mot_contenu_standard(MOTS){id_mot}>
 <div class="grid__item desk-three-quarters push--desk-one-quarter">
     <BOUCLE_articles_mot(ARTICLES){id_mot}{0,1}>
-        #SET{articles_mot,1}
         [(#INCLURE{fond=liste/articles,
             id_mot,
             suite_afficher=oui,
             resume_numero_titre=oui,
             env,ajax})]
     </BOUCLE_articles_mot>
-        #SET{articles_mot,0}
+        <p>Aucun résultat.</p>
     <//B_articles_mot>
-    <BOUCLE_rubriques_mot(RUBRIQUES){id_mot}{0,1}>
-        #SET{rubriques_mot,1}
-        [(#INCLURE{fond=inclure/objets/rubriques,id_mot,env,ajax})]
-    </BOUCLE_rubriques_mot>
-        #SET{rubriques_mot,0}
-    <//B_rubriques_mot>
-
-    [(#GET{articles_mot}|=={0}|oui)
-        [(#GET{rubriques_mot}|=={0}|oui)<p>Aucun résultat.</p>]
-    ]
 </div><!-- /.grid__item -->
 </BOUCLE_mot_contenu_standard>
