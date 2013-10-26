@@ -12,7 +12,11 @@
                 <BOUCLE_id_article(DATA){source table,#VALEUR}{cle=id_article}>
                     <BOUCLE_article(ARTICLES){id_article=#VALEUR}>
             [(#INCLURE{fond=inclure/resumes/article-conteneur,
-                id_article,layout=4colonnesElmt,type_resume=hero,resume_numero_titre=' '})]
+                id_article,
+                layout=4colonnesElmt,
+                type_resume=hero,
+                suite_afficher=oui,
+                resume_numero_titre=oui})]
                     </BOUCLE_article>
                 </BOUCLE_id_article>
             </BOUCLE_numeros>

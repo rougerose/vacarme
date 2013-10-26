@@ -6,17 +6,17 @@
     Transmises dans l'environnement : 
     ----------------------------------
     - type_resume : stack (logo + texte superposé) / logo / text / hero
-    - afficher_suite : oui / non (défaut)
+    - suite_afficher : oui / non (défaut)
     - resume_numero_titre : oui / non (défaut)
 ]
 #SET{type_resume,#ENV{type_resume,text}}
 #SET{resume_numero_titre,#ENV{resume_numero_titre,''}}
-#SET{afficher_suite,#ENV{afficher_suite,''}}
+#SET{suite_afficher,#ENV{suite_afficher,''}}
 [(#GET{resume_numero_titre}|non) [(#SET{type_resume,[(#GET{type_resume}) ]resume__desc--seul})]  ]
 <BOUCLE_rubrique_descriptif(RUBRIQUES){id_rubrique}>
 [<div class="resume__desc resume-mot__desc[ resume__desc--(#GET{type_resume})]">
     (#DESCRIPTIF|sinon{#INTRODUCTION|couper{100}|wrap{<p>}})
-    [(#GET{afficher_suite}|?{
+    [(#GET{suite_afficher}|?{
     <p class="more more--read"><a href="#URL_MOT"><:local:more_read:></a></p>})]
 </div>]
 [(#GET{resume_numero_titre}|oui)

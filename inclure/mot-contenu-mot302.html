@@ -1,0 +1,18 @@
+[(#REM) 
+    Les feuilletons
+    =======================
+    1/ récupérer les articles qui ont le mot-clé Feuilletons et qui ont un mot-clé du groupe 15 (@feuilletons).
+    2/ récupérer les mots-clés @feuilletons de l'article dans un tableau. Ce qui permettra de faire un tri par nom.
+
+]
+<BOUCLE_mot_302_contenu(MOTS){id_mot}>
+<BOUCLE_feuilletons(ARTICLES){id_mot}{id_groupe IN 14,15,17}>
+    <BOUCLE_titres(MOTS){id_article}{id_groupe IN 14,15,17}{unique}>
+        [(#SET{titre_mot,[(#TITRE|textebrut|sans_article|concat{_mot_#ID_MOT})]})]
+        #SET_MERGE{titres,#GET{titres},#ARRAY{#GET{titre_mot},#ARRAY{mot,#ID_MOT}}}
+    </BOUCLE_titres>
+</BOUCLE_feuilletons>
+
+<INCLURE{fond=inclure/resumes/mot-302,id_mot,titres=#GET{titres},ajax} />
+
+</BOUCLE_mot_302_contenu>

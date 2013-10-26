@@ -1,0 +1,52 @@
+[(#REM) 
+    ************************************
+    Constantes
+    ************************************
+    
+    Transmises dans l'environnement : 
+    ----------------------------------
+    - type_resume : stack (logo + texte superposé) / logo / text / hero
+    - logo_afficher : oui / non (défaut)
+    - lien_image : oui / non (défaut)
+    - afficher_auteur : oui (defaut) / non
+    - afficher_date : oui / non (défaut)
+    - afficher_verrou : oui/non (défaut)
+    - resume_numero_titre : oui/non (défaut)
+    - suite_afficher : oui / non (défaut). Pour le descriptif.
+    - layout : 1colonne / 4colonnesElmt
+]
+    #SET{type_resume,#ENV{type_resume,text}}
+    #SET{logo_afficher,#ENV{logo_afficher,''}}
+    #SET{logo_format,#ENV{logo_format,paysage}}
+    #SET{lien_image,#ENV{lien_image,''}}
+    #SET{afficher_date,#ENV{afficher_date,''}}
+    #SET{figcaption_numero_titre,#ENV{figcaption_numero_titre,''}}
+    #SET{afficher_verrou,#ENV{afficher_verrou,''}}
+    #SET{suite_afficher,#ENV{suite_afficher,''}}
+    #SET{resume_numero_titre,#ENV{resume_numero_titre,''}}
+    #SET{afficher_auteur,#ENV{afficher_auteur,oui}}
+    #SET{layout,#ENV{layout,1colonne}}
+
+<B_articles>
+<section class="landmark">
+    #ANCRE_PAGINATION
+    <div class="grid">
+        <BOUCLE_articles(ARTICLES){id_rubrique?}{id_mot?}{!par date}{pagination 12}>
+        <div class="grid__item lap-and-up-one-third">
+            [(#INCLURE{fond=inclure/resumes/article-conteneur,
+                id_article,
+                layout=#GET{layout},
+                type_resume=#GET{type_resume},
+                resume_numero_titre=#GET{resume_numero_titre},
+                afficher_date=#GET{afficher_date},
+                suite_afficher=#GET{suite_afficher},
+                logo_afficher=#GET{logo_afficher}}
+            )]
+        </div><!-- /.grid__item -->
+        </BOUCLE_articles>
+    </div><!-- /.grid -->
+    [<nav class="pagination pagination--bottom pagination--page">
+        (#PAGINATION{li})
+    </nav>]
+</section>
+</B_articles>

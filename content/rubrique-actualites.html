@@ -12,7 +12,14 @@
                     (#TEXTE|image_reduire{500,0})
                 </div>
             </div>]
-            [(#INCLURE{fond=inclure/objets/articles,id_rubrique,afficher_date=oui,env,ajax})]
+            [(#INCLURE{fond=liste/articles,
+                id_rubrique,
+                afficher_date=oui,
+                suite_afficher=oui,
+                layout=1colonne,
+                type_resume=text,
+                env,ajax}
+            )]
         </div><!-- /.grid__item -->
     </article>
 </div><!-- /.grid -->

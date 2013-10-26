@@ -62,11 +62,11 @@
 .sommaire__section {margin-bottom: 2em;}
 
 /*==========  group  ==========*/
-
 // .group {}
-
 .group--parent {
-    margin-bottom: 3em;
+    @include media-query(lap-and-up) {
+        margin-bottom: 3em;
+    }
 }
 
 /*-----  End of sections  ------*/

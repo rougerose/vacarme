@@ -13,14 +13,14 @@
     }
 }
 .pagination__label {
-    position: absolute;
-    left: 0;
-    // display: inline;
-    // float: left;
     padding-top: 6px;
     color: $gray;
     font-weight: 600;
     @include font-size(16px,$line-height:false);
+    @include media-query(lap-and-up) {
+        position: absolute;
+        left: 0;
+    }
 }
 .pagination__item {
     @include media-query(palm) {

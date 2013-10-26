@@ -14,9 +14,12 @@
     - afficher_date : oui / non (défaut)
     - figcaption_numero_titre : oui / non (défaut)
     - afficher_verrou : oui/non (défaut)
-    - suite_afficher : oui / non (défaut). Pour le descriptif.
+    - suite_afficher_mot : oui / non (défaut). Pour le descriptif du mot.
+    - suite_afficher_article : oui / non (défaut). Pour le descriptif de l'article lié.
     - rubrique_parente : id_rubrique de la rubrique parente des articles liés au mot-clé. Effectif uniquement pour les dossiers.
-    - resume_numero_titre : oui / non (défaut)
+    - resume_numero_titre_mot : oui / non (défaut). Afficher le resume_numero_titre au niveau du numéro ?
+    - resume_numero_titre_article : oui / non (défaut). Afficher le resume_numero_titre au niveau de l'article ?
+    - tri_articles : titre (défaut). critère de tri des articles liés. 
 
     Calculées dans le squelette :
     ------------------------------
@@ -38,13 +41,16 @@
 #SET{afficher_date,#ENV{afficher_date,non}}
 #SET{figcaption_numero_titre,#ENV{figcaption_numero_titre,non}}
 #SET{afficher_verrou,#ENV{afficher_verrou,non}}
-#SET{afficher_suite,#ENV{afficher_suite,''}}
+#SET{suite_afficher_mot,#ENV{suite_afficher_mot,''}}
+#SET{suite_afficher_article,#ENV{suite_afficher_article,''}}
 #SET{article_gratuit,''}
 #SET{figure_class,''}
 #SET{logo,''}
 #SET{contenu_class,''}
 #SET{rubrique_parente,#ENV{rubrique_parente,''}}
-#SET{resume_numero_titre,#ENV{resume_numero_titre,''}}
+#SET{resume_numero_titre_mot,#ENV{resume_numero_titre_mot,''}}
+#SET{resume_numero_titre_article,#ENV{resume_numero_titre_article,''}}
+#SET{tri_articles,#ENV{tri_articles,'titre'}}
 
 <BOUCLE_mot_conteneur(MOTS){id_mot}>
 [(#LOGO_MOT|oui)
@@ -84,8 +90,8 @@
                     [(#INCLURE{fond=inclure/resumes/mot-descriptif,
                         id_mot,
                         type_resume=#GET{type_resume},
-                        suite_afficher=#GET{suite_afficher},
-                        resume_numero_titre=#GET{resume_numero_titre},
+                        suite_afficher=#GET{suite_afficher_mot},
+                        resume_numero_titre=#GET{resume_numero_titre_mot},
                         rubrique_parente=#GET{rubrique_parente}})]
                     [(#GET{logo}|non)
                     </div></div>]
@@ -96,11 +102,13 @@
     <B_articles_mot>
     <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
         <div class="grid">
-            <BOUCLE_articles_mot(ARTICLES){id_mot}{par num titre, titre}>
-            <div class="grid__item palm-one-half lap-and-up-one-third">
+            <BOUCLE_articles_mot(ARTICLES){id_mot}{par #GET{tri_articles}}>
+            <div class="grid__item lap-and-up-one-third">
                 [(#INCLURE{fond=inclure/resumes/article-conteneur,
                     id_article,
                     layout=1colonne,
+                    suite_afficher=#GET{suite_afficher_article},
+                    resume_numero_titre=#GET{resume_numero_titre_article},
                     type_resume=text}
                 )]
             </div><!-- /.grid__item -->
@@ -108,6 +116,8 @@
         </div><!-- /.grid -->
     </div><!-- /.grid__item -->
     </B_articles_mot>
+    [(#REM) les articles liés, la liste est transmise dans l'environnement ]
+    
 </article>
 </BOUCLE_test_layout>
 

@@ -34,10 +34,10 @@
     #SET{logo_afficher,#ENV{logo_afficher,''}}
     #SET{logo_format,#ENV{logo_format,paysage}}
     #SET{lien_image,#ENV{lien_image,non}}
-    #SET{afficher_date,#ENV{afficher_date,non}}
-    #SET{figcaption_numero_titre,#ENV{figcaption_numero_titre,non}}
-    #SET{afficher_verrou,#ENV{afficher_verrou,non}}
-    #SET{afficher_suite,#ENV{afficher_suite,''}}
+    #SET{afficher_date,#ENV{afficher_date,''}}
+    #SET{figcaption_numero_titre,#ENV{figcaption_numero_titre,''}}
+    #SET{afficher_verrou,#ENV{afficher_verrou,''}}
+    #SET{suite_afficher,#ENV{suite_afficher,''}}
     #SET{article_gratuit,''}
     #SET{figure_class,''}
     #SET{logo,''}
@@ -85,7 +85,9 @@
             [(#INCLURE{fond=inclure/resumes/article-descriptif,
                 id_article,
                 type_resume=#GET{type_resume},
-                resume_numero_titre=#GET{resume_numero_titre},afficher_suite=#GET{afficher_suite}}
+                resume_numero_titre=#GET{resume_numero_titre},
+                afficher_date=#GET{afficher_date},
+                suite_afficher=#GET{suite_afficher}}
             )]
             [(#GET{logo}|non)
             </div></div>]
@@ -118,6 +120,7 @@
         [(#INCLURE{fond=inclure/resumes/article-descriptif,
             id_article,
             type_resume=#GET{type_resume},
+            suite_afficher=#GET{suite_afficher},
             resume_numero_titre=#GET{resume_numero_titre}}
         )]
     </article>

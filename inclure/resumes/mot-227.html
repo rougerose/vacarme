@@ -14,7 +14,8 @@
                 id_mot=#VALEUR,
                 type_resume=hero,
                 layout=4colonnesElmtChld,
-                resume_numero_titre=oui,
+                resume_numero_titre_mot=oui,
+                suite_afficher_article=oui,
                 rubrique_parente=#GET{rubrique_parente}}
             )]
                     </BOUCLE_donnees_mot>
@@ -25,7 +26,8 @@
             [(#INCLURE{fond=inclure/resumes/rubrique-conteneur,
                 id_rubrique=#VALEUR,
                 type_resume=hero,
-                resume_numero_titre=oui,
+                resume_numero_titre_rubrique=oui,
+                suite_afficher_article=oui,
                 layout=4colonnesElmtChld}
             )]      
                     </BOUCLE_donnees_rubrique>

@@ -7,18 +7,18 @@
     ----------------------------------
     - type_resume : stack (logo + texte superposé) / logo / text
     - afficher_date : oui / non (défaut)
-    - afficher_suite : oui (defaut) / non
+    - suite_afficher : oui / non (défaut)
     - resume_numero_titre : oui / non (défaut)
 
 ][(#SET{type_resume,#ENV{type_resume,text}})]
-[(#SET{afficher_date,#ENV{afficher_date,non}})]
-[(#SET{afficher_suite,#ENV{afficher_suite,' '}})]
+[(#SET{afficher_date,#ENV{afficher_date,''}})]
+[(#SET{suite_afficher,#ENV{suite_afficher,''}})]
 [(#SET{resume_numero_titre,#ENV{resume_numero_titre,''}})]
 <BOUCLE_article_descriptif(ARTICLES){id_article}>
 [<div class="resume__desc resume-article__desc[ resume__desc--(#GET{type_resume})]">
     [(#GET{afficher_date}|=={oui}|?{[<time pubdate datetime="[(#DATE|date_iso)]">(#DATE|affdate_court)</time>]})]
     (#DESCRIPTIF|sinon{#INTRODUCTION|couper{100}|wrap{<p>}})
-    [(#GET{afficher_suite}|?{
+    [(#GET{suite_afficher}|?{
     <p class="more more--read"><a href="#URL_ARTICLE"><:local:more_read:></a></p>})]
 </div>]
 [(#GET{resume_numero_titre}|oui)
