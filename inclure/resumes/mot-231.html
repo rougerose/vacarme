@@ -1,25 +1,41 @@
 [(#REM) Tribunes ]
-<BOUCLE_mot(MOTS){id_mot}>
-#SET{numeros,#ENV{numeros}}
-#SET{tri,#ENV{tri}}
+#SET{tribunes,#ENV{tribunes}}
+<BOUCLE_mot_tribunes(MOTS){id_mot}>
 
 <B_numeros>
 <section class="landmark">
     #ANCRE_PAGINATION
     <div class="grid__item">
         <div class="grid">
-            <BOUCLE_numeros(DATA){source table,#GET{numeros}}{pagination 10}>
-                <BOUCLE_id_article(DATA){source table,#VALEUR}{cle=id_article}>
-                    <BOUCLE_article(ARTICLES){id_article=#VALEUR}>
-            [(#INCLURE{fond=inclure/resumes/article-conteneur,
-                id_article,
-                layout=4colonnesElmt,
-                type_resume=hero,
-                logo_afficher=oui,
-                suite_afficher=oui,
-                resume_numero_titre=oui})]
-                    </BOUCLE_article>
-                </BOUCLE_id_article>
+            <BOUCLE_numeros(POUR){tableau #GET{tribunes}}{pagination 10}>
+                <BOUCLE_test_articles(DATA){source table,#VALEUR}{cle==art}>
+                    <BOUCLE_articles(ARTICLES){id_article=#VALEUR}>
+                        [<div class="group group--item">
+                            (#INCLURE{fond=inclure/layout/article-4colArt,
+                                id_article,
+                                article_resume_type=resume--hero,
+                                article_titre_class=resume__titre--hero,
+                                article_suite_afficher=oui,
+                                article_resume_numero_titre_afficher=oui})
+                        </div>]
+                    </BOUCLE_articles>
+                </BOUCLE_test_articles>
+
+                <BOUCLE_test_rubriques(DATA){source table,#VALEUR}{cle==rub}>
+                    <BOUCLE_rubriques(RUBRIQUES){id_rubrique=#VALEUR}>
+                        <BOUCLE_articles_combien(ARTICLES){id_rubrique}> </BOUCLE_articles_combien>
+                        [(#TOTAL_BOUCLE|>{2}|?{ #SET{layout,rubrique-4col2lignesRubArt},#SET{layout,rubrique-4col1ligneRubArt} })]
+                        </B_articles_combien>
+                        [<div class="group group--item">
+                            (#INCLURE{fond=inclure/layout/#GET{layout},
+                                id_rubrique,
+                                rubrique_resume_type=resume--hero,
+                                rubrique_titre_class=resume__titre--hero,
+                                rubrique_desc_class=resume__desc--hero})
+                        </div>]
+                    </BOUCLE_rubriques>
+                </BOUCLE_test_rubriques>
+
             </BOUCLE_numeros>
         </div><!-- /.grid -->
     </div><!-- /.grid__item -->
@@ -30,4 +46,4 @@
     </div><!-- /.grid__item -->
 </section>
 </B_numeros>
-</BOUCLE_mot>
+</BOUCLE_mot_tribunes>

@@ -63,6 +63,9 @@
 
 /*==========  group  ==========*/
 // .group {}
+.group--item {
+    margin-bottom: 3em;
+}
 .group--parent {
     @include media-query(lap-and-up) {
         margin-bottom: 3em;

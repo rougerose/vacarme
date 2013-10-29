@@ -5,26 +5,35 @@
     
     Transmises dans l'environnement : 
     ----------------------------------
-    - type_resume : stack (logo + texte superposé) / logo / text / hero
-    - suite_afficher : oui / non (défaut)
-    - resume_numero_titre : oui / non (défaut)
+    css :
+        - desc_class : resume__desc--stack|logo|text*|hero
+    
+    contenu :
+        - suite_afficher : oui|non*
+        - resume_numero_titre_afficher : oui|non*
 ]
-#SET{type_resume,#ENV{type_resume,text}}
-#SET{resume_numero_titre,#ENV{resume_numero_titre,''}}
-#SET{suite_afficher,#ENV{suite_afficher,''}}
-[(#GET{resume_numero_titre}|non) [(#SET{type_resume,[(#GET{type_resume}) ]resume__desc--seul})]  ]
+
+[(#REM) css ]
+    #SET{desc_class,#ENV{desc_class,resume__desc--text}}
+
+[(#REM) contenu ]
+    #SET{suite_afficher,#ENV{suite_afficher,''}}
+    #SET{resume_numero_titre_afficher,#ENV{resume_numero_titre_afficher,''}}
+
+
 <BOUCLE_rubrique_descriptif(RUBRIQUES){id_rubrique}>
-[<div class="resume__desc resume-mot__desc[ resume__desc--(#GET{type_resume})]">
+[<div class="resume__desc resume-rubrique__desc[ (#GET{desc_class})]">
     (#DESCRIPTIF|sinon{#INTRODUCTION|couper{100}|wrap{<p>}})
     [(#GET{suite_afficher}|?{
-    <p class="more more--read"><a href="#URL_MOT"><:local:more_read:></a></p>})]
+    <p class="more more--read"><a href="#URL_RUBRIQUE"><:local:more_read:></a></p>})]
 </div>]
-[(#GET{resume_numero_titre}|oui)
-<aside class="resume-numero--titreSeul">
-    [(#INCLURE{fond=inclure/resumes/numero-titre,
-        id_rubrique,
-        numero_titre_class=resume-numero__titre,
-        numero_soustitre_class=resume-numero__soustitre,
-        numero_titre_url=oui})]
-</aside>]
+[(#GET{resume_numero_titre_afficher}|?{
+    <aside class="resume-numero--titreSeul">
+        [(#INCLURE{fond=inclure/resumes/numero-titre,
+            id_rubrique,
+            numero_titre_class=resume-numero__titre,
+            numero_soustitre_class=resume-numero__soustitre,
+            numero_titre_url=oui})]
+    </aside>
+})]
 </BOUCLE_rubrique_descriptif>

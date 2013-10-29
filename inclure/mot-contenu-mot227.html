@@ -5,14 +5,14 @@
     - soit des rubriques 
     - soit des articles isolés et qui sont liés à un mot-clé du groupe @petit dossier. 
     
-    Les dossiers seront triés par titre de la rubrique parente (quand la rubrique est lié au mot-clé Dossiers), soit par le titre du mot-clé placé dans @petit dossier. 
+    Les dossiers seront triés soit par titre de la rubrique parente (quand la rubrique est lié au mot-clé Dossiers), soit par le titre du mot-clé placé dans @petit dossier. 
 
-    Les rubriques sont placés dans un tableau Rubriques d'une part et d'autre part dans un tableau Dossiers. 
+    Les rubriques sont placés d'une part dans un tableau Rubriques et d'autre part dans un tableau Dossiers. 
     Le tableau Rubriques permettra de dédoubler les articles qui sont déjà dans une rubrique parente qui est liée au mot-clé Dossiers. 
     Les mots-clés du groupe @petit dossier (id_groupe 16) sont ajoutés au tableau Dossiers.
-    La rubrique des article d'un dossier @petit dossier sont ajoutés au tableau rubrique_mots. Cela permet d'afficher le numéro dans lequel le dossier est publié. 
+    La rubrique des articles d'un dossier @petit dossier sont ajoutés au tableau rubrique_mots. Cela permet d'afficher le numéro dans lequel le dossier est publié. 
 
-    Les titres des objets sont les clés du tableau Dossiers. Suppression de l'article (Des, De, Le, Les, L', etc.)et déaccentuation de la première lettre afin d'avoir un classement alphabétique qui soit correct.
+    Les titres des objets sont les clés du tableau Dossiers. avec |sans_article : suppression de l'article (Des, De, Le, Les, L', etc.) et déaccentuation de la première lettre afin d'avoir un classement alphabétique qui soit correct.
 ]
 
 <BOUCLE_mot_dossiers(MOTS){id_mot}>

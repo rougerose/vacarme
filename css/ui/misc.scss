@@ -3,7 +3,12 @@
 ============================*/
 
 /*==========  grid__item--bottom  ==========*/
-.grid__item--bottom {vertical-align: bottom;}
+.grid__item--bottom {
+    vertical-align: bottom;
+    .grid__item {
+        vertical-align: bottom;
+    }
+}
 
 /*==========  push (push)  ==========*/
 

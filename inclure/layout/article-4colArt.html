@@ -1,0 +1,92 @@
+[(#REM) 
+    ************************************
+    Constantes
+    ************************************
+
+    Transmises dans l'environnement 
+    ------------------------------------
+    * = attribuée par défaut
+
+    Variantes layout :
+        - 4colArt : Variante sur 4 colonnes, article seul.
+
+    css : 
+        - article_resume_type : resume--stack|logo|text*|hero
+        - article_header_class
+        - article_titre_class
+        - article_desc_class
+
+    contenus de l'élément :
+        - article_header_supprimer : oui|non*
+        - article_suite_afficher : oui|non*
+        - article_resume_numero_titre_afficher : oui|non*
+
+    logo :
+        - logo_supprimer : oui|non*
+        
+
+    Calculée dans le squelette 
+    ------------------------------------
+    logo :
+        - logo : oui|non*
+        - logo_format : paysage*|portrait|vignette
+        - figure_class
+
+]
+[(#REM) css ]
+    #SET{article_resume_type,#ENV{article_resume_type,resume--text}}
+
+[(#REM) contenus élément ]
+
+[(#REM) logo ]
+    #SET{logo,''}
+    #SET{logo_format,#ENV{logo_format,paysage}}
+
+
+<BOUCLE_article_4colArt(ARTICLES){id_article}>
+[(#LOGO_ARTICLE|oui)
+    [(#ENV{logo_supprimer}|?{#SET{logo,''},#SET{logo,' '} })]
+    [(#LOGO_ARTICLE|largeur|>{#LOGO_ARTICLE|hauteur}|?{
+        #SET{logo_format,paysage},#SET{logo_format,portrait}
+    })]
+    [(#SET{figure_class,#VAL{resume__figure--}|concat{#GET{logo_format}}})]
+]
+[(#GET{logo}|?{
+    #SET{contenu_class,grid__item--bottom lap-and-up-one-half},
+    #SET{contenu_class,lap-and-up-three-quarters push--lap-and-up-one-quarter}
+})]
+<article class="resume resume-article[ (#ENV{article_resume_type})]">
+    [(#GET{logo}|oui)
+    <div class="grid__item grid__item--bottom lap-and-up-one-half">
+        [(#GET{logo_format}|=={portrait}|?{
+        <div class="grid"><div class="grid__item lap-and-up-one-half push--lap-and-up-one-half">})]
+            [(#INCLURE{fond=inclure/objets/logo-article,
+                id_article,
+                logo_format=#GET{logo_format},
+                logo_objet=article,
+                figure_class=#GET{figure_class}}
+            )]
+        [(#GET{logo_format}|=={portrait}|?{
+        </div></div>})]
+    </div><!-- /.grid__item -->
+    ]
+    <div class="grid__item[ (#GET{contenu_class})]">
+        [(#GET{logo}|non)
+        <div class="grid"><div class="grid__item lap-and-up-two-thirds">]
+        [(#INCLURE{fond=inclure/resumes/article-header,
+            id_article,
+            header_class=#ENV{article_header_class},
+            titre_class=#ENV{article_titre_class},
+            desc_class=#ENV{article_desc_class}}
+        )]
+        [(#INCLURE{fond=inclure/resumes/article-descriptif,
+            id_article,
+            type_resume=#GET{type_resume},
+            suite_afficher=#ENV{article_suite_afficher},
+            resume_numero_titre_afficher=#ENV{article_resume_numero_titre_afficher}}
+        )]
+        [(#GET{logo}|non)
+        </div></div>]
+    </div><!-- /.grid__item -->
+</article>
+</BOUCLE_article_4colArt>

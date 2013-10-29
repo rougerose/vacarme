@@ -91,6 +91,15 @@ function intro($texte) {
     return $texte;
 }
 
+function tri_array($tableau,$ordre) {
+    if ($ordre == 'inverse') {
+        krsort($tableau);
+    } else {
+        ksort($tableau);
+    }
+    return $tableau;
+}
+
 function tri_tableau(&$array, $key,$reverse=false) {
     $sorter=array();
     $ret=array();
