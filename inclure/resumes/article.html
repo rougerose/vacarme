@@ -69,7 +69,7 @@
         <div class="resume__cartouche[ (#GET{logo_format}|match{paysage|portrait}|?{resume__cartouche--#GET{logo_format}})]">
     ]
             <header>
-                <h1 class="hN resume__titre resume-article__titre[ resume__titre--(#GET{type_resume})]">[(#GET{article_gratuit}|=={oui}|oui)[(#GET{afficher_verrou}|=={oui}|?{<span class="icon icon--unlock"></span> })]][(#TITRE)][ <small class="soustitre resume-article__soustitre">(#SOUSTITRE)</small>]</h1>
+                <h1 class="hN resume__titre resume-article__titre[ resume__titre--(#GET{type_resume})]">[(#GET{article_gratuit}|=={oui}|oui)[(#GET{afficher_verrou}|=={oui}|?{<span class="icon icon--unlock"></span> })]][(#TITRE)]</h1>
                 [(#GET{afficher_auteur}|=={oui}|oui)
                     [(#GET{origine}|=={revue}|oui)
                         [(#GET{type}|=={entretien}|non)
