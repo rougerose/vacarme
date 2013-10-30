@@ -30,8 +30,8 @@
 ][(#SET{logo_afficher,#ENV{logo_afficher,non}})
 ][(#SET{logo_format,#ENV{logo_format,paysage}})]
 [(#SET{afficher_date,#ENV{afficher_date,non}})
-][(#SET{figcaption_numero_titre,#ENV{figcaption_numero_titre,non}})
-][(#SET{afficher_verrou,#ENV{afficher_verrou,non}})
+]
+[(#SET{afficher_verrou,#ENV{afficher_verrou,non}})
 ][(#SET{article_gratuit,''})]
 <BOUCLE_article_resume(ARTICLES){id_article}>
 
@@ -59,7 +59,7 @@
             logo_objet=#ENV{logo_objet},
             logo_format=#ENV{logo_format},
             logo_url=#ENV{logo_url},
-            figcaption_numero_titre=#GET{figcaption_numero_titre},
+            figcaption_numero_titre=#ENV{figcaption_numero_titre},
             hX=#ENV{hX},
             numero_titre_url=#ENV{numero_titre_url}})]
     })]

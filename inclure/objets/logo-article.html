@@ -5,20 +5,21 @@
     
     Transmises dans l'environnement : 
     ---------------------------------
-    - logo_objet : article ou secteur / rubrique
-    - logo_format : paysage / portrait / vignette-complete / vignette-partielle / paysage-archives
+    - logo_objet : article|secteur|rubrique
+    - logo_format : paysage|portrait|vignette-complete|vignette-partielle|paysage-archives
     - logo_class
     - figure_class
-    - figcaption_numero_titre : oui / non
-    - logo_url : oui / non (défaut)
-    - hX : h1 (defaut)
-    - numero_titre_url : oui / non (defaut). Lien sur le titre du numéro logo > figcaption
+    - figcaption_numero_titre
+    - figcaption_hX
+    - logo_url : oui|non*
+    - numero_titre_url
 
 ]
-<BOUCLE_article(ARTICLES){id_article}>#SET{t,#TITRE}
+<BOUCLE_article(ARTICLES){id_article}>
+    #SET{alt,#TITRE}
     <BOUCLE_logo_secteur(HIERARCHIE){id_article}{si #ENV{logo_objet}|=={secteur}}>[
     (#PROFONDEUR|=={1}|oui)
-        [(#SET{t,#TITRE})]
+        [(#SET{alt,#TITRE})]
         [(#SET{logo,#LOGO_RUBRIQUE|image_reduire{500,0}|image_recadre{248,312,'center left',000}|extraire_attribut{src}})]
     ]</BOUCLE_logo_secteur>
     [(#ENV{logo_objet}|=={article}|oui)
@@ -31,12 +32,13 @@
         ]
     ]
 [<figure class="resume__figure[ (#ENV{figure_class})]">
-    [(#ENV{logo_url}|=={oui}|?{<a href="#URL_ARTICLE">})]
-    <img src="(#GET{logo})"[ alt="(#GET{t})"][ class="(#ENV{logo_class})"]>
-    [(#ENV{logo_url}|=={oui}|?{</a>})]
-    [(#ENV{figcaption_numero_titre}|=={oui}|oui)
+    [(#ENV{logo_url}|?{<a href="#URL_ARTICLE">})]
+    <img src="(#GET{logo})"[ alt="(#GET{alt})"][ class="(#ENV{logo_class})"]>
+    [(#ENV{logo_url}|?{</a>})]
+    [(#ENV{figcaption_numero_titre}|?{
         [<figcaption class="resume__figcaption">
-            (#INCLURE{fond=inclure/resumes/numero-titre,id_rubrique,hX=#ENV{hX},numero_titre_url=#ENV{numero_titre_url}})
-        </figcaption>] ]
+            (#INCLURE{fond=inclure/resumes/numero-titre,id_rubrique,hX=#ENV{figcaption_hX},numero_titre_url=#ENV{numero_titre_url}})
+        </figcaption>]
+    })]
 </figure>]
 </BOUCLE_article>

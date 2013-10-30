@@ -22,7 +22,7 @@
         - article_resume_numero_titre_afficher : oui|non*
 
     logo :
-        - logo_supprimer : oui|non*
+        - article_logo_supprimer : oui|non*
         
 
     Calculée dans le squelette 
@@ -44,8 +44,10 @@
 
 
 <BOUCLE_article_4colArt(ARTICLES){id_article}>
+[(#ENV{article_logo_forcer}
+    |?{#ENV{logo_objet}|match{secteur}|?{' '}}) #SET{logo,' '} ]
 [(#LOGO_ARTICLE|oui)
-    [(#ENV{logo_supprimer}|?{#SET{logo,''},#SET{logo,' '} })]
+    [(#ENV{article_logo_supprimer}|?{#SET{logo,''},#SET{logo,' '} })]
     [(#LOGO_ARTICLE|largeur|>{#LOGO_ARTICLE|hauteur}|?{
         #SET{logo_format,paysage},#SET{logo_format,portrait}
     })]

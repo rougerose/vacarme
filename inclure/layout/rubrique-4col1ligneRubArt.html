@@ -22,7 +22,7 @@
         - rubrique_resume_numero_titre_afficher : oui|non*
 
     logo :
-        - logo_supprimer : oui|non*
+        - rubrique_logo_supprimer : oui|non*
 
     contenus de l'élément enfant : 
         - articles_tri : titre
@@ -50,7 +50,7 @@
 
 <BOUCLE_rubrique_4col1ligneRubArt(RUBRIQUES){id_rubrique}>
 [(#LOGO_RUBRIQUE|oui)
-    [(#ENV{logo_supprimer}|?{#SET{logo,''},#SET{logo,' '}})]
+    [(#ENV{rubrique_logo_supprimer}|?{#SET{logo,''},#SET{logo,' '}})]
     [(#LOGO_RUBRIQUE|largeur|>{#LOGO_RUBRIQUE|hauteur}|?{
         #SET{logo_format,paysage},#SET{logo_format,portrait}
     })]
@@ -105,7 +105,7 @@
                     article_resume_type=resume--nested resume--text,
                     article_suite_afficher=oui,
                     article_resume_numero_titre_afficher=oui,
-                    logo_supprimer=oui}
+                    article_logo_supprimer=oui}
                 )]
             [(#TOTAL_BOUCLE|>{1}|?{</div><!-- /.grid__item -->})]
             </BOUCLE_articles_rubrique>

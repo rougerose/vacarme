@@ -21,7 +21,7 @@
         - mot_suite_afficher : oui|non*
 
     logo :
-        - logo_supprimer: oui|non*
+        - mot_logo_supprimer: oui|non*
 
     contenus des éléments enfants :
         - tableau_rubriques : array des rubriques imbriquées à afficher
@@ -59,7 +59,7 @@
 <BOUCLE_mot_4col2lignesMotArt(MOTS){id_mot}>
 [(#LOGO_MOT|oui)
     #SET{logo,' '}
-    [(#ENV{logo_supprimer}|?{#SET{logo,''}})]
+    [(#ENV{mot_logo_supprimer}|?{#SET{logo,''}})]
     [(#LOGO_MOT|largeur|>{#LOGO_MOT|hauteur}|?{
         #SET{logo_format,paysage},#SET{logo_format,portrait}
     })]
@@ -116,7 +116,7 @@
                     article_resume_type=resume--text,
                     article_suite_afficher=#ENV{article_suite_afficher},
                     article_resume_numero_titre_afficher=#ENV{article_resume_numero_titre_afficher},
-                    logo_supprimer=oui})
+                    article_logo_supprimer=oui})
             </div><!-- /.grid__item -->]
             </BOUCLE_articles_mot>
         </div><!-- /.grid -->

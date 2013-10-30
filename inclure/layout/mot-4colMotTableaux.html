@@ -22,7 +22,7 @@
         - mot_suite_afficher : oui|non*
 
     logo :
-        - logo_supprimer: oui|non*
+        - mot_logo_supprimer: oui|non*
 
     contenus des éléments enfants :
         - tableau_rubriques : array des rubriques imbriquées à afficher
@@ -58,7 +58,7 @@
 <BOUCLE_mot_4colMotTableaux(MOTS){id_mot}>
 [(#LOGO_MOT|oui)
     #SET{logo,' '}
-    [(#ENV{logo_supprimer}|?{#SET{logo,''}})]
+    [(#ENV{mot_logo_supprimer}|?{#SET{logo,''}})]
     [(#LOGO_MOT|largeur|>{#LOGO_MOT|hauteur}|?{
         #SET{logo_format,paysage},#SET{logo_format,portrait}
     })]

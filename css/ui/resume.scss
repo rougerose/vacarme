@@ -20,6 +20,8 @@
     @include font-size(15px,$line-height:false);
     line-height: 1.313;
     time {
+        float: left;
+        margin-right: .5em;
         color: $gray;
     }
     @media only screen and (min-width: 960px) {padding-right: $base-spacing-unit*2;}
