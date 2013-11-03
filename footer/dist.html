@@ -1,3 +1,53 @@
-<!-- [<div id="newsletter" class="ajax"> 
-    (#FORMULAIRE_FORMIDABLE{1})
-</div>] -->
+<hr class="visuallyhidden">
+<footer class="grid__item page-foot">
+    <div class="page-foot__inner">
+        <div class="grid">
+            <div class="group">
+                <div class="grid__item lap-and-up-one-quarter">
+                    <a href="#URL_SITE_SPIP" class="site-logo">#NOM_SITE_SPIP</a>
+                </div><!-- /.grid__item -->
+                <div class="grid__item lap-and-up-three-quarters">
+                    <p class="baseline">#SLOGAN_SITE_SPIP</p>
+                </div><!-- /.grid__item -->
+            </div>
+            <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
+                <div class="grid">
+                    <div class="group">
+                        <div class="grid__item lap-and-up-two-thirds">
+                            <BOUCLE_a_propos(ARTICLES){id_article=295}>
+                                #INCLURE{fond=inclure/layout/article-1colArt,
+                                    id_article,
+                                    article_logo_supprimer=oui,
+                                    article_suite_afficher=oui,
+                                    article_resume_type=resume--text,
+                                    article_titre_class=resume__titre--text intertitre-section--footer}
+                            </BOUCLE_a_propos>
+                        </div><!-- /.grid__item -->
+                        <div class="grid__item lap-and-up-one-third">
+                            <BOUCLE_rubrique115(RUBRIQUES){id_rubrique=115}>
+                            <h1 class="hN intertitre-section--footer">Actuellement en librairie</h1>
+                            <BOUCLE_dernier(RUBRIQUES){id_parent}{!par titre}{0,1}>#SET{url_dernier,#URL_RUBRIQUE} #SET{titre_dernier,#TITRE}</BOUCLE_dernier>
+                            [<a href="#GET{url_dernier}" title="#GET{titre_dernier}">
+                                <img src="(#LOGO_RUBRIQUE|image_reduire{200,0}|image_recadre{200,170,'top left'}|extraire_attribut{src})" alt="#GET{titre_dernier}" class="cover cover--bottom cover-callout--small">
+                            </a>]
+                            </BOUCLE_rubrique115>
+                        </div><!-- /.grid__item -->
+                    </div><!-- /.group -->
+                    <div class="group">
+                        [<nav class="grid__item lap-and-up-one-third nav-footer">
+                            <h1 class="hN intertitre-section--footer">#INFO_TITRE{menu,3}</h1>
+                            (#INCLURE{fond=inclure/menu,env,identifiant=nav_footer_revue})
+                        </nav>][<nav class="grid__item lap-and-up-one-third nav-footer">
+                            <h1 class="hN intertitre-section--footer">#INFO_TITRE{menu,4}</h1>
+                            (#INCLURE{fond=inclure/menu,env,identifiant=nav_footer_contact})
+                        </nav>][<nav class="grid__item lap-and-up-one-third nav-footer nav-footer--mentions">
+                            <h1 class="hN intertitre-section--footer visuallyhidden">#INFO_TITRE{menu,5}</h1>
+                            (#INCLURE{fond=inclure/menu,env,identifiant=nav_footer_mentions})
+                        </nav>]
+                    </div><!-- /.group -->
+                </div><!-- /.grid -->
+            </div><!-- /.grid__item -->
+        </div><!-- /.grid -->
+        <a href="#top" class="back-top-page icon--back-top"><:local:back_to_top:></a>
+    </div><!-- /.page-foot__inner -->
+</footer><!-- /.page-foot -->

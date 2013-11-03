@@ -19,6 +19,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'authors_number'                              => '@nb@ auteurs',
     'authors'                                     => "Les auteurs",
     'author'                                      => "L’auteur",
+
+    // B
+    'back_to_top' => "Revenir en haut",
     
     // C
     'category_plural'                             => 'Catégories',

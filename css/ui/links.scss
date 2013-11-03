@@ -19,6 +19,7 @@ a {
 // .spip_in,
 // .spip_out {}
 
+/*==========  more  ==========*/
 .more {
     font-style: italic;
     em {
@@ -61,6 +62,22 @@ a {
     &:hover {
         color: #000;
         margin-left: 20%;
+    }
+}
+/*==========  back-top-page  ==========*/
+.back-top-page {
+    position: absolute;
+    bottom: 1.7em;
+    padding-top: 1.5em;
+    font-family: $HCReg-font;
+    text-transform: uppercase;
+    @include font-size(12px);
+    color: #b2afac;
+    &:hover {
+        color: #888;
+    }
+    @include media-query(palm) {
+        right: 0;
     }
 }
 /*==========  link-anim  ==========*/

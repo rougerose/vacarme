@@ -28,8 +28,17 @@
 // fonts & typo
 @import "ui/fonts";
 @import "ui/typo";
+
 // page
 @import "ui/page";
+
+// page-sections
+@import "ui/page-head";
+@import "ui/page-content";
+@import "ui/page-foot";
+
+// site-logo
+@import "ui/site-logo";
 
 // titres et typo
 @import "ui/headings";
@@ -40,10 +49,6 @@
 // links 
 @import "ui/links";
 
-// page-sections
-@import "ui/page-head";
-@import "ui/page-content";
-
 // navigation
 @import "ui/navigation";
 
@@ -52,6 +57,7 @@
 
 // objets
 @import "ui/buttons";
+@import "ui/box";
 @import "ui/table";
 @import "ui/list";
 @import "ui/accordeon";

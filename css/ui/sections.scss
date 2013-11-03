@@ -62,7 +62,12 @@
 .sommaire__section {margin-bottom: 2em;}
 
 /*==========  group  ==========*/
-// .group {}
+.group {
+    .page-foot & {
+        margin-bottom: 1.5em;
+        &:last-child {margin-bottom: 0;}
+    }
+}
 .group--item {
     margin-bottom: 3em;
 }

@@ -52,11 +52,13 @@ h3.spip,
 h4.spip,
 h5.spip,
 h6.spip {
-    margin-top:2 * $base-spacing-unit;
-    margin-top:(2 * $base-spacing-unit / $base-font-size)*1rem;
     font-weight: normal;
     line-height: 1;
     color: #000;
+    p + & {
+        margin-top:2 * $base-spacing-unit;
+        margin-top:(2 * $base-spacing-unit / $base-font-size)*1rem;
+    }
 }
 
 /*==========  intertitres section  ==========*/
@@ -71,8 +73,6 @@ h6.spip {
 
 // .intertitre-section--content {}
 
-/*==========  levels  ==========*/
-
 .intertitre-section--first {
     display: inline-block;
     border-bottom: 1px solid $soft-black; //background-color: $gray-light;
@@ -85,6 +85,11 @@ h6.spip {
     margin-bottom: 0;
     font-weight: 600;
     @include font-size(16px);
+}
+.intertitre-section--footer {
+    @include font-size(16px);
+    font-weight: 600;
+    color: #000;
 }
 
 /*-----  End of headings  ------*/

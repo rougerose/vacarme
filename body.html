@@ -3,7 +3,7 @@
         <div id="wrap-in" class="wrap-in">
             <div class="wrap">
                 <div class="grid page">
-                    <header id="top" class="grid__item desk-one-quarter page-head landmark" role="banner">
+                    <header id="top" class="grid__item desk-one-quarter page-head xlandmark" role="banner">
                         <INCLURE{fond=header/#ENV{type-page},env} />
                     </header><!-- /.page-head -->
                     <div class="grid__item desk-three-quarters">
@@ -23,9 +23,9 @@
                     <div class="grid__item page-content">
                         <INCLURE{fond=content/#ENV{type-page},env} />
                     </div><!-- /.page-content -->
-                    <footer class="grid__item page-foot">
+                    <div class="page-foot">
                         <INCLURE{fond=footer/#ENV{type-page},env} />
-                    </footer><!-- /.page-foot -->
+                    </div>
                 </div><!-- /.page -->
             </div><!-- /.wrap -->
         </div><!-- /.wrap-in -->

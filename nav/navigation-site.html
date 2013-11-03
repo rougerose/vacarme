@@ -9,19 +9,19 @@
     <B_l1>
     <ul class="nav">
         <BOUCLE_l1(MOTS){id_mot IN #GET{liste_mots}}{1/2}>
-        <li class="nav--item[ (#EXPOSE{active})]"><a href="#URL_MOT">#TITRE</a></li>
+        <li class="nav__item[ (#EXPOSE{active})]"><a href="#URL_MOT">#TITRE</a></li>
         </BOUCLE_l1>
     </ul>
     </B_l1><B_l2>
     <ul class="nav">
         <BOUCLE_l2(MOTS){id_mot IN #GET{liste_mots}}{2/2}>
-        <li class="nav--item[ (#EXPOSE{active})]"><a href="#URL_MOT">#TITRE</a></li>
+        <li class="nav__item[ (#EXPOSE{active})]"><a href="#URL_MOT">#TITRE</a></li>
         </BOUCLE_l2>
     </ul>
     </B_l2>
     <ul class="nav">
-        <li class="nav--item[ (#ENV{id_mot}|=={447}|?{active})]"><a href="#INFO_URL{mot,452}">#INFO_TITRE{mot,452}</a></li>
-        <li class="nav--item[ (#ENV{page}|=={auteurs}|?{active})]"><a href="#URL_PAGE{auteurs}"><:local:authors:></a></li>
+        <li class="nav__item[ (#ENV{id_mot}|=={447}|?{active})]"><a href="#INFO_URL{mot,452}">#INFO_TITRE{mot,452}</a></li>
+        <li class="nav__item[ (#ENV{page}|=={auteurs}|?{active})]"><a href="#URL_PAGE{auteurs}"><:local:authors:></a></li>
         <!-- <li class="nav--item[ (#ENV{page}|=={mots}|?{active})]"><a href="#URL_PAGE{mots}"><:local:keywords_all:></a></li> -->
     </ul>
 </nav><!-- /.nav--secondaire -->

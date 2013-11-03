@@ -16,7 +16,7 @@
 ]
 
 [(#ENV{ancre}|?{
-    [(#SET{url,#URL_PAGE{#ENV{nom},#ENV{parametres}}|ancre_url{ancre}})],
+    [(#SET{url,#URL_PAGE{#ENV{nom},#ENV{parametres}}|ancre_url{#ENV{ancre}}})],
     [(#SET{url,#URL_PAGE{#ENV{nom,#ENV{parametres}}}})]
 })]
 

@@ -1,11 +1,43 @@
 /*=============================
 =            forms            =
 =============================*/
+.bugajaxie {display: none;}
 
 input[type="search"] {
     -webkit-appearance: none;
     border: 0;
     outline: none;
+}
+
+.form-fields {
+    margin-bottom: 1.5em;
+    label {
+        font-style: italic;
+    }
+    input.text, textarea {
+        width: 100%;
+        border: 1px solid $soft;
+        &:focus {
+            border-color: #000;
+        }
+    }
+}
+
+.boutons {
+    text-align: center;
+}
+
+.reponse_formulaire {
+    padding: .2em .5em .1em;
+}
+.reponse_formulaire_ok {
+    background: $ok;
+}
+.reponse_formulaire_erreur {
+    background: $erreur;
+}
+.erreur_message {
+    color: $erreur;
 }
 
 /*==========  recherche  ==========*/
@@ -41,6 +73,23 @@ input[type="search"] {
             color: $soft-black;
         }
     }
+
+/*==========  ecrire-auteur : send-message  ==========*/
+.send-message__form {
+    .form-fields {
+        padding-right: $base-spacing-unit;
+    }
+}
+.send-message__fieldset {
+    border-width: 0;
+    padding: 0;
+}
+.send-message__preview {
+    border-bottom: 1px solid #000;
+}
+.send-message__legend {
+    font-weight: normal;
+}
 
 /*==========  placeholder  ==========*/
 input[type="search"]::-webkit-input-placeholder {color: #fff;}

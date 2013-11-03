@@ -14,7 +14,7 @@
     @include font-size(18px,$line-height:false);
     line-height: 1.1;
     font-weight: 600;
-    @include media-query(lap-and-up) {margin-bottom: 0;}
+    // @include media-query(lap-and-up) {margin-bottom: 0;}
 }
 .resume__desc {
     @include font-size(15px,$line-height:false);
@@ -250,8 +250,13 @@
 }
 
 /* resume--text */
+.resume--text {
+    .page-foot & {
+        // margin-bottom: 0;
+    }
+}
 .resume__titre--text {
-    min-height: 3em;
+    // min-height: 3em;
     color: #000;
     @include font-size(16px,$line-height:false);
     .section--features & {

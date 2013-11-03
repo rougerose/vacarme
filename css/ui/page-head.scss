@@ -3,43 +3,10 @@
 =================================*/
 
 .page-head {
-    @include media-query(portable) {
+    @include media-query(palm) {
         position: relative;
         z-index: 100;
         padding-top: 3.5em;
-    }
-}
-
-
-.site-logo {
-    display: block;
-    font-family: 'HelveticaNeueLTStdCnBold',Helvetica,Arial,sans-serif;
-    font-weight: normal;
-    @include font-size(45px);
-    text-transform: uppercase;
-    white-space: nowrap;
-    @include media-query(portable) {
-        @include font-size(45px);
-    }
-    @include media-query(desk) {
-        margin-top: 0.8em;
-    }
-}
-
-.baseline {
-    margin-bottom: 0;
-    text-align: right;
-    font-style: italic;
-    // @include font-size(14px);
-    // color: lighten($gray-light,5%);
-    @include media-query(lap) {
-        @include font-size(18px);
-    }
-    @include media-query(desk) {
-        position: absolute;
-        right: $base-spacing-unit/2;
-        top: .5em;
-        @include font-size(18px);
     }
 }
 
