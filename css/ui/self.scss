@@ -47,6 +47,13 @@
 }
 
 /*==========  self__header  ==========*/
+.self__header {
+    .titre {
+        &:first-letter {
+            text-transform: uppercase;
+        }
+    }
+}
 .self__header--rubrique {
     .titre {
         @extend .intertitre-section--first;
