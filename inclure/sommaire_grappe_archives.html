@@ -1,5 +1,5 @@
 [(#REM) Les deux premiers items sont affichés en aléatoire et renouvellé toutes les 24h. Ce sont des articles qui ont plus d'un an afin qu'ils soient en version intégrale. Premier bloc, article issu des catégories Fronts ou Mouvements. Deuxième bloc, article issu de la catégorie Entretiens. ]
-<BOUCLE_archives_fronts_mouvements(ARTICLES){id_secteur=115}{age>365}{par hasard}{0,1}>
+<BOUCLE_archives_fronts_mouvements(ARTICLES){id_secteur=115}{id_mot IN 521,522}{age>365}{par hasard}{0,1}>
 <div class="grid__item palm-one-half lap-and-up-one-quarter">
     [(#LOGO_ARTICLE|?{
         #SET{logo_objet,article},
@@ -19,7 +19,7 @@
         numero_titre_url=oui})]
 </div><!-- /.grid__item -->
 </BOUCLE_archives_fronts_mouvements>
-<BOUCLE_archives_entretiens(ARTICLES){id_secteur=115}{age>365}{par hasard}{0,1}{id_mot=11}>
+<BOUCLE_archives_entretiens(ARTICLES){id_secteur=115}{id_mot=11}{age>365}{par hasard}{0,1}>
 <div class="grid__item palm-one-half lap-and-up-one-quarter">
     [(#LOGO_ARTICLE|?{
         #SET{logo_objet,article},
