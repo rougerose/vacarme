@@ -59,7 +59,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     
     // N
     'navigation'                                  => "Navigation",
-    'navigation_theme'                            => "Par thème",
+    'navigation_categories'                            => "Catégories",
     'navigation_revue'                            => "La revue",
     'menus-navigation-item-recherche'             => "Lien recherche",
     'menus-description-navigation-item-recherche' => 'Lien pour afficher le formulaire de recherche',

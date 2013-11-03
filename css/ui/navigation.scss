@@ -71,7 +71,8 @@
             display: inline-block;
             padding-left: 24px; // .grid__item
             width: 33.333%; // .desk-one-third
-            margin-bottom: .5em
+            margin-bottom: .5em;
+            vertical-align: top;
         }
         .nav__item {
             &.active {

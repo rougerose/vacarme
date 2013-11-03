@@ -3,27 +3,10 @@
     (#INCLURE{fond=inclure/menu,env,identifiant=nav_revue})
 </nav><!-- /.nav--principale -->]
 <nav class="nav--secondaire">
-    <h2 class="hN visuallyhidden--desk"><:local:navigation_theme:></h2>
-    [(#REM) liste des mots-clés : 11,231,227,4,302,451,452 ]
-    [(#SET{liste_mots,#LISTE{11,231,227,4,302,451}})]
-    <B_l1>
-    <ul class="nav">
-        <BOUCLE_l1(MOTS){id_mot IN #GET{liste_mots}}{1/2}>
-        <li class="nav__item[ (#EXPOSE{active})]"><a href="#URL_MOT">#TITRE</a></li>
-        </BOUCLE_l1>
-    </ul>
-    </B_l1><B_l2>
-    <ul class="nav">
-        <BOUCLE_l2(MOTS){id_mot IN #GET{liste_mots}}{2/2}>
-        <li class="nav__item[ (#EXPOSE{active})]"><a href="#URL_MOT">#TITRE</a></li>
-        </BOUCLE_l2>
-    </ul>
-    </B_l2>
-    <ul class="nav">
-        <li class="nav__item[ (#ENV{id_mot}|=={447}|?{active})]"><a href="#INFO_URL{mot,452}">#INFO_TITRE{mot,452}</a></li>
-        <li class="nav__item[ (#ENV{page}|=={auteurs}|?{active})]"><a href="#URL_PAGE{auteurs}"><:local:authors:></a></li>
-        <!-- <li class="nav--item[ (#ENV{page}|=={mots}|?{active})]"><a href="#URL_PAGE{mots}"><:local:keywords_all:></a></li> -->
-    </ul>
+    <h2 class="hN visuallyhidden--desk"><:local:navigation_categories:></h2>
+    [(#INCLURE{fond=inclure/menu,env,identifiant=nav_cat_1})]
+    [(#INCLURE{fond=inclure/menu,env,identifiant=nav_cat_2})]
+    [(#INCLURE{fond=inclure/menu,env,identifiant=nav_cat_3})]
 </nav><!-- /.nav--secondaire -->
 <a id="btn-nav-close" href="#top" class="btn btn--nav btn--nav-close visuallyhidden--desk">
     <span class="icon icon--close">x</span>
