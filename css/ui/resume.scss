@@ -275,7 +275,7 @@
 /* resume--logo */
 // .resume--logo {}
 .resume__titre--logo {
-    min-height: 3em;
+    // min-height: 3em;
     color: #000;
     @include font-size(16px,$line-height:false);
 }
