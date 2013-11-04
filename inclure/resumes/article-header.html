@@ -43,7 +43,7 @@
     </BOUCLE_auteur_afficher>
 
 [(#REM) article a-t-il plus d'un an ? Si oui, il passe en mode complet et le verrou n'est pas affiché ]
-    <BOUCLE_age(ARTICLES){id_article}{age>365}>[(#GET{article_mode}|=={apercu}|?{#SET{article_mode,complet} #SET{verrou_afficher,''}})]</BOUCLE_age>
+    <BOUCLE_age(ARTICLES){id_article}{age>365}>[(#GET{article_mode}|=={apercu}|?{#SET{article_mode,complet}})] #SET{verrou_afficher,''}</BOUCLE_age>
 
 <header[ class="(#ENV{header_class})"]>
     <h1 class="hN resume__titre resume-article__titre[ (#GET{titre_class})]">
