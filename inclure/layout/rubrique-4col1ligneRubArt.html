@@ -26,6 +26,8 @@
 
     contenus de l'élément enfant : 
         - articles_tri : titre
+        - article_resume_numero_titre_afficher : oui|non*
+        - article_verrou_afficher: oui|non*
 
     Calculée dans le squelette 
     ------------------------------------
@@ -90,7 +92,6 @@
         [(#DESCRIPTIF|ou{#INTRODUCTION}|oui)
             [(#INCLURE{fond=inclure/resumes/rubrique-descriptif,
                 id_rubrique,
-                desc_class=#ENV{rubrique_desc_class},
                 suite_afficher=#ENV{rubrique_suite_afficher},
                 resume_numero_titre_afficher=#ENV{rubrique_resume_numero_titre_afficher},
                 desc_class=#ENV{rubrique_desc_class}}
@@ -104,7 +105,8 @@
                     id_article,
                     article_resume_type=resume--nested resume--text,
                     article_suite_afficher=oui,
-                    article_resume_numero_titre_afficher=oui,
+                    article_verrou_afficher=#ENV{article_verrou_afficher},
+                    article_resume_numero_titre_afficher=#ENV{article_resume_numero_titre_afficher},
                     article_logo_supprimer=oui}
                 )]
             [(#TOTAL_BOUCLE|>{1}|?{</div><!-- /.grid__item -->})]

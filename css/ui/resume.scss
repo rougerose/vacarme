@@ -108,9 +108,9 @@
 
 .resume-rubrique__titre {
     .toc__item & {
-        @include font-size(40px,$line-height:false);
-        line-height: 0.9;
-        font-weight: 600;
+        // @include font-size(40px,$line-height:false);
+        // line-height: 0.9;
+        // font-weight: 600;
         // color: $soft-black;
     }
     .index-feature & {
@@ -295,7 +295,8 @@
     // min-height: 2.5em;
     margin-bottom: 1em;
     color: #000;
-    @include font-size(24px);
+    // @include font-size(24px);
+    @include font-size(36px);
     .soustitre {
         @include font-size(16px,$line-height:false);
         margin: 0;
@@ -303,8 +304,9 @@
 }
 .resume__desc--hero {
     // margin-top: 2em;
-    // @include font-size(16px);
-    font-weight: 600;
+    @include font-size(20px);
+    // font-weight: 600;
+    color: #777;
 }
 .resume__desc--seul {
     // .grid__item--bottom & {

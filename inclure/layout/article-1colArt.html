@@ -21,6 +21,8 @@
         - article_suite_afficher : oui|non*
         - article_resume_numero_titre_afficher : oui|non*
         - article_date_afficher: oui|non*
+        - article_auteur_supprimer : oui|non*
+        - article_verrou_afficher: oui|non*
 
     logo :
         - article_logo_supprimer : oui|non*
@@ -61,6 +63,7 @@
     [(#SET{figure_class,#VAL{resume__figure--}|concat{#GET{logo_format}}})]
 ]
 
+[(#REM) !! A CONSERVER ? !! ]
 [(#GET{logo}|?{
     #SET{contenu_class,grid__item--bottom lap-and-up-one-half},
     #SET{contenu_class,lap-and-up-three-quarters push--lap-and-up-one-quarter}
@@ -79,6 +82,7 @@
     [(#INCLURE{fond=inclure/resumes/article-header,
         id_article,
         header_class=#ENV{article_header_class},
+        verrou_afficher=#ENV{article_verrou_afficher},
         titre_class=#ENV{article_titre_class},
         desc_class=#ENV{article_desc_class}}
     )]

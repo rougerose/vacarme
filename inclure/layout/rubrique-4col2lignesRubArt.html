@@ -26,6 +26,9 @@
 
     contenus de l'élément enfant : 
         - articles_tri : titre
+        - article_resume_numero_titre_afficher: oui|non*
+        - article_verrou_afficher: oui|non*
+        - article_suite_afficher: oui|non*
 
     Calculée dans le squelette 
     ------------------------------------
@@ -101,6 +104,7 @@
                 (#INCLURE{fond=inclure/layout/article-1colArt,
                     id_article,
                     article_resume_type=resume--text,
+                    article_verrou_afficher=#ENV{article_verrou_afficher},
                     article_suite_afficher=#ENV{article_suite_afficher},
                     article_resume_numero_titre_afficher=#ENV{article_resume_numero_titre_afficher},
                     article_logo_supprimer=oui})

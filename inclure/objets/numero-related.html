@@ -8,9 +8,9 @@
         [(#SET{redac_chef,#ARRAY})][(#SET{redac_chef,[(#LISTER_VALEURS**{redacteurchef})]})]
         <ul class="list">
             <B_redac><li><:local:redaction_en_chef:> : <BOUCLE_redac(AUTEURS){id_auteur IN #GET{redac_chef}}{par nom}>[(#COMPTEUR_BOUCLE|=={1}|?{'',[(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|?{' &amp;&nbsp;',', '})]})][(#NOM|prenom_nom)]</BOUCLE_redac></li></B_redac>
-            [<li><span itemprop="numberOfPages">(#PAGES_TOTAL)</span> <:local:pages:></li>]
+            [<li><span itemprop="numberOfPages">(#PAGES_TOTAL|>{0}|oui)#PAGES_TOTAL</span> <:local:pages:></li>]
             <li>Éditeur : Vacarme. Diffusion en librairies : Les Belles Lettres.</li>
-            [<li>ISBN <span itemprop="isbn">(#ISBN)</span></li>]
+            [<li>ISBN <span itemprop="isbn">(#ISBN|>{0}|oui)ISBN</span></li>]
         </ul>
         <p>
             <a href="http://commande.vacarme.org/spip.php?rubrique2" class="btn btn--small btn--primary btn--ok btn--commande"><:local:acheter:></a>

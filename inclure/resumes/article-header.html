@@ -11,27 +11,43 @@
 
     contenus : 
         - auteur_supprimer : oui|non*
+        - verrou_afficher: oui|non*
+
+    
+    Calculées dans le squelette : 
+    ----------------------------------
+    contenus : 
+        - article_mode: apercu*|complet
 ]
 
 [(#REM) css ]
     #SET{titre_class,#ENV{titre_class,resume__titre--text}}
-    #SET{auteur_supprimer,#ENV{auteur_supprimer,''}}
 
 [(#REM) contenus ]
+    [(#ENV{auteur_supprimer}|=={oui}|?{#SET{auteur_supprimer,' '}})]
+    [(#ENV{verrou_afficher}|=={oui}|?{#SET{verrou_afficher,' '}})]
+
+    [(#SET{article_mode,apercu})]
 
 <BOUCLE_article_header(ARTICLES){id_article}>
 [(#REM) L'env indique que l'auteur doit être affiché ? On vérifie quelques conditions : actualités ? entretien ?  ]
-    <BOUCLE_auteur_afficher(CONDITION){si #ENV{auteur_supprimer}|non}>
+    <BOUCLE_auteur_afficher(CONDITION){si #GET{auteur_supprimer}|non}>
         [(#REM) si c'est une actualité, l'auteur n'est pas affiché ]
         [(#ID_SECTEUR|=={82}|?{#SET{auteur_supprimer,' '}})]
         <BOUCLE_entretien(MOTS){id_article}{id_groupe=5}{tout}>
             [(#REM) mot-clé entretien réalisé ou propos recueillis ? ]
             [(#ID_MOT|match{75|240}|?{#SET{auteur_supprimer,' '}})]
+            [(#REM) on vérifie également si l'article est "consultable" ]
+            [(#ID_MOT|=={7}|?{#SET{article_mode,complet}})]
         </BOUCLE_entretien>
     </BOUCLE_auteur_afficher>
 
+[(#REM) article a-t-il plus d'un an ? Si oui, il passe en mode complet et le verrou n'est pas affiché ]
+    <BOUCLE_age(ARTICLES){id_article}{age>365}>[(#GET{article_mode}|=={apercu}|?{#SET{article_mode,complet} #SET{verrou_afficher,''}})]</BOUCLE_age>
+
 <header[ class="(#ENV{header_class})"]>
     <h1 class="hN resume__titre resume-article__titre[ (#GET{titre_class})]">
+        [(#GET{verrou_afficher}|?{[(#GET{article_mode}|=={complet}|?{<span class="icon icon--unlock"></span>})]})]
         [(#TITRE)]
     </h1>
     [(#GET{auteur_supprimer}|?{

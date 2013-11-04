@@ -1,19 +1,11 @@
-<BOUCLE_mot_tribunes(MOTS){id_mot=231}>
-    <BOUCLE_rubriques_tribunes(RUBRIQUES){id_mot}>
-        #SET_PUSH{rubriques_tribunes,#ID_RUBRIQUE}
-        [(#SET{d,#DATE|affdate{Y-m-d}})]
-        [(#SET_MERGE{tribunes,#GET{tribunes},#ARRAY{#COMPTEUR_BOUCLE-rub,#ARRAY{rub,#ID_RUBRIQUE}}})]
-    </BOUCLE_rubriques_tribunes>
-
-    <BOUCLE_articles_tribunes(ARTICLES){id_mot}{id_rubrique !IN #GET{rubriques_tribunes}}>
-    #SET_PUSH{articles_tribunes,#ID_ARTICLE}
-        [(#SET{d,#DATE|affdate{Y-m-d}})]
-        [(#SET_MERGE{tribunes,#GET{tribunes},#ARRAY{#COMPTEUR_BOUCLE-art,#ARRAY{art,#ID_ARTICLE}}})]
-    </BOUCLE_articles_tribunes>
-
-[(#SET{articles_tribunes,#GET{articles_tribunes}|tri_array{inverse}})]
-<BOUCLE_data(DATA){source table,#GET{articles_tribunes}}>
-#CLE => #VALEUR <br>
-</BOUCLE_data>
-
-</BOUCLE_mot_tribunes>
+<BOUCLE_rubrique_115(RUBRIQUES){id_rubrique=115}>
+<BOUCLE_num(RUBRIQUES){id_parent}{par titre}>
+<h1>rubrique #TITRE</h1>
+<BOUCLE_articles(ARTICLES){id_rubrique}>
+<h3>article #TITRE</h3>
+<BOUCLE_mot(MOTS){id_article}>
+<h5>mot #TITRE</h5>
+</BOUCLE_mot>
+</BOUCLE_articles>
+</BOUCLE_num>
+</BOUCLE_rubrique_115>
