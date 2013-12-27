@@ -74,6 +74,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'publication_about'                           => "À propos de l’article",
     'published_in'                                => 'Publiée dans',
     'published_date'                              => 'Publiée le',
+    'published_date_alt' => "Publié le",
     
     // R
     'read_also'                                   => 'Lire également',

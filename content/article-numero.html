@@ -44,7 +44,7 @@
                 <h2 class="hN intertitre-section intertitre-section--first intertitre-section--aside"><:local:read_also:></h2>
                 <ul class="list list--dash list--aside">
                     <BOUCLE_articles_lies(ARTICLES){id_article IN #ARTICLES_LIES}>
-                    <li>
+                    <li class="related__item">
                         <h3 class="hN"><a href="[(#URL_ARTICLE)]" rel="next">#TITRE</a>[ <small class="soustitre">(#SOUSTITRE)</small>]</h3>
                     </li>
                     </BOUCLE_articles_lies>

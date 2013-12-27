@@ -8,16 +8,23 @@ a {
     font-weight: 600;
     border-bottom: 1px dotted transparent;
     @include vendor(transition,color 0.35s ease-out, border 0.35s ease-out);
-    .liens & {
-        border-bottom-color: $link-color;
-        &:hover {
-            color: #d8680d;
+    // .liens & {
+    //     border-bottom-color: $link-color;
+    //     &:hover {
+    //         color: #000;
+    //         border-bottom-style: solid;
+    //     }
+    // }
+}
+.spip_in,
+.spip_out,
+.liens a {
+    border-bottom-color: $link-color;
+    &:hover {
+            color: #000; //#d8680d;
             border-bottom-style: solid;
         }
-    }
 }
-// .spip_in,
-// .spip_out {}
 
 /*==========  more  ==========*/
 .more {
