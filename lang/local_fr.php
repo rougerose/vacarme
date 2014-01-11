@@ -5,7 +5,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'abonner'                                     => "S’abonner",
     'acheter'                                     => 'Acheter',
     'apercu_info_article'                         => "L'intégralité de cet article est disponible dans <em>@titre_numero@</em> actuellement en vente dans votre librairie ou <a href='http://commande.vacarme.org'>en ligne</a>.",
-    'apercu_info_numero'                          => "Vacarme aime la gratuité, mais ce numéro est actuellement en vente en librairie. Seuls les articles précédés de cette icône <span class='icon icon--unlock'></span> sont disponibles dans leur intégralité.",
+    'apercu_info_numero'                          => "Vacarme aime la gratuité, mais ce numéro est actuellement en vente en librairie et par <a href='http://commande.vacarme.org'>abonnement</a>. Seuls les articles précédés de cette icône <span class='icon icon--unlock'></span> sont disponibles dans leur intégralité.",
     'archives'                                    => "Archives",
     'article_auteur'                              => "1 article publié dans Vacarme",
     'articles_auteur'                             => '@nb@ articles publiés dans Vacarme',
