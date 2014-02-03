@@ -10,6 +10,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'article_auteur'                              => "1 article publié dans Vacarme",
     'articles_auteur'                             => '@nb@ articles publiés dans Vacarme',
     'article_auteur_aucun'                        => 'Aucun article publié dans <i>Vacarme</i> à ce jour.',
+    'article_integral_admin' => "Vous êtes identifié-e comme administratrice/teur du site.<br>
+    Cet article s'affiche pour vous dans <strong>sa version intégrale</strong>.<br>
+    Un visiteur sans identification particulière n'aura qu'un aperçu de l'article.",
     'article_number'                              => '1 article',
     'articles_number'                             => '@nb@ articles',
     'auteurs_tous_back'                           => '⟵ Tous les auteurs',

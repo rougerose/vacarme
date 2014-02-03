@@ -1,4 +1,10 @@
 #SET{integral,#ENV{integral,''}} #SET{titre_numero,Vacarme}
+[(#GET{integral}|non)
+  [(#SESSION{statut}|=={0minirezo}|oui)
+    #SET{integral,' '}
+    <p class="message message__important"><:local:article_integral_admin:></p>
+  ]
+]
 <BOUCLE_article_numero_body(ARTICLES){id_article}>
 <BOUCLE_hierarchie(HIERARCHIE){id_article}>[(#PROFONDEUR|=={1}|?{#SET{titre_numero,#TITRE}})]</BOUCLE_hierarchie>
 [(#REM) version apercu ]

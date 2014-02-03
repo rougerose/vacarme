@@ -43,7 +43,16 @@ hr.spip {
 .poesie-tab9 {margin-left: 18em;}
 .poesie-tab10 {margin-left: 20em;}
 .poesie-tab11 {margin-left: 22em;}
- .poesie-tab12 {margin-left: 24em;}
+.poesie-tab12 {margin-left: 24em;}
+
+/* message */
+.message {padding: 1em;}
+.message__important {
+    @include font-size(18px);
+    background-color: $ok;
+    // color: #fff;
+
+}
 
 
 /*-----  End of typo  ------*/
