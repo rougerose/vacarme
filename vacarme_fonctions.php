@@ -115,4 +115,27 @@ function tri_tableau(&$array, $key,$reverse=false) {
     return $array;
 }
 
+/**
+*
+* Fonction comparaison de date
+*
+**/
+/* 
+Pour l'utiliser il faut modifier 
+la méthode de calcul de l'age des articles, voir todo.
+usage : [(#DATE_NUMERO|date_comparaison{365}|?{oui,non})]
+*/
+/*
+function date_comparaison($date,$jours) {
+    $datetime1 = new DateTime($date);
+    $datetime2 = new DateTime('now');
+    $interval = $datetime1->diff($datetime2);
+    $nbre = $interval->format('%a');
+    if ($nbre >= $jours) {
+        return true;
+    } else {
+        return false;
+    }
+}
+*/
 ?>
