@@ -1,0 +1,50 @@
+#SET{debut,''} #SET{fin,''} #SET{total,''}
+
+<BOUCLE_les_numeros(RUBRIQUES){id_rubrique=115}>
+
+<BOUCLE_numero(RUBRIQUES){id_rubrique=#ENV{numero}}>
+    <h1>#TITRE</h1>
+
+    <div id="tabs" class="admin">
+      <ul class="nav tabs-nav">
+        <li class="tabs-nav__item"><a href="#tabs-1">Saisie pages article</a></li>
+        <!-- <li class="tabs-nav__item"><a href="#tabs-2">Proin dolor</a></li> -->
+        <!-- <li class="tabs-nav__item"><a href="#tabs-3">Aenean lacinia</a></li> -->
+      </ul>
+      <div id="tabs-1">
+        <B_articles>
+            <ol>
+                <BOUCLE_articles(ARTICLES){branche}>
+                #SET{debut,''} #SET{fin,''} #SET{total,''}
+                [(#PAGE_DEBUT|=={0}|oui) #SET{debut,' '}]
+                [(#PAGE_FIN|=={0}|oui) #SET{fin,' '} ]
+                [(#PAGES_TOTAL|=={0}|oui) #SET{total,' '}]   
+                [(#GET{debut}|ou{#GET{fin}}|ou{#GET{total}}|oui)
+                    <li>
+                        <h5><a href="#URL_ECRIRE{article,id_article=#ID_ARTICLE}" target="_blank">#TITRE</a> / #ID_ARTICLE</h5>
+                        <p>
+                            [Page début (#PAGE_DEBUT) <br>]
+                            [Page fin (#PAGE_FIN) <br>]
+                            [Pages total (#PAGES_TOTAL)]
+                        </p>
+                    </li>
+                ]
+                </BOUCLE_articles>
+            </ol>
+        </B_articles>
+      </div>
+      <!-- <div id="tabs-2"></div> -->
+      <!-- <div id="tabs-3"></div> -->
+    </div>
+
+<script>
+    $(function() {
+        $("#tabs").tabs();
+    });
+</script>
+</BOUCLE_numero>
+<p></p>
+<//B_numero>
+
+
+</BOUCLE_les_numeros>

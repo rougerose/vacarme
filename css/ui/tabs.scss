@@ -21,6 +21,12 @@
     }
 }
 
+.admin {
+    .tabs-nav__item a {
+        padding: 0 .5em;
+    }
+}
+
 @include media-query(lap-and-up) {
     .tabs {
         margin-top: -2.8em;
