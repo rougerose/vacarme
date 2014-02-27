@@ -7,8 +7,8 @@
 
     <div id="tabs" class="admin">
       <ul class="nav tabs-nav">
-        <li class="tabs-nav__item"><a href="#tabs-1">Saisie pages article</a></li>
-        <!-- <li class="tabs-nav__item"><a href="#tabs-2">Proin dolor</a></li> -->
+        <li class="tabs-nav__item"><a href="#tabs-1">Saisie pages</a></li>
+        <li class="tabs-nav__item"><a href="#tabs-2">Version aperçu</a></li>
         <!-- <li class="tabs-nav__item"><a href="#tabs-3">Aenean lacinia</a></li> -->
       </ul>
       <div id="tabs-1">
@@ -33,7 +33,18 @@
             </ol>
         </B_articles>
       </div>
-      <!-- <div id="tabs-2"></div> -->
+      <div id="tabs-2">
+          <BOUCLE_consultables(ARTICLES){branche}{age<30}{id_mot=7}{doublons}> </BOUCLE_consultables>
+          <B_non_consultables>
+          <ol>
+              <BOUCLE_non_consultables(ARTICLES){branche}{age<30}{doublons}>
+              <li>
+                  <h5><a href="#URL_ECRIRE{article,id_article=#ID_ARTICLE}" target="_blank">#TITRE</a> / #ID_ARTICLE</h5>
+              </li>
+              </BOUCLE_non_consultables>
+          </ol>
+          </B_non_consultables>
+      </div>
       <!-- <div id="tabs-3"></div> -->
     </div>
 
