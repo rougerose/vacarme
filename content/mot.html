@@ -1,0 +1,31 @@
+[(#REM) 
+    Les variantes des fichiers à inclure selon l'ID_MOT
+    ===================================================
+    - 11 => Entretiens
+    - 227 => Dossiers
+    - 231 => Tribunes
+    - 302 => Feuilletons
+]
+[(#SET{variantes_skel,#LISTE{11,227,231,302}})]
+<BOUCLE_mot(MOTS){id_mot}>
+<div class="grid">
+    <article class="self mot">
+        <div class="grid__item">
+            <header class="self__header self__header--rubrique">
+                <h1 class="hN titre"><span class="#EDIT{titre}">[(#TITRE|prenom_nom)]</span></h1>
+            </header>
+        </div><!-- /.grid__item -->
+        [<div class="grid__item desk-three-quarters push--desk-one-quarter">
+            <div class="self__body self__body--rubrique landmark">
+                <div class="#EDIT{texte} self__texte surlignable">
+                    (#TEXTE|image_reduire{500,0})
+                </div>
+            </div>
+        </div><!-- /.grid__item -->]
+        [(#GET{variantes_skel}|find{#ID_MOT}|?{
+            [(#INCLURE{fond=inclure/mot-contenu-mot#ID_MOT,id_mot})],
+            [(#INCLURE{fond=inclure/mot-contenu-standard,id_mot})]
+        })]
+    </article>
+</div><!-- /.grid -->
+</BOUCLE_mot>

@@ -1,0 +1,39 @@
+[(#REM)
+    mot Dossiers
+    =============
+    Les objets liés à ce mot-clé sont :
+    - soit des rubriques 
+    - soit des articles isolés et qui sont liés à un mot-clé du groupe @petit dossier. 
+    
+    Les dossiers seront triés soit par titre de la rubrique parente (quand la rubrique est lié au mot-clé Dossiers), soit par le titre du mot-clé placé dans @petit dossier. 
+
+    Les rubriques sont placés d'une part dans un tableau Rubriques et d'autre part dans un tableau Dossiers. 
+    Le tableau Rubriques permettra de dédoubler les articles qui sont déjà dans une rubrique parente qui est liée au mot-clé Dossiers. 
+    Les mots-clés du groupe @petit dossier (id_groupe 16) sont ajoutés au tableau Dossiers.
+    La rubrique des articles d'un dossier @petit dossier sont ajoutés au tableau rubrique_mots. Cela permet d'afficher le numéro dans lequel le dossier est publié. 
+
+    Les titres des objets sont les clés du tableau Dossiers. avec |sans_article : suppression de l'article (Des, De, Le, Les, L', etc.) et déaccentuation de la première lettre afin d'avoir un classement alphabétique qui soit correct.
+]
+
+<BOUCLE_mot_dossiers(MOTS){id_mot}>
+
+    <BOUCLE_rubriques_dossiers(RUBRIQUES){id_mot}>
+        #SET_PUSH{rubriques,#ID_RUBRIQUE}
+        [(#SET{titre_rubrique,[(#TITRE|textebrut|sans_article|concat{_rub_#ID_RUBRIQUE})]})]
+        #SET_MERGE{dossiers,#GET{dossiers},#ARRAY{#GET{titre_rubrique},#ARRAY{rub,#ID_RUBRIQUE}}}
+    </BOUCLE_rubriques_dossiers>
+    
+    <BOUCLE_articles_petit_dossier(ARTICLES){id_groupe=16}>
+        <BOUCLE_mot_petit_dossier(MOTS){id_article}{id_groupe=16}{unique}>
+            [(#ID_RUBRIQUE|in_array{#GET{rubriques}}|non)
+                [(#SET_MERGE{rubrique_mots,#ARRAY{\[#ID_MOT\],#ID_RUBRIQUE}})]
+                [(#SET{titre_mot,[(#TITRE|textebrut|sans_article|concat{_mot_#ID_MOT})]})]
+                #SET_MERGE{dossiers,#GET{dossiers},#ARRAY{#GET{titre_mot},#ARRAY{mot,#ID_MOT}}}
+            ]
+        </BOUCLE_mot_petit_dossier>
+    </BOUCLE_articles_petit_dossier>
+
+    <INCLURE{fond=inclure/resumes/mot-227,
+        id_mot,dossiers=#GET{dossiers},rubrique_mots=#GET{rubrique_mots},ajax} />
+
+</BOUCLE_mot_dossiers>

@@ -1,0 +1,23 @@
+[(#REM) 
+    ************************************
+    Constantes
+    ************************************
+    
+    Transmises dans l'environnement : 
+    ----------------------------------
+    css :
+        - header_class
+        - titre_class : resume__titre--stack|logo|text*|hero
+]
+
+[(#REM) css ]
+    #SET{header_class,#ENV{header_class,''}}
+    #SET{titre_class,#ENV{titre_class,''}}
+
+<BOUCLE_rubrique_header(RUBRIQUES){id_rubrique}>
+<header[ class="(#GET{header_class})"]>
+    <h1 class="hN resume__titre resume-rubrique__titre[ (#GET{titre_class})]">
+        [(#TITRE)]
+    </h1>
+</header>
+</BOUCLE_rubrique_header>

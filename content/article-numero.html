@@ -1,0 +1,89 @@
+<BOUCLE_article(ARTICLES){id_article}>
+[   (#REM) Constantes
+]   #SET{type,''} #SET{type-titre,''} #SET{integral,''}
+    [(#REM) l'article a plus d'un an ? ]
+    <BOUCLE_age(ARTICLES){id_article}{age>=365}> [(#SET{integral,oui})] </BOUCLE_age> [(#SET{integral,''})] <//B_age>
+    <BOUCLE_mots_techniques(MOTS){id_article}{id_groupe=5}{tout}>
+    [(#REM) l'article est un entretien ?]
+    [(#ID_MOT|=={75}|oui)#SET{type,entretien}][(#SET{type-titre,#TITRE})]
+    [(#REM) version aperçu ou intégrale ?]
+    [(#ID_MOT|=={7}|?{#SET{integral,oui}})]
+    </BOUCLE_mots_techniques>
+<div class="grid">
+    <article class="self article" itemscope itemtype="http://schema.org/Article">
+        <header class="self__header self__header--art landmark cf">
+            <div class="grid__item lap-and-up-three-quarters float--right">
+                [<p class="#EDIT{surtitre} surtitre">(#SURTITRE)</p>]
+                <h1 itemprop="name" class="hN titre">
+                    <span class="#EDIT{titre}">#TITRE</span>[ <small class="#EDIT{soustitre} soustitre">(#SOUSTITRE)</small>]
+                </h1>
+            </div>
+            <BOUCLE_auteurs(AUTEURS){id_article}{0,1}{si #GET{type}|non}>
+            <div class="grid__item lap-and-up-one-quarter float--left">
+            [(#INCLURE{fond=inclure/objets/authors-article,id_article})]
+            </div>
+            </BOUCLE_auteurs>
+        </header>
+        [   (#REM) Le chapo et le logo de l'article
+        ][
+            (#INCLURE{fond=inclure/objets/chapo-logo-article,id_article,composition=#ENV{composition}})
+        ]
+        <div class="grid__item lap-and-up-three-quarters float--right">
+            <div class="self__body self__body--article">
+                [(#REM) version apercu ou intégrale du texte, ps et documents liés ]
+                [(#INCLURE{fond=inclure/objets/article-numero-body,id_article,integral=#GET{integral}})]
+            </div>
+        </div><!-- /.grid__item -->
+        <div class="grid__item lap-and-up-one-quarter float--left">
+            [   (#REM) auteurs article/entretien
+            ][      (#GET{type}|match{entretien}|oui)
+                        [(#INCLURE{fond=inclure/objets/authors-interview-aside,id_article,type-titre=#GET{type-titre}})]
+            ][  (#REM) articles liés ]
+            <B_articles_lies>
+            <aside class="related related--aside landmark">
+                <h2 class="hN intertitre-section intertitre-section--first intertitre-section--aside"><:local:read_also:></h2>
+                <ul class="list list--dash list--aside">
+                    <BOUCLE_articles_lies(ARTICLES){id_article IN #ARTICLES_LIES}>
+                    <li class="related__item">
+                        <h3 class="hN"><a href="[(#URL_ARTICLE)]" rel="next">#TITRE</a>[ <small class="soustitre">(#SOUSTITRE)</small>]</h3>
+                    </li>
+                    </BOUCLE_articles_lies>
+                </ul>
+            </aside>
+            </B_articles_lies>
+        </div><!-- /.grid__item -->
+        <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
+            [(#INCLURE{fond=inclure/objets/authors-about,id_article})]
+            [(#REM) pied de page simplifié ? voir Todo ]
+            <footer class="related related--content article landmark">
+                <h2 class="hN intertitre-section intertitre-section--first intertitre-section--content"><:local:publication_about:></h2>
+                <div class="col">
+                    <ul class="list">
+                        <li class="col__item desk-col__item--50 landmark">
+                            <h3 class="hN intertitre-section intertitre-section--second"><:local:version_online:></h3>
+                            <p><:local:published_date:> <time pubdate datetime="[(#DATE|date_iso)]" itemprop="datePublished" content="[(#DATE|affdate{Y-m-d})]">[(#DATE|affdate)]</time></p>
+                            [<p class="liens">(#INCLURE{fond=inclure/objets/categories,id_objet=#ID_ARTICLE,objet=article})</p>]
+                            [<p class="liens">(#INCLURE{fond=inclure/objets/mots,id_objet=#ID_ARTICLE,objet=article})</p>]
+                        </li>
+                        <li class="col__item desk-col__item--50 landmark">
+                            <div class="media" itemscope itemtype="http://schema.org/Book">
+                                <BOUCLE_numero(HIERARCHIE){id_article}{1,1}>
+                                <BOUCLE_rubrique_numero(RUBRIQUES){id_rubrique}>
+                                [<a href="#URL_RUBRIQUE" itemprop="url">(#LOGO_RUBRIQUE||image_reduire{80,0}|inserer_attribut{class,media__img cover cover--thumb}|inserer_attribut{itemprop,image})</a>]
+                                <div class="media__body">
+                                    <h3 class="hN intertitre-section intertitre-section--second"><:local:version_print:></h3>
+                                    <p class="liens"><:local:published_in:> <a href="#URL_RUBRIQUE" itemprop="name">#TITRE</a>[, <span itemprop="datePublished" content="[(#SAISON_ANNEE|affdate{Y-m-d})]">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</span>][, (#PAGE_DEBUT|>{0}|oui)
+                                        [(#PAGE_DEBUT|=={#PAGE_FIN}|?{<:local:page_number{debut=#PAGE_DEBUT}:>,<:local:page_abrev{debut=#PAGE_DEBUT,fin=#PAGE_FIN}:>})]
+                                    ]</p>
+                                </div>
+                                </BOUCLE_rubrique_numero>
+                                </BOUCLE_numero>
+                            </div>
+                        </li>
+                    </ul>
+                </div><!-- /.col -->
+            </footer>
+        </div><!-- /.grid__item -->
+    </article>
+</div><!-- /.grid -->
+</BOUCLE_article>

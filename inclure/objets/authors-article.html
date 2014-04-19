@@ -1,0 +1,3 @@
+[<p class="person person-signature person-signature--author related"><:par_auteur:>(#MODELE{authors,id_article=#ENV{id_article}})</p>]
+<BOUCLE_credit_logo(ARTICLES){id_article}>[(#CREDIT_LOGO|oui)
+[(#INCLURE{fond=inclure/objets/credit-logo,id_article})]]</BOUCLE_credit_logo>

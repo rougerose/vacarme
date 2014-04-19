@@ -1,0 +1,27 @@
+<BOUCLE_mot(MOTS){id_mot}>
+#SET{rubriques_entretiens,#ENV{rubriques_entretiens}}
+#SET{articles_entretiens,#ENV{articles_entretiens}}
+#SET{personnes,#ENV{personnes}}
+
+<B_noms>
+<section class="landmark">
+    #ANCRE_PAGINATION
+    <div class="grid__item">
+        <BOUCLE_noms(MOTS){id_mot IN #GET{personnes}}{par titre}{pagination 10}>
+            [(#INCLURE{fond=inclure/layout/mot-4colMotTableaux,
+                id_mot,
+                tableau_rubriques=#GET{rubriques_entretiens},
+                tableau_articles=#GET{articles_entretiens},
+                mot_resume_type=resume--hero,
+                mot_titre_class=resume__titre--hero}
+            )]
+        </BOUCLE_noms>
+    </div><!-- /.grid__item -->
+    <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
+        [<nav class="pagination pagination--bottom pagination--page">
+            (#PAGINATION{li})
+        </nav>]
+    </div><!-- /.grid__item -->
+</section>
+</B_noms>
+</BOUCLE_mot>

@@ -1,0 +1,16 @@
+<B_mots>
+#ANCRE_PAGINATION
+<section class="mots search-results landmark">
+    <h2 class="hN intertitre-section intertitre-section--first">[(#GRAND_TOTAL|singulier_ou_pluriel{local:keyword_number,local:keywords_number})]</h2>
+    <div class="grid">
+        <ul class="list">
+            <BOUCLE_mots(MOTS){id_mot IN #ENV{selection}}{pagination 10}>
+            <li class="grid__item lap-and-up-one-third">
+                #INCLURE{fond=inclure/resumes/mot,id_mot}
+            </li><!-- /.grid__item -->
+            </BOUCLE_mots>
+        </ul>
+    </div><!-- /.grid -->
+    [<nav class="pagination pagination--prev-next pagination--bottom">(#PAGINATION{precedent_suivant_compteur})</nav>]
+</section>
+</B_mots>

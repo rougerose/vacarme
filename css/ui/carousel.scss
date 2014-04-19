@@ -1,0 +1,44 @@
+/*================================
+=            carousel            =
+================================*/
+
+.flexslider__container {
+    .js & {
+        overflow: hidden;
+    }
+}
+.flexslider {
+    border-width: 0;
+    @include vendor(box-shadow,none);
+}
+
+.flex-direction-nav {
+    @extend .nav;
+    position: absolute;
+    z-index: 5;
+    bottom: $base-spacing-unit/2;
+    right: 0;
+    @include media-query(palm) {
+        top: $base-spacing-unit/4;
+    }
+    @include media-query(lap) {
+        bottom: 4em;
+    }
+    a {
+        margin: 0 6px;
+        padding: 0 12px 3px;
+        border: none;
+        background: rgba($site-color,0.8);
+        color: #fff;
+        @include font-size(24px,$line-height:false);
+        font-family: Georgia,Times,serif;
+        @include vendor(transition,all 0.35s ease-out);
+        &:hover {
+            color: #000;
+            background: rgba($site-color,1);
+        }
+    }
+}
+
+/*-----  End of carousel  ------*/
+

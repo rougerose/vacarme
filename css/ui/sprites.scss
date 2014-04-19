@@ -1,0 +1,55 @@
+/*===============================
+=            sprites            =
+===============================*/
+
+// .s--svg {
+//     background: url(../img/css/sprites/vacarme-sprites.svg) no-repeat;
+// }
+
+.icon {
+    height: 24px;
+    width: 24px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: $nav-bg;
+}
+
+.icon--navigation {
+    @include font-size(23px);
+    font-weight: bold;
+    &:hover {
+        color: #fff;
+    }
+}
+.icon--close {
+    border-radius: 50%;
+    @include font-size(23px);
+    line-height: 0.9;
+    background-color: #999;
+    font-weight: bold;
+    &:hover {
+        background-color: $gray-light;
+        color: #000;
+    }
+}
+
+.icon--search {
+    background: transparent url(../img/css/icon__search.svg) no-repeat 0 0.375em; // 0 6px
+    @include media-query(lap-and-up) {
+        background-position: 0 0.2em;
+    }
+}
+
+.icon--lock {
+    background: transparent url(../img/css/icon__lock.png) no-repeat 0 0;
+}
+.icon--unlock {
+    margin-top: -10px;
+    background: transparent url(../img/css/icon__lock.png) no-repeat 0 -24px;
+}
+
+.icon--back-top {
+    background: transparent url(../img/css/icon__back-top.png) no-repeat center top;
+}
+
+/*-----  End of sprites  ------*/
+

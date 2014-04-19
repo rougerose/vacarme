@@ -1,0 +1,120 @@
+[(#REM) 
+    ************************************
+    Constantes
+    ************************************
+
+    Transmises dans l'environnement 
+    ------------------------------------
+    * = attribuée par défaut
+
+    Variante layout :
+        - 4col1ligneRubArt : Variante sur 4 colonnes et 1 ligne avec la rubrique, puis les articles (2 maximum)
+
+    css : 
+        - rubrique_resume_type : resume--stack|logo|text*|hero
+        - rubrique_header_class
+        - rubrique_titre_class
+        - rubrique_desc_class
+
+    contenus de l'élément :
+        - rubrique_header_supprimer : oui|non*
+        - rubrique_suite_afficher : oui|non*
+        - rubrique_resume_numero_titre_afficher : oui|non*
+
+    logo :
+        - rubrique_logo_supprimer : oui|non*
+
+    contenus de l'élément enfant : 
+        - articles_tri : titre
+        - article_resume_numero_titre_afficher : oui|non*
+        - article_verrou_afficher: oui|non*
+
+    Calculée dans le squelette 
+    ------------------------------------
+    logo :
+        - logo : oui|non*
+        - logo_format : paysage*|portrait|vignette
+        - figure_class
+]
+[(#REM) css ]
+    #SET{rubrique_resume_type,#ENV{rubrique_resume_type,resume--text}}
+
+
+[(#REM) contenus élément ]
+
+[(#REM) logo ]
+    #SET{logo,''}
+    #SET{logo_format,#ENV{logo_format,paysage}}
+
+[(#REM) contenus éléments enfant ]
+    #SET{tri_articles,#ENV{tri_articles,titre}}
+
+
+<BOUCLE_rubrique_4col1ligneRubArt(RUBRIQUES){id_rubrique}>
+[(#LOGO_RUBRIQUE|oui)
+    [(#ENV{rubrique_logo_supprimer}|?{#SET{logo,''},#SET{logo,' '}})]
+    [(#LOGO_RUBRIQUE|largeur|>{#LOGO_RUBRIQUE|hauteur}|?{
+        #SET{logo_format,paysage},#SET{logo_format,portrait}
+    })]
+    [(#SET{figure_class,#VAL{resume__figure--}|concat{#GET{logo_format}}})]
+]
+
+[(#GET{logo}|?{
+    #SET{contenu_class,grid__item--bottom lap-and-up-one-half},
+    #SET{contenu_class,lap-and-up-three-quarters push--lap-and-up-one-quarter}
+})]
+
+[(#ENV{rubrique_header_supprimer}|non)
+<article class="resume resume-rubrique[ (#GET{rubrique_resume_type})]">
+]
+    [(#GET{logo}|oui)
+    <div class="grid__item grid__item--bottom lap-and-up-one-half">
+        [(#GET{logo_format}|=={portrait}|?{
+        <div class="grid"><div class="grid__item lap-and-up-one-half push--lap-and-up-one-half">})]
+            [(#INCLURE{fond=inclure/objets/logo-rubrique,
+                id_rubrique,
+                logo_format=#GET{logo_format},
+                figure_class=#GET{figure_class}}
+            )]
+        [(#GET{logo_format}|=={portrait}|?{
+        </div></div>})]
+    </div><!-- /.grid__item -->
+    ]
+    <div class="grid__item[ (#GET{contenu_class})]">
+        [(#ENV{rubrique_header_supprimer}|?{
+            '',
+            [(#INCLURE{fond=inclure/resumes/rubrique-header,
+                id_rubrique,
+                resume_type=#GET{rubrique_resume_type},
+                titre_class=#ENV{rubrique_titre_class}}
+            )]
+        })]
+        [(#DESCRIPTIF|ou{#INTRODUCTION}|oui)
+            [(#INCLURE{fond=inclure/resumes/rubrique-descriptif,
+                id_rubrique,
+                suite_afficher=#ENV{rubrique_suite_afficher},
+                resume_numero_titre_afficher=#ENV{rubrique_resume_numero_titre_afficher},
+                desc_class=#ENV{rubrique_desc_class}}
+            )]
+        ]
+        <B_articles_rubrique>
+        [(#TOTAL_BOUCLE|>{1}|?{<div class="grid">})]
+            <BOUCLE_articles_rubrique(ARTICLES){id_rubrique}{par #GET{articles_tri}}>
+            [(#TOTAL_BOUCLE|>{1}|?{<div class="grid__item one-half">})]
+                [(#INCLURE{fond=inclure/layout/article-1colArt,
+                    id_article,
+                    article_resume_type=resume--nested resume--text,
+                    article_suite_afficher=oui,
+                    article_verrou_afficher=#ENV{article_verrou_afficher},
+                    article_resume_numero_titre_afficher=#ENV{article_resume_numero_titre_afficher},
+                    article_logo_supprimer=oui}
+                )]
+            [(#TOTAL_BOUCLE|>{1}|?{</div><!-- /.grid__item -->})]
+            </BOUCLE_articles_rubrique>
+        [(#TOTAL_BOUCLE|>{1}|?{</div><!-- /.grid -->})]
+        </B_articles_rubrique>
+    </div><!-- /.grid__item -->
+[(#ENV{rubrique_header_supprimer}|non)
+</article>
+]
+</BOUCLE_rubrique_4col1ligneRubArt>

@@ -1,0 +1,51 @@
+<BOUCLE_page_contact(ARTICLES){page=contact}>
+
+<div class="grid">
+    <article class="self article">
+        <div class="grid__item desk-three-quarters push--desk-one-quarter">
+            <header class="self__header landmark">
+                [<p class="#EDIT{surtitre} surtitre">(#SURTITRE)</p>]
+                <h1 class="hN">
+                    <span class="#EDIT{titre} titre">#TITRE</span>[ <small class="#EDIT{soustitre} soustitre">(#SOUSTITRE)</small>]
+                </h1>
+            </header>
+        </div><!-- /.grid__item -->
+        <div class="grid__item desk-three-quarters push--desk-one-quarter">
+            [<div class="#EDIT{chapo} self__chapo landmark surlignable">
+                (#CHAPO|image_reduire{500,0})
+            </div>]
+            <div class="grid">
+                <div class="grid__item desk-one-half">
+                    [(#FORMULAIRE_ECRIRE_AUTEUR)]
+                </div>
+                <div class="grid__item desk-one-half">
+                    [<div class="#EDIT{texte} self__texte landmark surlignable">
+                        (#TEXTE|image_reduire{500,0})
+                    </div>]
+                    [<section class="#EDIT{ps} self__ps landmark ps surlignable">
+                        <h2 class="hN intertitre-section intertitre-section--first"><:info_ps:></h2>
+                        (#PS|image_reduire{500,0})
+                    </section>]
+                    [<section class="self__notes landmark">
+                        <h2 class="hN intertitre-section intertitre-section--first"><:info_notes:></h2>
+                        <div class="self__notes__body">
+                            (#NOTES)
+                        </div>
+                    </section>]
+                </div>
+            </div><!-- /.grid -->
+
+
+        </div><!-- /.grid__item -->
+        <div class="grid__item desk-three-quarters">
+            <div class="self__body">
+                
+                [<section>
+                    (#INCLURE{fond=inclure/documents,id_article})
+                </section>]
+            </div>
+        </div><!-- /.grid__item -->
+    </article>
+</div><!-- /.grid -->
+
+</BOUCLE_page_contact>

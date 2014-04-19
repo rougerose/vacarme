@@ -1,0 +1,13 @@
+<paquet categorie="squelette" compatibilite="[3.0.10;[" etat="dev" logo="img/vacarme-128.png" prefix="vacarme" version="3.0.0">
+    <nom>Vacarme</nom>
+    <auteur lien="http://rouge-rose.net">christophe le drean</auteur>
+    <licence>GNU/GPL</licence>
+    <pipeline nom="jqueryui_plugins" inclure="vacarme_pipelines.php" />
+    <pipeline nom="header_prive_css" inclure="vacarme_pipelines.php" />
+    <necessite compatibilite="[2.0.1;[" nom="Z5"/>
+    <necessite compatibilite="[2.2.1;[" nom="Zcore"/>
+    <necessite nom="IntertitresTdm" compatibilite="[0.9.5;[" />
+    <necessite nom="jqueryui" compatibilite="[1.8.21;[" />
+    <utilise nom="medias" compatibilite="[2.7.45;[" />
+    <chemin path=""/>
+</paquet>

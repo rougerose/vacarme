@@ -1,0 +1,30 @@
+[(#REM)
+    *********************************
+    Constantes
+    *********************************
+    
+    Transmises dans l'environnement : 
+    ---------------------------------
+    - logo_objet : mot
+    - logo_format : paysage / portrait / vignette-complete / vignette-partielle / paysage-archives
+    - logo_class
+    - figure_class
+    - logo_url : oui / non (défaut)
+
+]
+<BOUCLE_mot(MOTS){id_mot}>
+    [(#ENV{logo_objet}|=={mot}|oui)
+        [(#ENV{logo_format}|=={vignette-partielle}|oui)
+            [(#SET{logo,#LOGO_MOT|image_reduire{500,0}|image_recadre{248,312,'center left',000}|extraire_attribut{src}})]
+        ][(#ENV{logo_format}|=={portrait}|oui)
+            [(#SET{logo,#LOGO_MOT|image_reduire{0,1024}|image_recadre{732,1024,'top center',000}|extraire_attribut{src}})]
+        ][(#ENV{logo_format}|=={paysage}|oui)
+            [(#SET{logo,#LOGO_MOT|image_reduire{1024,0}|image_recadre{1024,683,'top center',000}|extraire_attribut{src}})]
+        ]
+    ]
+[<figure class="resume__figure[ (#ENV{figure_class})]">
+    [(#ENV{logo_url}|=={oui}|?{<a href="#URL_MOT">})]
+    <img src="(#GET{logo})"[ alt="(#GET{t})"][ class="(#ENV{logo_class})"]>
+    [(#ENV{logo_url}|=={oui}|?{</a>})]
+</figure>]
+</BOUCLE_mot>

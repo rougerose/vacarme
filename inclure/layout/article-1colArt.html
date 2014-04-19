@@ -1,0 +1,97 @@
+[(#REM) 
+    ************************************
+    Constantes
+    ************************************
+
+    Transmises dans l'environnement 
+    ------------------------------------
+    * = attribuée par défaut
+
+    Variantes layout :
+        - 1colArt : Variante sur 1 colonne, article seul
+
+    css : 
+        - article_resume_type : resume--stack|logo|text*|hero
+        - article_header_class
+        - article_titre_class
+        - article_desc_class
+
+    contenus de l'élément :
+        - article_header_supprimer : oui|non*
+        - article_suite_afficher : oui|non*
+        - article_resume_numero_titre_afficher : oui|non*
+        - article_date_afficher: oui|non*
+        - article_auteur_supprimer : oui|non*
+        - article_verrou_afficher: oui|non*
+
+    logo :
+        - article_logo_supprimer : oui|non*
+        - article_logo_forcer : oui|non* 
+            (forcer l'affichage d'un logo, logo_objet=secteur est alors nécessaire)
+        - logo_objet : article*|secteur
+        - figcaption_numero_titre : oui|non*
+        - figcaption_hX
+        
+
+    Calculée dans le squelette 
+    ------------------------------------
+    logo :
+        - logo : oui|non*
+        - logo_format : paysage*|portrait|vignette
+        - figure_class
+
+]
+[(#REM) css ]
+    #SET{article_resume_type,#ENV{article_resume_type,resume--text}}
+
+[(#REM) contenus élément ]
+
+[(#REM) logo ]
+    #SET{logo,''}
+    #SET{logo_format,#ENV{logo_format,paysage}}
+    #SET{logo_objet,#ENV{logo_objet,article}}
+
+
+<BOUCLE_article_1colArt(ARTICLES){id_article}>
+[(#ENV{article_logo_forcer}
+    |?{#ENV{logo_objet}|match{secteur}|?{' '}}) #SET{logo,' '} ]
+[(#LOGO_ARTICLE|oui)
+    [(#ENV{article_logo_supprimer}|?{#SET{logo,''},#SET{logo,' '}})]
+    [(#LOGO_ARTICLE|largeur|>{#LOGO_ARTICLE|hauteur}|?{
+        #SET{logo_format,paysage},#SET{logo_format,portrait}
+    })]
+    [(#SET{figure_class,#VAL{resume__figure--}|concat{#GET{logo_format}}})]
+]
+
+[(#REM) !! A CONSERVER ? !! ]
+[(#GET{logo}|?{
+    #SET{contenu_class,grid__item--bottom lap-and-up-one-half},
+    #SET{contenu_class,lap-and-up-three-quarters push--lap-and-up-one-quarter}
+})]
+<article class="resume resume-article[ (#ENV{article_resume_type})]">
+    [(#GET{logo}|?{
+        [(#INCLURE{fond=inclure/objets/logo-article,
+            id_article,
+            logo_format=#GET{logo_format},
+            logo_objet=#GET{logo_objet},
+            figure_class=#GET{figure_class},
+            figcaption_numero_titre=#ENV{figcaption_numero_titre},
+            figcaption_hX=#ENV{figcaption_hX}}
+        )]
+    })]
+    [(#INCLURE{fond=inclure/resumes/article-header,
+        id_article,
+        header_class=#ENV{article_header_class},
+        verrou_afficher=#ENV{article_verrou_afficher},
+        titre_class=#ENV{article_titre_class},
+        desc_class=#ENV{article_desc_class}}
+    )]
+    [(#INCLURE{fond=inclure/resumes/article-descriptif,
+        id_article,
+        type_resume=#GET{type_resume},
+        date_afficher=#ENV{article_date_afficher},
+        suite_afficher=#ENV{article_suite_afficher},
+        resume_numero_titre_afficher=#ENV{article_resume_numero_titre_afficher}}
+    )]
+</article>
+</BOUCLE_article_1colArt>

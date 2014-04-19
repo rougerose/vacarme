@@ -1,0 +1,41 @@
+[(#REM) constante ][
+    (#SET{total,''})
+
+]<BOUCLE_articles(ARTICLES){recherche}{!par points}{lang}>[
+(#SET_PUSH{articles,#ID_ARTICLE})
+]</BOUCLE_articles><BOUCLE_auteurs(AUTEURS){recherche}{!par points}>[
+(#SET_PUSH{auteurs,#ID_AUTEUR})
+]</BOUCLE_auteurs><BOUCLE_rubriques(RUBRIQUES){recherche}{!par points}>[
+(#SET_PUSH{rubriques,#ID_RUBRIQUE})
+]</BOUCLE_rubriques><BOUCLE_mots(MOTS){recherche}{!par points}>[
+(#SET_PUSH{mots,#ID_MOT})
+]</BOUCLE_mots>[
+(#SET{total,#GET{articles}|count
+    |plus{#GET{rubriques}|count}
+    |plus{#GET{auteurs}|count}
+    |plus{#GET{documents}|count}
+    |plus{#GET{mots}|count} }
+)]
+<div class="grid">
+    <article class="self recherche">
+        <div class="grid__item">
+            <header class="self__header self__header--rubrique">
+                <h1 class="hN titre"><:resultats_recherche:></h1>
+            </header>
+        </div><!-- /.grid__item -->
+
+        [(#GET{total}|>{0}|oui)
+        <div class="grid__item desk-three-quarters push--desk-one-quarter">[
+            (#GET{articles}|count|>{0}|oui)
+                [(#INCLURE{fond=liste/recherche-articles,selection=#GET{articles},env,ajax})]
+            ][(#GET{auteurs}|count|>{0}|oui)
+                [(#INCLURE{fond=liste/recherche-auteurs,selection=#GET{auteurs},env,ajax})]
+            ][(#GET{rubriques}|count|>{0}|oui)
+                [(#INCLURE{fond=liste/recherche-rubriques,selection=#GET{rubriques},env,ajax})]
+            ][(#GET{mots}|count|>{0}|oui)
+                [(#INCLURE{fond=liste/recherche-mots,selection=#GET{mots},env,ajax})]
+            ]
+        </div><!-- /.grid__item -->]
+        
+    </article><!-- /.self recherche -->
+</div><!-- /.grid -->

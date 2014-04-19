@@ -1,0 +1,291 @@
+/*==============================
+=            resume            =
+==============================*/
+
+.resume {
+    margin-bottom: 3.5em;
+    line-height: 1.125; // 16px
+    @include media-query(palm) {
+        border-bottom: 1px dotted #ddd;
+        margin-bottom: 2em;
+    }
+}
+.resume__titre {
+    @include font-size(18px,$line-height:false);
+    line-height: 1.1;
+    font-weight: 600;
+    &:first-letter {
+        text-transform: uppercase;
+    }
+}
+.resume__desc {
+    @include font-size(15px,$line-height:false);
+    line-height: 1.313;
+    time {
+        float: left;
+        margin-right: .5em;
+        color: $gray;
+    }
+    @media only screen and (min-width: 960px) {padding-right: $base-spacing-unit*2;}
+}
+
+/* category */
+.resume__category {
+    @extend .intertitre-section--first;
+    margin-left: 0;
+    margin-bottom: $base-spacing-unit/2;
+    border-bottom-color: #000;
+    font-style: italic;
+    @include font-size(16px);
+    color: #000;
+}
+
+/* body et cartouche */
+.resume__body {
+    @include media-query(lap-and-up) {
+        position: absolute;
+        z-index: 10;
+        left: 0;
+        bottom: $base-spacing-unit/2;
+        width: 100%;
+    }
+    @include media-query(palm) {
+        background-color: $site-color;
+    }
+}
+    .resume__cartouche {
+        background-color: rgba($site-color,0.9);
+        padding: $base-spacing-unit/2 $base-spacing-unit/2 $base-spacing-unit/4;
+        .resume__titre {
+            margin-bottom: .15em;
+        }
+        .resume-article__soustitre {
+            @include font-size(15px,$line-height:false);
+            color: lighten($site-color,15%);
+        }
+    }
+    .resume__cartouche--paysage {
+        @include media-query(lap-and-up) {
+            width: 60%;
+        }
+    }
+
+/* figure */
+.resume__figure {
+    margin-bottom: 0;
+    @include media-query(palm) {
+        margin-bottom: 1em;
+    }
+    figcaption {
+        margin-top: .5em;
+    }
+}
+.resume__figcaption {
+    .numero-titre {
+        @include font-size(18px,$line-height:false);
+        line-height: 1;
+    }
+    .numero-soustitre {
+        display: inline; 
+        font-size: 100%;
+    }
+}
+// .resume__figure--portrait {}
+
+
+/*==========  .resume-rubrique  ==========*/
+
+
+.resume-rubrique__titre {
+    .toc__item & {
+        // @include font-size(40px,$line-height:false);
+        // line-height: 0.9;
+        // font-weight: 600;
+        // color: $soft-black;
+    }
+    .index-feature & {
+        @include font-size(18px);
+        margin-bottom: 0;
+    }
+    .index-issues & {
+        @include font-size(16px);
+        margin-bottom: 0;
+    }
+}
+// .resume-rubrique__desc {}
+
+/*==========  .resume-article  ==========*/
+// .resume-article {}
+// .resume-article__titre {}
+.resume-article__soustitre {
+    margin: .5em 0;
+    @include font-size(15px,$line-height:false);
+    color: $gray;
+}
+// .resume-article__desc {}
+
+/*==========  resume-article--list  ==========*/
+.resume-article--list {
+    margin-bottom: 2em;
+    &:after {
+        content: '— ❡ —';
+        display: block;
+        text-align: center;
+        color: $gray-light;
+    }
+    .resume-article__titre {
+        @include font-size(18px);
+    }
+}
+
+/*==========  resume-numero  ==========*/
+// .resume-numero {}
+.resume-numero__titre {
+    line-height: 1;
+}
+// SUPPRIMER
+// .resume-numero__titre--m {
+//     @include font-size(18px,$line-height:false);
+//     .resume-numero__soustitre {display: inline; font-size: 100%;}
+// }
+// .resume-numero__titre--s {
+//     @include font-size(16px,$line-height:false);
+// }
+
+/* variante : resume-numero--logoTitre (résumé numéro avec logo et titre uniquement) */
+.resume-numero--logoTitre {
+    text-align: center;
+    .resume__figure {
+        margin-bottom: .5em;
+    }
+    .resume-numero__titre {
+        @include font-size(16px,$line-height:false);
+    }
+}
+/* variante : resume-numero--titreSeul (résumé numéro avec titre uniquement) */
+.resume-numero--titreSeul {
+    display: inline-block;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: .5em;
+    @include media-query(palm) {
+        margin-bottom: 2em;
+    }
+    .resume-numero__titre {
+        margin-bottom: 0;
+        @include font-size(15px,$line-height:false);
+    }
+    .resume-numero__soustitre {display: inline; font-size: 100%;}
+}
+
+
+/*==========  resume-numero--list  ==========*/
+.resume-numero--list {
+    .resume-numero__titre {
+        @include font-size(18px,$line-height:false);
+    }
+    .resume-numero__soustitre {
+        line-height: 1.5;
+    }
+}
+
+/*==========  resume-auteur--list  ==========*/
+.resume-auteur--list {
+    .resume-auteur__nom {
+        border-bottom: 1px solid #000;
+        line-height: 1.2;
+        color: #000;
+    }
+}
+
+/*==========  resume-mot  ==========*/
+// .resume-mot__titre {}
+
+/*==========  resumés variantes : stack / text / logo / hero / nested  ==========*/
+
+/* resume--stack */
+.resume--stack {
+    a {
+        font-weight: normal;
+    }
+    position: relative;
+    @include media-query(palm) {
+        border: 0;
+        .resume__figure {
+            margin-bottom: 0;
+        }
+    }
+    @include media-query(desk) {
+        margin-bottom: 0;
+    }
+    .resume__category {
+        border-bottom-color: #fff;
+        color: #fff;
+    }
+}
+.resume__titre--stack {
+    min-height: initial;
+    margin-bottom: .15em;
+}
+.resume__desc--stack {
+    margin-bottom: 0;
+}
+
+/* resume--text */
+// .resume--text {}
+.resume__titre--text {
+    // min-height: 3em;
+    color: #000;
+    @include font-size(16px,$line-height:false);
+    .section--features & {
+        @include font-size(22px);
+    }
+    @include media-query(palm) {
+        min-height: initial;
+    }
+}
+.resume__desc--text {
+    .section--features & {
+        padding-right: 0;
+    }
+}
+
+/* resume--logo */
+// .resume--logo {}
+.resume__titre--logo {
+    color: #000;
+    @include font-size(16px,$line-height:false);
+}
+
+/* resume--hero */
+.resume--hero {
+    margin-bottom: 6em;
+    @include media-query(palm) {
+        border-bottom: none;
+        margin-bottom: 2em;
+    }
+}
+.resume__titre--hero {
+    margin-bottom: 1em;
+    color: #000;
+    @include font-size(28px);
+    .soustitre {
+        @include font-size(16px,$line-height:false);
+        margin: 0;
+    }
+}
+.resume__desc--hero {
+    @include font-size(20px);
+    color: #777;
+}
+
+/* resume--nested */
+.resume--nested {
+    margin-bottom: 0;
+    .resume__titre--text {
+        @include font-size(18px);
+    }
+}
+
+
+/*-----  End of resume  ------*/
+

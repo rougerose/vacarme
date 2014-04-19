@@ -1,0 +1,45 @@
+<BOUCLE_rubrique_apropos(RUBRIQUES){id_rubrique}>
+<div class="grid">
+    <article class="rubrique self">
+        <div class="grid__item">
+            <div class="landmark">
+                <header class="self__header self__header--rubrique">
+                    <h1 class="hN titre"><span class="#EDIT{titre}">#TITRE</span></h1>
+                </header>
+                [<div class="self__body self__body--rubrique">
+                    <div class="#EDIT{texte} self__texte surlignable">
+                        (#TEXTE|image_reduire{500,0})
+                    </div>
+                </div>]
+            </div>
+        </div><!-- /.grid__item -->
+        <div class="grid__item">
+            <div class="grid">
+                <div class="grid__item lap-and-up-one-half">[(#REM) article présentation Vacarme ]
+                    <BOUCLE_qsn(ARTICLES){id_rubrique}{id_article=295}{doublons}>
+                    [(#INCLURE{fond=inclure/resumes/article,id_article})]
+                    </BOUCLE_qsn>
+                </div><!-- /.grid__item -->
+                <BOUCLE_comite(ARTICLES){id_rubrique}{id_article=48}{doublons}>
+                <div class="grid__item lap-and-up-one-quarter">[(#REM) article CR ]
+                    [(#INCLURE{fond=inclure/resumes/article,id_article})]
+                </div><!-- /.grid__item -->
+                </BOUCLE_comite>
+                <div class="grid__item lap-and-up-one-quarter">[(#REM) contacts ]
+                    <article class="resume resume-article resume--text">
+                        <header>
+                            <h1 class="hN resume__titre resume-article__titre resume__titre--text">#INFO_TITRE{menu,4}</h1>
+                        </header>
+                        [(#INCLURE{fond=inclure/menu,env,identifiant=nav_footer_contact})]
+                    </article>
+                </div><!-- /.grid__item -->
+                <BOUCLE_manifestes(ARTICLES){id_rubrique}{doublons}{par num titre, titre}>
+                <div class="grid__item lap-and-up-one-quarter">[(#REM) articles manifestes et suivants ]
+                    [(#INCLURE{fond=inclure/resumes/article,id_article})]
+                </div><!-- /.grid__item -->
+                </BOUCLE_manifestes>
+            </div><!-- /.grid -->
+        </div><!-- /.grid__item -->
+    </article>
+</div><!-- /.grid -->
+</BOUCLE_rubrique_apropos>

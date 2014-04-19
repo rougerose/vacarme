@@ -1,0 +1,105 @@
+/*=============================
+=            links            =
+=============================*/
+
+a {
+    color: $text-color;
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px dotted transparent;
+    @include vendor(transition,color 0.35s ease-out, border 0.35s ease-out);
+    // .liens & {
+    //     border-bottom-color: $link-color;
+    //     &:hover {
+    //         color: #000;
+    //         border-bottom-style: solid;
+    //     }
+    // }
+}
+.spip_in,
+.spip_out,
+.liens a {
+    border-bottom-color: $link-color;
+    &:hover {
+            color: #000; //#d8680d;
+            border-bottom-style: solid;
+        }
+}
+
+/*==========  more  ==========*/
+.more {
+    font-style: italic;
+    em {
+        font-style: normal;
+        font-family: serif;
+        color: lighten($gris-soustitre,10%);
+        @include vendor(transition,all 0.35s ease-out);
+    }
+    a {
+        border-bottom: 1px dotted $gris-soustitre;
+        color: $gris-soustitre;
+        font-weight: normal;
+        &:hover {
+            color: #000;
+            border-bottom: 1px solid #000;
+            em {
+                color: #000;
+                padding-left: 1em;
+            }
+        }
+    }
+}
+.more--read {
+    em {
+        margin-left: .5em;
+    }
+}
+.more--inline {
+    margin-left: .5em;
+    display: inline-block;
+    @include font-size(16px,$line-height:false);
+}
+.more-arrow--big {
+    display: block;
+    @include font-size(80px,$line-height:false);
+    line-height: 180px;
+    text-align: center;
+    color: lighten($gris-soustitre,30%);
+    @include vendor(transition,all 0.35s ease-out);
+    &:hover {
+        color: #000;
+        margin-left: 20%;
+    }
+}
+/*==========  back-top-page  ==========*/
+.back-top-page {
+    position: absolute;
+    bottom: 1.7em;
+    padding-top: 1.5em;
+    font-family: $HCReg-font;
+    text-transform: uppercase;
+    @include font-size(12px);
+    color: #b2afac;
+    &:hover {
+        color: #888;
+    }
+    @include media-query(palm) {
+        right: 0;
+    }
+}
+/*==========  link-anim  ==========*/
+.link-anim {
+    @include vendor(transition,padding 0.35s ease-out);
+    &:hover {
+        padding-left: 1em;
+    }
+}
+.link-anim--rev {
+    &:hover {
+        padding-left: 0;
+        padding-right: 1em;
+    }
+}
+
+/*-----  End of links  ------*/
+

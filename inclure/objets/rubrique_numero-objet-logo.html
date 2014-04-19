@@ -1,0 +1,28 @@
+[<!-- (#REM)
+    Les constantes
+    =============================================
+    objet = rubrique/article
+    id_objet = id_rubrique/id_article
+    logo_format = paysage/portrait
+    type = entretien/dossier
+
+-->]
+[(#SET{logo_format,#ENV{logo_format}})]
+<BOUCLE_article_logo(ARTICLES){id_article=#ENV{id_objet}}{si #ENV{objet}|=={article}}>
+[(#GET{logo_format}|=={portrait}|?{
+    [<figure class="toc__img"><img src="(#LOGO_ARTICLE|image_reduire{420,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="media--full"></figure>],
+    [<figure class="toc__img"><img src="(#LOGO_ARTICLE|image_reduire{520,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="media--full"></figure>]
+})]
+</BOUCLE_article_logo>
+
+<BOUCLE_rubrique_logo(RUBRIQUES){id_rubrique=#ENV{id_objet}}{si #ENV{objet}|=={rubrique}}>
+[(#REM) 
+    Spip récupère automatiquement le logo de la rubrique parente si le logo de la rubrique est absent : 
+    donc test sur le nom du fichier car l'automatisme n'est pas souhaité ici.
+
+][(#LOGO_RUBRIQUE|fichier|match{^rubon#ID_RUBRIQUE}|oui)
+    [(#GET{logo_format}|=={portrait}|?{
+        [<figure class="toc__img"><img src="(#LOGO_RUBRIQUE|image_reduire{420,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="media--full"></figure>],
+        [<figure class="toc__img"><img src="(#LOGO_RUBRIQUE|image_reduire{520,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="media--full"></figure>]
+    })]
+]</BOUCLE_rubrique_logo>

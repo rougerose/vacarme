@@ -1,0 +1,25 @@
+#ENV*{bloc_ancre}
+#SET{bornes,#ENV{page_courante}|bornes_pagination{#ENV{nombre_pages},10}}
+#SET{premiere, #GET{bornes}|reset}
+#SET{derniere, #GET{bornes}|end}
+#SET{sep,#ENV{separateur,' | '}}
+[<h1 class='pagination__label'>(#ENV{label,''})</h1>][
+
+    (#SET{item, #ENV{page_courante}|moins{2}|mult{#ENV{pas}} })
+
+]<ul class="nav">
+    [<li class="prev pagination__item[(#ENV{page_courante}|<={1}|oui)disabled]">(#ENV{url_precedent,#ENV{url}
+        |parametre_url{#ENV{debut},#GET{item}|?{#GET{item}}}}
+        |ancre_url{#ENV{ancre}}
+        |lien_ou_expose{#ENV{label_precedent,<:local:page_previous:>},#ENV{page_courante}|<={1},'lien_pagination','',nofollow}
+        |inserer_attribut{rel,prev})</li
+    >]<li class="pagination__item"><span class="on"><:local:info_page:>[ (#ENV{page_courante})]/[(#ENV{nombre_pages})]</span></li
+    >[
+    (#SET{item, #ENV{page_courante}|mult{#ENV{pas}} })
+    ][<li class="next pagination__item[(#ENV{page_courante}|>={#ENV{nombre_pages}}|oui)disabled]">(#ENV{url_suivant,#ENV{url}
+        |parametre_url{#ENV{debut},#GET{item}|?{#GET{item}}}}
+        |ancre_url{#ENV{ancre}}
+        |lien_ou_expose{#ENV{label_suivant,<:local:page_next:>},#ENV{page_courante}|>={#ENV{nombre_pages}},'lien_pagination','',nofollow}
+        |inserer_attribut{rel,next})</li
+    >]
+</ul>

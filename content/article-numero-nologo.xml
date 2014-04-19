@@ -1,0 +1,5 @@
+<composition>
+    <nom>Article d'un numéro sans logo</nom>
+    <description>Composition pour les articles d'un numéro de la revue, pour lesquels l'éventuel logo qui sera ajouté à l'article ne sera pas affiché dans la page de l'article. Uniquement sur les pages de catégories, la page d'accueil, etc...</description>
+    <icon>img/composition-article-numero.png</icon>
+</composition>

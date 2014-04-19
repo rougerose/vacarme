@@ -1,0 +1,48 @@
+[(#REM) Dossiers ]
+<BOUCLE_mot_dossiers(MOTS){id_mot}>
+#SET{dossiers,#ENV{dossiers}} #SET{rubrique_mots,#ENV{rubrique_mots}}
+
+<B_tri_titre>
+<section class="landmark">
+    #ANCRE_PAGINATION
+    <div class="grid__item">
+        <div class="grid">
+            <BOUCLE_tri_titre(DATA){source table,#GET{dossiers}}{par cle}{pagination 10}>
+                <BOUCLE_test_mot(DATA){source table,#VALEUR}{cle==mot}>
+                    <BOUCLE_donnees_mot(MOTS){id_mot=#VALEUR}>
+            [(#SET{idrubrique,#GET{rubrique_mots}|table_valeur{\[#ID_MOT\]}})]
+            [(#INCLURE{fond=inclure/layout/mot-4col2lignesMotArt,
+                id_mot=#VALEUR,
+                mot_resume_type=resume--hero,
+                mot_titre_class=resume__titre--hero,
+                mot_desc_class=resume__desc--hero,
+                article_suite_afficher=oui,
+                mot_resume_numero_titre_afficher=oui,
+                idrubrique_resume_numero_titre=#GET{idrubrique}}
+            )]
+                    </BOUCLE_donnees_mot>
+                </BOUCLE_test_mot>
+
+                <BOUCLE_test_rubrique(DATA){source table,#VALEUR}{cle==rub}>
+                    <BOUCLE_donnees_rubrique(RUBRIQUES){id_rubrique=#VALEUR}>
+            [(#INCLURE{fond=inclure/layout/rubrique-4col2lignesRubArt,
+                id_rubrique=#VALEUR,
+                rubrique_resume_type=resume--hero,
+                rubrique_titre_class=resume__titre--hero,
+                rubrique_desc_class=resume__desc--hero,
+                rubrique_resume_numero_titre_afficher=oui,
+                article_suite_afficher=oui}
+            )]      
+                    </BOUCLE_donnees_rubrique>
+                </BOUCLE_test_rubrique>
+            </BOUCLE_tri_titre>
+        </div><!-- /.grid -->
+    </div><!-- /.grid__item -->
+    <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
+        [<nav class="pagination pagination--bottom pagination--page">
+            (#PAGINATION{li})
+        </nav>]
+    </div><!-- /.grid__item -->
+</section>
+</B_tri_titre>
+</BOUCLE_mot_dossiers>

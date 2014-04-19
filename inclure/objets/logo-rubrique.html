@@ -1,0 +1,40 @@
+[(#REM)
+    *********************************
+    Constantes
+    *********************************
+    
+    Transmises dans l'environnement : 
+    ---------------------------------
+    - logo_objet : article ou secteur / rubrique
+    - logo_format : paysage / portrait / vignette-partielle / vignette-complete
+    - logo_class
+    - figure_class
+    - logo_url : oui / non (défaut)
+    - figcaption_numero_titre : oui / non
+    - hX = h1 (défaut)
+    - numero_titre_url : oui / non (defaut). Lien sur le titre du numéro logo > figcaption
+
+]
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>[
+    (#ENV{logo_format}|=={paysage}|?{
+        [(#SET{logo,#LOGO_RUBRIQUE|image_reduire{1024,0}|image_recadre{1024,683,'top center',000}|extraire_attribut{src}})]
+    })][
+    (#ENV{logo_format}|=={paysage-archives}|?{
+        [(#SET{logo,#LOGO_RUBRIQUE|image_reduire{520,0}|image_recadre{520,312,'top center',000}|extraire_attribut{src}})]
+    })][
+    (#ENV{logo_format}|=={portrait}|?{
+        [(#SET{logo,#LOGO_RUBRIQUE|image_reduire{732,0}|image_recadre{732,1024,'top center',000}|extraire_attribut{src}})]
+    })
+    ][(#ENV{logo_format}|=={vignette-complete}|?{
+        [(#SET{logo,#LOGO_RUBRIQUE|image_reduire{200,0}|extraire_attribut{src}})]
+    })]
+[<figure class="resume__figure[ (#ENV{figure_class})]">
+    [(#ENV{logo_url}|=={oui}|?{<a href="#URL_RUBRIQUE">})]
+        <img src="(#GET{logo})"[ alt="(#GET{t})"][ class="(#ENV{logo_class})"]>
+    [(#ENV{logo_url}|=={oui}|?{</a>})]
+    [(#ENV{figcaption_numero_titre}|=={oui}|oui)
+        [<figcaption class="resume__figcaption">
+            (#INCLURE{fond=inclure/resumes/numero-titre,id_rubrique,hX=#ENV{hX},numero_titre_url=#ENV{numero_titre_url}})
+        </figcaption>] ]
+</figure>]
+</BOUCLE_rubrique>

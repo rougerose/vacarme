@@ -1,0 +1,13 @@
+/*=================================
+=            page-head            =
+=================================*/
+
+.page-head {
+    @include media-query(palm) {
+        position: relative;
+        z-index: 100;
+        padding-top: 3.5em;
+    }
+}
+
+/*-----  End of page-head  ------*/

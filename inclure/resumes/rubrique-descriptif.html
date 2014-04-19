@@ -1,0 +1,39 @@
+[(#REM) 
+    ************************************
+    Constantes
+    ************************************
+    
+    Transmises dans l'environnement : 
+    ----------------------------------
+    css :
+        - desc_class : resume__desc--stack|logo|text*|hero
+    
+    contenu :
+        - suite_afficher : oui|non*
+        - resume_numero_titre_afficher : oui|non*
+]
+
+[(#REM) css ]
+    #SET{desc_class,#ENV{desc_class,resume__desc--text}}
+
+[(#REM) contenu ]
+    #SET{suite_afficher,#ENV{suite_afficher,''}}
+    #SET{resume_numero_titre_afficher,#ENV{resume_numero_titre_afficher,''}}
+
+
+<BOUCLE_rubrique_descriptif(RUBRIQUES){id_rubrique}>
+[<div class="resume__desc resume-rubrique__desc[ (#GET{desc_class})]">
+    (#DESCRIPTIF|sinon{#INTRODUCTION|couper{100}|wrap{<p>}})
+    [(#GET{suite_afficher}|?{
+    <p class="more more--read"><a href="#URL_RUBRIQUE"><:local:more_read:></a></p>})]
+</div>]
+[(#GET{resume_numero_titre_afficher}|?{
+    <aside class="resume-numero--titreSeul">
+        [(#INCLURE{fond=inclure/resumes/numero-titre,
+            id_rubrique,
+            numero_titre_class=resume-numero__titre,
+            numero_soustitre_class=resume-numero__soustitre,
+            numero_titre_url=oui})]
+    </aside>
+})]
+</BOUCLE_rubrique_descriptif>

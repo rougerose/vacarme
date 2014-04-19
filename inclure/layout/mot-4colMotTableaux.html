@@ -1,0 +1,110 @@
+[(#REM) 
+    ************************************
+    Constantes
+    ************************************
+    
+    Transmises dans l'environnement
+    ------------------------------------
+    * variable attribuée par défaut
+
+    Variantes layout :
+        - 4colMotTableaux : Variante sur 4 colonnes avec le mot, 
+            puis les éléments enfants transmis dans un tableau spécifique à chaque enfant.
+
+    css : 
+        - mot_resume_type : resume--stack|logo|text*|hero
+        - mot_header_class
+        - mot_titre_class
+        - mot_desc_class
+
+    contenus de l'élément :
+        - mot_header_supprimer : oui|non*
+        - mot_suite_afficher : oui|non*
+
+    logo :
+        - mot_logo_supprimer: oui|non*
+
+    contenus des éléments enfants :
+        - tableau_rubriques : array des rubriques imbriquées à afficher
+        - tableau_articles  : array des articles imbriqués à afficher
+        - rubriques_tri : titre
+
+    
+    Calculée dans le squelette 
+    ------------------------------------
+    logo :
+        - logo : oui|non*
+        - logo_format : paysage*|portrait|vignette
+        - figure_class
+
+]
+
+[(#REM) css ]
+    #SET{mot_resume_type,#ENV{mot_resume_type,resume--text}}
+
+[(#REM) contenus élément ]
+    #SET{mot_header_supprimer,#ENV{mot_header_supprimer,''}}
+
+[(#REM) logo ]
+    #SET{logo,''}
+    #SET{logo_format,#ENV{logo_format,paysage}}
+
+[(#REM) contenus éléments enfants ]
+    [(#ENV{tableau_rubriques}|?{#SET{afficher_rubriques,' '}})]
+    [(#ENV{tableau_articles}|?{#SET{afficher_articles,' '}})]
+    #SET{tri_rubriques,#ENV{tri_rubriques,titre}}
+
+
+<BOUCLE_mot_4colMotTableaux(MOTS){id_mot}>
+[(#LOGO_MOT|oui)
+    #SET{logo,' '}
+    [(#ENV{mot_logo_supprimer}|?{#SET{logo,''}})]
+    [(#LOGO_MOT|largeur|>{#LOGO_MOT|hauteur}|?{
+        #SET{logo_format,paysage},#SET{logo_format,portrait}
+    })]
+    [(#SET{figure_class,#VAL{resume__figure--}|concat{#GET{logo_format}}})]
+]
+[(#GET{logo}|?{
+    #SET{contenu_class,grid__item--bottom lap-and-up-one-half},
+    #SET{contenu_class,lap-and-up-three-quarters push--lap-and-up-one-quarter}
+})]
+[(#ENV{mot_header_class}|?{
+    #SET{mot_header_class,#ENV{mot_header_class}},
+    #SET{mot_header_class,grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter}
+})]
+<div class="grid">
+    <article class="resume resume-mot[ (#GET{mot_resume_type})]">
+        [(#INCLURE{fond=inclure/resumes/mot-header,
+            id_mot,
+            header_class=#GET{mot_header_class},
+            titre_class=#ENV{mot_titre_class}
+        })]
+        <BOUCLE_rubriques(RUBRIQUES){si #GET{afficher_rubriques}|oui}{id_mot}{id_rubrique IN #ENV{tableau_rubriques}}{par titre}>
+            <BOUCLE_articles_combien(ARTICLES){id_rubrique}> </BOUCLE_articles_combien>
+            [(#TOTAL_BOUCLE|>{2}|?{ #SET{layout,rubrique-4col2lignesRubArt},#SET{layout,rubrique-4col1ligneRubArt} })]
+            </B_articles_combien>
+        [<div class="group group--item">
+            (#INCLURE{fond=inclure/layout/#GET{layout},
+                id_rubrique,
+                rubrique_header_supprimer=oui,
+                rubrique_desc_class=resume__desc--hero,
+                article_resume_type=resume--text resume--nested,
+                article_suite_afficher=oui})
+        </div>]
+        
+        </BOUCLE_rubriques>
+
+        <BOUCLE_articles(ARTICLES){si #GET{afficher_articles}|oui}{id_mot}{id_article IN #ENV{tableau_articles}}{par #GET{articles_tri}}>
+        [<div class="group group--item">
+            (#INCLURE{fond=inclure/layout/article-4colArt,
+                id_article,
+                article_resume_type=resume--nested resume--text,
+                article_suite_afficher=oui,
+                article_resume_numero_titre_afficher=oui})
+        </div>]
+        </BOUCLE_articles>
+        
+    </article>
+</div><!-- /.grid -->
+
+</BOUCLE_mot_4colMotTableaux>
