@@ -1,0 +1,30 @@
+[(#REM) 
+    Les entretiens
+    =======================
+    1/ récupérer d'abord les rubriques qui ont le mot Entretiens et qui ont un mot de Personnes (groupe 11).
+    2/ récupérer les articles qui ont le mot Entretiens mais qui n'ont pas la même rubrique que celles déjà récupérées (ce sont des entretiens isolés) et qui ont un mot de Personnes.
+]
+<BOUCLE_mot_entretiens(MOTS){id_mot}>
+
+    <BOUCLE_rubriques_entretiens(RUBRIQUES){id_mot}>
+        #SET_PUSH{rubriques_entretiens,#ID_RUBRIQUE}
+        <BOUCLE_personnes_rubrique(MOTS){id_rubrique}{id_groupe=11}>
+            #SET_PUSH{personnes,#ID_MOT}
+        </BOUCLE_personnes_rubrique>
+    </BOUCLE_rubriques_entretiens>
+
+    <BOUCLE_articles_entretiens(ARTICLES){id_mot}{id_rubrique !IN #GET{rubriques_entretiens}}>
+        #SET_PUSH{articles_entretiens,#ID_ARTICLE}
+        <BOUCLE_personnes_article(MOTS){id_article}{id_groupe=11}>
+            #SET_PUSH{personnes,#ID_MOT}
+        </BOUCLE_personnes_article>
+    </BOUCLE_articles_entretiens>
+
+    <INCLURE{fond=inclure/resumes/mot-11,
+        id_mot,
+        rubriques_entretiens=#GET{rubriques_entretiens},
+        articles_entretiens=#GET{articles_entretiens},
+        personnes=#GET{personnes},
+        env,ajax} />
+
+</BOUCLE_mot_entretiens>

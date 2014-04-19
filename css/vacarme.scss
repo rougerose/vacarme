@@ -1,0 +1,81 @@
+@charset "UTF-8";
+/*------------------------------------*\
+    STYLE.CSS
+\*------------------------------------*/
+/**
+ *
+ * sass --watch style.scss:style.min.css --style compressed
+ *
+ * Here we pull in some variables, include the inuit.css framework, then add our
+ * project-specific components afterwards.
+ */
+
+
+/**
+ * Setup
+ */
+@import "vars";
+@import "inuit.css/inuit";
+
+
+
+
+
+/**
+ * She’s all yours, cap’n... Begin importing your stuff here.
+ */
+
+// fonts & typo
+@import "ui/fonts";
+@import "ui/typo";
+
+// page
+@import "ui/page";
+
+// page-sections
+@import "ui/page-head";
+@import "ui/page-content";
+@import "ui/page-foot";
+
+// site-logo
+@import "ui/site-logo";
+
+// titres et typo
+@import "ui/headings";
+
+// images - base
+@import "ui/images";
+
+// links 
+@import "ui/links";
+
+// navigation
+@import "ui/navigation";
+
+// forms
+@import "ui/forms";
+
+// objets
+@import "ui/buttons";
+@import "ui/box";
+@import "ui/table";
+@import "ui/list";
+@import "ui/accordeon";
+@import "ui/carousel";
+@import "ui/tabs";
+@import "ui/columns";
+@import "ui/pagination";
+
+@import "ui/self";
+@import "ui/resume";
+@import "ui/chapo";
+@import "ui/person";
+@import "ui/sections";
+@import "ui/related";
+
+// images
+@import "ui/media";
+@import "ui/sprites";
+
+
+@import "ui/misc";

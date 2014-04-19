@@ -1,0 +1,24 @@
+<BOUCLE_numero_resume(RUBRIQUES){id_rubrique}>
+[(#SET{logo_alternatif,#ENV{logo_alternatif,''}})]
+<article class="issue rubrique#ID_RUBRIQUE">
+    <div class="grid__item[ (#ENV{grid_1})]">
+        <a href="#URL_RUBRIQUE">[
+            (#GET{logo_alternatif}|oui)
+            [<img src="(#GET{logo_alternatif})" alt="#TITRE"[ class="(#ENV{class_logo_alternatif})"]>]
+            ][<img src="(#LOGO_RUBRIQUE|image_reduire{150,0}|extraire_attribut{src})"[ class="(#ENV{class_logo_standard})"] alt="#TITRE">]
+        </a>
+    </div><!-- /.grid__item -->
+    <div class="grid__item[ (#ENV{grid_2})]">
+        <h1 class="hN titre numero-titre resume-numero__titre resume-numero__titre--l"><a href="#URL_RUBRIQUE">#TITRE</a>[ <small class="soustitre numero-soustitre">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</small>]</h1>
+        <B_contenu_numero>
+        <ul class='list list--dash'>
+            <BOUCLE_contenu_numero(RUBRIQUES){id_parent}{par num titre, titre}>
+            <li>
+                <h2 class="hN titre resume-rubrique__titre">#TITRE</h2>
+            </li>
+            </BOUCLE_contenu_numero>
+        </ul>
+        </B_contenu_numero>
+    </div><!-- /.grid__item -->
+</article>
+</BOUCLE_numero_resume>

@@ -1,0 +1,46 @@
+/*============================
+=            tabs            =
+============================*/
+
+// .tabs {}
+.tabs-nav {
+    margin-bottom: 2em;
+}
+.tabs-nav__item {
+    a {
+        color: #999;
+        &:hover {
+            color: #000;
+        }
+    }
+    &.ui-tabs-selected {
+        border-bottom: 2px solid $site-color;
+        a {
+            color: #000;
+        }
+    }
+}
+
+.admin {
+    .tabs-nav__item a {
+        padding: 0 .5em;
+    }
+}
+
+@include media-query(lap-and-up) {
+    .tabs {
+        margin-top: -2.8em;
+    }
+    .tabs-nav {
+        border-bottom: 1px solid #ccc;
+    }
+    .tabs-nav__item {
+        margin-bottom: -1px;
+        &:hover {
+            border-bottom: 2px solid $site-color;
+        }
+    }
+}
+
+/*-----  End of tabs  ------*/
+

@@ -1,0 +1,127 @@
+[(#REM) 
+    ************************************
+    Constantes
+    ************************************
+    
+    Transmises dans l'environnement
+    ------------------------------------
+    * variable attribuée par défaut
+
+    Variante layout :
+        - 4col2lignesMotArt : Variante sur 4 colonnes avec le mot, puis les articles.
+
+    css : 
+        - mot_resume_type : resume--stack|logo|text*|hero
+        - mot_header_class
+        - mot_titre_class
+        - mot_desc_class
+
+    contenus de l'élément :
+        - mot_header_supprimer : oui|non*
+        - mot_suite_afficher : oui|non*
+
+    logo :
+        - mot_logo_supprimer: oui|non*
+
+    contenus des éléments enfants :
+        - tableau_rubriques : array des rubriques imbriquées à afficher
+        - tableau_articles  : array des articles imbriqués à afficher
+        - rubriques_tri : titre
+        - articles_tri : titre
+
+    
+    Calculée dans le squelette 
+    ------------------------------------
+    logo :
+        - logo : oui|non*
+        - logo_format : paysage*|portrait|vignette
+        - figure_class
+
+]
+
+[(#REM) css ]
+    #SET{mot_resume_type,#ENV{mot_resume_type,resume--text}}
+
+[(#REM) contenus élément ]
+    #SET{mot_header_supprimer,#ENV{mot_header_supprimer,''}}
+
+[(#REM) logo ]
+    #SET{logo,''}
+    #SET{logo_format,#ENV{logo_format,paysage}}
+
+[(#REM) contenus éléments enfants ]
+    [(#ENV{tableau_rubriques}|?{#SET{afficher_rubriques,' '}})]
+    [(#ENV{tableau_articles}|?{#SET{afficher_articles,' '}})]
+    #SET{rubriques_tri,#ENV{rubriques_tri,titre}}
+    #SET{articles_tri,#ENV{articles_tri,titre}}
+
+
+<BOUCLE_mot_4col2lignesMotArt(MOTS){id_mot}>
+[(#LOGO_MOT|oui)
+    #SET{logo,' '}
+    [(#ENV{mot_logo_supprimer}|?{#SET{logo,''}})]
+    [(#LOGO_MOT|largeur|>{#LOGO_MOT|hauteur}|?{
+        #SET{logo_format,paysage},#SET{logo_format,portrait}
+    })]
+    [(#SET{figure_class,#VAL{resume__figure--}|concat{#GET{logo_format}}})]
+]
+
+[(#GET{logo}|?{
+    #SET{contenu_class,grid__item--bottom lap-and-up-one-half},
+    #SET{contenu_class,lap-and-up-three-quarters push--lap-and-up-one-quarter}
+})]
+<article class="resume resume-mot[ (#GET{mot_resume_type})]">
+    <div class="group group--parent">
+        [(#GET{logo}|oui)
+        <div class="grid__item grid__item--bottom lap-and-up-one-half">
+            [(#GET{logo_format}|=={portrait}|?{
+            <div class="grid"><div class="grid__item lap-and-up-one-half push--lap-and-up-one-half">})]
+                [(#INCLURE{fond=inclure/objets/logo-mot,
+                    id_mot,
+                    logo_objet=mot,
+                    logo_format=#GET{logo_format},
+                    figure_class=#GET{figure_class}}
+                )]
+            [(#GET{logo_format}|=={portrait}|?{
+            </div></div>})]
+        </div><!-- /.grid__item -->
+        ]
+        <div class="grid__item[ (#GET{contenu_class})]">
+            [(#GET{logo}|non)
+            <div class="grid"><div class="grid__item lap-and-up-five-sixths">]
+            [(#INCLURE{fond=inclure/resumes/mot-header,
+                id_mot,
+                resume_type=#GET{mot_resume_type},
+                titre_class=#ENV{mot_titre_class}}
+            )]
+            [(#INCLURE{fond=inclure/resumes/mot-descriptif,
+                id_mot,
+                desc_class=#ENV{mot_desc_class},
+                suite_afficher=#ENV{mot_suite_afficher},
+                resume_numero_titre_afficher=#ENV{mot_resume_numero_titre_afficher},
+                desc_class=#ENV{mot_desc_class},
+                id_rubrique=#ENV{idrubrique_resume_numero_titre}}
+            )]
+            [(#GET{logo}|non)
+            </div></div>]
+        </div><!-- /.grid__item -->
+    </div><!-- /.group.groupe--parent -->
+    <B_articles_mot>
+    <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
+        <div class="grid">
+            <BOUCLE_articles_mot(ARTICLES){id_mot}{par #GET{articles_tri}}>
+            [<div class="grid__item lap-and-up-one-third">
+                (#INCLURE{fond=inclure/layout/article-1colArt,
+                    id_article,
+                    article_resume_type=resume--text,
+                    article_suite_afficher=#ENV{article_suite_afficher},
+                    article_resume_numero_titre_afficher=#ENV{article_resume_numero_titre_afficher},
+                    article_logo_supprimer=oui})
+            </div><!-- /.grid__item -->]
+            </BOUCLE_articles_mot>
+        </div><!-- /.grid -->
+    </div><!-- /.grid__item -->
+    </B_articles_mot>
+</article>
+
+</BOUCLE_mot_4col2lignesMotArt>

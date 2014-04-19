@@ -1,0 +1,27 @@
+[(#REM) 
+    Les tribunes
+    =======================
+    1/ récupérer d'abord les rubriques qui ont le mot Tribunes.
+    2/ récupérer les articles qui ont le mot Tribunes mais qui n'ont pas la même rubrique que celles déjà récupérées (ce sont des tribunes isolées).
+]
+#SET{tribunes,#ARRAY}
+<BOUCLE_mot_tribunes(MOTS){id_mot}>
+    <BOUCLE_rubriques_tribunes(RUBRIQUES){id_mot}>
+        #SET_PUSH{rubriques_tribunes,#ID_RUBRIQUE}
+        [(#SET{d,#DATE|affdate{Ymd}})]
+        [(#SET_MERGE{tribunes,#GET{tribunes},#ARRAY{#GET{d}-rub#ID_RUBRIQUE,#ARRAY{rub,#ID_RUBRIQUE}}})]
+    </BOUCLE_rubriques_tribunes>
+
+    <BOUCLE_articles_tribunes(ARTICLES){id_mot}{id_rubrique !IN #GET{rubriques_tribunes}}>
+        [(#SET{d,#DATE|affdate{Ymd}})]
+        [(#SET_MERGE{tribunes,#GET{tribunes},#ARRAY{#GET{d}-art#ID_ARTICLE,#ARRAY{art,#ID_ARTICLE}}})]
+    </BOUCLE_articles_tribunes>
+
+    [(#REM) trier le tableau. le tri !par cle est buggé ]
+    [(#SET{tribunes,#GET{tribunes}|tri_array{inverse}})]
+
+<INCLURE{fond=inclure/resumes/mot-231,
+    id_mot,
+    tribunes=#GET{tribunes},
+    env,ajax} />
+</BOUCLE_mot_tribunes>

@@ -1,0 +1,24 @@
+[(#REM) 
+    ************************************
+    Constantes
+    ************************************
+    
+    Transmises dans l'environnement : 
+    ----------------------------------
+    - hX : h1 (défaut). Balise titre
+    - numero_titre_url: oui/non (défaut). 
+    - numero_titre_class
+]
+
+#SET{hX,#ENV{hX,h1}}
+#SET{numero_titre_class,#ENV{numero_titre_class,''}}
+#SET{numero_titre_url,#ENV{numero_titre_url,''}}
+
+<BOUCLE_issue(HIERARCHIE){id_rubrique}{tout}>[
+(#PROFONDEUR|=={1}|oui)
+    <[(#GET{hX})] class="hN titre numero-titre[ (#GET{numero_titre_class})]">
+        [(#ENV{numero_titre_url}|?{<a href="#URL_RUBRIQUE">})]
+            #TITRE[ <small class="soustitre numero-soustitre[ (#ENV{numero_soustitre_class})]">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</small>]
+        [(#ENV{numero_titre_url}|?{</a>})]
+    </[(#GET{hX})]>
+]</BOUCLE_issue>

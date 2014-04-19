@@ -1,0 +1,27 @@
+[(#ENV{contexte}|=={accordeon}|oui) #SET{accordeon,' '} ]
+<BOUCLE_article_list(ARTICLES){id_article}>
+<article id="article#ID_ARTICLE" class="resume resume-article resume-article--list">
+    <div class="grid">
+        <div class="grid__item lap-and-up-two-thirds">
+            <header[ class="(#GET{accordeon}|oui)accordeon__header"]>[
+                (#GET{accordeon}|oui)
+                <a href="#ac#ID_ARTICLE" class="accordeon__link">+</a>]
+                <h1 class="hN resume-article__titre">
+                    <a href="#URL_ARTICLE">#TITRE</a>[ <small class="soustitre resume-article__soustitre">(#SOUSTITRE)</small>]
+                </h1>
+            </header>
+            <div id="ac#ID_ARTICLE"[ class="(#GET{accordeon}|oui)accordeon__content accordeon__content--closed"]>
+                [<p class="resume__desc">(#DESCRIPTIF|PtoBR)</p>]
+                <p class="more more--read"><a href="#URL_ARTICLE"><:local:more_read:></a></p>
+            </div>
+        </div><!-- /.grid__item -->
+        <div class="grid__item lap-and-up-one-third">
+            <footer class="resume-numero resume-numero--list">
+                <BOUCLE_issue(HIERARCHIE){id_rubrique}{tout}{1,1}>
+                <h2 class="hN titre numero-titre resume-numero__titre"><a href="#URL_RUBRIQUE">#TITRE</a>[ <small class="soustitre numero-soustitre resume-numero__soustitre">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</small>]</h2>
+                </BOUCLE_issue>
+            </footer>
+        </div><!-- /.grid__item -->
+    </div><!-- /.grid -->
+</article>
+</BOUCLE_article_list>

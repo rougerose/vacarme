@@ -1,0 +1,20 @@
+<BOUCLE_auteur(AUTEURS){id_auteur}>
+<section class="index index-articles-auteur">
+    <B_articles_auteur>
+    #ANCRE_PAGINATION
+    [<h2 class="hN intertitre-section intertitre-section--first">(#GRAND_TOTAL|singulier_ou_pluriel{local:article_auteur,local:articles_auteur})</h2>]
+    <ul class="list">
+        <BOUCLE_articles_auteur(ARTICLES){id_auteur}{!par date}{pagination 20}>
+        [<li>
+            (#INCLURE{fond=inclure/resumes/article-list,id_article})
+        </li>]
+        </BOUCLE_articles_auteur>
+    </ul>
+    [<nav class="pagination pagination--bottom pagination--page">
+        (#PAGINATION{li})
+    </nav>]
+    </B_articles_auteur>
+    <p><:local:article_auteur_aucun:></p>
+    <//B_articles_auteur>
+</section>
+</BOUCLE_auteur>

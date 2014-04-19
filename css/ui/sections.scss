@@ -1,0 +1,82 @@
+/*================================
+=            sections            =
+================================*/
+
+/*==========  toc  ==========*/
+.toc {
+    margin-top: 2em;
+}
+.toc-header {
+    position: relative;
+    padding-left: $base-spacing-unit;
+    @include media-query(lap-and-up) {
+        left: 25%;
+        width: 75%;
+    }
+}
+.toc__item {
+    border: none;
+    margin-bottom: 3em;
+}
+.toc__title {
+    
+    font-family: 'HelveticaNeueLTStdCnRegular', sans-serif;
+    font-style: normal;
+    @include font-size(36px);
+    text-transform: uppercase;
+}
+.toc__info {
+    margin-bottom: 2em;
+}
+.toc__img {
+    margin-bottom: 2em;
+    padding-bottom: 0.5em;
+}
+
+/*==========  index  ==========*/
+
+
+/* index-feature */
+
+.index-feature {
+    border: 1px solid #80b83f;
+    border-color: #eee;
+    border-width: 0 0 1px;
+    margin-top: 2em;
+}
+/* index-issues */
+.index-issues {
+    .issue {
+        margin-bottom: 3em;
+    }
+}
+
+/* index-auteurs */
+.index-auteurs__titre {
+    text-align: center;
+    @include font-size(40px);
+    color: lighten($gray-light,10%);
+
+}
+
+/*==========  sommaire__section  ==========*/
+.sommaire__section {margin-bottom: 2em;}
+
+/*==========  group  ==========*/
+.group {
+    .page-foot & {
+        margin-bottom: 1.5em;
+        &:last-child {margin-bottom: 0;}
+    }
+}
+.group--item {
+    margin-bottom: 3em;
+}
+.group--parent {
+    @include media-query(lap-and-up) {
+        margin-bottom: 3em;
+    }
+}
+
+/*-----  End of sections  ------*/
+

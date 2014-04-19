@@ -1,9 +1,0 @@
-<div id="Navigation"><BOUCLE_exclusion_temporaire(RUBRIQUES){titre==V1}{doublons temp}></BOUCLE_exclusion_temporaire><BOUCLE_zone_abonne(RUBRIQUES){id_zone=1}{doublons temp}></BOUCLE_zone_abonne>
-          <ul>
-            <li><a href="#URL_SITE_SPIP" title="retour &agrave; la page d'accueil">accueil</a></li>
-            <BOUCLE_navigation(RUBRIQUES){racine}{par num titre}{doublons temp}>
-            <li><a href="#URL_RUBRIQUE"[ class="(#EXPOSE{select})"] title="[(#TITRE|supprimer_numero|textebrut)]">[(#TITRE|supprimer_numero)]</a></li>
-            </BOUCLE_navigation>
-          </ul>
-        </div>
-        <div class="rien"> </div>

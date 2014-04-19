@@ -1,0 +1,96 @@
+/*================================
+=            headings            =
+================================*/
+
+.hN {
+    font-weight: normal;
+    .navigation & {
+        margin-bottom: 0;
+        padding-left: 24px;
+        border-bottom: 2px solid #fff;
+        font-family: 'HelveticaNeueLTStdCnBold','Helvetica Neue',helvetica,sans-serif;
+        @include font-size(16px);
+        text-transform: uppercase;
+        color: #fff;
+    }
+}
+.soustitre {
+    display: block;
+    font-style: italic;
+    line-height: inherit;
+    .related & {
+        font-size: 100%;
+    }
+}
+
+.numero-titre {
+    font-family: $HCReg-font;
+    text-transform: uppercase;
+    a {font-weight:normal;}
+    .self__header--rubrique &,
+    .index-feature & {
+        font-family: $HCReg-font;
+        @include font-size(48px);
+    }
+    .index-issues & {
+        @include font-size(28px);
+    }
+}
+.numero-soustitre {
+    // font-family: "HelveticaNeueLTStdLtCnRegular", sans-serif;
+    font-style: normal;
+    color: $gris-soustitre;
+    .self__header--rubrique &,
+    .index-feature & {
+        font-size: .7em;
+    }
+}
+
+/*==========  intertitres texte (spip)  ==========*/
+h2.spip,
+h3.spip,
+h4.spip,
+h5.spip,
+h6.spip {
+    font-weight: normal;
+    line-height: 1;
+    color: #000;
+    p + & {
+        margin-top:2 * $base-spacing-unit;
+        margin-top:(2 * $base-spacing-unit / $base-font-size)*1rem;
+    }
+}
+
+/*==========  intertitres section  ==========*/
+.intertitre-section {
+    font-style: italic;
+    .recherche & {
+        color: #000;
+        font-weight: 600;
+    }
+}
+// .intertitre-section--aside {}
+
+// .intertitre-section--content {}
+
+.intertitre-section--first {
+    display: inline-block;
+    border-bottom: 1px solid $soft-black; //background-color: $gray-light;
+    padding-left: $base-spacing-unit/2;
+    padding-right: $base-spacing-unit/2;
+    margin-left: -$base-spacing-unit/2;
+    @include font-size(18px);
+}
+.intertitre-section--second {
+    margin-bottom: 0;
+    font-weight: 600;
+    @include font-size(16px);
+}
+.intertitre-section--footer {
+    @include font-size(16px);
+    font-weight: 600;
+    color: #000;
+}
+
+/*-----  End of headings  ------*/
+

@@ -1,0 +1,16 @@
+<BOUCLE_numero(RUBRIQUES){id_rubrique}>
+<article class="resume resume-numero resume-numero--logo[ (#ENV{type_resume_numero})][ resume--(#GET{type_resume})]  ">
+    <a href="#URL_RUBRIQUE">
+        [(#INCLURE{fond=inclure/objets/logo-rubrique,
+            id_rubrique,logo_format=vignette-complete,figcaption_numero_titre=non,logo_class=cover})]
+        <header>
+            [(#INCLURE{fond=inclure/resumes/numero-titre,
+                id_rubrique,
+                hX=h1,
+                numero_titre_class=resume-numero__titre,
+                numero_soustitre_class=resume-numero__soustitre,
+                numero_titre_url=#ENV{numero_titre_url}})]
+        </header>
+    </a>
+</article>
+</BOUCLE_numero>

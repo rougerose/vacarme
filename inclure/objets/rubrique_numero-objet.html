@@ -1,0 +1,50 @@
+[(#REM)
+    Afficher le contenu d'un objet (article ou rubrique) d'un numéro
+    ================================================================
+]
+[(#REM)
+    Les constantes
+    **********************************
+    objet = article/rubrique
+    id_objet = id_article/id_rubrique
+    logo_objet = oui/non
+    logo_format = paysage/portrait
+    type = entretien/dossier
+][(#SET{colonne_logo,''})]
+[(#ENV{logo_format}|=={portrait}|?{
+    #SET{colonne_logo,palm-one-half lap-and-up-one-quarter} #SET{colonne_contenu,palm-one-half lap-and-up-three-quarters},
+    #SET{colonne_logo,palm-one-whole lap-and-up-one-half} #SET{colonne_contenu,palm-one-whole lap-and-up-one-half}
+})]
+<article class="toc__item resume resume-rubrique landmark">
+    <div class="grid">
+        [<div class="grid__item[ (#GET{colonne_logo})]">
+            (#ENV{logo_objet}|=={oui}|?{
+                [(#INCLURE{fond=inclure/objets/rubrique_numero-objet-logo,
+                    objet=#ENV{objet},
+                    id_objet=#ENV{id_objet},
+                    type=#ENV{type},
+                    logo_format=#ENV{logo_format}})
+                ]}) 
+        </div><!-- /.grid__item -->]
+        <div class="grid__item[ (#GET{colonne_contenu})][ (#ENV{logo_objet}|=={non}|?{push--lap-and-up-one-quarter})]">
+            [(#SET{fichier_inclus,#VAL{inclure/objets/rubrique_numero-objet}|concat{-#ENV{objet}}})]
+            [(#INCLURE{fond=#GET{fichier_inclus},id_objet=#ENV{id_objet}})]
+        </div><!-- /.grid__item -->
+
+        [(#REM) Les articles de la rubrique ]
+        <B_articles_rubrique>
+        <div class="grid__item">
+            <div class="grid">
+                <BOUCLE_articles_rubrique(ARTICLES){id_rubrique=#ENV{id_objet}}{par num titre, titre}{si #ENV{objet}|=={rubrique}}>
+                <div class="grid__item lap-and-up-one-quarter">
+                    <article class="toc__item resume resume-article">
+                        [(#INCLURE{fond=inclure/objets/rubrique_numero-objet-article,id_objet=#ID_ARTICLE})]
+                    </article>
+                </div><!-- /.grid__item -->
+                </BOUCLE_articles_rubrique>
+            </div>
+        </div><!-- /.grid__item -->
+        </B_articles_rubrique>
+    </div><!-- /.grid -->
+</article>
+#FILTRE{trim}

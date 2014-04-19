@@ -1,0 +1,42 @@
+[(#REM) 
+    ************************************
+    Constantes
+    ************************************
+    
+    Transmises dans l'environnement : 
+    ----------------------------------
+    - titres : tableau mots. La clé est le titre du mot
+]
+<BOUCLE_mot(MOTS){id_mot}>
+#SET{titres,#ENV{titres}}
+
+<B_tri_titres>
+<section class="landmark">
+    #ANCRE_PAGINATION
+    <div class="grid__item">
+        <div class="grid">
+            <BOUCLE_tri_titres(DATA){source table,#GET{titres}}{par cle}{pagination 10}>
+                <BOUCLE_test_mot(DATA){source table,#VALEUR}{cle==mot}>
+                    <BOUCLE_donnees_mot(MOTS){id_mot=#VALEUR}>
+            [(#INCLURE{fond=inclure/layout/mot-4col2lignesMotArt,
+                id_mot=#VALEUR,
+                mot_resume_type=resume--hero,
+                mot_titre_class=resume__titre--hero,
+                mot_desc_class=resume__desc--hero,
+                article_resume_numero_titre_afficher=oui,
+                article_suite_afficher=oui}
+            )]
+                    </BOUCLE_donnees_mot>
+                </BOUCLE_test_mot>
+            </BOUCLE_tri_titres>
+        </div><!-- /.grid -->
+    </div><!-- /.grid__item -->
+    <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
+        [<nav class="pagination pagination--bottom pagination--page">
+            (#PAGINATION{li})
+        </nav>]
+    </div><!-- /.grid__item -->
+</section>
+</B_tri_titres>
+
+</BOUCLE_mot>

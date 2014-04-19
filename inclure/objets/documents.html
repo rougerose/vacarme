@@ -1,0 +1,42 @@
+<hr id="documents" class="visuallyhidden" />
+[(#REM) Portfolio : album d'images ]
+<B_documents_portfolio>
+<section class="landmark">
+   <h1 class="hN intertitre-section intertitre-section--first"><:local:documents_image:></h1>
+   <BOUCLE_documents_portfolio(DOCUMENTS){id_article?}{id_rubrique?}{mode=document}{extension IN png,jpg,gif}{par num titre, date}{vu=non}>
+   <figure class="document portfolio media">
+      [<a class="mediabox media__link" href="(#URL_DOCUMENT)" type="#MIME_TYPE" rel="documents_portfolio[-a(#ID_ARTICLE)][-r(#ID_RUBRIQUE)]" [ title="(#TITRE|attribut_html|couper{80})"]>
+      [<img src="(#FICHIER|image_reduire{250,0}|extraire_attribut{src})" class="media__img" alt="[(#TITRE|attribut_html|couper{80})]">]</a>]
+      [<figcaption class="spip_doc_legende media__body">
+         (#TITRE|ou{#DESCRIPTIF}|ou{#CREDITS}|oui)
+         [<h2 class="#EDIT{titre} hN spip_doc_titre">(#TITRE)</h2>][
+         (#DESCRIPTIF|ou{#CREDITS}|oui)
+         <p class="spip_doc_descriptif">[<span class="#EDIT{descriptif}">(#DESCRIPTIF|PtoBR)</span>][ <span class="#EDIT{credits}">(#CREDITS)</span>]</p>]
+      </figcaption>]
+   </figure>
+   </BOUCLE_documents_portfolio>
+</section>
+</B_documents_portfolio>
+
+[(#REM) Liste des autres documents joints ]
+<B_documents_joints>
+<section class="landmark">
+   <h1 class="hN intertitre-section intertitre-section--first"><:local:documents_fichier:></h1>
+   <div class="lap-and-up-table lap-and-up-table-100">
+      <BOUCLE_documents_joints(DOCUMENTS){id_article?}{id_rubrique?}{extension !IN gif,jpg,png}{vu=non}{par num titre, date}>[
+      (#COMPTEUR_BOUCLE|alterner{<div class="lap-and-up-table--row">,''})]
+         <figure class="document fichier lap-and-up-table--cell lap-and-up-table--cell-50">
+            [(#LOGO_DOCUMENT{vignette}|?{
+               [<a href="#URL_DOCUMENT" class="media__link">(#LOGO_DOCUMENT|image_reduire{150,100}|inserer_attribut{class,media__img})</a>],
+               [<a href="#URL_DOCUMENT" class="media__link">(#LOGO_DOCUMENT||inserer_attribut{class,media__img})</a>]
+            })]
+            <figcaption class="spip_doc_legende media__body">
+               <h2 class="spip_doc_titre epsilon"><a href="#URL_DOCUMENT" title="<:bouton_telecharger:>" type="#MIME_TYPE">[(#TITRE|sinon{<:medias:info_document:>})]</a></h2>
+               <p class="spip_doc_descriptif">[(#DESCRIPTIF|PtoBR)<br />]<span class="media-info">#TYPE_DOCUMENT[ &ndash; (#TAILLE|taille_en_octets)]</span></p>
+            </figcaption>
+         </figure>[
+      (#COMPTEUR_BOUCLE|alterner{'',</div>})]
+      </BOUCLE_documents_joints>
+   </div>
+</section>
+</B_documents_joints>
