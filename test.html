@@ -1,11 +1,43 @@
-<BOUCLE_rubrique_115(RUBRIQUES){id_rubrique=115}>
-<BOUCLE_num(RUBRIQUES){id_parent}{par titre}>
-<h1>rubrique #TITRE</h1>
-<BOUCLE_articles(ARTICLES){id_rubrique}>
-<h3>article #TITRE</h3>
-<BOUCLE_mot(MOTS){id_article}>
-<h5>mot #TITRE</h5>
-</BOUCLE_mot>
-</BOUCLE_articles>
-</BOUCLE_num>
-</BOUCLE_rubrique_115>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    .navigation {
+      
+      /* Collapsed */
+      
+    }
+
+    .page-wrap {
+      width: 100%;
+      float: right;
+    }
+    .navigation {
+      transition: width 0.3s ease;
+    }
+    #main-navigation {background-color: red;}
+    #main-navigation:target {
+      background-color: yellow;
+    }
+    </style>
+</head>
+<body>
+    <!-- I am collapsed by default -->
+    <nav id="main-navigation" class="navigation">
+       <a href="#">Nav Links</a>
+       <!-- more -->
+    </nav>
+
+    <!-- I am full width by default -->
+    <div class="page-wrap">
+      <header>
+        <a href="#main-navigation">Menu</a>
+        <h1>Title</h1>
+      </header>
+
+      <!-- content -->
+    </div>
+</body>
+</html>

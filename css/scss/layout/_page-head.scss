@@ -3,10 +3,15 @@
 =================================*/
 
 .page-head {
-    @include media-query(palm) {
-        position: relative;
-        z-index: 100;
-        padding-top: 3.5em;
+    position: relative;
+    z-index: 100;
+    padding: 2em 0 3em;
+    text-align: center;
+    @include media-query(portable){
+        padding-bottom: 3em;
+    }
+    @include media-query(desk){
+        padding-bottom: 1em;
     }
 }
 

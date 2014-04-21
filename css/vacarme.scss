@@ -1,44 +1,42 @@
 @charset "UTF-8";
-/*------------------------------------*\
-    STYLE.CSS
-\*------------------------------------*/
-/**
- *
- * sass --watch style.scss:style.min.css --style compressed
- *
- * Here we pull in some variables, include the inuit.css framework, then add our
- * project-specific components afterwards.
- */
 
+// bourbon
+@import "bourbon";
 
-/**
- * Setup
- */
+// variables / inuit / fontawesome
 @import "vars";
 @import "inuit";
+$fa-font-path: "fonts/fontawesome";
+@import "font-awesome";
 
-
-
-
-
-/**
- * She’s all yours, cap’n... Begin importing your stuff here.
- */
 
 // fonts & typo
 @import "ui/fonts";
 @import "ui/typo";
 
+        // layout
+@import "scss/layout/page",
+        "scss/layout/page-head",
+        
+        // modules
+        "scss/modules/list",
+        "scss/modules/btn",
+        "scss/modules/site-logo",
+        "scss/modules/navigation";
+
+
+
+
 // page
-@import "ui/page";
+// @import "ui/page";
 
 // page-sections
-@import "ui/page-head";
+// @import "ui/page-head";
 @import "ui/page-content";
 @import "ui/page-foot";
 
 // site-logo
-@import "ui/site-logo";
+// @import "scss/modules/site-logo";
 
 // titres et typo
 @import "ui/headings";
@@ -50,7 +48,7 @@
 @import "ui/links";
 
 // navigation
-@import "ui/navigation";
+// @import "ui/navigation";
 
 // forms
 @import "ui/forms";

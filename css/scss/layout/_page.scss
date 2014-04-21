@@ -1,0 +1,34 @@
+/* ==========================================================================
+   .page
+   ========================================================================== */
+
+html {
+    color: $text-color; //#252525;
+}
+
+    .wrap-out {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
+
+        .wrap-in {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            -webkit-transition: -webkit-transform 0.5s;
+            transition: transform 0.5s;
+        }
+
+.page-block {
+    margin: 0 auto;
+    max-width: 68.750em;
+    @include media-query(lap-and-up) {
+        padding-left: $base-spacing-unit;
+        padding-right: $base-spacing-unit;
+    }
+    @include media-query(palm) {
+        padding-left: $base-spacing-unit/2;
+        padding-right: $base-spacing-unit/2;
+    }
+}
