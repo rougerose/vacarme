@@ -32,8 +32,7 @@
         }
 
         .nav-container {
-            padding-top: 1em;
-            padding-bottom: 1em;
+            padding: 1em;
         }
 
         // nav__item
@@ -162,27 +161,28 @@
 
 // desk
 @include media-query(desk) {
-    .navigation-site {
-        .nav {
-            text-align: center;
-        }
-        .nav__item {
-            display:inline-block;
-            margin-right: 1em;
-            > a {
-                display: inline-block;
-            }
-        }
-    }
     .nav-revue {
-        border-bottom: 2px solid #000;
-        padding-bottom: .5em;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
         font-family: $font-HLC;
-        @include font-size(15px);
+        @include font-size(14px);
+        text-align: center;
         text-transform: uppercase;
+        .nav__item {
+            display: inline-block;
+            margin-right: 1em;
+        }
     }
     .nav-categories {
-        padding-top: .8em;
+        margin-left: -24px; // .grid
+        .nav {
+            display: inline-block;
+            padding-left: 24px; // .grid__item
+            width: 25%; // largeur 1/4
+            vertical-align: top;
+        }
     }
 }
 

@@ -11,11 +11,14 @@ $fa-font-path: "fonts/fontawesome";
 
 
 // fonts & typo
-@import "ui/fonts";
-@import "ui/typo";
+@import "ui/fonts",
+        "ui/typo",
+
+        // base
+        "scss/base/helpers",
 
         // layout
-@import "scss/layout/page",
+        "scss/layout/page",
         "scss/layout/page-head",
         
         // modules

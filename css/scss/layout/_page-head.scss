@@ -3,16 +3,16 @@
 =================================*/
 
 .page-head {
-    position: relative;
     z-index: 100;
-    padding: 2em 0 3em;
-    text-align: center;
-    @include media-query(portable){
-        padding-bottom: 3em;
-    }
+    border-bottom: 1px solid #000;
+    padding-top: 2em;
     @include media-query(desk){
+        margin-top: 1em;
         padding-bottom: 1em;
+        padding-top: 4em;
+        position: relative;
     }
+    a {font-weight: normal;}
 }
 
 /*-----  End of page-head  ------*/

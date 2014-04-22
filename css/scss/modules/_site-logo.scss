@@ -1,16 +1,23 @@
 /* ==========================================================================
    .site-logo
    ========================================================================== */
-
+.site-logo-container {
+    @include media-query(palm) {text-align:center;}
+    @include media-query(lap-and-up) {text-align:right;}
+}
 .site-logo {
     font-family: $font-HBC;
     text-transform: uppercase;
     white-space: nowrap;
     // taille du logo
     .page-head & {
-        @include media-query(palm) {@include font-size(56px);}
-        @include media-query(lap) {@include font-size(72px);}
-        @include media-query(desk) {@include font-size(90px);}
+        @include media-query(portable) {
+            @include font-size(68px);
+        }
+        @include media-query(desk) {
+            @include font-size(100px,$line-height:false);
+            line-height:0;
+        }
     }
     .page-foot & {
         @include font-size(38px,$line-height:false);

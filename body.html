@@ -3,11 +3,17 @@
         <div id="wrapIn" class="wrap-in">
             <div class="page">
                 <header id="top" class="page-head" role="banner">
-                    <INCLURE{fond=header/#ENV{type-page},env} />
+                    <div class="grid">
+                        <div class="grid__item lap-and-up-one-half valign--bottom">
+                            <INCLURE{fond=header/#ENV{type-page},env} />
+                        </div><!-- /.grid__item -->
+                        <div class="grid__item desk-one-half">
+                            <nav id="nav" class="navigation-site" role="navigation">
+                                <INCLURE{fond=nav/navigation-site,env} />
+                            </nav><!-- /.navigation -->
+                        </div><!-- /.grid__item -->
+                    </div><!-- /.grid -->
                 </header><!-- /.page-head -->
-                <nav id="nav" class="navigation-site" role="navigation">
-                    <INCLURE{fond=nav/navigation-site,env} />
-                </nav><!-- /.navigation -->
                 <main id="main" class="page-content" role="main">
                     <div class="page-block">
                         <INCLURE{fond=content/#ENV{type-page},env} />

@@ -1,11 +1,11 @@
-<div class="page-block">
-    [<div class="nav-container nav-revue">
-        <h2 class="hN visuallyhidden--desk"><:local:navigation_revue:></h2>
-        (#INCLURE{fond=inclure/menu,env,identifiant=nav_revue})
-    </div><!-- /.nav--principale -->]
-    [<div class="nav-container nav-categories">
-        <h2 class="hN visuallyhidden--desk"><:local:navigation_categories:></h2>
-        (#INCLURE{fond=inclure/menu,env,identifiant=nav_categories})
-    </div><!-- /.nav--secondaire -->]
-    <a id="btn-nav-close" href="#top" class="btn btn-nav btn-nav-close visuallyhidden--desk"><i class="fa fa-lg fa-times-circle"></i></a>
-</div><!-- /.page-block -->
+[<div class="nav-container nav-revue">
+    <h2 class="hN visuallyhidden--desk"><:local:navigation_revue:></h2>
+    (#INCLURE{fond=inclure/menu,env,identifiant=nav_revue})
+</div><!-- /.nav--principale -->]
+<div class="nav-container nav-categories">
+    <h2 class="hN visuallyhidden--desk"><:local:navigation_categories:></h2>
+    [(#INCLURE{fond=inclure/menu,env,identifiant=nav_cat_1})]
+    [(#INCLURE{fond=inclure/menu,env,identifiant=nav_cat_2})]
+    [(#INCLURE{fond=inclure/menu,env,identifiant=nav_cat_3})]
+</div><!-- /.nav--secondaire -->
+<a id="btn-nav-close" href="#top" class="btn btn-nav btn-nav-close visuallyhidden--desk"><i class="fa fa-lg fa-times-circle"></i></a>

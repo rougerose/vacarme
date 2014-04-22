@@ -7,9 +7,13 @@
    ========================================================================== */
 .btn-nav {
     position: absolute;
-    top: 1em;
+    top: 0;
 }
 .btn-nav-open {
-    left: 0;
+    left: $base-spacing-unit/2;
+    padding-left: 0;
+    @include media-query(lap-and-up) {
+        left: $base-spacing-unit;
+    }
 }
 // .btn-nav-close {}
