@@ -15,6 +15,7 @@ $fa-font-path: "fonts/fontawesome";
         "ui/typo",
 
         // base
+        "scss/base/form",
         "scss/base/helpers",
 
         // layout
@@ -25,7 +26,8 @@ $fa-font-path: "fonts/fontawesome";
         "scss/modules/list",
         "scss/modules/btn",
         "scss/modules/site-logo",
-        "scss/modules/navigation";
+        "scss/modules/navigation",
+        "scss/modules/colorbox";
 
 
 
@@ -54,7 +56,7 @@ $fa-font-path: "fonts/fontawesome";
 // @import "ui/navigation";
 
 // forms
-@import "ui/forms";
+//@import "ui/forms";
 
 // objets
 @import "ui/buttons";

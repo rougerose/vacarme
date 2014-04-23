@@ -18,6 +18,7 @@
     // version de base, avec ou sans js
     .navigation-site {
         padding-top: 8em;
+        background: $nav-bg;
         .page-block {background-color: $nav-bg;}
         
         // intertitres 
@@ -59,11 +60,12 @@
             display: none;
         }
         &:not(:target) {
-            z-index: 0;
+            z-index: -1;
             height: 0;
             overflow: hidden;
         }
         &:target {
+            z-index: 100;
             .btn-nav-close {
                 display: block;
             }
@@ -167,7 +169,7 @@
         top: 0;
         width: 100%;
         font-family: $font-HLC;
-        @include font-size(14px);
+        @include font-size(15px);
         text-align: center;
         text-transform: uppercase;
         .nav__item {
