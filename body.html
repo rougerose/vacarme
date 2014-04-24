@@ -1,33 +1,35 @@
 <body>
     <div id="wrapOut" class="wrap-out">
         <div id="wrapIn" class="wrap-in">
-            <div class="page">
-                <header id="top" class="page-head" role="banner">
-                    <div class="grid">
-                        <div class="grid__item lap-and-up-one-half valign--bottom">
-                            <INCLURE{fond=header/#ENV{type-page},env} />
-                        </div><!-- /.grid__item -->
-                        <div class="grid__item desk-one-half">
-                            <nav id="nav" class="navigation-site" role="navigation">
-                                <INCLURE{fond=nav/navigation-site,env} />
-                            </nav><!-- /.navigation -->
-                        </div><!-- /.grid__item -->
-                    </div><!-- /.grid -->
-                </header><!-- /.page-head -->
-                <div id="search-container">
-                    #FORMULAIRE_RECHERCHE
-                </div><!-- /#search.search-container -->
-                <main id="main" class="page-content" role="main">
-                    <div class="page-block">
-                        <INCLURE{fond=content/#ENV{type-page},env} />
-                    </div><!-- /.page-block -->
-                </main><!-- /.main -->
-                <footer class="page-foot">
-                    <div class="page-block">
-                        <INCLURE{fond=footer/#ENV{type-page},env} />
-                    </div><!-- /.page-block -->
-                </footer><!-- /.page-foot -->
-            </div><!-- /.page -->
+            <header id="top" class="page-head" role="banner">
+                <div class="page-block">
+                    <div class="page-head-container">
+                        <div class="grid">
+                            <div class="grid__item lap-and-up-one-half valign--bottom">
+                                <INCLURE{fond=header/#ENV{type-page},env} />
+                            </div><!-- /.grid__item -->
+                            <div class="grid__item desk-one-half">
+                                <nav id="nav" class="navigation-site" role="navigation">
+                                    <INCLURE{fond=nav/navigation-site,env} />
+                                </nav><!-- /.navigation -->
+                            </div><!-- /.grid__item -->
+                        </div><!-- /.grid -->
+                    </div>
+                </div><!-- /.page-block -->
+            </header><!-- /.page-head -->
+            <div id="search-container">
+                #FORMULAIRE_RECHERCHE
+            </div><!-- /#search.search-container -->
+            <main id="main" class="page-content" role="main">
+                <div class="page-block">
+                    <INCLURE{fond=content/#ENV{type-page},env} />
+                </div><!-- /.page-block -->
+            </main><!-- /.main -->
+            <footer class="page-foot">
+                <div class="page-block">
+                    <INCLURE{fond=footer/#ENV{type-page},env} />
+                </div><!-- /.page-block -->
+            </footer><!-- /.page-foot -->
         </div><!-- /.wrap-in -->
     </div><!-- /.wrap-out -->
     [<script src="(#CHEMIN{js/navigation.js})"></script>]

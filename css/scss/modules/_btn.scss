@@ -2,13 +2,15 @@
    .btn
    ========================================================================== */
 
+.btn-shortcut-container {
+  position: absolute;
+  top: 0;
+}
+
 /* 
    .btn-nav
    ========================================================================== */
-.btn-nav {
-    position: absolute;
-    top: 0;
-}
+// .btn-nav {}
 .btn-nav-open {
     left: $base-spacing-unit/2;
     padding-left: 0;
@@ -18,7 +20,9 @@
 }
 // .btn-nav-close {}
 .btn-nav-search {
-  padding:0;
-  line-height: 1;
-  vertical-align: text-top;
+  @include media-query(desk) {
+    padding:0;
+    line-height: 1;
+    vertical-align: text-top;
+  }
 }

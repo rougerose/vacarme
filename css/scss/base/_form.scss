@@ -27,11 +27,12 @@ input[type="search"] {
     
 }
 
-.formulaire_recherche {}
-#search {}
-    .search__form {
-        text-align:center;
+.formulaire_recherche {
+    .js & {
+        margin: 2em 0 0;
     }
+}
+    .search__form {text-align:center;}
     .search__label {
         @include accessibility;
     }

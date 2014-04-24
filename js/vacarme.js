@@ -1,7 +1,7 @@
 $(document).ready(function() {
     
     // Formulaire recherche dans colorbox/mediabox
-    $("#btn-nav-search").colorbox({
+    $("#btn-nav-search,#btn-search").colorbox({
         opacity: '0.95',
         transition: 'fade',
         inline:true, width:'80%',

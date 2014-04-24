@@ -19,7 +19,6 @@
     .navigation-site {
         padding-top: 8em;
         background: $nav-bg;
-        .page-block {background-color: $nav-bg;}
         
         // intertitres 
         .hN {
@@ -115,14 +114,12 @@
             @include transform(translate3d(-100%,0,0));
             @include transform(translate(-100%,0));
             @include backface-visibility(hidden);
-            .page-block {
-                background: transparent;
-            }
         }
         .btn-nav-close {
             right: 0;
             .fa {color: #fff;}
-        } 
+        }
+        .nav__item--search {display:none;}
     }
 
     //version js-nav (navigation ouverte)
@@ -187,7 +184,3 @@
         }
     }
 }
-
-
-
-

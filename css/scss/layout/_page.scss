@@ -19,7 +19,7 @@ html {
             transition: transform 0.5s;
         }
 
-.page {
+.page-block {
     margin: 0 auto;
     max-width: 68.750em;
     @include media-query(lap-and-up) {
