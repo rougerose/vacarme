@@ -1,0 +1,34 @@
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+<div class="page-block">
+    <div class="grid">
+        <article class="self rubrique rubrique-dossier">
+            <div class="grid__item">
+                [<img src="(#LOGO_RUBRIQUE|image_reduire{1100,0}|image_recadre{1100,400,center}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="media--full rubrique-dossier__cover">]
+            </div>
+            <div class="grid__item lap-and-up-one-half">
+                <div class="rubrique-dossier__ouverture cf">
+                    <header class="self__header">
+                        <h1 class="hN titre"><span class="#EDIT{titre}">#TITRE</span></h1>
+                    </header>
+                    [<div class="self__body">
+                        <div class="#EDIT{texte} self__texte surlignable">
+                            (#TEXTE|image_reduire{500,0})
+                        </div>
+                    </div>]
+                </div><!-- /.rubrique-dossier__ouverture -->
+            </div><!-- /.grid__item -->
+            [(#REM) les articles en sélection ]
+            <BOUCLE_articles_selection(ARTICLES pb_selection){par ordre}{spip_pb_selection.id_rubrique=#ID_RUBRIQUE}{doublons}>
+            <div class="grid__item lap-and-up-one-half">
+                [(#INCLURE{fond=resume/article,id_article,resume_type=selection})]
+            </div><!-- /.grid__item -->
+            </BOUCLE_articles_selection>
+            <BOUCLE_articles_tous(ARTICLES){id_rubrique}{par num titre, titre}{doublons}>
+            <div class="grid__item lap-and-up-one-quarter">
+                [(#INCLURE{fond=resume/article,id_article})]
+            </div><!-- /.grid__item -->
+            </BOUCLE_articles_tous>
+        </article>
+    </div><!-- /.grid -->
+</div><!-- /.page-bloc -->
+</BOUCLE_rubrique>

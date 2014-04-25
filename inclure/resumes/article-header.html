@@ -33,7 +33,7 @@
 [(#REM) L'env indique que l'auteur doit être affiché ? On vérifie quelques conditions : actualités ? entretien ?  ]
     <BOUCLE_auteur_afficher(CONDITION){si #GET{auteur_supprimer}|non}>
         [(#REM) si c'est une actualité, l'auteur n'est pas affiché ]
-        [(#ID_SECTEUR|=={82}|?{#SET{auteur_supprimer,' '}})]
+        [(#ID_RUBRIQUE|=={82}|?{#SET{auteur_supprimer,' '}})]
         <BOUCLE_entretien(MOTS){id_article}{id_groupe=5}{tout}>
             [(#REM) mot-clé entretien réalisé ou propos recueillis ? ]
             [(#ID_MOT|match{75|240}|?{#SET{auteur_supprimer,' '}})]

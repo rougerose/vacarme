@@ -1,0 +1,123 @@
+/* ==========================================================================
+   resume
+   ========================================================================== */
+   // .resume(-article)
+   //     .resume__lien
+   //       .resume__header
+   //       .resume__desc
+
+   // complément de /ui/resume.scss.
+   // TODO : fusionner les deux fichiers. 
+
+   // .resume {}
+       .resume__lien {
+            display: block;
+            background-color: transparent;
+            outline: 6px solid transparent;
+            @include transition(background 0.3s ease-in-out,outline 0.3s ease-in-out);
+            &:hover {
+                background-color: rgba($warm-gray,0.3);
+                outline: 6px solid rgba($warm-gray,0.3);
+            }
+       }
+            // .resume__titre {}
+           .resume__signature {
+                font-style: italic;
+                color: $gris-soustitre;
+            }
+            // .resume__desc {}
+           .resume__more {
+                time {
+                    color: $gris-soustitre;
+                    &:after {
+                        margin-left: 0.3em;
+                        content: '|';
+                        color: $gray-light;
+                    }
+                }
+                .more {
+                    border-bottom: 1px dotted $gris-soustitre;
+                    color: $gris-soustitre;
+                    &:hover {
+                        color: #000;
+                        border-bottom: 1px solid #000;
+                        em {
+                            color: #000;
+                            padding-left: 1em;
+                        }
+                    }
+                }
+           }
+
+
+/* 
+   .resume-article
+   ========================================================================== */
+   
+   .resume-article {
+       position: relative;
+   }
+
+/* 
+   .resume-article--selection
+   ========================================================================== */
+   .resume-article--selection {
+        .resume__titre {
+            @include media-query(lap) {
+                @include font-size(20px);
+            }
+            @include media-query(desk) {
+                @include font-size(22px);
+            }
+        }
+        .resume__signature,
+        .resume__desc,
+        .resume__more {
+            @include media-query(desk) {
+                @include font-size(18px);
+            }
+        }
+   }
+
+
+  .resume-article--is-locked {
+    .hN,
+    p {
+      color: #999;
+  }
+}
+
+/* 
+   .overlay
+   ========================================================================== */
+   .overlay {
+       position: absolute;
+       top: -6px;
+       left: -6px;
+       bottom: -6px;
+       width: 100%;
+       background: rgba(#b22222,0.85);
+       text-align: center;
+       opacity: 0;
+       @include transition (opacity 0.3s ease-in-out);
+       &:before {
+           // pour centrer en vertical sans connaitre la hauteur
+           // http://thephuse.com/development/the-best-way-to-vertically-align-in-css/
+           display: inline-block;
+           vertical-align:middle;
+           content: '';
+           width: 0;
+           height: 10%;
+           @include media-query(desk) {height: 100%;}
+       }
+       &:hover {opacity: 1;}
+       p {
+           display: inline-block; 
+           padding: 1em;
+           color: #fff;
+           font-family: $font-HBC;
+           @include font-size(18px);
+           vertical-align: middle; 
+           text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+       }
+   }

@@ -22,12 +22,6 @@ html {
 .page-block {
     margin: 0 auto;
     max-width: 68.750em;
-    @include media-query(lap-and-up) {
-        padding-left: $base-spacing-unit;
-        padding-right: $base-spacing-unit;
-    }
-    @include media-query(palm) {
-        padding-left: $base-spacing-unit/2;
-        padding-right: $base-spacing-unit/2;
-    }
+    padding-left: $base-spacing-unit;
+    padding-right: $base-spacing-unit;
 }
