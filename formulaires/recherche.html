@@ -3,7 +3,7 @@
     [(#ENV{action}|form_hidden)]
     [<input type="hidden" name="lang" value="(#ENV{lang})" />]
     <label class="search__label" for="#ENV{_id_champ}"><:info_rechercher:></label>
-    <input type="[(#HTML5|?{search,text})]" class="search text search__field" size="10" name="recherche" id="#ENV{_id_champ}"[ (#HTML5|?{placeholder="<:info_rechercher:>",value="<:info_rechercher:>"})] accesskey="4" autocapitalize="off" autocorrect="off"
+    <input type="[(#HTML5|?{search,text})]" class="search text search__field" size="30" name="recherche" id="#ENV{_id_champ}"[ (#HTML5|?{placeholder="<:info_rechercher:>",value="<:info_rechercher:>"})] accesskey="4" autocapitalize="off" autocorrect="off"
     /><input type="submit" class="submit search__submit" value="OK" title="<:info_rechercher:>" />
 </div></form>
 </div>
