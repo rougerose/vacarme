@@ -3,6 +3,7 @@
    ========================================================================== */
 
 .rubrique-dossier__cover {
+    height: 100%;
     @include media-query(lap-and-up) {margin-bottom:4em;}
 }
 .rubrique-dossier__ouverture {

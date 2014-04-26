@@ -21,6 +21,8 @@ $fa-font-path: "fonts/fontawesome";
         // layout
         "scss/layout/page",
         "scss/layout/page-head",
+        "scss/layout/page-content",
+        "scss/layout/page-foot",
         
         // modules
         "scss/modules/list",
@@ -39,8 +41,8 @@ $fa-font-path: "fonts/fontawesome";
 
 // page-sections
 // @import "ui/page-head";
-@import "ui/page-content";
-@import "ui/page-foot";
+//@import "ui/page-content";
+//@import "ui/page-foot";
 
 // site-logo
 // @import "scss/modules/site-logo";

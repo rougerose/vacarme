@@ -1,0 +1,31 @@
+/* ==========================================================================
+   .page-foot
+   ========================================================================== */
+
+.page-foot {
+    hr {
+        border: 0;
+        height: 1px;
+        background: #000;
+    }
+    .hN {
+        margin-bottom: 0.5em;
+        font-family: $font-HBC;
+        @include font-size(16px);
+        text-transform: uppercase;
+    }
+    .desc-main {
+        padding-right: 2em;
+    }
+    .mentions {
+        border-top: 1px solid #000;
+        padding: .5em 0 1em;
+        > li {
+            @include font-size(15px);
+            a {
+                color: $gray;
+                &:hover {color: #000;}
+            }
+        }
+    }
+}

@@ -20,3 +20,24 @@
    }
        .block-list__item,
        %block-list__item {display:list-item;}
+
+/* 
+   .inline-list
+   ========================================================================== */
+
+.inline-list,
+%inline-list {
+    > li {@extend %inline-list__item;}
+}
+    .inline-list__item,
+    %inline-list__item {display: inline-block;}
+
+.inline-list--separator {
+    > li {
+        &:after {
+            content: '|';
+            margin: 0 .5em;
+        }
+        &:last-child:after {content:'';}
+    }
+}
