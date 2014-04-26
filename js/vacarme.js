@@ -50,7 +50,7 @@ $(document).ready(function() {
     });*/
 
     // flexslider
-    /*$('#flexslider').flexslider({
+    $('#flexslider').flexslider({
        animation: "slide",
        slideshow: false,
        controlNav: false,
@@ -71,5 +71,5 @@ $(document).ready(function() {
     });
 
     // tabs jquery ui
-    $( "#tabs" ).tabs();*/
+    //$( "#tabs" ).tabs();
 });

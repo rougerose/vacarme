@@ -4,6 +4,7 @@
 
 .page-head {
     padding-top: 2.3em;
+    margin-bottom: 3em;
     @include media-query(desk){
         margin-top: 1em;
         padding-top: 3em;
