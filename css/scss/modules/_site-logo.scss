@@ -10,6 +10,7 @@
         margin: 1em 0 2.5em;
     }
 }
+
 .site-logo {
     font-family: $font-HBC;
     text-transform: uppercase;
@@ -23,11 +24,8 @@
         }
     }
     .page-foot & {
-        @include font-size(32px,$line-height:false);
+        @include font-size(60px,$line-height:false);
         line-height: 1;
-        @include media-query(lap-and-up) {
-            @include font-size(60px,$line-height:false);
-        }
     }
 }
 
@@ -35,11 +33,8 @@
     font-style: italic;
     .page-foot & {
         margin-top: .5em;
-        @include font-size(14px,$line-height:false);
+        @include font-size(20px,$line-height:false);
         line-height: 1;
-        @include media-query(lap-and-up) {
-            @include font-size(20px,$line-height:false);
-        }
     }
 }
 
