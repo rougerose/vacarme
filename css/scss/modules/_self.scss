@@ -10,10 +10,5 @@
 
 .self__footer {
     clear: both;
-    .meta {
-        &:first-child {
-            //border-top: 1px solid $gray-light;
-            //padding-top: 1em;
-        }
-    }
+    position: relative;
 }
