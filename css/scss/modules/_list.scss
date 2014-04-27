@@ -30,7 +30,7 @@
     .inline-list__item,
     %inline-list__item {display: inline-block;}
 
-.inline-list--separator {
+.inline-list--pipe {
     > li {
         &:after {
             content: '|';
@@ -38,6 +38,18 @@
         }
         &:last-child:after {content:'';}
     }
+}
+.inline-list--slash {
+  > li {
+    margin-left: 0.3em;
+    &:before {
+      content: '/';
+      margin-right: 0.3em;
+    }
+    &:first-child {
+      margin-left: 0;
+    }
+  }
 }
 
 /* 

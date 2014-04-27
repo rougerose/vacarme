@@ -1,8 +1,14 @@
 <BOUCLE_article(ARTICLES){id_article}>
 [(#ENV{page}|=={mentions}|?{#SET{contexte,''},#SET{contexte,' '}})]
 <article class="self article" itemscope itemtype="http://schema.org/Article">
-<div class="page-block">
-    <div class="grid">
+    <div class="page-block">
+        <div class="grid">
+            <div class="grid__item">
+                <div class="meta-head cf">
+                    <p class="meta-head__date"><time pubdate datetime="[(#DATE|date_iso)]" itemprop="datePublished" content="[(#DATE|affdate{Y-m-d})]">[(#DATE|affdate)]</time></p>
+                    <p class="meta-head__rubriques">[<a href="[(#INFO_URL{rubrique,#ID_RUBRIQUE})]">(#INFO_TITRE{rubrique,#ID_RUBRIQUE})</a>]</p>
+                </div><!-- /.meta-head -->
+            </div><!-- /.grid__item -->
             <div class="grid__item desk-three-quarters push--desk-one-quarter">
                 <header class="self__header landmark">
                     [<p class="#EDIT{surtitre} surtitre">(#SURTITRE)</p>]
@@ -66,11 +72,11 @@
                 </aside>
                 </B_articles_lies>
             </div><!-- /.grid__item -->
-    </div><!-- /.grid -->
-    [(#GET{contexte}|oui)
-    <footer class="self__footer">
-        [(#INCLURE{fond=inclure/article-footer,id_article})]
-    </footer>]
-</div><!-- /.page-block -->
+        </div><!-- /.grid -->
+        [(#GET{contexte}|oui)
+        <footer class="self__footer">
+            [(#INCLURE{fond=inclure/article-footer,id_article})]
+        </footer>]
+    </div><!-- /.page-block -->
 </article>
 </BOUCLE_article>

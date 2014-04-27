@@ -41,9 +41,11 @@
     <div class="page-block">
         <div class="grid">
             <div class="grid__item">
-                <p class="date-publication"><time pubdate datetime="[(#DATE|date_iso)]" itemprop="datePublished" content="[(#DATE|affdate{Y-m-d})]">[(#DATE|affdate)]</time></p>
-                <p class="rubriquage">[(#GET{titre_numero})] [(#GET{titre_rubrique})]</p>
-            </div>
+                <div class="meta-head cf">
+                    <p class="meta-head__date"><time pubdate datetime="[(#DATE|date_iso)]" itemprop="datePublished" content="[(#DATE|affdate{Y-m-d})]">[(#DATE|affdate)]</time></p>
+                    <p class="meta-head__rubriques">[<a href="[(#INFO_URL{rubrique,#GET{id_numero}})]">(#INFO_TITRE{rubrique,#GET{id_numero}})</a>][ / <a href="[(#INFO_URL{rubrique,#ID_RUBRIQUE})]">(#INFO_TITRE{rubrique,#ID_RUBRIQUE})</a>]</p>
+                </div><!-- /.meta-head -->
+            </div><!-- /.grid__item -->
             <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
                 <header class="self__header self__header--art landmark">
                     [<p class="#EDIT{surtitre} surtitre">(#SURTITRE)</p>]

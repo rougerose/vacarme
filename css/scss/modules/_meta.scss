@@ -15,6 +15,37 @@
 }
 
 /* 
+   .meta-head
+   ========================================================================== */
+
+.meta-head {
+    margin-bottom: 2em;
+}
+.meta-head__date {
+    float: left;
+    width: 26%;
+    text-align: right;
+    color: #c5c5c5;
+    &:after {
+        content: '|';
+        margin-left: 0.5em;
+        display: inline-block;
+        color: #eee;
+    }
+}
+.meta-head__rubriques {
+    float:left;
+    margin-left: 0.5em;
+    text-transform: uppercase;
+    font-family: $font-HLC;
+    color: #c5c5c5;
+    a {
+        color: #c5c5c5;
+    }
+}
+
+
+/* 
    .meta-article
    ========================================================================== */
 

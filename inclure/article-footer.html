@@ -7,11 +7,11 @@
             </BOUCLE_couverture_numero>
         </div><!-- /.grid__item -->
         <div class="grid__item lap-and-up-three-quarters">
-            <div class="meta">
+            <div class="meta-article">
                 <h2 class="hN meta__section-titre"><:local:publication_about:></h2>
                 <div class="grid">
                     <div class="grid__item desk-one-third lap-one-half">
-                        <dl class="simple-def-list meta-article">
+                        <dl class="simple-def-list">
                             <dt class="meta-article__titre"><:local:version_online:></dt>
                             <dd class="">
                                 <p><:local:published_date:> <time pubdate datetime="[(#DATE|date_iso)]" itemprop="datePublished" content="[(#DATE|affdate{Y-m-d})]">[(#DATE|affdate)]</time></p>
@@ -22,7 +22,7 @@
                     </div><!-- /.grid__item -->
                     <div class="grid__item desk-one-third lap-one-half">
                         <BOUCLE_info_publication(RUBRIQUES){id_rubrique=#GET{id_numero}}{si #ID_SECTEUR|=={115}}>
-                        <dl class="simple-def-list meta-article">
+                        <dl class="simple-def-list">
                             <dt class="meta-article__titre"><:local:version_print:></dt>
                             <dd>
                                 <p class="liens"><:local:published_in:> <a href="#URL_RUBRIQUE" itemprop="name">#TITRE</a>[, <span itemprop="datePublished" content="[(#SAISON_ANNEE|affdate{Y-m-d})]">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</span>][, (#PAGE_DEBUT|>{0}|oui)
@@ -33,7 +33,7 @@
                         </BOUCLE_info_publication>
                     </div><!-- /.grid__item -->
                 </div><!-- /.grid -->
-            </div><!-- /.meta -->
+            </div><!-- /.meta-article -->
             <BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
             [(#COMPOSITION|=={dossier}|oui)
                 #INCLURE{fond=inclure/article-footer-sommaire-dossier,id_rubrique,id_article}
