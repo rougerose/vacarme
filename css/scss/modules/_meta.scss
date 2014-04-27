@@ -23,9 +23,11 @@
 }
 .meta-head__date {
     float: left;
-    width: 26%;
     text-align: right;
     color: #999;
+    @include media-query(lap-and-up) {
+        width: 26%;
+    }
     &:after {
         content: '|';
         margin-left: 0.5em;
