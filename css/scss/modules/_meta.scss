@@ -21,13 +21,12 @@
 .meta-head {
     margin-bottom: 2em;
 }
-.meta-head__date {
-    float: left;
-    text-align: right;
+.meta-head__date,
+.meta-head__rubriques {
+    margin-bottom: 0;
     color: #999;
-    @include media-query(lap-and-up) {
-        width: 26%;
-    }
+}
+.meta-head__date {
     &:after {
         content: '|';
         margin-left: 0.5em;
@@ -36,14 +35,20 @@
     }
 }
 .meta-head__rubriques {
-    float:left;
-    margin-left: 0.5em;
     text-transform: uppercase;
     font-family: $font-HLC;
-    color: #999;
     a {
         color: #999;
     }
+}
+@include media-query(lap-and-up) {
+    .meta-head__date,
+    .meta-head__rubriques {float:left;}
+    .meta-head__date {
+        width: 26%;
+        text-align: right;
+    }
+    .meta-head__rubriques {margin-left: .5em;}
 }
 
 
