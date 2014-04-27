@@ -13,11 +13,11 @@
        .resume__lien {
             display: block;
             background-color: transparent;
-            outline: 6px solid transparent;
-            @include transition(background 0.3s ease-in-out,outline 0.3s ease-in-out);
+            outline: 3px dotted transparent;
+            @include transition(background 0.3s ease,outline 0.3s ease);
             &:hover {
-                background-color: rgba($warm-gray,0.3);
-                outline: 6px solid rgba($warm-gray,0.3);
+                background-color: rgba(#ddd,0.3);
+                outline: 3px dotted rgba(#ddd,0.3);
             }
        }
             // .resume__titre {}
@@ -79,45 +79,75 @@
         }
    }
 
+/* 
+   .resume-article--court
+   ========================================================================== */
 
-  .resume-article--is-locked {
-    .hN,
-    p {
-      color: #999;
-  }
-}
+    .resume-article--court {
+        &.resume {
+            margin-bottom: 0;
+        }
+        .resume__titre {
+            margin-bottom: 0;
+            min-height: 2em;
+            @include font-size(16px);
+        }
+        .resume__signature {margin-bottom: 0;}
+    }
 
 /* 
-   .overlay
+   is-selected
    ========================================================================== */
-   .overlay {
-       position: absolute;
-       top: -6px;
-       left: -6px;
-       bottom: -6px;
-       width: 100%;
-       background: rgba(#b22222,0.85);
-       text-align: center;
-       opacity: 0;
-       @include transition (opacity 0.3s ease-in-out);
-       &:before {
-           // pour centrer en vertical sans connaitre la hauteur
-           // http://thephuse.com/development/the-best-way-to-vertically-align-in-css/
-           display: inline-block;
-           vertical-align:middle;
-           content: '';
-           width: 0;
-           height: 10%;
-           @include media-query(desk) {height: 100%;}
-       }
-       &:hover {opacity: 1;}
-       p {
-           display: inline-block; 
-           padding: 1em;
-           color: #fff;
-           font-family: $font-HBC;
-           @include font-size(18px);
-           vertical-align: middle; 
-           text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
-       }
-   }
+
+    .resume__titre--is-selected {
+        strong {
+            font-weight: normal;
+            &:before {
+                display: inline-block;
+                margin-left: -1em;
+                margin-right: 0.3em;
+                content: '\f00c';
+                font-family: 'FontAwesome';
+                font-weight: normal;
+                font-style: normal;
+                color: $ok;
+            }
+        }
+    }
+
+/* 
+   is-locked
+   ========================================================================== */
+
+    .resume-article--is-locked {
+        .hN,
+        p {color: #999;}
+    }
+
+/* 
+   .locked-info-overlay
+   ========================================================================== */
+
+    .locked-info-overlay {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        padding: 0 0.5em;
+        text-align: center;
+        font-family: $mono-font;
+        @include font-size(10px);
+        color: #999;
+        background: #fff;
+        border: 1px dotted #fff;
+        border-radius: 2px;
+        @include transition(background 0.3s ease,color 0.3s ease);
+        .resume-article--court & {
+            bottom: -1.5em;
+            left: auto;
+        }
+        .resume:hover & {
+            background-color: #b22222;
+            color: #fff;
+        }
+    }

@@ -1,0 +1,13 @@
+<BOUCLE_resume_court(ARTICLES){id_article}>
+[(#DATE|>{#ENV{date}}|?{#SET{article_locked,' '},#SET{article_locked,''}})]
+<article class="resume resume-article resume-article--court[ (#GET{article_locked}|oui) resume-article--is-locked]">
+    <h1 class="hN resume__titre resume-article__titre[ resume__titre(#ENV{expose}|?{--is-selected,''})]">
+        [(#GET{article_locked}|?{ #TITRE,[(#URL_ARTICLE|lien_ou_expose{#TITRE, #ENV{expose}|=={on}})] })]
+    </h1>
+    [<p class="resume__signature"><:par_auteur:>(#MODELE{authors,id_article=#ENV{id_article},contexte=resume})</p>]
+    [(#GET{article_locked}|?{
+        <div class="locked-info-overlay">[(#VAL{<:local:message_article_locked:>}|concat{[ (#DATE|affdate_court).]})]</div>
+        ,</a>}
+    )]
+</article>
+</BOUCLE_resume_court>

@@ -11,12 +11,10 @@
        margin:  0;
        padding: 0;
        list-style: none;
-
        > li {
            @extend %block-list__item;
            > a {display:block;}
        }
-
    }
        .block-list__item,
        %block-list__item {display:list-item;}
@@ -41,3 +39,29 @@
         &:last-child:after {content:'';}
     }
 }
+
+/* 
+   .ui-list
+   ========================================================================== */
+
+.ui-list {
+  margin:  0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px dotted #c9c9c9;
+}
+  .ui-list__item {
+    padding: 1em 0;
+    border-bottom: 1px dotted #c9c9c9;
+  }
+
+
+
+/* 
+   .simple-def-list
+   ========================================================================== */
+
+.simple-def-list {
+  dd {margin-left: 0;}
+}
+

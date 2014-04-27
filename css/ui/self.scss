@@ -79,7 +79,9 @@
 
 /*==========  self__body  ==========*/
 /* article */
-// .self__body--article {}
+.self__body--article {
+    margin-bottom: 4em;
+}
 .self__body--rubrique {
     .self__texte {
         width: 75%;

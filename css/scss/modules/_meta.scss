@@ -1,0 +1,34 @@
+/* ==========================================================================
+   .meta
+   ========================================================================== */
+
+// .meta {}
+.meta__section-titre {
+    display: inline-block;
+    margin-left: -$base-spacing-unit/2;
+    padding-left: $base-spacing-unit/2;
+    padding-right: $base-spacing-unit/2;
+    border-bottom: 1px solid #555;
+    font-family: $font-HBC;
+    @include font-size(18px);
+    text-transform: uppercase;
+}
+
+/* 
+   .meta-article
+   ========================================================================== */
+
+.meta-article {
+    margin-bottom: 48px;
+    margin-bottom: 3rem;
+    p {
+        margin-bottom: 0;
+    }
+}
+.meta-article__titre {
+    margin-bottom: .5em;
+    // font-weight: 600;
+    font-style:italic;
+    @include font-size(20px);
+    color: #444;
+}

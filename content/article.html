@@ -1,89 +1,76 @@
 <BOUCLE_article(ARTICLES){id_article}>
 [(#ENV{page}|=={mentions}|?{#SET{contexte,''},#SET{contexte,' '}})]
-<div class="grid">
-    <article class="self article" itemscope itemtype="http://schema.org/Article">
-        <div class="grid__item desk-three-quarters push--desk-one-quarter">
-            <header class="self__header landmark">
-                [<p class="#EDIT{surtitre} surtitre">(#SURTITRE)</p>]
-                <h1 itemprop="name" class="hN">
-                    <span class="#EDIT{titre} titre">#TITRE</span>[ <small class="#EDIT{soustitre} soustitre">(#SOUSTITRE)</small>]
-                </h1>
-            </header>
-        </div><!-- /.grid__item -->
-        [<div class="grid__item">
-            <div class="media landmark">
-                <img src="(#LOGO_ARTICLE|image_reduire{1100,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="media--full">
-            </div>
-        </div>]
-        <div class="grid__item desk-three-quarters push--desk-one-quarter">
-            [(#REM) schema/article : description
-            ][<meta itemprop="description" content="(#DESCRIPTIF|sinon{#INTRODUCTION{300}}|textebrut)" />]
-            [<div class="#EDIT{chapo} self__chapo landmark surlignable">
-                (#CHAPO|image_reduire{500,0})
+<article class="self article" itemscope itemtype="http://schema.org/Article">
+<div class="page-block">
+    <div class="grid">
+            <div class="grid__item desk-three-quarters push--desk-one-quarter">
+                <header class="self__header landmark">
+                    [<p class="#EDIT{surtitre} surtitre">(#SURTITRE)</p>]
+                    <h1 itemprop="name" class="hN">
+                        <span class="#EDIT{titre} titre">#TITRE</span>[ <small class="#EDIT{soustitre} soustitre">(#SOUSTITRE)</small>]
+                    </h1>
+                </header>
+            </div><!-- /.grid__item -->
+            [<div class="grid__item">
+                <div class="media landmark">
+                    <img src="(#LOGO_ARTICLE|image_reduire{1100,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="media--full">
+                </div>
             </div>]
-        </div><!-- /.grid__item -->
-        <div class="grid__item desk-three-quarters float--right">
-            <div class="self__body">
-                [<div class="#EDIT{texte} self__texte landmark surlignable">
-                    (#TEXTE|image_reduire{500,0})
+            <div class="grid__item desk-three-quarters push--desk-one-quarter">
+                [(#REM) schema/article : description
+                ][<meta itemprop="description" content="(#DESCRIPTIF|sinon{#INTRODUCTION{300}}|textebrut)" />]
+                [<div class="#EDIT{chapo} self__chapo landmark surlignable">
+                    (#CHAPO|image_reduire{500,0})
                 </div>]
-                [<section class="#EDIT{ps} self__ps landmark ps surlignable">
-                    <h2 class="hN intertitre-section intertitre-section--first"><:info_ps:></h2>
-                    (#PS|image_reduire{500,0})
-                </section>]
-                [<section class="self__notes landmark">
-                    <h2 class="hN intertitre-section intertitre-section--first"><:info_notes:></h2>
-                    <div class="self__notes__body">
-                        (#NOTES)
-                    </div>
-                </section>]
-                [<section>
-                    (#INCLURE{fond=inclure/documents,id_article})
-                </section>]
-                [(#PAGE|=={contact}|oui)
-                    [<div class="self__texte landmark surlignable">
-                        (#FORMULAIRE_ECRIRE_AUTEUR)
+            </div><!-- /.grid__item -->
+            <div class="grid__item desk-three-quarters float--right">
+                <div class="self__body self__body--article">
+                    [<div class="#EDIT{texte} self__texte landmark surlignable">
+                        (#TEXTE|image_reduire{500,0})
                     </div>]
-                ]
-            </div>
-        </div><!-- /.grid__item -->
-        <div class="grid__item desk-one-quarter float--left">
-            [(#GET{contexte}|?{
-                [(#LESAUTEURS)]
-            })]
-            [(#REM) articles liés ]
-            <B_articles_lies>
-            <aside class="related related--aside landmark">
-                <h2 class="hN intertitre-section intertitre-section--first intertitre-section--aside"><:local:read_also:></h2>
-                <ul class="list list--dash list--aside">
-                    <BOUCLE_articles_lies(ARTICLES){id_article IN #ARTICLES_LIES}{si #GET{contexte}|oui}>
-                    <li class="related__item">
-                        <h3 class="hN"><a href="[(#URL_ARTICLE)]" class="spip_in" rel="next">#TITRE</a>[ <small class="soustitre">(#SOUSTITRE)</small>]</h3>
-                    </li>
-                    </BOUCLE_articles_lies>
-                <ul>
-            </aside>
-            </B_articles_lies>
-        </div><!-- /.grid__item -->
-        [(#GET{contexte}|oui)
-        <div class="grid__item desk-three-quarters push--desk-one-quarter">
-            
-            [(#REM) pied de page simplifié ? voir Todo ]
-            
-            <footer class="related related--content article landmark">
-                <h2 class="hN intertitre-section intertitre-section--first intertitre-section--content"><:local:publication_about:></h2>
-                <div class="grid">
-                    <ul class="list">
-                        <li class="grid__item lap-and-up-one-half">
-                            <p><:local:published_date_alt:> <time pubdate datetime="[(#DATE|date_iso)]" itemprop="datePublished" content="[(#DATE|affdate{Y-m-d})]">[(#DATE|affdate)]</time></p>
-                            [<p>(#INCLURE{fond=inclure/objets/categories,id_objet=#ID_ARTICLE,objet=article})</p>]
-                            [<p>(#INCLURE{fond=inclure/objets/mots,id_objet=#ID_ARTICLE,objet=article})</p>]
+                    [<section class="#EDIT{ps} self__ps landmark ps surlignable">
+                        <h2 class="hN intertitre-section intertitre-section--first"><:info_ps:></h2>
+                        (#PS|image_reduire{500,0})
+                    </section>]
+                    [<section class="self__notes landmark">
+                        <h2 class="hN intertitre-section intertitre-section--first"><:info_notes:></h2>
+                        <div class="self__notes__body">
+                            (#NOTES)
+                        </div>
+                    </section>]
+                    [<section>
+                        (#INCLURE{fond=inclure/documents,id_article})
+                    </section>]
+                    [(#PAGE|=={contact}|oui)
+                        [<div class="self__texte landmark surlignable">
+                            (#FORMULAIRE_ECRIRE_AUTEUR)
+                        </div>]
+                    ]
+                </div>
+            </div><!-- /.grid__item -->
+            <div class="grid__item desk-one-quarter float--left">
+                [(#GET{contexte}|?{
+                    [(#LESAUTEURS)]
+                })]
+                [(#REM) articles liés ]
+                <B_articles_lies>
+                <aside class="related related--aside landmark">
+                    <h2 class="hN intertitre-section intertitre-section--first intertitre-section--aside"><:local:read_also:></h2>
+                    <ul class="list list--dash list--aside">
+                        <BOUCLE_articles_lies(ARTICLES){id_article IN #ARTICLES_LIES}{si #GET{contexte}|oui}>
+                        <li class="related__item">
+                            <h3 class="hN"><a href="[(#URL_ARTICLE)]" class="spip_in" rel="next">#TITRE</a>[ <small class="soustitre">(#SOUSTITRE)</small>]</h3>
                         </li>
-                    </ul>
-                </div><!-- /.grid -->
-            </footer>
-        </div><!-- /.grid__item -->
-        ]
-    </article>
-</div><!-- /.grid -->
+                        </BOUCLE_articles_lies>
+                    <ul>
+                </aside>
+                </B_articles_lies>
+            </div><!-- /.grid__item -->
+    </div><!-- /.grid -->
+    [(#GET{contexte}|oui)
+    <footer class="self__footer">
+        [(#INCLURE{fond=inclure/article-footer,id_article})]
+    </footer>]
+</div><!-- /.page-block -->
+</article>
 </BOUCLE_article>

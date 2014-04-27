@@ -46,7 +46,7 @@
         </div>]
         
     [(#GET{article_locked}|?{
-        <div class="overlay"><p>[(#VAL{<:local:message_article_locked:>}|concat{[ (#DATE|affdate_court).]})]</p></div>
+        <div class="locked-info-overlay">[(#VAL{<:local:message_article_locked:>}|concat{[ (#DATE|affdate_court).]})]</div>
         ,</a>}
     )]
     
