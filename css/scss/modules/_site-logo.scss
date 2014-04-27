@@ -16,6 +16,7 @@
     color: #000;
     text-transform: uppercase;
     white-space: nowrap;
+    &,&:hover {border:none;}
     // taille du logo
     .page-head & {
         @include font-size(68px);

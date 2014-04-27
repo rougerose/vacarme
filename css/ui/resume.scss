@@ -54,7 +54,9 @@
     }
 }
     .resume__cartouche {
-        background-color: rgba($site-color,0.9);
+        // background-color: rgba($site-color,0.9);
+        background-color: rgba(255,255,255,0.75);
+        color: #000;
         padding: $base-spacing-unit/2 $base-spacing-unit/2 $base-spacing-unit/4;
         .resume__titre {
             margin-bottom: .15em;
