@@ -21,7 +21,9 @@
                 #FORMULAIRE_RECHERCHE
             </div><!-- /#search.search-container -->
             <main id="main" class="page-content" role="main">
-                <INCLURE{fond=content/#ENV{type-page},env} />
+                <div class="page-block">
+                    <INCLURE{fond=content/#ENV{type-page},env} />
+                </div><!-- /.page-block -->
             </main><!-- /.main -->
             <footer class="page-foot">
                 <div class="page-block">
