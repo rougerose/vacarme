@@ -25,7 +25,7 @@
     float: left;
     width: 26%;
     text-align: right;
-    color: #c5c5c5;
+    color: #999;
     &:after {
         content: '|';
         margin-left: 0.5em;
@@ -38,9 +38,9 @@
     margin-left: 0.5em;
     text-transform: uppercase;
     font-family: $font-HLC;
-    color: #c5c5c5;
+    color: #999;
     a {
-        color: #c5c5c5;
+        color: #999;
     }
 }
 
