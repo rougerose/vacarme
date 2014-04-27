@@ -5,6 +5,7 @@
     position: relative;
     @include font-size(15px,$line-height:false);
     line-height: 1.2;
+    .nav > li {display:inline-block;}
     a {
         color: $gray;
         &:hover {
