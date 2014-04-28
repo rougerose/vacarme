@@ -20,7 +20,7 @@
 [(#ENV{date_afficher}|?{#SET{date_afficher,''},#SET{date_afficher,' '}})]
 [(#ENV{suite_afficher}|?{#SET{suite_afficher,''},#SET{suite_afficher,' '}})]
 
-<BOUCLE_resume_article(ARTICLES){id_article}>
+<BOUCLE_resume_article(ARTICLES){id_article}{statut ?}>
 [(#DATE|>{#ENV{date}}|?{#SET{article_locked,' '},#SET{article_locked,''}})]
 [(#SET{date_publication,#DATE|affdate_court})]
 
