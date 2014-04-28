@@ -12,6 +12,7 @@
    // .resume {}
        .resume__lien {
             display: block;
+            border: 0;
             background-color: transparent;
             outline: 3px dotted transparent;
             @include transition(background 0.3s ease,outline 0.3s ease);
