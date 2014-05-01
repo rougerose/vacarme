@@ -62,10 +62,11 @@
             z-index: -1;
             height: 0;
             overflow: hidden;
-            background: none;
+            // background: none;
         }
         &:target {
             z-index: 100;
+            background: $nav-bg;
             .btn-nav-close {
                 display: block;
             }
@@ -74,7 +75,7 @@
 
     // version no-js
     .no-js {
-        .navigation-site {width: 100%;}
+        .navigation-site {width: 100%; background: none;}
     }
 
     // version js-ready
