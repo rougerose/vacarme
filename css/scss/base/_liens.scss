@@ -1,24 +1,16 @@
-/*=============================
-=            links            =
-=============================*/
+/* ==========================================================================
+   liens
+   ========================================================================== */
 
 a {
     color: $text-color;
     text-decoration: none;
-    // font-weight: 600;
     border-bottom: 1px dotted transparent;
     @include vendor(transition,color 0.35s ease-out, border 0.35s ease-out);
     &:hover {
         color: #000;
         border-color: #000;
     }
-    // .liens & {
-    //     border-bottom-color: $link-color;
-    //     &:hover {
-    //         color: #000;
-    //         border-bottom-style: solid;
-    //     }
-    // }
 }
 .spip_in,
 .spip_out,
@@ -36,7 +28,6 @@ a {
     em {
         font-style: normal;
         font-family: serif;
-        // color: $gray;
         @include vendor(transition,all 0.35s ease-out);
     }
     a {
@@ -105,5 +96,21 @@ a {
     }
 }
 
-/*-----  End of links  ------*/
+/*  ==========================================================================
+    afficher
+    ========================================================================== */
+
+    .afficher {
+      font-family: $font-HBC;
+      @include font-size(38px,$line-height: false);
+      line-height: 1;
+      background-color: #ddd;
+      // border: none;
+      border: 1px solid #000;
+      border-radius:10em;
+      height: 1em;
+      width: 1em;
+      display: inline-block;
+    }
+
 

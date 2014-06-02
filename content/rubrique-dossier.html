@@ -10,8 +10,8 @@
                     <h1 class="hN titre"><span class="#EDIT{titre}">#TITRE</span></h1>
                 </header>
                 [<div class="self__body">
-                    <div class="#EDIT{texte} self__texte surlignable">
-                        (#TEXTE|image_reduire{500,0})
+                    <div id="dossier" class="#EDIT{texte} self__texte surlignable">
+                        (#INCLURE{fond=inclure/rubrique-texte-ajax,texte=#ENV{texte},env,ajax})
                     </div>
                 </div>]
             </div><!-- /.rubrique-dossier__ouverture -->
@@ -22,7 +22,7 @@
             [(#INCLURE{fond=resume/article,id_article,resume_type=selection})]
         </div><!-- /.grid__item -->
         </BOUCLE_articles_selection>
-        <BOUCLE_articles_tous(ARTICLES){id_rubrique}{!par date}{statut=publie}{doublons}>
+        <BOUCLE_articles_tous(ARTICLES){id_rubrique}{par num titre, titre}{statut=publie}{doublons}>
         <div class="grid__item lap-and-up-one-quarter">
             [(#INCLURE{fond=resume/article,id_article})]
         </div><!-- /.grid__item -->
