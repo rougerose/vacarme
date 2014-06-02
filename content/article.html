@@ -8,7 +8,7 @@
                 <p class="meta-head__rubriques">[<a href="[(#INFO_URL{rubrique,#ID_RUBRIQUE})]">(#INFO_TITRE{rubrique,#ID_RUBRIQUE})</a>]</p>
             </div><!-- /.meta-head -->
         </div><!-- /.grid__item -->
-        <div class="grid__item desk-three-quarters push--desk-one-quarter">
+        <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
             <header class="self__header landmark">
                 [<p class="#EDIT{surtitre} surtitre">(#SURTITRE)</p>]
                 <h1 itemprop="name" class="hN">
@@ -24,14 +24,14 @@
                 <img src="(#LOGO_ARTICLE|image_reduire{1100,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="media--full">
             </div>
         </div>]
-        <div class="grid__item desk-three-quarters push--desk-one-quarter">
+        <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
             [(#REM) schema/article : description
             ][<meta itemprop="description" content="(#DESCRIPTIF|sinon{#INTRODUCTION{300}}|textebrut)" />]
             [<div class="#EDIT{chapo} self__chapo landmark surlignable">
                 (#CHAPO|image_reduire{500,0})
             </div>]
         </div><!-- /.grid__item -->
-        <div class="grid__item desk-three-quarters float--right">
+        <div class="grid__item lap-and-up-three-quarters float--right">
             <div class="self__body self__body--article">
                 [<div class="#EDIT{texte} self__texte landmark surlignable">
                     (#TEXTE|image_reduire{500,0})
@@ -56,7 +56,7 @@
                 ]
             </div>
         </div><!-- /.grid__item -->
-        <div class="grid__item desk-one-quarter float--left">
+        <div class="grid__item lap-and-up-one-quarter float--left">
             <B_articles_lies>
             <aside class="related related--aside landmark">
                 <h2 class="hN intertitre-section intertitre-section--first intertitre-section--aside"><:local:read_also:></h2>
