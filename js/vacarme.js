@@ -1,6 +1,16 @@
 $(document).ready(function() {
+    
+    // Formulaire recherche dans colorbox/mediabox
+    $("#btn-nav-search,#btn-search").colorbox({
+        opacity: '0.95',
+        transition: 'fade',
+        inline:true, width:'80%',
+        onComplete:function(){
+            $("#recherche").focus();
+        }
+    });
     // search
-    $("#search").each(function(){
+    /*$("#search").each(function(){
         var search = $(this);
         var raccourcis = search.prev("div");
         $("#btn-search,#btn-search-nav").click(function(e){
@@ -11,10 +21,10 @@ $(document).ready(function() {
         if ($("html.page_recherche").length) {
             search.addClass("search-bar--open");
         }
-    });
+    });*/
 
     // accordeon
-    $("#accordeon").each(function(){
+    /*$("#accordeon").each(function(){
         var $accordeon = $(this),
         $header = $accordeon.find(".accordeon__header"),
         $content =  $accordeon.find(".accordeon__content"),
@@ -37,7 +47,7 @@ $(document).ready(function() {
             }
             return false;
         });
-    });
+    });*/
 
     // flexslider
     $('#flexslider').flexslider({
@@ -61,5 +71,5 @@ $(document).ready(function() {
     });
 
     // tabs jquery ui
-    $( "#tabs" ).tabs();
+    //$( "#tabs" ).tabs();
 });

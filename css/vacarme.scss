@@ -1,44 +1,57 @@
 @charset "UTF-8";
-/*------------------------------------*\
-    STYLE.CSS
-\*------------------------------------*/
-/**
- *
- * sass --watch style.scss:style.min.css --style compressed
- *
- * Here we pull in some variables, include the inuit.css framework, then add our
- * project-specific components afterwards.
- */
 
+// bourbon
+@import "bourbon";
 
-/**
- * Setup
- */
+// variables / inuit / fontawesome
 @import "vars";
-@import "inuit.css/inuit";
+@import "inuit";
+$fa-font-path: "fonts/fontawesome";
+@import "font-awesome";
 
-
-
-
-
-/**
- * She’s all yours, cap’n... Begin importing your stuff here.
- */
 
 // fonts & typo
-@import "ui/fonts";
-@import "ui/typo";
+@import "ui/fonts",
+        "ui/typo",
+
+        // base
+        "scss/base/liens",
+        "scss/base/form",
+        "scss/base/helpers",
+
+        // layout
+        "scss/layout/page",
+        "scss/layout/page-head",
+        "scss/layout/page-content",
+        "scss/layout/page-foot",
+        
+        // modules
+        "scss/modules/list",
+        "scss/modules/btn",
+        "scss/modules/site-logo",
+        "scss/modules/navigation",
+        "scss/modules/colorbox",
+        "scss/modules/rubrique-dossier",
+        "scss/modules/resume",
+        "scss/modules/self",
+        "scss/modules/preview",
+        "scss/modules/meta",
+        "scss/modules/toc",
+        "scss/modules/icon";
+
+
+
 
 // page
-@import "ui/page";
+// @import "ui/page";
 
 // page-sections
-@import "ui/page-head";
-@import "ui/page-content";
-@import "ui/page-foot";
+// @import "ui/page-head";
+//@import "ui/page-content";
+//@import "ui/page-foot";
 
 // site-logo
-@import "ui/site-logo";
+// @import "scss/modules/site-logo";
 
 // titres et typo
 @import "ui/headings";
@@ -47,13 +60,13 @@
 @import "ui/images";
 
 // links 
-@import "ui/links";
+//@import "ui/links";
 
 // navigation
-@import "ui/navigation";
+// @import "ui/navigation";
 
 // forms
-@import "ui/forms";
+//@import "ui/forms";
 
 // objets
 @import "ui/buttons";
@@ -75,7 +88,7 @@
 
 // images
 @import "ui/media";
-@import "ui/sprites";
+//@import "ui/sprites";
 
 
 @import "ui/misc";

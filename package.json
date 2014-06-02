@@ -1,0 +1,17 @@
+{
+  "name": "vacarme",
+  "version": "0.1.0",
+  "private": true,
+  "description": "vacarme.org",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rougerose/vacarme.git"
+  },
+  "author": "christophe le drean",
+  "devDependencies": {
+    "grunt": "^0.4.4",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-sass": "^0.7.3",
+    "grunt-css-metrics": "^0.1.2"
+  }
+}

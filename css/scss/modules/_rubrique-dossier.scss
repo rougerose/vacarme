@@ -1,0 +1,37 @@
+/* ==========================================================================
+   rubrique-dossier
+   ========================================================================== */
+
+.rubrique-dossier__cover {
+    height: 100%;
+    @include media-query(lap-and-up) {margin-bottom:4em;}
+}
+.rubrique-dossier__ouverture {
+    margin-bottom: 3em;
+    padding-top: .8em;
+    background-color: #fff;
+    box-shadow: 4px 4px 4px rgba(#000,0.1);
+    @include media-query(lap-and-up) {
+        padding-right: .8em;
+        margin-top: -6.3em;
+    }
+    .titre {
+        font-weight: 600;
+        color:#7ea231;
+        line-height: 1.2;
+        @include media-query(palm){
+            @include font-size(30px,$line-height:false);
+        }
+        @include media-query(lap) {
+            @include font-size(34px,$line-height:false);
+        }
+    }
+    .self__texte {
+        width: auto; // par défaut la largeur est à 66%;
+        p {
+            @include media-query(desk){
+                @include font-size(18px);
+            }
+        }
+    }
+}

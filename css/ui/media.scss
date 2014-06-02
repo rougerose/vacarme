@@ -50,6 +50,18 @@
     }
 }
 
+.cover--meta {
+    margin-top: -2em;
+    position: absolute;
+    right: 0;
+    width: 25%;
+    @include media-query(lap-and-up) {
+        margin-top: -2.5em;
+        position: static;
+        width: auto;
+    }
+}
+
 /*==========  spip_documents  ==========*/
 // .spip_documents {}
 

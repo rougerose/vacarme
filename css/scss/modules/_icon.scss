@@ -1,6 +1,6 @@
-/*===============================
-=            sprites            =
-===============================*/
+/*  ==========================================================================
+    icon
+    ========================================================================== */
 
 // .s--svg {
 //     background: url(../img/css/sprites/vacarme-sprites.svg) no-repeat;
@@ -51,5 +51,25 @@
     background: transparent url(../img/css/icon__back-top.png) no-repeat center top;
 }
 
-/*-----  End of sprites  ------*/
+
+.icon--before {
+  text-indent: -9999em;
+  border: 0; // annuler border-bottom du lien
+  opacity: 0.3;
+  &:hover {
+    opacity: 1;
+  }
+}
+.icon--bas {
+  background: url(../img/css/icon--bas.svg);
+  background-size: cover;
+  width: 32px; height: 16px;
+  margin-top: -2em;
+}
+.icon--haut {
+  background: url(../img/css/icon--haut.svg);
+  background-size: cover;
+  width: 32px; height: 16px;
+  margin-top: -2em;
+}
 

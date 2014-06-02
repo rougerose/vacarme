@@ -2,11 +2,10 @@
 =            page-content            =
 ====================================*/
 
-.page-content {
-    @include media-query(desk) {
-        padding-top: 4em;
-    }
-}
+//.page-content {
+    //padding-top: 3em;
+    // @include media-query(desk) {}
+//}
 
 /*-----  End of page-content  ------*/
 

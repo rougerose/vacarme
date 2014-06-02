@@ -3,6 +3,7 @@
 =================================*/
 
 .page-head {
+    text-align: center;
     @include media-query(palm) {
         position: relative;
         z-index: 100;

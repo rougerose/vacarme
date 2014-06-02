@@ -1,9 +1,9 @@
-<div class="formulaire_spip formulaire_recherche[ (#ENV{class})]" id="formulaire_recherche">
+<div class="formulaire_spip formulaire_recherche[ (#ENV{class})]" id="search">
 <form action="[(#ENV{action})]" method="get" class="search__form"><div>
-    [(#ENV{action}|form_hidden)][(#SET{requete,#ENV{recherche,<:info_rechercher:>}})]
+    [(#ENV{action}|form_hidden)]
     [<input type="hidden" name="lang" value="(#ENV{lang})" />]
     <label class="search__label" for="#ENV{_id_champ}"><:info_rechercher:></label>
-    <input type="[(#HTML5|?{search,text})]" class="search text search__field" size="10" name="recherche" id="#ENV{_id_champ}"[ (#HTML5|?{placeholder="[(#GET{requete})]",value="[(#GET{requete})]"})] accesskey="4" autocapitalize="off" autocorrect="off"
-    /><input type="submit" class="submit search__submit" value="→" title="<:info_rechercher:>" />
+    <input type="[(#HTML5|?{search,text})]" class="search text search__field" size="30" name="recherche" id="#ENV{_id_champ}"[ (#HTML5|?{placeholder="<:info_rechercher:>",value="<:info_rechercher:>"})] accesskey="4" autocapitalize="off" autocorrect="off"
+    /><input type="submit" class="submit search__submit" value="OK" title="<:info_rechercher:>" />
 </div></form>
 </div>

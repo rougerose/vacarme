@@ -1,0 +1,22 @@
+/*=================================
+=            page-head            =
+=================================*/
+
+.page-head {
+    padding-top: 2.3em;
+    margin-bottom: 3em;
+    @include media-query(desk){
+        margin-top: 1em;
+        padding-top: 3em;
+        position: relative;
+    }
+    a {font-weight: normal;}
+    .page-head-container {
+        border-bottom: 1px solid #000;
+        @include media-query(desk) {
+            padding-bottom: 1em;
+        }
+    }
+}
+
+/*-----  End of page-head  ------*/
