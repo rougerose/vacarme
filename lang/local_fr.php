@@ -56,6 +56,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     // M
     'message_404_title'                           => "Page indisponible.",
     'message_404_desc'                            => "Nous sommes désolé-e-s, la page que vous recherchez n’est pas disponible.<br />Revenir à <a href='@urlsite@' class='spip_in'>la page d'accueil du site</a>.",
+    'message_article_postdate' => "Article à paraître le",
     'more_issue'                                  => 'Le sommaire complet',
     'more_arrow'                                  => '<em>&#8594;</em>',
     'more_read'                                   => 'Lire <em>&#8594;</em>',
@@ -74,6 +75,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'pages'                                       => 'pages',
     'page_previous'                               => 'Page précédente',
     'pass_changer' => "Changer votre mot de passe",
+    'poursuivre' => 'Poursuivre la lecture',
     'publication_about'                           => "À propos de l’article",
     'published_in'                                => 'Publiée dans',
     'published_date'                              => 'Publiée le',

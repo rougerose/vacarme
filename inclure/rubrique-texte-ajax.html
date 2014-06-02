@@ -1,0 +1,15 @@
+<BOUCLE_rubrique_texte_ajax(RUBRIQUES){id_rubrique}>
+#SET{texte,#ENV{texte,extrait}}
+[(#GET{texte}|=={extrait}|oui)
+    <div class="preview">
+        [(#TEXTE|couper{500}|wrap{<p>})]
+        <div class="preview__fade preview__fade--small"></div>
+        <div class="text--center"><a class="ajax icon icon--before icon--bas" href="[(#SELF|parametre_url{texte,complet})]">+</a></div>
+    </div>
+][(#GET{texte}|=={complet}|oui)
+   [(#TEXTE)
+      <div class="text--center">
+          <a class="ajax icon icon--before icon--haut" href="[(#SELF|parametre_url{texte,extrait})]">x</a>
+      </div>]
+]
+</BOUCLE_rubrique_texte_ajax>

@@ -1,0 +1,28 @@
+<BOUCLE_article_footer_sommaire_dossier(RUBRIQUES){id_rubrique}>
+<div class="meta">
+    <h2 class="hN meta__section-titre"><:poursuivre:></h2>
+    <section class="toc-dossier">
+        <h3 class="hN"><a href="#URL_RUBRIQUE">#TITRE</a></h3>
+        <div class="grid">
+            <B_articles_1>
+            <div class="grid__item lap-and-up-one-half">
+                <ul class="ui-list">
+                    <BOUCLE_articles_1(ARTICLES){id_rubrique}{par num titre, titre}{1/2}>
+                    <li class="ui-list__item">#INCLURE{fond=resume/article-court,id_article,expose=#EXPOSE}</li>
+                    </BOUCLE_articles_1>
+                </ul>
+            </div><!-- /.grid__item -->
+            </B_articles_1>
+            <B_articles_2>
+            <div class="grid__item lap-and-up-one-half">
+                <ul class="ui-list">
+                    <BOUCLE_articles_2(ARTICLES){id_rubrique}{par num titre, titre}{2/2}>
+                    <li class="ui-list__item">#INCLURE{fond=resume/article-court,id_article,expose=#EXPOSE}</li>
+                    </BOUCLE_articles_2>
+                </ul>
+            </div><!-- /.grid__item -->
+            </B_articles_2>
+        </div><!-- /.grid -->
+    </section><!-- /.toc -->
+</div><!-- /.meta -->
+</BOUCLE_article_footer_sommaire_dossier>

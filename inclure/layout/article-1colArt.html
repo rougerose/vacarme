@@ -83,12 +83,12 @@
         id_article,
         header_class=#ENV{article_header_class},
         verrou_afficher=#ENV{article_verrou_afficher},
-        titre_class=#ENV{article_titre_class},
-        desc_class=#ENV{article_desc_class}}
+        titre_class=#ENV{article_titre_class}}
     )]
     [(#INCLURE{fond=inclure/resumes/article-descriptif,
         id_article,
         type_resume=#GET{type_resume},
+        desc_class=#ENV{article_desc_class},
         date_afficher=#ENV{article_date_afficher},
         suite_afficher=#ENV{article_suite_afficher},
         resume_numero_titre_afficher=#ENV{article_resume_numero_titre_afficher}}

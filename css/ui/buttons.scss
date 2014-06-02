@@ -13,26 +13,26 @@
     color: #000;
 }
 
-.btn--nav {
-    padding: 3px 6px;
-    line-height: 1.8;
-}
+// .btn--nav {
+//     padding: 3px 6px;
+//     line-height: 1.8;
+// }
 
-.btn--nav-open {
-    margin-left: 6px;
-    background-color: #fff;
-    &:hover {
-        background-color: $nav-bg;
-        color: #fff;
-    }
-}
+// .btn--nav-open {
+//     margin-left: 6px;
+//     background-color: #fff;
+//     &:hover {
+//         background-color: $nav-bg;
+//         color: #fff;
+//     }
+// }
 
-.btn--nav-close {
-    position: absolute;
-    z-index: -1;
-    top: .5em;
-    background-color: $nav-bg;
-}
+// .btn--nav-close {
+//     position: absolute;
+//     z-index: -1;
+//     top: .5em;
+//     background-color: $nav-bg;
+// }
 
 .btn--search {
     float:right;

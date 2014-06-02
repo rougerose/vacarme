@@ -1,0 +1,44 @@
+<BOUCLE_article_footer(ARTICLES){id_article}>
+[(#SET{id_numero,#ENV{id_numero,#ID_RUBRIQUE}})]
+    <div class="grid">
+        <div class="grid__item one-quarter">
+            <BOUCLE_couverture_numero(RUBRIQUES){id_rubrique=#GET{id_numero}}{si #ID_SECTEUR|=={115}}>
+            [<a href="#URL_RUBRIQUE" itemprop="url"><img src="(#LOGO_RUBRIQUE|image_reduire{270,0}|extraire_attribut{src})" class="cover cover--meta" alt="#TITRE"></a>]
+            </BOUCLE_couverture_numero>
+        </div><!-- /.grid__item -->
+        <div class="grid__item lap-and-up-three-quarters">
+            <div class="meta-article">
+                <h2 class="hN meta__section-titre"><:local:publication_about:></h2>
+                <div class="grid">
+                    <div class="grid__item desk-one-third lap-one-half">
+                        <dl class="simple-def-list">
+                            <dt class="meta-article__titre"><:local:version_online:></dt>
+                            <dd class="">
+                                <p><:local:published_date:> <time pubdate datetime="[(#DATE|date_iso)]" itemprop="datePublished" content="[(#DATE|affdate{Y-m-d})]">[(#DATE|affdate)]</time></p>
+                                [<p class="liens">(#INCLURE{fond=inclure/objets/categories,id_objet=#ID_ARTICLE,objet=article})</p>]
+                                [<p class="liens">(#INCLURE{fond=inclure/objets/mots,id_objet=#ID_ARTICLE,objet=article})</p>]
+                            </dd>
+                        </dl>
+                    </div><!-- /.grid__item -->
+                    <div class="grid__item desk-one-third lap-one-half">
+                        <BOUCLE_info_publication(RUBRIQUES){id_rubrique=#GET{id_numero}}{si #ID_SECTEUR|=={115}}>
+                        <dl class="simple-def-list">
+                            <dt class="meta-article__titre"><:local:version_print:></dt>
+                            <dd>
+                                <p class="liens"><:local:published_in:> <a href="#URL_RUBRIQUE" itemprop="name">#TITRE</a>[, <span itemprop="datePublished" content="[(#SAISON_ANNEE|affdate{Y-m-d})]">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</span>][, (#PAGE_DEBUT|>{0}|oui)
+                                    [(#PAGE_DEBUT|=={#PAGE_FIN}|?{<:local:page_number{debut=#PAGE_DEBUT}:>,<:local:page_abrev{debut=#PAGE_DEBUT,fin=#PAGE_FIN}:>})]
+                                ]</p>
+                            </dd>
+                        </dl>
+                        </BOUCLE_info_publication>
+                    </div><!-- /.grid__item -->
+                </div><!-- /.grid -->
+            </div><!-- /.meta-article -->
+            <BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+            [(#COMPOSITION|=={dossier}|oui)
+                #INCLURE{fond=inclure/article-footer-sommaire-dossier,id_rubrique,id_article}
+            ]
+            </BOUCLE_rubrique>
+        </div><!-- /.grid__item -->
+    </div><!-- /.grid -->
+</BOUCLE_article_footer>

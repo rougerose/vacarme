@@ -68,7 +68,7 @@
 
         var _init = false, app = { };
 
-        var inner = document.getElementById('wrap-in'),
+        var inner = document.getElementById('wrapIn'),
 
             nav_open = false,
 
@@ -116,9 +116,9 @@
             app.toggleNav = function(e)
             {
                 if (nav_open && hasClass(doc, nav_class)) {
-                    app.closeNav(); console.log("close");
+                    app.closeNav();
                 } else {
-                    app.openNav(); console.log("open");
+                    app.openNav();
                 }
                 if (e) {
                     e.preventDefault();
@@ -141,7 +141,7 @@
             },
             true);
 
-            addClass(doc, 'js-ready'); //déjà ajouté par modernizr.
+            addClass(doc, 'js-ready');
 
         };
 

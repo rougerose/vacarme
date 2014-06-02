@@ -1,0 +1,79 @@
+/* ==========================================================================
+   list
+   ========================================================================== */
+
+/* 
+   .block-list
+   ========================================================================== */
+
+   .block-list,
+   %block-list {
+       margin:  0;
+       padding: 0;
+       list-style: none;
+       > li {
+           @extend %block-list__item;
+           > a {display:block;}
+       }
+   }
+       .block-list__item,
+       %block-list__item {display:list-item;}
+
+/* 
+   .inline-list
+   ========================================================================== */
+
+.inline-list,
+%inline-list {
+    > li {@extend %inline-list__item;}
+}
+    .inline-list__item,
+    %inline-list__item {display: inline-block;}
+
+.inline-list--pipe {
+    > li {
+        &:after {
+            content: '|';
+            margin: 0 .5em;
+        }
+        &:last-child:after {content:'';}
+    }
+}
+.inline-list--slash {
+  > li {
+    margin-left: 0.3em;
+    &:before {
+      content: '/';
+      margin-right: 0.3em;
+    }
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}
+
+/* 
+   .ui-list
+   ========================================================================== */
+
+.ui-list {
+  margin:  0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px dotted #c9c9c9;
+}
+  .ui-list__item {
+    padding: 1em 0;
+    border-bottom: 1px dotted #c9c9c9;
+  }
+
+
+
+/* 
+   .simple-def-list
+   ========================================================================== */
+
+.simple-def-list {
+  dd {margin-left: 0;}
+}
+

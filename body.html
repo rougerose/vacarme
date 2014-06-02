@@ -1,33 +1,35 @@
 <body>
-    <div id="wrap-out" class="wrap-out">
-        <div id="wrap-in" class="wrap-in">
-            <div class="wrap">
-                <div class="grid page">
-                    <header id="top" class="grid__item desk-one-quarter page-head xlandmark" role="banner">
-                        <INCLURE{fond=header/#ENV{type-page},env} />
-                    </header><!-- /.page-head -->
-                    <div class="grid__item desk-three-quarters">
-                        <div id="nav" class="navigation" role="navigation">
-                            <INCLURE{fond=nav/navigation-site,env} />
-                        </div><!-- /.navigation -->
-                    </div><!-- /.grid__item -->
-                    <div class="grid__item">
-                        <div class="nav-raccourcis">
-                            <a id="btn-nav-open" href="#nav" class="btn btn--nav btn--nav-open visuallyhidden--desk"><span class="icon icon--navigation">&#9776;</span><!-- <span class="icon__legend"><:local:navigation:></span> --></a>
-                            <a id="btn-search" href="#search" class="btn btn--search  visuallyhidden--desk"><span class="icon icon--search"></span></a>
-                        </div>
-                        <div id="search" class="search-bar">
-                            #FORMULAIRE_RECHERCHE
-                        </div>
-                    </div><!-- /.grid__item -->
-                    <div class="grid__item page-content">
-                        <INCLURE{fond=content/#ENV{type-page},env} />
-                    </div><!-- /.page-content -->
-                    <div class="page-foot">
-                        <INCLURE{fond=footer/#ENV{type-page},env} />
+    <div id="wrapOut" class="wrap-out">
+        <div id="wrapIn" class="wrap-in">
+            <header id="top" class="page-head" role="banner">
+                <div class="page-block">
+                    <div class="page-head-container">
+                        <div class="grid">
+                            <div class="grid__item lap-and-up-one-half valign--bottom">
+                                <INCLURE{fond=header/#ENV{type-page},env} />
+                            </div><!-- /.grid__item -->
+                            <div class="grid__item one-half">
+                                <nav id="nav" class="navigation-site" role="navigation">
+                                    <INCLURE{fond=nav/navigation-site,env} />
+                                </nav><!-- /.navigation -->
+                            </div><!-- /.grid__item -->
+                        </div><!-- /.grid -->
                     </div>
-                </div><!-- /.page -->
-            </div><!-- /.wrap -->
+                </div><!-- /.page-block -->
+            </header><!-- /.page-head -->
+            <div id="search-container">
+                #FORMULAIRE_RECHERCHE
+            </div><!-- /#search.search-container -->
+            <main id="main" class="page-content" role="main">
+                <div class="page-block">
+                    <INCLURE{fond=content/#ENV{type-page},env} />
+                </div><!-- /.page-block -->
+            </main><!-- /.main -->
+            <footer class="page-foot">
+                <div class="page-block">
+                    <INCLURE{fond=footer/#ENV{type-page},env} />
+                </div><!-- /.page-block -->
+            </footer><!-- /.page-foot -->
         </div><!-- /.wrap-in -->
     </div><!-- /.wrap-out -->
     [<script src="(#CHEMIN{js/flexslider/jquery.flexslider-min.js})"></script>]

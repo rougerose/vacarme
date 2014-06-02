@@ -1,0 +1,155 @@
+/* ==========================================================================
+   resume
+   ========================================================================== */
+   // .resume(-article)
+   //     .resume__lien
+   //       .resume__header
+   //       .resume__desc
+
+   // complément de /ui/resume.scss.
+   // TODO : fusionner les deux fichiers. 
+
+   // .resume {}
+       .resume__lien {
+            display: block;
+            border: 0;
+            background-color: transparent;
+            outline: 3px dotted transparent;
+            @include transition(background 0.3s ease,outline 0.3s ease);
+            &:hover {
+                background-color: rgba(#ddd,0.3);
+                outline: 3px dotted rgba(#ddd,0.3);
+            }
+       }
+            // .resume__titre {}
+           .resume__signature {
+                font-style: italic;
+                color: $gris-soustitre;
+            }
+            // .resume__desc {}
+           .resume__more {
+                time {
+                    color: $gris-soustitre;
+                    &:after {
+                        margin-left: 0.3em;
+                        content: '|';
+                        color: $gray-light;
+                    }
+                }
+                .more {
+                    border-bottom: 1px dotted $gris-soustitre;
+                    color: $gris-soustitre;
+                    &:hover {
+                        color: #000;
+                        border-bottom: 1px solid #000;
+                        em {
+                            color: #000;
+                            padding-left: 1em;
+                        }
+                    }
+                }
+           }
+
+
+/* 
+   .resume-article
+   ========================================================================== */
+   
+   .resume-article {
+       position: relative;
+   }
+
+/* 
+   .resume-article--selection
+   ========================================================================== */
+   .resume-article--selection {
+        .resume__titre {
+            @include media-query(lap) {
+                @include font-size(20px);
+            }
+            @include media-query(desk) {
+                @include font-size(22px);
+            }
+        }
+        .resume__signature,
+        .resume__desc,
+        .resume__more {
+            @include media-query(desk) {
+                @include font-size(18px);
+            }
+        }
+   }
+
+/* 
+   .resume-article--court
+   ========================================================================== */
+
+    .resume-article--court {
+        &.resume {
+            margin-bottom: 0;
+            border-width: 0;
+        }
+        .resume__titre {
+            margin-bottom: 0;
+            min-height: 2em;
+            @include font-size(16px);
+        }
+        .resume__signature {margin-bottom: 0;}
+    }
+
+/* 
+   is-selected
+   ========================================================================== */
+
+    .resume__titre--is-selected {
+        strong {
+            font-weight: normal;
+            &:before {
+                display: inline-block;
+                margin-left: -1em;
+                margin-right: 0.3em;
+                content: '\f00c';
+                font-family: 'FontAwesome';
+                font-weight: normal;
+                font-style: normal;
+                color: $ok;
+            }
+        }
+    }
+
+/* 
+   is-postdate
+   ========================================================================== */
+
+    .resume-article--is-postdate {
+        .hN,
+        p {color: #999;}
+    }
+
+/* 
+   .postdate-info-overlay
+   ========================================================================== */
+
+    .postdate-info-overlay {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        padding: 0 0.5em;
+        text-align: center;
+        font-family: $mono-font;
+        @include font-size(10px);
+        color: #999;
+        background: #fff;
+        border: 1px dotted #fff;
+        border-radius: 2px;
+        @include transition(background 0.3s ease,color 0.3s ease);
+        .resume-article--court & {
+            bottom: -1.5em;
+            left: auto;
+        }
+        .resume:hover & {
+            background-color: #b22222;
+            color: #fff;
+        }
+    }

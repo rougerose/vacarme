@@ -5,7 +5,11 @@ module.exports = function(grunt) {
     sass: {
       compile: {
         options: {
-          loadPath: ['bower_components/inuit.css/'],
+          loadPath: [
+            'bower_components/bourbon/dist',
+            'bower_components/inuit.css',
+            'bower_components/fontawesome/scss'
+          ],
           style: 'compressed',
         },
         files: {
@@ -24,7 +28,7 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      grunt: { files: ['gruntfile.js'] },
+      grunt: { files: ['GruntFile.js'] },
       sass: {
         files: 'css/**/*.scss',
         tasks: ['sass:compile']
