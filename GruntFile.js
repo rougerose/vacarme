@@ -17,6 +17,13 @@ module.exports = function(grunt) {
         }
       }
     },
+    uglify: {
+      my_target: {
+        files: {
+          'js/public.min.js': ['js/navigation.js', 'js/vacarme.js']
+        }
+      }
+    },
     cssmetrics: {
       common: {
         src: ['css/vacarme.css'],
@@ -29,16 +36,22 @@ module.exports = function(grunt) {
     },
     watch: {
       grunt: { files: ['GruntFile.js'] },
+      uglify: {
+        files: 'js/*.js',
+        tasks: 'uglify:my_target'
+      },
       sass: {
         files: 'css/**/*.scss',
         tasks: ['sass:compile']
       }
     }
   });
+  // grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-css-metrics');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.registerTask('analyse', ['cssmetrics:common']);
-  grunt.registerTask('compile', ['sass:compile']);
+  grunt.registerTask('compile', ['sass:compile','uglify:my_target']);
   grunt.registerTask('default', ['compile','analyse']);
 }
