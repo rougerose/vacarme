@@ -121,7 +121,8 @@
    is-postdate
    ========================================================================== */
 
-    .resume-article--is-postdate {
+    // plutôt is-indispo qui pourra etre utilisé ailleurs ?
+    .resume-article--is-postdate { 
         .hN,
         p {color: #999;}
     }
@@ -153,3 +154,36 @@
             color: #fff;
         }
     }
+
+
+/*  .resume-video
+    ========================================================================== */
+.resume-video {
+  background-color: $couleur-site;
+  text-align: center;
+}
+.resume-video--is-active {
+   opacity: 0.5;
+}
+.resume-video--small {
+   @include media-query(palm) {
+      min-height: 180px;
+   }
+   .hN {
+      @include font-size(14px,$line-height: false);
+      line-height: 1;
+      color: #000;
+      @include media-query(lap-and-up) {
+         // border-top: 1px solid rgba(255,255,255,0.5);
+         padding: 0.5em;
+         margin-bottom: 0.5em;
+         @include font-size(16px,$line-height: false);
+         line-height: 1.2;
+      }
+   }
+  .resume__body p {
+    @include font-size(12px,$line-height:false);
+    line-height: 1.2;
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,31 @@
+<BOUCLE_video(DOCUMENTS){id_document}>
+[(#REM) vérification ]
+  [(#FICHIER|basename|oui) #SET{verification,' '} ]
+  [(#GET{verification}|non) <p class="message message--erreur">Une erreur s’est produite.</p> ]
+  [(#GET{verification}|oui)
+  <div id="video-#ID_DOCUMENT" class="video-container">
+    [(#REM) vimeo ]
+    [(#EXTENSION|match{vimeo}|oui)
+       [<iframe class="video-player" src="//player.vimeo.com/video/(#FICHIER|basename)" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>]
+    ]
+    [(#REM) youtube ]
+    [(#EXTENSION|match{youtu}|oui)
+        [<iframe class="video-player" src="//www.youtube.com/embed/(#FICHIER|basename)" frameborder="0" allowfullscreen></iframe>]
+    ]
+    [(#REM) dailymotion ]
+    [(#EXTENSION|match{daily}|oui)
+        [<iframe class="video-player" src="//www.dailymotion.com/embed/video/(#FICHIER|basename)" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>]
+    ]
+  </div>]
+  [(#TITRE|ou{#DESCRIPTIF}|oui)
+  <div class="grid">
+    <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
+      <div class="video-info self">
+        [<h2 class="hN">(#TITRE|sinon{Video})</h2>]
+        [<div class="self__texte descriptif">
+            (#DESCRIPTIF)
+        </div>]
+      </div>
+    </div><!-- /.grid__item -->
+  </div><!-- /.grid -->]
+</BOUCLE_video>

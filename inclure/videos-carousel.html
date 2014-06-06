@@ -1,0 +1,20 @@
+<B_videos_carousel>
+<div id="videos-carousel" class="owl-carousel carousel videos-carousel">
+    <BOUCLE_videos_carousel(DOCUMENTS){id_article}{par num titre, id_document}{media=video}>
+    <div class="carousel__item">
+        <div class="resume-video resume-video--small[ (#EXPOSE|?{resume-video--is-active,''})]">
+            <div class="overlay-frame overlay-frame--effect-bottom-up[ (#EXPOSE|?{'',''})]">
+                [(#ID_VIGNETTE|=={0}|?{[<img src="(#CHEMIN{rien.gif})" class="icon icon--video-carousel icon--video-defaut">],[<img src="(#LOGO_DOCUMENT|image_reduire{260,0}|image_recadre{260,147,center,000000}|extraire_attribut{src})" alt="[(#TITRE|sinon{Video #ID_DOCUMENT})]">]})]
+                <div class="overlay-frame__hover">
+                    <div class="resume__header">
+                        <h2 class="hN">[(#TITRE|sinon{video #ID_DOCUMENT})]</h2>
+                    </div>
+                    [(#EXPOSE|non)
+                    <a href="[(#SELF|parametre_url{video,#ID_DOCUMENT})]" class="lien-regarder">Regarder</a>]
+                </div>
+            </div>
+        </div>
+    </div>
+    </BOUCLE_videos_carousel>
+</div>
+</B_videos_carousel>

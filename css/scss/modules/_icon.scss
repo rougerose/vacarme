@@ -72,4 +72,14 @@
   width: 32px; height: 16px;
   margin-top: -2em;
 }
+.icon--video-carousel {
+  height: 100%;
+  width: 100%;
+}
+.icon--video-defaut {
+  height: 83px;
+  background: url(../img/css/icon--video-defaut.svg) no-repeat center;
+  background-size: cover;
+  @include media-query(lap-and-up) {height: 100%;}
+}
 

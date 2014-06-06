@@ -41,7 +41,7 @@
 }
 
 /* body et cartouche */
-.resume__body {
+.resume__body-x {
     @include media-query(lap-and-up) {
         position: absolute;
         z-index: 10;

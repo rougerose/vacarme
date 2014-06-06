@@ -70,6 +70,16 @@ $(document).ready(function() {
         }
     });
 
+    // owl.carousel
+    $("#videos-carousel").owlCarousel({
+        items:3,
+        navigation:true,
+        itemsDesktop : [1024,3], //5 items between 1000px and 901px
+        itemsDesktopSmall : false, // betweem 900px and 601px
+        itemsTablet: [480,2], //2 items between 600 and 0
+        itemsMobile : false // itemsMobile disabled - inherit from itemsTablet option
+    });
+
     // tabs jquery ui
     //$( "#tabs" ).tabs();
 });
