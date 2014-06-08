@@ -87,6 +87,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     // R
     'read_also'                                   => 'Lire également',
     'redaction_en_chef'                           => "Rédaction en chef",
+    'regarder' => "Regarder",
     
     // S
     'section_number'                              => '1 rubrique',
