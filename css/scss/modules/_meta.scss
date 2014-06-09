@@ -1,8 +1,63 @@
-/* ==========================================================================
-   .meta
-   ========================================================================== */
+/*  ==========================================================================
+    meta
+    ========================================================================== */
+    .meta {}
+    .meta__item {
+        &, a {
+            color: $couleur-gris-moyen;
+        }
+    }
 
-// .meta {}
+/*  self-meta
+    ========================================================================== */
+    .self-meta {
+        @extend .cf;
+    }
+    .self-meta--head {
+        margin-bottom: 1.5em;
+    }
+        .self-meta__item {
+            @extend .meta__item;
+            margin: 0;
+            margin-right: .5em;
+            &.rubrique {
+                text-transform: uppercase;
+                font-family: $font-HLC;
+            }
+            @include media-query(lap-and-up) {
+                display: inline-block;
+            }
+        }
+    /*
+     * self-meta--head-std
+     */
+    .self-meta--head-std {
+        @include media-query(lap-and-up) {
+            .self-meta__item {
+                float: left;
+                &:first-child {
+                    width: 26%;
+                    text-align: right;
+                    &:after {
+                        content: '|';
+                        color: $couleur-gris-blanc;
+                        margin-left: 0.5em;
+                    }
+                }
+            }
+        }
+    }
+    
+    /*
+     * self-meta--head-semainier
+     */
+    .self-meta--head-semainier {
+        text-align: center;
+    }
+
+
+    /* TODO : reprendre à partir d'ici */
+
 .meta__section-titre {
     display: inline-block;
     margin-left: -$base-spacing-unit/2;
@@ -13,44 +68,6 @@
     @include font-size(18px);
     text-transform: uppercase;
 }
-
-/* 
-   .meta-info
-   ========================================================================== */
-
-.meta-info {
-    margin-bottom: 2em;
-}
-.meta-info__date,
-.meta-info__rubriques {
-    margin-bottom: 0;
-    color: #999;
-}
-.meta-info__date {
-    &:after {
-        content: '|';
-        margin-left: 0.5em;
-        display: inline-block;
-        color: #eee;
-    }
-}
-.meta-info__rubriques {
-    text-transform: uppercase;
-    font-family: $font-HLC;
-    a {
-        color: #999;
-    }
-}
-@include media-query(lap-and-up) {
-    .meta-info__date,
-    .meta-info__rubriques {float:left;}
-    .meta-info__date {
-        width: 26%;
-        text-align: right;
-    }
-    .meta-info__rubriques {margin-left: .5em;}
-}
-
 
 /* 
    .meta-article
@@ -65,7 +82,6 @@
 }
 .meta-article__titre {
     margin-bottom: .5em;
-    // font-weight: 600;
     font-style:italic;
     @include font-size(20px);
     color: #444;

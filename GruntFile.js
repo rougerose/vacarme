@@ -24,6 +24,7 @@ module.exports = function(grunt) {
             'bower_components/fontawesome/scss'
           ],
           style: 'nested',
+          lineNumbers: true
         },
         files: {
           'css/vacarme.css':'css/vacarme.scss'
