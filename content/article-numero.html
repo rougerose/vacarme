@@ -40,9 +40,9 @@
 <article class="self article" itemscope itemtype="http://schema.org/Article">
     <div class="grid">
         <div class="grid__item">
-            <div class="meta-head cf">
-                <p class="meta-head__date"><time pubdate datetime="[(#DATE|date_iso)]" itemprop="datePublished" content="[(#DATE|affdate{Y-m-d})]">[(#DATE|affdate)]</time></p>
-                <p class="meta-head__rubriques">[<a href="[(#INFO_URL{rubrique,#GET{id_numero}})]">(#INFO_TITRE{rubrique,#GET{id_numero}})</a>][ / <a href="[(#INFO_URL{rubrique,#ID_RUBRIQUE})]">(#INFO_TITRE{rubrique,#ID_RUBRIQUE})</a>]</p>
+            <div class="meta-info cf">
+                <p class="meta-info__date"><time pubdate datetime="[(#DATE|date_iso)]" itemprop="datePublished" content="[(#DATE|affdate{Y-m-d})]">[(#DATE|affdate)]</time></p>
+                <p class="meta-info__rubriques">[<a href="[(#INFO_URL{rubrique,#GET{id_numero}})]">(#INFO_TITRE{rubrique,#GET{id_numero}})</a>][ / <a href="[(#INFO_URL{rubrique,#ID_RUBRIQUE})]">(#INFO_TITRE{rubrique,#ID_RUBRIQUE})</a>]</p>
             </div><!-- /.meta-head -->
         </div><!-- /.grid__item -->
         <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
