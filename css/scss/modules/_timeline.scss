@@ -1,0 +1,22 @@
+/*  ==========================================================================
+    timeline
+    ========================================================================== */
+
+    .timeline {
+        @extend .cf;
+        position: relative;
+        padding: 2em 0 0 53%;
+        &:before {
+            content:'';
+            width: 1px;
+            height: 100%;
+            background-color: #000;
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 50%;
+            bottom: 0;
+        }
+    }
+    .timeline-contenu {
+    }

@@ -2,9 +2,53 @@
     .self
     ========================================================================== */
 
-    /* .self__header
-       ========================================================================== */
+    /*  .self__header
+        ========================================================================== */
 
+        /*
+         * self__header--timeline
+         */
+         .self__header--timeline {
+            text-align: center;
+         }
+
+    /*  .self__chapo
+        ========================================================================== */
+
+        /*
+         * self__chapo--timeline
+         */
+         .self__chapo--timeline {
+
+         }
+
+    /* .self_body
+       ========================================================================== */
+        .self__body {}
+
+        /*
+         * self__body--timeline
+         */
+         .self__body--timeline {
+            position: relative;
+            .self__texte,
+            .self__ps,
+            .self__notes {
+                width: 100%;
+            }
+            .spip_documents {
+                right: 113%;
+                position: absolute; 
+                margin: 0;
+                width: 100%;
+                &.image--portrait {
+                    width: 70%;
+                }
+                &.image--paysage {
+                    width: 100%;
+                }
+            }
+         }
 
 // TODO : à fusionner
 

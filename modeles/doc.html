@@ -9,7 +9,7 @@
 
     Dans le cas d'une simple image (mode=image), on affiche
     le document lui-meme, sans lien de telechargement
--->]
+-->][(#HAUTEUR|>{#LARGEUR}|?{#SET{format,image--portrait},#SET{format,image--paysage}})]
 [(#ENV{mode_force,#MODE}|=={image}|oui)
     #SET{fichier,#URL_DOCUMENT}
     #SET{width,#LARGEUR}
@@ -32,8 +32,9 @@
     #SET{width,#GET{fichier}|largeur}
     #SET{height,#GET{fichier}|hauteur}
     #SET{fichier,#GET{fichier}|extraire_attribut{src}}
+    [(#GET{height}|>{#GET{width}}|?{#SET{format,image--portrait},#SET{format,image--paysage}})]
 ]
-<figure class="spip_document_#ID_DOCUMENT spip_documents[ spip_documents_(#ENV{align})][ (#ENV{class})] spip_lien_ok doc">
+<figure class="spip_document_#ID_DOCUMENT spip_documents[ spip_documents_(#ENV{align})][ (#ENV{class})][ (#GET{format})] doc">
     [<a href="(#GET{url})"[ class="(#ENV{lien_class})"]>][<img src="(#GET{fichier})" alt="[(#TITRE|ou{#DESCRIPTIF}|ou{#CREDITS}|sinon{<:local:document:>})]">][(#GET{url}|?{</a>})]
     [(#TITRE|ou{#DESCRIPTIF}|ou{#CREDITS}|oui)
     <figcaption class="spip_doc_legende">

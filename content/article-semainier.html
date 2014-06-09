@@ -1,0 +1,53 @@
+<BOUCLE_article(ARTICLES){id_article}>
+<article class="self article">
+    <div class="grid">
+        <div class="grid__item">
+            <div class="meta self-meta self-meta--head self-meta--head-timeline">
+                <p class="self-meta__item"><time pubdate datetime="[(#DATE|date_iso)]" itemprop="datePublished" content="[(#DATE|affdate{Y-m-d})]">[(#DATE|affdate)]</time></p>
+                <p class="self-meta__item rubrique">[<a href="[(#INFO_URL{rubrique,#ID_RUBRIQUE})]">(#INFO_TITRE{rubrique,#ID_RUBRIQUE})</a>]</p>
+            </div><!-- /.self-meta--head-std -->
+            <header class="self__header self__header--timeline landmark">
+                [<p class="#EDIT{surtitre} surtitre">(#SURTITRE)</p>]
+                <h1 itemprop="name" class="hN">
+                    <span class="#EDIT{titre} titre">#TITRE</span>[ <small class="#EDIT{soustitre} soustitre">(#SOUSTITRE)</small>]
+                </h1>
+                <BOUCLE_auteurs(AUTEURS){id_article}{0,1}>
+                [(#INCLURE{fond=inclure/auteurs-article,id_article})]
+                </BOUCLE_auteurs>
+                [(#CREDIT_LOGO|oui)
+                    [(#INCLURE{fond=inclure/objets/credit-logo,id_article})]
+                ]
+            </header>
+            <div class="timeline">
+                [(#REM) schema/article : description
+                ][<meta itemprop="description" content="(#DESCRIPTIF|sinon{#INTRODUCTION{300}}|textebrut)" />]
+                [<div class="#EDIT{chapo} self__chapo self__chapo timeline-contenu landmark surlignable">
+                    (#CHAPO|image_reduire{500,0})
+                </div>]
+                <div class="self__body self__body--article self__body--timeline">
+                    [<div class="#EDIT{texte} self__texte self__texte landmark surlignable">
+                        (#TEXTE)
+                    </div>]
+                    [<section class="#EDIT{ps} self__ps landmark ps surlignable">
+                        <h2 class="hN intertitre-section intertitre-section--first"><:info_ps:></h2>
+                        (#PS|image_reduire{500,0})
+                    </section>]
+                    [<section class="self__notes landmark">
+                        <h2 class="hN intertitre-section intertitre-section--first"><:info_notes:></h2>
+                        <div class="self__notes__body">
+                            (#NOTES)
+                        </div>
+                    </section>]
+                </div>
+                [<section>
+                    (#INCLURE{fond=inclure/documents,id_article})
+                </section>]
+            </div><!-- /.timeline -->
+        </div><!-- /.grid__item -->
+    </div><!-- /.grid -->
+    [(#GET{contexte}|oui)
+    <footer class="self__footer">
+        [(#INCLURE{fond=inclure/article-footer,id_article})]
+    </footer>]
+</article>
+</BOUCLE_article>
