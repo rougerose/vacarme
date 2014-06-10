@@ -9,7 +9,9 @@
          * self__header--timeline
          */
          .self__header--timeline {
-            text-align: center;
+            @include media-query(lap-and-up) {
+                text-align: center;
+            }
          }
 
     /*  .self__chapo
@@ -36,16 +38,19 @@
             .self__notes {
                 width: 100%;
             }
-            .spip_documents {
-                right: 113%;
-                position: absolute; 
-                margin: 0;
-                width: 100%;
-                &.image--portrait {
-                    width: 70%;
-                }
-                &.image--paysage {
+            // TODO : laisser ici ? 
+            @include media-query(lap-and-up) {
+                .spip_documents {
+                    right: 113%;
+                    position: absolute; 
+                    margin: 0;
                     width: 100%;
+                    &.image--portrait {
+                        width: 70%;
+                    }
+                    &.image--paysage {
+                        width: 100%;
+                    }
                 }
             }
          }

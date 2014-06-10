@@ -52,7 +52,9 @@
      * self-meta--head-timeline
      */
     .self-meta--head-timeline {
-        text-align: center;
+        @include media-query(lap-and-up) {
+            text-align: center;
+        }
     }
 
 

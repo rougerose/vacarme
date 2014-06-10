@@ -5,7 +5,7 @@
     .timeline {
         @extend .cf;
         position: relative;
-        padding: 2em 0 0 53%;
+        padding: 2em 0 0 5%;
         &:before {
             content:'';
             width: 1px;
@@ -14,9 +14,14 @@
             position: absolute;
             z-index: -1;
             top: 0;
-            left: 50%;
+            left: 0;
             bottom: 0;
         }
+        @include media-query(lap-and-up) {
+            padding: 2em 0 0 53%;
+            &:before {
+                left: 50%;
+            }
+        }
     }
-    .timeline-contenu {
-    }
+    // .timeline-contenu {}
