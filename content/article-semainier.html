@@ -6,7 +6,7 @@
                 <p class="self-meta__item"><time pubdate datetime="[(#DATE|date_iso)]" itemprop="datePublished" content="[(#DATE|affdate{Y-m-d})]">[(#DATE|affdate)]</time></p>
                 <p class="self-meta__item rubrique">[<a href="[(#INFO_URL{rubrique,#ID_RUBRIQUE})]">(#INFO_TITRE{rubrique,#ID_RUBRIQUE})</a>]</p>
             </div><!-- /.self-meta--head-std -->
-            <header class="self__header self__header--timeline landmark">
+            <header class="self__header self__header--timeline mb+">
                 [<p class="#EDIT{surtitre} surtitre">(#SURTITRE)</p>]
                 <h1 itemprop="name" class="hN">
                     <span class="#EDIT{titre} titre">#TITRE</span>[ <small class="#EDIT{soustitre} soustitre">(#SOUSTITRE)</small>]
@@ -21,30 +21,41 @@
             <div class="timeline">
                 [(#REM) schema/article : description
                 ][<meta itemprop="description" content="(#DESCRIPTIF|sinon{#INTRODUCTION{300}}|textebrut)" />]
-                [<div class="#EDIT{chapo} self__chapo self__chapo timeline-contenu landmark surlignable">
-                    (#CHAPO|image_reduire{500,0})
+                [<div class="#EDIT{chapo} self__chapo self__chapo--timeline timeline-dot surlignable mb+">
+                    (#CHAPO)
                 </div>]
-                <div class="self__body self__body--article self__body--timeline">
-                    [<div class="#EDIT{texte} self__texte self__texte landmark surlignable">
+                <div class="self__body self__body--article self__body--timeline[ (#CHAPO|non)timeline-dot]">
+                    [<div class="#EDIT{texte} self__texte surlignable mb+">
                         (#TEXTE)
                     </div>]
-                    [<section class="#EDIT{ps} self__ps landmark ps surlignable">
+                    [<section class="#EDIT{ps} self__ps surlignable mb+">
                         <h2 class="hN intertitre-section intertitre-section--first"><:info_ps:></h2>
-                        (#PS|image_reduire{500,0})
+                        (#PS)
                     </section>]
-                    [<section class="self__notes landmark">
+                    [<section class="self__notes mb+">
                         <h2 class="hN intertitre-section intertitre-section--first"><:info_notes:></h2>
                         <div class="self__notes__body">
                             (#NOTES)
                         </div>
                     </section>]
                 </div>
+                <aside class="meta self-meta self-meta--aside self-meta--aside-timeline mb+">
+                    <p class="self-meta__item"><:publie_en_ligne:> <time pubdate datetime="[(#DATE|date_iso)]" itemprop="datePublished" content="[(#DATE|affdate{Y-m-d})]">[(#DATE|affdate)]</time></p>
+                    [<p class="self-meta__item"><:classe_dans_categorie:> (#INCLURE{fond=inclure/objet-categorie,id_objet=#ID_ARTICLE,objet=article})</p>]
+                    [<p class="self-meta__item">(#INCLURE{fond=inclure/objet-mot,id_objet=#ID_ARTICLE,objet=article})</p>]
+                </aside>
+                #SET{tags,#ARRAY}
+                <BOUCLE_mots(MOTS){id_article}{id_groupe!=19}>#SET{tags,#GET{tags}|push{#ID_MOT}}</BOUCLE_mots>
+                <nav class="timeline-nav mb++">
+                    <BOUCLE_precedent(ARTICLES){id_rubrique}{id_mot IN #GET{tags}}{par date}{precedent}>
+                    <a class="timeline-nav__item timeline-nav__item--prev timeline-dot" href="#URL_ARTICLE" rel="prev" data-sequence-title="[(#TITRE|attribut_html)]"><:jour_precedent:></a>
+                    </BOUCLE_precedent>
+                    <BOUCLE_suivant(ARTICLES){id_rubrique}{id_mot IN #GET{tags}}{par date}{suivant}>
+                    <a class="timeline-nav__item timeline-nav__item--next timeline-dot" href="#URL_ARTICLE" rel="next" data-sequence-title="[(#TITRE|attribut_html)]"><:jour_suivant:></a>
+                    </BOUCLE_suivant>
+                </nav>
             </div><!-- /.timeline -->
         </div><!-- /.grid__item -->
     </div><!-- /.grid -->
-    [(#GET{contexte}|oui)
-    <footer class="self__footer">
-        [(#INCLURE{fond=inclure/article-footer,id_article})]
-    </footer>]
 </article>
 </BOUCLE_article>

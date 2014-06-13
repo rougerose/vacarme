@@ -13,11 +13,20 @@
     .self-meta {
         @extend .cf;
     }
-    .self-meta--head {
-        margin-bottom: 1.5em;
-    }
         .self-meta__item {
             @extend .meta__item;
+            margin-bottom: 0;
+        }
+
+/*  self-meta--head
+    ========================================================================== */
+
+    /*
+     * self-meta--head
+     */
+    .self-meta--head {
+        margin-bottom: 1.5em;
+        .self-meta__item {
             margin: 0;
             margin-right: .5em;
             &.rubrique {
@@ -28,6 +37,8 @@
                 display: inline-block;
             }
         }
+    }
+
     /*
      * self-meta--head-std
      */
@@ -56,6 +67,17 @@
             text-align: center;
         }
     }
+
+/*  self-meta--aside
+    ========================================================================== */
+    .self-meta--aside {
+        font-family: $font-HLC;
+    }
+
+    /*
+     * self-meta--aside-timeline
+     */
+    .self-meta--aside-timeline {}
 
 
     /* TODO : reprendre à partir d'ici */

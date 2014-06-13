@@ -16,12 +16,20 @@
 
     /*  .self__chapo
         ========================================================================== */
+        .self__chapo {
+            @include font-size(19px);
+            @include media-query(lap-and-up) {
+                padding-right: $base-spacing-unit*2;
+                //@include font-size(18px);
+            }
+        }
 
         /*
          * self__chapo--timeline
          */
          .self__chapo--timeline {
-
+            padding-right: 0;
+            position: relative;
          }
 
     /* .self_body
@@ -37,21 +45,6 @@
             .self__ps,
             .self__notes {
                 width: 100%;
-            }
-            // TODO : laisser ici ? 
-            @include media-query(lap-and-up) {
-                .spip_documents {
-                    right: 113%;
-                    position: absolute; 
-                    margin: 0;
-                    width: 100%;
-                    &.image--portrait {
-                        width: 70%;
-                    }
-                    &.image--paysage {
-                        width: 100%;
-                    }
-                }
             }
          }
 
