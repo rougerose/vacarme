@@ -6818,109 +6818,110 @@ a:hover .cover--issue {
 /* légendes */
 /* line 7, scss/modules/_medias.spip_documents.scss */
 .spip_doc_legende {
-  color: #777777; }
+  color: #999999; }
+  /* line 9, scss/modules/_medias.spip_documents.scss */
+  .spip_doc_legende .spip_doc_titre {
+    margin-bottom: 0; }
 
-/* line 10, scss/modules/_medias.spip_documents.scss */
+/* line 11, scss/modules/_medias.spip_documents.scss */
 .spip_doc_titre {
-  font-weight: 600;
   font-style: italic; }
 
 /*  images insérées dans le texte. Version standard.
     ========================================================================== */
-/* line 19, scss/modules/_medias.spip_documents.scss */
+/* line 20, scss/modules/_medias.spip_documents.scss */
 .self__body .spip_documents {
   margin-top: 4px;
   margin-bottom: 1em; }
-  /* line 22, scss/modules/_medias.spip_documents.scss */
+  /* line 23, scss/modules/_medias.spip_documents.scss */
   .self__body .spip_documents img {
     display: block; }
   @media only screen and (max-width: 1100px) {
-    /* line 26, scss/modules/_medias.spip_documents.scss */
+    /* line 27, scss/modules/_medias.spip_documents.scss */
     .self__body .spip_documents img[height],
     .self__body .spip_documents img[width] {
       height: auto;
       width: auto;
       max-width: 100%; } }
-/* line 34, scss/modules/_medias.spip_documents.scss */
+/* line 35, scss/modules/_medias.spip_documents.scss */
 .self__body .spip_documents_center {
   margin-top: 3em;
   margin-bottom: 3em; }
-  /* line 37, scss/modules/_medias.spip_documents.scss */
+  /* line 38, scss/modules/_medias.spip_documents.scss */
   .self__body .spip_documents_center .spip_doc_legende {
     margin-top: .5em; }
-/* line 41, scss/modules/_medias.spip_documents.scss */
+/* line 42, scss/modules/_medias.spip_documents.scss */
 .self__body .spip_doc_titre,
 .self__body .spip_doc_descriptif {
-  display: inline;
   font-size: 14px;
   font-size: 0.875rem;
-  line-height: 1.71429; }
+  line-height: 1.4; }
 
-/* line 47, scss/modules/_medias.spip_documents.scss */
+/* line 48, scss/modules/_medias.spip_documents.scss */
 .spip_documents_left {
   float: left;
   margin-right: 24px; }
 
-/* line 51, scss/modules/_medias.spip_documents.scss */
+/* line 52, scss/modules/_medias.spip_documents.scss */
 .spip_documents_right {
   float: right;
   margin-left: 24px; }
 
-/* line 56, scss/modules/_medias.spip_documents.scss */
+/* line 57, scss/modules/_medias.spip_documents.scss */
 .spip_documents_center img {
   margin-left: auto;
   margin-right: auto; }
 
 /*  images insérées dans le texte. Version timeline
     ========================================================================== */
-/* line 65, scss/modules/_medias.spip_documents.scss */
+/* line 66, scss/modules/_medias.spip_documents.scss */
 .self__body--timeline .spip_documents {
   position: relative; }
-  /* line 69, scss/modules/_medias.spip_documents.scss */
+  /* line 70, scss/modules/_medias.spip_documents.scss */
   .self__body--timeline .spip_documents:before {
     position: absolute;
     top: -14px;
     left: -29px; }
   @media only screen and (min-width: 481px) {
-    /* line 65, scss/modules/_medias.spip_documents.scss */
+    /* line 66, scss/modules/_medias.spip_documents.scss */
     .self__body--timeline .spip_documents {
       position: absolute;
       right: 100%;
       margin-right: 64px; }
-      /* line 78, scss/modules/_medias.spip_documents.scss */
+      /* line 79, scss/modules/_medias.spip_documents.scss */
       .self__body--timeline .spip_documents.image--portrait {
         width: 70%; }
-      /* line 81, scss/modules/_medias.spip_documents.scss */
+      /* line 82, scss/modules/_medias.spip_documents.scss */
       .self__body--timeline .spip_documents.image--paysage {
         width: 100%; }
-      /* line 84, scss/modules/_medias.spip_documents.scss */
+      /* line 85, scss/modules/_medias.spip_documents.scss */
       .self__body--timeline .spip_documents:before {
         top: -13px;
         right: -45px;
         left: auto; } }
-/* line 91, scss/modules/_medias.spip_documents.scss */
+/* line 92, scss/modules/_medias.spip_documents.scss */
 .self__body--timeline .spip_documents_left,
 .self__body--timeline .spip_documents_right {
   float: none; }
-/* line 95, scss/modules/_medias.spip_documents.scss */
+/* line 96, scss/modules/_medias.spip_documents.scss */
 .self__body--timeline .spip_documents_center {
   margin-top: 0; }
 
 /*  Documents joints en pied d'article
     ========================================================================== */
 /* fichiers et images */
-/* line 104, scss/modules/_medias.spip_documents.scss */
+/* line 105, scss/modules/_medias.spip_documents.scss */
 .document .spip_doc_titre,
 .document .spip_doc_descriptif {
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5; }
-/* line 108, scss/modules/_medias.spip_documents.scss */
+/* line 109, scss/modules/_medias.spip_documents.scss */
 .document .spip_doc_titre {
   margin-bottom: 0; }
 
 /* fichier uniquement */
-/* line 114, scss/modules/_medias.spip_documents.scss */
+/* line 115, scss/modules/_medias.spip_documents.scss */
 .fichier {
   padding-bottom: 1.5em; }
 

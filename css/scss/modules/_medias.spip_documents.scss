@@ -5,10 +5,11 @@
 
     /* légendes */
     .spip_doc_legende {
-        color: $gray;
+        color: $couleur-gris-moyen;
+        .spip_doc_titre {margin-bottom: 0;}
     }
     .spip_doc_titre {
-        font-weight: 600;
+        // font-weight: 600;
         font-style: italic;
     }
     // .spip_doc_descriptif {}
@@ -40,8 +41,8 @@
         }
         .spip_doc_titre,
         .spip_doc_descriptif {
-            display: inline;
-            @include font-size(14px);
+            @include font-size(14px,$line-height: false);
+            line-height: 1.4;
         }
     }
     .spip_documents_left {
