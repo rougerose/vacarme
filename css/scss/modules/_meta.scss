@@ -37,6 +37,15 @@
                 display: inline-block;
             }
         }
+        .self-meta__item--titre {
+            font-style:italic;
+        }
+        .self-meta__item--soustitre {
+            &:before {
+                content:'● ';
+                margin: 0 0.5em;
+            }
+        }
     }
 
     /*
@@ -63,8 +72,17 @@
      * self-meta--head-timeline
      */
     .self-meta--head-timeline {
+        &:after {
+            content:' ';
+            border-bottom: 1px solid $couleur-gris-clair;
+            width: 30%;
+            margin: 2em 0;
+        }
         @include media-query(lap-and-up) {
             text-align: center;
+            &:after {
+                margin: 2em auto;
+            }
         }
     }
 

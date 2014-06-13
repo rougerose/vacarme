@@ -6031,7 +6031,7 @@ html {
     content: '';
     width: 1px;
     height: 100%;
-    background-color: #000;
+    background-color: #8888a7;
     position: absolute;
     z-index: -1;
     top: 0;
@@ -6567,19 +6567,26 @@ html {
       /* line 29, scss/modules/_meta.scss */
       .self-meta--head .self-meta__item {
         display: inline-block; } }
+  /* line 40, scss/modules/_meta.scss */
+  .self-meta--head .self-meta__item--titre {
+    font-style: italic; }
+  /* line 44, scss/modules/_meta.scss */
+  .self-meta--head .self-meta__item--soustitre:before {
+    content: '● ';
+    margin: 0 0.5em; }
 
 /*
  * self-meta--head-std
  */
 @media only screen and (min-width: 481px) {
-  /* line 47, scss/modules/_meta.scss */
+  /* line 56, scss/modules/_meta.scss */
   .self-meta--head-std .self-meta__item {
     float: left; }
-    /* line 49, scss/modules/_meta.scss */
+    /* line 58, scss/modules/_meta.scss */
     .self-meta--head-std .self-meta__item:first-child {
       width: 26%;
       text-align: right; }
-      /* line 52, scss/modules/_meta.scss */
+      /* line 61, scss/modules/_meta.scss */
       .self-meta--head-std .self-meta__item:first-child:after {
         content: '|';
         color: #eeeeee;
@@ -6588,14 +6595,23 @@ html {
 /*
  * self-meta--head-timeline
  */
+/* line 75, scss/modules/_meta.scss */
+.self-meta--head-timeline:after {
+  content: ' ';
+  border-bottom: 1px solid #ccccda;
+  width: 30%;
+  margin: 2em 0; }
 @media only screen and (min-width: 481px) {
-  /* line 65, scss/modules/_meta.scss */
+  /* line 74, scss/modules/_meta.scss */
   .self-meta--head-timeline {
-    text-align: center; } }
+    text-align: center; }
+    /* line 83, scss/modules/_meta.scss */
+    .self-meta--head-timeline:after {
+      margin: 2em auto; } }
 
 /*  self-meta--aside
     ========================================================================== */
-/* line 73, scss/modules/_meta.scss */
+/* line 91, scss/modules/_meta.scss */
 .self-meta--aside {
   font-family: "HelveticaNeueLTStdLtCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
@@ -6603,7 +6619,7 @@ html {
  * self-meta--aside-timeline
  */
 /* TODO : reprendre à partir d'ici */
-/* line 85, scss/modules/_meta.scss */
+/* line 103, scss/modules/_meta.scss */
 .meta__section-titre {
   display: inline-block;
   margin-left: -12px;
@@ -6619,15 +6635,15 @@ html {
 /* 
    .meta-article
    ========================================================================== */
-/* line 100, scss/modules/_meta.scss */
+/* line 118, scss/modules/_meta.scss */
 .meta-article {
   margin-bottom: 48px;
   margin-bottom: 3rem; }
-  /* line 103, scss/modules/_meta.scss */
+  /* line 121, scss/modules/_meta.scss */
   .meta-article p {
     margin-bottom: 0; }
 
-/* line 107, scss/modules/_meta.scss */
+/* line 125, scss/modules/_meta.scss */
 .meta-article__titre {
   margin-bottom: .5em;
   font-style: italic;

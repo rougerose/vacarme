@@ -2,9 +2,17 @@
 <article class="self article">
     <div class="grid">
         <div class="grid__item">
+            [(#REM)
+                Le mot-clé dans @feuilletons (#id_groupe 15) constitue le titre de la série du Semainier : 7 jours à...
+                Le mot-clé dans @Semainier (#id_groupe 20) sous-titre est le sous-titre de la série. 
+            ]
+            
+            <BOUCLE_titre_semainier(MOTS){id_article}>
+                [(#ID_GROUPE|=={15}|oui)#SET{titre-semainier,#TITRE}]
+                [(#ID_GROUPE|=={20}|oui)#SET{soustitre-semainier,#TITRE}]
+            </BOUCLE_titre_semainier>
             <div class="meta self-meta self-meta--head self-meta--head-timeline">
-                <p class="self-meta__item"><time pubdate datetime="[(#DATE|date_iso)]" itemprop="datePublished" content="[(#DATE|affdate{Y-m-d})]">[(#DATE|affdate)]</time></p>
-                <p class="self-meta__item rubrique">[<a href="[(#INFO_URL{rubrique,#ID_RUBRIQUE})]">(#INFO_TITRE{rubrique,#ID_RUBRIQUE})</a>]</p>
+                <p class="self-meta__item">[<span class="self-meta__item--titre">(#GET{titre-semainier})</span>][ <span class="self-meta__item--soustitre">(#GET{soustitre-semainier})</span>]</p>
             </div><!-- /.self-meta--head-std -->
             <header class="self__header self__header--timeline mb+">
                 [<p class="#EDIT{surtitre} surtitre">(#SURTITRE)</p>]
