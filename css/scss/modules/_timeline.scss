@@ -5,17 +5,22 @@
     .timeline {
         @extend .cf;
         position: relative;
-        padding: 2em 0 2em 16px;
+        padding: 2em 0;
         &:before {
             content:'';
             width: 1px;
             height: 100%;
-            background-color: $couleur-gris-bleu;
+            background-color: #000;
             position: absolute;
             z-index: -1;
             top: 0;
-            left: 0;
             bottom: 0;
+        }
+    }
+    .timeline--1col {
+        padding-left: 16px;
+        &:before {
+            left: 0;
         }
         @include media-query(lap-and-up) {
             padding-left: 32px;
@@ -23,9 +28,59 @@
             margin-left: 50%;
         }
     }
+    .timeline--2col {
+        padding-left: 16px;
+        &:before {
+            left: 0;
+            @include media-query(lap-and-up) {
+                left: 50%;
+            }
+        }
+        @include media-query(lap-and-up) {
+            padding-left: 0;
+            .resume-semainier__img,
+            .resume-semainier__body {
+                width: 50%;
+            }
+        }
+    }
 
-    /* timeline-nav
-       ========================================================================== */
+    /*  timeline__item
+        ========================================================================== */
+        .timeline__item {}
+
+        /* timeline__item--pair */
+        .timeline__item--pair {
+            @include media-query(lap-and-up) {
+                clear:both;
+                .resume-semainier__img {
+                    float: left;
+                    padding-right: 32px;
+                }
+                .resume-semainier__body {
+                    float: right;
+                    padding-left: 32px;
+                }
+            }
+        }
+
+        /* timeline__item--impair */
+        .timeline__item--impair {
+            @include media-query(lap-and-up) {
+                .resume-semainier__img {
+                    float: right;
+                    padding-left: 32px;
+                }
+                .resume-semainier__body {
+                    float: left;
+                    padding-right: 32px;
+                    text-align: right;
+                }
+            }
+        }
+
+    /*  timeline-nav
+        ========================================================================== */
         .timeline-nav {}
         .timeline-nav__item {
             position: relative;
@@ -74,25 +129,36 @@
 
     /*  timeline-dot
         ========================================================================== */
-
+        /* taille standard */
+        $dot-size: 26px;
+        
         %timeline-dot {
+            position: relative;
             &:before {
                 content:'';
                 background-color: #000;
-                width: 26px;
-                height: 26px;
+                width: $dot-size;
+                height: $dot-size;
                 display: block;
                 border-radius: 20px;
                 border: 4px solid #fff;
             }
         }
+        
         .timeline-dot {
             @extend %timeline-dot;
             &:before {
                 position: absolute;
                 left: -28px;
-                bottom: -13px;
+                bottom: -$dot-size/2;
             }
+            &.timeline__item {
+                &:before {
+                    top: -$dot-size/2;
+                    bottom: auto;
+                }
+            }
+            &.resume-semainier__jour-titre,
             &.self__chapo--timeline,
             &.self__body--timeline {
                 &:before {
@@ -117,8 +183,40 @@
                         right: -46px;
                     }
                 }
+                &.timeline__item {
+                    &:before {
+                        left: 50%;
+                        margin-left: -13px;
+                    }
+                }
             }
         }
+
+        /* timeline-dot--s : taille S */
+        .timeline-dot--s {
+            &:before {
+                width: $dot-size - 8;
+                height: $dot-size - 8;
+                border-width: 2px;
+            }
+            &.resume-semainier__jour-titre {
+                &:before {
+                    left: -25px;
+                    top: 4px;
+                }
+                @include media-query(lap-and-up) {
+                    &:before {
+                        left: auto;
+                        right: -41px;
+                    }
+                }
+            }
+            .timeline__item--pair & {
+                &:before {
+                    left: -40px;
+                }
+            }
+         }
 
         /* .timeline-dot--gris */
         .timeline-dot--gris,

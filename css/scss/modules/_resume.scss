@@ -1,31 +1,43 @@
-/* ==========================================================================
-   resume
-   ========================================================================== */
-   // .resume(-article)
-   //     .resume__lien
-   //       .resume__header
-   //       .resume__desc
+/*  ==========================================================================
+    resume
+    ========================================================================== */
+    // .resume(-article)
+    //     .resume__lien
+    //       .resume__header
+    //       .resume__desc
 
-   // complément de /ui/resume.scss.
-   // TODO : fusionner les deux fichiers. 
-
-   // .resume {}
-       .resume__lien {
-            display: block;
-            border: 0;
-            background-color: transparent;
-            outline: 3px dotted transparent;
-            @include transition(background 0.3s ease,outline 0.3s ease);
-            &:hover {
-                background-color: rgba(#ddd,0.3);
-                outline: 3px dotted rgba(#ddd,0.3);
-            }
-       }
-            // .resume__titre {}
-           .resume__signature {
-                font-style: italic;
-                color: $gris-soustitre;
-            }
+    // complément de /ui/resume.scss.
+    // TODO : fusionner les deux fichiers. 
+    .resume {}
+    .resume__lien {
+        display: block;
+        border: 0;
+        background-color: transparent;
+        outline: 3px dotted transparent;
+        @include transition(background 0.3s ease,outline 0.3s ease);
+        &:hover {
+            background-color: rgba(#ddd,0.3);
+            outline: 3px dotted rgba(#ddd,0.3);
+        }
+    }
+    .resume__titre {
+        @include font-size(18px,$line-height:false);
+        line-height: 1.2;
+        // font-weight: 600;
+        &:first-letter {
+            text-transform: uppercase;
+        }
+    }
+    .resume__soustitre {
+        display: block;
+        @include font-size(16px);
+        font-style: italic;
+    }
+        .resume__auteur,
+        .resume__signature {
+            font-style: italic;
+            color: $gris-soustitre;
+        }
             // .resume__desc {}
            .resume__more {
                 time {
@@ -187,3 +199,32 @@
     margin-bottom: 0;
   }
 }
+
+/*  resume-semainier
+    ========================================================================== */
+    .resume-semainier {
+        @include media-query(lap-and-up) {
+            header {
+                border-top: 1px solid #000;
+                padding-top: 1.5em;
+            }
+        }
+        .resume__titre {
+            @include font-size(20px,$line-height: false);
+            margin-bottom: .5em;
+        }
+    }
+        .resume-semainier__img {
+            margin-bottom: 2em;
+            a {
+                border: none;
+            }
+        }
+        .resume-semainier__body {}
+        
+        .resume-semainier__jour-titre {
+            margin-bottom: .5em;
+            a {
+                color: $couleur-gris-moyen;
+            }
+        }

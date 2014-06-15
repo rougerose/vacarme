@@ -13,7 +13,7 @@
             [(#GET{titre-semainier}|ou{#GET{soustitre-semainier}}|oui)
             <div class="meta self-meta self-meta--head self-meta--head-timeline">
                 <p class="self-meta__item">[<span class="self-meta__item--titre">(#GET{titre-semainier})</span>][ <span class="self-meta__item--soustitre">(#GET{soustitre-semainier})</span>]</p>
-            </div><!-- /.self-meta--head-std -->]
+            </div><!-- /.self-meta--head-timeline -->]
             <header class="self__header self__header--timeline mb+">
                 [<p class="#EDIT{surtitre} surtitre">(#SURTITRE)</p>]
                 <h1 itemprop="name" class="hN">
@@ -26,7 +26,7 @@
                     [(#INCLURE{fond=inclure/objets/credit-logo,id_article})]
                 ]
             </header>
-            <div class="timeline">
+            <div class="timeline timeline--1col">
                 [(#REM) schema/article : description
                 ][<meta itemprop="description" content="(#DESCRIPTIF|sinon{#INTRODUCTION{300}}|textebrut)" />]
                 [<div class="#EDIT{chapo} self__chapo self__chapo--timeline timeline-dot surlignable mb+">

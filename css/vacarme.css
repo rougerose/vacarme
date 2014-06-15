@@ -5238,17 +5238,20 @@ a {
   -webkit-transition: color 0.35s ease-out, border 0.35s ease-out;
   -moz-transition: color 0.35s ease-out, border 0.35s ease-out;
   transition: color 0.35s ease-out, border 0.35s ease-out; }
-  /* line 11, scss/base/_liens.scss */
+  /* line 10, scss/base/_liens.scss */
   a:hover {
     color: #000;
     border-color: #000; }
+  /* line 14, scss/base/_liens.scss */
+  a img {
+    border: none; }
 
-/* line 16, scss/base/_liens.scss */
+/* line 18, scss/base/_liens.scss */
 .spip_in,
 .spip_out,
 .liens a {
   border-bottom: 1px dotted #e88e0e; }
-  /* line 20, scss/base/_liens.scss */
+  /* line 22, scss/base/_liens.scss */
   .spip_in:hover,
   .spip_out:hover,
   .liens a:hover {
@@ -5256,42 +5259,42 @@ a {
     border-bottom-style: solid; }
 
 /*==========  more  ==========*/
-/* line 27, scss/base/_liens.scss */
+/* line 29, scss/base/_liens.scss */
 .more {
   font-style: italic; }
-  /* line 29, scss/base/_liens.scss */
+  /* line 31, scss/base/_liens.scss */
   .more em {
     font-style: normal;
     font-family: serif;
     -webkit-transition: all 0.35s ease-out;
     -moz-transition: all 0.35s ease-out;
     transition: all 0.35s ease-out; }
-  /* line 34, scss/base/_liens.scss */
+  /* line 36, scss/base/_liens.scss */
   .more a {
     border-bottom: 1px dotted #7b6d88;
     color: #7b6d88;
     font-weight: normal; }
-    /* line 38, scss/base/_liens.scss */
+    /* line 40, scss/base/_liens.scss */
     .more a:hover {
       color: #000;
       border-bottom: 1px solid #000; }
-      /* line 41, scss/base/_liens.scss */
+      /* line 43, scss/base/_liens.scss */
       .more a:hover em {
         color: #000;
         padding-left: 1em; }
 
-/* line 49, scss/base/_liens.scss */
+/* line 51, scss/base/_liens.scss */
 .more--read em {
   margin-left: .5em; }
 
-/* line 53, scss/base/_liens.scss */
+/* line 55, scss/base/_liens.scss */
 .more--inline {
   margin-left: .5em;
   display: inline-block;
   font-size: 16px;
   font-size: 1rem; }
 
-/* line 58, scss/base/_liens.scss */
+/* line 60, scss/base/_liens.scss */
 .more-arrow--big {
   display: block;
   font-size: 80px;
@@ -5302,13 +5305,13 @@ a {
   -webkit-transition: all 0.35s ease-out;
   -moz-transition: all 0.35s ease-out;
   transition: all 0.35s ease-out; }
-  /* line 65, scss/base/_liens.scss */
+  /* line 67, scss/base/_liens.scss */
   .more-arrow--big:hover {
     color: #000;
     margin-left: 20%; }
 
 /*==========  back-top-page  ==========*/
-/* line 71, scss/base/_liens.scss */
+/* line 73, scss/base/_liens.scss */
 .back-top-page {
   position: absolute;
   bottom: 1.7em;
@@ -5319,25 +5322,25 @@ a {
   font-size: 0.75rem;
   line-height: 2;
   color: #b2afac; }
-  /* line 79, scss/base/_liens.scss */
+  /* line 81, scss/base/_liens.scss */
   .back-top-page:hover {
     color: #888; }
   @media only screen and (max-width: 480px) {
-    /* line 71, scss/base/_liens.scss */
+    /* line 73, scss/base/_liens.scss */
     .back-top-page {
       right: 0; } }
 
 /*==========  link-anim  ==========*/
-/* line 87, scss/base/_liens.scss */
+/* line 89, scss/base/_liens.scss */
 .link-anim {
   -webkit-transition: padding 0.35s ease-out;
   -moz-transition: padding 0.35s ease-out;
   transition: padding 0.35s ease-out; }
-  /* line 89, scss/base/_liens.scss */
+  /* line 91, scss/base/_liens.scss */
   .link-anim:hover {
     padding-left: 1em; }
 
-/* line 94, scss/base/_liens.scss */
+/* line 96, scss/base/_liens.scss */
 .link-anim--rev:hover {
   padding-left: 0;
   padding-right: 1em; }
@@ -5345,7 +5348,7 @@ a {
 /*  ==========================================================================
     afficher
     ========================================================================== */
-/* line 104, scss/base/_liens.scss */
+/* line 106, scss/base/_liens.scss */
 .afficher {
   font-family: "HelveticaNeueLTStdCnBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 38px;
@@ -5358,7 +5361,7 @@ a {
   width: 1em;
   display: inline-block; }
 
-/* line 117, scss/base/_liens.scss */
+/* line 119, scss/base/_liens.scss */
 .lien-regarder {
   border: 1px solid #fff;
   padding: .2em;
@@ -5367,7 +5370,7 @@ a {
   font-size: 0.8125rem;
   text-transform: uppercase;
   color: #fff; }
-  /* line 124, scss/base/_liens.scss */
+  /* line 126, scss/base/_liens.scss */
   .lien-regarder:hover {
     border-color: #fff;
     background-color: #fff;
@@ -5632,44 +5635,52 @@ html {
 .block-list > li {
   display: list-item; }
 
+/*  bare-list
+    ========================================================================== */
+/* line 24, scss/modules/_list.scss */
+.bare-list {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+
 /* 
    .inline-list
    ========================================================================== */
-/* line 30, scss/modules/_list.scss */
+/* line 39, scss/modules/_list.scss */
 .inline-list__item,
 .inline-list > li {
   display: inline-block; }
 
-/* line 35, scss/modules/_list.scss */
+/* line 44, scss/modules/_list.scss */
 .inline-list--pipe > li:after {
   content: '|';
   margin: 0 .5em; }
-/* line 39, scss/modules/_list.scss */
+/* line 48, scss/modules/_list.scss */
 .inline-list--pipe > li:last-child:after {
   content: ''; }
 
-/* line 43, scss/modules/_list.scss */
+/* line 52, scss/modules/_list.scss */
 .inline-list--slash > li {
   margin-left: 0.3em; }
-  /* line 45, scss/modules/_list.scss */
+  /* line 54, scss/modules/_list.scss */
   .inline-list--slash > li:before {
     content: '/';
     margin-right: 0.3em; }
-  /* line 49, scss/modules/_list.scss */
+  /* line 58, scss/modules/_list.scss */
   .inline-list--slash > li:first-child {
     margin-left: 0; }
 
 /* 
    .ui-list
    ========================================================================== */
-/* line 59, scss/modules/_list.scss */
+/* line 68, scss/modules/_list.scss */
 .ui-list {
   margin: 0;
   padding: 0;
   list-style: none;
   border-top: 1px dotted #c9c9c9; }
 
-/* line 65, scss/modules/_list.scss */
+/* line 74, scss/modules/_list.scss */
 .ui-list__item {
   padding: 1em 0;
   border-bottom: 1px dotted #c9c9c9; }
@@ -5677,7 +5688,7 @@ html {
 /* 
    .simple-def-list
    ========================================================================== */
-/* line 77, scss/modules/_list.scss */
+/* line 86, scss/modules/_list.scss */
 .simple-def-list dd {
   margin-left: 0; }
 
@@ -6025,35 +6036,88 @@ html {
 /* line 5, scss/modules/_timeline.scss */
 .timeline {
   position: relative;
-  padding: 2em 0 2em 16px; }
+  padding: 2em 0; }
   /* line 9, scss/modules/_timeline.scss */
   .timeline:before {
     content: '';
     width: 1px;
     height: 100%;
-    background-color: #8888a7;
+    background-color: #000;
     position: absolute;
     z-index: -1;
     top: 0;
-    left: 0;
     bottom: 0; }
+
+/* line 20, scss/modules/_timeline.scss */
+.timeline--1col {
+  padding-left: 16px; }
+  /* line 22, scss/modules/_timeline.scss */
+  .timeline--1col:before {
+    left: 0; }
   @media only screen and (min-width: 481px) {
-    /* line 5, scss/modules/_timeline.scss */
-    .timeline {
+    /* line 20, scss/modules/_timeline.scss */
+    .timeline--1col {
       padding-left: 32px;
       width: 50%;
       margin-left: 50%; } }
 
-/* timeline-nav
-   ========================================================================== */
-/* line 30, scss/modules/_timeline.scss */
+/* line 31, scss/modules/_timeline.scss */
+.timeline--2col {
+  padding-left: 16px; }
+  /* line 33, scss/modules/_timeline.scss */
+  .timeline--2col:before {
+    left: 0; }
+    @media only screen and (min-width: 481px) {
+      /* line 33, scss/modules/_timeline.scss */
+      .timeline--2col:before {
+        left: 50%; } }
+  @media only screen and (min-width: 481px) {
+    /* line 31, scss/modules/_timeline.scss */
+    .timeline--2col {
+      padding-left: 0; }
+      /* line 41, scss/modules/_timeline.scss */
+      .timeline--2col .resume-semainier__img,
+      .timeline--2col .resume-semainier__body {
+        width: 50%; } }
+
+/*  timeline__item
+    ========================================================================== */
+/* timeline__item--pair */
+@media only screen and (min-width: 481px) {
+  /* line 53, scss/modules/_timeline.scss */
+  .timeline__item--pair {
+    clear: both; }
+    /* line 56, scss/modules/_timeline.scss */
+    .timeline__item--pair .resume-semainier__img {
+      float: left;
+      padding-right: 32px; }
+    /* line 60, scss/modules/_timeline.scss */
+    .timeline__item--pair .resume-semainier__body {
+      float: right;
+      padding-left: 32px; } }
+
+/* timeline__item--impair */
+@media only screen and (min-width: 481px) {
+  /* line 70, scss/modules/_timeline.scss */
+  .timeline__item--impair .resume-semainier__img {
+    float: right;
+    padding-left: 32px; }
+  /* line 74, scss/modules/_timeline.scss */
+  .timeline__item--impair .resume-semainier__body {
+    float: left;
+    padding-right: 32px;
+    text-align: right; } }
+
+/*  timeline-nav
+    ========================================================================== */
+/* line 85, scss/modules/_timeline.scss */
 .timeline-nav__item {
   position: relative;
   display: block;
   width: 100%;
   margin-bottom: 3em;
   font-style: italic; }
-  /* line 36, scss/modules/_timeline.scss */
+  /* line 91, scss/modules/_timeline.scss */
   .timeline-nav__item:after {
     position: absolute;
     width: 100%;
@@ -6069,74 +6133,105 @@ html {
     -webkit-transition: color 0.35s ease-out;
     -moz-transition: color 0.35s ease-out;
     transition: color 0.35s ease-out; }
-  /* line 49, scss/modules/_timeline.scss */
+  /* line 104, scss/modules/_timeline.scss */
   .timeline-nav__item:hover:after {
     color: #000; }
 
 /* prev */
 @media only screen and (min-width: 481px) {
-  /* line 54, scss/modules/_timeline.scss */
+  /* line 109, scss/modules/_timeline.scss */
   .timeline-nav__item--prev {
     right: 100%;
     margin-left: -64px; }
-    /* line 58, scss/modules/_timeline.scss */
+    /* line 113, scss/modules/_timeline.scss */
     .timeline-nav__item--prev:after {
       padding-left: 20%;
       text-align: right; } }
 
 /* next */
 @media only screen and (min-width: 481px) {
-  /* line 65, scss/modules/_timeline.scss */
+  /* line 120, scss/modules/_timeline.scss */
   .timeline-nav__item--next {
     text-align: right; }
-    /* line 68, scss/modules/_timeline.scss */
+    /* line 123, scss/modules/_timeline.scss */
     .timeline-nav__item--next:after {
       padding-right: 20%;
       text-align: left; } }
 
 /*  timeline-dot
     ========================================================================== */
-/* line 79, scss/modules/_timeline.scss */
-.timeline-dot:before, .self__body--timeline .spip_documents:before {
-  content: '';
-  background-color: #000;
-  width: 26px;
-  height: 26px;
-  display: block;
-  border-radius: 20px;
-  border: 4px solid #fff; }
+/* taille standard */
+/* line 135, scss/modules/_timeline.scss */
+.timeline-dot, .self__body--timeline .spip_documents {
+  position: relative; }
+  /* line 137, scss/modules/_timeline.scss */
+  .timeline-dot:before, .self__body--timeline .spip_documents:before {
+    content: '';
+    background-color: #000;
+    width: 26px;
+    height: 26px;
+    display: block;
+    border-radius: 20px;
+    border: 4px solid #fff; }
 
-/* line 91, scss/modules/_timeline.scss */
+/* line 150, scss/modules/_timeline.scss */
 .timeline-dot:before {
   position: absolute;
   left: -28px;
   bottom: -13px; }
-/* line 98, scss/modules/_timeline.scss */
-.timeline-dot.self__chapo--timeline:before, .timeline-dot.self__body--timeline:before {
+/* line 156, scss/modules/_timeline.scss */
+.timeline-dot.timeline__item:before {
+  top: -13px;
+  bottom: auto; }
+/* line 164, scss/modules/_timeline.scss */
+.timeline-dot.resume-semainier__jour-titre:before, .timeline-dot.self__chapo--timeline:before, .timeline-dot.self__body--timeline:before {
   bottom: auto; }
 @media only screen and (min-width: 481px) {
-  /* line 103, scss/modules/_timeline.scss */
+  /* line 169, scss/modules/_timeline.scss */
   .timeline-dot:before {
     left: -47px;
     bottom: -14px; }
-  /* line 110, scss/modules/_timeline.scss */
+  /* line 176, scss/modules/_timeline.scss */
   .timeline-dot.self__chapo--timeline:before, .timeline-dot.self__body--timeline:before, .timeline-dot.timeline-nav__item--next:before {
     left: -44px; }
-  /* line 115, scss/modules/_timeline.scss */
+  /* line 181, scss/modules/_timeline.scss */
   .timeline-dot.timeline-nav__item--prev:before {
     left: auto;
-    right: -46px; } }
+    right: -46px; }
+  /* line 187, scss/modules/_timeline.scss */
+  .timeline-dot.timeline__item:before {
+    left: 50%;
+    margin-left: -13px; } }
+
+/* timeline-dot--s : taille S */
+/* line 197, scss/modules/_timeline.scss */
+.timeline-dot--s:before {
+  width: 18px;
+  height: 18px;
+  border-width: 2px; }
+/* line 203, scss/modules/_timeline.scss */
+.timeline-dot--s.resume-semainier__jour-titre:before {
+  left: -25px;
+  top: 4px; }
+@media only screen and (min-width: 481px) {
+  /* line 208, scss/modules/_timeline.scss */
+  .timeline-dot--s.resume-semainier__jour-titre:before {
+    left: auto;
+    right: -41px; } }
+/* line 215, scss/modules/_timeline.scss */
+.timeline__item--pair .timeline-dot--s:before {
+  left: -40px; }
 
 /* .timeline-dot--gris */
-/* line 126, scss/modules/_timeline.scss */
+/* line 224, scss/modules/_timeline.scss */
 .timeline-dot--gris:before,
 .self__body--timeline .spip_documents:before {
   background-color: #999999; }
 
-/* ==========================================================================
-   resume
-   ========================================================================== */
-/* line 13, scss/modules/_resume.scss */
+/*  ==========================================================================
+    resume
+    ========================================================================== */
+/* line 12, scss/modules/_resume.scss */
 .resume__lien {
   display: block;
   border: 0;
@@ -6145,33 +6240,51 @@ html {
   -webkit-transition: background 0.3s ease, outline 0.3s ease;
   -moz-transition: background 0.3s ease, outline 0.3s ease;
   transition: background 0.3s ease, outline 0.3s ease; }
-  /* line 19, scss/modules/_resume.scss */
+  /* line 18, scss/modules/_resume.scss */
   .resume__lien:hover {
     background-color: rgba(221, 221, 221, 0.3);
     outline: 3px dotted rgba(221, 221, 221, 0.3); }
 
-/* line 25, scss/modules/_resume.scss */
+/* line 23, scss/modules/_resume.scss */
+.resume__titre {
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.2; }
+  /* line 27, scss/modules/_resume.scss */
+  .resume__titre:first-letter {
+    text-transform: uppercase; }
+
+/* line 31, scss/modules/_resume.scss */
+.resume__soustitre {
+  display: block;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-style: italic; }
+
+/* line 36, scss/modules/_resume.scss */
+.resume__auteur,
 .resume__signature {
   font-style: italic;
   color: #7b6d88; }
 
-/* line 31, scss/modules/_resume.scss */
+/* line 43, scss/modules/_resume.scss */
 .resume__more time {
   color: #7b6d88; }
-  /* line 33, scss/modules/_resume.scss */
+  /* line 45, scss/modules/_resume.scss */
   .resume__more time:after {
     margin-left: 0.3em;
     content: '|';
     color: #ccccda; }
-/* line 39, scss/modules/_resume.scss */
+/* line 51, scss/modules/_resume.scss */
 .resume__more .more {
   border-bottom: 1px dotted #7b6d88;
   color: #7b6d88; }
-  /* line 42, scss/modules/_resume.scss */
+  /* line 54, scss/modules/_resume.scss */
   .resume__more .more:hover {
     color: #000;
     border-bottom: 1px solid #000; }
-    /* line 45, scss/modules/_resume.scss */
+    /* line 57, scss/modules/_resume.scss */
     .resume__more .more:hover em {
       color: #000;
       padding-left: 1em; }
@@ -6179,7 +6292,7 @@ html {
 /* 
    .resume-article
    ========================================================================== */
-/* line 58, scss/modules/_resume.scss */
+/* line 70, scss/modules/_resume.scss */
 .resume-article {
   position: relative; }
 
@@ -6187,19 +6300,19 @@ html {
    .resume-article--selection
    ========================================================================== */
 @media only screen and (min-width: 481px) and (max-width: 1023px) {
-  /* line 66, scss/modules/_resume.scss */
+  /* line 78, scss/modules/_resume.scss */
   .resume-article--selection .resume__titre {
     font-size: 20px;
     font-size: 1.25rem;
     line-height: 1.2; } }
 @media only screen and (min-width: 1024px) {
-  /* line 66, scss/modules/_resume.scss */
+  /* line 78, scss/modules/_resume.scss */
   .resume-article--selection .resume__titre {
     font-size: 22px;
     font-size: 1.375rem;
     line-height: 1.09091; } }
 @media only screen and (min-width: 1024px) {
-  /* line 74, scss/modules/_resume.scss */
+  /* line 86, scss/modules/_resume.scss */
   .resume-article--selection .resume__signature,
   .resume-article--selection .resume__desc,
   .resume-article--selection .resume__more {
@@ -6210,28 +6323,28 @@ html {
 /* 
    .resume-article--court
    ========================================================================== */
-/* line 88, scss/modules/_resume.scss */
+/* line 100, scss/modules/_resume.scss */
 .resume-article--court.resume {
   margin-bottom: 0;
   border-width: 0; }
-/* line 92, scss/modules/_resume.scss */
+/* line 104, scss/modules/_resume.scss */
 .resume-article--court .resume__titre {
   margin-bottom: 0;
   min-height: 2em;
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5; }
-/* line 97, scss/modules/_resume.scss */
+/* line 109, scss/modules/_resume.scss */
 .resume-article--court .resume__signature {
   margin-bottom: 0; }
 
 /* 
    is-selected
    ========================================================================== */
-/* line 105, scss/modules/_resume.scss */
+/* line 117, scss/modules/_resume.scss */
 .resume__titre--is-selected strong {
   font-weight: normal; }
-  /* line 107, scss/modules/_resume.scss */
+  /* line 119, scss/modules/_resume.scss */
   .resume__titre--is-selected strong:before {
     display: inline-block;
     margin-left: -1em;
@@ -6245,7 +6358,7 @@ html {
 /* 
    is-postdate
    ========================================================================== */
-/* line 126, scss/modules/_resume.scss */
+/* line 138, scss/modules/_resume.scss */
 .resume-article--is-postdate .hN,
 .resume-article--is-postdate p {
   color: #999; }
@@ -6253,7 +6366,7 @@ html {
 /* 
    .postdate-info-overlay
    ========================================================================== */
-/* line 134, scss/modules/_resume.scss */
+/* line 146, scss/modules/_resume.scss */
 .postdate-info-overlay {
   position: absolute;
   left: 0;
@@ -6272,50 +6385,77 @@ html {
   -webkit-transition: background 0.3s ease, color 0.3s ease;
   -moz-transition: background 0.3s ease, color 0.3s ease;
   transition: background 0.3s ease, color 0.3s ease; }
-  /* line 148, scss/modules/_resume.scss */
+  /* line 160, scss/modules/_resume.scss */
   .resume-article--court .postdate-info-overlay {
     bottom: -1.5em;
     left: auto; }
-  /* line 152, scss/modules/_resume.scss */
+  /* line 164, scss/modules/_resume.scss */
   .resume:hover .postdate-info-overlay {
     background-color: #b22222;
     color: #fff; }
 
 /*  .resume-video
     ========================================================================== */
-/* line 161, scss/modules/_resume.scss */
+/* line 173, scss/modules/_resume.scss */
 .resume-video {
   background-color: #7c88d3;
   text-align: center; }
 
-/* line 165, scss/modules/_resume.scss */
+/* line 177, scss/modules/_resume.scss */
 .resume-video--is-active {
   opacity: 0.5; }
 
 @media only screen and (max-width: 480px) {
-  /* line 168, scss/modules/_resume.scss */
+  /* line 180, scss/modules/_resume.scss */
   .resume-video--small {
     min-height: 180px; } }
-/* line 172, scss/modules/_resume.scss */
+/* line 184, scss/modules/_resume.scss */
 .resume-video--small .hN {
   font-size: 14px;
   font-size: 0.875rem;
   line-height: 1;
   color: #000; }
   @media only screen and (min-width: 481px) {
-    /* line 172, scss/modules/_resume.scss */
+    /* line 184, scss/modules/_resume.scss */
     .resume-video--small .hN {
       padding: 0.5em;
       margin-bottom: 0.5em;
       font-size: 16px;
       font-size: 1rem;
       line-height: 1.2; } }
-/* line 184, scss/modules/_resume.scss */
+/* line 196, scss/modules/_resume.scss */
 .resume-video--small .resume__body p {
   font-size: 12px;
   font-size: 0.75rem;
   line-height: 1.2;
   margin-bottom: 0; }
+
+/*  resume-semainier
+    ========================================================================== */
+@media only screen and (min-width: 481px) {
+  /* line 207, scss/modules/_resume.scss */
+  .resume-semainier header {
+    border-top: 1px solid #000;
+    padding-top: 1.5em; } }
+/* line 212, scss/modules/_resume.scss */
+.resume-semainier .resume__titre {
+  font-size: 20px;
+  font-size: 1.25rem;
+  margin-bottom: .5em; }
+
+/* line 217, scss/modules/_resume.scss */
+.resume-semainier__img {
+  margin-bottom: 2em; }
+  /* line 219, scss/modules/_resume.scss */
+  .resume-semainier__img a {
+    border: none; }
+
+/* line 225, scss/modules/_resume.scss */
+.resume-semainier__jour-titre {
+  margin-bottom: .5em; }
+  /* line 227, scss/modules/_resume.scss */
+  .resume-semainier__jour-titre a {
+    color: #999999; }
 
 /*  ==========================================================================
     .self
@@ -8037,16 +8177,6 @@ ol.spip {
     .resume {
       border-bottom: 1px dotted #ddd;
       margin-bottom: 2em; } }
-
-/* line 13, ui/resume.scss */
-.resume__titre {
-  font-size: 18px;
-  font-size: 1.125rem;
-  line-height: 1.1;
-  font-weight: 600; }
-  /* line 17, ui/resume.scss */
-  .resume__titre:first-letter {
-    text-transform: uppercase; }
 
 /* line 21, ui/resume.scss */
 .resume__desc {
