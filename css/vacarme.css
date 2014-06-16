@@ -6184,7 +6184,7 @@ html {
   top: -13px;
   bottom: auto; }
 /* line 164, scss/modules/_timeline.scss */
-.timeline-dot.resume-semainier__jour-titre:before, .timeline-dot.self__chapo--timeline:before, .timeline-dot.self__body--timeline:before {
+.timeline-dot.resume__titre--jour:before, .timeline-dot.self__chapo--timeline:before, .timeline-dot.self__body--timeline:before {
   bottom: auto; }
 @media only screen and (min-width: 481px) {
   /* line 169, scss/modules/_timeline.scss */
@@ -6210,12 +6210,12 @@ html {
   height: 18px;
   border-width: 2px; }
 /* line 203, scss/modules/_timeline.scss */
-.timeline-dot--s.resume-semainier__jour-titre:before {
+.timeline-dot--s.resume__titre--jour:before {
   left: -25px;
   top: 4px; }
 @media only screen and (min-width: 481px) {
   /* line 208, scss/modules/_timeline.scss */
-  .timeline-dot--s.resume-semainier__jour-titre:before {
+  .timeline-dot--s.resume__titre--jour:before {
     left: auto;
     right: -41px; } }
 /* line 215, scss/modules/_timeline.scss */
@@ -6439,23 +6439,35 @@ html {
     padding-top: 1.5em; } }
 /* line 212, scss/modules/_resume.scss */
 .resume-semainier .resume__titre {
-  font-size: 20px;
-  font-size: 1.25rem;
+  font-size: 24px;
+  font-size: 1.5rem;
   margin-bottom: .5em; }
+/* line 216, scss/modules/_resume.scss */
+.resume-semainier .resume__titre--jour {
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.33333; }
+  /* line 218, scss/modules/_resume.scss */
+  .resume-semainier .resume__titre--jour a {
+    color: #999999; }
+/* line 222, scss/modules/_resume.scss */
+.resume-semainier .resume__soustitre {
+  font-size: 20px;
+  font-size: 1.25rem; }
 
-/* line 217, scss/modules/_resume.scss */
+/* line 226, scss/modules/_resume.scss */
 .resume-semainier__img {
   margin-bottom: 2em; }
-  /* line 219, scss/modules/_resume.scss */
+  /* line 228, scss/modules/_resume.scss */
   .resume-semainier__img a {
     border: none; }
 
-/* line 225, scss/modules/_resume.scss */
-.resume-semainier__jour-titre {
-  margin-bottom: .5em; }
-  /* line 227, scss/modules/_resume.scss */
-  .resume-semainier__jour-titre a {
-    color: #999999; }
+/* line 233, scss/modules/_resume.scss */
+.timeline__item--pair .resume-semainier__body .resume__titre--jour {
+  margin-right: 20%; }
+/* line 236, scss/modules/_resume.scss */
+.timeline__item--impair .resume-semainier__body .resume__titre--jour {
+  margin-left: 20%; }
 
 /*  ==========================================================================
     .self
