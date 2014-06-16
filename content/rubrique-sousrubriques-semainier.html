@@ -38,10 +38,10 @@
             <div class="timeline timeline--1col">
                 <nav class="timeline-nav mb++">
                     <BOUCLE_precedent(RUBRIQUES){meme_parent}{precedent}>
-                    <a class="timeline-nav__item timeline-nav__item--prev timeline-dot" href="#URL_RUBRIQUE" rel="prev" data-sequence-title="[(#TITRE|attribut_html)]"><:jour_precedent:></a>
+                    <a class="timeline-nav__item timeline-nav__item--prev timeline-dot" href="#URL_RUBRIQUE" rel="prev" data-sequence-title="[(#TITRE|attribut_html)]"><:semaine_precedente:></a>
                     </BOUCLE_precedent>
                     <BOUCLE_suivant(RUBRIQUES){meme_parent}{suivant}>
-                    <a class="timeline-nav__item timeline-nav__item--next timeline-dot" href="#URL_RUBRIQUE" rel="next" data-sequence-title="[(#TITRE|attribut_html)]"><:jour_suivant:></a>
+                    <a class="timeline-nav__item timeline-nav__item--next timeline-dot" href="#URL_RUBRIQUE" rel="next" data-sequence-title="[(#TITRE|attribut_html)]"><:semaine_suivante:></a>
                     </BOUCLE_suivant>
                 </nav>
             </div>

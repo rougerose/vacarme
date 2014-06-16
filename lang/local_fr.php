@@ -99,6 +99,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     // S
     'section_number'                              => '1 rubrique',
     'sections_number'                             => '@nb@ rubriques',
+    'semaine_precedente' => "Semaine précédente",
+    'semaine_suivante' => "Semaine suivante",
     
     // T
     'table_of_content'                            => "Sommaire",
