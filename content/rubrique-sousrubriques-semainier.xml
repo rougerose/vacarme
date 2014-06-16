@@ -1,6 +1,6 @@
 <composition>
-    <nom>Semainier : rubrique principale</nom>
-    <description>Composition pour la rubrique principale du semainier</description>
+    <nom>Semainier : sous-rubrique</nom>
+    <description>Composition pour les sous-rubriques du Semainier</description>
     <icon>img/composition-test.png</icon>
     <branche type="article" composition="semainier" />
     <branche type="rubrique" composition="sousrubriques-semainier" />

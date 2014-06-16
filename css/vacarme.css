@@ -6748,22 +6748,26 @@ html {
  * self-meta--head-timeline
  */
 /* line 75, scss/modules/_meta.scss */
+.self-meta--head-timeline p {
+  font-size: 18px;
+  font-size: 1.125rem; }
+/* line 78, scss/modules/_meta.scss */
 .self-meta--head-timeline:after {
   content: ' ';
   border-bottom: 1px solid #ccccda;
-  width: 30%;
+  width: 20%;
   margin: 2em 0; }
 @media only screen and (min-width: 481px) {
   /* line 74, scss/modules/_meta.scss */
   .self-meta--head-timeline {
     text-align: center; }
-    /* line 83, scss/modules/_meta.scss */
+    /* line 86, scss/modules/_meta.scss */
     .self-meta--head-timeline:after {
-      margin: 2em auto; } }
+      margin: 1em auto; } }
 
 /*  self-meta--aside
     ========================================================================== */
-/* line 91, scss/modules/_meta.scss */
+/* line 94, scss/modules/_meta.scss */
 .self-meta--aside {
   font-family: "HelveticaNeueLTStdLtCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
@@ -6771,7 +6775,7 @@ html {
  * self-meta--aside-timeline
  */
 /* TODO : reprendre à partir d'ici */
-/* line 103, scss/modules/_meta.scss */
+/* line 106, scss/modules/_meta.scss */
 .meta__section-titre {
   display: inline-block;
   margin-left: -12px;
@@ -6787,15 +6791,15 @@ html {
 /* 
    .meta-article
    ========================================================================== */
-/* line 118, scss/modules/_meta.scss */
+/* line 121, scss/modules/_meta.scss */
 .meta-article {
   margin-bottom: 48px;
   margin-bottom: 3rem; }
-  /* line 121, scss/modules/_meta.scss */
+  /* line 124, scss/modules/_meta.scss */
   .meta-article p {
     margin-bottom: 0; }
 
-/* line 125, scss/modules/_meta.scss */
+/* line 128, scss/modules/_meta.scss */
 .meta-article__titre {
   margin-bottom: .5em;
   font-style: italic;

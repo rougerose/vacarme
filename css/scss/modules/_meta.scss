@@ -72,16 +72,19 @@
      * self-meta--head-timeline
      */
     .self-meta--head-timeline {
+        p {
+            @include font-size(18px,$line-height: false);
+        }
         &:after {
             content:' ';
             border-bottom: 1px solid $couleur-gris-clair;
-            width: 30%;
+            width: 20%;
             margin: 2em 0;
         }
         @include media-query(lap-and-up) {
             text-align: center;
             &:after {
-                margin: 2em auto;
+                margin: 1em auto;
             }
         }
     }
