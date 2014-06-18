@@ -29,6 +29,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     // C
     'category_plural'                             => 'Catégories',
     'category_singular'                           => 'Catégorie',
+    'classe_dans_categorie' => "Classé dans",
     'close'                                       => "Fermer",
     
     // D
@@ -47,6 +48,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'info_page'                                   => 'Page',
     'info_ps'                                     => 'Post-scriptum',
     'issue_about'                                 => "À propos de ce numéro",
+
+    // J
+    'jour_precedent' => "Journée précédente",
+    'jour_suivant' => "Journée suivante",
     
     // K
     'keyword_number'                              => '1 mot-clé',
@@ -57,6 +62,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'message_404_title'                           => "Page indisponible.",
     'message_404_desc'                            => "Nous sommes désolé-e-s, la page que vous recherchez n’est pas disponible.<br />Revenir à <a href='@urlsite@' class='spip_in'>la page d'accueil du site</a>.",
     'message_article_postdate' => "Article à paraître le",
+    'message_erreur' => "Une erreur s’est produite",
+    'message_erreur_video_aucune' => "<strong>Une erreur s’est produite</strong><br />aucune vidéo n’est disponible.",
+    'message_erreur_video_absente' => "<strong>Une erreur s’est produite</strong><br />la vidéo demandée n’existe pas.",
     'more_issue'                                  => 'Le sommaire complet',
     'more_arrow'                                  => '<em>&#8594;</em>',
     'more_read'                                   => 'Lire <em>&#8594;</em>',
@@ -80,14 +88,19 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'published_in'                                => 'Publiée dans',
     'published_date'                              => 'Publiée le',
     'published_date_alt' => "Publié le",
+
+    'publie_en_ligne' => "Publié en ligne le",
     
     // R
     'read_also'                                   => 'Lire également',
     'redaction_en_chef'                           => "Rédaction en chef",
+    'regarder' => "Regarder",
     
     // S
     'section_number'                              => '1 rubrique',
     'sections_number'                             => '@nb@ rubriques',
+    'semaine_precedente' => "Semaine précédente",
+    'semaine_suivante' => "Semaine suivante",
     
     // T
     'table_of_content'                            => "Sommaire",

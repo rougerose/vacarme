@@ -1,31 +1,43 @@
-/* ==========================================================================
-   resume
-   ========================================================================== */
-   // .resume(-article)
-   //     .resume__lien
-   //       .resume__header
-   //       .resume__desc
+/*  ==========================================================================
+    resume
+    ========================================================================== */
+    // .resume(-article)
+    //     .resume__lien
+    //       .resume__header
+    //       .resume__desc
 
-   // complément de /ui/resume.scss.
-   // TODO : fusionner les deux fichiers. 
-
-   // .resume {}
-       .resume__lien {
-            display: block;
-            border: 0;
-            background-color: transparent;
-            outline: 3px dotted transparent;
-            @include transition(background 0.3s ease,outline 0.3s ease);
-            &:hover {
-                background-color: rgba(#ddd,0.3);
-                outline: 3px dotted rgba(#ddd,0.3);
-            }
-       }
-            // .resume__titre {}
-           .resume__signature {
-                font-style: italic;
-                color: $gris-soustitre;
-            }
+    // complément de /ui/resume.scss.
+    // TODO : fusionner les deux fichiers. 
+    .resume {}
+    .resume__lien {
+        display: block;
+        border: 0;
+        background-color: transparent;
+        outline: 3px dotted transparent;
+        @include transition(background 0.3s ease,outline 0.3s ease);
+        &:hover {
+            background-color: rgba(#ddd,0.3);
+            outline: 3px dotted rgba(#ddd,0.3);
+        }
+    }
+    .resume__titre {
+        @include font-size(18px,$line-height:false);
+        line-height: 1.2;
+        // font-weight: 600;
+        &:first-letter {
+            text-transform: uppercase;
+        }
+    }
+    .resume__soustitre {
+        display: block;
+        @include font-size(16px);
+        font-style: italic;
+    }
+        .resume__auteur,
+        .resume__signature {
+            font-style: italic;
+            color: $gris-soustitre;
+        }
             // .resume__desc {}
            .resume__more {
                 time {
@@ -121,7 +133,8 @@
    is-postdate
    ========================================================================== */
 
-    .resume-article--is-postdate {
+    // plutôt is-indispo qui pourra etre utilisé ailleurs ?
+    .resume-article--is-postdate { 
         .hN,
         p {color: #999;}
     }
@@ -153,3 +166,74 @@
             color: #fff;
         }
     }
+
+
+/*  .resume-video
+    ========================================================================== */
+.resume-video {
+  background-color: $couleur-site;
+  text-align: center;
+}
+.resume-video--is-active {
+   opacity: 0.5;
+}
+.resume-video--small {
+   @include media-query(palm) {
+      min-height: 180px;
+   }
+   .hN {
+      @include font-size(14px,$line-height: false);
+      line-height: 1;
+      color: #000;
+      @include media-query(lap-and-up) {
+         // border-top: 1px solid rgba(255,255,255,0.5);
+         padding: 0.5em;
+         margin-bottom: 0.5em;
+         @include font-size(16px,$line-height: false);
+         line-height: 1.2;
+      }
+   }
+  .resume__body p {
+    @include font-size(12px,$line-height:false);
+    line-height: 1.2;
+    margin-bottom: 0;
+  }
+}
+
+/*  resume-semainier
+    ========================================================================== */
+    .resume-semainier {
+        @include media-query(lap-and-up) {
+            header {
+                border-top: 1px solid #000;
+                padding-top: 1.5em;
+            }
+        }
+        .resume__titre {
+            @include font-size(24px,$line-height: false);
+            margin-bottom: .5em;
+        }
+        .resume__titre--jour {
+            @include font-size(18px);
+            a {
+                color: $couleur-gris-moyen;
+            }
+        }
+        .resume__soustitre {
+            @include font-size(20px,$line-height:false);
+        }
+    }
+        .resume-semainier__img {
+            margin-bottom: 2em;
+            a {
+                border: none;
+            }
+        }
+        .resume-semainier__body {
+            .timeline__item--pair & .resume__titre--jour {
+                margin-right: 20%;
+            }
+            .timeline__item--impair & .resume__titre--jour {
+                margin-left: 20%;
+            }
+        }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="260px" height="147px" viewBox="0 0 260 147" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.0.2 (7799) - http://www.bohemiancoding.com/sketch -->
+    <title>icon--video-defaut</title>
+    <description>Created with Sketch.</description>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="icon--video-defaut" sketch:type="MSArtboardGroup">
+            <rect id="Rectangle-2" fill="#000000" sketch:type="MSShapeGroup" x="0" y="0" width="260" height="147"></rect>
+            <rect id="Rectangle-1" fill="#FFFFFF" sketch:type="MSShapeGroup" x="17" y="14" width="227" height="118" rx="5"></rect>
+            <g id="Line-+-Line" sketch:type="MSLayerGroup" transform="translate(11.000000, 10.000000)" stroke="#000000" stroke-linecap="square">
+                <path d="M119,63 L119,0.5 L119,0 L120,0 L120,0.5 L120,63 L234.5,63 L235,63 L235,64 L234.5,64 L120,64 L120,125.5 L120,126 L119,126 L119,125.5 L119,64 L0.497983873,64 L-0.00201612711,64 L-0.00201612711,63 L0.497983873,63 L119,63 Z" id="Line" sketch:type="MSShapeGroup"></path>
+            </g>
+            <circle id="Oval-1" stroke="#000000" stroke-width="2" sketch:type="MSShapeGroup" cx="130" cy="74" r="49"></circle>
+            <circle id="Oval-2" stroke="#000000" stroke-width="2" sketch:type="MSShapeGroup" cx="130.5" cy="74.5" r="42.5"></circle>
+            <path d="M120.523438,88.328125 C121.010419,90.9922008 121.941399,93.0475188 123.316406,94.4941406 C124.691413,95.9407624 126.696601,96.6640625 129.332031,96.6640625 C132.368505,96.6640625 134.681633,95.5970159 136.271484,93.4628906 C137.861336,91.3287654 138.65625,88.6432454 138.65625,85.40625 C138.65625,82.2265466 137.911466,79.5410266 136.421875,77.3496094 C134.932284,75.1581922 132.611995,74.0625 129.460938,74.0625 C127.971347,74.0625 126.682297,74.2486961 125.59375,74.6210938 C123.67447,75.3085972 122.227869,76.583324 121.253906,78.4453125 L110.253906,77.9296875 L114.636719,43.5117188 L148.96875,43.5117188 L148.96875,53.9101562 L123.488281,53.9101562 L121.253906,67.53125 C123.144541,66.299473 124.619786,65.4830749 125.679688,65.0820312 C127.455738,64.4231738 129.618477,64.09375 132.167969,64.09375 C137.324245,64.09375 141.821595,65.8268056 145.660156,69.2929688 C149.498717,72.7591319 151.417969,77.8007482 151.417969,84.4179688 C151.417969,90.17581 149.570331,95.3176857 145.875,99.84375 C142.179669,104.369814 136.651078,106.632812 129.289062,106.632812 C123.359345,106.632812 118.489602,105.042985 114.679688,101.863281 C110.869773,98.6835779 108.750002,94.1719042 108.320312,88.328125 L120.523438,88.328125 Z" id="5" fill="#2B2B2B" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

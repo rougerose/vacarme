@@ -28,16 +28,16 @@
     }
 }
 
-@include media-query(desk) {
-    .self__chapo {
-        padding-right: $base-spacing-unit*2;
-        @include font-size(18px);
-    }
+// @include media-query(desk) {
+    // .self__chapo {
+    //     padding-right: $base-spacing-unit*2;
+    //     @include font-size(18px);
+    // }
     // .self__body {}
-    .self__texte {
-        padding-right: 6px;
-    }
-}
+    // .self__texte {
+    //     padding-right: 6px;
+    // }
+// }
 @media only screen and(min-width:800px) {
     .self__texte,
     .self__ps,

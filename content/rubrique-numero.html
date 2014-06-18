@@ -78,7 +78,7 @@
                     [(#REM) 
                         La rubrique contient combien d'articles ? Si plus de 2 articles, la mise en page change. 
                     ]
-                    <B_combien><BOUCLE_combien(ARTICLES){id_rubrique}> </BOUCLE_combien>[(#TOTAL_BOUCLE|>{2}|?{#SET{layout,rubrique-4col2lignesRubArt},#SET{layout,rubrique-4col1ligneRubArt}})]</B_combien>
+                    <B_combien><BOUCLE_combien(ARTICLES){branche_complete}> </BOUCLE_combien>[(#TOTAL_BOUCLE|>{2}|?{#SET{layout,rubrique-4col2lignesRubArt},#SET{layout,rubrique-4col1ligneRubArt}})]</B_combien>
                     [(#REM)
                         La rubrique possède son propre logo ? 
                     ]

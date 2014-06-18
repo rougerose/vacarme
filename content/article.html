@@ -3,10 +3,10 @@
 <article class="self article" itemscope itemtype="http://schema.org/Article">
     <div class="grid">
         <div class="grid__item">
-            <div class="meta-head cf">
-                <p class="meta-head__date"><time pubdate datetime="[(#DATE|date_iso)]" itemprop="datePublished" content="[(#DATE|affdate{Y-m-d})]">[(#DATE|affdate)]</time></p>
-                <p class="meta-head__rubriques">[<a href="[(#INFO_URL{rubrique,#ID_RUBRIQUE})]">(#INFO_TITRE{rubrique,#ID_RUBRIQUE})</a>]</p>
-            </div><!-- /.meta-head -->
+            <div class="meta self-meta self-meta--head self-meta--head-std">
+                <p class="self-meta__item"><time pubdate datetime="[(#DATE|date_iso)]" itemprop="datePublished" content="[(#DATE|affdate{Y-m-d})]">[(#DATE|affdate)]</time></p>
+                <p class="self-meta__item rubrique">[<a href="[(#INFO_URL{rubrique,#ID_RUBRIQUE})]">(#INFO_TITRE{rubrique,#ID_RUBRIQUE})</a>]</p>
+            </div><!-- /.self-meta--head-std -->
         </div><!-- /.grid__item -->
         <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
             <header class="self__header landmark">

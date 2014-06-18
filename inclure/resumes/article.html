@@ -64,7 +64,7 @@
             numero_titre_url=#ENV{numero_titre_url}})]
     })]
     [(#GET{type_resume}|=={stack}|oui)
-    <div class="resume__body">
+    <div class="resume__body-x">
         [(#INCLURE{fond=inclure/objets/category-resume-article,id_article})]
         <div class="resume__cartouche[ (#GET{logo_format}|match{paysage|portrait}|?{resume__cartouche--#GET{logo_format}})]">
     ]

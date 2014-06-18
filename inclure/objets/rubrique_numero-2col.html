@@ -24,7 +24,7 @@
             })]
             <B_articles_rubrique>
             <div class="grid">
-                <BOUCLE_articles_rubrique(ARTICLES){id_rubrique=#ENV{id_objet}}{par num titre, titre}>
+                <BOUCLE_articles_rubrique(ARTICLES){branche_complete #ENV{id_objet}}{par num titre, titre}>
                 <div class="grid__item [(#TOTAL_BOUCLE|>{1}|?{[(#ENV{logo_objet}|=={oui}|?{lap-and-up-one-half,lap-and-up-one-third})],''})]">
                     [(#INCLURE{fond=inclure/resumes/article,id_article,afficher_verrou=oui})]
                 </div>

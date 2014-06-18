@@ -3,7 +3,7 @@
 <B_documents_portfolio>
 <section class="landmark">
    <h1 class="hN intertitre-section intertitre-section--first"><:local:documents_image:></h1>
-   <BOUCLE_documents_portfolio(DOCUMENTS){id_article?}{id_rubrique?}{mode=document}{extension IN png,jpg,gif}{par num titre, date}{vu=non}>
+   <BOUCLE_documents_portfolio(DOCUMENTS){id_article?}{id_rubrique?}{mode=document}{extension IN png,jpg,gif}{par num titre, date}{vu=non}{doublons}>
    <figure class="document portfolio media">
       [<a class="mediabox media__link" href="(#URL_DOCUMENT)" type="#MIME_TYPE" rel="documents_portfolio[-a(#ID_ARTICLE)][-r(#ID_RUBRIQUE)]" [ title="(#TITRE|attribut_html|couper{80})"]>
       [<img src="(#FICHIER|image_reduire{250,0}|extraire_attribut{src})" class="media__img" alt="[(#TITRE|attribut_html|couper{80})]">]</a>]
@@ -23,7 +23,7 @@
 <section class="landmark">
    <h1 class="hN intertitre-section intertitre-section--first"><:local:documents_fichier:></h1>
    <div class="lap-and-up-table lap-and-up-table-100">
-      <BOUCLE_documents_joints(DOCUMENTS){id_article?}{id_rubrique?}{extension !IN gif,jpg,png}{vu=non}{par num titre, date}>[
+      <BOUCLE_documents_joints(DOCUMENTS){id_article?}{id_rubrique?}{extension !IN gif,jpg,png}{vu=non}{par num titre, date}{doublons}>[
       (#COMPTEUR_BOUCLE|alterner{<div class="lap-and-up-table--row">,''})]
          <figure class="document fichier lap-and-up-table--cell lap-and-up-table--cell-50">
             [(#LOGO_DOCUMENT{vignette}|?{

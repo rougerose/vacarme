@@ -99,7 +99,7 @@
         ]
         <B_articles_rubrique>
         [(#TOTAL_BOUCLE|>{1}|?{<div class="grid">})]
-            <BOUCLE_articles_rubrique(ARTICLES){id_rubrique}{par #GET{articles_tri}}>
+            <BOUCLE_articles_rubrique(ARTICLES){branche_complete}{par #GET{articles_tri}}>
             [(#TOTAL_BOUCLE|>{1}|?{<div class="grid__item one-half">})]
                 [(#INCLURE{fond=inclure/layout/article-1colArt,
                     id_article,

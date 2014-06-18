@@ -3,7 +3,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
 
     sass: {
-      compile: {
+      dist: {
         options: {
           loadPath: [
             'bower_components/bourbon/dist',
@@ -14,6 +14,27 @@ module.exports = function(grunt) {
         },
         files: {
           'css/vacarme.css':'css/vacarme.scss'
+        }
+      },
+      dev: {
+        options: {
+          loadPath: [
+            'bower_components/bourbon/dist',
+            'bower_components/inuit.css',
+            'bower_components/fontawesome/scss'
+          ],
+          style: 'nested',
+          lineNumbers: true
+        },
+        files: {
+          'css/vacarme.css':'css/vacarme.scss'
+        }
+      }
+    },
+    uglify: {
+      my_target: {
+        files: {
+          'js/public.min.js': ['js/navigation.js', 'js/vacarme.js']
         }
       }
     },
@@ -29,16 +50,23 @@ module.exports = function(grunt) {
     },
     watch: {
       grunt: { files: ['GruntFile.js'] },
+      uglify: {
+        files: 'js/*.js',
+        tasks: 'uglify:my_target'
+      },
       sass: {
         files: 'css/**/*.scss',
-        tasks: ['sass:compile']
+        tasks: ['sass:dev']
       }
     }
   });
+  // grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-css-metrics');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.registerTask('analyse', ['cssmetrics:common']);
-  grunt.registerTask('compile', ['sass:compile']);
-  grunt.registerTask('default', ['compile','analyse']);
+  grunt.registerTask('compile', ['sass:dist','uglify:my_target']);
+  grunt.registerTask('dev', ['sass:dev','uglify:my_target']);
+  grunt.registerTask('default', ['dev','analyse']);
 }
