@@ -1,0 +1,31 @@
+/* ==========================================================================
+   video
+   ========================================================================== */
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0; 
+    overflow: hidden;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1em;
+}
+.video-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.video-info {
+    margin-bottom: 2em;
+    .hN {
+        margin-bottom: 0.5em;
+        @include font-size(18px);
+    }
+    .descriptif p {
+        @include font-size(14px,$line-height: false);
+        line-height: 1.3;
+    }
+}

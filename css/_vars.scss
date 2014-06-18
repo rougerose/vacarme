@@ -57,7 +57,7 @@ $use-greybox:       false;
  * Place any variables that should override inuit.css’ defaults here.
  */
  //$desk-start: 768px;
- $base-font-family: 'Plantin', serif;
+ $base-font-family: 'Palatino','Plantin', serif;
 
 
 
@@ -80,6 +80,7 @@ $font-HBC: "HelveticaNeueLTStdCnBold","Helvetica Neue",Helvetica,Arial,sans-seri
 // couleurs
 $link-color: #e88e0e;
 $site-color: #7c88d3;
+$couleur-site: $site-color;
 $soft-black: #555;
 $text-color: #393939; // #252525;
 $nav-bg: #282831;
@@ -94,3 +95,9 @@ $gris-soustitre: #7b6d88;
 $soft: #999;
 $ok: #c1e732;
 $erreur: #e75d32;
+
+$couleur-gris-moyen:    #999;
+$couleur-gris-blanc:    #eee;
+$couleur-gris-clair:    #ccccda;
+$couleur-gris-bleu:     #8888a7;
+

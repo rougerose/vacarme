@@ -1,0 +1,5 @@
+<composition>
+    <nom>Article vidéo(s)</nom>
+    <description>Composition pour afficher une ou plusieurs vidéos</description>
+    <icon>img/composition-article-numero.png</icon>
+</composition>

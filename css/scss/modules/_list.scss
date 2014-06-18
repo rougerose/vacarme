@@ -19,6 +19,15 @@
        .block-list__item,
        %block-list__item {display:list-item;}
 
+/*  bare-list
+    ========================================================================== */
+    .bare-list,
+    %bare-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
 /* 
    .inline-list
    ========================================================================== */

@@ -1,0 +1,227 @@
+/*  ==========================================================================
+    timeline
+    ========================================================================== */
+
+    .timeline {
+        @extend .cf;
+        position: relative;
+        padding: 2em 0;
+        &:before {
+            content:'';
+            width: 1px;
+            height: 100%;
+            background-color: #000;
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            bottom: 0;
+        }
+    }
+    .timeline--1col {
+        padding-left: 16px;
+        &:before {
+            left: 0;
+        }
+        @include media-query(lap-and-up) {
+            padding-left: 32px;
+            width: 50%;
+            margin-left: 50%;
+        }
+    }
+    .timeline--2col {
+        padding-left: 16px;
+        &:before {
+            left: 0;
+            @include media-query(lap-and-up) {
+                left: 50%;
+            }
+        }
+        @include media-query(lap-and-up) {
+            padding-left: 0;
+            .resume-semainier__img,
+            .resume-semainier__body {
+                width: 50%;
+            }
+        }
+    }
+
+    /*  timeline__item
+        ========================================================================== */
+        .timeline__item {}
+
+        /* timeline__item--pair */
+        .timeline__item--pair {
+            @include media-query(lap-and-up) {
+                clear:both;
+                .resume-semainier__img {
+                    float: left;
+                    padding-right: 32px;
+                }
+                .resume-semainier__body {
+                    float: right;
+                    padding-left: 32px;
+                }
+            }
+        }
+
+        /* timeline__item--impair */
+        .timeline__item--impair {
+            @include media-query(lap-and-up) {
+                .resume-semainier__img {
+                    float: right;
+                    padding-left: 32px;
+                }
+                .resume-semainier__body {
+                    float: left;
+                    padding-right: 32px;
+                    text-align: right;
+                }
+            }
+        }
+
+    /*  timeline-nav
+        ========================================================================== */
+        .timeline-nav {}
+        .timeline-nav__item {
+            position: relative;
+            display: block;
+            width: 100%;
+            margin-bottom: 3em;
+            font-style: italic;
+            &:after {
+                position: absolute;
+                width: 100%;
+                padding-top: .5em;
+                display: block;
+                border-top: 1px solid #000;
+                content:attr(data-sequence-title);
+                font-style: normal;
+                @include font-size(18px);
+                color: $couleur-gris-moyen;
+                @include transition(color 0.35s ease-out);
+            }
+            &:hover {
+                &:after {color:#000;}
+            }
+        }
+
+        /* prev */
+        .timeline-nav__item--prev {
+            @include media-query(lap-and-up){
+                right: 100%;
+                margin-left: -64px;
+                &:after {
+                    padding-left: 20%;
+                    text-align: right;
+                }
+            }
+        }
+        /* next */
+        .timeline-nav__item--next {
+            @include media-query(lap-and-up) {
+                text-align: right;
+                &:after {
+                    padding-right: 20%;
+                    text-align: left;
+                }
+            }
+        }
+
+    /*  timeline-dot
+        ========================================================================== */
+        /* taille standard */
+        $dot-size: 26px;
+        
+        %timeline-dot {
+            position: relative;
+            &:before {
+                content:'';
+                background-color: #000;
+                width: $dot-size;
+                height: $dot-size;
+                display: block;
+                border-radius: 20px;
+                border: 4px solid #fff;
+            }
+        }
+        
+        .timeline-dot {
+            @extend %timeline-dot;
+            &:before {
+                position: absolute;
+                left: -28px;
+                bottom: -$dot-size/2;
+            }
+            &.timeline__item {
+                &:before {
+                    top: -$dot-size/2;
+                    bottom: auto;
+                }
+            }
+            &.resume__titre--jour,
+            &.self__chapo--timeline,
+            &.self__body--timeline {
+                &:before {
+                    bottom: auto;
+                }
+            }
+            @include media-query(lap-and-up) {
+                &:before {
+                    left: -47px;
+                    bottom: -14px;
+                }
+                &.self__chapo--timeline,
+                &.self__body--timeline,
+                &.timeline-nav__item--next {
+                    &:before {
+                        left: -44px;
+                    }
+                }
+                &.timeline-nav__item--prev {
+                    &:before {
+                        left: auto;
+                        right: -46px;
+                    }
+                }
+                &.timeline__item {
+                    &:before {
+                        left: 50%;
+                        margin-left: -13px;
+                    }
+                }
+            }
+        }
+
+        /* timeline-dot--s : taille S */
+        .timeline-dot--s {
+            &:before {
+                width: $dot-size - 8;
+                height: $dot-size - 8;
+                border-width: 2px;
+            }
+            &.resume__titre--jour {
+                &:before {
+                    left: -25px;
+                    top: 4px;
+                }
+                @include media-query(lap-and-up) {
+                    &:before {
+                        left: auto;
+                        right: -41px;
+                    }
+                }
+            }
+            .timeline__item--pair & {
+                &:before {
+                    left: -40px;
+                }
+            }
+         }
+
+        /* .timeline-dot--gris */
+        .timeline-dot--gris,
+        %timeline-dot--gris {
+            &:before {
+                background-color: $couleur-gris-moyen;
+            }
+        }

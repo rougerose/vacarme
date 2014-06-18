@@ -9,7 +9,6 @@
 $fa-font-path: "fonts/fontawesome";
 @import "font-awesome";
 
-
 // fonts & typo
 @import "ui/fonts",
         "ui/typo",
@@ -18,6 +17,7 @@ $fa-font-path: "fonts/fontawesome";
         "scss/base/liens",
         "scss/base/form",
         "scss/base/helpers",
+        "scss/base/helpers.marges",
 
         // layout
         "scss/layout/page",
@@ -30,14 +30,23 @@ $fa-font-path: "fonts/fontawesome";
         "scss/modules/btn",
         "scss/modules/site-logo",
         "scss/modules/navigation",
-        "scss/modules/colorbox",
         "scss/modules/rubrique-dossier",
+        "scss/modules/timeline",
         "scss/modules/resume",
         "scss/modules/self",
+        "scss/modules/auteurs",
         "scss/modules/preview",
+        "scss/modules/overlay",
         "scss/modules/meta",
         "scss/modules/toc",
-        "scss/modules/icon";
+        "scss/modules/icon",
+        "scss/modules/medias.cover",
+        "scss/modules/medias.media",
+        "scss/modules/medias.spip_documents",
+        "scss/modules/medias.video",
+        "scss/modules/medias.colorbox",
+        "scss/modules/carousel",
+        "scss/modules/carousel.owl.theme";
 
 
 
@@ -74,7 +83,7 @@ $fa-font-path: "fonts/fontawesome";
 @import "ui/table";
 @import "ui/list";
 @import "ui/accordeon";
-@import "ui/carousel";
+//@import "ui/carousel";
 @import "ui/tabs";
 @import "ui/columns";
 @import "ui/pagination";
@@ -87,7 +96,7 @@ $fa-font-path: "fonts/fontawesome";
 @import "ui/related";
 
 // images
-@import "ui/media";
+//@import "ui/media";
 //@import "ui/sprites";
 
 

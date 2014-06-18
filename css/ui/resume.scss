@@ -11,12 +11,12 @@
     }
 }
 .resume__titre {
-    @include font-size(18px,$line-height:false);
-    line-height: 1.1;
-    font-weight: 600;
-    &:first-letter {
-        text-transform: uppercase;
-    }
+    // @include font-size(18px,$line-height:false);
+    // line-height: 1.1;
+    // font-weight: 600;
+    // &:first-letter {
+        // text-transform: uppercase;
+    // }
 }
 .resume__desc {
     @include font-size(15px,$line-height:false);
@@ -41,7 +41,7 @@
 }
 
 /* body et cartouche */
-.resume__body {
+.resume__body-x {
     @include media-query(lap-and-up) {
         position: absolute;
         z-index: 10;
