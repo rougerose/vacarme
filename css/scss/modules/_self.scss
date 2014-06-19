@@ -1,6 +1,9 @@
 /*  ==========================================================================
     .self
     ========================================================================== */
+    .self {
+        overflow: hidden;
+    }
 
     /*  .self__header
         ========================================================================== */
@@ -35,7 +38,7 @@
     /* .self_body
        ========================================================================== */
         .self__body {}
-
+        
         /*
          * self__body--timeline
          */
@@ -58,3 +61,25 @@
         clear: both;
         position: relative;
     }
+    @include media-query(lap-and-up) {
+        .logoportrait {
+            float: left;
+            margin-left: -50%;
+            width: 80%;
+            margin-right: 24px;
+        }
+        .portrait {
+            padding-left: 25%;
+            .logo {
+                float: left;
+                width: 70%;
+                margin-left: -50%;
+                margin-right: 24px;
+            }
+            .chapo {}
+            .texte {
+                width: 66%;
+            }
+        }
+    }
+    
