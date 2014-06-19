@@ -1,6 +1,55 @@
 /*  ==========================================================================
     .self
     ========================================================================== */
+    .self {
+        overflow: hidden;
+    }
+
+    /*  .self__header
+        ========================================================================== */
+
+        /*
+         * self__header--timeline
+         */
+         .self__header--timeline {
+            @include media-query(lap-and-up) {
+                text-align: center;
+            }
+         }
+
+    /*  .self__chapo
+        ========================================================================== */
+        .self__chapo {
+            @include font-size(19px);
+            @include media-query(lap-and-up) {
+                padding-right: $base-spacing-unit*2;
+                //@include font-size(18px);
+            }
+        }
+
+        /*
+         * self__chapo--timeline
+         */
+         .self__chapo--timeline {
+            padding-right: 0;
+            position: relative;
+         }
+
+    /* .self_body
+       ========================================================================== */
+        .self__body {}
+        
+        /*
+         * self__body--timeline
+         */
+         .self__body--timeline {
+            position: relative;
+            .self__texte,
+            .self__ps,
+            .self__notes {
+                width: 100%;
+            }
+         }
 
 // TODO : à fusionner
 
@@ -12,3 +61,25 @@
         clear: both;
         position: relative;
     }
+    @include media-query(lap-and-up) {
+        .logoportrait {
+            float: left;
+            margin-left: -50%;
+            width: 80%;
+            margin-right: 24px;
+        }
+        .portrait {
+            padding-left: 25%;
+            .logo {
+                float: left;
+                width: 70%;
+                margin-left: -50%;
+                margin-right: 24px;
+            }
+            .chapo {}
+            .texte {
+                width: 66%;
+            }
+        }
+    }
+    

@@ -1,0 +1,16 @@
+/* ==========================================================================
+   marges
+   ========================================================================== */
+   $unite-marge: 1.5em;
+
+   // pas de marge
+   .mb0 {margin-bottom: 0};
+   
+   // marge-simple
+   .mb {margin-bottom: $unite-marge;}
+
+   // marge-double
+   .mb\+ {margin-bottom: $unite-marge*2;}
+
+   // marge-triple
+   .mb\+\+ {margin-bottom: $unite-marge*3;}

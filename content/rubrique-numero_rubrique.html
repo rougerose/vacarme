@@ -6,7 +6,7 @@
         <h2 class="hN intertitre-section intertitre-section--first">[(#TITRE|sinon{rubrique})]</h2>
         </BOUCLE_type_rubriques>
 
-        <B_combien><BOUCLE_combien(ARTICLES){id_rubrique}> </BOUCLE_combien>[(#TOTAL_BOUCLE|>{3}|?{#SET{compo,4col},#SET{compo,2col}})]</B_combien>
+        <B_combien><BOUCLE_combien(ARTICLES){branche_complete}> </BOUCLE_combien>[(#TOTAL_BOUCLE|>{3}|?{#SET{compo,4col},#SET{compo,2col}})]</B_combien>
 
         [(#REM) un logo ?]
         [(#LOGO_RUBRIQUE|fichier|match{^rubon#ID_RUBRIQUE}|?{

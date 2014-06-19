@@ -1,0 +1,5 @@
+[(#REM)
+    Les mots-clés d'un objet
+    ========================
+    Tous les mots-clés, sauf les catégories (id #19) et les mots-clés techniques.
+]<B_mots_objet>[(#TOTAL_BOUCLE|singulier_ou_pluriel{local:tag_singular,local:tag_plural}) ]<BOUCLE_mots_objet(MOTS){id_groupe!=19}{id_objet=#ENV{id_objet}}{objet=#ENV{objet}}{par titre}{', '}><a href="#URL_MOT" class="spip_in" rel="tag">[(#TITRE|prenom_nom)]</a></BOUCLE_mots_objet>.</B_mots_objet>

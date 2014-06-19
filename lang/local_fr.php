@@ -29,6 +29,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     // C
     'category_plural'                             => 'Catégories',
     'category_singular'                           => 'Catégorie',
+    'classe_dans_categorie' => "Classé dans",
     'close'                                       => "Fermer",
     
     // D
@@ -47,6 +48,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'info_page'                                   => 'Page',
     'info_ps'                                     => 'Post-scriptum',
     'issue_about'                                 => "À propos de ce numéro",
+
+    // J
+    'jour_precedent' => "Journée précédente",
+    'jour_suivant' => "Journée suivante",
     
     // K
     'keyword_number'                              => '1 mot-clé',
@@ -83,6 +88,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'published_in'                                => 'Publiée dans',
     'published_date'                              => 'Publiée le',
     'published_date_alt' => "Publié le",
+
+    'publie_en_ligne' => "Publié en ligne le",
     
     // R
     'read_also'                                   => 'Lire également',
@@ -92,6 +99,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     // S
     'section_number'                              => '1 rubrique',
     'sections_number'                             => '@nb@ rubriques',
+    'semaine_precedente' => "Semaine précédente",
+    'semaine_suivante' => "Semaine suivante",
     
     // T
     'table_of_content'                            => "Sommaire",

@@ -99,7 +99,7 @@
     <B_articles_rubrique>
     <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
         <div class="grid">
-            <BOUCLE_articles_rubrique(ARTICLES){id_rubrique}{par #GET{articles_tri}}>
+            <BOUCLE_articles_rubrique(ARTICLES){branche_complete}{par #GET{articles_tri}}>
             [<div class="grid__item lap-and-up-one-third">
                 (#INCLURE{fond=inclure/layout/article-1colArt,
                     id_article,
