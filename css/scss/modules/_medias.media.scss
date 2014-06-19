@@ -1,7 +1,16 @@
 /*  ==========================================================================
     media
     ========================================================================== */
+    /* logo paysage pleine largeur */
     .media--full {
         width: 100%;
         display: block;
+    }
+
+    /* logo portrait */
+    .media--portrait {
+        float: left;
+        margin-left: -35%;
+        width: 60%;
+        margin-right: 24px;
     }

@@ -10,14 +10,7 @@
 // }
 
 /*==========  image avec mediabox  ==========*/
-#colorbox {
-   &,
-   &:before,
-   &:after{
-    /* content-box au lieu de border-box sur le conteneur sinon l'image est partiellement masquée. */
-    @include vendor(box-sizing, content-box);
-   }
-}
+
 
 /*-----  End of images  ------*/
 

@@ -1,8 +1,8 @@
 <BOUCLE_article_footer(ARTICLES){id_article}>
-[(#SET{id_numero,#ENV{id_numero,#ID_RUBRIQUE}})]
+[(#SET{id_numero,#ENV{id_numero,''}})]
     <div class="grid">
         <div class="grid__item one-quarter">
-            <BOUCLE_couverture_numero(RUBRIQUES){id_rubrique=#GET{id_numero}}{si #ID_SECTEUR|=={115}}>
+            <BOUCLE_couverture_numero(RUBRIQUES){id_rubrique=#GET{id_numero}}>
             [<a href="#URL_RUBRIQUE" itemprop="url"><img src="(#LOGO_RUBRIQUE|image_reduire{270,0}|extraire_attribut{src})" class="cover cover--meta" alt="#TITRE"></a>]
             </BOUCLE_couverture_numero>
         </div><!-- /.grid__item -->
@@ -21,7 +21,7 @@
                         </dl>
                     </div><!-- /.grid__item -->
                     <div class="grid__item desk-one-third lap-one-half">
-                        <BOUCLE_info_publication(RUBRIQUES){id_rubrique=#GET{id_numero}}{si #ID_SECTEUR|=={115}}>
+                        <BOUCLE_info_publication(RUBRIQUES){id_rubrique=#GET{id_numero}}>
                         <dl class="simple-def-list">
                             <dt class="meta-article__titre"><:local:version_print:></dt>
                             <dd>
