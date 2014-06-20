@@ -1,5 +1,5 @@
 <composition>
-    <nom>Article d'un numéro + logo XL</nom>
+    <nom>Article avec un logo XL</nom>
     <description>Composition pour les articles avec un logo version XL d'une largeur de 1100 pixels et d'une hauteur de 734 pixels et de format paysage.</description>
     <icon>img/composition-article-numero-logo_XL.png</icon>
 </composition>
