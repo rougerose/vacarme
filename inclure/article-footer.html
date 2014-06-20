@@ -36,7 +36,7 @@
             </div><!-- /.meta-article -->
             [(#REM) vidéos : navigation précédent/suivant. Si l'article est dans une grappe dont le titre contient le mot Série ]
             <BOUCLE_test_grappe(GRAPPES){id_article}{titre LIKE %serie%}{0,1}> </BOUCLE_test_grappe>
-            [(#COMPOSITION|=={video}|oui)
+            [(#COMPOSITION|=={videos}|oui)
                 #INCLURE{fond=inclure/article-videos-footer-nav-prevnext,id_article}
             ]
             </B_test_grappe>
