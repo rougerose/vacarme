@@ -1,0 +1,7 @@
+<composition>
+    <nom>Rubrique Vidéos</nom>
+    <description>Composition pour la rubrique Vidéos</description>
+    <branche type="article" composition="videos" />
+    <branche type="rubrique" composition="videos" />
+    <icon>images/objet-liste-contenus.png</icon>
+</composition>

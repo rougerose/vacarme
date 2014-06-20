@@ -18,14 +18,10 @@
     ]
   </div>]
   [(#TITRE|ou{#DESCRIPTIF}|oui)
-  <div class="grid">
-    <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
-      <div class="video-info self">
-        [<h2 class="hN">(#TITRE|sinon{Video})</h2>]
-        [<div class="self__texte descriptif">
-            (#DESCRIPTIF)
-        </div>]
-      </div>
-    </div><!-- /.grid__item -->
-  </div><!-- /.grid -->]
+  <div class="video-info">
+    [<h2 class="hN video-info__titre">(#TITRE|sinon{Video})</h2>]
+    [<div class="video-info__descriptif">
+        (#DESCRIPTIF)
+    </div>]
+  </div>]
 </BOUCLE_video>

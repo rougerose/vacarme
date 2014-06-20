@@ -1,0 +1,10 @@
+[(#AUTORISER{configurer,videos}|oui)
+    [(#ENV{video}|et{#ENV{service}}|non)
+        <h1 class="grostitre">Toutes les vidéos</h1>
+        #INCLURE{fond=prive/squelettes/inclure/videos_vignettes,ajax}
+    ]
+    [(#ENV{video}|et{#ENV{service}}|oui)
+        <h1 class="grostitre">Les vignettes fournies par [(#ENV{service}|majuscules)] </h1>
+        [(#INCLURE{fond=prive/squelettes/inclure/#ENV{service}_video_vignettes,video,service,ajax})]
+    ]
+]

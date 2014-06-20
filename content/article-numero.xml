@@ -1,5 +1,5 @@
 <composition>
-    <nom>Article d'un numéro de la revue</nom>
+    <nom>Article de la revue</nom>
     <description>Composition <strong>par défaut</strong> pour les articles d'un numéro.</description>
     <icon>img/composition-article-numero.png</icon>
 </composition>
