@@ -9,6 +9,8 @@
     date_afficher       oui*/non
     suite_afficher      oui*/non
     resume_type         (resume-xxx--)selection
+    logo_afficher       oui/non*
+    logo_taille         S*
 
 
     Calculées dans le squelette
@@ -19,6 +21,8 @@
 ]
 [(#ENV{date_afficher}|?{#SET{date_afficher,''},#SET{date_afficher,' '}})]
 [(#ENV{suite_afficher}|?{#SET{suite_afficher,''},#SET{suite_afficher,' '}})]
+[(#ENV{logo_afficher}|?{#SET{logo_afficher,''},#SET{logo_afficher,' '}})]
+[(#ENV{logo_taille}|?{#SET{logo_taille,#ENV{logo_taille}},#SET{logo_taille,S}})]
 
 <BOUCLE_resume_article(ARTICLES){id_article}{statut ?}>
 [(#DATE|>{#ENV{date}}|?{#SET{article_postdate,' '},#SET{article_postdate,''}})]
@@ -26,6 +30,10 @@
 
 <article class="resume resume-article[ resume-article--(#ENV{resume_type})][ (#GET{article_postdate}|oui) resume-article--is-postdate]">
     [(#GET{article_postdate}|?{'',<a href="#URL_ARTICLE" class="resume__lien">})]
+        [(#GET{logo_afficher}|oui)
+        <div class="resume-article__img">
+            <img src="[(#LOGO_ARTICLE|extraire_attribut{src})]" alt="[(#TITRE|attribut_html)]">
+        </div>]
         <div class="resume-article__header">
             <header class="resume__header">
                 <h1 class="hN resume__titre resume-article__titre">

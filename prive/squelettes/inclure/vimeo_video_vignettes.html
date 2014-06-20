@@ -1,0 +1,14 @@
+#SET{url,http://vimeo.com/api/v2/video/#ENV{video}.json}
+<p><a href="[(#SELF|parametre_url{video|id_document|service,''})]">Retour à la liste</a> </p>
+<B_vimeo>
+<dl>
+    <BOUCLE_vimeo(DATA){source json,#GET{url}}{datapath}>
+    [<dt>Grande</dt>
+    <dd style="border-bottom:1px solid #ccc;margin-bottom: 3em;padding-bottom:3em;"><img src="(#VALEUR{thumbnail_large})"></dd>]
+    [<dt>Moyenne</dt>
+    <dd style="border-bottom:1px solid #ccc;margin-bottom: 3em;padding-bottom:3em;"><img src="(#VALEUR{thumbnail_medium})" alt=""></dd>]
+    [<dt>Petite</dt>
+    <dd style="border-bottom:1px solid #ccc;margin-bottom: 3em;padding-bottom:3em;"><img src="(#VALEUR{thumbnail_small})" alt=""></dd>]
+    </BOUCLE_vimeo>
+</dl>
+</B_vimeo>

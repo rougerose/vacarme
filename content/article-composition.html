@@ -1,6 +1,5 @@
 <BOUCLE_article(ARTICLES){id_article}>
-#SET{type,''} #SET{type-titre,''} #SET{id_numero,''} #SET{contexte,''} #SET{format_logo,''} #SET{taille_logo,''} #SET{integral,' '}
-[(#ENV{page}|=={mentions}|?{'',#SET{contexte,' '}})] 
+#SET{type,''} #SET{type-titre,''} #SET{id_numero,''} #SET{format_logo,''} #SET{taille_logo,''} #SET{integral,' '}
 
 [(#REM) Est-ce un article d'un numéro ? 
         On cherche tous les rubriques parentes de l'article. 
@@ -66,12 +65,11 @@
         [(#REM) schema/article : description
         ][<meta itemprop="description" content="(#DESCRIPTIF|sinon{#INTRODUCTION{300}}|textebrut)" />]
         [(#GET{format_logo}|match{paysage}|oui)
-        <div class="grid__item">
+            [(#COMPOSITION|non) #SET{taille_logo,L} ]
+            [(#COMPOSITION|match{numero}|oui) #SET{taille_logo,L} ]
+            [(#COMPOSITION|match{numero-logo_XL}|oui) #SET{taille_logo,XL} ]
+        <div class="grid__item[(#GET{taille_logo}|=={L}|oui) lap-and-up-three-quarters push--lap-and-up-one-quarter]">
                 <div class="media landmark">
-                    [(#COMPOSITION|non) #SET{taille_logo,L} ]
-                    [(#COMPOSITION|match{numero}|oui) #SET{taille_logo,L} ]
-                    [(#COMPOSITION|match{numero-logo_XL}|oui) #SET{taille_logo,XL} ]
-                    
                     [(#GET{taille_logo}|=={L}|oui)
                         [<img src="(#LOGO_ARTICLE|image_reduire{805,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="logo--horizontal media--full landmark">]
                     ]
@@ -155,7 +153,7 @@
             <aside class="related related--aside landmark">
                 <h2 class="hN intertitre-section intertitre-section--first intertitre-section--aside"><:local:read_also:></h2>
                 <ul class="list list--dash list--aside">
-                    <BOUCLE_articles_lies(ARTICLES){id_article IN #ARTICLES_LIES}{si #GET{contexte}|oui}>
+                    <BOUCLE_articles_lies(ARTICLES){id_article IN #ARTICLES_LIES}>
                     <li class="related__item">
                         <h3 class="hN"><a href="[(#URL_ARTICLE)]" class="spip_in" rel="next">#TITRE</a>[ <small class="soustitre">(#SOUSTITRE)</small>]</h3>
                     </li>

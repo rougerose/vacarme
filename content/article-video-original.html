@@ -1,0 +1,101 @@
+<BOUCLE_article(ARTICLES){id_article}>
+#SET{type,''} #SET{type-titre,''} #SET{id_numero,''} #SET{format_logo,''}
+
+<article class="self article" itemscope itemtype="http://schema.org/Article">
+    <div class="grid">
+        <div class="grid__item">
+            <div class="meta self-meta self-meta--head self-meta--head-std">
+                <p class="self-meta__item"><time pubdate datetime="[(#DATE|date_iso)]" itemprop="datePublished" content="[(#DATE|affdate{Y-m-d})]">[(#DATE|affdate)]</time></p>
+                <p class="self-meta__item rubrique">[<a href="[(#INFO_URL{rubrique,#ID_RUBRIQUE})]">(#INFO_TITRE{rubrique,#ID_RUBRIQUE})</a>]
+                </p>
+            </div><!-- /.self-meta--head-std -->
+        </div><!-- /.grid__item -->
+        <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
+            <header class="self__header landmark">
+                [<p class="#EDIT{surtitre} surtitre">(#SURTITRE)</p>]
+                <h1 itemprop="name" class="hN">
+                    <span class="#EDIT{titre} titre">#TITRE</span>[ <small class="#EDIT{soustitre} soustitre">(#SOUSTITRE)</small>]
+                </h1>
+                <BOUCLE_auteurs(AUTEURS){id_article}{0,1}{si #GET{contexte}}>
+                [(#INCLURE{fond=inclure/objets/authors-article,id_article})]
+                </BOUCLE_auteurs>
+            </header>
+        </div><!-- /.grid__item -->
+        <div class="grid__item">
+            <div class="videos landmark">
+                [(#REM) La première video ou bien la vidéo passée en variable ]
+                <div class="video">
+                    <BOUCLE_video(DOCUMENTS){id_article}{media=video}{par num titre, id_document}{0,1}>
+                    <BOUCLE_video_url(DOCUMENTS){id_article}{id_document=#ENV{video,#ID_DOCUMENT}}{media=video}>
+                        [(#INCLURE{fond=inclure/video-document,id_document})]
+                        [(#SET{id_document,#ID_DOCUMENT})]
+                    </BOUCLE_video_url>
+                        <p class="message message--erreur"><:message_erreur:></p>
+                    <//B_video_url>
+                    </BOUCLE_video>
+                        <p class="message message--erreur"><:message_erreur_video_aucune:></p>
+                    <//B_video>
+                    <BOUCLE_videos_carousel(DOCUMENTS){id_article}{media=video}{1,1}>
+                    <div class="grid">
+                        <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
+                            [(#INCLURE{fond=inclure/videos-carousel,id_article,id_document=#GET{id_document}})]
+                        </div><!-- /.grid__item -->
+                    </div><!-- /.grid -->
+                    </BOUCLE_videos_carousel>
+                </div><!-- /.video -->
+            </div><!-- /.videos -->
+        </div><!-- /.grid__item -->
+        <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
+            [(#REM) schema/article : description
+            ][<meta itemprop="description" content="(#DESCRIPTIF|sinon{#INTRODUCTION{300}}|textebrut)" />]
+            [<div class="#EDIT{chapo} self__chapo landmark surlignable">
+                (#CHAPO|image_reduire{500,0})
+            </div>]
+        </div><!-- /.grid__item -->
+        <div class="grid__item lap-and-up-three-quarters float--right">
+            <div class="self__body self__body--article">
+                [<div class="#EDIT{texte} self__texte landmark surlignable">
+                    (#TEXTE|image_reduire{500,0})
+                </div>]
+                [<section class="#EDIT{ps} self__ps landmark ps surlignable">
+                    <h2 class="hN intertitre-section intertitre-section--first"><:info_ps:></h2>
+                    (#PS|image_reduire{500,0})
+                </section>]
+                [<section class="self__notes landmark">
+                    <h2 class="hN intertitre-section intertitre-section--first"><:info_notes:></h2>
+                    <div class="self__notes__body">
+                        (#NOTES)
+                    </div>
+                </section>]
+                <BOUCLE_video_doublons(DOCUMENTS){id_article}{media=video}{doublons}> </BOUCLE_video_doublons>
+                [<section>
+                    (#INCLURE{fond=inclure/objets/documents,id_article,doublons})
+                </section>]
+                [(#PAGE|=={contact}|oui)
+                    [<div class="self__texte landmark surlignable">
+                        (#FORMULAIRE_ECRIRE_AUTEUR)
+                    </div>]
+                ]
+            </div>
+        </div><!-- /.grid__item -->
+        <div class="grid__item lap-and-up-one-quarter float--left">
+            <B_articles_lies>
+            <aside class="related related--aside landmark">
+                <h2 class="hN intertitre-section intertitre-section--first intertitre-section--aside"><:local:read_also:></h2>
+                <ul class="list list--dash list--aside">
+                    <BOUCLE_articles_lies(ARTICLES){id_article IN #ARTICLES_LIES}{si #GET{contexte}|oui}>
+                    <li class="related__item">
+                        <h3 class="hN"><a href="[(#URL_ARTICLE)]" class="spip_in" rel="next">#TITRE</a>[ <small class="soustitre">(#SOUSTITRE)</small>]</h3>
+                    </li>
+                    </BOUCLE_articles_lies>
+                <ul>
+            </aside>
+            </B_articles_lies>
+        </div><!-- /.grid__item -->
+    </div><!-- /.grid -->
+    [(#GET{contexte}|oui)
+    <footer class="self__footer">
+        [(#INCLURE{fond=inclure/article-footer,id_article})]
+    </footer>]
+</article>
+</BOUCLE_article>

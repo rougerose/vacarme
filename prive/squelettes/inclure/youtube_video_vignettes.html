@@ -1,0 +1,10 @@
+<p><a href="[(#SELF|parametre_url{video|id_document|service,''})]">Retour à la liste</a></p>
+#SET{eq,#ARRAY{0,Petite,1,Moyenne,2,Grande,3,Très grande,4,Taille maximum}}
+<B_youtube>
+<dl>
+    <BOUCLE_youtube(DATA){liste default,mqdefault,hqdefault,sddefault,maxresdefault}{inverse}>
+    [<dt>[(#GET{eq}|table_valeur{#CLE})]</dt>
+    <dd style="border-bottom:1px solid #ccc;margin-bottom: 3em;padding-bottom:3em;"><img src="https://i.ytimg.com/vi/(#ENV{video})/#VALEUR.jpg"></dd>]
+    </BOUCLE_youtube>
+</dl>
+</B_youtube>

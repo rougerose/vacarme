@@ -19,13 +19,17 @@
     height: 100%;
 }
 .video-info {
-    margin-bottom: 2em;
-    .hN {
-        margin-bottom: 0.5em;
-        @include font-size(18px);
-    }
-    .descriptif p {
-        @include font-size(14px,$line-height: false);
-        line-height: 1.3;
-    }
+    color: $couleur-gris-moyen;
+    @include media-query(lap-and-up) {
+        width: 60%;
+    }  
+}
+.video-info__titre {
+    margin-bottom: 0.5em;
+    @include font-size(18px);
+    font-style: italic;
+}
+.video-info__descriptif p {
+    @include font-size(14px,$line-height: false);
+    line-height: 1.3;
 }

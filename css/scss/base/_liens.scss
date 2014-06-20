@@ -5,11 +5,11 @@
 a {
     color: $text-color;
     text-decoration: none;
-    border-bottom: 1px dotted transparent;
+    // border-bottom: 1px dotted transparent;
     @include transition(color 0.35s ease-out, border 0.35s ease-out);
     &:hover {
-        color: #000;
-        border-color: #000;
+        color: $link-color;// #000;
+        // border-color: #000;
     }
     img {
         border: none;
