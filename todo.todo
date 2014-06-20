@@ -1,4 +1,7 @@
- ☐ Fusionner composition article-numero et article : la dissociation n'a pas vraiment d'utilité. Et un seul squelette permet de régler le problème de la couverture d'un numéro qui doit apparaitre sur un article d'un dossier "travail en cours" qui est aussi dans un chantier d'un numéro. 
+Videos:
+ ☐ articles en sélection : afficher titre en surimpression image + éventuellement carousel ?
+   
+Non classé:
  ☐ Important : couverture numéro dans article : ajouter boutons abonner/acheter.
  ☐ qualifier les auteurs : http://plugins.spip.net/roles_auteurs.html
  ☐ IMPORTANT : article http://www.vacarme.org/ecrire/?exec=article&id_article=2287 si on lui applique la composition par défaut, le logo est trop grand. Appliquer le même formatage du logo que celui de l'article par défaut de la revue. 
@@ -35,6 +38,7 @@
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ Fusionner composition article-numero et article : la dissociation n'a pas vraiment d'utilité. Et un seul squelette permet de régler le problème de la couverture d'un numéro qui doit apparaitre sur un article d'un dossier "travail en cours" qui est aussi dans un chantier d'un numéro. @done (14-06-20 12:36) @project(Videos)
  ✔ navigation : styles avec js désactivé @done (13-08-06 12:59)
  ✔ pied de page article : version plus simple (sans "à propos de l'article + version en ligne") pour les articles hors du secteur 115 ? @done (13-09-26 00:04)
  ✔ article = gérer les versions intégrales et les aperçus. !! IMPORTANT !! @done (13-10-20 10:49)

@@ -1,11 +1,13 @@
 <BOUCLE_article(ARTICLES){id_article}>
 #SET{type,''} #SET{type-titre,''} #SET{id_numero,''} #SET{format_logo,''}
+
 <article class="self article" itemscope itemtype="http://schema.org/Article">
     <div class="grid">
         <div class="grid__item">
             <div class="meta self-meta self-meta--head self-meta--head-std">
                 <p class="self-meta__item"><time pubdate datetime="[(#DATE|date_iso)]" itemprop="datePublished" content="[(#DATE|affdate{Y-m-d})]">[(#DATE|affdate)]</time></p>
-                <p class="self-meta__item rubrique">[<a href="[(#INFO_URL{rubrique,#ID_RUBRIQUE})]">(#INFO_TITRE{rubrique,#ID_RUBRIQUE})</a>]</p>
+                <p class="self-meta__item rubrique">[<a href="[(#INFO_URL{rubrique,#ID_RUBRIQUE})]">(#INFO_TITRE{rubrique,#ID_RUBRIQUE})</a>]
+                </p>
             </div><!-- /.self-meta--head-std -->
         </div><!-- /.grid__item -->
         <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
@@ -14,24 +16,34 @@
                 <h1 itemprop="name" class="hN">
                     <span class="#EDIT{titre} titre">#TITRE</span>[ <small class="#EDIT{soustitre} soustitre">(#SOUSTITRE)</small>]
                 </h1>
-                <BOUCLE_auteurs(AUTEURS){id_article}{0,1}{si #GET{type}|non}>
-                [(#INCLURE{fond=inclure/auteurs-article,id_article})]
+                <BOUCLE_auteurs(AUTEURS){id_article}{0,1}{si #GET{contexte}}>
+                [(#INCLURE{fond=inclure/objets/authors-article,id_article})]
                 </BOUCLE_auteurs>
             </header>
         </div><!-- /.grid__item -->
-        [(#REM) schema/article : description
-        ][<meta itemprop="description" content="(#DESCRIPTIF|sinon{#INTRODUCTION{300}}|textebrut)" />]
-
-        [(#REM) La première video en document associé ]
-        <B_video>
-        <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
-            <BOUCLE_video(DOCUMENTS){id_article}{media=video}{par num titre, id_document}{0,1}>
-            [<div class="video mb+">
-                    (#INCLURE{fond=inclure/video-document,id_document})
-            </div><!-- /.video -->]
-            </BOUCLE_video>
-            <p class="message message--erreur"><:message_erreur_video_aucune:></p>
-            <//B_video>
+        <div class="grid__item">
+            <div class="videos landmark">
+                [(#REM) La première video ou bien la vidéo passée en variable ]
+                <div class="video">
+                    <BOUCLE_video(DOCUMENTS){id_article}{media=video}{par num titre, id_document}{0,1}>
+                    <BOUCLE_video_url(DOCUMENTS){id_article}{id_document=#ENV{video,#ID_DOCUMENT}}{media=video}>
+                        [(#INCLURE{fond=inclure/video-document,id_document})]
+                        [(#SET{id_document,#ID_DOCUMENT})]
+                    </BOUCLE_video_url>
+                        <p class="message message--erreur"><:message_erreur:></p>
+                    <//B_video_url>
+                    </BOUCLE_video>
+                        <p class="message message--erreur"><:message_erreur_video_aucune:></p>
+                    <//B_video>
+                    <BOUCLE_videos_carousel(DOCUMENTS){id_article}{media=video}{1,1}>
+                    <div class="grid">
+                        <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
+                            [(#INCLURE{fond=inclure/videos-carousel,id_article,id_document=#GET{id_document}})]
+                        </div><!-- /.grid__item -->
+                    </div><!-- /.grid -->
+                    </BOUCLE_videos_carousel>
+                </div><!-- /.video -->
+            </div><!-- /.videos -->
         </div><!-- /.grid__item -->
         <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
             [(#REM) schema/article : description
@@ -81,9 +93,9 @@
             </B_articles_lies>
         </div><!-- /.grid__item -->
     </div><!-- /.grid -->
-    [(#ENV{page}|=={mentions}|non)
+    [(#GET{contexte}|oui)
     <footer class="self__footer">
-        [(#INCLURE{fond=inclure/article-footer,id_article,id_numero=#GET{id_numero}})]
+        [(#INCLURE{fond=inclure/article-footer,id_article})]
     </footer>]
 </article>
 </BOUCLE_article>

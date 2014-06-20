@@ -1,0 +1,31 @@
+<BOUCLE_article_video(ARTICLES){id_article}>
+    [(#REM) vidéos : navigation précédent/suivant. Si l'article est dans une grappe dont le titre contient le mot Série ]
+    <BOUCLE_grappe_article(GRAPPES){id_article}{titre LIKE %serie%}{0,1}>
+        <nav class="nav-prevnext nav-prevnext--logos">
+            <BOUCLE_precedent(ARTICLES){id_grappe}{precedent}>
+            <div class="nav-prevnext__item nav-prevnext__item--prev nav-prevnext__item--logos">
+                <a href="#URL_ARTICLE" rel="prev" data-sequence-title="[(#TITRE|attribut_html)]">
+                    [<img src="(#LOGO_ARTICLE|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
+                    <span class="nav-prevnext__item-label"><:info_precedent:></span>
+                </a>
+            </div>
+            </BOUCLE_precedent>
+            <div class="nav-prevnext__item nav-prevnext__item--prev nav-prevnext__item--logos">
+                <span class="nav-prevnext__item-label is-disabled"><:info_precedent:></span>
+            </div>
+            <//B_precedent>
+            <BOUCLE_suivant(ARTICLES){id_grappe}{suivant}>
+            <div class="nav-prevnext__item nav-prevnext__item--next nav-prevnext__item--logos">
+                <a href="#URL_ARTICLE" rel="next" data-sequence-title="[(#TITRE|attribut_html)]">
+                    [<img src="(#LOGO_ARTICLE|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
+                    <span class="nav-prevnext__item-label"><:info_suivant:></span>
+                </a>
+            </div>
+            </BOUCLE_suivant>
+            <div class="nav-prevnext__item nav-prevnext__item--next nav-prevnext__item--logos">
+                <span class="nav-prevnext__item-label is-disabled"><:info_suivant:></span>
+            </div>
+            <//B_suivant>
+        </nav>
+    </BOUCLE_grappe_article>
+</BOUCLE_article_video>

@@ -9,16 +9,20 @@
     // complément de /ui/resume.scss.
     // TODO : fusionner les deux fichiers. 
     .resume {}
-    .resume__lien {
-        display: block;
-        border: 0;
-        background-color: transparent;
-        outline: 3px dotted transparent;
-        @include transition(background 0.3s ease,outline 0.3s ease);
-        &:hover {
-            background-color: rgba(#ddd,0.3);
-            outline: 3px dotted rgba(#ddd,0.3);
-        }
+    .resume__lien { 
+        // --------------------------------------------------------------------
+        // Si le hover des liens est en couleur, 
+        // alors ce style n'est plus nécessaire !!
+        // --------------------------------------------------------------------
+        // display: block;
+        // border: 0;
+        // background-color: transparent;
+        // outline: 3px dotted transparent;
+        // @include transition(background 0.3s ease,outline 0.3s ease);
+        // &:hover {
+            // background-color: rgba(#ddd,0.3);
+            // outline: 3px dotted rgba(#ddd,0.3);
+        // }
     }
     .resume__titre {
         @include font-size(18px,$line-height:false);
