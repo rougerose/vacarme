@@ -1,0 +1,29 @@
+<B_documents>
+[<div class="pagination">(#PAGINATION{prive})</div>]
+<dl>
+    <BOUCLE_documents(DOCUMENTS){media=video}{!par date}{pagination 10}>
+    [<dt[ id="#video(#ID_DOCUMENT)"]><h3>(#TITRE|sinon{video #ID_DOCUMENT})</h3></dt>]
+    <dd>#SET{service,''}
+        [(#EXTENSION|match{vimeo}|oui)
+            [(#SET{service,vimeo})]
+        ]
+        [(#EXTENSION|match{youtu}|oui)
+            [(#SET{service,youtube})]
+        ]
+        [(#EXTENSION|match{daily}|oui)
+            [(#SET{service,dailymotion})]
+        ]
+        [<p><a href="[(#SELF|parametre_url{id_document,#ID_DOCUMENT}|parametre_url{video,#FICHIER|basename}|parametre_url{service,#GET{service}})]">Voir les vignettes fournies par (#GET{service}).</a></p>]
+    </dd>
+    <dd style="border-bottom:1px solid #ccc;margin-bottom: 3em;padding-bottom:3em;">
+        [(#LOGO_DOCUMENT{vignette}|oui)
+        [(#LOGO_DOCUMENT|image_reduire{100,0})]
+        <p>Taille (l. * h.) : [(#LOGO_DOCUMENT{vignette}|largeur) pixels][ * (#LOGO_DOCUMENT{vignette}|hauteur) pixels]</p>
+        ]
+        [(#LOGO_DOCUMENT{vignette}|non)
+        <p>Pas de vignette.</p>
+        ]
+    </dd>
+    </BOUCLE_documents>
+</dl>
+</B_documents>

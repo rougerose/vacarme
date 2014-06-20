@@ -12,5 +12,6 @@
     <necessite nom="polyhier" compatibilite="[2.0.8;[" />
     <utilise nom="videos" compatibilite="[0.10.9;[" />
     <utilise nom="medias" compatibilite="[2.7.45;[" />
+    <menu nom="vacarme" titre="Vidéos vignettes auto" parent="menu_squelette" icone="images/videos-16.png" action="videos_vignette" />
     <chemin path=""/>
 </paquet>

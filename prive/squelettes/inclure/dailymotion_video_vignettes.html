@@ -1,0 +1,12 @@
+<p><a href="[(#SELF|parametre_url{video|id_document|service,''})]">Retour à la liste</a></p>
+#SET{eq,#ARRAY{0,Petite,1,Moyenne,2,Grande,3,Très grande}}
+<B_daily>
+<dl>
+    <BOUCLE_daily(DATA){liste thumbnail_240_url,thumbnail_360_url,thumbnail_480_url,thumbnail_720_url}{inverse}>
+    <dt>[(#GET{eq}|table_valeur{#CLE})]</dt>
+    <dd style="border-bottom:1px solid #ccc;margin-bottom: 3em;padding-bottom:3em;">
+    <BOUCLE_url(DATA){source json,https://api.dailymotion.com/video/#ENV{video}\?fields=#VALEUR}><img src="#VALEUR"></BOUCLE_url>
+    </dd>
+    </BOUCLE_daily>
+</dl>
+</B_daily>

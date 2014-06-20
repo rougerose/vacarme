@@ -108,6 +108,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'table_of_content'                            => "Sommaire",
     'tag_plural'                                  => 'Mots-clés',
     'tag_singular'                                => 'Mot-clé',
+    'titre_admin_vignettes' => "Vidéos : vignettes auto",
     
     // V
     'version_online'                              => "Version en ligne",
