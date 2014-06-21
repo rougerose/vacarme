@@ -1,6 +1,12 @@
 Videos:
  ☐ articles en sélection : afficher titre en surimpression image + éventuellement carousel ?
-   
+
+Dossier:
+ ☐ article > sommaire du dossier : afficher le logo du dossier en marge gauche comme pour la couverture du numéro ?Ou alors en image de fond + dégradé derrière le sommaire ?
+
+ Article:
+  ☐ vérifier l'affichage des documents joints.
+
 Non classé:
  ☐ Important : couverture numéro dans article : ajouter boutons abonner/acheter.
  ☐ qualifier les auteurs : http://plugins.spip.net/roles_auteurs.html
