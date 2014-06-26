@@ -1,0 +1,79 @@
+/*  ==========================================================================
+    .resume-article
+    ========================================================================== */
+    
+    /*
+    *   .resume-article
+    *   .resume-article--texte
+    *       .resume-article__header
+    *           .resume-article__titre
+    *           .resume-article__auteurs
+    *       .resume-article__descriptif
+    *       .resume-article__date
+    *   
+    *   modificateurs
+    *   -------------------------------------
+    *   .resume-article__titre--selection
+    *   .resume-article__auteurs--selection
+    *   .resume-article__descriptif--selection
+    *   .resume-article--is.postdate
+    *   
+    *
+    *   @media-query
+    *   -------------------------------------
+    */
+
+    .resume-article {position: relative;}
+        .resume-article__header {}
+            .resume-article__titre {
+                @include font-size(19px);
+                a {
+                    display: inline-block;
+                    color: #000;
+                    &:hover {color:$couleur-lien;}
+                }
+            }
+            .resume-article__auteurs {
+                @include font-size(16px,$line-height: false);
+                color: $couleur-gris-bleu;
+            }
+        .resume-article__descriptif {
+            padding-right: 1.5em;
+            p {
+                @include font-size(15px,$line-height:false);
+                line-height: 1.313;
+            }
+        }
+        .resume-article__date {
+            font-family: $font-HLC;
+            color: $couleur-gris-bleu;
+            margin-right: 0.15em;
+        }
+
+/*  modificateurs
+    ========================================================================== */
+    .resume-article__titre--selection {@include font-size(24px);}
+    .resume-article__auteurs--selection {@include font-size(18px);}
+    .resume-article__descriptif--selection {
+        p {@include font-size(18px,$line-height: true);}
+    }
+
+/*  états
+    ========================================================================== */
+    .resume-article--is-postdate {
+        .hN,
+        p {color: $couleur-gris-moyen;}
+        &:hover {
+            .message--warning-texte.postdate-message {
+                background-color: $couleur-warning;
+                color: #fff;
+            }
+        }
+    }
+
+/*  media-query
+    ========================================================================== */
+    @include media-query(palm) {
+        .resume-article {margin-bottom: 2em;}
+        .resume-article--texte {border-bottom: 1px dotted $couleur-gris-clair;}
+    }

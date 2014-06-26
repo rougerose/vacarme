@@ -20,7 +20,7 @@
             <BOUCLE_premier_objet(spip_grappes_liens){id_grappe}{par rang}{0,1}>
             <div class="grid__item lap-and-up-one-quarter">
                 [(#OBJET|=={article}|?{
-                    [(#INCLURE{fond=resume/article,id_article=#ID_OBJET})],
+                    [(#INCLURE{fond=resume/article-texte,id_article=#ID_OBJET,afficher_auteur=oui})],
                     [(#INCLURE{fond=inclure/resumes/rubrique,id_rubrique=#ID_OBJET,type_resume=text})]
                 })]
             </div><!-- /.grid__item -->
@@ -58,9 +58,7 @@
         <div class="grid">
             <BOUCLE_actus(ARTICLES){id_grappe}{par rang}>
             <div class="grid__item lap-and-up-one-quarter">
-                [(#INCLURE{fond=inclure/resumes/article,
-                    id_article,
-                    afficher_auteur=non})]
+                [(#INCLURE{fond=resume/article-texte,id_article})]
             </div><!-- /.grid__item -->
             </BOUCLE_actus>
         </div><!-- /.grid -->

@@ -17,12 +17,12 @@
             <div class="grid">
                 <div class="grid__item lap-and-up-one-half">[(#REM) article présentation Vacarme ]
                     <BOUCLE_qsn(ARTICLES){id_rubrique}{id_article=295}{doublons}>
-                    [(#INCLURE{fond=inclure/resumes/article,id_article})]
+                    [(#INCLURE{fond=resume/article-texte,id_article})]
                     </BOUCLE_qsn>
                 </div><!-- /.grid__item -->
                 <BOUCLE_comite(ARTICLES){id_rubrique}{id_article=48}{doublons}>
                 <div class="grid__item lap-and-up-one-quarter">[(#REM) article CR ]
-                    [(#INCLURE{fond=inclure/resumes/article,id_article})]
+                    [(#INCLURE{fond=resume/article-texte,id_article})]
                 </div><!-- /.grid__item -->
                 </BOUCLE_comite>
                 <div class="grid__item lap-and-up-one-quarter">[(#REM) contacts ]
@@ -35,7 +35,7 @@
                 </div><!-- /.grid__item -->
                 <BOUCLE_manifestes(ARTICLES){id_rubrique}{doublons}{par num titre, titre}>
                 <div class="grid__item lap-and-up-one-quarter">[(#REM) articles manifestes et suivants ]
-                    [(#INCLURE{fond=inclure/resumes/article,id_article})]
+                    [(#INCLURE{fond=resume/article-texte,id_article})]
                 </div><!-- /.grid__item -->
                 </BOUCLE_manifestes>
             </div><!-- /.grid -->

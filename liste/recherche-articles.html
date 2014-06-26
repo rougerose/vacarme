@@ -6,7 +6,7 @@
         <ul class="list">
             <BOUCLE_articles(ARTICLES){id_article IN #ENV{selection}}{pagination 20}>
             <li class="grid__item lap-and-up-one-third">
-                #INCLURE{fond=inclure/resumes/article,id_article}
+                #INCLURE{fond=resume/article-texte,id_article}
             </li><!-- /.grid__item -->
             </BOUCLE_articles>
         </ul>
