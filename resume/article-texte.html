@@ -2,17 +2,26 @@
 
     Résumé d'un article, version texte, sans image.
     
-    =====
+    **********************************************************
+    Variables environnement
+    **********************************************************
+    article_selection   oui
+        Pour la composition rubrique-dossier. Les classes
+        modifiées sont : resume-article__titre--selection, 
+        resume-article__auteurs--selection, 
+        resume-article__descriptif--selection.
 
-    Variantes :
-    - article_selection 
-        Les classes modifiées sont : resume-article__titre--selection, 
-        resume-article__auteurs--selection, resume-article__descriptif--selection
-    - article post-daté
-        Pour la composition rubrique-dossier, l'article peut-être post-daté.
-        Calcul de cette possibilité à partir de la date et valeur de la variable 
-        article_postdate pour afficher le lien de l'article et de la date à 
-        laquelle l'article sera accessible.
+    afficher_auteur     oui
+
+
+    **********************************************************
+    Variables calculées
+    **********************************************************
+    article_postdate
+        Pour la composition rubrique-dossier. Si l'article
+        est post-daté, alors le lien n'est pas disponible et
+        une information relative à la date de publication
+        effective est affichée. 
 
 ]
 <BOUCLE_resume_article(ARTICLES){id_article}{statut?}>
