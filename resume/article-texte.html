@@ -1,0 +1,47 @@
+[(#REM)
+
+    Résumé d'un article, version texte, sans image.
+    
+    **********************************************************
+    Variables environnement
+    **********************************************************
+    article_selection   oui|''
+        Pour la composition rubrique-dossier. Les classes
+        modifiées sont : resume-article__titre--selection, 
+        resume-article__auteurs--selection, 
+        resume-article__descriptif--selection.
+
+    afficher_auteur     oui|''
+
+
+    **********************************************************
+    Variables calculées
+    **********************************************************
+    article_postdate
+        Pour la composition rubrique-dossier. Si l'article
+        est post-daté, alors le lien n'est pas disponible et
+        une information relative à la date de publication
+        effective est affichée. 
+
+]
+<BOUCLE_resume_article(ARTICLES){id_article}{statut?}>
+[(#DATE|>{#ENV{date}}|?{#SET{article_postdate,' '},#SET{article_postdate,''}})]
+
+    <article class="resume-article resume-article--texte[ (#GET{article_postdate}|oui)resume-article--is-postdate]">
+        <header class="resume-article__header">
+            <h1 class="hN resume-article__titre[ (#ENV{article_selection}|oui) resume-article__titre--selection]">[(#GET{article_postdate}|non)<a href="#URL_ARTICLE">]#TITRE[(#GET{article_postdate}|non)</a>]</h1>
+            [(#ENV{afficher_auteur}|non)
+                [<p class="resume-article__auteurs[ (#ENV{article_selection}|oui) resume-article__auteurs--selection] auteurs"><:par_auteur:>(#MODELE{auteurs,id_article=#ENV{id_article},contexte=resume})</p>]
+            ]
+        </header>
+        <div class="resume-article__descriptif[ (#ENV{article_selection}|oui) resume-article__descriptif--selection]">
+            [(#DESCRIPTIF|sinon{#INTRODUCTION|couper{100}|wrap{<p>}})]
+            <p><time pubdate datetime="[(#DATE|date_iso)]" class="resume-article__date">[(#DATE|affdate_court)]</time>[(#GET{article_postdate}|non)<a href="#URL_ARTICLE" class="suite-lien">Lire la suite <em>&#8594;</em></a>]</p>
+        </div>
+        [(#GET{article_postdate}|oui)
+            <div class="overlay overlay-degrade overlay--article-postdate">
+                <div class="message message--overlay message--S message--warning-texte postdate-message">[(#VAL{<:local:message_article_postdate:>}|concat{[ (#DATE|affdate_court).]})]</div>
+            </div>
+        ]
+    </article>
+</BOUCLE_resume_article>

@@ -5215,10 +5215,6 @@ hr.spip {
   margin-left: 24em; }
 
 /* message */
-/* line 49, ui/typo.scss */
-.message {
-  padding: 1em; }
-
 /* line 50, ui/typo.scss */
 .message__important {
   font-size: 18px;
@@ -5256,43 +5252,76 @@ a {
     color: #000;
     border-bottom-style: solid; }
 
+/* .suite-lien
+   ========================================================================== */
+/* line 30, scss/base/_liens.scss */
+.suite-lien {
+  position: relative;
+  border-bottom: 1px dotted #8888a7;
+  margin-left: 0.5em;
+  font-style: italic;
+  color: #000; }
+  /* line 36, scss/base/_liens.scss */
+  .suite-lien em {
+    font-style: normal;
+    -webkit-transition: all 0.35s ease-out;
+    -moz-transition: all 0.35s ease-out;
+    transition: all 0.35s ease-out; }
+  /* line 40, scss/base/_liens.scss */
+  .suite-lien:before {
+    position: absolute;
+    top: 0;
+    left: -0.5em;
+    width: 1px;
+    height: 100%;
+    content: '';
+    border-left: 1px solid #ccccda; }
+  /* line 49, scss/base/_liens.scss */
+  .suite-lien:hover {
+    color: #e88e0e;
+    border-bottom: 1px solid #e88e0e; }
+    /* line 52, scss/base/_liens.scss */
+    .suite-lien:hover em {
+      padding-left: 0.5em;
+      color: #e88e0e; }
+
 /*==========  more  ==========*/
-/* line 29, scss/base/_liens.scss */
+/* line 60, scss/base/_liens.scss */
 .more {
   font-style: italic; }
-  /* line 31, scss/base/_liens.scss */
+  /* line 62, scss/base/_liens.scss */
   .more em {
     font-style: normal;
     font-family: serif;
     -webkit-transition: all 0.35s ease-out;
     -moz-transition: all 0.35s ease-out;
     transition: all 0.35s ease-out; }
-  /* line 36, scss/base/_liens.scss */
+  /* line 67, scss/base/_liens.scss */
   .more a {
     border-bottom: 1px dotted #7b6d88;
     color: #7b6d88;
     font-weight: normal; }
-    /* line 40, scss/base/_liens.scss */
+    /* line 71, scss/base/_liens.scss */
     .more a:hover {
       color: #000;
       border-bottom: 1px solid #000; }
-      /* line 43, scss/base/_liens.scss */
+      /* line 74, scss/base/_liens.scss */
       .more a:hover em {
         color: #000;
         padding-left: 1em; }
 
-/* line 51, scss/base/_liens.scss */
+/* line 82, scss/base/_liens.scss */
 .more--read em {
   margin-left: .5em; }
 
-/* line 55, scss/base/_liens.scss */
+/* line 86, scss/base/_liens.scss */
 .more--inline {
   margin-left: .5em;
   display: inline-block;
   font-size: 16px;
   font-size: 1rem; }
 
-/* line 60, scss/base/_liens.scss */
+/* line 91, scss/base/_liens.scss */
 .more-arrow--big {
   display: block;
   font-size: 80px;
@@ -5303,13 +5332,13 @@ a {
   -webkit-transition: all 0.35s ease-out;
   -moz-transition: all 0.35s ease-out;
   transition: all 0.35s ease-out; }
-  /* line 67, scss/base/_liens.scss */
+  /* line 98, scss/base/_liens.scss */
   .more-arrow--big:hover {
     color: #000;
     margin-left: 20%; }
 
 /*==========  back-top-page  ==========*/
-/* line 73, scss/base/_liens.scss */
+/* line 104, scss/base/_liens.scss */
 .back-top-page {
   position: absolute;
   bottom: 1.7em;
@@ -5320,25 +5349,25 @@ a {
   font-size: 0.75rem;
   line-height: 2;
   color: #b2afac; }
-  /* line 81, scss/base/_liens.scss */
+  /* line 112, scss/base/_liens.scss */
   .back-top-page:hover {
     color: #888; }
   @media only screen and (max-width: 480px) {
-    /* line 73, scss/base/_liens.scss */
+    /* line 104, scss/base/_liens.scss */
     .back-top-page {
       right: 0; } }
 
 /*==========  link-anim  ==========*/
-/* line 89, scss/base/_liens.scss */
+/* line 120, scss/base/_liens.scss */
 .link-anim {
   -webkit-transition: padding 0.35s ease-out;
   -moz-transition: padding 0.35s ease-out;
   transition: padding 0.35s ease-out; }
-  /* line 91, scss/base/_liens.scss */
+  /* line 122, scss/base/_liens.scss */
   .link-anim:hover {
     padding-left: 1em; }
 
-/* line 96, scss/base/_liens.scss */
+/* line 127, scss/base/_liens.scss */
 .link-anim--rev:hover {
   padding-left: 0;
   padding-right: 1em; }
@@ -5346,7 +5375,7 @@ a {
 /*  ==========================================================================
     afficher
     ========================================================================== */
-/* line 106, scss/base/_liens.scss */
+/* line 137, scss/base/_liens.scss */
 .afficher {
   font-family: "HelveticaNeueLTStdCnBold", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 38px;
@@ -5359,7 +5388,7 @@ a {
   width: 1em;
   display: inline-block; }
 
-/* line 119, scss/base/_liens.scss */
+/* line 150, scss/base/_liens.scss */
 .lien-regarder {
   border: 1px solid #fff;
   padding: .2em;
@@ -5368,7 +5397,7 @@ a {
   font-size: 0.8125rem;
   text-transform: uppercase;
   color: #fff; }
-  /* line 126, scss/base/_liens.scss */
+  /* line 157, scss/base/_liens.scss */
   .lien-regarder:hover {
     border-color: #fff;
     background-color: #fff;
@@ -5470,22 +5499,6 @@ input[type="search"] {
 /* line 8, scss/base/_helpers.scss */
 .valign--bottom {
   vertical-align: bottom; }
-
-/* messages
-   ========================================================================== */
-/* line 12, scss/base/_helpers.scss */
-.message {
-  padding: .8em .8em .5em;
-  font-size: 20px;
-  font-size: 1.25rem;
-  line-height: 1.2;
-  text-align: center;
-  border-radius: 5px; }
-
-/* line 18, scss/base/_helpers.scss */
-.message--erreur {
-  background-color: #e75d32;
-  color: #fff; }
 
 /* ==========================================================================
    marges
@@ -6390,15 +6403,10 @@ html {
 /* 
    is-postdate
    ========================================================================== */
-/* line 142, scss/modules/_resume.scss */
-.resume-article--is-postdate .hN,
-.resume-article--is-postdate p {
-  color: #999; }
-
 /* 
    .postdate-info-overlay
    ========================================================================== */
-/* line 150, scss/modules/_resume.scss */
+/* line 147, scss/modules/_resume.scss */
 .postdate-info-overlay {
   position: absolute;
   left: 0;
@@ -6417,45 +6425,45 @@ html {
   -webkit-transition: background 0.3s ease, color 0.3s ease;
   -moz-transition: background 0.3s ease, color 0.3s ease;
   transition: background 0.3s ease, color 0.3s ease; }
-  /* line 164, scss/modules/_resume.scss */
+  /* line 161, scss/modules/_resume.scss */
   .resume-article--court .postdate-info-overlay {
     bottom: -1.5em;
     left: auto; }
-  /* line 168, scss/modules/_resume.scss */
+  /* line 165, scss/modules/_resume.scss */
   .resume:hover .postdate-info-overlay {
     background-color: #b22222;
     color: #fff; }
 
 /*  .resume-video
     ========================================================================== */
-/* line 177, scss/modules/_resume.scss */
+/* line 174, scss/modules/_resume.scss */
 .resume-video {
   background-color: #7c88d3;
   text-align: center; }
 
-/* line 181, scss/modules/_resume.scss */
+/* line 178, scss/modules/_resume.scss */
 .resume-video--is-active {
   opacity: 0.5; }
 
 @media only screen and (max-width: 480px) {
-  /* line 184, scss/modules/_resume.scss */
+  /* line 181, scss/modules/_resume.scss */
   .resume-video--small {
     min-height: 180px; } }
-/* line 188, scss/modules/_resume.scss */
+/* line 185, scss/modules/_resume.scss */
 .resume-video--small .hN {
   font-size: 14px;
   font-size: 0.875rem;
   line-height: 1;
   color: #000; }
   @media only screen and (min-width: 481px) {
-    /* line 188, scss/modules/_resume.scss */
+    /* line 185, scss/modules/_resume.scss */
     .resume-video--small .hN {
       padding: 0.5em;
       margin-bottom: 0.5em;
       font-size: 16px;
       font-size: 1rem;
       line-height: 1.2; } }
-/* line 200, scss/modules/_resume.scss */
+/* line 197, scss/modules/_resume.scss */
 .resume-video--small .resume__body p {
   font-size: 12px;
   font-size: 0.75rem;
@@ -6465,41 +6473,196 @@ html {
 /*  resume-semainier
     ========================================================================== */
 @media only screen and (min-width: 481px) {
-  /* line 211, scss/modules/_resume.scss */
+  /* line 208, scss/modules/_resume.scss */
   .resume-semainier header {
     border-top: 1px solid #000;
     padding-top: 1.5em; } }
-/* line 216, scss/modules/_resume.scss */
+/* line 213, scss/modules/_resume.scss */
 .resume-semainier .resume__titre {
   font-size: 24px;
   font-size: 1.5rem;
   margin-bottom: .5em; }
-/* line 220, scss/modules/_resume.scss */
+/* line 217, scss/modules/_resume.scss */
 .resume-semainier .resume__titre--jour {
   font-size: 18px;
   font-size: 1.125rem;
   line-height: 1.33333; }
-  /* line 222, scss/modules/_resume.scss */
+  /* line 219, scss/modules/_resume.scss */
   .resume-semainier .resume__titre--jour a {
     color: #999999; }
-/* line 226, scss/modules/_resume.scss */
+/* line 223, scss/modules/_resume.scss */
 .resume-semainier .resume__soustitre {
   font-size: 20px;
   font-size: 1.25rem; }
 
-/* line 230, scss/modules/_resume.scss */
+/* line 227, scss/modules/_resume.scss */
 .resume-semainier__img {
   margin-bottom: 2em; }
-  /* line 232, scss/modules/_resume.scss */
+  /* line 229, scss/modules/_resume.scss */
   .resume-semainier__img a {
     border: none; }
 
-/* line 237, scss/modules/_resume.scss */
+/* line 234, scss/modules/_resume.scss */
 .timeline__item--pair .resume-semainier__body .resume__titre--jour {
   margin-right: 20%; }
-/* line 240, scss/modules/_resume.scss */
+/* line 237, scss/modules/_resume.scss */
 .timeline__item--impair .resume-semainier__body .resume__titre--jour {
   margin-left: 20%; }
+
+/*  ==========================================================================
+    .resume-article
+    ========================================================================== */
+/*
+*   .resume-article
+*       .resume-article__logo
+*       .resume-article__header
+*           .resume-article__titre
+*           .resume-article__auteurs
+*       .resume-article__descriptif
+*       .resume-article__date
+*       .resume-article__numero
+*   
+*   modificateurs
+*   -------------------------------------
+*   .resume-article--texte 
+*   
+*   .resume-article__titre--selection
+*   .resume-article__auteurs--selection
+*   .resume-article__descriptif--selection
+*
+*   états
+*   -------------------------------------
+*   .resume-article--is.postdate
+*   
+*
+*/
+/* line 30, scss/modules/_resume.article.scss */
+.resume-article {
+  position: relative;
+  margin-bottom: 3.5em; }
+  @media only screen and (max-width: 480px) {
+    /* line 30, scss/modules/_resume.article.scss */
+    .resume-article {
+      margin-bottom: 2em; } }
+
+/* line 37, scss/modules/_resume.article.scss */
+.resume-article__logo {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 310px;
+  margin-bottom: 1em; }
+  @media only screen and (min-width: 480px) and (max-width: 800px) {
+    /* line 37, scss/modules/_resume.article.scss */
+    .resume-article__logo {
+      height: 210px; } }
+  /* line 46, scss/modules/_resume.article.scss */
+  .resume-article__logo a {
+    display: block; }
+
+/* line 49, scss/modules/_resume.article.scss */
+.resume-article__titre {
+  font-size: 19px;
+  font-size: 1.1875rem;
+  line-height: 1.26316; }
+  /* line 51, scss/modules/_resume.article.scss */
+  .resume-article__titre a {
+    display: inline-block;
+    color: #000; }
+    /* line 54, scss/modules/_resume.article.scss */
+    .resume-article__titre a:hover {
+      color: #e88e0e; }
+    /* line 55, scss/modules/_resume.article.scss */
+    .resume-article__titre a:first-letter {
+      text-transform: uppercase; }
+  /* line 57, scss/modules/_resume.article.scss */
+  .resume-article__titre:first-letter {
+    text-transform: uppercase; }
+
+/* line 59, scss/modules/_resume.article.scss */
+.resume-article__auteurs {
+  font-size: 16px;
+  font-size: 1rem;
+  color: #8888a7; }
+
+/* line 63, scss/modules/_resume.article.scss */
+.resume-article__descriptif {
+  padding-right: 1.5em; }
+  /* line 65, scss/modules/_resume.article.scss */
+  .resume-article__descriptif p {
+    font-size: 15px;
+    font-size: 0.9375rem;
+    line-height: 1.313; }
+
+/* line 70, scss/modules/_resume.article.scss */
+.resume-article__date {
+  font-family: "HelveticaNeueLTStdLtCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #8888a7;
+  margin-right: 0.15em; }
+
+/* line 75, scss/modules/_resume.article.scss */
+.resume-article__numero {
+  position: absolute;
+  bottom: 0.5em;
+  left: 5px;
+  color: #fff; }
+
+/* line 81, scss/modules/_resume.article.scss */
+.resume-article__numero-titre {
+  margin-bottom: 0;
+  font-family: "HelveticaNeueLTStdCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5; }
+  /* line 86, scss/modules/_resume.article.scss */
+  .resume-article__numero-titre .soustitre {
+    font-family: "HelveticaNeueLTStdLtCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: inline;
+    font-style: normal;
+    font-size: 100%; }
+
+/*  modificateurs
+    ========================================================================== */
+/*
+ * .resume-article--texte
+ */
+@media only screen and (max-width: 480px) {
+  /* line 99, scss/modules/_resume.article.scss */
+  .resume-article--texte {
+    border-bottom: 1px dotted #ccccda; } }
+
+/*
+ * .resume-article__XX--selection
+ */
+/* line 108, scss/modules/_resume.article.scss */
+.resume-article__titre--selection {
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1; }
+
+/* line 109, scss/modules/_resume.article.scss */
+.resume-article__auteurs--selection {
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.33333; }
+
+/* line 111, scss/modules/_resume.article.scss */
+.resume-article__descriptif--selection p {
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.33333; }
+
+/*  états
+    ========================================================================== */
+/* line 117, scss/modules/_resume.article.scss */
+.resume-article--is-postdate .hN,
+.resume-article--is-postdate p {
+  color: #999999; }
+/* line 120, scss/modules/_resume.article.scss */
+.resume-article--is-postdate:hover .message--warning-texte.postdate-message {
+  background-color: #ffaa00;
+  color: #fff; }
 
 /*  ==========================================================================
     .self
@@ -6652,31 +6815,60 @@ html {
 /*  ==========================================================================
     overlay
     ========================================================================== */
+/*
+ *  .overlay
+ *  
+ *  modificateurs
+ *  -------------------------------------
+ *  .overlay--article-postdate   
+ *  .overlay--article-archive
+ *
+ *
+ */
+/* line 16, scss/modules/_overlay.scss */
+.overlay {
+  position: absolute;
+  width: 100%; }
+
+/* line 22, scss/modules/_overlay.scss */
+.overlay--article-postdate {
+  top: 50%;
+  bottom: 0; }
+  @media only screen and (max-width: 480px) {
+    /* line 22, scss/modules/_overlay.scss */
+    .overlay--article-postdate {
+      bottom: 1.5em; } }
+
+/* line 29, scss/modules/_overlay.scss */
+.overlay--article-archive {
+  background-color: transparent;
+  background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.3));
+  background-image: linear-gradient(to bottom,transparent, rgba(0, 0, 0, 0.3));
+  bottom: 0;
+  top: 50%; }
+
 /*  overlay-degrade
     ========================================================================== */
-/* line 7, scss/modules/_overlay.scss */
+/* line 40, scss/modules/_overlay.scss */
 .overlay-degrade {
-  position: absolute;
-  width: 100%;
-  height: 100px;
   background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0) 0, white 80%, white 100%);
   background-image: linear-gradient(rgba(255, 255, 255, 0) 0, white 80%, white 100%); }
 
 /*  overlay-frame
     ========================================================================== */
-/* line 17, scss/modules/_overlay.scss */
+/* line 53, scss/modules/_overlay.scss */
 .overlay-frame {
   position: relative; }
   @media only screen and (min-width: 481px) {
-    /* line 17, scss/modules/_overlay.scss */
+    /* line 53, scss/modules/_overlay.scss */
     .overlay-frame {
       height: 140px;
       overflow: hidden; } }
-  /* line 25, scss/modules/_overlay.scss */
+  /* line 61, scss/modules/_overlay.scss */
   .overlay-frame > img {
     display: block; }
     @media only screen and (min-width: 481px) {
-      /* line 25, scss/modules/_overlay.scss */
+      /* line 61, scss/modules/_overlay.scss */
       .overlay-frame > img {
         max-width: initial;
         position: relative;
@@ -6684,11 +6876,11 @@ html {
         margin-left: -200%;
         display: inline; } }
 
-/* line 36, scss/modules/_overlay.scss */
+/* line 72, scss/modules/_overlay.scss */
 .overlay-frame__hover {
   padding: 0.5em; }
   @media only screen and (min-width: 481px) {
-    /* line 36, scss/modules/_overlay.scss */
+    /* line 72, scss/modules/_overlay.scss */
     .overlay-frame__hover {
       position: absolute;
       top: 0;
@@ -6700,17 +6892,17 @@ html {
     http://tympanus.net/Tutorials/CaptionHoverEffects/index3.html
     ========================================================================== */
 @media only screen and (min-width: 481px) {
-  /* line 51, scss/modules/_overlay.scss */
+  /* line 87, scss/modules/_overlay.scss */
   .overlay-frame--effect-bottom-up > img {
     -webkit-transition: -webkit-transform 0.4s;
     -moz-transition: -moz-transform 0.4s;
     transition: transform 0.4s; } }
   @media only screen and (min-width: 481px) and (min-width: 481px) {
-    /* line 51, scss/modules/_overlay.scss */
+    /* line 87, scss/modules/_overlay.scss */
     .overlay-frame--effect-bottom-up > img {
       max-width: initial; } }
 @media only screen and (min-width: 481px) {
-  /* line 55, scss/modules/_overlay.scss */
+  /* line 91, scss/modules/_overlay.scss */
   .overlay-frame--effect-bottom-up .overlay-frame__hover {
     height: 90%;
     top: auto;
@@ -6724,14 +6916,14 @@ html {
     -webkit-transition: -webkit-transform 0.4s, opacity 0.1s 0.3s;
     -moz-transition: -moz-transform 0.4s, opacity 0.1s 0.3s;
     transition: transform 0.4s, opacity 0.1s 0.3s; }
-  /* line 65, scss/modules/_overlay.scss */
+  /* line 101, scss/modules/_overlay.scss */
   .overlay-frame--effect-bottom-up:hover > img {
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     -o-transform: translateY(-50%);
     transform: translateY(-50%); }
-  /* line 66, scss/modules/_overlay.scss */
+  /* line 102, scss/modules/_overlay.scss */
   .overlay-frame--effect-bottom-up:hover .overlay-frame__hover {
     opacity: 1;
     -webkit-transform: translateY(0);
@@ -7588,6 +7780,54 @@ a:hover .cover--issue {
 .owl-item.loading {
   min-height: 150px;
   background: url(AjaxLoader.gif) no-repeat center center; }
+
+/*  ==========================================================================
+    .message
+    ========================================================================== */
+/* line 4, scss/modules/_message.scss */
+.message {
+  padding: .8em .8em .5em;
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  text-align: center; }
+
+/*  tailles
+    ========================================================================== */
+/* line 13, scss/modules/_message.scss */
+.message--S {
+  padding: 0; }
+
+/*  types
+    ========================================================================== */
+/* line 19, scss/modules/_message.scss */
+.message--erreur {
+  background-color: #e75d32;
+  color: #fff; }
+
+/* line 23, scss/modules/_message.scss */
+.message--overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
+
+/* line 28, scss/modules/_message.scss */
+.message--warning-texte {
+  border: 1px solid #ffaa00;
+  color: #ffaa00;
+  background-color: #fff;
+  -webkit-transition: all 0.35s ease-out;
+  -moz-transition: all 0.35s ease-out;
+  transition: all 0.35s ease-out; }
+
+/*  .postdate-message
+    ========================================================================== */
+/* line 38, scss/modules/_message.scss */
+.postdate-message {
+  font-family: "HelveticaNeueLTStdCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.71429; }
 
 /*================================
 =            headings            =

@@ -19,12 +19,12 @@
         [(#REM) les articles en sélection ]
         <BOUCLE_articles_selection(ARTICLES pb_selection){par ordre}{spip_pb_selection.id_rubrique=#ID_RUBRIQUE}{doublons}>
         <div class="grid__item lap-and-up-one-half">
-            [(#INCLURE{fond=resume/article,id_article,resume_type=selection})]
+            [(#INCLURE{fond=resume/article-texte,id_article,article_selection=oui})]
         </div><!-- /.grid__item -->
         </BOUCLE_articles_selection>
         <BOUCLE_articles_tous(ARTICLES){id_rubrique}{par num titre, titre}{statut=publie}{doublons}>
         <div class="grid__item lap-and-up-one-quarter">
-            [(#INCLURE{fond=resume/article,id_article})]
+            [(#INCLURE{fond=resume/article-texte,id_article})]
         </div><!-- /.grid__item -->
         </BOUCLE_articles_tous>
     </article

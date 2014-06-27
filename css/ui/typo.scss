@@ -46,7 +46,7 @@ hr.spip {
 .poesie-tab12 {margin-left: 24em;}
 
 /* message */
-.message {padding: 1em;}
+// .message {padding: 1em;}
 .message__important {
     @include font-size(18px);
     background-color: $ok;
