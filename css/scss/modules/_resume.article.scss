@@ -4,26 +4,47 @@
     
     /*
     *   .resume-article
-    *   .resume-article--texte
+    *       .resume-article__logo
     *       .resume-article__header
     *           .resume-article__titre
     *           .resume-article__auteurs
     *       .resume-article__descriptif
     *       .resume-article__date
+    *       .resume-article__numero
     *   
     *   modificateurs
     *   -------------------------------------
+    *   .resume-article--texte 
+    *   
     *   .resume-article__titre--selection
     *   .resume-article__auteurs--selection
     *   .resume-article__descriptif--selection
+    *
+    *   états
+    *   -------------------------------------
     *   .resume-article--is.postdate
     *   
     *
-    *   @media-query
-    *   -------------------------------------
     */
 
-    .resume-article {position: relative;}
+    .resume-article {
+        position: relative;
+        margin-bottom: 3.5em;
+        @include media-query(palm){
+            margin-bottom: 2em;
+        }
+    }
+        .resume-article__logo {
+            overflow:hidden;
+            position: relative;
+            width: 100%;
+            height: 310px;
+            margin-bottom: 1em;
+            @media only screen and (min-width:480px) and (max-width:800px) {
+                height: 210px;
+            }
+            a {display: block;}
+        }
         .resume-article__header {}
             .resume-article__titre {
                 @include font-size(19px);
@@ -31,7 +52,9 @@
                     display: inline-block;
                     color: #000;
                     &:hover {color:$couleur-lien;}
+                    &:first-letter {text-transform: uppercase;}
                 }
+                &:first-letter {text-transform: uppercase;}
             }
             .resume-article__auteurs {
                 @include font-size(16px,$line-height: false);
@@ -49,9 +72,39 @@
             color: $couleur-gris-bleu;
             margin-right: 0.15em;
         }
+        .resume-article__numero {
+            position: absolute;
+            bottom: 0.5em;
+            left: 5px;
+            color: #fff;
+        }
+            .resume-article__numero-titre {
+                margin-bottom: 0;
+                font-family: $font-HC;
+                text-transform: uppercase;
+                @include font-size(16px);
+                .soustitre {
+                    font-family: $font-HLC;
+                    display: inline; 
+                    font-style: normal; font-size: 100%;}
+            }
 
 /*  modificateurs
     ========================================================================== */
+    
+    /*
+     * .resume-article--texte
+     */
+
+    .resume-article--texte {
+        @include media-query(palm) {
+            border-bottom: 1px dotted $couleur-gris-clair
+        }
+    }
+
+    /*
+     * .resume-article__XX--selection
+     */
     .resume-article__titre--selection {@include font-size(24px);}
     .resume-article__auteurs--selection {@include font-size(18px);}
     .resume-article__descriptif--selection {
@@ -71,9 +124,3 @@
         }
     }
 
-/*  media-query
-    ========================================================================== */
-    @include media-query(palm) {
-        .resume-article {margin-bottom: 2em;}
-        .resume-article--texte {border-bottom: 1px dotted $couleur-gris-clair;}
-    }

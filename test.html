@@ -5,6 +5,12 @@
   <title>page test</title>
 </head>
 <body>
-  
+<B_archives_fronts_mouvements>
+#PAGINATION
+  <BOUCLE_archives_fronts_mouvements(ARTICLES){id_secteur=115}{id_mot=11}{age>365}{pagination 20}>
+  <p>[(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|image_reduire{500}|image_recadre{248,312,'center center',000})]</p>
+  <p>#TITRE</p>
+  </BOUCLE_archives_fronts_mouvements>
+  </B_archives_fronts_mouvements>
 </body>
 </html>

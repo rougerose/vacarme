@@ -1,11 +1,23 @@
 /*  ==========================================================================
     overlay
     ========================================================================== */
+    
+    /*
+     *  .overlay
+     *  
+     *  modificateurs
+     *  -------------------------------------
+     *  .overlay--article-postdate   
+     *  .overlay--article-archive
+     *
+     *
+     */
+
     .overlay {
         position: absolute;
         width: 100%;
     }
-    
+   
     
     .overlay--article-postdate {
         top: 50%;
@@ -13,6 +25,12 @@
         @include media-query(palm){
             bottom: 1.5em; // pour compenser la marge basse.
         }
+    }
+    .overlay--article-archive {
+        // @include background-image(linear-gradient(transparent 0,rgba(0,0,0,0.3)100%));
+        @include linear-gradient(to bottom, transparent, rgba(0,0,0,0.3));
+        bottom: 0;
+        top: 50%;
     }
 
 
@@ -27,6 +45,7 @@
 
     @include background-image(linear-gradient(rgba(255,255,255,0) 0,rgba(255,255,255,1)80%,rgba(255,255,255,1)100%));
 }
+
 
 /*  overlay-frame
     ========================================================================== */
