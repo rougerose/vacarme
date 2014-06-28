@@ -2,6 +2,8 @@
 
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
+// define('_JQUERYUI_CSS_NON',1);
+
 // en dev, pas de cache
 // define('_NO_CACHE', 1);
 

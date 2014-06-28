@@ -7,6 +7,8 @@ Dossier:
  Article:
   ☐ vérifier l'affichage des documents joints.
 
+jqueryui:
+ ☐ le pipeline du plugin prévoit de ne pas charger les css dans les pages publiques (avec un define), mais ça ne semble pas fonctionner. A régler plus tard
 Non classé:
  ☐ Important : couverture numéro dans article : ajouter boutons abonner/acheter.
  ☐ qualifier les auteurs : http://plugins.spip.net/roles_auteurs.html
