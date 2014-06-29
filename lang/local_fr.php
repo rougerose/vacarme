@@ -77,6 +77,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'navigation_revue'                            => "La revue",
     'menus-navigation-item-recherche'             => "Lien recherche",
     'menus-description-navigation-item-recherche' => 'Lien pour afficher le formulaire de recherche',
+    'nombre_article' => '1 article',
+    'nombre_articles' => '@nb@ articles',
+    'nombre_auteur' => '1 auteur',
+    'nombre_auteurs' => '@nb@ auteurs',
+    'nombre_mot' => "1 thème",
+    'nombre_mots' => "@nb@ thèmes",
+
     
     // P
     'page_abrev'                                  => 'pp.&nbsp;@debut@-@fin@.',
@@ -97,6 +104,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'read_also'                                   => 'Lire également',
     'redaction_en_chef'                           => "Rédaction en chef",
     'regarder' => "Regarder",
+    'recherche_resultat' => '1 résultat',
+    'recherche_resultats' => '@nb@ résultats',
+    'recherche_titre' => "Recherche",
     
     // S
     'section_number'                              => '1 rubrique',

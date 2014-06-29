@@ -18,11 +18,11 @@ a {
 .spip_in,
 .spip_out,
 .liens a {
-    border-bottom: 1px dotted $link-color;
-    &:hover {
-            color: #000; //#d8680d;
-            border-bottom-style: solid;
-        }
+  border-bottom: 1px dotted $link-color;
+  &:hover {
+    color: #000; //#d8680d;
+    border-bottom-style: solid;
+  }
 }
 
 /* .suite-lien

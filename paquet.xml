@@ -3,6 +3,7 @@
     <auteur lien="http://rouge-rose.net">christophe le drean</auteur>
     <licence>GNU/GPL</licence>
     <pipeline nom="header_prive_css" inclure="vacarme_pipelines.php" />
+    <pipeline nom="taches_generales_cron" inclure="vacarme_pipelines.php" />
     <necessite compatibilite="[2.0.1;[" nom="Z5"/>
     <necessite compatibilite="[2.2.1;[" nom="Zcore"/>
     <necessite nom="IntertitresTdm" compatibilite="[0.9.5;[" />

@@ -13,6 +13,10 @@
 
     afficher_auteur     oui|''
 
+    type_date           redac|''
+        afficher la date de rédaction au lieu de la date de
+        publication (pour les résultats de recherche).
+
 
     **********************************************************
     Variables calculées
@@ -36,7 +40,7 @@
         </header>
         <div class="resume-article__descriptif[ (#ENV{article_selection}|oui) resume-article__descriptif--selection]">
             [(#DESCRIPTIF|sinon{#INTRODUCTION|couper{100}|wrap{<p>}})]
-            <p><time pubdate datetime="[(#DATE|date_iso)]" class="resume-article__date">[(#DATE|affdate_court)]</time>[(#GET{article_postdate}|non)<a href="#URL_ARTICLE" class="suite-lien">Lire la suite <em>&#8594;</em></a>]</p>
+            <p><time pubdate datetime="[(#ENV{type_date}|=={redac}|?{[(#DATE_REDAC|date_iso|sinon{#DATE|date_iso})],[(#DATE|date_iso)]})]" class="resume-article__date">[(#ENV{type_date}|=={redac}|?{[(#DATE_REDAC|affdate_court|sinon{#DATE|affdate_court})],[(#DATE|affdate_court)]})]</time>[(#GET{article_postdate}|non)<a href="#URL_ARTICLE" class="suite-lien">Lire la suite <em>&#8594;</em></a>]</p>
         </div>
         [(#GET{article_postdate}|oui)
             <div class="overlay overlay-degrade overlay--article-postdate">

@@ -1,0 +1,25 @@
+/*  ==========================================================================
+    .tri
+    ========================================================================== */
+    .tri {
+        font-family: $font-HC;
+    }
+        .critere-tri {
+            a {
+                color: $couleur-lien;
+                padding: 0.1em 0.2em;
+                // border-bottom: 1px dotted $link-color;
+                &:hover {
+                    border-bottom-style: solid;
+                    color: #fff;
+                    background-color: $couleur-lien;
+
+                }
+            }
+            strong {
+                padding: 0.1em 0.2em;
+                background-color: $couleur-lien;
+                color: #fff;
+                font-weight: normal;
+            }
+        }
