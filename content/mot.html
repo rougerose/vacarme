@@ -10,18 +10,16 @@
 <BOUCLE_mot(MOTS){id_mot}>
 <div class="grid">
     <article class="self mot">
-        <div class="grid__item">
-            <header class="self__header self__header--rubrique">
+        <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
+            <header class="self__header">
                 <h1 class="hN titre"><span class="#EDIT{titre}">[(#TITRE|prenom_nom)]</span></h1>
             </header>
-        </div><!-- /.grid__item -->
-        [<div class="grid__item desk-three-quarters push--desk-one-quarter">
-            <div class="self__body self__body--rubrique landmark">
+            [<div class="self__body self__body--rubrique landmark">
                 <div class="#EDIT{texte} self__texte surlignable">
                     (#TEXTE|image_reduire{500,0})
                 </div>
-            </div>
-        </div><!-- /.grid__item -->]
+            </div>]
+        </div><!-- /.grid__item -->
         [(#GET{variantes_skel}|find{#ID_MOT}|?{
             [(#INCLURE{fond=inclure/mot-contenu-mot#ID_MOT,id_mot})],
             [(#INCLURE{fond=inclure/mot-contenu-standard,id_mot})]
