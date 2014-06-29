@@ -1,16 +1,14 @@
+#SET{defaut_tri,#ARRAY{points,-1,nom,1}}
 <B_auteurs>
 #ANCRE_PAGINATION
-<section class="auteurs search-results landmark">
-    <h2 class="hN intertitre-section intertitre-section--first">[(#GRAND_TOTAL|singulier_ou_pluriel{local:author_number,local:authors_number})]</h2>
-    <div class="grid">
-        <ul class="list">
-            <BOUCLE_auteurs(AUTEURS){tout}{id_auteur IN #ENV{selection}}{pagination 10}>
-            <li class="grid__item lap-and-up-one-third">
-                #INCLURE{fond=inclure/resumes/auteur,id_auteur}
-            </li><!-- /.grid__item -->
-            </BOUCLE_auteurs>
-        </ul>
-    </div><!-- /.grid -->
+<section id="recherche-auteurs" class="tabs-section">
+    <h2 class="hN tabs-section__titre">Auteurs</h2>
+    <p class="tri">Trier par [<span class="critere-tri">(#TRI{nom,'Nom',ajax})</span>] [<span class="critere-tri">(#TRI{points,'Pertinence',ajax})</span>]</p>
+    <ul class="block-list">
+        <BOUCLE_auteurs(AUTEURS){recherche}{tri points,#GET{defaut_tri}}{tout}{pagination 10}>
+        <li class="block-list__item">#INCLURE{fond=inclure/resumes/auteur,id_auteur}</li>
+        </BOUCLE_auteurs>
+    </ul>
     [<nav class="pagination pagination--prev-next pagination--bottom">(#PAGINATION{precedent_suivant_compteur})</nav>]
 </section>
 </B_auteurs>

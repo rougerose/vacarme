@@ -5730,6 +5730,29 @@ html {
     line-height: 1;
     vertical-align: text-top; } }
 
+/*  ==========================================================================
+    .tri
+    ========================================================================== */
+/* line 4, scss/modules/_tri.scss */
+.tri {
+  font-family: "HelveticaNeueLTStdCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+/* line 8, scss/modules/_tri.scss */
+.critere-tri a {
+  color: #e88e0e;
+  padding: 0.1em 0.2em; }
+  /* line 12, scss/modules/_tri.scss */
+  .critere-tri a:hover {
+    border-bottom-style: solid;
+    color: #fff;
+    background-color: #e88e0e; }
+/* line 19, scss/modules/_tri.scss */
+.critere-tri strong {
+  padding: 0.1em 0.2em;
+  background-color: #e88e0e;
+  color: #fff;
+  font-weight: normal; }
+
 /* ==========================================================================
    .site-logo
    ========================================================================== */
@@ -6041,6 +6064,47 @@ html {
     /* line 237, scss/modules/_navigation.scss */
     .nav-prevnext__item--logos {
       width: 50%; } }
+
+/*  ==========================================================================
+    .tabs
+    ========================================================================== */
+/* line 6, scss/modules/_tabs.scss */
+.tabs-nav-container {
+  margin-bottom: 2em; }
+
+/* line 7, scss/modules/_tabs.scss */
+.tabs-nav-container__titre {
+  border-bottom: 2px solid #000;
+  margin-bottom: .5em;
+  font-family: "HelveticaNeueLTStdLtCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 1.09091; }
+
+/* line 14, scss/modules/_tabs.scss */
+.tabs-nav {
+  margin-left: 1em;
+  padding: 0;
+  display: inline-block; }
+
+/* line 19, scss/modules/_tabs.scss */
+.tabs-nav__item {
+  list-style-type: square;
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.2; }
+
+/* line 24, scss/modules/_tabs.scss */
+.tabs-section {
+  margin-bottom: 3em; }
+
+/* line 27, scss/modules/_tabs.scss */
+.tabs-section__titre {
+  border-bottom: 1px solid #000;
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 1.09091;
+  font-family: "HelveticaNeueLTStdLtCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 /* ==========================================================================
    rubrique-dossier
@@ -8207,46 +8271,6 @@ ol.spip {
   display: none; }
 
 /*-----  End of accordeon  ------*/
-/*============================
-=            tabs            =
-============================*/
-/* line 6, ui/tabs.scss */
-.tabs-nav {
-  margin-bottom: 2em; }
-
-/* line 10, ui/tabs.scss */
-.tabs-nav__item a {
-  color: #999; }
-  /* line 12, ui/tabs.scss */
-  .tabs-nav__item a:hover {
-    color: #000; }
-/* line 16, ui/tabs.scss */
-.tabs-nav__item.ui-tabs-selected {
-  border-bottom: 2px solid #7c88d3; }
-  /* line 18, ui/tabs.scss */
-  .tabs-nav__item.ui-tabs-selected a {
-    color: #000; }
-
-/* line 25, ui/tabs.scss */
-.admin .tabs-nav__item a {
-  padding: 0 .5em; }
-
-@media only screen and (min-width: 481px) {
-  /* line 31, ui/tabs.scss */
-  .tabs {
-    margin-top: -2.8em; }
-
-  /* line 34, ui/tabs.scss */
-  .tabs-nav {
-    border-bottom: 1px solid #ccc; }
-
-  /* line 37, ui/tabs.scss */
-  .tabs-nav__item {
-    margin-bottom: -1px; }
-    /* line 39, ui/tabs.scss */
-    .tabs-nav__item:hover {
-      border-bottom: 2px solid #7c88d3; } }
-/*-----  End of tabs  ------*/
 /*===============================
 =            columns            =
 ===============================*/

@@ -5,12 +5,14 @@
   <title>page test</title>
 </head>
 <body>
-<B_archives_fronts_mouvements>
-#PAGINATION
-  <BOUCLE_archives_fronts_mouvements(ARTICLES){id_secteur=115}{id_mot=11}{age>365}{pagination 20}>
-  <p>[(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|image_reduire{500}|image_recadre{248,312,'center center',000})]</p>
-  <p>#TITRE</p>
-  </BOUCLE_archives_fronts_mouvements>
-  </B_archives_fronts_mouvements>
+    <B_articles>
+    <p>#TRI{titre,'Trier par titre'} | #TRI{date,'Trier par date'}</p>
+    <BOUCLE_articles(ARTICLES){recherche}{lang}{tri points,-1}>
+        <p>article #TITRE #POINTS</p>
+    </BOUCLE_articles>
+    </B_articles>
+    <BOUCLE_auteurs(AUTEURS){recherche}{tri points,-1}>
+        <p>auteur #NOM #POINTS #DATE</p>
+    </BOUCLE_auteurs>
 </body>
 </html>

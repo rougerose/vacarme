@@ -1,0 +1,14 @@
+<div class="tabs">
+    <nav class="tabs__nav">
+        <ul>
+            [<li><a href="#recherche-articles">(#ENV{total_articles}|oui)[(#ENV{total_articles}|singulier_ou_pluriel{local:nombre_article,local:nombre_articles})]</a></li>]
+            [<li><a href="#recherche-auteurs">(#ENV{total_auteurs}|oui)[(#ENV{total_auteurs}|singulier_ou_pluriel{local:nombre_auteur,local:nombre_auteurs})]</a></li>]
+            [<li><a href="#recherche-themes">(#ENV{total_mots}|oui)[(#ENV{total_mots}|singulier_ou_pluriel{local:nombre_mot,local:nombre_mots})]</a></li>]
+        </ul>
+    </nav>
+    <div class="tabs__contenu">
+        [(#ENV{total_articles}|oui)
+            [(#INCLURE{fond=liste/recherche-articles,articles=#ENV{articles},env,ajax})]
+        ]
+    </div><!-- /.tabs__contenu -->
+</div>

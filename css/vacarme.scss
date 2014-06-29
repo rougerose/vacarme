@@ -28,8 +28,10 @@ $fa-font-path: "fonts/fontawesome";
         // modules
         "scss/modules/list",
         "scss/modules/btn",
+        "scss/modules/tri",
         "scss/modules/site-logo",
         "scss/modules/navigation",
+        "scss/modules/tabs",
         "scss/modules/rubrique-dossier",
         "scss/modules/timeline",
         "scss/modules/resume",
@@ -86,7 +88,7 @@ $fa-font-path: "fonts/fontawesome";
 @import "ui/list";
 @import "ui/accordeon";
 //@import "ui/carousel";
-@import "ui/tabs";
+//@import "ui/tabs";
 @import "ui/columns";
 @import "ui/pagination";
 

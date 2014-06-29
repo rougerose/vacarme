@@ -1,0 +1,31 @@
+/*  ==========================================================================
+    .tabs
+    ========================================================================== */
+
+    .tabs {}
+        .tabs-nav-container {margin-bottom: 2em;}
+            .tabs-nav-container__titre {
+                border-bottom: 2px solid #000;
+                margin-bottom: .5em;
+                // color: #000;
+                font-family: $font-HLC;
+                @include font-size(22px);
+            }
+            .tabs-nav {
+                margin-left: 1em;
+                padding: 0;
+                display: inline-block;
+            }
+                .tabs-nav__item {
+                    list-style-type: square;
+                    @include font-size(20px);
+                }
+        .tabs-contenu {}
+        .tabs-section {
+            margin-bottom: 3em;
+        }
+            .tabs-section__titre {
+                border-bottom: 1px solid #000;
+                @include font-size(22px);
+                font-family: $font-HLC;
+            }
