@@ -4,7 +4,7 @@
 <p class="tri">Trier par [<span class="critere-tri">(#TRI{date,'Date de publication',ajax})</span>] [<span class="critere-tri">(#TRI{points,'Pertinence',ajax})</span>]</p>
 <ul class="block-list resultats-list">
     <BOUCLE_articles(ARTICLES){recherche}{tri points,#GET{defaut_tri}}{pagination 5}>
-    <li class="block-list__item resultats-list__item">#INCLURE{fond=resume/article-texte,id_article,type_date=redac}</li>
+    <li class="block-list__item resultats-list__item">#INCLURE{fond=resume/article-texte,id_article}</li>
     </BOUCLE_articles>
 </ul>
 [<nav class="pagination pagination--prev-next pagination--bottom">(#PAGINATION{precedent_suivant_compteur})</nav>]
