@@ -22,16 +22,16 @@
     *
     *   états
     *   -------------------------------------
-    *   .resume-article--is.postdate
+    *   .resume-article--is-postdate
     *   
     *
     */
 
     .resume-article {
         position: relative;
-        margin-bottom: 3.5em;
+        // margin-bottom: 3.5em;
         @include media-query(palm){
-            margin-bottom: 2em;
+            // margin-bottom: 2em;
         }
     }
         .resume-article__logo {
@@ -95,12 +95,7 @@
     /*
      * .resume-article--texte
      */
-
-    .resume-article--texte {
-        @include media-query(palm) {
-            border-bottom: 1px dotted $couleur-gris-clair
-        }
-    }
+    .resume-article--texte {}
 
     /*
      * .resume-article__XX--selection
@@ -113,6 +108,9 @@
 
 /*  états
     ========================================================================== */
+    /*
+     * .resume-article--is-postdate
+     */
     .resume-article--is-postdate {
         .hN,
         p {color: $couleur-gris-moyen;}

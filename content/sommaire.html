@@ -1,6 +1,6 @@
 <div class="grid">
     [(#REM) ligne features ]
-    <section class="grid__item sommaire__section section--features">
+    <section class="grid__item groupe-section sommaire__section section--features">
         <div class="grid">
             <BOUCLE_grappe_carousel(GRAPPES){id_grappe=1}>
             [<div class="grid__item desk-two-quarters">
@@ -14,7 +14,7 @@
     </section><!-- /.grid__item .section -->
     [(#REM) travail en cours ]
     <BOUCLE_grappe_travail_encours(GRAPPES){id_grappe=8}>
-    <section class="grid__item sommaire__section">
+    <section class="grid__item sommaire-section sommaire__section">
         <h1 class="hN intertitre-section intertitre-section--first">#TITRE</h1>
         <div class="grid">
             <BOUCLE_premier_objet(spip_grappes_liens){id_grappe}{par rang}{0,1}>
@@ -53,7 +53,7 @@
     [(#REM) ligne actu ]
     <BOUCLE_grappe_actualites(GRAPPES){id_grappe=3}>
     <B_actus>
-    <section class="grid__item sommaire__section">
+    <section class="grid__item groupe-section sommaire__section">
         <h1 class="hN intertitre-section intertitre-section--first">#INFO_TITRE{rubrique,82}</h1>
         <div class="grid">
             <BOUCLE_actus(ARTICLES){id_grappe}{par rang}>
@@ -67,7 +67,7 @@
     </BOUCLE_grappe_actualites>
     [(#REM) ligne archives ]
     <BOUCLE_grappe_archives(GRAPPES){id_grappe=7}>
-    <section class="grid__item sommaire__section">
+    <section class="grid__item groupe-section sommaire__section">
         <h1 class="hN intertitre-section intertitre-section--first"><:local:archives:></h1>
         <div class="grid">
             [(#INCLURE{fond=inclure/sommaire_grappe_archives,id_grappe})]
@@ -76,7 +76,7 @@
     </BOUCLE_grappe_archives>
     [(#REM) ligne numéros ]
     <BOUCLE_numeros(RUBRIQUES){id_rubrique=115}>
-    <section class="grid__item sommaire__section">
+    <section class="grid__item groupe-section sommaire__section">
         <h1 class="hN intertitre-section intertitre-section--first">#TITRE</h1>
         <div class="grid">
             <BOUCLE_numero(RUBRIQUES){id_parent}{!par titre}{0,7}>

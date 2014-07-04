@@ -3,11 +3,11 @@
 ==============================*/
 
 .resume {
-    margin-bottom: 3.5em;
+    // margin-bottom: 3.5em;
     line-height: 1.125; // 16px
     @include media-query(palm) {
-        border-bottom: 1px dotted #ddd;
-        margin-bottom: 2em;
+        // border-bottom: 1px dotted #ddd;
+        // margin-bottom: 2em;
     }
 }
 .resume__titre {

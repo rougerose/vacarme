@@ -34,7 +34,8 @@ module.exports = function(grunt) {
     uglify: {
       my_target: {
         files: {
-          'js/public.min.js': ['js/navigation.js', 'js/vacarme.js']
+          'js/public.min.js': ['js/src/navigation.js','js/src/vacarme.js']
+          // 'js/tabs.min.js':'js/src/tabs.js'
         }
       }
     },
@@ -51,7 +52,7 @@ module.exports = function(grunt) {
     watch: {
       grunt: { files: ['GruntFile.js'] },
       uglify: {
-        files: 'js/*.js',
+        files: 'js/src/*.js',
         tasks: 'uglify:my_target'
       },
       sass: {
