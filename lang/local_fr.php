@@ -40,6 +40,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'esprit_de_suite'                             => "Esprit de suite",
     
     // I
+    'info_articles' => "Articles",
+    'info_auteurs' => "Auteurs",
+    'info_themes' => "Thèmes et catégories",
     'info_contact'                                => "Gardons le contact",
     'info_contact_coordonnees'                    => "Par courrier",
     'info_contact_facebook'                       => "Via Facebook",
@@ -50,6 +53,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'issue_about'                                 => "À propos de ce numéro",
     'info_precedent' => "Précédent",
     'info_suivant' => "Suivant",
+    // 'info_rechercher' => 'Saisir les mots de votre recherche',
 
     // J
     'jour_precedent' => "Journée précédente",
@@ -104,6 +108,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'read_also'                                   => 'Lire également',
     'redaction_en_chef'                           => "Rédaction en chef",
     'regarder' => "Regarder",
+    'recherche_aucun_resultat' => "Aucun résultat",
     'recherche_resultat' => '1 résultat',
     'recherche_resultats' => '@nb@ résultats',
     'recherche_titre' => "Recherche",

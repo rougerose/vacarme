@@ -5430,15 +5430,7 @@ input[type="search"] {
     position: absolute !important;
     width: 1px !important; }
 
-/* line 31, scss/base/_form.scss */
-.js .formulaire_recherche {
-  margin: 2em 0 0; }
-
-/* line 35, scss/base/_form.scss */
-.search__form {
-  text-align: center; }
-
-/* line 36, scss/base/_form.scss */
+/* line 32, scss/base/_form.scss */
 .search__label {
   border: 0 !important;
   clip: rect(0 0 0 0) !important;
@@ -5449,7 +5441,7 @@ input[type="search"] {
   position: absolute !important;
   width: 1px !important; }
 
-/* line 39, scss/base/_form.scss */
+/* line 34, scss/base/_form.scss */
 .search__field {
   padding-left: 0.2em;
   width: 15em;
@@ -5457,36 +5449,49 @@ input[type="search"] {
   border-radius: 4px;
   margin-right: 0.3em;
   background: #fff;
-  font-family: "HelveticaNeueLTStdCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  line-height: 1.4;
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.09); }
-  /* line 49, scss/base/_form.scss */
+  /* line 43, scss/base/_form.scss */
   .js .search__field {
     width: 70%;
     background: #fff;
-    font-size: 36px;
-    font-size: 2.25rem; }
+    font-size: 34px;
+    font-size: 2.125rem; }
 
-/* line 55, scss/base/_form.scss */
+/* line 49, scss/base/_form.scss */
 .search__submit {
   border: 1px solid #ccc;
   border-radius: 4px;
   background: #fefefe;
+  padding: 0.25em;
   color: #cccccc;
   font-family: "HelveticaNeueLTStdCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  line-height: 1.4;
+  line-height: 1.2;
+  vertical-align: bottom;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out; }
-  /* line 63, scss/base/_form.scss */
+  /* line 59, scss/base/_form.scss */
   .js .search__submit {
     width: 15%;
-    font-size: 36px;
-    font-size: 2.25rem; }
-  /* line 67, scss/base/_form.scss */
+    font-size: 30px;
+    font-size: 1.875rem; }
+  /* line 63, scss/base/_form.scss */
   .search__submit:hover {
-    color: #000;
-    background: #cccccc; }
+    color: #000; }
+
+/*  modificateurs
+    ========================================================================== */
+/* line 72, scss/base/_form.scss */
+.js .s--header {
+  margin: 2em 0 0; }
+/* line 75, scss/base/_form.scss */
+.s--header .search__form {
+  text-align: center; }
+
+/* line 77, scss/base/_form.scss */
+.s--recherche {
+  margin: 2em 0; }
 
 /* ==========================================================================
    helpers
@@ -5626,22 +5631,21 @@ html {
     font-size: 15px;
     font-size: 0.9375rem;
     line-height: 1.6; } }
-/* ==========================================================================
-   list
-   ========================================================================== */
-/* 
-   .block-list
-   ========================================================================== */
-/* line 9, scss/modules/_list.scss */
+/*  ==========================================================================
+    list
+    ========================================================================== */
+/*  .block-list
+    ========================================================================= */
+/* line 8, scss/modules/_list.scss */
 .block-list {
   margin: 0;
   padding: 0;
   list-style: none; }
-  /* line 16, scss/modules/_list.scss */
+  /* line 15, scss/modules/_list.scss */
   .block-list > li > a {
     display: block; }
 
-/* line 19, scss/modules/_list.scss */
+/* line 18, scss/modules/_list.scss */
 .block-list__item,
 .block-list > li {
   display: list-item; }
@@ -5682,8 +5686,8 @@ html {
     margin-left: 0; }
 
 /* 
-   .ui-list
-   ========================================================================== */
+    .ui-list
+    ========================================================================== */
 /* line 68, scss/modules/_list.scss */
 .ui-list {
   margin: 0;
@@ -5697,11 +5701,27 @@ html {
   border-bottom: 1px dotted #c9c9c9; }
 
 /* 
-   .simple-def-list
-   ========================================================================== */
-/* line 86, scss/modules/_list.scss */
+    .simple-def-list
+    ========================================================================== */
+/* line 84, scss/modules/_list.scss */
 .simple-def-list dd {
   margin-left: 0; }
+
+/*  .resultats-list
+    ========================================================================== */
+/* line 89, scss/modules/_list.scss */
+.resultats-list {
+  margin-bottom: 1.5em; }
+
+/* line 92, scss/modules/_list.scss */
+.resultats-list__item {
+  margin-bottom: 2em; }
+  /* line 94, scss/modules/_list.scss */
+  .resultats-list__item:after {
+    content: '❡';
+    display: block;
+    text-align: center;
+    color: #ccccda; }
 
 /* ==========================================================================
    .btn
@@ -5735,23 +5755,55 @@ html {
     ========================================================================== */
 /* line 4, scss/modules/_tri.scss */
 .tri {
-  font-family: "HelveticaNeueLTStdCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  font-family: "HelveticaNeueLTStdCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #7b6d88;
+  position: relative;
+  margin-bottom: 3em; }
+  /* line 10, scss/modules/_tri.scss */
+  .tri:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px dotted #ccccda; }
+  @media only screen and (min-width: 481px) {
+    /* line 4, scss/modules/_tri.scss */
+    .tri {
+      text-align: center; } }
 
-/* line 8, scss/modules/_tri.scss */
-.critere-tri a {
-  color: #e88e0e;
-  padding: 0.1em 0.2em; }
-  /* line 12, scss/modules/_tri.scss */
-  .critere-tri a:hover {
-    border-bottom-style: solid;
-    color: #fff;
-    background-color: #e88e0e; }
-/* line 19, scss/modules/_tri.scss */
-.critere-tri strong {
-  padding: 0.1em 0.2em;
-  background-color: #e88e0e;
-  color: #fff;
+/* line 24, scss/modules/_tri.scss */
+.critere-tri a, .critere-tri strong {
+  display: inline-block;
+  padding: 0 0.35em;
   font-weight: normal; }
+/* line 30, scss/modules/_tri.scss */
+.critere-tri a:hover {
+  border-bottom: 1px solid #e88e0e;
+  color: #e88e0e; }
+/* line 35, scss/modules/_tri.scss */
+.critere-tri strong {
+  border-bottom: 1px solid #e88e0e;
+  color: #e88e0e; }
+
+/*  ==========================================================================
+    section
+    ========================================================================== */
+/*  .groupe-section
+    ========================================================================== */
+@media only screen and (max-width: 480px) {
+  /* line 9, scss/modules/_section.scss */
+  .groupe-section .resume-article--texte {
+    border-bottom: 1px dotted #ccccda; }
+  /* line 12, scss/modules/_section.scss */
+  .groupe-section .resume-article,
+  .groupe-section .resume-rubrique {
+    margin-bottom: 1.5em; } }
+@media only screen and (min-width: 481px) {
+  /* line 7, scss/modules/_section.scss */
+  .groupe-section {
+    margin-bottom: 1.5em; } }
 
 /* ==========================================================================
    .site-logo
@@ -6068,43 +6120,147 @@ html {
 /*  ==========================================================================
     .tabs
     ========================================================================== */
-/* line 6, scss/modules/_tabs.scss */
+/*
+ *  <div class="tabs">
+ *      <nav class="tabs-nav-container">
+ *          <h1 class="hN tabs-nav-container__titre"></h1>
+ *          <ul class="tabs-nav">
+ *              <li class="tabs-nav__item"><a href=""></a></li>
+ *          </ul>
+ *      </nav>
+ *      <div class="tabs-contenu">
+ *          <section class="tabs-section">
+ *              <h2 class="hN tabs-section__titre"></h2>
+ *          </section>
+ *      </div>
+ *  </div>
+ *
+ *  états
+ *  -------------
+ *  tabs-nav__item--is-selected 
+ */
+/*
+ * tabs-nav
+ */
+/* line 31, scss/modules/_tabs.scss */
 .tabs-nav-container {
   margin-bottom: 2em; }
+  @media only screen and (min-width: 481px) {
+    /* line 31, scss/modules/_tabs.scss */
+    .tabs-nav-container {
+      text-align: center;
+      position: relative; }
+      /* line 36, scss/modules/_tabs.scss */
+      .tabs-nav-container:after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-bottom: 1px solid #ccccda; } }
 
-/* line 7, scss/modules/_tabs.scss */
+/* line 47, scss/modules/_tabs.scss */
 .tabs-nav-container__titre {
-  border-bottom: 2px solid #000;
+  border-bottom: 1px solid #000;
   margin-bottom: .5em;
-  font-family: "HelveticaNeueLTStdLtCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #000;
   font-size: 22px;
   font-size: 1.375rem;
   line-height: 1.09091; }
+  @media only screen and (min-width: 481px) {
+    /* line 47, scss/modules/_tabs.scss */
+    .tabs-nav-container__titre {
+      border-width: 0;
+      text-align: left; } }
 
-/* line 14, scss/modules/_tabs.scss */
+/* line 57, scss/modules/_tabs.scss */
 .tabs-nav {
   margin-left: 1em;
   padding: 0;
   display: inline-block; }
+  @media only screen and (min-width: 481px) {
+    /* line 57, scss/modules/_tabs.scss */
+    .tabs-nav {
+      margin: 0; } }
 
-/* line 19, scss/modules/_tabs.scss */
+/* line 65, scss/modules/_tabs.scss */
 .tabs-nav__item {
-  list-style-type: square;
   font-size: 20px;
   font-size: 1.25rem;
   line-height: 1.2; }
+  @media only screen and (max-width: 480px) {
+    /* line 65, scss/modules/_tabs.scss */
+    .tabs-nav__item {
+      list-style-type: square; }
+      /* line 69, scss/modules/_tabs.scss */
+      .tabs-nav__item a {
+        border-bottom: 1px dotted #e88e0e; }
+        /* line 71, scss/modules/_tabs.scss */
+        .tabs-nav__item a:hover {
+          color: #000;
+          border-bottom-style: solid; } }
+  @media only screen and (min-width: 481px) {
+    /* line 65, scss/modules/_tabs.scss */
+    .tabs-nav__item {
+      margin: 0 0.25em;
+      display: inline-block;
+      list-style-type: none; }
+      /* line 81, scss/modules/_tabs.scss */
+      .tabs-nav__item a {
+        padding: 0 0.5em; }
+      /* line 84, scss/modules/_tabs.scss */
+      .tabs-nav__item:hover {
+        border-bottom: 1px solid #e88e0e; } }
 
-/* line 24, scss/modules/_tabs.scss */
+/*
+ * .tabs-contenu
+ */
+/* line 95, scss/modules/_tabs.scss */
 .tabs-section {
   margin-bottom: 3em; }
+  /* line 97, scss/modules/_tabs.scss */
+  .no-js .tabs-section {
+    display: block; }
+  @media only screen and (min-width: 481px) {
+    /* line 101, scss/modules/_tabs.scss */
+    .js .tabs-section {
+      display: none; } }
 
-/* line 27, scss/modules/_tabs.scss */
+/* line 107, scss/modules/_tabs.scss */
 .tabs-section__titre {
   border-bottom: 1px solid #000;
   font-size: 22px;
   font-size: 1.375rem;
   line-height: 1.09091;
   font-family: "HelveticaNeueLTStdLtCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  @media only screen and (min-width: 481px) {
+    /* line 112, scss/modules/_tabs.scss */
+    .js .tabs-section__titre {
+      display: none; } }
+
+/*  états
+    ========================================================================== */
+/*
+ * .tabs-nav__item--is-selected
+ */
+/* line 125, scss/modules/_tabs.scss */
+.tabs-nav__item--is-selected a {
+  cursor: default; }
+@media only screen and (min-width: 481px) {
+  /* line 124, scss/modules/_tabs.scss */
+  .tabs-nav__item--is-selected {
+    border-bottom: 1px solid #e88e0e; }
+    /* line 130, scss/modules/_tabs.scss */
+    .tabs-nav__item--is-selected a {
+      color: #e88e0e; } }
+
+/*
+ * .tabs-section--is-selected
+ */
+/* line 140, scss/modules/_tabs.scss */
+.js .tabs-section--is-selected.tabs-section {
+  display: block; }
 
 /* ==========================================================================
    rubrique-dossier
@@ -6596,18 +6752,13 @@ html {
 *
 *   états
 *   -------------------------------------
-*   .resume-article--is.postdate
+*   .resume-article--is-postdate
 *   
 *
 */
 /* line 30, scss/modules/_resume.article.scss */
 .resume-article {
-  position: relative;
-  margin-bottom: 3.5em; }
-  @media only screen and (max-width: 480px) {
-    /* line 30, scss/modules/_resume.article.scss */
-    .resume-article {
-      margin-bottom: 2em; } }
+  position: relative; }
 
 /* line 37, scss/modules/_resume.article.scss */
 .resume-article__logo {
@@ -6691,27 +6842,22 @@ html {
 /*
  * .resume-article--texte
  */
-@media only screen and (max-width: 480px) {
-  /* line 99, scss/modules/_resume.article.scss */
-  .resume-article--texte {
-    border-bottom: 1px dotted #ccccda; } }
-
 /*
  * .resume-article__XX--selection
  */
-/* line 108, scss/modules/_resume.article.scss */
+/* line 103, scss/modules/_resume.article.scss */
 .resume-article__titre--selection {
   font-size: 24px;
   font-size: 1.5rem;
   line-height: 1; }
 
-/* line 109, scss/modules/_resume.article.scss */
+/* line 104, scss/modules/_resume.article.scss */
 .resume-article__auteurs--selection {
   font-size: 18px;
   font-size: 1.125rem;
   line-height: 1.33333; }
 
-/* line 111, scss/modules/_resume.article.scss */
+/* line 106, scss/modules/_resume.article.scss */
 .resume-article__descriptif--selection p {
   font-size: 18px;
   font-size: 1.125rem;
@@ -6719,11 +6865,14 @@ html {
 
 /*  états
     ========================================================================== */
-/* line 117, scss/modules/_resume.article.scss */
+/*
+ * .resume-article--is-postdate
+ */
+/* line 115, scss/modules/_resume.article.scss */
 .resume-article--is-postdate .hN,
 .resume-article--is-postdate p {
   color: #999999; }
-/* line 120, scss/modules/_resume.article.scss */
+/* line 118, scss/modules/_resume.article.scss */
 .resume-article--is-postdate:hover .message--warning-texte.postdate-message {
   background-color: #ffaa00;
   color: #fff; }
@@ -8517,13 +8666,7 @@ ol.spip {
 ==============================*/
 /* line 5, ui/resume.scss */
 .resume {
-  margin-bottom: 3.5em;
   line-height: 1.125; }
-  @media only screen and (max-width: 480px) {
-    /* line 5, ui/resume.scss */
-    .resume {
-      border-bottom: 1px dotted #ddd;
-      margin-bottom: 2em; } }
 
 /* line 21, ui/resume.scss */
 .resume__desc {
@@ -8921,10 +9064,6 @@ ol.spip {
   color: #eaeaef; }
 
 /*==========  sommaire__section  ==========*/
-/* line 63, ui/sections.scss */
-.sommaire__section {
-  margin-bottom: 2em; }
-
 /*==========  group  ==========*/
 /* line 67, ui/sections.scss */
 .page-foot .group {

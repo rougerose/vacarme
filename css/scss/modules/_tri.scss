@@ -3,23 +3,37 @@
     ========================================================================== */
     .tri {
         font-family: $font-HC;
+        color: $couleur-gris-2;
+        position: relative;
+        margin-bottom: 3em;
+        
+        &:after {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            border-bottom: 1px dotted $couleur-gris-clair;
+        }
+        @include media-query(lap-and-up) {
+            text-align: center;
+        }
     }
         .critere-tri {
-            a {
-                color: $couleur-lien;
-                padding: 0.1em 0.2em;
-                // border-bottom: 1px dotted $link-color;
+            a,strong {
+                display: inline-block;
+                padding: 0 0.35em;
+                font-weight: normal;
+            }
+            a {               
                 &:hover {
-                    border-bottom-style: solid;
-                    color: #fff;
-                    background-color: $couleur-lien;
-
+                    border-bottom: 1px solid $couleur-lien;
+                    color: $couleur-lien;
                 }
             }
             strong {
-                padding: 0.1em 0.2em;
-                background-color: $couleur-lien;
-                color: #fff;
-                font-weight: normal;
+                border-bottom: 1px solid $couleur-lien;
+                color: $couleur-lien;
             }
         }
