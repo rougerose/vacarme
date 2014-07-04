@@ -20,7 +20,7 @@
             [(#ENV{logo_format}|=={1/4}|oui)
                 [(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|image_reduire{450,0}|image_recadre{432,312,'left center',000})]
             ][(#ENV{logo_format}|=={1/2}|oui)
-                [<a href="#URL_ARTICLE">(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|image_reduire{600,0}|image_recadre{520,312,'left center',000})</a>]
+                [(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|image_reduire{600,0}|image_recadre{520,312,'left center',000})]
             ]
             <BOUCLE_nom_personne(MOTS){id_article}{id_groupe=11}>
             <div class="overlay overlay--article-archive"></div>
