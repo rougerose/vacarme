@@ -59,12 +59,18 @@
             .resume-article__auteurs {
                 @include font-size(16px,$line-height: false);
                 color: $couleur-gris-bleu;
+                .resultats-list__item & {
+                    margin-bottom: .5em;
+                }
             }
         .resume-article__descriptif {
             padding-right: 1.5em;
             p {
                 @include font-size(15px,$line-height:false);
                 line-height: 1.313;
+            }
+            .resultats-list__item & {
+                p {margin-bottom: .5em;}
             }
         }
         .resume-article__date {

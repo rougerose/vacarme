@@ -6799,30 +6799,36 @@ html {
   font-size: 16px;
   font-size: 1rem;
   color: #8888a7; }
+  /* line 62, scss/modules/_resume.article.scss */
+  .resultats-list__item .resume-article__auteurs {
+    margin-bottom: .5em; }
 
-/* line 63, scss/modules/_resume.article.scss */
+/* line 66, scss/modules/_resume.article.scss */
 .resume-article__descriptif {
   padding-right: 1.5em; }
-  /* line 65, scss/modules/_resume.article.scss */
+  /* line 68, scss/modules/_resume.article.scss */
   .resume-article__descriptif p {
     font-size: 15px;
     font-size: 0.9375rem;
     line-height: 1.313; }
+  /* line 73, scss/modules/_resume.article.scss */
+  .resultats-list__item .resume-article__descriptif p {
+    margin-bottom: .5em; }
 
-/* line 70, scss/modules/_resume.article.scss */
+/* line 76, scss/modules/_resume.article.scss */
 .resume-article__date {
   font-family: "HelveticaNeueLTStdLtCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #8888a7;
   margin-right: 0.15em; }
 
-/* line 75, scss/modules/_resume.article.scss */
+/* line 81, scss/modules/_resume.article.scss */
 .resume-article__numero {
   position: absolute;
   bottom: 0.5em;
   left: 5px;
   color: #fff; }
 
-/* line 81, scss/modules/_resume.article.scss */
+/* line 87, scss/modules/_resume.article.scss */
 .resume-article__numero-titre {
   margin-bottom: 0;
   font-family: "HelveticaNeueLTStdCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -6830,7 +6836,7 @@ html {
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5; }
-  /* line 86, scss/modules/_resume.article.scss */
+  /* line 92, scss/modules/_resume.article.scss */
   .resume-article__numero-titre .soustitre {
     font-family: "HelveticaNeueLTStdLtCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
     display: inline;
@@ -6845,19 +6851,19 @@ html {
 /*
  * .resume-article__XX--selection
  */
-/* line 103, scss/modules/_resume.article.scss */
+/* line 109, scss/modules/_resume.article.scss */
 .resume-article__titre--selection {
   font-size: 24px;
   font-size: 1.5rem;
   line-height: 1; }
 
-/* line 104, scss/modules/_resume.article.scss */
+/* line 110, scss/modules/_resume.article.scss */
 .resume-article__auteurs--selection {
   font-size: 18px;
   font-size: 1.125rem;
   line-height: 1.33333; }
 
-/* line 106, scss/modules/_resume.article.scss */
+/* line 112, scss/modules/_resume.article.scss */
 .resume-article__descriptif--selection p {
   font-size: 18px;
   font-size: 1.125rem;
@@ -6868,11 +6874,11 @@ html {
 /*
  * .resume-article--is-postdate
  */
-/* line 115, scss/modules/_resume.article.scss */
+/* line 121, scss/modules/_resume.article.scss */
 .resume-article--is-postdate .hN,
 .resume-article--is-postdate p {
   color: #999999; }
-/* line 118, scss/modules/_resume.article.scss */
+/* line 124, scss/modules/_resume.article.scss */
 .resume-article--is-postdate:hover .message--warning-texte.postdate-message {
   background-color: #ffaa00;
   color: #fff; }
