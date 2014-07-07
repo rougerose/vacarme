@@ -76,25 +76,28 @@
    }
 
 /* 
-   .resume-article--selection
+   .resume-article--selection 
    ========================================================================== */
-   .resume-article--selection {
-        .resume__titre {
-            @include media-query(lap) {
-                @include font-size(20px);
-            }
-            @include media-query(desk) {
-                @include font-size(22px);
-            }
-        }
-        .resume__signature,
-        .resume__desc,
-        .resume__more {
-            @include media-query(desk) {
-                @include font-size(18px);
-            }
-        }
-   }
+   
+   // TODO : à supprimer ?
+
+   // .resume-article--selection {
+   //      .resume__titre {
+   //          @include media-query(lap) {
+   //              @include font-size(20px);
+   //          }
+   //          @include media-query(desk) {
+   //              @include font-size(22px);
+   //          }
+   //      }
+   //      .resume__signature,
+   //      .resume__desc,
+   //      .resume__more {
+   //          @include media-query(desk) {
+   //              @include font-size(18px);
+   //          }
+   //      }
+   // }
 
 /* 
    .resume-article--court

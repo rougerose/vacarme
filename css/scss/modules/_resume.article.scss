@@ -16,9 +16,9 @@
     *   -------------------------------------
     *   .resume-article--texte 
     *   
-    *   .resume-article__titre--selection
-    *   .resume-article__auteurs--selection
-    *   .resume-article__descriptif--selection
+    *   .resume-article__titre--une
+    *   .resume-article__auteurs--une
+    *   .resume-article__descriptif--une
     *
     *   états
     *   -------------------------------------
@@ -29,10 +29,7 @@
 
     .resume-article {
         position: relative;
-        // margin-bottom: 3.5em;
-        @include media-query(palm){
-            // margin-bottom: 2em;
-        }
+        
     }
         .resume-article__logo {
             overflow:hidden;
@@ -43,7 +40,18 @@
             @media only screen and (min-width:480px) and (max-width:800px) {
                 height: 210px;
             }
-            a {display: block;}
+            img {
+                @include transform(translate(-10px,-10px));
+                @include transition(transform 0.35s);
+                @include backface-visibility(hidden);
+            }
+            &:hover {
+                img {
+                    @include transform(translate(-20px,-20px));
+                }
+                a {color: $couleur-lien;}
+            }
+            a {display: block; color:#fff;}
         }
         .resume-article__header {}
             .resume-article__titre {
@@ -82,13 +90,13 @@
             position: absolute;
             bottom: 0.5em;
             left: 5px;
-            color: #fff;
         }
             .resume-article__numero-titre {
                 margin-bottom: 0;
                 font-family: $font-HC;
                 text-transform: uppercase;
                 @include font-size(16px);
+                color: #fff;
                 .soustitre {
                     font-family: $font-HLC;
                     display: inline; 
@@ -98,19 +106,28 @@
 /*  modificateurs
     ========================================================================== */
     
-    /*
-     * .resume-article--texte
-     */
+    /* .resume-article--texte */
     .resume-article--texte {}
 
-    /*
-     * .resume-article__XX--selection
-     */
-    .resume-article__titre--selection {@include font-size(24px);}
-    .resume-article__auteurs--selection {@include font-size(18px);}
-    .resume-article__descriptif--selection {
+    /* .resume-article--une */
+    .resume-article--une {}
+    .resume-article__titre--une {@include font-size(24px);}
+    .resume-article__auteurs--une {@include font-size(18px);}
+    .resume-article__descriptif--une {
         p {@include font-size(18px,$line-height: true);}
     }
+
+    /* .resume-article--selection-img-titre */
+    .resume-article--selection-img-titre {}
+    .resume-article__logo--selection-img-titre {}
+    .resume-article__header--selection-img-titre {
+        position: absolute;
+        bottom: 0.5em;
+        left: 0.5em;
+    }
+    .resume-article__titre--selection-img-titre {margin-bottom: 0;}
+
+
 
 /*  états
     ========================================================================== */

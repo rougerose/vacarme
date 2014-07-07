@@ -27,6 +27,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'back_to_top' => "Revenir en haut",
     
     // C
+    'categorie_entretiens_selection' => "Une sélection",
+    'categorie_entretiens_tous' => "Tous les entretiens",
     'category_plural'                             => 'Catégories',
     'category_singular'                           => 'Catégorie',
     'classe_dans_categorie' => "Classé dans",

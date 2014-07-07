@@ -31,53 +31,36 @@
 ]</BOUCLE_liste_alpha>[
 (#SET{debut,#GET{auteurs_alpha}|array_sort|table_valeur{0}})
 ]
-
-<div class="grid__item">
-    <div class="grid">
-        <div class="grid__item lap-and-up-one-quarter">
-            <div class="self__header self__header--rubrique">
-                <h1 class="hN titre"><span class="">Tous les entretiens</span></h1>
-            </div>
-        </div><!-- /.grid__item -->
-        <div class="grid__item lap-and-up-three-quarters">
-            <B_pagination_abc>
-            <nav class="pagination pagination--top pagination--abc">
-                <ul class="nav">
-                    <BOUCLE_pagination_abc(POUR){tableau #GET{alphabet}}>[(#SET{actif,#VALEUR|=={#ENV{lettre,#GET{debut}}}|?{' ',''}})][(#SET{content,#VALEUR|in_array{#GET{auteurs_alpha}}|?{' ',''}})
-                    ]<li class="pagination__item pagination--abc__item[ (#GET{content}|non)disabled][ (#VALEUR|=={[(#ENV{lettre,#GET{debut} })]}|?{on})]"
-                    >[(#GET{content}|?{<a[ class="(#GET{actif}|?{on})"] href="[(#SELF|parametre_url{lettre,#VALEUR})]">,<span>})]#VALEUR[(#GET{content}|?{</a>,</span>})]</li
-                    ></BOUCLE_pagination_abc>
-                </ul>
-            </nav>
-            </B_pagination_abc>
-        </div><!-- /.grid__item -->
-    </div><!-- /.grid -->
-</div><!-- /.grid__item -->
-
-<B_artlettre>
-<div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
-    <section>
-        [(#REM) L'initiale est visible uniquement sur la version Palm ?  ]
-        <!-- <h1 class="hN">#ENV{lettre,#GET{debut}}</h1> -->
-        <ul class="block-list">
-            <BOUCLE_artlettre(MOTS){id_mot IN #GET{commence_par#ENV{lettre,#GET{debut}}}}{par titre}>
-            <li class="block-list__item">
-                <h2 class="hN">[(#TITRE|nom)[ (#TITRE|prenom)]]</h2>
-                    </B_entretiens>
-                    <ul>
-                        <BOUCLE_entretiens(ARTICLES){id_mot}{id_mot=11}{!par date}>
-                        <li>
-                            <h3 class="hN">#TITRE</h3>
-                            [(#LOGO_ARTICLE|image_reduire{100,0})]
-                        </li>
-                        </BOUCLE_entretiens>
+<section class="mb+">
+    <div class="grid__item">
+        <div class="grid">
+            <div class="grid__item lap-and-up-one-quarter">
+                <h1 class="hN intertitre-section intertitre-section--first"><span class=""><:categorie_entretiens_tous:></span></h1>
+            </div><!-- /.grid__item -->
+            <div class="grid__item lap-and-up-three-quarters">
+                <B_pagination_abc>
+                <nav class="pagination pagination--top pagination--abc">
+                    <ul class="pagination__container">
+                        <BOUCLE_pagination_abc(POUR){tableau #GET{alphabet}}>[(#SET{active,#VALEUR|=={#ENV{lettre,#GET{debut}}}|?{' ',''}})][(#SET{indisponible,#VALEUR|in_array{#GET{auteurs_alpha}}|?{'',' '}})
+                        ]<li class="pagination__item pagination--abc__item[ (#GET{indisponible}|oui)pagination__item--is-disabled][ (#GET{active}|?{pagination__item--is-active})]"
+                        >[(#GET{indisponible}|?{<span>,<a[ class="(#GET{active}|?{on})"] href="[(#SELF|parametre_url{lettre,#VALEUR})]">})]#VALEUR[(#GET{content}|?{</span>,</a>})]</li
+                        ></BOUCLE_pagination_abc>
                     </ul>
-                    </B_entretiens>
-            </li>
-            </BOUCLE_artlettre>
-        </ul>
-    </section>
-</div><!-- /.grid__item -->
-</B_artlettre>
+                </nav>
+                </B_pagination_abc>
+            </div><!-- /.grid__item -->
+        </div><!-- /.grid -->
+    </div><!-- /.grid__item -->
 
+    <B_artlettre>
+    <div id="accordeon" class="grid__item">
+        <div class="grid">
+            <BOUCLE_artlettre(MOTS){id_mot IN #GET{commence_par#ENV{lettre,#GET{debut}}}}{par titre}>
+            [(#INCLURE{fond=resume/mot-entretiens,id_mot,logo_format=1/4})]
+            </BOUCLE_artlettre>
+        </div><!-- /.grid -->
+    </div><!-- /.grid__item -->
+    [(#CHEMIN{js/accordeon.min.js}|oui)<script>$(function() {$("#accordeon").accordeon();});</script>]
+    </B_artlettre>
+</section>
 </BOUCLE_mot_entretiens>

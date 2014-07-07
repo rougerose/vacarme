@@ -828,7 +828,7 @@ textarea:focus {
  */
 /* line 10, /Users/christophe/Sites/projets/vacarme/plugins/vacarme/bower_components/inuit.css/generic/_clearfix.scss */
 .cf:after, .media:after, .island:after,
-.islet:after, .timeline:after, .self-meta:after {
+.islet:after, .accordeon__body:after, .timeline:after, .self-meta:after {
   content: "";
   display: table;
   clear: both; }
@@ -5723,28 +5723,62 @@ html {
     text-align: center;
     color: #ccccda; }
 
-/* ==========================================================================
-   .btn
-   ========================================================================== */
+/*  ==========================================================================
+    .accordeon
+    ========================================================================== */
+/* line 5, scss/modules/_accordeon.scss */
+.accordeon__container {
+  overflow: hidden;
+  margin-bottom: 2em;
+  margin-left: 1em; }
+
+/* line 11, scss/modules/_accordeon.scss */
+.accordeon__header .hN {
+  border-bottom: 1px solid #ccccda;
+  position: relative;
+  -webkit-transition: border-color 0.35s ease-out;
+  -moz-transition: border-color 0.35s ease-out;
+  transition: border-color 0.35s ease-out; }
+  @media only screen and (max-width: 480px) {
+    /* line 11, scss/modules/_accordeon.scss */
+    .accordeon__header .hN {
+      padding-right: 2em; } }
+
+/* line 23, scss/modules/_accordeon.scss */
+.accordeon__descriptif {
+  width: 66.666%;
+  float: left; }
+
+/* line 27, scss/modules/_accordeon.scss */
+.accordeon__footer {
+  position: relative;
+  width: 33.333%;
+  max-height: 200px;
+  padding: 0;
+  float: right; }
+
+/*  ==========================================================================
+    .btn
+    ========================================================================== */
 /* line 5, scss/modules/_btn.scss */
 .btn-shortcut-container {
   position: absolute;
   top: 0; }
 
 /* 
-   .btn-nav
-   ========================================================================== */
-/* line 14, scss/modules/_btn.scss */
+    .btn-nav
+    ========================================================================== */
+/* line 16, scss/modules/_btn.scss */
 .btn-nav-open {
   left: 12px;
   padding-left: 0; }
   @media only screen and (min-width: 481px) {
-    /* line 14, scss/modules/_btn.scss */
+    /* line 16, scss/modules/_btn.scss */
     .btn-nav-open {
       left: 24px; } }
 
 @media only screen and (min-width: 1024px) {
-  /* line 22, scss/modules/_btn.scss */
+  /* line 26, scss/modules/_btn.scss */
   .btn-nav-search {
     padding: 0;
     line-height: 1;
@@ -5804,6 +5838,40 @@ html {
   /* line 7, scss/modules/_section.scss */
   .groupe-section {
     margin-bottom: 1.5em; } }
+
+/* .intertitre-section
+   ========================================================================== */
+/* line 25, scss/modules/_section.scss */
+.intertitre-section {
+  font-style: italic; }
+  /* line 27, scss/modules/_section.scss */
+  .recherche .intertitre-section {
+    color: #000; }
+
+/* line 32, scss/modules/_section.scss */
+.intertitre-section--first, .self__header--rubrique .titre, .resume__category {
+  display: inline-block;
+  border-bottom: 1px solid #555555;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-left: -12px;
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.33333; }
+
+/* line 40, scss/modules/_section.scss */
+.intertitre-section--second {
+  margin-bottom: 0;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5; }
+
+/* line 45, scss/modules/_section.scss */
+.intertitre-section--footer {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #000; }
 
 /* ==========================================================================
    .site-logo
@@ -6116,6 +6184,65 @@ html {
     /* line 237, scss/modules/_navigation.scss */
     .nav-prevnext__item--logos {
       width: 50%; } }
+
+/*  ==========================================================================
+    .pagination
+    ========================================================================== */
+/* line 6, scss/modules/_pagination.scss */
+.pagination__container {
+  margin: 0;
+  padding: 0;
+  list-style-type: none; }
+
+/* line 11, scss/modules/_pagination.scss */
+.pagination__item {
+  display: inline-block; }
+  /* line 13, scss/modules/_pagination.scss */
+  .pagination__item a,
+  .pagination__item span,
+  .pagination__item strong {
+    padding: 0 .3em; }
+
+/*  modificateurs
+    ========================================================================== */
+/* line 23, scss/modules/_pagination.scss */
+.pagination--top {
+  margin-bottom: 3em;
+  position: relative; }
+  /* line 26, scss/modules/_pagination.scss */
+  .pagination--top:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid #ccccda; }
+
+/* line 37, scss/modules/_pagination.scss */
+.pagination--abc {
+  text-align: center;
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.2; }
+
+/*  états
+    ========================================================================== */
+/* line 45, scss/modules/_pagination.scss */
+.pagination__item--is-disabled {
+  color: #ccccda; }
+
+/* line 49, scss/modules/_pagination.scss */
+.pagination__item--is-active a {
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 1.09091;
+  color: #e88e0e;
+  cursor: default; }
+@media only screen and (min-width: 481px) {
+  /* line 55, scss/modules/_pagination.scss */
+  .pagination--top .pagination__item--is-active {
+    border-bottom: 1px solid #e88e0e; } }
 
 /*  ==========================================================================
     .tabs
@@ -6562,54 +6689,33 @@ html {
   position: relative; }
 
 /* 
-   .resume-article--selection
+   .resume-article--selection 
    ========================================================================== */
-@media only screen and (min-width: 481px) and (max-width: 1023px) {
-  /* line 82, scss/modules/_resume.scss */
-  .resume-article--selection .resume__titre {
-    font-size: 20px;
-    font-size: 1.25rem;
-    line-height: 1.2; } }
-@media only screen and (min-width: 1024px) {
-  /* line 82, scss/modules/_resume.scss */
-  .resume-article--selection .resume__titre {
-    font-size: 22px;
-    font-size: 1.375rem;
-    line-height: 1.09091; } }
-@media only screen and (min-width: 1024px) {
-  /* line 90, scss/modules/_resume.scss */
-  .resume-article--selection .resume__signature,
-  .resume-article--selection .resume__desc,
-  .resume-article--selection .resume__more {
-    font-size: 18px;
-    font-size: 1.125rem;
-    line-height: 1.33333; } }
-
 /* 
    .resume-article--court
    ========================================================================== */
-/* line 104, scss/modules/_resume.scss */
+/* line 107, scss/modules/_resume.scss */
 .resume-article--court.resume {
   margin-bottom: 0;
   border-width: 0; }
-/* line 108, scss/modules/_resume.scss */
+/* line 111, scss/modules/_resume.scss */
 .resume-article--court .resume__titre {
   margin-bottom: 0;
   min-height: 2em;
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5; }
-/* line 113, scss/modules/_resume.scss */
+/* line 116, scss/modules/_resume.scss */
 .resume-article--court .resume__signature {
   margin-bottom: 0; }
 
 /* 
    is-selected
    ========================================================================== */
-/* line 121, scss/modules/_resume.scss */
+/* line 124, scss/modules/_resume.scss */
 .resume__titre--is-selected strong {
   font-weight: normal; }
-  /* line 123, scss/modules/_resume.scss */
+  /* line 126, scss/modules/_resume.scss */
   .resume__titre--is-selected strong:before {
     display: inline-block;
     margin-left: -1em;
@@ -6626,7 +6732,7 @@ html {
 /* 
    .postdate-info-overlay
    ========================================================================== */
-/* line 147, scss/modules/_resume.scss */
+/* line 150, scss/modules/_resume.scss */
 .postdate-info-overlay {
   position: absolute;
   left: 0;
@@ -6645,45 +6751,45 @@ html {
   -webkit-transition: background 0.3s ease, color 0.3s ease;
   -moz-transition: background 0.3s ease, color 0.3s ease;
   transition: background 0.3s ease, color 0.3s ease; }
-  /* line 161, scss/modules/_resume.scss */
+  /* line 164, scss/modules/_resume.scss */
   .resume-article--court .postdate-info-overlay {
     bottom: -1.5em;
     left: auto; }
-  /* line 165, scss/modules/_resume.scss */
+  /* line 168, scss/modules/_resume.scss */
   .resume:hover .postdate-info-overlay {
     background-color: #b22222;
     color: #fff; }
 
 /*  .resume-video
     ========================================================================== */
-/* line 174, scss/modules/_resume.scss */
+/* line 177, scss/modules/_resume.scss */
 .resume-video {
   background-color: #7c88d3;
   text-align: center; }
 
-/* line 178, scss/modules/_resume.scss */
+/* line 181, scss/modules/_resume.scss */
 .resume-video--is-active {
   opacity: 0.5; }
 
 @media only screen and (max-width: 480px) {
-  /* line 181, scss/modules/_resume.scss */
+  /* line 184, scss/modules/_resume.scss */
   .resume-video--small {
     min-height: 180px; } }
-/* line 185, scss/modules/_resume.scss */
+/* line 188, scss/modules/_resume.scss */
 .resume-video--small .hN {
   font-size: 14px;
   font-size: 0.875rem;
   line-height: 1;
   color: #000; }
   @media only screen and (min-width: 481px) {
-    /* line 185, scss/modules/_resume.scss */
+    /* line 188, scss/modules/_resume.scss */
     .resume-video--small .hN {
       padding: 0.5em;
       margin-bottom: 0.5em;
       font-size: 16px;
       font-size: 1rem;
       line-height: 1.2; } }
-/* line 197, scss/modules/_resume.scss */
+/* line 200, scss/modules/_resume.scss */
 .resume-video--small .resume__body p {
   font-size: 12px;
   font-size: 0.75rem;
@@ -6693,39 +6799,39 @@ html {
 /*  resume-semainier
     ========================================================================== */
 @media only screen and (min-width: 481px) {
-  /* line 208, scss/modules/_resume.scss */
+  /* line 211, scss/modules/_resume.scss */
   .resume-semainier header {
     border-top: 1px solid #000;
     padding-top: 1.5em; } }
-/* line 213, scss/modules/_resume.scss */
+/* line 216, scss/modules/_resume.scss */
 .resume-semainier .resume__titre {
   font-size: 24px;
   font-size: 1.5rem;
   margin-bottom: .5em; }
-/* line 217, scss/modules/_resume.scss */
+/* line 220, scss/modules/_resume.scss */
 .resume-semainier .resume__titre--jour {
   font-size: 18px;
   font-size: 1.125rem;
   line-height: 1.33333; }
-  /* line 219, scss/modules/_resume.scss */
+  /* line 222, scss/modules/_resume.scss */
   .resume-semainier .resume__titre--jour a {
     color: #999999; }
-/* line 223, scss/modules/_resume.scss */
+/* line 226, scss/modules/_resume.scss */
 .resume-semainier .resume__soustitre {
   font-size: 20px;
   font-size: 1.25rem; }
 
-/* line 227, scss/modules/_resume.scss */
+/* line 230, scss/modules/_resume.scss */
 .resume-semainier__img {
   margin-bottom: 2em; }
-  /* line 229, scss/modules/_resume.scss */
+  /* line 232, scss/modules/_resume.scss */
   .resume-semainier__img a {
     border: none; }
 
-/* line 234, scss/modules/_resume.scss */
+/* line 237, scss/modules/_resume.scss */
 .timeline__item--pair .resume-semainier__body .resume__titre--jour {
   margin-right: 20%; }
-/* line 237, scss/modules/_resume.scss */
+/* line 240, scss/modules/_resume.scss */
 .timeline__item--impair .resume-semainier__body .resume__titre--jour {
   margin-left: 20%; }
 
@@ -6746,9 +6852,9 @@ html {
 *   -------------------------------------
 *   .resume-article--texte 
 *   
-*   .resume-article__titre--selection
-*   .resume-article__auteurs--selection
-*   .resume-article__descriptif--selection
+*   .resume-article__titre--une
+*   .resume-article__auteurs--une
+*   .resume-article__descriptif--une
 *
 *   états
 *   -------------------------------------
@@ -6760,7 +6866,7 @@ html {
 .resume-article {
   position: relative; }
 
-/* line 37, scss/modules/_resume.article.scss */
+/* line 34, scss/modules/_resume.article.scss */
 .resume-article__logo {
   overflow: hidden;
   position: relative;
@@ -6768,75 +6874,98 @@ html {
   height: 310px;
   margin-bottom: 1em; }
   @media only screen and (min-width: 480px) and (max-width: 800px) {
-    /* line 37, scss/modules/_resume.article.scss */
+    /* line 34, scss/modules/_resume.article.scss */
     .resume-article__logo {
       height: 210px; } }
-  /* line 46, scss/modules/_resume.article.scss */
+  /* line 43, scss/modules/_resume.article.scss */
+  .resume-article__logo img {
+    -webkit-transform: translate(-10px, -10px);
+    -moz-transform: translate(-10px, -10px);
+    -ms-transform: translate(-10px, -10px);
+    -o-transform: translate(-10px, -10px);
+    transform: translate(-10px, -10px);
+    -webkit-transition: -webkit-transform 0.35s;
+    -moz-transition: -moz-transform 0.35s;
+    transition: transform 0.35s;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden; }
+  /* line 49, scss/modules/_resume.article.scss */
+  .resume-article__logo:hover img {
+    -webkit-transform: translate(-20px, -20px);
+    -moz-transform: translate(-20px, -20px);
+    -ms-transform: translate(-20px, -20px);
+    -o-transform: translate(-20px, -20px);
+    transform: translate(-20px, -20px); }
+  /* line 52, scss/modules/_resume.article.scss */
+  .resume-article__logo:hover a {
+    color: #e88e0e; }
+  /* line 54, scss/modules/_resume.article.scss */
   .resume-article__logo a {
-    display: block; }
+    display: block;
+    color: #fff; }
 
-/* line 49, scss/modules/_resume.article.scss */
+/* line 57, scss/modules/_resume.article.scss */
 .resume-article__titre {
   font-size: 19px;
   font-size: 1.1875rem;
   line-height: 1.26316; }
-  /* line 51, scss/modules/_resume.article.scss */
+  /* line 59, scss/modules/_resume.article.scss */
   .resume-article__titre a {
     display: inline-block;
     color: #000; }
-    /* line 54, scss/modules/_resume.article.scss */
+    /* line 62, scss/modules/_resume.article.scss */
     .resume-article__titre a:hover {
       color: #e88e0e; }
-    /* line 55, scss/modules/_resume.article.scss */
+    /* line 63, scss/modules/_resume.article.scss */
     .resume-article__titre a:first-letter {
       text-transform: uppercase; }
-  /* line 57, scss/modules/_resume.article.scss */
+  /* line 65, scss/modules/_resume.article.scss */
   .resume-article__titre:first-letter {
     text-transform: uppercase; }
 
-/* line 59, scss/modules/_resume.article.scss */
+/* line 67, scss/modules/_resume.article.scss */
 .resume-article__auteurs {
   font-size: 16px;
   font-size: 1rem;
   color: #8888a7; }
-  /* line 62, scss/modules/_resume.article.scss */
+  /* line 70, scss/modules/_resume.article.scss */
   .resultats-list__item .resume-article__auteurs {
     margin-bottom: .5em; }
 
-/* line 66, scss/modules/_resume.article.scss */
+/* line 74, scss/modules/_resume.article.scss */
 .resume-article__descriptif {
   padding-right: 1.5em; }
-  /* line 68, scss/modules/_resume.article.scss */
+  /* line 76, scss/modules/_resume.article.scss */
   .resume-article__descriptif p {
     font-size: 15px;
     font-size: 0.9375rem;
     line-height: 1.313; }
-  /* line 73, scss/modules/_resume.article.scss */
+  /* line 81, scss/modules/_resume.article.scss */
   .resultats-list__item .resume-article__descriptif p {
     margin-bottom: .5em; }
 
-/* line 76, scss/modules/_resume.article.scss */
+/* line 84, scss/modules/_resume.article.scss */
 .resume-article__date {
   font-family: "HelveticaNeueLTStdLtCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #8888a7;
   margin-right: 0.15em; }
 
-/* line 81, scss/modules/_resume.article.scss */
+/* line 89, scss/modules/_resume.article.scss */
 .resume-article__numero {
   position: absolute;
   bottom: 0.5em;
-  left: 5px;
-  color: #fff; }
+  left: 5px; }
 
-/* line 87, scss/modules/_resume.article.scss */
+/* line 94, scss/modules/_resume.article.scss */
 .resume-article__numero-titre {
   margin-bottom: 0;
   font-family: "HelveticaNeueLTStdCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-size: 16px;
   font-size: 1rem;
-  line-height: 1.5; }
-  /* line 92, scss/modules/_resume.article.scss */
+  line-height: 1.5;
+  color: #fff; }
+  /* line 100, scss/modules/_resume.article.scss */
   .resume-article__numero-titre .soustitre {
     font-family: "HelveticaNeueLTStdLtCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
     display: inline;
@@ -6845,43 +6974,101 @@ html {
 
 /*  modificateurs
     ========================================================================== */
-/*
- * .resume-article--texte
- */
-/*
- * .resume-article__XX--selection
- */
-/* line 109, scss/modules/_resume.article.scss */
-.resume-article__titre--selection {
+/* .resume-article--texte */
+/* .resume-article--une */
+/* line 114, scss/modules/_resume.article.scss */
+.resume-article__titre--une {
   font-size: 24px;
   font-size: 1.5rem;
   line-height: 1; }
 
-/* line 110, scss/modules/_resume.article.scss */
-.resume-article__auteurs--selection {
+/* line 115, scss/modules/_resume.article.scss */
+.resume-article__auteurs--une {
   font-size: 18px;
   font-size: 1.125rem;
   line-height: 1.33333; }
 
-/* line 112, scss/modules/_resume.article.scss */
-.resume-article__descriptif--selection p {
+/* line 117, scss/modules/_resume.article.scss */
+.resume-article__descriptif--une p {
   font-size: 18px;
   font-size: 1.125rem;
   line-height: 1.33333; }
+
+/* .resume-article--selection-img-titre */
+/* line 123, scss/modules/_resume.article.scss */
+.resume-article__header--selection-img-titre {
+  position: absolute;
+  bottom: 0.5em;
+  left: 0.5em; }
+
+/* line 128, scss/modules/_resume.article.scss */
+.resume-article__titre--selection-img-titre {
+  margin-bottom: 0; }
 
 /*  états
     ========================================================================== */
 /*
  * .resume-article--is-postdate
  */
-/* line 121, scss/modules/_resume.article.scss */
+/* line 138, scss/modules/_resume.article.scss */
 .resume-article--is-postdate .hN,
 .resume-article--is-postdate p {
   color: #999999; }
-/* line 124, scss/modules/_resume.article.scss */
+/* line 141, scss/modules/_resume.article.scss */
 .resume-article--is-postdate:hover .message--warning-texte.postdate-message {
   background-color: #ffaa00;
   color: #fff; }
+
+/*  ==========================================================================
+    .resume.mot
+    ========================================================================== */
+/*
+*   .resume-mot
+*       .resume-mot__logo
+*       .resume-mot__header
+*           .resume-mot__titre
+*       .resume-mot__descriptif
+*       .resume-mot__date
+*       .resume-mot__numero
+*   
+*   modificateurs
+*   -------------------------------------
+*   .resume-mot--entretiens 
+*   
+*/
+/* line 21, scss/modules/_resume.mot.scss */
+.resume-mot__logo {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 310px;
+  margin-bottom: 1em; }
+  @media only screen and (min-width: 480px) and (max-width: 800px) {
+    /* line 21, scss/modules/_resume.mot.scss */
+    .resume-mot__logo {
+      height: 210px; } }
+
+/*  modificateurs
+    ========================================================================== */
+@media only screen and (min-width: 481px) {
+  /* line 36, scss/modules/_resume.mot.scss */
+  .resume-mot--entretiens {
+    margin-bottom: 2em; } }
+
+/* line 42, scss/modules/_resume.mot.scss */
+.resume-mot__logo--entretiens img {
+  display: block; }
+@media only screen and (max-width: 480px) {
+  /* line 41, scss/modules/_resume.mot.scss */
+  .resume-mot__logo--entretiens {
+    margin-bottom: 1em; } }
+
+/* line 48, scss/modules/_resume.mot.scss */
+.resume-mot__header--entretiens .resume-mot__titre {
+  font-size: 30px;
+  font-size: 1.875rem;
+  line-height: 1.6;
+  color: #000; }
 
 /*  ==========================================================================
     .self
@@ -6900,22 +7087,32 @@ html {
   .self__header--timeline {
     text-align: center; } }
 
-/*  .self__chapo
+/*  .self__titre
     ========================================================================== */
 /* line 22, scss/modules/_self.scss */
+.self__titre {
+  color: #000; }
+
+/* line 26, scss/modules/_self.scss */
+.self__titre--mot {
+  font-style: italic; }
+
+/*  .self__chapo
+    ========================================================================== */
+/* line 33, scss/modules/_self.scss */
 .self__chapo {
   font-size: 19px;
   font-size: 1.1875rem;
   line-height: 1.26316; }
   @media only screen and (min-width: 481px) {
-    /* line 22, scss/modules/_self.scss */
+    /* line 33, scss/modules/_self.scss */
     .self__chapo {
       padding-right: 48px; } }
 
 /*
  * self__chapo--timeline
  */
-/* line 33, scss/modules/_self.scss */
+/* line 43, scss/modules/_self.scss */
 .self__chapo--timeline {
   padding-right: 0;
   position: relative; }
@@ -6925,41 +7122,50 @@ html {
 /*
  * self__body--timeline
  */
-/* line 45, scss/modules/_self.scss */
+/* line 55, scss/modules/_self.scss */
 .self__body--timeline {
   position: relative; }
-  /* line 47, scss/modules/_self.scss */
+  /* line 57, scss/modules/_self.scss */
   .self__body--timeline .self__texte,
   .self__body--timeline .self__ps,
   .self__body--timeline .self__notes {
     width: 100%; }
 
+/*
+ * self__body--mot
+ */
+/* line 68, scss/modules/_self.scss */
+.self__body--mot p {
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 1.09091; }
+
 /* 
 .self__footer
 ========================================================================== */
-/* line 60, scss/modules/_self.scss */
+/* line 79, scss/modules/_self.scss */
 .self__footer {
   clear: both;
   position: relative; }
 
 @media only screen and (min-width: 481px) {
-  /* line 65, scss/modules/_self.scss */
+  /* line 84, scss/modules/_self.scss */
   .logoportrait {
     float: left;
     margin-left: -50%;
     width: 80%;
     margin-right: 24px; }
 
-  /* line 71, scss/modules/_self.scss */
+  /* line 90, scss/modules/_self.scss */
   .portrait {
     padding-left: 25%; }
-    /* line 73, scss/modules/_self.scss */
+    /* line 92, scss/modules/_self.scss */
     .portrait .logo {
       float: left;
       width: 70%;
       margin-left: -50%;
       margin-right: 24px; }
-    /* line 80, scss/modules/_self.scss */
+    /* line 99, scss/modules/_self.scss */
     .portrait .texte {
       width: 66%; } }
 /*  ==========================================================================
@@ -7049,16 +7255,23 @@ html {
   position: absolute;
   width: 100%; }
 
-/* line 22, scss/modules/_overlay.scss */
+/*  modificateurs
+    ========================================================================== */
+/* line 23, scss/modules/_overlay.scss */
+.overlay--top-bottom {
+  bottom: 0;
+  top: 0; }
+
+/* line 27, scss/modules/_overlay.scss */
 .overlay--article-postdate {
   top: 50%;
   bottom: 0; }
   @media only screen and (max-width: 480px) {
-    /* line 22, scss/modules/_overlay.scss */
+    /* line 27, scss/modules/_overlay.scss */
     .overlay--article-postdate {
       bottom: 1.5em; } }
 
-/* line 29, scss/modules/_overlay.scss */
+/* line 34, scss/modules/_overlay.scss */
 .overlay--article-archive {
   background-color: transparent;
   background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.3));
@@ -7068,26 +7281,27 @@ html {
 
 /*  overlay-degrade
     ========================================================================== */
-/* line 40, scss/modules/_overlay.scss */
+/* line 44, scss/modules/_overlay.scss */
 .overlay-degrade {
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0) 0, white 80%, white 100%);
-  background-image: linear-gradient(rgba(255, 255, 255, 0) 0, white 80%, white 100%); }
+  background-color: rgba(255, 255, 255, 0);
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0), white);
+  background-image: linear-gradient(to bottom,rgba(255, 255, 255, 0), white); }
 
 /*  overlay-frame
     ========================================================================== */
-/* line 53, scss/modules/_overlay.scss */
+/* line 52, scss/modules/_overlay.scss */
 .overlay-frame {
   position: relative; }
   @media only screen and (min-width: 481px) {
-    /* line 53, scss/modules/_overlay.scss */
+    /* line 52, scss/modules/_overlay.scss */
     .overlay-frame {
       height: 140px;
       overflow: hidden; } }
-  /* line 61, scss/modules/_overlay.scss */
+  /* line 60, scss/modules/_overlay.scss */
   .overlay-frame > img {
     display: block; }
     @media only screen and (min-width: 481px) {
-      /* line 61, scss/modules/_overlay.scss */
+      /* line 60, scss/modules/_overlay.scss */
       .overlay-frame > img {
         max-width: initial;
         position: relative;
@@ -7095,11 +7309,11 @@ html {
         margin-left: -200%;
         display: inline; } }
 
-/* line 72, scss/modules/_overlay.scss */
+/* line 71, scss/modules/_overlay.scss */
 .overlay-frame__hover {
   padding: 0.5em; }
   @media only screen and (min-width: 481px) {
-    /* line 72, scss/modules/_overlay.scss */
+    /* line 71, scss/modules/_overlay.scss */
     .overlay-frame__hover {
       position: absolute;
       top: 0;
@@ -7111,17 +7325,17 @@ html {
     http://tympanus.net/Tutorials/CaptionHoverEffects/index3.html
     ========================================================================== */
 @media only screen and (min-width: 481px) {
-  /* line 87, scss/modules/_overlay.scss */
+  /* line 86, scss/modules/_overlay.scss */
   .overlay-frame--effect-bottom-up > img {
     -webkit-transition: -webkit-transform 0.4s;
     -moz-transition: -moz-transform 0.4s;
     transition: transform 0.4s; } }
   @media only screen and (min-width: 481px) and (min-width: 481px) {
-    /* line 87, scss/modules/_overlay.scss */
+    /* line 86, scss/modules/_overlay.scss */
     .overlay-frame--effect-bottom-up > img {
       max-width: initial; } }
 @media only screen and (min-width: 481px) {
-  /* line 91, scss/modules/_overlay.scss */
+  /* line 90, scss/modules/_overlay.scss */
   .overlay-frame--effect-bottom-up .overlay-frame__hover {
     height: 90%;
     top: auto;
@@ -7135,14 +7349,14 @@ html {
     -webkit-transition: -webkit-transform 0.4s, opacity 0.1s 0.3s;
     -moz-transition: -moz-transform 0.4s, opacity 0.1s 0.3s;
     transition: transform 0.4s, opacity 0.1s 0.3s; }
-  /* line 101, scss/modules/_overlay.scss */
+  /* line 100, scss/modules/_overlay.scss */
   .overlay-frame--effect-bottom-up:hover > img {
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     -o-transform: translateY(-50%);
     transform: translateY(-50%); }
-  /* line 102, scss/modules/_overlay.scss */
+  /* line 101, scss/modules/_overlay.scss */
   .overlay-frame--effect-bottom-up:hover .overlay-frame__hover {
     opacity: 1;
     -webkit-transform: translateY(0);
@@ -7290,24 +7504,24 @@ html {
 /*  ==========================================================================
     icon
     ========================================================================== */
-/* line 9, scss/modules/_icon.scss */
+/* line 5, scss/modules/_icon.scss */
 .icon {
   height: 24px;
   width: 24px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #282831; }
 
-/* line 16, scss/modules/_icon.scss */
+/* line 12, scss/modules/_icon.scss */
 .icon--navigation {
   font-size: 23px;
   font-size: 1.4375rem;
   line-height: 1.04348;
   font-weight: bold; }
-  /* line 19, scss/modules/_icon.scss */
+  /* line 15, scss/modules/_icon.scss */
   .icon--navigation:hover {
     color: #fff; }
 
-/* line 23, scss/modules/_icon.scss */
+/* line 19, scss/modules/_icon.scss */
 .icon--close {
   border-radius: 50%;
   font-size: 23px;
@@ -7316,42 +7530,42 @@ html {
   line-height: 0.9;
   background-color: #999;
   font-weight: bold; }
-  /* line 29, scss/modules/_icon.scss */
+  /* line 25, scss/modules/_icon.scss */
   .icon--close:hover {
     background-color: #ccccda;
     color: #000; }
 
-/* line 35, scss/modules/_icon.scss */
+/* line 31, scss/modules/_icon.scss */
 .icon--search {
   background: transparent url(../img/css/icon__search.svg) no-repeat 0 0.375em; }
   @media only screen and (min-width: 481px) {
-    /* line 35, scss/modules/_icon.scss */
+    /* line 31, scss/modules/_icon.scss */
     .icon--search {
       background-position: 0 0.2em; } }
 
-/* line 42, scss/modules/_icon.scss */
+/* line 38, scss/modules/_icon.scss */
 .icon--lock {
   background: transparent url(../img/css/icon__lock.png) no-repeat 0 0; }
 
-/* line 45, scss/modules/_icon.scss */
+/* line 41, scss/modules/_icon.scss */
 .icon--unlock {
   margin-top: -10px;
   background: transparent url(../img/css/icon__lock.png) no-repeat 0 -24px; }
 
-/* line 50, scss/modules/_icon.scss */
+/* line 46, scss/modules/_icon.scss */
 .icon--back-top {
   background: transparent url(../img/css/icon__back-top.png) no-repeat center top; }
 
-/* line 55, scss/modules/_icon.scss */
+/* line 51, scss/modules/_icon.scss */
 .icon--before {
   text-indent: -9999em;
   border: 0;
   opacity: 0.3; }
-  /* line 59, scss/modules/_icon.scss */
+  /* line 55, scss/modules/_icon.scss */
   .icon--before:hover {
     opacity: 1; }
 
-/* line 63, scss/modules/_icon.scss */
+/* line 59, scss/modules/_icon.scss */
 .icon--bas {
   background: url(../img/css/icon--bas.svg);
   background-size: cover;
@@ -7359,7 +7573,7 @@ html {
   height: 16px;
   margin-top: -2em; }
 
-/* line 69, scss/modules/_icon.scss */
+/* line 65, scss/modules/_icon.scss */
 .icon--haut {
   background: url(../img/css/icon--haut.svg);
   background-size: cover;
@@ -7367,21 +7581,69 @@ html {
   height: 16px;
   margin-top: -2em; }
 
-/* line 75, scss/modules/_icon.scss */
+/* line 71, scss/modules/_icon.scss */
 .icon--video-carousel {
   height: 100%;
   width: 100%; }
 
-/* line 79, scss/modules/_icon.scss */
+/* line 75, scss/modules/_icon.scss */
 .icon--video-defaut {
   height: 83px;
   background: url(../img/css/icon--video-defaut.svg) no-repeat center;
   background-size: cover; }
   @media only screen and (min-width: 481px) {
-    /* line 79, scss/modules/_icon.scss */
+    /* line 75, scss/modules/_icon.scss */
     .icon--video-defaut {
       height: 100%; } }
 
+/*  .icon-svg
+    ========================================================================== */
+/* line 85, scss/modules/_icon.scss */
+.icon-svg {
+  display: inline-block;
+  cursor: pointer; }
+
+/* line 90, scss/modules/_icon.scss */
+.icon-svg--accordeon {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  right: 0;
+  z-index: 100;
+  -webkit-transition: all 0.35s ease-out;
+  -moz-transition: all 0.35s ease-out;
+  transition: all 0.35s ease-out; }
+  /* line 97, scss/modules/_icon.scss */
+  .icon-svg--accordeon:hover, .icon-svg--accordeon.icon-svg--accordeon--is-open {
+    padding-top: .3em; }
+    /* line 100, scss/modules/_icon.scss */
+    .icon-svg--accordeon:hover + .hN, .icon-svg--accordeon.icon-svg--accordeon--is-open + .hN {
+      border-color: #e88e0e; }
+    /* line 103, scss/modules/_icon.scss */
+    .icon-svg--accordeon:hover #icon-svg--chevron-bas, .icon-svg--accordeon.icon-svg--accordeon--is-open #icon-svg--chevron-bas {
+      fill: #e88e0e; }
+  /* line 107, scss/modules/_icon.scss */
+  .icon-svg--accordeon.icon-svg--accordeon--is-open {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg); }
+
+/* line 112, scss/modules/_icon.scss */
+.icon-svg--chevron-bas {
+  width: 24px;
+  height: 24px; }
+
+/* line 117, scss/modules/_icon.scss */
+#icon-svg--chevron-bas {
+  fill: #ccccda;
+  -webkit-transition: fill 0.35s ease-out;
+  -moz-transition: fill 0.35s ease-out;
+  transition: fill 0.35s ease-out; }
+
+/*  états
+    ========================================================================== */
 /*  ==========================================================================
     cover
     ========================================================================== */
@@ -8121,42 +8383,6 @@ h6.spip {
     margin-top: 48px;
     margin-top: 3rem; }
 
-/*==========  intertitres section  ==========*/
-/* line 65, ui/headings.scss */
-.intertitre-section {
-  font-style: italic; }
-  /* line 67, ui/headings.scss */
-  .recherche .intertitre-section {
-    color: #000;
-    font-weight: 600; }
-
-/* line 76, ui/headings.scss */
-.intertitre-section--first, .self__header--rubrique .titre, .resume__category {
-  display: inline-block;
-  border-bottom: 1px solid #555555;
-  padding-left: 12px;
-  padding-right: 12px;
-  margin-left: -12px;
-  font-size: 18px;
-  font-size: 1.125rem;
-  line-height: 1.33333; }
-
-/* line 84, ui/headings.scss */
-.intertitre-section--second {
-  margin-bottom: 0;
-  font-weight: 600;
-  font-size: 16px;
-  font-size: 1rem;
-  line-height: 1.5; }
-
-/* line 89, ui/headings.scss */
-.intertitre-section--footer {
-  font-size: 16px;
-  font-size: 1rem;
-  line-height: 1.5;
-  font-weight: 600;
-  color: #000; }
-
 /*-----  End of headings  ------*/
 /*===============================
 =            buttons            =
@@ -8360,72 +8586,6 @@ ol.spip {
     margin-left: 1.5rem; }
 
 /*-----  End of list  ------*/
-/*=================================
-=            accordeon            =
-=================================*/
-@media only screen and (max-width: 480px) {
-  /* line 7, ui/accordeon.scss */
-  .accordeon .resume-numero--list {
-    padding-left: 1.5em; } }
-
-/* line 12, ui/accordeon.scss */
-.accordeon__header {
-  position: relative;
-  padding-left: 1.5em; }
-
-/* line 16, ui/accordeon.scss */
-.accordeon__link {
-  display: block;
-  position: absolute;
-  left: 0;
-  color: #ccccda;
-  font-size: 20px;
-  font-size: 1.25rem;
-  font-weight: bold;
-  -moz-transition: color 0.2s ease-in-out, -moz-transform 0.2s ease-in-out;
-  -webkit-transition: color 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
-  -o-transition: color 0.2s ease-in-out, -o-transform 0.2s ease-in-out;
-  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out; }
-  /* line 27, ui/accordeon.scss */
-  .accordeon__link:hover {
-    color: #7c88d3;
-    -webkit-transform-origin: center center;
-    -moz-transform-origin: center center;
-    -ms-transform-origin: center center;
-    -o-transform-origin: center center;
-    transform-origin: center center;
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
-    transform: rotate(45deg); }
-
-/* line 33, ui/accordeon.scss */
-.accordeon__link--close {
-  color: #000;
-  -webkit-transform-origin: center center;
-  -moz-transform-origin: center center;
-  -ms-transform-origin: center center;
-  -o-transform-origin: center center;
-  transform-origin: center center;
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg); }
-  /* line 37, ui/accordeon.scss */
-  .accordeon__link--close:hover {
-    color: #ccccda; }
-
-/* line 41, ui/accordeon.scss */
-.accordeon__content {
-  padding-left: 1.5em; }
-
-/* line 45, ui/accordeon.scss */
-.js .accordeon__content--closed {
-  display: none; }
-
-/*-----  End of accordeon  ------*/
 /*===============================
 =            columns            =
 ===============================*/
@@ -8450,125 +8610,6 @@ ol.spip {
   .desk-col__item--50 {
     width: 50%; } }
 /*-----  End of columns  ------*/
-/*==================================
-=            pagination            =
-==================================*/
-/* line 4, ui/pagination.scss */
-.pagination {
-  position: relative;
-  font-size: 15px;
-  font-size: 0.9375rem;
-  line-height: 1.2; }
-  /* line 8, ui/pagination.scss */
-  .pagination .nav > li, .pagination .flex-direction-nav > li {
-    display: inline-block; }
-  /* line 9, ui/pagination.scss */
-  .pagination a {
-    color: #777777; }
-    /* line 11, ui/pagination.scss */
-    .pagination a:hover {
-      color: #000; }
-
-/* line 16, ui/pagination.scss */
-.pagination__label {
-  padding-top: 6px;
-  color: #777777;
-  font-weight: 600;
-  font-size: 16px;
-  font-size: 1rem; }
-  @media only screen and (min-width: 481px) {
-    /* line 16, ui/pagination.scss */
-    .pagination__label {
-      position: absolute;
-      left: 0; } }
-
-@media only screen and (max-width: 480px) {
-  /* line 26, ui/pagination.scss */
-  .pagination__item {
-    margin-bottom: .2em;
-    margin-top: .2em; } }
-/* line 31, ui/pagination.scss */
-.pagination__item a, .pagination__item span, .pagination__item strong {
-  display: inline-block;
-  margin-left: 3px;
-  margin-right: 3px;
-  padding-left: 4px;
-  padding-right: 4px; }
-/* line 38, ui/pagination.scss */
-.pagination__item .on {
-  color: #000; }
-
-/* line 42, ui/pagination.scss */
-.tbc,
-.disabled {
-  color: #ccccda; }
-
-/*==========  top/bottom  ==========*/
-/* line 48, ui/pagination.scss */
-.pagination--top {
-  border-bottom: 1px solid #dbdbe5;
-  margin-bottom: 24px;
-  margin-bottom: 1.5rem; }
-  /* line 52, ui/pagination.scss */
-  .pagination--top .nav, .pagination--top .flex-direction-nav {
-    margin-bottom: 0; }
-  /* line 55, ui/pagination.scss */
-  .pagination--top .pagination__item {
-    margin-bottom: -1px; }
-
-/* line 59, ui/pagination.scss */
-.pagination--bottom {
-  border-top: 1px solid #dbdbe5; }
-  /* line 61, ui/pagination.scss */
-  .pagination--bottom .pagination__item {
-    margin-top: -1px; }
-  @media only screen and (max-width: 480px) {
-    /* line 59, ui/pagination.scss */
-    .pagination--bottom {
-      padding-top: 6px; } }
-  @media only screen and (min-width: 481px) {
-    /* line 67, ui/pagination.scss */
-    .pagination--bottom a,
-    .pagination--bottom span,
-    .pagination--bottom strong {
-      padding-top: 6px;
-      border-width: 1px 0 0;
-      border-top: 1px solid transparent; } }
-  @media only screen and (min-width: 481px) {
-    /* line 77, ui/pagination.scss */
-    .pagination--bottom a:hover {
-      border-top-color: #000; } }
-  @media only screen and (min-width: 481px) {
-    /* line 83, ui/pagination.scss */
-    .pagination--bottom .on {
-      border-top: 1px solid #000; } }
-
-/*==========  pagination--page  ==========*/
-/* line 91, ui/pagination.scss */
-.pagination--page {
-  text-align: center; }
-
-/*==========  pagination--prev-next  ==========*/
-/* line 96, ui/pagination.scss */
-.pagination--prev-next {
-  text-align: center; }
-  /* line 99, ui/pagination.scss */
-  .pagination--prev-next .disabled .on {
-    border-top-width: 0;
-    color: #ccccda;
-    font-weight: normal; }
-
-/*==========  pagination--abc  ==========*/
-/* line 107, ui/pagination.scss */
-.pagination--abc {
-  text-align: center; }
-  @media only screen and (min-width: 481px) {
-    /* line 110, ui/pagination.scss */
-    .pagination--abc .pagination__item .on {
-      border-bottom-color: #000;
-      color: #000; } }
-
-/*-----  End of pagination  ------*/
 /*============================
 =            self            =
 ============================*/

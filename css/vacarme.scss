@@ -27,16 +27,19 @@ $fa-font-path: "fonts/fontawesome";
         
         // modules
         "scss/modules/list",
+        "scss/modules/accordeon",
         "scss/modules/btn",
         "scss/modules/tri",
         "scss/modules/section",
         "scss/modules/site-logo",
         "scss/modules/navigation",
+        "scss/modules/pagination",
         "scss/modules/tabs",
         "scss/modules/rubrique-dossier",
         "scss/modules/timeline",
         "scss/modules/resume",
         "scss/modules/resume.article",
+        "scss/modules/resume.mot",
         "scss/modules/self",
         "scss/modules/auteurs",
         "scss/modules/preview",
@@ -87,11 +90,11 @@ $fa-font-path: "fonts/fontawesome";
 @import "ui/box";
 @import "ui/table";
 @import "ui/list";
-@import "ui/accordeon";
+// @import "ui/accordeon";
 //@import "ui/carousel";
 //@import "ui/tabs";
 @import "ui/columns";
-@import "ui/pagination";
+//@import "ui/pagination";
 
 @import "ui/self";
 @import "ui/resume";
