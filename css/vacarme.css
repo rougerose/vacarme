@@ -5744,12 +5744,22 @@ html {
     .accordeon__header .hN {
       padding-right: 2em; } }
 
-/* line 23, scss/modules/_accordeon.scss */
+/* line 20, scss/modules/_accordeon.scss */
+.accordeon__date-titre {
+  display: block;
+  color: #777777; }
+  @media only screen and (min-width: 481px) {
+    /* line 20, scss/modules/_accordeon.scss */
+    .accordeon__date-titre {
+      display: inline;
+      padding-left: 1em; } }
+
+/* line 31, scss/modules/_accordeon.scss */
 .accordeon__descriptif {
   width: 66.666%;
   float: left; }
 
-/* line 27, scss/modules/_accordeon.scss */
+/* line 35, scss/modules/_accordeon.scss */
 .accordeon__footer {
   position: relative;
   width: 33.333%;
@@ -5787,13 +5797,11 @@ html {
 /*  ==========================================================================
     .tri
     ========================================================================== */
-/* line 4, scss/modules/_tri.scss */
+/* line 5, scss/modules/_tri.scss */
 .tri {
-  font-family: "HelveticaNeueLTStdCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #7b6d88;
   position: relative;
   margin-bottom: 3em; }
-  /* line 10, scss/modules/_tri.scss */
+  /* line 8, scss/modules/_tri.scss */
   .tri:after {
     content: "";
     position: absolute;
@@ -5803,23 +5811,53 @@ html {
     width: 100%;
     border-bottom: 1px dotted #ccccda; }
   @media only screen and (min-width: 481px) {
-    /* line 4, scss/modules/_tri.scss */
+    /* line 5, scss/modules/_tri.scss */
     .tri {
       text-align: center; } }
 
-/* line 24, scss/modules/_tri.scss */
+/* line 22, scss/modules/_tri.scss */
 .critere-tri a, .critere-tri strong {
   display: inline-block;
-  padding: 0 0.35em;
   font-weight: normal; }
-/* line 30, scss/modules/_tri.scss */
+/* line 27, scss/modules/_tri.scss */
 .critere-tri a:hover {
-  border-bottom: 1px solid #e88e0e;
   color: #e88e0e; }
-/* line 35, scss/modules/_tri.scss */
+/* line 31, scss/modules/_tri.scss */
 .critere-tri strong {
-  border-bottom: 1px solid #e88e0e;
   color: #e88e0e; }
+
+/*  modificateurs
+    ========================================================================== */
+/* line 38, scss/modules/_tri.scss */
+.tri--recherche {
+  font-family: "HelveticaNeueLTStdCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #7b6d88; }
+
+/* line 43, scss/modules/_tri.scss */
+.critere-tri--recherche a, .critere-tri--recherche strong {
+  padding: 0 0.35em; }
+/* line 45, scss/modules/_tri.scss */
+.critere-tri--recherche a:hover {
+  border-bottom: 1px solid #e88e0e; }
+/* line 49, scss/modules/_tri.scss */
+.critere-tri--recherche strong {
+  border-bottom: 1px solid #e88e0e; }
+
+/* line 54, scss/modules/_tri.scss */
+.tri--categories {
+  text-align: left;
+  font-style: italic;
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.33333; }
+  /* line 58, scss/modules/_tri.scss */
+  .tri--categories:after {
+    border-bottom-style: solid;
+    border-bottom: 1px solid #ccccda; }
+
+/* line 64, scss/modules/_tri.scss */
+.critere-tri--categories a {
+  color: #000; }
 
 /*  ==========================================================================
     section
@@ -5848,7 +5886,7 @@ html {
   .recherche .intertitre-section {
     color: #000; }
 
-/* line 32, scss/modules/_section.scss */
+/* line 31, scss/modules/_section.scss */
 .intertitre-section--first, .self__header--rubrique .titre, .resume__category {
   display: inline-block;
   border-bottom: 1px solid #555555;
@@ -5857,7 +5895,8 @@ html {
   margin-left: -12px;
   font-size: 18px;
   font-size: 1.125rem;
-  line-height: 1.33333; }
+  line-height: 1.33333;
+  color: #000; }
 
 /* line 40, scss/modules/_section.scss */
 .intertitre-section--second {
@@ -5866,7 +5905,7 @@ html {
   font-size: 1rem;
   line-height: 1.5; }
 
-/* line 45, scss/modules/_section.scss */
+/* line 44, scss/modules/_section.scss */
 .intertitre-section--footer {
   font-size: 16px;
   font-size: 1rem;
@@ -6221,18 +6260,18 @@ html {
 
 /* line 37, scss/modules/_pagination.scss */
 .pagination--abc {
-  text-align: center;
+  padding: 0 0.2em;
   font-size: 20px;
   font-size: 1.25rem;
   line-height: 1.2; }
 
 /*  états
     ========================================================================== */
-/* line 45, scss/modules/_pagination.scss */
+/* line 46, scss/modules/_pagination.scss */
 .pagination__item--is-disabled {
   color: #ccccda; }
 
-/* line 49, scss/modules/_pagination.scss */
+/* line 50, scss/modules/_pagination.scss */
 .pagination__item--is-active a {
   font-size: 22px;
   font-size: 1.375rem;
@@ -6240,7 +6279,7 @@ html {
   color: #e88e0e;
   cursor: default; }
 @media only screen and (min-width: 481px) {
-  /* line 55, scss/modules/_pagination.scss */
+  /* line 56, scss/modules/_pagination.scss */
   .pagination--top .pagination__item--is-active {
     border-bottom: 1px solid #e88e0e; } }
 
@@ -7010,11 +7049,11 @@ html {
 /*
  * .resume-article--is-postdate
  */
-/* line 138, scss/modules/_resume.article.scss */
+/* line 137, scss/modules/_resume.article.scss */
 .resume-article--is-postdate .hN,
 .resume-article--is-postdate p {
   color: #999999; }
-/* line 141, scss/modules/_resume.article.scss */
+/* line 140, scss/modules/_resume.article.scss */
 .resume-article--is-postdate:hover .message--warning-texte.postdate-message {
   background-color: #ffaa00;
   color: #fff; }

@@ -55,7 +55,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'issue_about'                                 => "À propos de ce numéro",
     'info_precedent' => "Précédent",
     'info_suivant' => "Suivant",
-    // 'info_rechercher' => 'Saisir les mots de votre recherche',
 
     // J
     'jour_precedent' => "Journée précédente",
@@ -126,6 +125,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'tag_plural'                                  => 'Mots-clés',
     'tag_singular'                                => 'Mot-clé',
     'titre_admin_vignettes' => "Vidéos : vignettes auto",
+    'tri_alpha' => 'Ordre alphabétique',
+    'tri_date' => 'Date de publication',
+    'tri_label' => 'Trier par',
+    'tri_label_alt' => 'Afficher par',
+    'tri_nom' => "Nom",
+    'tri_pertinence' => 'Pertinence',
+    'tri_titre' => 'Titre',
     
     // V
     'version_online'                              => "Version en ligne",

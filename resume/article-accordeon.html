@@ -6,13 +6,14 @@
     Variables environnement
     **********************************************************
     afficher_auteur     oui|''
+    afficher_date-titre oui|''
 
 ]
 <BOUCLE_resume_article_accordeon(ARTICLES){id_article}>
 <article class="resume-article accordeon__container">
     <header class="resume-article__header accordeon__header">
         <span class="icon-svg icon-svg--accordeon">#INCLURE{fond=img/css/icon--chevron-bas.svg}</span>
-        <h1 class="hN resume-article__titre"><a href="#URL_ARTICLE">#TITRE</a></h1>
+        <h1 class="hN resume-article__titre"><a href="#URL_ARTICLE">#TITRE</a>[(#ENV{afficher_date-titre}|oui)[ <small class="accordeon__date-titre">(#DATE|affdate_court)</small>]]</h1>
     </header>
     <div class="accordeon__body">
         <div class="resume-article__descriptif accordeon__descriptif">

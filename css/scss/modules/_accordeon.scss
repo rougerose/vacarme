@@ -17,6 +17,14 @@
                     }
                 }
             }
+            .accordeon__date-titre {
+                display: block;
+                color: $couleur-gris;
+                @include media-query(lap-and-up) {
+                    display: inline;
+                    padding-left: 1em;
+                }
+            }
             .accordeon__body {
                 @extend .cf;
             }

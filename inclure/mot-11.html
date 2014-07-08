@@ -19,6 +19,10 @@
     </section>
 </B_grappe_cat_entretiens>
 
-[(#REM) tous les entretiens ]
-    [(#INCLURE{fond=inclure/mot-11-contenu,env,ajax})]
+[(#REM) tous les entretiens : par ordre alphabétique ou par date de publication ]
+    [(#ENV{tri}|is_null|ou{#ENV{tri}|=={alpha}}|oui)
+        [(#INCLURE{fond=inclure/mot-11-tri-alpha,env,ajax,tri=alpha})]
+    ][(#ENV{tri}|=={date}|oui)
+        [(#INCLURE{fond=inclure/mot-11-tri-date,env,ajax})]
+    ]
 </BOUCLE_mot_entretiens>

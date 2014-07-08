@@ -3,18 +3,9 @@
 [(#REM) 
     Les entretiens
     =======================
-    1/ récupérer d'abord les rubriques qui ont le mot Entretiens et qui ont un mot de Personnes (groupe 11).
-    2/ récupérer les articles qui ont le mot Entretiens mais qui n'ont pas la même rubrique que celles déjà récupérées (ce sont des entretiens isolés) et qui ont un mot de Personnes.
+    Récupérer les articles qui ont le mot Entretiens (les grands entretiens et les entretiens isolés) et qui ont un mot de Personnes.
 ]
-<BOUCLE_rubriques_entretiens(RUBRIQUES){id_mot}>
-    #SET_PUSH{rubriques_entretiens,#ID_RUBRIQUE}
-    <BOUCLE_personnes_rubrique(MOTS){id_rubrique}{id_groupe=11}>
-        #SET_PUSH{personnes,#ID_MOT}
-    </BOUCLE_personnes_rubrique>
-</BOUCLE_rubriques_entretiens>
-
-<BOUCLE_articles_entretiens(ARTICLES){id_mot}{id_rubrique !IN #GET{rubriques_entretiens}}>
-    #SET_PUSH{articles_entretiens,#ID_ARTICLE}
+<BOUCLE_articles_entretiens(ARTICLES){id_mot}>
     <BOUCLE_personnes_article(MOTS){id_article}{id_groupe=11}>
         #SET_PUSH{personnes,#ID_MOT}
     </BOUCLE_personnes_article>
@@ -31,13 +22,14 @@
 ]</BOUCLE_liste_alpha>[
 (#SET{debut,#GET{auteurs_alpha}|array_sort|table_valeur{0}})
 ]
-<section class="mb+">
+<section id="entretiens" class="mb+">
     <div class="grid__item">
         <div class="grid">
             <div class="grid__item lap-and-up-one-quarter">
                 <h1 class="hN intertitre-section intertitre-section--first"><span class=""><:categorie_entretiens_tous:></span></h1>
             </div><!-- /.grid__item -->
             <div class="grid__item lap-and-up-three-quarters">
+                <p class="tri tri--categories"><:tri_label_alt:> <span class="critere-tri critere-tri--categories">[(#SELF|parametre_url{tri,alpha}|ancre_url{entretiens}|lien_ou_expose{<:tri_alpha:>,#ENV{tri}|=={alpha}})]</span> / <span class="critere-tri critere-tri--categories">[(#SELF|parametre_url{tri|lettre,''}|parametre_url{tri,date}|ancre_url{entretiens}|lien_ou_expose{<:tri_date:>,#ENV{tri}|=={date}})]</span></p>
                 <B_pagination_abc>
                 <nav class="pagination pagination--top pagination--abc">
                     <ul class="pagination__container">
@@ -56,7 +48,7 @@
     <div id="accordeon" class="grid__item">
         <div class="grid">
             <BOUCLE_artlettre(MOTS){id_mot IN #GET{commence_par#ENV{lettre,#GET{debut}}}}{par titre}>
-            [(#INCLURE{fond=resume/mot-entretiens,id_mot,logo_format=1/4})]
+            [(#INCLURE{fond=resume/mot-entretiens,id_mot,logo_format=1/4,tri=alpha})]
             </BOUCLE_artlettre>
         </div><!-- /.grid -->
     </div><!-- /.grid__item -->

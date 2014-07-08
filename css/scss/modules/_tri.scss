@@ -1,12 +1,10 @@
 /*  ==========================================================================
     .tri
     ========================================================================== */
+
     .tri {
-        font-family: $font-HC;
-        color: $couleur-gris-2;
         position: relative;
         margin-bottom: 3em;
-        
         &:after {
             content: "";
             position: absolute;
@@ -23,17 +21,47 @@
         .critere-tri {
             a,strong {
                 display: inline-block;
-                padding: 0 0.35em;
                 font-weight: normal;
             }
             a {               
                 &:hover {
-                    border-bottom: 1px solid $couleur-lien;
                     color: $couleur-lien;
                 }
             }
             strong {
-                border-bottom: 1px solid $couleur-lien;
                 color: $couleur-lien;
+            }
+        }
+
+/*  modificateurs
+    ========================================================================== */
+    .tri--recherche {
+        font-family: $font-HC;
+        color: $couleur-gris-2;
+    }
+        .critere-tri--recherche {
+            a,strong {padding: 0 0.35em;}
+            a {
+                &:hover {
+                    border-bottom: 1px solid $couleur-lien;
+                }
+            }
+            strong {
+                border-bottom: 1px solid $couleur-lien;
+            }
+        }
+    
+    .tri--categories {
+        text-align: left;
+        font-style: italic;
+        @include font-size(18px);
+        &:after {
+            border-bottom-style: solid;
+            border-bottom: 1px solid $couleur-gris-clair;
+        }
+    }
+        .critere-tri--categories {
+            a {
+                color: #000;
             }
         }

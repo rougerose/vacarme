@@ -25,6 +25,15 @@
         <header class="resume-mot__header resume-mot__header--entretiens">
             <h1 class="hN resume-mot__titre">[(#TITRE|nom)[ (#TITRE|prenom)]]</h1>
         </header>
+        <B_entretiens_date>
+        <ul class="block-list">
+            <BOUCLE_entretiens_date(ARTICLES){id_mot}{id_mot=11}{date=#ENV{date_article}}{si #ENV{date_article}}>
+            <li class="block-list__item">
+                [(#INCLURE{fond=resume/article-accordeon,id_article,afficher_auteur=non,afficher_date-titre=oui})]
+            </li>
+            </BOUCLE_entretiens_date>
+        </ul>
+        </B_entretiens_date>
         <B_entretiens>
         <ul class="block-list">
             <BOUCLE_entretiens(ARTICLES){id_mot}{id_mot=11}{!par date}>
@@ -34,6 +43,7 @@
             </BOUCLE_entretiens>
         </ul>
         </B_entretiens>
+        <//B_entretiens_date>
     </div><!-- /.grid__item -->
 </article>
 </BOUCLE_resume_mot_entretien>
