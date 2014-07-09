@@ -1,0 +1,73 @@
+[(#REM)
+
+    Résumé d'un article, avec image.
+    
+    **********************************************************
+    Variables environnement
+    **********************************************************
+    logo_format         1/4|1/2
+        1/4 image_reduire,550,0. image_recadre,452,330,center center,000
+        1/2 image_reduire,550,0. image_recadre,520,312,center center,000
+        
+
+    afficher_auteur     oui|''
+
+]
+<BOUCLE_resume_article_logo(ARTICLES){id_article}>
+    <BOUCLE_mots_exclus(MOTS){id_mot IN #ENV{mots_exclus}}{doublons exclus themes}> </BOUCLE_mots_exclus>
+<article class="resume-article resume-article--complet">
+    <div class="grid">
+        <div class="grid__item lap-and-up-one-quarter">
+            [(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|oui)
+            <div class="resume-article__logo resume-article__logo--complet">
+                <a href="#URL_ARTICLE">
+                    [(#ENV{logo_format}|=={1/4}|oui)
+                        [(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|image_reduire{550,0}|image_recadre{452,330,'center center',000})]
+                    ][(#ENV{logo_format}|=={1/2}|oui)
+                        [(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|image_reduire{550,0}|image_recadre{540,330,'center center',000})]
+                    ]
+                </a>
+            </div>]
+        </div><!-- /.grid__item -->
+        <div class="grid__item lap-and-up-three-quarters">
+            <header class="resume-article__header">
+                <h1 class="hN resume-article__titre resume-article__titre--complet"><a href="#URL_ARTICLE">#TITRE</a></h1>
+                [(#ENV{afficher_auteur}|non)
+                    [<p class="resume-article__auteurs auteurs"><:par_auteur:>(#MODELE{auteurs,id_article=#ENV{id_article},contexte=resume})</p>]
+                ]
+            </header>
+            <div class="resume-article__descriptif resume-article__descriptif--complet">
+                [(#DESCRIPTIF|sinon{#INTRODUCTION|couper{100}|wrap{<p>}})]
+                <p><time pubdate datetime="[(#DATE|date_iso)]" class="resume-article__date">[(#DATE|affdate_court)]</time> <a href="#URL_ARTICLE" class="suite-lien">Lire la suite <em>&#8594;</em></a></p>
+                <B_themes_categories>
+                <aside class="resume-meta">
+                    <ul class="block-list">
+                        <BOUCLE_themes_categories(MOTS){id_article}{0,1}{doublons exclus}> </BOUCLE_themes_categories>
+                        <B_categories>
+                        <li class="inline-list__item">
+                            <h2 class="resume-meta__label hN">[(#TOTAL_BOUCLE|singulier_ou_pluriel{local:categorie,local:categories})]</h2>
+                            <ul class="inline-list inline-list--slash-after">
+                                <BOUCLE_categories(MOTS){id_article}{id_groupe=19}{par titre}>
+                                    <li class="inline-list__item resume-meta__tag"><a href="#URL_MOT" class="titre-tag[ is-couleur-(#ID_GROUPE)-text]">[(#TITRE)]</a></li>
+                                </BOUCLE_categories>
+                            </ul>
+                        </li>
+                        </B_categories>
+                        <B_themes>
+                        <li class="block-list__item">
+                            <h2 class="resume-meta__label hN">[(#TOTAL_BOUCLE|singulier_ou_pluriel{local:theme,local:themes})]</h2>
+                            <ul class="inline-list inline-list--slash-after">
+                                <BOUCLE_themes(MOTS){id_article}{id_groupe !IN 19}{par titre}{doublons themes}>
+                                    <li class="inline-list__item resume-meta__tag"><a href="#URL_MOT" class="titre-tag[ is-couleur-(#ID_GROUPE)-text]">[(#TITRE|prenom_nom)]</a></li>
+                                </BOUCLE_themes>
+                            </ul>
+                        </li>
+                        </B_themes>
+                    </ul>
+                </aside>
+                </B_themes_categories>
+            </div>
+        </div><!-- /.grid__item -->
+    </div><!-- /.grid -->
+</article>
+</BOUCLE_resume_article_logo>

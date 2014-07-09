@@ -6,13 +6,13 @@
     - 231 => Tribunes
     - 302 => Feuilletons
 ]
-[(#SET{variantes_skel,#LISTE{11}})]
+[(#SET{variantes_skel,#LISTE{11,231}})]
 <BOUCLE_mot(MOTS){id_mot}>
 <div class="grid">
     <article class="self mot">
         <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
             <header class="self__header">
-                <h1 class="hN titre self__titre self__titre--mot"><span class="#EDIT{titre}">[(#TITRE|prenom_nom)]</span></h1>
+                <h1 class="hN titre self__titre self__titre--mot[ is-couleur-(#ID_GROUPE)-text]"><span class="#EDIT{titre}">[(#TITRE|prenom_nom)]</span></h1>
             </header>
             [<div class="self__body self__body--mot">
                 <div class="#EDIT{texte} surlignable">
@@ -21,7 +21,7 @@
             </div>]
         </div><!-- /.grid__item -->
         [(#GET{variantes_skel}|find{#ID_MOT}|?{
-            [(#INCLURE{fond=inclure/mot-#ID_MOT,id_mot,env})],
+            [(#INCLURE{fond=inclure/mot-#ID_MOT,id_mot,env,ajax})],
             [(#INCLURE{fond=inclure/mot-contenu-standard,id_mot,env})]
         })]
     </article>

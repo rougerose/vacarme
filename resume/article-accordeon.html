@@ -13,7 +13,7 @@
 <article class="resume-article accordeon__container">
     <header class="resume-article__header accordeon__header">
         <span class="icon-svg icon-svg--accordeon">#INCLURE{fond=img/css/icon--chevron-bas.svg}</span>
-        <h1 class="hN resume-article__titre"><a href="#URL_ARTICLE">#TITRE</a>[(#ENV{afficher_date-titre}|oui)[ <small class="accordeon__date-titre">(#DATE|affdate_court)</small>]]</h1>
+        <h1 class="hN resume-article__titre accordeon__header-titre"><a href="#URL_ARTICLE">#TITRE</a>[(#ENV{afficher_date-titre}|oui)[ <small class="accordeon__header-date">(#DATE|affdate_court)</small>]]</h1>
     </header>
     <div class="accordeon__body">
         <div class="resume-article__descriptif accordeon__descriptif">
@@ -23,12 +23,11 @@
             [(#DESCRIPTIF|sinon{#INTRODUCTION|couper{100}|wrap{<p>}})]
             <p><time pubdate datetime="[(#DATE|date_iso)]})]" class="resume-article__date">[(#DATE|affdate_court)]</time> <a href="#URL_ARTICLE" class="suite-lien">Lire la suite <em>&#8594;</em></a></p>
         </div>
-        <footer class="accordeon__footer">
+        <footer class="resume-article__footer accordeon__footer">
             <BOUCLE_hierarchie_numero(HIERARCHIE){id_article}{si #ID_SECTEUR|=={115}}>
             [(#PROFONDEUR|=={1}|oui)
                 <div class="overlay overlay-degrade overlay--top-bottom"></div>
                 [<img src="(#LOGO_RUBRIQUE|image_reduire{432,0}|extraire_attribut{src})" alt="#TITRE[, (#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]]">]
-                <!-- <h2 class="hN resume-article__numero-titre">[(#TITRE)][ <small class="soustitre">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</small>]</h2> -->
             ]
             </BOUCLE_hierarchie_numero>
         </footer>

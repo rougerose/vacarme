@@ -14,13 +14,13 @@
 [(#REM)
     Abécédaire
 ]
-[(#SET{debut,#ARRAY})][(#SET{alphabet, [(#VAL{ABCDEFGHIJKLMNOPQRSTUVWXYZ}|str_split)]})
+    [(#SET{debut,#ARRAY})][(#SET{alphabet, [(#VAL{ABCDEFGHIJKLMNOPQRSTUVWXYZ}|str_split)]})
 ]<BOUCLE_liste_alpha(MOTS){id_mot IN #GET{personnes}}{par titre}>[
-(#SET_PUSH{commence_par[(#TITRE|desaccentuer)],#ID_MOT})
+    (#SET_PUSH{commence_par[(#TITRE|desaccentuer)],#ID_MOT})
 ][
-(#SET_PUSH{auteurs_alpha,#TITRE|desaccentuer})
+    (#SET_PUSH{auteurs_alpha,#TITRE|desaccentuer})
 ]</BOUCLE_liste_alpha>[
-(#SET{debut,#GET{auteurs_alpha}|array_sort|table_valeur{0}})
+    (#SET{debut,#GET{auteurs_alpha}|array_sort|table_valeur{0}})
 ]
 <section id="entretiens" class="mb+">
     <div class="grid__item">
@@ -29,7 +29,9 @@
                 <h1 class="hN intertitre-section intertitre-section--first"><span class=""><:categorie_entretiens_tous:></span></h1>
             </div><!-- /.grid__item -->
             <div class="grid__item lap-and-up-three-quarters">
-                <p class="tri tri--categories"><:tri_label_alt:> <span class="critere-tri critere-tri--categories">[(#SELF|parametre_url{tri,alpha}|ancre_url{entretiens}|lien_ou_expose{<:tri_alpha:>,#ENV{tri}|=={alpha}})]</span> / <span class="critere-tri critere-tri--categories">[(#SELF|parametre_url{tri|lettre,''}|parametre_url{tri,date}|ancre_url{entretiens}|lien_ou_expose{<:tri_date:>,#ENV{tri}|=={date}})]</span></p>
+                [
+                    (#INCLURE{fond=nav/tri-entretiens,env})
+                ]
                 <B_pagination_abc>
                 <nav class="pagination pagination--top pagination--abc">
                     <ul class="pagination__container">
@@ -48,11 +50,15 @@
     <div id="accordeon" class="grid__item">
         <div class="grid">
             <BOUCLE_artlettre(MOTS){id_mot IN #GET{commence_par#ENV{lettre,#GET{debut}}}}{par titre}>
-            [(#INCLURE{fond=resume/mot-entretiens,id_mot,logo_format=1/4,tri=alpha})]
+            [
+                (#INCLURE{fond=resume/mot-entretiens,id_mot,logo_format=1/4,tri=alpha})
+            ]
             </BOUCLE_artlettre>
         </div><!-- /.grid -->
     </div><!-- /.grid__item -->
-    [(#CHEMIN{js/accordeon.min.js}|oui)<script>$(function() {$("#accordeon").accordeon();});</script>]
+    [
+        (#CHEMIN{js/accordeon.min.js}|oui)<script>$(function() {$("#accordeon").accordeon();});</script>
+    ]
     </B_artlettre>
 </section>
 </BOUCLE_mot_entretiens>

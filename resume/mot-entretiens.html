@@ -6,8 +6,8 @@
     Variables environnement
     **********************************************************
     logo_format         1/4|1/2
-        1/4 image_reduire,450,0. image_recadre,432,312,left center,000
-        1/2 image_reduire,600,0. image_recadre,520,312,left center,000
+        1/4 image_reduire,550,0. image_recadre,452,330,center center,000
+        1/2 image_reduire,540,0. image_recadre,540,330,center center,000
 ]
 <BOUCLE_resume_mot_entretien(MOTS){id_mot}>
 <article class="resume-mot resume-mot--entretiens">
@@ -15,9 +15,9 @@
         [(#LOGO_MOT|oui)
         <div class="resume-mot__logo resume-mot__logo--entretiens">
             [(#ENV{logo_format}|=={1/4}|oui)
-                [(#LOGO_MOT|image_reduire{452,0}|image_recadre{452,330,'center center',000})]
+                [(#LOGO_MOT|image_reduire{550,0}|image_recadre{452,330,'center center',000})]
             ][(#ENV{logo_format}|=={1/2}|oui)
-                [(#LOGO_MOT|image_reduire{540,0}|image_recadre{540,330,'center center',000})]
+                [(#LOGO_MOT|image_reduire{550,0}|image_recadre{540,330,'center center',000})]
             ]
         </div>]
     </div><!-- /.grid__item -->

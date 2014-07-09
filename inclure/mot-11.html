@@ -3,7 +3,7 @@
 <B_grappe_cat_entretiens>
     <section class="mb++">
         <div class="grid__item">
-            <h1 class="hN intertitre-section intertitre-section--first"><span class=""><:categorie_entretiens_selection:></span></h1>
+            <h1 class="hN intertitre-section intertitre-section--first"><:categorie_entretiens_selection:></h1>
         </div><!-- /.grid__item -->
         <BOUCLE_grappe_cat_entretiens(GRAPPES){id_grappe=10}>
         <BOUCLE_item1(GRAPPES_LIENS){id_grappe}{par rang}{0,1}>
@@ -21,8 +21,8 @@
 
 [(#REM) tous les entretiens : par ordre alphabétique ou par date de publication ]
     [(#ENV{tri}|is_null|ou{#ENV{tri}|=={alpha}}|oui)
-        [(#INCLURE{fond=inclure/mot-11-tri-alpha,env,ajax,tri=alpha})]
+        [(#INCLURE{fond=inclure/mot-11-tri-alpha,env,tri=alpha})]
     ][(#ENV{tri}|=={date}|oui)
-        [(#INCLURE{fond=inclure/mot-11-tri-date,env,ajax})]
+        [(#INCLURE{fond=inclure/mot-11-tri-date,env})]
     ]
 </BOUCLE_mot_entretiens>

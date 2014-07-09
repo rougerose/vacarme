@@ -1,0 +1,53 @@
+/*  ==========================================================================
+    couleurs
+    ========================================================================== */
+
+    /* Couleur en fonction de l'id_groupe du mot
+     *  
+     *      Catégories                  #19     #31a188
+     *      Rubriques                   #4      #e8d41a
+     *      Art                         #12     #c02627
+     *      Continents et Pays          #7      #6c64ff
+     *      Disciplines                 #18     #73b84d
+     *      Documenta                   #2      #c4E538
+     *      Mouvements, partis et orga  #10     #7ad1ee
+     *      Personnes                   #11     #bd1a88
+     *      Thèmes                      #1      #5d4284
+     *  
+    */
+    $idgroupe-couleur: (1:#5d4284, 2:#c4E538, 4:#e8d41a, 7:#6c64ff, 10:#7ad1ee, 11:#bd1a88, 12:#c02627, 18:#73b84d, 19:#31a188);
+    
+    @each $idgroupe, $couleur in $idgroupe-couleur {
+        // bg / bg-selected
+        .is-couleur-#{$idgroupe}-bg,
+        .is-couleur-#{$idgroupe}-bg-selected { 
+            background-color: $couleur;
+            color: #fff;
+            border: 1px solid #fff;
+            @include transition(background-color 0.35s ease-out, border 0.35s ease-out);
+            &:hover {
+                border-color: $couleur;
+                background-color: #fff;
+                color: $couleur;
+            }
+        }
+        // bg-selected
+        .is-couleur-#{$idgroupe}-bg-selected {
+            &:hover {
+                &:after {
+                    color: $couleur;
+                    border-color: $couleur;
+                }
+            }
+        }
+        // selected
+        .is-couleur-#{$idgroupe}-selected {
+            border-color: $couleur;
+            background-color: #fff;
+            color: $couleur;
+        }
+        // text
+        .is-couleur-#{$idgroupe}-text {
+            color: $couleur;
+        }
+    }

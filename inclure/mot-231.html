@@ -1,0 +1,69 @@
+<BOUCLE_mot_tribunes(MOTS){id_mot}>
+[
+    (#REM) sélection
+]
+<B_grappe_cat_tribunes>
+    <section class="mb++">
+        <div class="grid__item">
+            <h1 class="hN intertitre-section intertitre-section--first"><:categorie_tribunes_selection:></h1>
+        </div><!-- /.grid__item -->
+        <BOUCLE_grappe_cat_tribunes(GRAPPES){id_grappe=10}>
+        <BOUCLE_item1(GRAPPES_LIENS){id_grappe}{par rang}{0,1}>
+        [<div class="grid__item lap-and-up-two-quarters">
+            (#INCLURE{fond=resume/article-selection,id_article=#ID_OBJET,logo_format=1/2})
+        </div><!-- /.grid__item -->]
+        </BOUCLE_item1><BOUCLE_item2_3(GRAPPES_LIENS){id_grappe}{par rang}{1,2}>
+        [<div class="grid__item lap-and-up-one-quarter">
+            (#INCLURE{fond=resume/article-selection,id_article=#ID_OBJET,logo_format=1/4})
+        </div><!-- /.grid__item -->]
+        </BOUCLE_item2_3>
+        </BOUCLE_grappe_cat_tribunes>
+    </section>
+</B_grappe_cat_tribunes>
+
+[(#REM) 
+    Toutes les Tribunes : par date de publication ou par thème
+    -----------------------------------------------------------
+    
+    Les mots-clés à exclure : 
+        - le mot-clé du contexte (231)
+        - 16 : dossiers isolés
+        - 15 : feuilletons
+        - 14 : lignes
+
+]#SET{mots_exclus,#ARRAY{0,#ID_MOT,1,16,2,15,3,14}}
+<BOUCLE_liste_articles(ARTICLES){id_mot}>#SET_PUSH{articles,#ID_ARTICLE}</BOUCLE_liste_articles>
+<section id="tribunes" class="mb+">
+    <div class="grid__item">
+        <div class="grid">
+            <div class="grid__item lap-and-up-one-quarter">
+                <h1 class="hN intertitre-section intertitre-section--first"><:categorie_tribunes_tous:></h1>
+            </div><!-- /.grid__item -->
+            <div class="grid__item lap-and-up-three-quarters">
+                <INCLURE{fond=nav/filtres-article,articles=#GET{articles},mots_exclus=#GET{mots_exclus},id_mot_reference=#ID_MOT,env} />
+            </div><!-- /.grid__item -->
+        </div><!-- /.grid -->
+    </div><!-- /.grid__item -->
+    [(#REM) les tribunes triées par thème ]
+    <B_tribunes_tri>
+    <div class="grid__item">
+        #ANCRE_PAGINATION
+        <BOUCLE_tribunes_tri(ARTICLES){mots_selon_id}{id_mot}{!par date}{pagination 20}>
+            [(#INCLURE{fond=resume/article-complet,id_article,logo_format=1/4,mots_exclus=#GET{mots_exclus}})]
+        </BOUCLE_tribunes_tri>
+    </div><!-- /.grid__item -->
+    [<nav class="pagination pagination--bottom pagination--page">(#PAGINATION{li})</nav>]
+    </B_tribunes_tri>
+    [(#REM) les tribunes triées par date, défaut ]
+    <B_tribunes>
+    <div class="grid__item">
+        #ANCRE_PAGINATION
+        <BOUCLE_tribunes(ARTICLES){id_article IN #GET{articles}}{!par date}{pagination 20}>
+            [(#INCLURE{fond=resume/article-complet,id_article,logo_format=1/4,mots_exclus=#GET{mots_exclus}})]
+        </BOUCLE_tribunes>
+    </div><!-- /.grid__item -->
+    [<nav class="pagination pagination--bottom pagination--page">(#PAGINATION{li})</nav>]
+    </B_tribunes>
+    <//B_tribunes_tri>
+</section>
+</BOUCLE_mot_tribunes>

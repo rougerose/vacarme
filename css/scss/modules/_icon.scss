@@ -97,7 +97,7 @@
         &:hover,
         &.icon-svg--accordeon--is-open {
             padding-top: .3em;
-            +.hN {
+            +.accordeon__header-titre {
                 border-color: $couleur-lien;
             }
             #icon-svg--chevron-bas {
@@ -115,10 +115,7 @@
     }
 
     #icon-svg--chevron-bas {
-      fill: $couleur-gris-clair;
+      fill: $couleur-gris-moyen;
       @include transition(fill 0.35s ease-out);
     }
-
-/*  états
-    ========================================================================== */
     

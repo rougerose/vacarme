@@ -9,9 +9,11 @@
 $fa-font-path: "fonts/fontawesome";
 @import "font-awesome";
 
-// fonts & typo
+        // fonts & typo
 @import "ui/fonts",
         "ui/typo",
+
+        
 
         // base
         "scss/base/liens",
@@ -26,10 +28,14 @@ $fa-font-path: "fonts/fontawesome";
         "scss/layout/page-foot",
         
         // modules
+
         "scss/modules/list",
         "scss/modules/accordeon",
         "scss/modules/btn",
+
         "scss/modules/tri",
+        "scss/modules/filtres",
+        
         "scss/modules/section",
         "scss/modules/site-logo",
         "scss/modules/navigation",
@@ -54,7 +60,10 @@ $fa-font-path: "fonts/fontawesome";
         "scss/modules/medias.colorbox",
         "scss/modules/carousel",
         "scss/modules/carousel.owl.theme",
-        "scss/modules/message";
+        "scss/modules/message",
+
+        // couleurs
+        "scss/modules/couleurs";
 
 
 
