@@ -1,4 +1,4 @@
-<BOUCLE_mot_enquetes(MOTS){id_mot}>
+<BOUCLE_mot_fronts(MOTS){id_mot}>
 [
     (#REM) Une sélection 
 ]
@@ -27,7 +27,7 @@
 
 ][(#REM)
     Les groupes de mots-clés à exclure (en dehors des mots techniques déjà exclus) : 
-        mot-clé principal => 529
+        mot-clé principal => 521
 
 ]   #SET{mots_exclus,#ARRAY{0,#ID_MOT}}
 
@@ -36,7 +36,7 @@
     <div class="grid__item">
         <div class="grid">
             <div class="grid__item lap-and-up-one-quarter">
-                <h1 class="hN intertitre-section intertitre-section--first"><:categorie_enquetes_tous:></h1>
+                <h1 class="hN intertitre-section intertitre-section--first"><:categorie_fronts_tous:></h1>
             </div><!-- /.grid__item -->
             <div class="grid__item lap-and-up-three-quarters">
                 <INCLURE{fond=nav/filtres-article,articles=#GET{articles},mots_exclus=#GET{mots_exclus},id_mot_reference=#ID_MOT,env} />
@@ -69,4 +69,4 @@
     </B_articles>
     <//B_articles_tri>
 </section>
-</BOUCLE_mot_enquetes>
+</BOUCLE_mot_fronts>
