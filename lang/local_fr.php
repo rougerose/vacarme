@@ -33,6 +33,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'categorie_entretiens_selection'              => "Une sélection",
     'categorie_entretiens_tous'                   => "Tous les entretiens",
     'categorie_fronts_tous' => "Tous les articles",
+    'categorie_mouvements_tous' => 'Tous les articles',
     'categorie_selection' => "Une sélection", // version générique à utiliser ? 
     'categorie_tribunes_selection'                => "Une sélection",
     'categorie_tribunes_tous'                     => "Toutes les tribunes",
