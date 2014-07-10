@@ -27,11 +27,8 @@
     
     Les mots-clés à exclure : 
         - le mot-clé du contexte (231)
-        - 16 : dossiers isolés
-        - 15 : feuilletons
-        - 14 : lignes
 
-]#SET{mots_exclus,#ARRAY{0,#ID_MOT,1,16,2,15,3,14}}
+]#SET{mots_exclus,#ARRAY{0,#ID_MOT}}
 <BOUCLE_liste_articles(ARTICLES){id_mot}>#SET_PUSH{articles,#ID_ARTICLE}</BOUCLE_liste_articles>
 <section id="tribunes" class="mb+">
     <div class="grid__item">
@@ -49,7 +46,7 @@
     <div class="grid__item">
         #ANCRE_PAGINATION
         <BOUCLE_tribunes_tri(ARTICLES){mots_selon_id}{id_mot}{!par date}{pagination 20}>
-            [(#INCLURE{fond=resume/article-complet,id_article,logo_format=1/4,mots_exclus=#GET{mots_exclus}})]
+            [(#INCLURE{fond=resume/article-complet,id_article,logo_format=1/4})]
         </BOUCLE_tribunes_tri>
     </div><!-- /.grid__item -->
     [<nav class="pagination pagination--bottom pagination--page">(#PAGINATION{li})</nav>]
@@ -59,7 +56,7 @@
     <div class="grid__item">
         #ANCRE_PAGINATION
         <BOUCLE_tribunes(ARTICLES){id_article IN #GET{articles}}{!par date}{pagination 20}>
-            [(#INCLURE{fond=resume/article-complet,id_article,logo_format=1/4,mots_exclus=#GET{mots_exclus}})]
+            [(#INCLURE{fond=resume/article-complet,id_article,logo_format=1/4})]
         </BOUCLE_tribunes>
     </div><!-- /.grid__item -->
     [<nav class="pagination pagination--bottom pagination--page">(#PAGINATION{li})</nav>]

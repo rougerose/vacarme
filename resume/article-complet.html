@@ -14,7 +14,6 @@
 
 ]
 <BOUCLE_resume_article_logo(ARTICLES){id_article}>
-    <BOUCLE_mots_exclus(MOTS){id_mot IN #ENV{mots_exclus}}{doublons exclus themes}> </BOUCLE_mots_exclus>
 <article class="resume-article resume-article--complet">
     <div class="grid">
         <div class="grid__item lap-and-up-one-quarter">
@@ -42,7 +41,7 @@
                 <B_themes_categories>
                 <aside class="resume-meta">
                     <ul class="block-list">
-                        <BOUCLE_themes_categories(MOTS){id_article}{0,1}{doublons exclus}> </BOUCLE_themes_categories>
+                        <BOUCLE_themes_categories(MOTS){id_article}{0,1}> </BOUCLE_themes_categories>
                         <B_categories>
                         <li class="inline-list__item">
                             <h2 class="resume-meta__label hN">[(#TOTAL_BOUCLE|singulier_ou_pluriel{local:categorie,local:categories})]</h2>
@@ -57,7 +56,7 @@
                         <li class="block-list__item">
                             <h2 class="resume-meta__label hN">[(#TOTAL_BOUCLE|singulier_ou_pluriel{local:theme,local:themes})]</h2>
                             <ul class="inline-list inline-list--slash-after">
-                                <BOUCLE_themes(MOTS){id_article}{id_groupe !IN 19}{par titre}{doublons themes}>
+                                <BOUCLE_themes(MOTS){id_article}{id_groupe !IN 19}{par titre}>
                                     <li class="inline-list__item resume-meta__tag"><a href="#URL_MOT" class="titre-tag[ is-couleur-(#ID_GROUPE)-link]">[(#TITRE|prenom_nom)]</a></li>
                                 </BOUCLE_themes>
                             </ul>
