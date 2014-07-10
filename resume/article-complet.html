@@ -48,7 +48,7 @@
                             <h2 class="resume-meta__label hN">[(#TOTAL_BOUCLE|singulier_ou_pluriel{local:categorie,local:categories})]</h2>
                             <ul class="inline-list inline-list--slash-after">
                                 <BOUCLE_categories(MOTS){id_article}{id_groupe=19}{par titre}>
-                                    <li class="inline-list__item resume-meta__tag"><a href="#URL_MOT" class="titre-tag[ is-couleur-(#ID_GROUPE)-text]">[(#TITRE)]</a></li>
+                                    <li class="inline-list__item resume-meta__tag"><a href="#URL_MOT" class="titre-tag[ is-couleur-(#ID_GROUPE)-link]">[(#TITRE)]</a></li>
                                 </BOUCLE_categories>
                             </ul>
                         </li>
@@ -58,7 +58,7 @@
                             <h2 class="resume-meta__label hN">[(#TOTAL_BOUCLE|singulier_ou_pluriel{local:theme,local:themes})]</h2>
                             <ul class="inline-list inline-list--slash-after">
                                 <BOUCLE_themes(MOTS){id_article}{id_groupe !IN 19}{par titre}{doublons themes}>
-                                    <li class="inline-list__item resume-meta__tag"><a href="#URL_MOT" class="titre-tag[ is-couleur-(#ID_GROUPE)-text]">[(#TITRE|prenom_nom)]</a></li>
+                                    <li class="inline-list__item resume-meta__tag"><a href="#URL_MOT" class="titre-tag[ is-couleur-(#ID_GROUPE)-link]">[(#TITRE|prenom_nom)]</a></li>
                                 </BOUCLE_themes>
                             </ul>
                         </li>

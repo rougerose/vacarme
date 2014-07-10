@@ -37,10 +37,10 @@
         margin: 0;
         padding: 0;
         display:inline;
-        > li {@extend %inline-list__item;}
+        > li { @extend %inline-list__item; }
     }
     .inline-list__item,
-    %inline-list__item {display: inline-block;}
+    %inline-list__item { display: inline-block; }
 
     .inline-list--pipe {
         > li {
@@ -48,13 +48,14 @@
                 content: '|';
                 margin: 0 .5em;
             }
-            &:last-child:after {content:'';}
+            &:last-child:after { content:''; }
         }
     }
     .inline-list--slash-after {
         > li {
-            margin-right: 0.15em;
+            margin-right: 0.1em;
             &:after {
+                display: inline-block;
                 content: '/';
                 margin-left: 0.15em;
                 color: $couleur-gris-clair;

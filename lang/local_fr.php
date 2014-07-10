@@ -27,12 +27,14 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'back_to_top'                                 => "Revenir en haut",
     
     // C
+    'categorie_ecriture_tous' => "Tous les articles",
     'categorie_entretiens_selection'              => "Une sélection",
     'categorie_entretiens_tous'                   => "Tous les entretiens",
+    'categorie_selection' => "Une sélection", // version générique à utiliser ? 
     'categorie_tribunes_selection'                => "Une sélection",
     'categorie_tribunes_tous'                     => "Toutes les tribunes",
-    'categories'                                  =>"Catégories",
-    'categorie'                                   =>"Catégorie",
+    'categories'                                  => "Catégories",
+    'categorie'                                   => "Catégorie",
     'category_plural'                             => 'Catégories',
     'category_singular'                           => 'Catégorie',
     'classe_dans_categorie'                       => "Classé dans",

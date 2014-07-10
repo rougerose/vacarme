@@ -45,14 +45,13 @@
         display: inline;
         margin-right: .5em;
         @include font-size(15px,$line-height: false);
+        line-height: 1.313;
         font-family: $font-HLC;
         color: $couleur-gris-bleu;
     }
     .resume-meta__tag {
         @include font-size(15px,$line-height: false);
-        a {
-            display: inline-block;
-        }
+        line-height: 1.313;
     }
 
 

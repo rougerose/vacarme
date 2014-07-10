@@ -1,12 +1,17 @@
 [(#REM) 
     Les variantes des fichiers à inclure selon l'ID_MOT
     ===================================================
-    - 11 => Entretiens
-    - 227 => Dossiers
-    - 231 => Tribunes
-    - 302 => Feuilletons
+    Entretiens  => 11
+    Dossiers    => 22
+    Tribunes    => 231
+    Feuilletons => 302
+    Ecritures   => 4
+    Critiques   => 451
+    Enquetes    => 529
+    Fronts      => 521
+    Mouvements  => 522
 ]
-[(#SET{variantes_skel,#LISTE{11,231}})]
+[(#SET{variantes_skel,#LISTE{11,231,4}})]
 <BOUCLE_mot(MOTS){id_mot}>
 <div class="grid">
     <article class="self mot">

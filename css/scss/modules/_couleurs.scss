@@ -9,15 +9,26 @@
      *      Art                         #12     #c02627
      *      Continents et Pays          #7      #6c64ff
      *      Disciplines                 #18     #73b84d
-     *      Documenta                   #2      #c4E538
+     *      Documenta                   #2      #ae6011
      *      Mouvements, partis et orga  #10     #7ad1ee
      *      Personnes                   #11     #bd1a88
      *      Thèmes                      #1      #5d4284
+     *      Feuilletons                 #15     #c4e538
+     *      Dossiers isolés             #16     #91786d
+     *      Lignes                      #14     #f01414                 
      *  
     */
-    $idgroupe-couleur: (1:#5d4284, 2:#c4E538, 4:#e8d41a, 7:#6c64ff, 10:#7ad1ee, 11:#bd1a88, 12:#c02627, 18:#73b84d, 19:#31a188);
+    $idgroupe-couleur: (
+        1:#5d4284, 2:#ae6011, 
+        4:#e8d41a, 7:#6c64ff, 
+        10:#7ad1ee, 11:#bd1a88, 
+        12:#c02627, 18:#73b84d, 
+        19:#31a188, 15:#c4e538,
+        16:#91786d, 14:#f01414
+    );
     
     @each $idgroupe, $couleur in $idgroupe-couleur {
+        
         // bg / bg-selected
         .is-couleur-#{$idgroupe}-bg,
         .is-couleur-#{$idgroupe}-bg-selected { 
@@ -31,6 +42,7 @@
                 color: $couleur;
             }
         }
+        
         // bg-selected
         .is-couleur-#{$idgroupe}-bg-selected {
             &:hover {
@@ -40,14 +52,25 @@
                 }
             }
         }
+        
         // selected
         .is-couleur-#{$idgroupe}-selected {
             border-color: $couleur;
             background-color: #fff;
             color: $couleur;
         }
+        
         // text
         .is-couleur-#{$idgroupe}-text {
             color: $couleur;
+        }
+
+        // link
+        .is-couleur-#{$idgroupe}-link {
+            border-bottom: 1px dotted $couleur;
+            &:hover {
+                border-bottom-style: solid;
+                color: $couleur;
+            }
         }
     }
