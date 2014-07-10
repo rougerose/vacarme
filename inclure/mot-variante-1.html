@@ -1,13 +1,15 @@
-<BOUCLE_mot_critiques(MOTS){id_mot}>
+<BOUCLE_mot_variante_1(MOTS){id_mot}>
 [
-    (#REM) Une sélection 
+    (#REM) Une sélection d'articles
+    ----------------------------------------------------------------------------
+
 ]
-<B_grappe_cat>
+<B_grappe_selection>
     <section class="mb++">
         <div class="grid__item">
             <h1 class="hN intertitre-section intertitre-section--first"><:categorie_selection:></h1>
         </div><!-- /.grid__item -->
-        <BOUCLE_grappe_cat(GRAPPES){id_grappe=10}>
+        <BOUCLE_grappe_selection(GRAPPES){id_grappe=10}>
         <BOUCLE_item1(GRAPPES_LIENS){id_grappe}{par rang}{0,1}>
         [<div class="grid__item lap-and-up-two-quarters">
             (#INCLURE{fond=resume/article-selection,id_article=#ID_OBJET,logo_format=1/2})
@@ -17,26 +19,25 @@
             (#INCLURE{fond=resume/article-selection,id_article=#ID_OBJET,logo_format=1/4})
         </div><!-- /.grid__item -->]
         </BOUCLE_item2_3>
-        </BOUCLE_grappe_cat>
+        </BOUCLE_grappe_selection>
     </section>
-</B_grappe_cat>
+</B_grappe_selection>
 
 [(#REM) 
-    Tous les éléments
-    -----------------------------------------------------------
-
-][(#REM)
-    Les groupes de mots-clés à exclure (en dehors des mots techniques déjà exclus) : 
-        mot-clé principal => 451
-
-]   #SET{mots_exclus,#ARRAY{0,#ID_MOT}}
+    Tous les articles
+    ----------------------------------------------------------------------------
+    -   Le mot-clé principal est exclus de la liste des filtres disponibles.
+    -   Le seul élément spécifique est la chaîne de l'intertitre, 
+        construite selon le principe 'categorie_tous_id_mot'
+]
+    #SET{mots_exclus,#ARRAY{0,#ID_MOT}}
 
 <BOUCLE_liste_articles(ARTICLES){id_mot}>#SET_PUSH{articles,#ID_ARTICLE}</BOUCLE_liste_articles>
-<section id="ecritures" class="mb+">
+<section class="mb+">
     <div class="grid__item">
         <div class="grid">
             <div class="grid__item lap-and-up-one-quarter">
-                <h1 class="hN intertitre-section intertitre-section--first"><:categorie_critiques_tous:></h1>
+                <h1 class="hN intertitre-section intertitre-section--first">[(#VAL{local:categorie_tous_#ID_MOT}|_T)]</h1>
             </div><!-- /.grid__item -->
             <div class="grid__item lap-and-up-three-quarters">
                 <INCLURE{fond=nav/filtres-article,articles=#GET{articles},mots_exclus=#GET{mots_exclus},id_mot_reference=#ID_MOT,env} />
@@ -44,7 +45,7 @@
         </div><!-- /.grid -->
     </div><!-- /.grid__item -->
     [
-        (#REM) les articles triés par thème
+        (#REM) Les articles triés par thème
     ]
     <B_articles_tri>
     <div class="grid__item">
@@ -56,7 +57,7 @@
     [<nav class="pagination pagination--bottom pagination--page">(#PAGINATION{li})</nav>]
     </B_articles_tri>
     [
-        (#REM) les articles triés par date. Affichage par défaut.
+        (#REM) Les articles triés par date, défaut
     ]
     <B_articles>
     <div class="grid__item">
@@ -69,4 +70,4 @@
     </B_articles>
     <//B_articles_tri>
 </section>
-</BOUCLE_mot_critiques>
+</BOUCLE_mot_variante_1>

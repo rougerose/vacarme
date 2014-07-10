@@ -33,8 +33,14 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'categorie_entretiens_selection'              => "Une sélection",
     'categorie_entretiens_tous'                   => "Tous les entretiens",
     'categorie_fronts_tous' => "Tous les articles",
-    'categorie_mouvements_tous' => 'Tous les articles',
+    
     'categorie_selection' => "Une sélection", // version générique à utiliser ? 
+    'categorie_tous_4' => 'Tous les articles', // catégorie Ecritures
+    'categorie_tous_231' => 'Toutes les Tribunes', // catégorie Tribunes
+    'categorie_tous_451' => 'Tous les articles', // catégorie Critiques
+    'categorie_tous_521' => 'Tous les articles', // catégorie Fronts
+    'categorie_tous_522' => 'Tous les articles', // catégorie Mouvements
+    'categorie_tous_529' => 'Toutes les Enquêtes', // catégorie Enquetes
     'categorie_tribunes_selection'                => "Une sélection",
     'categorie_tribunes_tous'                     => "Toutes les tribunes",
     'categories'                                  => "Catégories",

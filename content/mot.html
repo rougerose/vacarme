@@ -1,6 +1,6 @@
 [(#REM) 
-    Les variantes des fichiers à inclure selon l'ID_MOT
-    ===================================================
+    Les différents mots-clés de type Catégories
+    ==========================================================================
     Entretiens  => 11
     Dossiers    => 22
     Tribunes    => 231
@@ -10,8 +10,19 @@
     Enquetes    => 529
     Fronts      => 521
     Mouvements  => 522
+
+    Quels squelettes selon les cas ?
+    ==========================================================================
+    Tous les autres mots-clés s'affichent selon un squelette standard.
+
+    Mais Tribunes, Ecritures, Critiques, Enquetes, Fronts et Mouvements
+    sont traités de manière identique, donc utilisation d'un unique 
+    squelette, variante 1.
+
 ]
-[(#SET{variantes_skel,#LISTE{11,231,4,451,529,521,522}})]
+    #SET{variante_1,#LISTE{231,4,451,529,521,522}}
+    #SET{variante_2,#LISTE{11}}
+
 <BOUCLE_mot(MOTS){id_mot}>
 <div class="grid">
     <article class="self mot">
@@ -25,9 +36,12 @@
                 </div>
             </div>]
         </div><!-- /.grid__item -->
-        [(#GET{variantes_skel}|find{#ID_MOT}|?{
-            [(#INCLURE{fond=inclure/mot-#ID_MOT,id_mot,env,ajax})],
-            [(#INCLURE{fond=inclure/mot-contenu-standard,id_mot,env})]
+        [(#GET{variante_1}|find{#ID_MOT}|?{
+            [(#INCLURE{fond=inclure/mot-variante-1,id_mot,env,ajax})],
+            [(#GET{variante_2}|find{#ID_MOT}|?{
+                [(#INCLURE{fond=inclure/mot-11,id_mot,env,ajax})],
+                [(#INCLURE{fond=inclure/mot-contenu-standard,id_mot,env})]
+            })]
         })]
     </article>
 </div><!-- /.grid -->
