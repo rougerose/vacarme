@@ -25,7 +25,7 @@
                 }
             .accordeon__body { 
                 @extend .cf;
-                .js & { display:none; }
+                // .js & { display:none; }
             }
                 .accordeon__descriptif {
                     width: 66.666%;

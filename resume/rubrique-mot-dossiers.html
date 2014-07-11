@@ -1,0 +1,21 @@
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+<article class="resume-rubrique">
+    [(#LOGO_RUBRIQUE|oui)
+    <div class="resume-article__logo resume-article__logo--complet">
+        <a href="#URL_RUBRIQUE">
+            [(#ENV{logo_format}|=={1/4}|oui)
+                [(#LOGO_RUBRIQUE|image_reduire{550,0}|image_recadre{452,330,'center center',000})]
+            ][(#ENV{logo_format}|=={1/2}|oui)
+                [(#LOGO_RUBRIQUE|image_reduire{550,0}|image_recadre{540,330,'center center',000})]
+            ]
+        </a>
+    </div>]
+    <header class="resume-article__header">
+        <h1 class="hN resume-article__titre resume-article__titre--complet"><a href="#URL_RUBRIQUE">#TITRE [(#ENV{dat}|affdate)]</a></h1>
+    </header>
+    <div class="resume-article__descriptif resume-article__descriptif--complet">
+        [(#DESCRIPTIF|sinon{#INTRODUCTION|couper{100}|wrap{<p>}})]
+        <p><BOUCLE_mots(MOTS){id_rubrique}{par titre}>[(#TITRE) ]</BOUCLE_mots></p>
+    </div>
+</article>
+</BOUCLE_rubrique>

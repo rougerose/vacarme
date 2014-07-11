@@ -1,0 +1,34 @@
+<BOUCLE_mot(MOTS){id_mot}>
+
+<BOUCLE_rubriques_filtres(RUBRIQUES){id_mot}{mots_selon_id}{si #ENV{mots}}>
+    #SET{element,#ARRAY{objet,'rubrique',id_objet,#ID_RUBRIQUE,date,#DATE}}
+    #SET_PUSH{elements,#GET{element}}
+</BOUCLE_rubriques_filtres>
+
+<BOUCLE_articles_filtres(ARTICLES){id_mot}{mots_selon_id}{si #ENV{mots}}>
+    <BOUCLE_mot_dossier_rubrique_parente(MOTS){id_rubrique=#ID_RUBRIQUE}{id_mot=227}>
+    #SET{element,#ARRAY{objet,'rubrique',id_objet,#ID_RUBRIQUE,date,#DATE}}
+    #SET_PUSH{elements,#GET{element}}
+    </BOUCLE_mot_dossier_rubrique_parente>
+    <BOUCLE_mots_g16_filtres(MOTS){id_article}{id_groupe=16}{unique}>
+        #SET{element,#ARRAY{objet,'mot',id_objet,#ID_MOT,date,#_articles_filtres:DATE}}
+        #SET_PUSH{elements,#GET{element}}
+    </BOUCLE_mots_g16_filtres>
+</BOUCLE_articles_filtres>
+
+<B_dossiers>
+#ANCRE_PAGINATION
+<BOUCLE_dossiers(DATA){source table,#GET{elements}}{!par date}{pagination 20}>
+<div class="grid__item lap-and-up-one-half">
+    #SET{id_objet,#VALEUR|table_valeur{id_objet}}
+    #SET{objet,#VALEUR|table_valeur{objet}}
+    [(#GET{objet}=={mot}|?{
+        [(#INCLURE{fond=resume/mot-mot-dossiers,id_mot=#GET{id_objet},logo_format=1/2})],
+        [(#INCLURE{fond=resume/rubrique-mot-dossiers,id_rubrique=#GET{id_objet},logo_format=1/2})]
+    })]
+</div><!-- /.grid__item -->
+</BOUCLE_dossiers>
+[<nav class="pagination pagination--bottom pagination--page">(#PAGINATION{li})</nav>]
+</B_dossiers>
+
+</BOUCLE_mot>

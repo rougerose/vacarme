@@ -1,0 +1,21 @@
+<BOUCLE_mot(MOTS){id_mot}>
+<BOUCLE_logo(ARTICLES){id_mot}{id_secteur=115}{0,1}><BOUCLE_numero(HIERARCHIE){id_article}>[(#PROFONDEUR|=={1}|oui)#SET{logo_numero,#LOGO_RUBRIQUE}]</BOUCLE_numero></BOUCLE_logo>
+<article class="resume-rubrique">
+    <div class="resume-article__logo resume-article__logo--complet">
+        <a href="#URL_MOT">
+            [(#ENV{logo_format}|=={1/4}|oui)
+                [(#LOGO_MOT|sinon{#GET{logo_numero}}|image_reduire{550,0}|image_recadre{452,330,'center center',000})]
+            ][(#ENV{logo_format}|=={1/2}|oui)
+                [(#LOGO_MOT|sinon{#GET{logo_numero}}|image_reduire{550,0}|image_recadre{540,330,'center center',000})]
+            ]
+        </a>
+    </div>
+    <header class="resume-article__header">
+        <h1 class="hN resume-article__titre resume-article__titre--complet"><a href="#URL_MOT">#TITRE [(#ENV{dat}|affdate)]</a></h1>
+    </header>
+    <div class="resume-article__descriptif resume-article__descriptif--complet">
+        [(#DESCRIPTIF|sinon{#INTRODUCTION|couper{100}|wrap{<p>}})]
+        <p><BOUCLE_art(ARTICLES){id_mot}><BOUCLE_mots(MOTS){id_article}{par titre}{unique}{exclus}>[(#TITRE) #ID_MOT ]</BOUCLE_mots></BOUCLE_art> </p>
+    </div>
+</article>
+</BOUCLE_mot>

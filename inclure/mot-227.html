@@ -1,0 +1,22 @@
+<BOUCLE_mot(MOTS){id_mot}>
+
+<section class="mb+">
+    <div class="grid__item">
+        <div class="grid">
+            <div class="grid__item lap-and-up-one-quarter">
+                <h1 class="hN intertitre-section intertitre-section--first">[(#VAL{local:categorie_tous_#ID_MOT}|_T)]</h1>
+            </div><!-- /.grid__item -->
+            <div class="grid__item lap-and-up-three-quarters">
+                <INCLURE{fond=nav/filtres-dossiers,id_mot,env} />
+            </div><!-- /.grid__item -->
+        </div><!-- /.grid -->
+    </div><!-- /.grid__item -->
+
+    <BOUCLE_test_tri(CONDITION){si #ENV{mots}}>
+        <INCLURE{fond=inclure/mot-227-theme,mots,id_mot} />
+    </BOUCLE_test_tri>
+        <INCLURE{fond=inclure/mot-227-date,id_mot} />
+    <//B_test_tri>
+
+</section>
+</BOUCLE_mot>
