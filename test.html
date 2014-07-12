@@ -6,29 +6,7 @@
 </head>
 <body>
 
-
-#SET{elements,#ARRAY}
 <BOUCLE_mot(MOTS){id_mot=227}>
-
-<INCLURE{fond=nav/filtres-dossiers,id_mot,env} />
-
-<BOUCLE_rubriques_filtres(RUBRIQUES){id_mot}{mots_selon_id}{si #ENV{mots}}>rub #TITRE <br>
-    #SET{element_filtre,#ARRAY{objet,'rubrique',id_objet,#ID_RUBRIQUE,date,#DATE}}
-    #SET_PUSH{elements_filtres,#GET{element_filtre}}
-</BOUCLE_rubriques_filtres>
-
-
-<BOUCLE_articles_filtres(ARTICLES){id_mot}{mots_selon_id}{si #ENV{mots}}>art #TITRE <br>
-    <BOUCLE_mots_g16_filtres(MOTS){id_article}{id_groupe=16}{unique}>mot #TITRE #ID_GROUPE <br>
-        #SET{element_filtre,#ARRAY{objet,'mot',id_objet,#ID_MOT,date,#_articles_filtres:DATE}}
-        #SET_PUSH{elements_filtres,#GET{element_filtre}}
-    </BOUCLE_mots_g16_filtres>
-</BOUCLE_articles_filtres>
-
-
-[(#GET{elements_filtres}|print)]
-
-
 
 </BOUCLE_mot>
 </body>

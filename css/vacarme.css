@@ -5774,6 +5774,10 @@ html {
       display: inline;
       padding-left: 1em; } }
 
+/* line 28, scss/modules/_accordeon.scss */
+.js .accordeon__body {
+  display: none; }
+
 /* line 30, scss/modules/_accordeon.scss */
 .accordeon__descriptif {
   width: 66.666%;

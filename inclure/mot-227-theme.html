@@ -1,15 +1,32 @@
+[(#REM)
+    
+    Dossiers triés selon les mots choisis. 
+    ---------------------------------------------------------------------------
+    1- On récupère les rubriques dans un tableau 'elements'. Au passage, 
+    on remplit un tableau 'rubriques'. 
+
+    2- Ensuite les articles, mais les articles peuvent appartenir à une rubrique 
+    Dossiers (et non pas seulement appartenir un ensemble identifié 
+    par un mot-clé @dossiers isolés) : si la rubrique n'est pas déjà présente 
+    dans le tableau "rubriques" (éviter les doublons), on l'ajoute au 
+    tableau 'elements', sinon on ajoute le mot-clé du groupe 'dossiers isolés' 
+    au tableau 'elements'.
+
+    On affiche la liste des items du tableau 'elements'
+]
 <BOUCLE_mot(MOTS){id_mot}>
 
 <BOUCLE_rubriques_filtres(RUBRIQUES){id_mot}{mots_selon_id}{si #ENV{mots}}>
-    #SET{element,#ARRAY{objet,'rubrique',id_objet,#ID_RUBRIQUE,date,#DATE}}
+    #SET{element,#ARRAY{objet,'rubrique',id_objet,#ID_RUBRIQUE,date,#DATE}} #SET_PUSH{rubriques,#ID_RUBRIQUE}
     #SET_PUSH{elements,#GET{element}}
 </BOUCLE_rubriques_filtres>
 
 <BOUCLE_articles_filtres(ARTICLES){id_mot}{mots_selon_id}{si #ENV{mots}}>
     <BOUCLE_mot_dossier_rubrique_parente(MOTS){id_rubrique=#ID_RUBRIQUE}{id_mot=227}>
-    #SET{element,#ARRAY{objet,'rubrique',id_objet,#ID_RUBRIQUE,date,#DATE}}
-    #SET_PUSH{elements,#GET{element}}
-    </BOUCLE_mot_dossier_rubrique_parente>
+    [(#ID_RUBRIQUE|in_array{#GET{rubriques}}|non)
+        #SET{element,#ARRAY{objet,'rubrique',id_objet,#ID_RUBRIQUE,date,#DATE}} #SET_PUSH{rubriques,#ID_RUBRIQUE}
+        #SET_PUSH{elements,#GET{element}}
+    ]</BOUCLE_mot_dossier_rubrique_parente>
     <BOUCLE_mots_g16_filtres(MOTS){id_article}{id_groupe=16}{unique}>
         #SET{element,#ARRAY{objet,'mot',id_objet,#ID_MOT,date,#_articles_filtres:DATE}}
         #SET_PUSH{elements,#GET{element}}
