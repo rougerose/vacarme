@@ -13,9 +13,9 @@
      *      Mouvements, partis et orga  #10     #7ad1ee
      *      Personnes                   #11     #bd1a88
      *      Thèmes                      #1      #5d4284
-     *      Feuilletons                 #15     #c4e538
-     *      Dossiers isolés             #16     #91786d
-     *      Lignes                      #14     #f01414                 
+     *      Feuilletons                 #15     #c4e538 x
+     *      Dossiers isolés             #16     #91786d x
+     *      Lignes                      #14     #f01414 x                
      *  
     */
     $idgroupe-couleur: (
@@ -23,8 +23,7 @@
         4:#e8d41a, 7:#6c64ff, 
         10:#7ad1ee, 11:#bd1a88, 
         12:#c02627, 18:#73b84d, 
-        19:#31a188, 15:#c4e538,
-        16:#91786d, 14:#f01414
+        19:#31a188
     );
     
     @each $idgroupe, $couleur in $idgroupe-couleur {
@@ -63,6 +62,7 @@
         // text
         .is-couleur-#{$idgroupe}-text {
             color: $couleur;
+            border-color: $couleur;
         }
 
         // link
