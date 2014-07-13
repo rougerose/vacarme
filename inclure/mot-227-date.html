@@ -1,7 +1,7 @@
 <BOUCLE_mot(MOTS){id_mot}>
 
 <BOUCLE_articles_dossiers_isoles(ARTICLES){id_mot}>
-    <BOUCLE_mots_g16_articles(MOTS){id_article}{id_groupe=16}{doublons std}>
+    <BOUCLE_mots_g16_articles(MOTS){id_article}{id_groupe=16}{doublons}>
         [(#SET{element, #ARRAY{objet,"mot",id_objet,#ID_MOT,titre,#TITRE,date,#_articles_dossiers_isoles:DATE}})]
         [(#SET_PUSH{elements,#GET{element}})]
     </BOUCLE_mots_g16_articles>

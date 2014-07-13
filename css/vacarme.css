@@ -5258,7 +5258,6 @@ a {
 .suite-lien {
   position: relative;
   border-bottom: 1px dotted #8888a7;
-  margin-left: 0.5em;
   font-style: italic;
   color: #000; }
   /* line 36, scss/base/_liens.scss */
@@ -5267,15 +5266,6 @@ a {
     -webkit-transition: all 0.35s ease-out;
     -moz-transition: all 0.35s ease-out;
     transition: all 0.35s ease-out; }
-  /* line 40, scss/base/_liens.scss */
-  .suite-lien:before {
-    position: absolute;
-    top: 0;
-    left: -0.5em;
-    width: 1px;
-    height: 100%;
-    content: '';
-    border-left: 1px solid #ccccda; }
   /* line 49, scss/base/_liens.scss */
   .suite-lien:hover {
     color: #e88e0e;
@@ -5672,24 +5662,34 @@ html {
 .inline-list > li {
   display: inline-block; }
 
-/* line 47, scss/modules/_list.scss */
-.inline-list--pipe > li:after {
-  content: '|';
-  margin: 0 .5em; }
-/* line 51, scss/modules/_list.scss */
-.inline-list--pipe > li:last-child:after {
-  content: ''; }
+/* line 46, scss/modules/_list.scss */
+.inline-list--pipe > li {
+  position: relative;
+  margin-right: 0.5em;
+  padding-right: 0.5em; }
+  /* line 50, scss/modules/_list.scss */
+  .inline-list--pipe > li:after {
+    position: absolute;
+    top: 15%;
+    right: 0;
+    width: 1px;
+    height: 75%;
+    border-right: 1px solid #ccccda;
+    content: ''; }
+  /* line 59, scss/modules/_list.scss */
+  .inline-list--pipe > li:last-child:after {
+    border: none; }
 
-/* line 55, scss/modules/_list.scss */
+/* line 63, scss/modules/_list.scss */
 .inline-list--slash-after > li {
   margin-right: 0.1em; }
-  /* line 57, scss/modules/_list.scss */
+  /* line 65, scss/modules/_list.scss */
   .inline-list--slash-after > li:after {
     display: inline-block;
     content: '/';
     margin-left: 0.15em;
     color: #ccccda; }
-  /* line 64, scss/modules/_list.scss */
+  /* line 72, scss/modules/_list.scss */
   .inline-list--slash-after > li:last-child:after {
     margin-left: 0;
     content: ''; }
@@ -5697,14 +5697,14 @@ html {
 /* 
     .ui-list
     ========================================================================== */
-/* line 76, scss/modules/_list.scss */
+/* line 84, scss/modules/_list.scss */
 .ui-list {
   margin: 0;
   padding: 0;
   list-style: none;
   border-top: 1px dotted #c9c9c9; }
 
-/* line 82, scss/modules/_list.scss */
+/* line 90, scss/modules/_list.scss */
 .ui-list__item {
   padding: 1em 0;
   border-bottom: 1px dotted #c9c9c9; }
@@ -5712,20 +5712,20 @@ html {
 /* 
     .simple-def-list
     ========================================================================== */
-/* line 92, scss/modules/_list.scss */
+/* line 100, scss/modules/_list.scss */
 .simple-def-list dd {
   margin-left: 0; }
 
 /*  .resultats-list
     ========================================================================== */
-/* line 97, scss/modules/_list.scss */
+/* line 105, scss/modules/_list.scss */
 .resultats-list {
   margin-bottom: 1.5em; }
 
-/* line 100, scss/modules/_list.scss */
+/* line 108, scss/modules/_list.scss */
 .resultats-list__item {
   margin-bottom: 2em; }
-  /* line 102, scss/modules/_list.scss */
+  /* line 110, scss/modules/_list.scss */
   .resultats-list__item:after {
     content: '❡';
     display: block;
@@ -5747,9 +5747,13 @@ html {
 
 /* line 10, scss/modules/_accordeon.scss */
 .accordeon__header {
-  position: relative; }
+  position: relative;
+  cursor: pointer; }
+  /* line 13, scss/modules/_accordeon.scss */
+  .accordeon__header:hover {
+    color: #e88e0e; }
 
-/* line 11, scss/modules/_accordeon.scss */
+/* line 17, scss/modules/_accordeon.scss */
 .accordeon__header-titre {
   border-bottom: 1px solid #555555;
   font-size: 18px;
@@ -5760,30 +5764,26 @@ html {
   -moz-transition: border-color 0.35s ease-out;
   transition: border-color 0.35s ease-out; }
   @media only screen and (max-width: 480px) {
-    /* line 11, scss/modules/_accordeon.scss */
+    /* line 17, scss/modules/_accordeon.scss */
     .accordeon__header-titre {
       padding-right: 2em; } }
 
-/* line 18, scss/modules/_accordeon.scss */
+/* line 24, scss/modules/_accordeon.scss */
 .accordeon__header-date {
   display: block;
   color: #777777; }
   @media only screen and (min-width: 481px) {
-    /* line 18, scss/modules/_accordeon.scss */
+    /* line 24, scss/modules/_accordeon.scss */
     .accordeon__header-date {
       display: inline;
       padding-left: 1em; } }
 
-/* line 28, scss/modules/_accordeon.scss */
-.js .accordeon__body {
-  display: none; }
-
-/* line 30, scss/modules/_accordeon.scss */
+/* line 36, scss/modules/_accordeon.scss */
 .accordeon__descriptif {
   width: 66.666%;
   float: left; }
 
-/* line 35, scss/modules/_accordeon.scss */
+/* line 41, scss/modules/_accordeon.scss */
 .accordeon__footer.resume-article__footer {
   position: relative;
   width: 33.333%;
@@ -6741,577 +6741,6 @@ html {
   background-color: #999999; }
 
 /*  ==========================================================================
-    resume
-    ========================================================================== */
-/* line 27, scss/modules/_resume.scss */
-.resume__titre {
-  font-size: 18px;
-  font-size: 1.125rem;
-  line-height: 1.2; }
-  /* line 31, scss/modules/_resume.scss */
-  .resume__titre:first-letter {
-    text-transform: uppercase; }
-
-/* line 35, scss/modules/_resume.scss */
-.resume__soustitre {
-  display: block;
-  font-size: 16px;
-  font-size: 1rem;
-  line-height: 1.5;
-  font-style: italic; }
-
-/* line 40, scss/modules/_resume.scss */
-.resume__auteur,
-.resume__signature {
-  font-style: italic;
-  color: #7b6d88; }
-
-/* line 47, scss/modules/_resume.scss */
-.resume__more time {
-  color: #7b6d88; }
-  /* line 49, scss/modules/_resume.scss */
-  .resume__more time:after {
-    margin-left: 0.3em;
-    content: '|';
-    color: #ccccda; }
-/* line 55, scss/modules/_resume.scss */
-.resume__more .more {
-  border-bottom: 1px dotted #7b6d88;
-  color: #7b6d88; }
-  /* line 58, scss/modules/_resume.scss */
-  .resume__more .more:hover {
-    color: #000;
-    border-bottom: 1px solid #000; }
-    /* line 61, scss/modules/_resume.scss */
-    .resume__more .more:hover em {
-      color: #000;
-      padding-left: 1em; }
-
-/* 
-   .resume-article
-   ========================================================================== */
-/* line 74, scss/modules/_resume.scss */
-.resume-article {
-  position: relative; }
-
-/* 
-   .resume-article--selection 
-   ========================================================================== */
-/* 
-   .resume-article--court
-   ========================================================================== */
-/* line 107, scss/modules/_resume.scss */
-.resume-article--court.resume {
-  margin-bottom: 0;
-  border-width: 0; }
-/* line 111, scss/modules/_resume.scss */
-.resume-article--court .resume__titre {
-  margin-bottom: 0;
-  min-height: 2em;
-  font-size: 16px;
-  font-size: 1rem;
-  line-height: 1.5; }
-/* line 116, scss/modules/_resume.scss */
-.resume-article--court .resume__signature {
-  margin-bottom: 0; }
-
-/* 
-   is-selected
-   ========================================================================== */
-/* line 124, scss/modules/_resume.scss */
-.resume__titre--is-selected strong {
-  font-weight: normal; }
-  /* line 126, scss/modules/_resume.scss */
-  .resume__titre--is-selected strong:before {
-    display: inline-block;
-    margin-left: -1em;
-    margin-right: 0.3em;
-    content: '\f00c';
-    font-family: 'FontAwesome';
-    font-weight: normal;
-    font-style: normal;
-    color: #c1e732; }
-
-/* 
-   is-postdate
-   ========================================================================== */
-/* 
-   .postdate-info-overlay
-   ========================================================================== */
-/* line 150, scss/modules/_resume.scss */
-.postdate-info-overlay {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  padding: 0 0.5em;
-  text-align: center;
-  font-family: "Geneva", "Consolas", "Menlo", monospace;
-  font-size: 10px;
-  font-size: 0.625rem;
-  line-height: 2.4;
-  color: #999;
-  background: #fff;
-  border: 1px dotted #fff;
-  border-radius: 2px;
-  -webkit-transition: background 0.3s ease, color 0.3s ease;
-  -moz-transition: background 0.3s ease, color 0.3s ease;
-  transition: background 0.3s ease, color 0.3s ease; }
-  /* line 164, scss/modules/_resume.scss */
-  .resume-article--court .postdate-info-overlay {
-    bottom: -1.5em;
-    left: auto; }
-  /* line 168, scss/modules/_resume.scss */
-  .resume:hover .postdate-info-overlay {
-    background-color: #b22222;
-    color: #fff; }
-
-/*  .resume-video
-    ========================================================================== */
-/* line 177, scss/modules/_resume.scss */
-.resume-video {
-  background-color: #7c88d3;
-  text-align: center; }
-
-/* line 181, scss/modules/_resume.scss */
-.resume-video--is-active {
-  opacity: 0.5; }
-
-@media only screen and (max-width: 480px) {
-  /* line 184, scss/modules/_resume.scss */
-  .resume-video--small {
-    min-height: 180px; } }
-/* line 188, scss/modules/_resume.scss */
-.resume-video--small .hN {
-  font-size: 14px;
-  font-size: 0.875rem;
-  line-height: 1;
-  color: #000; }
-  @media only screen and (min-width: 481px) {
-    /* line 188, scss/modules/_resume.scss */
-    .resume-video--small .hN {
-      padding: 0.5em;
-      margin-bottom: 0.5em;
-      font-size: 16px;
-      font-size: 1rem;
-      line-height: 1.2; } }
-/* line 200, scss/modules/_resume.scss */
-.resume-video--small .resume__body p {
-  font-size: 12px;
-  font-size: 0.75rem;
-  line-height: 1.2;
-  margin-bottom: 0; }
-
-/*  resume-semainier
-    ========================================================================== */
-@media only screen and (min-width: 481px) {
-  /* line 211, scss/modules/_resume.scss */
-  .resume-semainier header {
-    border-top: 1px solid #000;
-    padding-top: 1.5em; } }
-/* line 216, scss/modules/_resume.scss */
-.resume-semainier .resume__titre {
-  font-size: 24px;
-  font-size: 1.5rem;
-  margin-bottom: .5em; }
-/* line 220, scss/modules/_resume.scss */
-.resume-semainier .resume__titre--jour {
-  font-size: 18px;
-  font-size: 1.125rem;
-  line-height: 1.33333; }
-  /* line 222, scss/modules/_resume.scss */
-  .resume-semainier .resume__titre--jour a {
-    color: #999999; }
-/* line 226, scss/modules/_resume.scss */
-.resume-semainier .resume__soustitre {
-  font-size: 20px;
-  font-size: 1.25rem; }
-
-/* line 230, scss/modules/_resume.scss */
-.resume-semainier__img {
-  margin-bottom: 2em; }
-  /* line 232, scss/modules/_resume.scss */
-  .resume-semainier__img a {
-    border: none; }
-
-/* line 237, scss/modules/_resume.scss */
-.timeline__item--pair .resume-semainier__body .resume__titre--jour {
-  margin-right: 20%; }
-/* line 240, scss/modules/_resume.scss */
-.timeline__item--impair .resume-semainier__body .resume__titre--jour {
-  margin-left: 20%; }
-
-/*  ==========================================================================
-    .resume-article
-    ========================================================================== */
-/*
-*   .resume-article
-*       .resume-article__logo
-*       .resume-article__header
-*           .resume-article__titre
-*           .resume-article__auteurs
-*       .resume-article__descriptif
-*       .resume-article__date
-*       .resume-article__numero
-*   
-*   modificateurs
-*   -------------------------------------
-*   .resume-article--texte 
-*   
-*   .resume-article__titre--une
-*   .resume-article__auteurs--une
-*   .resume-article__descriptif--une
-*
-*   états
-*   -------------------------------------
-*   .resume-article--is-postdate
-*   
-*
-*/
-/* line 30, scss/modules/_resume.article.scss */
-.resume-article {
-  position: relative; }
-
-/* line 31, scss/modules/_resume.article.scss */
-.resume-article__logo {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  height: 310px;
-  margin-bottom: 1em; }
-  @media only screen and (min-width: 480px) and (max-width: 800px) {
-    /* line 31, scss/modules/_resume.article.scss */
-    .resume-article__logo {
-      height: 210px; } }
-  /* line 40, scss/modules/_resume.article.scss */
-  .resume-article__logo img {
-    -webkit-transform: translate(-10px, -10px);
-    -moz-transform: translate(-10px, -10px);
-    -ms-transform: translate(-10px, -10px);
-    -o-transform: translate(-10px, -10px);
-    transform: translate(-10px, -10px);
-    -webkit-transition: -webkit-transform 0.35s;
-    -moz-transition: -moz-transform 0.35s;
-    transition: transform 0.35s;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden; }
-  /* line 46, scss/modules/_resume.article.scss */
-  .resume-article__logo:hover img {
-    -webkit-transform: translate(-20px, -20px);
-    -moz-transform: translate(-20px, -20px);
-    -ms-transform: translate(-20px, -20px);
-    -o-transform: translate(-20px, -20px);
-    transform: translate(-20px, -20px); }
-  /* line 49, scss/modules/_resume.article.scss */
-  .resume-article__logo:hover a {
-    color: #e88e0e; }
-  /* line 51, scss/modules/_resume.article.scss */
-  .resume-article__logo a {
-    display: block;
-    color: #fff; }
-
-/* line 54, scss/modules/_resume.article.scss */
-.resume-article__titre {
-  font-size: 19px;
-  font-size: 1.1875rem;
-  line-height: 1.26316; }
-  /* line 56, scss/modules/_resume.article.scss */
-  .resume-article__titre a {
-    display: inline-block;
-    color: #000; }
-    /* line 59, scss/modules/_resume.article.scss */
-    .resume-article__titre a:hover {
-      color: #e88e0e; }
-    /* line 60, scss/modules/_resume.article.scss */
-    .resume-article__titre a:first-letter {
-      text-transform: uppercase; }
-  /* line 62, scss/modules/_resume.article.scss */
-  .resume-article__titre:first-letter {
-    text-transform: uppercase; }
-
-/* line 64, scss/modules/_resume.article.scss */
-.resume-article__auteurs {
-  font-size: 16px;
-  font-size: 1rem;
-  color: #8888a7; }
-  /* line 67, scss/modules/_resume.article.scss */
-  .resultats-list__item .resume-article__auteurs {
-    margin-bottom: .5em; }
-
-/* line 71, scss/modules/_resume.article.scss */
-.resume-article__descriptif {
-  padding-right: 1.5em; }
-  /* line 73, scss/modules/_resume.article.scss */
-  .resume-article__descriptif p {
-    font-size: 16px;
-    font-size: 1rem;
-    line-height: 1.313; }
-  /* line 78, scss/modules/_resume.article.scss */
-  .resultats-list__item .resume-article__descriptif p {
-    margin-bottom: .5em; }
-
-/* line 81, scss/modules/_resume.article.scss */
-.resume-article__date {
-  font-family: "HelveticaNeueLTStdLtCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #8888a7;
-  margin-right: 0.15em; }
-
-/* line 86, scss/modules/_resume.article.scss */
-.resume-article__numero {
-  position: absolute;
-  bottom: 0.5em;
-  left: 5px; }
-
-/* line 91, scss/modules/_resume.article.scss */
-.resume-article__numero-titre {
-  margin-bottom: 0;
-  font-family: "HelveticaNeueLTStdCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
-  font-size: 16px;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #fff; }
-  /* line 97, scss/modules/_resume.article.scss */
-  .resume-article__numero-titre .soustitre {
-    font-family: "HelveticaNeueLTStdLtCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    display: inline;
-    font-style: normal;
-    font-size: 100%; }
-
-/*  modificateurs
-    ========================================================================== */
-/* .resume-article--texte */
-/* .resume-article--complet */
-/* line 111, scss/modules/_resume.article.scss */
-.resume-article--complet {
-  border-bottom: 1px solid #000;
-  margin-bottom: 1.5em; }
-  @media only screen and (min-width: 481px) {
-    /* line 111, scss/modules/_resume.article.scss */
-    .resume-article--complet {
-      border: none;
-      margin-bottom: 3em; } }
-
-@media only screen and (min-width: 481px) {
-  /* line 119, scss/modules/_resume.article.scss */
-  .resume-article__logo--complet {
-    margin: 0; } }
-
-/* line 124, scss/modules/_resume.article.scss */
-.resume-article__titre--complet {
-  font-size: 24px;
-  font-size: 1.5rem;
-  line-height: 1; }
-  @media only screen and (min-width: 481px) {
-    /* line 124, scss/modules/_resume.article.scss */
-    .resume-article__titre--complet {
-      font-size: 20px;
-      font-size: 1.25rem;
-      line-height: 1.2; } }
-
-/* line 130, scss/modules/_resume.article.scss */
-.resume-article__descriptif--complet {
-  margin-bottom: 1.5em; }
-  @media only screen and (min-width: 481px) {
-    /* line 130, scss/modules/_resume.article.scss */
-    .resume-article__descriptif--complet {
-      padding-right: 15%; } }
-
-/* .resume-article--une */
-/* line 139, scss/modules/_resume.article.scss */
-.resume-article__titre--une {
-  font-size: 24px;
-  font-size: 1.5rem;
-  line-height: 1; }
-
-/* line 140, scss/modules/_resume.article.scss */
-.resume-article__auteurs--une {
-  font-size: 18px;
-  font-size: 1.125rem;
-  line-height: 1.33333; }
-
-/* line 142, scss/modules/_resume.article.scss */
-.resume-article__descriptif--une p {
-  font-size: 18px;
-  font-size: 1.125rem;
-  line-height: 1.33333; }
-
-/* .resume-article--selection-img-titre */
-/* line 148, scss/modules/_resume.article.scss */
-.resume-article__header--selection-img-titre {
-  position: absolute;
-  bottom: 0.5em;
-  left: 0.5em; }
-
-/* line 153, scss/modules/_resume.article.scss */
-.resume-article__titre--selection-img-titre {
-  margin-bottom: 0; }
-
-/* .resume-article-complet */
-/*  états
-    ========================================================================== */
-/*
- * .resume-article--is-postdate
- */
-/* line 163, scss/modules/_resume.article.scss */
-.resume-article--is-postdate .hN,
-.resume-article--is-postdate p {
-  color: #999999; }
-/* line 166, scss/modules/_resume.article.scss */
-.resume-article--is-postdate:hover .message--warning-texte.postdate-message {
-  background-color: #ffaa00;
-  color: #fff; }
-
-/*  ==========================================================================
-    .resume.mot
-    ========================================================================== */
-/*
-*   .resume-mot
-*       .resume-mot__logo
-*       .resume-mot__header
-*           .resume-mot__titre
-*       .resume-mot__descriptif
-*       .resume-mot__date
-*       .resume-mot__numero
-*   
-*   modificateurs
-*   -------------------------------------
-*   .resume-mot--entretiens 
-*   
-*/
-/* line 21, scss/modules/_resume.mot.scss */
-.resume-mot__logo {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  height: 310px;
-  margin-bottom: 1em; }
-  @media only screen and (min-width: 480px) and (max-width: 800px) {
-    /* line 21, scss/modules/_resume.mot.scss */
-    .resume-mot__logo {
-      height: 210px; } }
-
-/*  modificateurs
-    ========================================================================== */
-@media only screen and (min-width: 481px) {
-  /* line 36, scss/modules/_resume.mot.scss */
-  .resume-mot--entretiens {
-    margin-bottom: 2em; } }
-
-/* line 42, scss/modules/_resume.mot.scss */
-.resume-mot__logo--entretiens img {
-  display: block; }
-@media only screen and (max-width: 480px) {
-  /* line 41, scss/modules/_resume.mot.scss */
-  .resume-mot__logo--entretiens {
-    margin-bottom: 1em; } }
-
-/* line 48, scss/modules/_resume.mot.scss */
-.resume-mot__header--entretiens .resume-mot__titre {
-  font-size: 30px;
-  font-size: 1.875rem;
-  line-height: 1.6;
-  color: #000; }
-
-/*  ==========================================================================
-    .self
-    ========================================================================== */
-/* line 4, scss/modules/_self.scss */
-.self {
-  overflow: hidden; }
-
-/*  .self__header
-    ========================================================================== */
-/*
- * self__header--timeline
- */
-@media only screen and (min-width: 481px) {
-  /* line 14, scss/modules/_self.scss */
-  .self__header--timeline {
-    text-align: center; } }
-
-/*  .self__titre
-    ========================================================================== */
-/* line 22, scss/modules/_self.scss */
-.self__titre {
-  color: #000; }
-
-/* line 26, scss/modules/_self.scss */
-.self__titre--mot {
-  font-style: italic; }
-
-/*  .self__chapo
-    ========================================================================== */
-/* line 33, scss/modules/_self.scss */
-.self__chapo {
-  font-size: 19px;
-  font-size: 1.1875rem;
-  line-height: 1.26316; }
-  @media only screen and (min-width: 481px) {
-    /* line 33, scss/modules/_self.scss */
-    .self__chapo {
-      padding-right: 48px; } }
-
-/*
- * self__chapo--timeline
- */
-/* line 43, scss/modules/_self.scss */
-.self__chapo--timeline {
-  padding-right: 0;
-  position: relative; }
-
-/* .self_body
-   ========================================================================== */
-/*
- * self__body--timeline
- */
-/* line 55, scss/modules/_self.scss */
-.self__body--timeline {
-  position: relative; }
-  /* line 57, scss/modules/_self.scss */
-  .self__body--timeline .self__texte,
-  .self__body--timeline .self__ps,
-  .self__body--timeline .self__notes {
-    width: 100%; }
-
-/*
- * self__body--mot
- */
-/* line 68, scss/modules/_self.scss */
-.self__body--mot p {
-  font-size: 22px;
-  font-size: 1.375rem;
-  line-height: 1.09091; }
-
-/* 
-.self__footer
-========================================================================== */
-/* line 79, scss/modules/_self.scss */
-.self__footer {
-  clear: both;
-  position: relative; }
-
-@media only screen and (min-width: 481px) {
-  /* line 84, scss/modules/_self.scss */
-  .logoportrait {
-    float: left;
-    margin-left: -50%;
-    width: 80%;
-    margin-right: 24px; }
-
-  /* line 90, scss/modules/_self.scss */
-  .portrait {
-    padding-left: 25%; }
-    /* line 92, scss/modules/_self.scss */
-    .portrait .logo {
-      float: left;
-      width: 70%;
-      margin-left: -50%;
-      margin-right: 24px; }
-    /* line 99, scss/modules/_self.scss */
-    .portrait .texte {
-      width: 66%; } }
-/*  ==========================================================================
     auteurs
     ========================================================================== */
 /* line 5, scss/modules/_auteurs.scss */
@@ -7417,8 +6846,8 @@ html {
 /* line 34, scss/modules/_overlay.scss */
 .overlay--article-archive {
   background-color: transparent;
-  background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.3));
-  background-image: linear-gradient(to bottom,transparent, rgba(0, 0, 0, 0.3));
+  background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.5));
+  background-image: linear-gradient(to bottom,transparent, rgba(0, 0, 0, 0.5));
   bottom: 0;
   top: 50%; }
 
@@ -7546,17 +6975,24 @@ html {
 
 /*  .resume-meta
     ========================================================================== */
+/* line 43, scss/modules/_meta.scss */
+.resume-meta {
+  margin-top: 1em; }
+
 /* line 44, scss/modules/_meta.scss */
 .resume-meta__label {
+  font-family: "HelveticaNeueLTStdLtCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #8888a7; }
+
+/* line 49, scss/modules/_meta.scss */
+.resume-meta__label--tag {
   display: inline;
   margin-right: .5em;
   font-size: 15px;
   font-size: 0.9375rem;
-  line-height: 1.313;
-  font-family: "HelveticaNeueLTStdLtCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  color: #8888a7; }
+  line-height: 1.313; }
 
-/* line 52, scss/modules/_meta.scss */
+/* line 55, scss/modules/_meta.scss */
 .resume-meta__tag {
   font-size: 15px;
   font-size: 0.9375rem;
@@ -7567,25 +7003,25 @@ html {
 /*
  * self-meta--head
  */
-/* line 64, scss/modules/_meta.scss */
+/* line 67, scss/modules/_meta.scss */
 .self-meta--head {
   margin-bottom: 1.5em; }
-  /* line 66, scss/modules/_meta.scss */
+  /* line 69, scss/modules/_meta.scss */
   .self-meta--head .self-meta__item {
     margin: 0;
     margin-right: .5em; }
-    /* line 69, scss/modules/_meta.scss */
+    /* line 72, scss/modules/_meta.scss */
     .self-meta--head .self-meta__item.rubrique {
       text-transform: uppercase;
       font-family: "HelveticaNeueLTStdLtCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif; }
     @media only screen and (min-width: 481px) {
-      /* line 66, scss/modules/_meta.scss */
+      /* line 69, scss/modules/_meta.scss */
       .self-meta--head .self-meta__item {
         display: inline-block; } }
-  /* line 77, scss/modules/_meta.scss */
+  /* line 80, scss/modules/_meta.scss */
   .self-meta--head .self-meta__item--titre {
     font-style: italic; }
-  /* line 81, scss/modules/_meta.scss */
+  /* line 84, scss/modules/_meta.scss */
   .self-meta--head .self-meta__item--soustitre:before {
     content: '● ';
     margin: 0 0.5em; }
@@ -7594,14 +7030,14 @@ html {
  * self-meta--head-std
  */
 @media only screen and (min-width: 481px) {
-  /* line 93, scss/modules/_meta.scss */
+  /* line 96, scss/modules/_meta.scss */
   .self-meta--head-std .self-meta__item {
     float: left; }
-    /* line 95, scss/modules/_meta.scss */
+    /* line 98, scss/modules/_meta.scss */
     .self-meta--head-std .self-meta__item:first-child {
       width: 26%;
       text-align: right; }
-      /* line 98, scss/modules/_meta.scss */
+      /* line 101, scss/modules/_meta.scss */
       .self-meta--head-std .self-meta__item:first-child:after {
         content: '|';
         color: #eeeeee;
@@ -7610,28 +7046,28 @@ html {
 /*
  * self-meta--head-timeline
  */
-/* line 112, scss/modules/_meta.scss */
+/* line 115, scss/modules/_meta.scss */
 .self-meta--head-timeline p {
   font-size: 18px;
   font-size: 1.125rem; }
-/* line 115, scss/modules/_meta.scss */
+/* line 118, scss/modules/_meta.scss */
 .self-meta--head-timeline:after {
   content: ' ';
   border-bottom: 1px solid #ccccda;
   width: 20%;
   margin: 2em 0; }
 @media only screen and (min-width: 481px) {
-  /* line 111, scss/modules/_meta.scss */
+  /* line 114, scss/modules/_meta.scss */
   .self-meta--head-timeline {
     text-align: center; }
-    /* line 123, scss/modules/_meta.scss */
+    /* line 126, scss/modules/_meta.scss */
     .self-meta--head-timeline:after {
       margin: 1em auto; } }
 
 /*
  * self-meta--aside
  */
-/* line 132, scss/modules/_meta.scss */
+/* line 135, scss/modules/_meta.scss */
 .self-meta--aside {
   font-family: "HelveticaNeueLTStdLtCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
@@ -7639,7 +7075,7 @@ html {
  * self-meta--aside-timeline
  */
 /* TODO : reprendre à partir d'ici */
-/* line 142, scss/modules/_meta.scss */
+/* line 145, scss/modules/_meta.scss */
 .meta__section-titre {
   display: inline-block;
   margin-left: -12px;
@@ -7655,15 +7091,15 @@ html {
 /* 
    .meta-article
    ========================================================================== */
-/* line 157, scss/modules/_meta.scss */
+/* line 160, scss/modules/_meta.scss */
 .meta-article {
   margin-bottom: 48px;
   margin-bottom: 3rem; }
-  /* line 160, scss/modules/_meta.scss */
+  /* line 163, scss/modules/_meta.scss */
   .meta-article p {
     margin-bottom: 0; }
 
-/* line 164, scss/modules/_meta.scss */
+/* line 167, scss/modules/_meta.scss */
 .meta-article__titre {
   margin-bottom: .5em;
   font-style: italic;
@@ -7797,13 +7233,13 @@ html {
   -moz-transition: all 0.35s ease-out;
   transition: all 0.35s ease-out; }
   /* line 97, scss/modules/_icon.scss */
-  .icon-svg--accordeon:hover, .icon-svg--accordeon.icon-svg--accordeon--is-open {
+  .accordeon__header:hover .icon-svg--accordeon, .icon-svg--accordeon.icon-svg--accordeon--is-open {
     padding-top: .3em; }
     /* line 100, scss/modules/_icon.scss */
-    .icon-svg--accordeon:hover + .accordeon__header-titre, .icon-svg--accordeon.icon-svg--accordeon--is-open + .accordeon__header-titre {
+    .accordeon__header:hover .icon-svg--accordeon + .accordeon__header-titre, .icon-svg--accordeon.icon-svg--accordeon--is-open + .accordeon__header-titre {
       border-color: #e88e0e; }
     /* line 103, scss/modules/_icon.scss */
-    .icon-svg--accordeon:hover #icon-svg--chevron-bas, .icon-svg--accordeon.icon-svg--accordeon--is-open #icon-svg--chevron-bas {
+    .accordeon__header:hover .icon-svg--accordeon #icon-svg--chevron-bas, .icon-svg--accordeon.icon-svg--accordeon--is-open #icon-svg--chevron-bas {
       fill: #e88e0e; }
   /* line 107, scss/modules/_icon.scss */
   .icon-svg--accordeon.icon-svg--accordeon--is-open {
@@ -7885,6 +7321,42 @@ a:hover .cover--issue {
       margin-top: -2.5em;
       position: static;
       width: auto; } }
+
+/*  ==========================================================================
+    .thumbnail
+    ========================================================================== */
+/* line 5, scss/modules/_medias.thumbnail.scss */
+.thumbnail {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 310px;
+  margin-bottom: 1em;
+  background-color: #000; }
+
+/* line 13, scss/modules/_medias.thumbnail.scss */
+.thumbnail-container {
+  overflow: hidden;
+  width: 120%;
+  height: 120%;
+  -webkit-transform: translate(-10px, -20px);
+  -moz-transform: translate(-10px, -20px);
+  -ms-transform: translate(-10px, -20px);
+  -o-transform: translate(-10px, -20px);
+  transform: translate(-10px, -20px);
+  -webkit-transition: -webkit-transform 0.35s, opacity 0.35s;
+  -moz-transition: -moz-transform 0.35s, opacity 0.35s;
+  transition: transform 0.35s, opacity 0.35s;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; }
+  /* line 20, scss/modules/_medias.thumbnail.scss */
+  a:hover .thumbnail-container {
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+    opacity: 0.7; }
 
 /*  ==========================================================================
     media
@@ -8491,6 +7963,544 @@ a:hover .cover--issue {
   font-size: 0.875rem;
   line-height: 1.71429; }
 
+/*  ==========================================================================
+    resume
+    ========================================================================== */
+/* line 27, scss/modules/_resume.scss */
+.resume__titre {
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.2; }
+  /* line 31, scss/modules/_resume.scss */
+  .resume__titre:first-letter {
+    text-transform: uppercase; }
+
+/* line 35, scss/modules/_resume.scss */
+.resume__soustitre {
+  display: block;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-style: italic; }
+
+/* line 40, scss/modules/_resume.scss */
+.resume__auteur,
+.resume__signature {
+  font-style: italic;
+  color: #7b6d88; }
+
+/* line 47, scss/modules/_resume.scss */
+.resume__more time {
+  color: #7b6d88; }
+  /* line 49, scss/modules/_resume.scss */
+  .resume__more time:after {
+    margin-left: 0.3em;
+    content: '|';
+    color: #ccccda; }
+/* line 55, scss/modules/_resume.scss */
+.resume__more .more {
+  border-bottom: 1px dotted #7b6d88;
+  color: #7b6d88; }
+  /* line 58, scss/modules/_resume.scss */
+  .resume__more .more:hover {
+    color: #000;
+    border-bottom: 1px solid #000; }
+    /* line 61, scss/modules/_resume.scss */
+    .resume__more .more:hover em {
+      color: #000;
+      padding-left: 1em; }
+
+/* 
+   .resume-article
+   ========================================================================== */
+/* line 74, scss/modules/_resume.scss */
+.resume-article {
+  position: relative; }
+
+/* 
+   .resume-article--selection 
+   ========================================================================== */
+/* 
+   .resume-article--court
+   ========================================================================== */
+/* line 107, scss/modules/_resume.scss */
+.resume-article--court.resume {
+  margin-bottom: 0;
+  border-width: 0; }
+/* line 111, scss/modules/_resume.scss */
+.resume-article--court .resume__titre {
+  margin-bottom: 0;
+  min-height: 2em;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5; }
+/* line 116, scss/modules/_resume.scss */
+.resume-article--court .resume__signature {
+  margin-bottom: 0; }
+
+/* 
+   is-selected
+   ========================================================================== */
+/* line 124, scss/modules/_resume.scss */
+.resume__titre--is-selected strong {
+  font-weight: normal; }
+  /* line 126, scss/modules/_resume.scss */
+  .resume__titre--is-selected strong:before {
+    display: inline-block;
+    margin-left: -1em;
+    margin-right: 0.3em;
+    content: '\f00c';
+    font-family: 'FontAwesome';
+    font-weight: normal;
+    font-style: normal;
+    color: #c1e732; }
+
+/* 
+   is-postdate
+   ========================================================================== */
+/* 
+   .postdate-info-overlay
+   ========================================================================== */
+/* line 150, scss/modules/_resume.scss */
+.postdate-info-overlay {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding: 0 0.5em;
+  text-align: center;
+  font-family: "Geneva", "Consolas", "Menlo", monospace;
+  font-size: 10px;
+  font-size: 0.625rem;
+  line-height: 2.4;
+  color: #999;
+  background: #fff;
+  border: 1px dotted #fff;
+  border-radius: 2px;
+  -webkit-transition: background 0.3s ease, color 0.3s ease;
+  -moz-transition: background 0.3s ease, color 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease; }
+  /* line 164, scss/modules/_resume.scss */
+  .resume-article--court .postdate-info-overlay {
+    bottom: -1.5em;
+    left: auto; }
+  /* line 168, scss/modules/_resume.scss */
+  .resume:hover .postdate-info-overlay {
+    background-color: #b22222;
+    color: #fff; }
+
+/*  .resume-video
+    ========================================================================== */
+/* line 177, scss/modules/_resume.scss */
+.resume-video {
+  background-color: #7c88d3;
+  text-align: center; }
+
+/* line 181, scss/modules/_resume.scss */
+.resume-video--is-active {
+  opacity: 0.5; }
+
+@media only screen and (max-width: 480px) {
+  /* line 184, scss/modules/_resume.scss */
+  .resume-video--small {
+    min-height: 180px; } }
+/* line 188, scss/modules/_resume.scss */
+.resume-video--small .hN {
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1;
+  color: #000; }
+  @media only screen and (min-width: 481px) {
+    /* line 188, scss/modules/_resume.scss */
+    .resume-video--small .hN {
+      padding: 0.5em;
+      margin-bottom: 0.5em;
+      font-size: 16px;
+      font-size: 1rem;
+      line-height: 1.2; } }
+/* line 200, scss/modules/_resume.scss */
+.resume-video--small .resume__body p {
+  font-size: 12px;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  margin-bottom: 0; }
+
+/*  resume-semainier
+    ========================================================================== */
+@media only screen and (min-width: 481px) {
+  /* line 211, scss/modules/_resume.scss */
+  .resume-semainier header {
+    border-top: 1px solid #000;
+    padding-top: 1.5em; } }
+/* line 216, scss/modules/_resume.scss */
+.resume-semainier .resume__titre {
+  font-size: 24px;
+  font-size: 1.5rem;
+  margin-bottom: .5em; }
+/* line 220, scss/modules/_resume.scss */
+.resume-semainier .resume__titre--jour {
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.33333; }
+  /* line 222, scss/modules/_resume.scss */
+  .resume-semainier .resume__titre--jour a {
+    color: #999999; }
+/* line 226, scss/modules/_resume.scss */
+.resume-semainier .resume__soustitre {
+  font-size: 20px;
+  font-size: 1.25rem; }
+
+/* line 230, scss/modules/_resume.scss */
+.resume-semainier__img {
+  margin-bottom: 2em; }
+  /* line 232, scss/modules/_resume.scss */
+  .resume-semainier__img a {
+    border: none; }
+
+/* line 237, scss/modules/_resume.scss */
+.timeline__item--pair .resume-semainier__body .resume__titre--jour {
+  margin-right: 20%; }
+/* line 240, scss/modules/_resume.scss */
+.timeline__item--impair .resume-semainier__body .resume__titre--jour {
+  margin-left: 20%; }
+
+/*  ==========================================================================
+    .resume-article
+    ========================================================================== */
+/*
+*   .resume-article
+*       .resume-article__logo
+*       .resume-article__header
+*           .resume-article__titre
+*           .resume-article__auteurs
+*       .resume-article__descriptif
+*       .resume-article__date
+*       .resume-article__numero
+*   
+*   modificateurs
+*   -------------------------------------
+*   .resume-article--texte 
+*   
+*   .resume-article__titre--une
+*   .resume-article__auteurs--une
+*   .resume-article__descriptif--une
+*
+*   états
+*   -------------------------------------
+*   .resume-article--is-postdate
+*   
+*
+*/
+/* line 30, scss/modules/_resume.article.scss */
+.resume-article {
+  position: relative; }
+
+/* line 33, scss/modules/_resume.article.scss */
+.resume-article__titre {
+  font-size: 19px;
+  font-size: 1.1875rem;
+  line-height: 1.26316; }
+  /* line 35, scss/modules/_resume.article.scss */
+  .resume-article__titre a {
+    display: inline-block;
+    color: #000; }
+    /* line 38, scss/modules/_resume.article.scss */
+    .resume-article__titre a:hover {
+      color: #e88e0e; }
+    /* line 39, scss/modules/_resume.article.scss */
+    .resume-article__titre a:first-letter {
+      text-transform: uppercase; }
+  /* line 41, scss/modules/_resume.article.scss */
+  .resume-article__titre:first-letter {
+    text-transform: uppercase; }
+
+/* line 43, scss/modules/_resume.article.scss */
+.resume-article__auteurs {
+  font-size: 16px;
+  font-size: 1rem;
+  color: #8888a7; }
+  /* line 46, scss/modules/_resume.article.scss */
+  .resultats-list__item .resume-article__auteurs {
+    margin-bottom: .5em; }
+
+/* line 50, scss/modules/_resume.article.scss */
+.resume-article__descriptif {
+  padding-right: 1.5em; }
+  /* line 52, scss/modules/_resume.article.scss */
+  .resume-article__descriptif p {
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 1.313; }
+  /* line 57, scss/modules/_resume.article.scss */
+  .resultats-list__item .resume-article__descriptif p {
+    margin-bottom: .5em; }
+
+/* line 65, scss/modules/_resume.article.scss */
+.resume-article__numero {
+  position: absolute;
+  bottom: 0.5em;
+  left: 5px; }
+
+/* line 70, scss/modules/_resume.article.scss */
+.resume-article__numero-titre {
+  margin-bottom: 0;
+  font-family: "HelveticaNeueLTStdCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #fff; }
+  /* line 76, scss/modules/_resume.article.scss */
+  .resume-article__numero-titre .soustitre {
+    font-family: "HelveticaNeueLTStdLtCnRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    display: inline;
+    font-style: normal;
+    font-size: 100%; }
+
+/*  modificateurs
+    ========================================================================== */
+/* .resume-article--texte */
+/* .resume-article--complet */
+/* line 90, scss/modules/_resume.article.scss */
+.resume-article--complet {
+  border-bottom: 1px solid #000;
+  margin-bottom: 1.5em; }
+  @media only screen and (min-width: 481px) {
+    /* line 90, scss/modules/_resume.article.scss */
+    .resume-article--complet {
+      border: none;
+      margin-bottom: 3em; } }
+
+@media only screen and (min-width: 481px) {
+  /* line 98, scss/modules/_resume.article.scss */
+  .resume-article__logo--complet {
+    margin: 0; } }
+
+/* line 103, scss/modules/_resume.article.scss */
+.resume-article__titre--complet {
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1; }
+  @media only screen and (min-width: 481px) {
+    /* line 103, scss/modules/_resume.article.scss */
+    .resume-article__titre--complet {
+      font-size: 20px;
+      font-size: 1.25rem;
+      line-height: 1.2; } }
+
+/* line 109, scss/modules/_resume.article.scss */
+.resume-article__descriptif--complet {
+  margin-bottom: 1.5em; }
+  @media only screen and (min-width: 481px) {
+    /* line 109, scss/modules/_resume.article.scss */
+    .resume-article__descriptif--complet {
+      padding-right: 15%; } }
+
+/* .resume-article--une */
+/* line 118, scss/modules/_resume.article.scss */
+.resume-article__titre--une {
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1; }
+
+/* line 119, scss/modules/_resume.article.scss */
+.resume-article__auteurs--une {
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.33333; }
+
+/* line 121, scss/modules/_resume.article.scss */
+.resume-article__descriptif--une p {
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.33333; }
+
+/* .resume-article--selection-img-titre */
+/* line 127, scss/modules/_resume.article.scss */
+.resume-article__header--selection-img-titre {
+  position: absolute;
+  bottom: 0.5em;
+  left: 0.5em;
+  color: #fff; }
+
+/* line 133, scss/modules/_resume.article.scss */
+.resume-article__titre--selection-img-titre {
+  margin-bottom: 0; }
+
+/*  états
+    ========================================================================== */
+/*
+ * .resume-article--is-postdate
+ */
+/* line 141, scss/modules/_resume.article.scss */
+.resume-article--is-postdate .hN,
+.resume-article--is-postdate p {
+  color: #999999; }
+/* line 144, scss/modules/_resume.article.scss */
+.resume-article--is-postdate:hover .message--warning-texte.postdate-message {
+  background-color: #ffaa00;
+  color: #fff; }
+
+/*  ==========================================================================
+    .resume.mot
+    ========================================================================== */
+/*
+*   .resume-mot
+*       .resume-mot__logo
+*       .resume-mot__header
+*           .resume-mot__titre
+*       .resume-mot__descriptif
+*       .resume-mot__date
+*       .resume-mot__numero
+*   
+*   modificateurs
+*   -------------------------------------
+*   .resume-mot--entretiens 
+*   
+*/
+/*  modificateurs
+    ========================================================================== */
+@media only screen and (min-width: 481px) {
+  /* line 27, scss/modules/_resume.mot.scss */
+  .resume-mot--entretiens {
+    margin-bottom: 2em; } }
+
+/* line 33, scss/modules/_resume.mot.scss */
+.resume-mot__logo--entretiens img {
+  display: block; }
+@media only screen and (max-width: 480px) {
+  /* line 32, scss/modules/_resume.mot.scss */
+  .resume-mot__logo--entretiens {
+    margin-bottom: 1em; } }
+@media only screen and (min-width: 480px) and (max-width: 800px) {
+  /* line 32, scss/modules/_resume.mot.scss */
+  .resume-mot__logo--entretiens {
+    height: 210px; } }
+
+/* line 42, scss/modules/_resume.mot.scss */
+.resume-mot__header--entretiens .resume-mot__titre {
+  font-size: 30px;
+  font-size: 1.875rem;
+  line-height: 1.6;
+  color: #000; }
+
+/*  ==========================================================================
+    .resume-dossier
+    ========================================================================== */
+/* line 4, scss/modules/_resume.dossier.scss */
+.resume-dossier {
+  margin-bottom: 3em; }
+
+/* line 5, scss/modules/_resume.dossier.scss */
+.resume-dossier__titre {
+  font-size: 24px;
+  font-size: 1.5rem;
+  line-height: 1; }
+  @media only screen and (min-width: 481px) {
+    /* line 5, scss/modules/_resume.dossier.scss */
+    .resume-dossier__titre {
+      font-size: 20px;
+      font-size: 1.25rem;
+      line-height: 1.2; } }
+
+/*  ==========================================================================
+    .self
+    ========================================================================== */
+/* line 4, scss/modules/_self.scss */
+.self {
+  overflow: hidden; }
+
+/*  .self__header
+    ========================================================================== */
+/*
+ * self__header--timeline
+ */
+@media only screen and (min-width: 481px) {
+  /* line 14, scss/modules/_self.scss */
+  .self__header--timeline {
+    text-align: center; } }
+
+/*  .self__titre
+    ========================================================================== */
+/* line 22, scss/modules/_self.scss */
+.self__titre {
+  color: #000; }
+
+/* line 26, scss/modules/_self.scss */
+.self__titre--mot {
+  font-style: italic; }
+
+/*  .self__chapo
+    ========================================================================== */
+/* line 33, scss/modules/_self.scss */
+.self__chapo {
+  font-size: 19px;
+  font-size: 1.1875rem;
+  line-height: 1.26316; }
+  @media only screen and (min-width: 481px) {
+    /* line 33, scss/modules/_self.scss */
+    .self__chapo {
+      padding-right: 48px; } }
+
+/*
+ * self__chapo--timeline
+ */
+/* line 43, scss/modules/_self.scss */
+.self__chapo--timeline {
+  padding-right: 0;
+  position: relative; }
+
+/* .self_body
+   ========================================================================== */
+/*
+ * self__body--timeline
+ */
+/* line 55, scss/modules/_self.scss */
+.self__body--timeline {
+  position: relative; }
+  /* line 57, scss/modules/_self.scss */
+  .self__body--timeline .self__texte,
+  .self__body--timeline .self__ps,
+  .self__body--timeline .self__notes {
+    width: 100%; }
+
+/*
+ * self__body--mot
+ */
+/* line 68, scss/modules/_self.scss */
+.self__body--mot p {
+  font-size: 22px;
+  font-size: 1.375rem;
+  line-height: 1.09091; }
+
+/* 
+.self__footer
+========================================================================== */
+/* line 79, scss/modules/_self.scss */
+.self__footer {
+  clear: both;
+  position: relative; }
+
+@media only screen and (min-width: 481px) {
+  /* line 84, scss/modules/_self.scss */
+  .logoportrait {
+    float: left;
+    margin-left: -50%;
+    width: 80%;
+    margin-right: 24px; }
+
+  /* line 90, scss/modules/_self.scss */
+  .portrait {
+    padding-left: 25%; }
+    /* line 92, scss/modules/_self.scss */
+    .portrait .logo {
+      float: left;
+      width: 70%;
+      margin-left: -50%;
+      margin-right: 24px; }
+    /* line 99, scss/modules/_self.scss */
+    .portrait .texte {
+      width: 66%; } }
 /*  ==========================================================================
     couleurs
     ========================================================================== */

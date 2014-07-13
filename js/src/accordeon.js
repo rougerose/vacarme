@@ -1,15 +1,18 @@
 $.fn.accordeon = function() {
     var $accordeon = this,
     $bodies = $accordeon.find(".accordeon__body"),
-    $buttons = $accordeon.find(".icon-svg--accordeon");
-    $bodies.hide();
-    $buttons.click(function(){
+    $header = $accordeon.find(".accordeon__header"),
+    $icons = $accordeon.find(".icon-svg");
+    $bodies.slideUp("slow");
+    $header.click(function(){
         $bodies.slideUp();
-        if ($(this).hasClass("icon-svg--accordeon--is-open")) {
-            $(this).removeClass("icon-svg--accordeon--is-open");
+        var $icon = $(this).find(".icon-svg");
+        if ($icon.hasClass("icon-svg--accordeon--is-open")) {
+            $icon.removeClass("icon-svg--accordeon--is-open");
         } else {
-            $buttons.removeClass("icon-svg--accordeon--is-open");
-            $(this).addClass("icon-svg--accordeon--is-open").parent().next().slideDown();
+            $icons.removeClass("icon-svg--accordeon--is-open");
+            $icon.addClass("icon-svg--accordeon--is-open");
+            $(this).next().slideDown();
         }
     });
     return this;

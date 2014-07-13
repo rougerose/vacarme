@@ -13,13 +13,12 @@ $fa-font-path: "fonts/fontawesome";
 @import "ui/fonts",
         "ui/typo",
 
-        
-
         // base
         "scss/base/liens",
         "scss/base/form",
         "scss/base/helpers",
         "scss/base/helpers.marges",
+        //"scss/base/helpers.sep",
 
         // layout
         "scss/layout/page",
@@ -43,17 +42,20 @@ $fa-font-path: "fonts/fontawesome";
         "scss/modules/tabs",
         "scss/modules/rubrique-dossier",
         "scss/modules/timeline",
-        "scss/modules/resume",
-        "scss/modules/resume.article",
-        "scss/modules/resume.mot",
-        "scss/modules/self",
+
+        
         "scss/modules/auteurs",
         "scss/modules/preview",
         "scss/modules/overlay",
         "scss/modules/meta",
         "scss/modules/toc",
+        
+        // icones
         "scss/modules/icon",
+
+        // medias
         "scss/modules/medias.cover",
+        "scss/modules/medias.thumbnail",
         "scss/modules/medias.media",
         "scss/modules/medias.spip_documents",
         "scss/modules/medias.video",
@@ -62,6 +64,15 @@ $fa-font-path: "fonts/fontawesome";
         "scss/modules/carousel.owl.theme",
         "scss/modules/message",
 
+        // resume
+        "scss/modules/resume",
+        "scss/modules/resume.article",
+        "scss/modules/resume.mot",
+        "scss/modules/resume.dossier",
+
+        // self 
+        "scss/modules/self",
+        
         // couleurs
         "scss/modules/couleurs";
 

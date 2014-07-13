@@ -1,4 +1,23 @@
 <BOUCLE_mot(MOTS){id_mot}>
+[(#REM) sélection ]
+<B_grappe_cat_entretiens>
+    <section class="mb++">
+        <div class="grid__item">
+            <h1 class="hN intertitre-section intertitre-section--first"><:categorie_entretiens_selection:></h1>
+        </div><!-- /.grid__item -->
+        <BOUCLE_grappe_cat_entretiens(GRAPPES){id_grappe=10}>
+        <BOUCLE_item1(GRAPPES_LIENS){id_grappe}{par rang}{0,1}>
+        [<div class="grid__item desk-two-quarters">
+            (#INCLURE{fond=resume/article-selection,id_article=#ID_OBJET,logo_format=1/1})
+        </div><!-- /.grid__item -->]
+        </BOUCLE_item1><BOUCLE_item2_3(GRAPPES_LIENS){id_grappe}{par rang}{1,2}>
+        [<div class="grid__item lap-one-half desk-one-quarter">
+            (#INCLURE{fond=resume/article-selection,id_article=#ID_OBJET,logo_format=1/2})
+        </div><!-- /.grid__item -->]
+        </BOUCLE_item2_3>
+        </BOUCLE_grappe_cat_entretiens>
+    </section>
+</B_grappe_cat_entretiens>
 
 <section class="mb+">
     <div class="grid__item">
@@ -13,9 +32,9 @@
     </div><!-- /.grid__item -->
 
     <BOUCLE_test_tri(CONDITION){si #ENV{mots}}>
-        <INCLURE{fond=inclure/mot-227-theme,mots,id_mot} />
+        <INCLURE{fond=inclure/mot-227-theme,env} />
     </BOUCLE_test_tri>
-        <INCLURE{fond=inclure/mot-227-date,id_mot} />
+        <INCLURE{fond=inclure/mot-227-date,env} />
     <//B_test_tri>
 
 </section>

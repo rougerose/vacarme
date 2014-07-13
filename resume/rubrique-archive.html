@@ -7,28 +7,35 @@
     **********************************************************
     Variables environnement
     **********************************************************
-    logo_format         1/4|1/2
-        1/4 image_reduire,500,0. image_recadre,432,312,center center,000
-        1/2 image_reduire,600,0. image_recadre,520,312,center center,000
+    logo_format         1/4|1/2|1/1
+        1/4 image_reduire,550,0. image_recadre,452,330,center center,000
+        1/2 image_reduire,550,0. image_recadre,540,330,center center,000
+        1/1 image_reduire,1000,0 image_recadre,1000,330,top center,000
 
 ]
 <BOUCLE_resume_rubrique_archive(RUBRIQUES){id_rubrique}>
 <article class="resume-article">
-    <div class="resume-article__logo">
-        [(#ENV{logo_format}|=={1/4}|oui)
-            [<a href="#URL_RUBRIQUE">(#LOGO_RUBRIQUE|image_reduire{500,0}|image_recadre{432,312,'center center',000})</a>]
-        ][(#ENV{logo_format}|=={1/2}|oui)
-            [<a href="#URL_RUBRIQUE">(#LOGO_RUBRIQUE|image_reduire{600,0}|image_recadre{520,312,'center center',000})</a>]
-        ]
-        <BOUCLE_titre_numero(HIERARCHIE){id_rubrique}{tout}>
-        [(#PROFONDEUR|=={1}|oui)
-            <div class="overlay overlay--article-archive"></div>
-            <div class="resume-article__numero">
-                <h2 class="hN resume-article__numero-titre">[(#TITRE)][ <small class="soustitre">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</small>]</h2>
+    <a href="#URL_RUBRIQUE">
+        <div class="resume-article__logo thumbnail">
+            <div class="thumbnail-container">
+                [(#ENV{logo_format}|=={1/4}|oui)
+                    [(#LOGO_RUBRIQUE|image_reduire{550,0}|image_recadre{452,330,'center center',000})]
+                ][(#ENV{logo_format}|=={1/2}|oui)
+                    [(#LOGO_RUBRIQUE|image_reduire{550,0}|image_recadre{540,330,'center center',000})]
+                ][(#ENV{logo_format}|=={1/1}|oui)
+                    [(#LOGO_RUBRIQUE|image_reduire{1000,0}|image_recadre{1000,400,'center center',000})]
+                ]
             </div>
-        ]
-        </BOUCLE_titre_numero>
-    </div>
+            <BOUCLE_titre_numero(HIERARCHIE){id_rubrique}{tout}>
+            [(#PROFONDEUR|=={1}|oui)
+                <div class="overlay overlay--article-archive"></div>
+                <div class="resume-article__numero">
+                    <h2 class="hN resume-article__numero-titre">[(#TITRE)][ <small class="soustitre">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</small>]</h2>
+                </div>
+            ]
+            </BOUCLE_titre_numero>
+        </div>
+    </a>
     <header class="resume-article__header">
         <h1 class="hN resume-article__titre"><a href="#URL_RUBRIQUE">#TITRE</a></h1>
     </header>

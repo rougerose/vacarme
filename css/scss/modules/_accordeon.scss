@@ -7,7 +7,13 @@
             margin-bottom: 2em;
             &.resume-article { margin-left: 1em; }
         }
-            .accordeon__header { position: relative; }
+            .accordeon__header {
+                position: relative;
+                cursor: pointer;
+                &:hover {
+                    color: $couleur-lien;
+                }
+            }
                 .accordeon__header-titre {
                     border-bottom: 1px solid $couleur-gris-sombre;
                     @include font-size(18px);
@@ -25,7 +31,7 @@
                 }
             .accordeon__body { 
                 @extend .cf;
-                .js & { display:none; }
+                // .js & { display:none; }
             }
                 .accordeon__descriptif {
                     width: 66.666%;

@@ -13,12 +13,14 @@
 <article class="resume-mot resume-mot--entretiens">
     <div class="grid__item lap-and-up-one-quarter">
         [(#LOGO_MOT|oui)
-        <div class="resume-mot__logo resume-mot__logo--entretiens">
-            [(#ENV{logo_format}|=={1/4}|oui)
-                [(#LOGO_MOT|image_reduire{550,0}|image_recadre{452,330,'center center',000})]
-            ][(#ENV{logo_format}|=={1/2}|oui)
-                [(#LOGO_MOT|image_reduire{550,0}|image_recadre{540,330,'center center',000})]
-            ]
+        <div class="resume-mot__logo resume-mot__logo--entretiens thumbnail">
+            <div class="thumbnail-container">
+                [(#ENV{logo_format}|=={1/4}|oui)
+                    [(#LOGO_MOT|image_reduire{550,0}|image_recadre{452,330,'center center',000})]
+                ][(#ENV{logo_format}|=={1/2}|oui)
+                    [(#LOGO_MOT|image_reduire{550,0}|image_recadre{540,330,'center center',000})]
+                ]
+            </div>
         </div>]
     </div><!-- /.grid__item -->
     <div class="grid__item lap-and-up-three-quarters">

@@ -32,7 +32,7 @@
         }
     }
     .overlay--article-archive {
-        @include linear-gradient(to bottom, transparent, rgba(0,0,0,0.3));
+        @include linear-gradient(to bottom, transparent, rgba(0,0,0,0.5));
         bottom: 0;
         top: 50%;
     }

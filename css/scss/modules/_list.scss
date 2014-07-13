@@ -44,11 +44,19 @@
 
     .inline-list--pipe {
         > li {
+            position: relative;
+            margin-right: 0.5em;
+            padding-right: 0.5em;
             &:after {
-                content: '|';
-                margin: 0 .5em;
+                position: absolute;
+                top: 15%;
+                right: 0;
+                width: 1px;
+                height: 75%;
+                border-right: 1px solid $couleur-gris-clair;
+                content: '';
             }
-            &:last-child:after { content:''; }
+            &:last-child:after { border: none; }
         }
     }
     .inline-list--slash-after {

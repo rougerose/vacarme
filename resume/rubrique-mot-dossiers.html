@@ -1,21 +1,57 @@
-<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
-<article class="resume-rubrique">
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>#SET{combien,0}
+<BOUCLE_combien(ARTICLES){id_rubrique}> </BOUCLE_combien>#SET{combien,#TOTAL_BOUCLE}</B_combien>
+<article class="resume-dossier">
     [(#LOGO_RUBRIQUE|oui)
-    <div class="resume-article__logo resume-article__logo--complet">
-        <a href="#URL_RUBRIQUE">
-            [(#ENV{logo_format}|=={1/4}|oui)
-                [(#LOGO_RUBRIQUE|image_reduire{550,0}|image_recadre{452,330,'center center',000})]
-            ][(#ENV{logo_format}|=={1/2}|oui)
-                [(#LOGO_RUBRIQUE|image_reduire{550,0}|image_recadre{540,330,'center center',000})]
-            ]
-        </a>
-    </div>]
-    <header class="resume-article__header">
-        <h1 class="hN resume-article__titre resume-article__titre--complet"><a href="#URL_RUBRIQUE">#TITRE [(#ENV{dat}|affdate)]</a></h1>
+    <a href="#URL_RUBRIQUE">
+        <div class="resume-dossier__logo thumbnail">
+            <div class="thumbnail-container">
+                [(#ENV{logo_format}|=={1/4}|oui)
+                    [(#LOGO_RUBRIQUE|image_reduire{550,0}|image_recadre{452,330,'center center',000})]
+                ][(#ENV{logo_format}|=={1/2}|oui)
+                    [(#LOGO_RUBRIQUE|image_reduire{550,0}|image_recadre{540,330,'center center',000})]
+                ][(#ENV{logo_format}|=={1/1}|oui)
+                    [(#LOGO_RUBRIQUE|image_reduire{1000,0}|image_recadre{1000,400,'center center',000})]
+                ]
+            </div>
+        </div>
+    </a>]
+    <header class="resume-dossier__header">
+        <h1 class="hN resume-dossier__titre"><a href="#URL_RUBRIQUE">#TITRE</a></h1>
     </header>
-    <div class="resume-article__descriptif resume-article__descriptif--complet">
+    <div class="resume-dossier__descriptif">
         [(#DESCRIPTIF|sinon{#INTRODUCTION|couper{100}|wrap{<p>}})]
-        <p><BOUCLE_mots(MOTS){id_rubrique}{par titre}>[(#TITRE) ]</BOUCLE_mots></p>
+        <ul class="inline-list inline-list--pipe">
+            <li class="inline-list__item"><time pubdate datetime="[(#DATE|date_iso)]" class="resume-meta__label resume-meta__label--date">[(#DATE|affdate_court)]</time></li>
+            <li class="inline-list__item">[<span class="resume-meta__label--contenu">(#GET{combien}|singulier_ou_pluriel{local:nombre_article,local:nombre_articles})</span>]</li>
+            <li class="inline-list__item"><a href="#URL_RUBRIQUE" class="suite-lien"><:suite_dossier:> <em>&#8594;</em></a></li>
+        </ul>
+        <B_themes_categories>
+        <aside class="resume-meta">
+            <ul class="block-list">
+                <BOUCLE_themes_categories(MOTS){id_rubrique}{0,1}> </BOUCLE_themes_categories>
+                <B_categories>
+                <li class="inline-list__item">
+                    <h2 class="resume-meta__label resume-meta__label--tag hN">[(#TOTAL_BOUCLE|singulier_ou_pluriel{local:categorie,local:categories})]</h2>
+                    <ul class="inline-list inline-list--slash-after">
+                        <BOUCLE_categories(MOTS){id_rubrique}{id_groupe=19}{par titre}>
+                            <li class="inline-list__item resume-meta__tag"><a href="#URL_MOT" class="titre-tag[ is-couleur-(#ID_GROUPE)-link]">[(#TITRE)]</a></li>
+                        </BOUCLE_categories>
+                    </ul>
+                </li>
+                </B_categories>
+                <B_themes>
+                <li class="block-list__item">
+                    <h2 class="resume-meta__label resume-meta__label--tag hN">[(#TOTAL_BOUCLE|singulier_ou_pluriel{local:theme,local:themes})]</h2>
+                    <ul class="inline-list inline-list--slash-after">
+                        <BOUCLE_themes(MOTS){id_rubrique}{id_groupe !IN 19}{par titre}>
+                            <li class="inline-list__item resume-meta__tag"><a href="#URL_MOT" class="titre-tag[ is-couleur-(#ID_GROUPE)-link]">[(#TITRE|prenom_nom)]</a></li>
+                        </BOUCLE_themes>
+                    </ul>
+                </li>
+                </B_themes>
+            </ul>
+        </aside>
+        </B_themes_categories>
     </div>
 </article>
 </BOUCLE_rubrique>

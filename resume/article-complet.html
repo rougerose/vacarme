@@ -18,15 +18,17 @@
     <div class="grid">
         <div class="grid__item lap-and-up-one-quarter">
             [(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|oui)
-            <div class="resume-article__logo resume-article__logo--complet">
-                <a href="#URL_ARTICLE">
-                    [(#ENV{logo_format}|=={1/4}|oui)
-                        [(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|image_reduire{550,0}|image_recadre{452,330,'center center',000})]
-                    ][(#ENV{logo_format}|=={1/2}|oui)
-                        [(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|image_reduire{550,0}|image_recadre{540,330,'center center',000})]
-                    ]
-                </a>
-            </div>]
+            <a href="#URL_ARTICLE">
+                <div class="resume-article__logo resume-article__logo--complet thumbnail">
+                    <div class="thumbnail-container">
+                        [(#ENV{logo_format}|=={1/4}|oui)
+                            [(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|image_reduire{550,0}|image_recadre{452,330,'center center',000})]
+                        ][(#ENV{logo_format}|=={1/2}|oui)
+                            [(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|image_reduire{550,0}|image_recadre{540,330,'center center',000})]
+                        ]
+                    </div>
+                </div>
+            </a>]
         </div><!-- /.grid__item -->
         <div class="grid__item lap-and-up-three-quarters">
             <header class="resume-article__header">

@@ -1,0 +1,10 @@
+/*  ==========================================================================
+    .resume-dossier
+    ========================================================================== */
+    .resume-dossier { margin-bottom: 3em; }
+        .resume-dossier__titre {
+            @include font-size(24px);
+            @include media-query(lap-and-up) {
+                @include font-size(20px);
+            }
+        }

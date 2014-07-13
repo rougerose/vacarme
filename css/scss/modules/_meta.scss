@@ -40,14 +40,17 @@
 
 /*  .resume-meta
     ========================================================================== */
-    .resume-meta {}
+    .resume-meta { margin-top: 1em; }
     .resume-meta__label {
+        font-family: $font-HLC;
+        color: $couleur-gris-bleu;
+    }
+    .resume-meta__label--date {}
+    .resume-meta__label--tag {
         display: inline;
         margin-right: .5em;
         @include font-size(15px,$line-height: false);
         line-height: 1.313;
-        font-family: $font-HLC;
-        color: $couleur-gris-bleu;
     }
     .resume-meta__tag {
         @include font-size(15px,$line-height: false);
