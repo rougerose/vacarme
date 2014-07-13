@@ -40,7 +40,11 @@
         </header>
         <div class="resume-article__descriptif[ (#ENV{article_une}|oui) resume-article__descriptif--une]">
             [(#DESCRIPTIF|sinon{#INTRODUCTION|couper{100}|wrap{<p>}})]
-            <p><time pubdate datetime="[(#DATE|date_iso)]" class="resume-article__date">[(#DATE|affdate_court)]</time>[(#GET{article_postdate}|non)<a href="#URL_ARTICLE" class="suite-lien">Lire la suite <em>&#8594;</em></a>]</p>
+            <ul class="inline-list inline-list--pipe">
+                <li class="inline-list__item"><time pubdate datetime="[(#DATE|date_iso)]" class="resume-meta__label resume-meta__label--date">[(#DATE|affdate_court)]</time></li>
+                [(#GET{article_postdate}|non)
+                <li class="inline-list__item"><a href="#URL_ARTICLE" class="suite-lien"><:suite_lire:> <em>&#8594;</em></a></li>]
+            </ul>
         </div>
         [(#GET{article_postdate}|oui)
             <div class="overlay overlay-degrade overlay--article-postdate">

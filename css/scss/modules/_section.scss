@@ -4,20 +4,7 @@
 
 /*  .groupe-section
     ========================================================================== */
-    .groupe-section {
-        @include media-query(palm) {
-            .resume-article--texte {
-                border-bottom: 1px dotted $couleur-gris-clair;
-            }
-            .resume-article,
-            .resume-rubrique {
-                margin-bottom: 1.5em;
-            }
-        }
-        @include media-query(lap-and-up) {
-            margin-bottom: 1.5em;
-        }
-    }
+    .groupe-section {}
 
 /* .intertitre-section
    ========================================================================== */

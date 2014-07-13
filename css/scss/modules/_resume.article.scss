@@ -27,7 +27,9 @@
     *
     */
 
-    .resume-article { position: relative; }
+    .resume-article {
+        position: relative;
+    }
         .resume-article__logo {}
         .resume-article__header {}
             .resume-article__titre {
@@ -49,6 +51,7 @@
             }
         .resume-article__descriptif {
             padding-right: 1.5em;
+            margin-bottom: 1.5em;
             p {
                 @include font-size(16px,$line-height: false);
                 line-height: 1.313;
@@ -83,6 +86,7 @@
     .resume-article--texte {}
 
     /* .resume-article--complet */
+    .resume-article--texte,
     .resume-article--complet {
         border-bottom: 1px solid #000;
         margin-bottom: 1.5em;
@@ -103,7 +107,6 @@
         }
     }
     .resume-article__descriptif--complet {
-        margin-bottom: 1.5em;
         @include media-query(lap-and-up) {
             padding-right: 15%;
         }

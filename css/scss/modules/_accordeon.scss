@@ -32,17 +32,25 @@
             .accordeon__body { 
                 @extend .cf;
                 // .js & { display:none; }
+                .resume-article & {
+                    border-bottom: 1px dotted $couleur-lien;
+                }
             }
                 .accordeon__descriptif {
-                    width: 66.666%;
+                    width: 50%;
                     float: left;
                 }
             .accordeon__footer {
                 &.resume-article__footer {
                     position: relative;
-                    width: 33.333%;
-                    max-height: 200px;
-                    padding: 0;
+                    z-index: -1;
+                    padding: 5px 10px 0;
+                    width: 50%;
+                    max-height: 150px;
                     float: right;
+                    @include media-query(lap-and-up) { max-height: 200px; }
+                    img {
+                        box-shadow: 0 3px 5px rgba(0,0,0,0.8);
+                    }
                 }
             }
