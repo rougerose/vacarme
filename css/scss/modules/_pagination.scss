@@ -20,23 +20,10 @@
 /*  modificateurs
     ========================================================================== */
 
-    .pagination--top {
-        margin-bottom: 3em;
-        position: relative;
-        &:after {
-            content: "";
-            position: absolute;
-            z-index: -1;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            border-bottom: 1px solid $couleur-gris-clair;
-        }
-    }
+    .pagination--top {}
 
     .pagination--abc {
         padding: 0 0.2em;
-        // text-align: center;
         @include font-size(20px);
     }
 
@@ -44,17 +31,10 @@
     ========================================================================== */
 
     .pagination__item--is-disabled {
-        color: $couleur-gris-clair;
+        color: rgba(0,0,0,0.15);
     }
     .pagination__item--is-active {
-        a {
+        .on {
             @include font-size(22px);
-            color: $couleur-lien;
-            cursor: default;
-        }
-        @include media-query(lap-and-up) {
-            .pagination--top & {
-                border-bottom: 1px solid $couleur-lien;
-            }
         }
     }

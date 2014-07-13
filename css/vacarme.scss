@@ -27,18 +27,21 @@ $fa-font-path: "fonts/fontawesome";
         "scss/layout/page-foot",
         
         // modules
-
         "scss/modules/list",
         "scss/modules/accordeon",
         "scss/modules/btn",
 
+        // nav
+        "scss/modules/nav",
+        "scss/modules/navigation",
+        "scss/modules/pagination",
         "scss/modules/tri",
         "scss/modules/filtres",
         
         "scss/modules/section",
         "scss/modules/site-logo",
-        "scss/modules/navigation",
-        "scss/modules/pagination",
+        
+        
         "scss/modules/tabs",
         "scss/modules/rubrique-dossier",
         "scss/modules/timeline",

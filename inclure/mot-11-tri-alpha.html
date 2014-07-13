@@ -26,17 +26,17 @@
     <div class="grid__item">
         <div class="grid">
             <div class="grid__item lap-and-up-one-quarter">
-                <h1 class="hN intertitre-section intertitre-section--first"><span class=""><:categorie_entretiens_tous:></span></h1>
+                <h1 class="hN intertitre-section intertitre-section--first is-couleur-#ID_GROUPE-text"><:categorie_entretiens_tous:></h1>
             </div><!-- /.grid__item -->
             <div class="grid__item lap-and-up-three-quarters">
                 [
                     (#INCLURE{fond=nav/tri-entretiens,env})
                 ]
                 <B_pagination_abc>
-                <nav class="pagination pagination--top pagination--abc">
+                <nav class="pagination pagination--top pagination--abc nav--top">
                     <ul class="pagination__container">
                         <BOUCLE_pagination_abc(POUR){tableau #GET{alphabet}}>[(#SET{active,#VALEUR|=={#ENV{lettre,#GET{debut}}}|?{' ',''}})][(#SET{indisponible,#VALEUR|in_array{#GET{auteurs_alpha}}|?{'',' '}})
-                        ]<li class="pagination__item pagination--abc__item[ (#GET{indisponible}|oui)pagination__item--is-disabled][ (#GET{active}|?{pagination__item--is-active})]"
+                        ]<li class="pagination__item pagination--abc__item[ (#GET{indisponible}|oui)pagination__item--is-disabled nav-item--is-disabled][ (#GET{active}|?{pagination__item--is-active nav-item--is-active})]"
                         >[(#GET{indisponible}|?{<span>,<a[ class="(#GET{active}|?{on})"] href="[(#SELF|parametre_url{lettre,#VALEUR})]">})]#VALEUR[(#GET{content}|?{</span>,</a>})]</li
                         ></BOUCLE_pagination_abc>
                     </ul>

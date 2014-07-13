@@ -46,13 +46,18 @@ $(document).ready(function() {
         if ($("#tabs").length) {
             var $el = $("#tabs"),
             $tabs = $el.find("#tabs-nav > ul > li"),
-            $panels = $el.find("#tabs-contenu section");
+            $tabs_lien = $tabs.find("> a"),
+            $panels = $el.find("#tabs-contenu section"),
+            selected_section = "tabs-section--is-selected nav-item--is-active",
+            selected_item = "tabs-nav__item--is-selected nav-item--is-active";
 
             $tabs.click(function(){
-                var id = $(this).find("> a").attr("href");
-                $panels.hide().removeClass("tabs-section--is-selected").filter(id).show().addClass("tabs-section--is-selected");
-                $tabs.removeClass("tabs-nav__item--is-selected");
-                $(this).addClass("tabs-nav__item--is-selected");
+                $tabs_lien.removeClass("on");
+                var $lien = $(this).find("> a").addClass("on"),
+                id = $lien.attr("href");
+                $panels.hide().removeClass(selected_section).filter(id).show().addClass(selected_section);
+                $tabs.removeClass(selected_item);
+                $(this).addClass(selected_item);
                 return false;
             }).filter(':first').click();
         };

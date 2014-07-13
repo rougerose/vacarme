@@ -2,4 +2,9 @@
     
     menu de tri des entretiens : ordre alphabétique/date de publication
 ]
-<p class="tri tri--categories"><:tri_label_alt:> <span class="critere-tri critere-tri--categories">[(#SELF|parametre_url{tri,alpha}|ancre_url{entretiens}|lien_ou_expose{<:tri_alpha:>,#ENV{tri}|=={alpha},ajax})]</span> / <span class="critere-tri critere-tri--categories">[(#SELF|parametre_url{tri|lettre,''}|parametre_url{tri,date}|ancre_url{entretiens}|lien_ou_expose{<:tri_date:>,#ENV{tri}|=={date},ajax})]</span></p>
+<nav class="tri tri--categories nav nav--top">
+    <ul class="inline-list">
+        <li class="inline-list__item critere-tri critere-tri--categories[ (#ENV{tri}|=={alpha}|oui)nav-item--is-active]">[(#SELF|parametre_url{tri,alpha}|ancre_url{entretiens}|lien_ou_expose{<:tri_alpha:>,#ENV{tri}|=={alpha},ajax})]</li>
+        <li class="inline-list__item critere-tri critere-tri--categories[ (#ENV{tri}|=={date}|oui)nav-item--is-active]">[(#SELF|parametre_url{tri|lettre,''}|parametre_url{tri,date}|ancre_url{entretiens}|lien_ou_expose{<:tri_date:>,#ENV{tri}|=={date},ajax})]</li>
+    </ul>
+</nav>
