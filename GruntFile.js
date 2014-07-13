@@ -36,7 +36,6 @@ module.exports = function(grunt) {
         files: {
           'js/public.min.js': ['js/src/navigation.js','js/src/vacarme.js'],
           'js/accordeon.min.js':'js/src/accordeon.js'
-          // 'js/tabs.min.js':'js/src/tabs.js'
         }
       }
     },
