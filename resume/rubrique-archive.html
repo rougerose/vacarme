@@ -14,16 +14,14 @@
 
 ]
 <BOUCLE_resume_rubrique_archive(RUBRIQUES){id_rubrique}>
+#SET{focal,center center}
+<BOUCLE_focal(MOTS){id_rubrique}{id_groupe=20}{technique=oui}{0,1}>#SET{focal,#TITRE}</BOUCLE_focal>
 <article class="resume-article">
     <a href="#URL_RUBRIQUE">
-        <div class="resume-article__logo thumbnail">
-            <div class="thumbnail-container">
-                [(#ENV{logo_format}|=={1/4}|oui)
-                    [(#LOGO_RUBRIQUE|image_reduire{550,0}|image_recadre{452,330,'center center',000})]
-                ][(#ENV{logo_format}|=={1/2}|oui)
-                    [(#LOGO_RUBRIQUE|image_reduire{550,0}|image_recadre{540,330,'center center',000})]
-                ][(#ENV{logo_format}|=={1/1}|oui)
-                    [(#LOGO_RUBRIQUE|image_reduire{1000,0}|image_recadre{1000,400,'center center',000})]
+        <div class="resume-article__logo thumbnail[ is--(#ENV{logo_format})]">
+            <div class="thumbnail-container[ is--(#ENV{logo_format})][ is--(#GET{focal}|explode{' '}|implode{-})]">
+                [(#LOGO_RUBRIQUE|oui)
+                    [(#INCLURE{fond=inclure/rubrique-logo,id_rubrique,logo_format=#ENV{logo_format},focal=#GET{focal}})] 
                 ]
             </div>
             <BOUCLE_titre_numero(HIERARCHIE){id_rubrique}{tout}>

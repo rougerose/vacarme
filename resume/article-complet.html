@@ -14,18 +14,16 @@
 
 ]
 <BOUCLE_resume_article_logo(ARTICLES){id_article}>
+#SET{focal,center center} 
+<BOUCLE_focal(MOTS){id_article}{id_groupe=20}{technique=oui}{0,1}>#SET{focal,#TITRE}</BOUCLE_focal>
 <article class="resume-article resume-article--complet">
     <div class="grid">
         <div class="grid__item lap-and-up-one-quarter">
             [(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|oui)
             <a href="#URL_ARTICLE">
-                <div class="resume-article__logo resume-article__logo--complet thumbnail">
-                    <div class="thumbnail-container">
-                        [(#ENV{logo_format}|=={1/4}|oui)
-                            [(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|image_reduire{550,0}|image_recadre{452,330,'center center',000})]
-                        ][(#ENV{logo_format}|=={1/2}|oui)
-                            [(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|image_reduire{550,0}|image_recadre{540,330,'center center',000})]
-                        ]
+                <div class="resume-article__logo resume-article__logo--complet thumbnail[ is--(#ENV{logo_format})]">
+                    <div class="thumbnail-container[ is--(#ENV{logo_format})][ is--(#GET{focal}|explode{' '}|implode{-})]">
+                        [(#INCLURE{fond=inclure/article-logo,id_article,logo_format=#ENV{logo_format},focal=#GET{focal},recadrage=#ENV{recadrage,''}})]
                     </div>
                 </div>
             </a>]

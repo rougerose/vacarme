@@ -1,18 +1,30 @@
 <BOUCLE_mot(MOTS){id_mot}>
-#SET{logo_numero,''} #SET{combien,0}
+#SET{logo_numero,''} #SET{combien,0} #SET{focal,center center} 
 <BOUCLE_logo(ARTICLES){id_mot}{id_secteur=115}{par hasard}{0,1}><BOUCLE_numero(HIERARCHIE){id_article}>[(#PROFONDEUR|=={1}|oui)#SET{logo_numero,#LOGO_RUBRIQUE}]</BOUCLE_numero></BOUCLE_logo>
 <BOUCLE_combien(ARTICLES){id_mot}{!par date}>[(#COMPTEUR_BOUCLE|=={1}|oui)#SET{date_article,#DATE}][ (#SET_PUSH{articles_mot_principal,#ID_ARTICLE})]</BOUCLE_combien>#SET{combien,#TOTAL_BOUCLE}</B_combien>
 <article class="resume-dossier">
     [(#LOGO_MOT|ou{#GET{logo_numero}}|oui)
     <a href="#URL_MOT">
-        <div class="resume-dossier__logo thumbnail">
-            <div class="thumbnail-container">
+        <div class="resume-dossier__logo thumbnail[ is--(#ENV{logo_format})]">
+            <div class="thumbnail-container[ is--(#ENV{logo_format})][ is--(#GET{focal}|explode{' '}|implode{-})]">
+                [(#SET{t,#LOGO_MOT|sinon{#GET{logo_numero}}})]
+                [(#GET{t}|largeur|>{#GET{t}|hauteur}|?{#SET{o,paysage},#SET{o,portrait}})]
+                [(#ENV{recadrage}|oui)#SET{o,#ENV{recadrage}}]
                 [(#ENV{logo_format}|=={1/4}|oui)
-                    [(#LOGO_MOT|sinon{#GET{logo_numero}}|image_reduire{550,0}|image_recadre{452,330,'center center',000})]
+                    [(#GET{o}|=={paysage}|?{ 
+                        [<img src="(#GET{t}|image_passe_partou{450}|image_recadre{450,300,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">],
+                        [<img src="(#GET{t}|image_passe_partou{630}|image_recadre{450,630,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
+                    })]
                 ][(#ENV{logo_format}|=={1/2}|oui)
-                    [(#LOGO_MOT|sinon{#GET{logo_numero}}|image_reduire{550,0}|image_recadre{540,330,'center center',000})]
+                    [(#GET{o}|=={paysage}|?{ 
+                        [<img src="(#GET{t}|image_passe_partout{534}|image_recadre{534,356,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">],
+                        [<img src="(#GET{t}|image_passe_partou{747}|image_recadre{534,747,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
+                    })]
                 ][(#ENV{logo_format}|=={1/1}|oui)
-                    [(#LOGO_MOT|sinon{#GET{logo_numero}}|image_reduire{1000,0}|image_recadre{1000,400,'center center',000})]
+                    [(#GET{o}|=={paysage}|?{ 
+                        [<img src="(#GET{t}|image_passe_partou{1000}|image_recadre{1000,666,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">],
+                        [<img src="(#GET{t}|image_passe_partou{1399}|image_recadre{1000,1399,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
+                    })]
                 ]
             </div>
         </div>

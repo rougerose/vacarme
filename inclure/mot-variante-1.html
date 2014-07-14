@@ -51,7 +51,7 @@
     <div class="grid__item">
         #ANCRE_PAGINATION
         <BOUCLE_articles_tri(ARTICLES){mots_selon_id}{id_mot}{!par date}{pagination 20}>
-            [(#INCLURE{fond=resume/article-complet,id_article,logo_format=1/4})]
+            [(#INCLURE{fond=resume/article-complet,id_article,logo_format=1/4,recadrage=portrait})]
         </BOUCLE_articles_tri>
     </div><!-- /.grid__item -->
     [<nav class="pagination pagination--bottom pagination--page">(#PAGINATION{li})</nav>]
@@ -63,7 +63,7 @@
     <div class="grid__item">
         #ANCRE_PAGINATION
         <BOUCLE_articles(ARTICLES){id_article IN #GET{articles}}{!par date}{pagination 20}>
-            [(#INCLURE{fond=resume/article-complet,id_article,logo_format=1/4})]
+            [(#INCLURE{fond=resume/article-complet,id_article,logo_format=1/4,recadrage=portrait})]
         </BOUCLE_articles>
     </div><!-- /.grid__item -->
     [<div class="grid__item">
