@@ -12,18 +12,18 @@
                 [(#ENV{recadrage}|oui)#SET{o,#ENV{recadrage}}]
                 [(#ENV{logo_format}|=={1/4}|oui)
                     [(#GET{o}|=={paysage}|?{ 
-                        [<img src="(#GET{t}|image_passe_partou{450}|image_recadre{450,300,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">],
-                        [<img src="(#GET{t}|image_passe_partou{630}|image_recadre{450,630,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
+                        [<img src="(#GET{t}|image_passe_partout{450}|image_recadre{450,300,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">],
+                        [<img src="(#GET{t}|image_passe_partout{630}|image_recadre{450,630,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
                     })]
                 ][(#ENV{logo_format}|=={1/2}|oui)
                     [(#GET{o}|=={paysage}|?{ 
                         [<img src="(#GET{t}|image_passe_partout{534}|image_recadre{534,356,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">],
-                        [<img src="(#GET{t}|image_passe_partou{747}|image_recadre{534,747,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
+                        [<img src="(#GET{t}|image_passe_partout{747}|image_recadre{534,747,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
                     })]
                 ][(#ENV{logo_format}|=={1/1}|oui)
                     [(#GET{o}|=={paysage}|?{ 
-                        [<img src="(#GET{t}|image_passe_partou{1000}|image_recadre{1000,666,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">],
-                        [<img src="(#GET{t}|image_passe_partou{1399}|image_recadre{1000,1399,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
+                        [<img src="(#GET{t}|image_passe_partout{1000}|image_recadre{1000,666,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">],
+                        [<img src="(#GET{t}|image_passe_partout{1399}|image_recadre{1000,1399,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
                     })]
                 ]
             </div>
