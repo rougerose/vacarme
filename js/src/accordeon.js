@@ -3,7 +3,7 @@ $.fn.accordeon = function() {
     $bodies = $accordeon.find(".accordeon__body"),
     $header = $accordeon.find(".accordeon__header"),
     $icons = $accordeon.find(".icon-svg");
-    $bodies.slideUp("slow");
+    $bodies.hide();
     $header.click(function(){
         $bodies.slideUp();
         var $icon = $(this).find(".icon-svg");

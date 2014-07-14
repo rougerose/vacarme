@@ -23,6 +23,7 @@
     #SET{variante_1,#LISTE{231,4,451,529,521,522}}
     #SET{variante_2,#LISTE{11}}
     #SET{variante_3,#LISTE{227}}
+    #SET{variante_4,#LISTE{302}}
 
 <BOUCLE_mot(MOTS){id_mot}>
 <div class="grid">
@@ -43,7 +44,10 @@
                 [(#INCLURE{fond=inclure/mot-11,id_mot,env,ajax})],
                 [(#GET{variante_3}|find{#ID_MOT}|?{
                     [(#INCLURE{fond=inclure/mot-227,id_mot,env,ajax})],
-                    [(#INCLURE{fond=inclure/mot-contenu-standard,id_mot,env})]
+                    [(#GET{variante_4}|find{#ID_MOT}|?{
+                        [(#INCLURE{fond=inclure/mot-302,id_mot,env,ajax})],
+                        [(#INCLURE{fond=inclure/mot-contenu-standard,id_mot,env})]
+                    })]
                 })]
             })]
         })]

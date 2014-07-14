@@ -19,7 +19,7 @@
         <h1 class="hN resume-dossier__titre"><a href="#URL_RUBRIQUE">#TITRE</a></h1>
     </header>
     <div class="resume-dossier__descriptif">
-        [(#DESCRIPTIF|sinon{#INTRODUCTION|couper{100}|wrap{<p>}})]
+        [(#DESCRIPTIF)]
         <ul class="inline-list inline-list--pipe">
             <li class="inline-list__item"><time pubdate datetime="[(#DATE|date_iso)]" class="resume-meta__label resume-meta__label--date">[(#DATE|affdate_court)]</time></li>
             <li class="inline-list__item">[<span class="resume-meta__label--contenu">(#GET{combien}|singulier_ou_pluriel{local:nombre_article,local:nombre_articles})</span>]</li>

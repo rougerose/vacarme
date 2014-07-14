@@ -8342,17 +8342,26 @@ a:hover .cover--issue {
 .resume-dossier {
   margin-bottom: 3em; }
 
-/* line 5, scss/modules/_resume.dossier.scss */
+@media only screen and (min-width: 1024px) {
+  /* line 5, scss/modules/_resume.dossier.scss */
+  .resume-dossier__header {
+    min-height: 2.5em; } }
+@media only screen and (min-width: 481px) and (max-width: 1023px) {
+  /* line 5, scss/modules/_resume.dossier.scss */
+  .resume-dossier__header {
+    min-height: 4em; } }
+
+/* line 9, scss/modules/_resume.dossier.scss */
 .resume-dossier__titre {
   font-size: 24px;
   font-size: 1.5rem;
   line-height: 1; }
   @media only screen and (min-width: 481px) {
-    /* line 5, scss/modules/_resume.dossier.scss */
+    /* line 9, scss/modules/_resume.dossier.scss */
     .resume-dossier__titre {
-      font-size: 20px;
-      font-size: 1.25rem;
-      line-height: 1.2; } }
+      font-size: 24px;
+      font-size: 1.5rem;
+      line-height: 1; } }
 
 /*  ==========================================================================
     .self

@@ -2,9 +2,13 @@
     .resume-dossier
     ========================================================================== */
     .resume-dossier { margin-bottom: 3em; }
+        .resume-dossier__header {
+            @include media-query(desk) {min-height: 2.5em;}
+            @include media-query(lap) {min-height: 4em;}
+        }
         .resume-dossier__titre {
             @include font-size(24px);
             @include media-query(lap-and-up) {
-                @include font-size(20px);
+                @include font-size(24px);
             }
         }

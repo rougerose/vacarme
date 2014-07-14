@@ -20,8 +20,8 @@
     #SET{id_objet,#VALEUR|table_valeur{id_objet}}
     #SET{objet,#VALEUR|table_valeur{objet}}
     [(#GET{objet}=={mot}|?{
-        [(#INCLURE{fond=resume/mot-mot-dossiers,id_mot=#GET{id_objet},logo_format=1/2})],
-        [(#INCLURE{fond=resume/rubrique-mot-dossiers,id_rubrique=#GET{id_objet},logo_format=1/2})]
+        [(#INCLURE{fond=resume/mot-dossiers,id_mot=#GET{id_objet},logo_format=1/2})],
+        [(#INCLURE{fond=resume/rubrique-dossiers,id_rubrique=#GET{id_objet},logo_format=1/2})]
     })]
 </div><!-- /.grid__item -->
 </BOUCLE_dossiers>

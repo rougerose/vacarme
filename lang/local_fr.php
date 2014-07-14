@@ -38,6 +38,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'categorie_tous_4'                            => 'Tous les articles', // catégorie Ecritures
     'categorie_tous_227'                          => 'Tous les Entretiens', // catégorie Tribunes
     'categorie_tous_231'                          => 'Toutes les Tribunes', // catégorie Tribunes
+    'categorie_tous_302'                          => 'Tous les feuilletons', // catégorie Feuilletons
     'categorie_tous_451'                          => 'Tous les articles', // catégorie Critiques
     'categorie_tous_521'                          => 'Tous les articles', // catégorie Fronts
     'categorie_tous_522'                          => 'Tous les articles', // catégorie Mouvements
@@ -138,6 +139,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'semaine_suivante'                            => "Semaine suivante",
     'suite_lire' => "Lire la suite",
     'suite_dossier' => "Afficher le dossier",
+    'suite_feuilleton' => "Afficher le feuilleton",
     
     // T
     'table_of_content'                            => "Sommaire",
