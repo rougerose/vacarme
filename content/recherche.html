@@ -17,7 +17,7 @@
         <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
         [(#GET{total}|>{0}|oui)
             <div id="tabs" class="tabs">
-                <nav id="tabs-nav" class="tabs-nav-container nav--top">
+                <nav id="tabs-nav" class="tabs-nav-container nav--position nav--is-top">
                     <h1 class="hN tabs-nav-container__titre">[(#GET{total}|singulier_ou_pluriel{local:recherche_resultat,local:recherche_resultats})]</h1>
                     <ul class="tabs-nav">
                         [<li class="tabs-nav__item"><a href="#recherche-articles">(#GET{total_articles}|oui)[(#GET{total_articles}|singulier_ou_pluriel{local:nombre_article,local:nombre_articles})]</a></li>]

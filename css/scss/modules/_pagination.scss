@@ -2,20 +2,25 @@
     .pagination
     ========================================================================== */
 
-    .pagination {}
-        .pagination__container {
-            margin: 0;
-            padding: 0;
-            list-style-type: none;
-        }
-            .pagination__item {
-                display: inline-block;
-                a,
-                span,
-                strong {
-                    padding: 0 .3em;
-                }
+    .pagination {
+        position: relative;
+    }
+    .pagination__label {
+        @include font-size(16px);
+        display: inline-block;
+        color: $couleur-gris-bleu;
+        margin-right: 2em;
+    }
+        .pagination__item {
+            a,
+            span,
+            strong {
+                display: block;
+                padding: 0 0.35em;
+                margin: 0 0.15em;
             }
+        }
+
 
 /*  modificateurs
     ========================================================================== */
@@ -25,6 +30,12 @@
     .pagination--abc {
         padding: 0 0.2em;
         @include font-size(20px);
+    }
+    .pagination--abc__item { 
+        a,span,strong { margin: 0; }
+    }
+    .pagination--page {
+        text-align: center;
     }
 
 /*  états

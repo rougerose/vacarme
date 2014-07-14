@@ -5846,30 +5846,44 @@ html {
   .nav a:hover, .flex-direction-nav a:hover {
     color: #e88e0e; }
 
-/* line 20, scss/modules/_nav.scss */
-.nav--top {
-  position: relative;
-  margin-bottom: 3em; }
-  /* line 23, scss/modules/_nav.scss */
-  .nav--top:after {
-    content: "";
+/* line 19, scss/modules/_nav.scss */
+.nav--position {
+  position: relative; }
+  /* line 21, scss/modules/_nav.scss */
+  .nav--position:after, .nav--position:before {
+    content: '';
     position: absolute;
     z-index: -1;
+    width: 100%; }
+
+/* line 29, scss/modules/_nav.scss */
+.nav--is-top {
+  margin-bottom: 3em; }
+  /* line 31, scss/modules/_nav.scss */
+  .nav--is-top:after {
     bottom: 0;
     left: 0;
-    width: 100%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+
+/* line 38, scss/modules/_nav.scss */
+.nav--is-bottom:before {
+  top: 0;
+  left: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1); }
 
 /*  états
     ========================================================================== */
-/* line 39, scss/modules/_nav.scss */
+/* line 50, scss/modules/_nav.scss */
 .nav-item--is-active .on {
   color: #000;
   cursor: default; }
   @media only screen and (min-width: 481px) {
-    /* line 43, scss/modules/_nav.scss */
-    .nav-item--is-active .on, .pagination--top .nav-item--is-active .on {
-      border-bottom: 1px solid #000; } }
+    /* line 54, scss/modules/_nav.scss */
+    .nav--is-top .nav-item--is-active .on {
+      border-bottom: 1px solid #000; }
+    /* line 57, scss/modules/_nav.scss */
+    .nav--is-bottom .nav-item--is-active .on {
+      border-top: 1px solid #000; } }
 
 /* ==========================================================================
    navigation
@@ -6130,37 +6144,51 @@ html {
 /*  ==========================================================================
     .pagination
     ========================================================================== */
-/* line 6, scss/modules/_pagination.scss */
-.pagination__container {
-  margin: 0;
-  padding: 0;
-  list-style-type: none; }
+/* line 5, scss/modules/_pagination.scss */
+.pagination {
+  position: relative; }
 
-/* line 11, scss/modules/_pagination.scss */
-.pagination__item {
-  display: inline-block; }
-  /* line 13, scss/modules/_pagination.scss */
-  .pagination__item a,
-  .pagination__item span,
-  .pagination__item strong {
-    padding: 0 .3em; }
+/* line 8, scss/modules/_pagination.scss */
+.pagination__label {
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.5;
+  display: inline-block;
+  color: #8888a7;
+  margin-right: 2em; }
+
+/* line 15, scss/modules/_pagination.scss */
+.pagination__item a,
+.pagination__item span,
+.pagination__item strong {
+  display: block;
+  padding: 0 0.35em;
+  margin: 0 0.15em; }
 
 /*  modificateurs
     ========================================================================== */
-/* line 25, scss/modules/_pagination.scss */
+/* line 30, scss/modules/_pagination.scss */
 .pagination--abc {
   padding: 0 0.2em;
   font-size: 20px;
   font-size: 1.25rem;
   line-height: 1.2; }
 
+/* line 35, scss/modules/_pagination.scss */
+.pagination--abc__item a, .pagination--abc__item span, .pagination--abc__item strong {
+  margin: 0; }
+
+/* line 37, scss/modules/_pagination.scss */
+.pagination--page {
+  text-align: center; }
+
 /*  états
     ========================================================================== */
-/* line 33, scss/modules/_pagination.scss */
+/* line 44, scss/modules/_pagination.scss */
 .pagination__item--is-disabled {
   color: rgba(0, 0, 0, 0.15); }
 
-/* line 37, scss/modules/_pagination.scss */
+/* line 48, scss/modules/_pagination.scss */
 .pagination__item--is-active .on {
   font-size: 22px;
   font-size: 1.375rem;
@@ -6238,16 +6266,20 @@ html {
     ========================================================================== */
 /*  .groupe-section
     ========================================================================== */
+/* line 7, scss/modules/_section.scss */
+.groupe-section {
+  margin-bottom: 1.5em; }
+
 /* .intertitre-section
    ========================================================================== */
-/* line 12, scss/modules/_section.scss */
+/* line 14, scss/modules/_section.scss */
 .intertitre-section {
   font-style: italic; }
-  /* line 14, scss/modules/_section.scss */
+  /* line 16, scss/modules/_section.scss */
   .recherche .intertitre-section {
     color: #000; }
 
-/* line 18, scss/modules/_section.scss */
+/* line 20, scss/modules/_section.scss */
 .intertitre-section--first, .self__header--rubrique .titre, .resume__category {
   display: inline-block;
   border-bottom: 1px solid #555555;
@@ -6259,14 +6291,14 @@ html {
   line-height: 1.33333;
   color: #000; }
 
-/* line 27, scss/modules/_section.scss */
+/* line 29, scss/modules/_section.scss */
 .intertitre-section--second {
   margin-bottom: 0;
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.5; }
 
-/* line 31, scss/modules/_section.scss */
+/* line 33, scss/modules/_section.scss */
 .intertitre-section--footer {
   font-size: 16px;
   font-size: 1rem;
