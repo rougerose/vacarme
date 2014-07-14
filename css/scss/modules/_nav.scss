@@ -1,0 +1,62 @@
+/*  ==========================================================================
+    .nav
+    ========================================================================== */
+    .nav,
+    %nav {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .nav {
+        a {
+            color: rgba(0,0,0,0.65);
+            &:hover {
+                color: $couleur-lien;
+            }
+        }
+    }
+    .nav--position {
+        position: relative;
+        &:after,
+        &:before {
+            content:'';
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+        }
+    }
+    .nav--is-top {
+        margin-bottom: 3em;
+        &:after {
+            bottom: 0;
+            left: 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+    }
+    .nav--is-bottom {
+        &:before {
+            top: 0;
+            left: 0;
+            border-top: 1px solid rgba(0,0,0,0.1);
+        }
+    }
+
+
+/*  états
+    ========================================================================== */
+
+    .nav-item--is-active {
+        .on {
+            color: #000;
+            cursor: default;
+            @include media-query(lap-and-up) {
+                .nav--is-top & {
+                    border-bottom: 1px solid #000;
+                }
+                .nav--is-bottom & {
+                    border-top: 1px solid #000;
+                }
+            }
+        }
+    }

@@ -5,16 +5,32 @@
 /*  .groupe-section
     ========================================================================== */
     .groupe-section {
-        @include media-query(palm) {
-            .resume-article--texte {
-                border-bottom: 1px dotted $couleur-gris-clair;
-            }
-            .resume-article,
-            .resume-rubrique {
-                margin-bottom: 1.5em;
-            }
+        margin-bottom: 1.5em;
+    }
+
+/* .intertitre-section
+   ========================================================================== */
+
+    .intertitre-section {
+        font-style: italic;
+        .recherche & {
+            color: #000;
         }
-        @include media-query(lap-and-up) {
-            margin-bottom: 1.5em;
-        }
+    }
+    .intertitre-section--first {
+        display: inline-block;
+        border-bottom: 1px solid $couleur-gris-sombre;
+        padding-left: $base-spacing-unit/2;
+        padding-right: $base-spacing-unit/2;
+        margin-left: -$base-spacing-unit/2;
+        @include font-size(18px);
+        color: #000;
+    }
+    .intertitre-section--second {
+        margin-bottom: 0;
+        @include font-size(16px);
+    }
+    .intertitre-section--footer {
+        @include font-size(16px);
+        color: #000;
     }

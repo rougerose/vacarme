@@ -6,8 +6,8 @@
     Variables environnement
     **********************************************************
     logo_format         1/4|1/2
-        1/4 image_reduire,500,0. image_recadre,432,312,center center,000
-        1/2 image_reduire,600,0. image_recadre,520,312,center center,000
+        1/4 image_reduire,550,0. image_recadre,452,330,center center,000
+        1/2 image_reduire,550,0. image_recadre,540,330,center center,000
         
 
     afficher_auteur     oui|''
@@ -15,13 +15,15 @@
 ]
 <BOUCLE_resume_article_archive(ARTICLES){id_article}>
 <article class="resume-article">
-    <div class="resume-article__logo">
-        <a href="#URL_ARTICLE">
-            [(#ENV{logo_format}|=={1/4}|oui)
-                [(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|image_reduire{500,0}|image_recadre{432,312,'center center',000})]
-            ][(#ENV{logo_format}|=={1/2}|oui)
-                [<a href="#URL_ARTICLE">(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|image_reduire{600,0}|image_recadre{520,312,'center center',000})</a>]
-            ]
+    <a href="#URL_ARTICLE">
+        <div class="resume-article__logo thumbnail">
+            <div class="thumbnail-container">
+                [(#ENV{logo_format}|=={1/4}|oui)
+                    [(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|image_reduire{550,0}|image_recadre{452,330,'center center',000})]
+                ][(#ENV{logo_format}|=={1/2}|oui)
+                    [(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|image_reduire{550,0}|image_recadre{540,330,'center center',000})]
+                ]
+            </div>
             <BOUCLE_titre_numero(HIERARCHIE){id_rubrique}{tout}>
             [(#PROFONDEUR|=={1}|oui)
                 <div class="overlay overlay--article-archive"></div>
@@ -30,8 +32,8 @@
                 </div>
             ]
             </BOUCLE_titre_numero>
-        </a>
-    </div>
+        </div>
+    </a>
     <header class="resume-article__header">
         <h1 class="hN resume-article__titre"><a href="#URL_ARTICLE">#TITRE</a></h1>
         [(#ENV{afficher_auteur}|non)
@@ -40,7 +42,7 @@
     </header>
     <div class="resume-article__descriptif">
         [(#DESCRIPTIF|sinon{#INTRODUCTION|couper{100}|wrap{<p>}})]
-        <p><a href="#URL_ARTICLE" class="suite-lien">Lire la suite <em>&#8594;</em></a></p>
+        <p><a href="#URL_ARTICLE" class="suite-lien"><:suite_lire:> <em>&#8594;</em></a></p>
     </div>
 </article>
 </BOUCLE_resume_article_archive>

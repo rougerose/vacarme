@@ -9,7 +9,7 @@
 $fa-font-path: "fonts/fontawesome";
 @import "font-awesome";
 
-// fonts & typo
+        // fonts & typo
 @import "ui/fonts",
         "ui/typo",
 
@@ -18,6 +18,7 @@ $fa-font-path: "fonts/fontawesome";
         "scss/base/form",
         "scss/base/helpers",
         "scss/base/helpers.marges",
+        //"scss/base/helpers.sep",
 
         // layout
         "scss/layout/page",
@@ -27,31 +28,56 @@ $fa-font-path: "fonts/fontawesome";
         
         // modules
         "scss/modules/list",
+        "scss/modules/accordeon",
         "scss/modules/btn",
+
+        // nav
+        "scss/modules/nav",
+        "scss/modules/navigation",
+        "scss/modules/pagination",
         "scss/modules/tri",
+        "scss/modules/filtres",
+        
         "scss/modules/section",
         "scss/modules/site-logo",
-        "scss/modules/navigation",
+        
+        
         "scss/modules/tabs",
         "scss/modules/rubrique-dossier",
         "scss/modules/timeline",
-        "scss/modules/resume",
-        "scss/modules/resume.article",
-        "scss/modules/self",
+
+        
         "scss/modules/auteurs",
         "scss/modules/preview",
         "scss/modules/overlay",
         "scss/modules/meta",
         "scss/modules/toc",
+        
+        // icones
         "scss/modules/icon",
+
+        // medias
         "scss/modules/medias.cover",
+        "scss/modules/medias.thumbnail",
         "scss/modules/medias.media",
         "scss/modules/medias.spip_documents",
         "scss/modules/medias.video",
         "scss/modules/medias.colorbox",
         "scss/modules/carousel",
         "scss/modules/carousel.owl.theme",
-        "scss/modules/message";
+        "scss/modules/message",
+
+        // resume
+        "scss/modules/resume",
+        "scss/modules/resume.article",
+        "scss/modules/resume.mot",
+        "scss/modules/resume.dossier",
+
+        // self 
+        "scss/modules/self",
+        
+        // couleurs
+        "scss/modules/couleurs";
 
 
 
@@ -87,11 +113,11 @@ $fa-font-path: "fonts/fontawesome";
 @import "ui/box";
 @import "ui/table";
 @import "ui/list";
-@import "ui/accordeon";
+// @import "ui/accordeon";
 //@import "ui/carousel";
 //@import "ui/tabs";
 @import "ui/columns";
-@import "ui/pagination";
+//@import "ui/pagination";
 
 @import "ui/self";
 @import "ui/resume";

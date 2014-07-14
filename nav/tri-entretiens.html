@@ -1,0 +1,10 @@
+[(#REM)
+    
+    menu de tri des entretiens : ordre alphabétique/date de publication
+]
+<nav class="tri tri--categories nav nav--position nav--is-top">
+    <ul class="inline-list">
+        <li class="inline-list__item critere-tri critere-tri--categories[ (#ENV{tri}|=={alpha}|oui)nav-item--is-active]">[(#SELF|parametre_url{tri,alpha}|ancre_url{entretiens}|lien_ou_expose{<:tri_alpha:>,#ENV{tri}|=={alpha},ajax})]</li>
+        <li class="inline-list__item critere-tri critere-tri--categories[ (#ENV{tri}|=={date}|oui)nav-item--is-active]">[(#SELF|parametre_url{tri|lettre,''}|parametre_url{tri,date}|ancre_url{entretiens}|lien_ou_expose{<:tri_date:>,#ENV{tri}|=={date},ajax})]</li>
+    </ul>
+</nav>

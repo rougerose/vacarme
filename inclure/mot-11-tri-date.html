@@ -1,0 +1,43 @@
+<BOUCLE_mot_entretiens(MOTS){id_mot}>
+
+[(#REM) 
+    Les entretiens
+    =======================
+    Récupérer les articles qui ont le mot Entretiens (les grands entretiens et les entretiens isolés) et qui ont un mot de Personnes.
+]
+<section id="entretiens" class="mb+">
+    <div class="grid__item">
+        <div class="grid">
+            <div class="grid__item lap-and-up-one-quarter">
+                <h1 class="hN intertitre-section intertitre-section--first is-couleur-#ID_GROUPE-text"><span><:categorie_entretiens_tous:></span></h1>
+            </div><!-- /.grid__item -->
+            <div class="grid__item lap-and-up-three-quarters">
+                [
+                    (#INCLURE{fond=nav/tri-entretiens,env})
+                ]
+            </div><!-- /.grid__item -->
+        </div><!-- /.grid -->
+    </div><!-- /.grid__item -->
+    <B_entretiens>
+    <div id="accordeon" class="grid__item">
+        #ANCRE_PAGINATION
+        <div class="grid">
+            <BOUCLE_entretiens(ARTICLES){id_mot}{!par date}{pagination 20}>#SET{date_article,#DATE}
+                <BOUCLE_personnes(MOTS){id_article}{id_groupe=11}>
+                    [
+                        (#INCLURE{fond=resume/mot-entretiens,id_mot,logo_format=1/4,tri=date,date_article=#GET{date_article}})
+                    ]
+                </BOUCLE_personnes>
+            </BOUCLE_entretiens>
+        </div><!-- /.grid -->
+    </div><!-- /.grid__item -->
+    [
+        <nav class="pagination pagination--bottom pagination--page nav--posititon nav--is-bottom">(#PAGINATION{li})</nav>
+    ]
+    [
+        (#CHEMIN{js/accordeon.min.js}|oui)
+        <script>$(function() {$("#accordeon").accordeon();});</script>
+    ]
+    </B_entretiens>
+</section>
+</BOUCLE_mot_entretiens>

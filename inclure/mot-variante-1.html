@@ -1,0 +1,75 @@
+<BOUCLE_mot_variante_1(MOTS){id_mot}>
+[
+    (#REM) Une sélection d'articles
+    ----------------------------------------------------------------------------
+
+]
+<B_grappe_selection>
+    <section class="mb++">
+        <div class="grid__item">
+            <h1 class="hN intertitre-section intertitre-section--first is-couleur-#ID_GROUPE-text"><:categorie_selection:></h1>
+        </div><!-- /.grid__item -->
+        <BOUCLE_grappe_selection(GRAPPES){id_grappe=10}>
+        <BOUCLE_item1(GRAPPES_LIENS){id_grappe}{par rang}{0,1}>
+        [<div class="grid__item desk-two-quarters">
+            (#INCLURE{fond=resume/article-selection,id_article=#ID_OBJET,logo_format=1/1})
+        </div><!-- /.grid__item -->]
+        </BOUCLE_item1><BOUCLE_item2_3(GRAPPES_LIENS){id_grappe}{par rang}{1,2}>
+        [<div class="grid__item lap-one-half desk-one-quarter">
+            (#INCLURE{fond=resume/article-selection,id_article=#ID_OBJET,logo_format=1/2})
+        </div><!-- /.grid__item -->]
+        </BOUCLE_item2_3>
+        </BOUCLE_grappe_selection>
+    </section>
+</B_grappe_selection>
+
+[(#REM) 
+    Tous les articles
+    ----------------------------------------------------------------------------
+    -   Le mot-clé principal est exclus de la liste des filtres disponibles.
+    -   Le seul élément spécifique est la chaîne de l'intertitre, 
+        construite selon le principe 'categorie_tous_id_mot'
+]
+    #SET{mots_exclus,#ARRAY{0,#ID_MOT}}
+
+<BOUCLE_liste_articles(ARTICLES){id_mot}>#SET_PUSH{articles,#ID_ARTICLE}</BOUCLE_liste_articles>
+<section class="mb+">
+    <div class="grid__item">
+        <div class="grid">
+            <div class="grid__item lap-and-up-one-quarter">
+                <h1 class="hN intertitre-section intertitre-section--first is-couleur-#ID_GROUPE-text">[(#VAL{local:categorie_tous_#ID_MOT}|_T)]</h1>
+            </div><!-- /.grid__item -->
+            <div class="grid__item lap-and-up-three-quarters">
+                <INCLURE{fond=nav/filtres-article,articles=#GET{articles},mots_exclus=#GET{mots_exclus},id_mot_reference=#ID_MOT,env} />
+            </div><!-- /.grid__item -->
+        </div><!-- /.grid -->
+    </div><!-- /.grid__item -->
+    [
+        (#REM) Les articles triés par thème
+    ]
+    <B_articles_tri>
+    <div class="grid__item">
+        #ANCRE_PAGINATION
+        <BOUCLE_articles_tri(ARTICLES){mots_selon_id}{id_mot}{!par date}{pagination 20}>
+            [(#INCLURE{fond=resume/article-complet,id_article,logo_format=1/4})]
+        </BOUCLE_articles_tri>
+    </div><!-- /.grid__item -->
+    [<nav class="pagination pagination--bottom pagination--page">(#PAGINATION{li})</nav>]
+    </B_articles_tri>
+    [
+        (#REM) Les articles triés par date, défaut
+    ]
+    <B_articles>
+    <div class="grid__item">
+        #ANCRE_PAGINATION
+        <BOUCLE_articles(ARTICLES){id_article IN #GET{articles}}{!par date}{pagination 20}>
+            [(#INCLURE{fond=resume/article-complet,id_article,logo_format=1/4})]
+        </BOUCLE_articles>
+    </div><!-- /.grid__item -->
+    [<div class="grid__item">
+        <nav class="pagination pagination--page nav--position nav--is-bottom">(#PAGINATION{li})</nav>
+    </div><!-- /.grid__item -->]
+    </B_articles>
+    <//B_articles_tri>
+</section>
+</BOUCLE_mot_variante_1>

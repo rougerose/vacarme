@@ -1,0 +1,46 @@
+/*  ==========================================================================
+    .resume.mot
+    ========================================================================== */
+
+    /*
+    *   .resume-mot
+    *       .resume-mot__logo
+    *       .resume-mot__header
+    *           .resume-mot__titre
+    *       .resume-mot__descriptif
+    *       .resume-mot__date
+    *       .resume-mot__numero
+    *   
+    *   modificateurs
+    *   -------------------------------------
+    *   .resume-mot--entretiens 
+    *   
+    */
+
+    .resume-mot {}
+        .resume-mot__logo {}
+
+
+/*  modificateurs
+    ========================================================================== */
+
+    .resume-mot--entretiens {
+        @include media-query(lap-and-up) {
+            margin-bottom: 2em;
+        }
+    }
+        .resume-mot__logo--entretiens {
+            img {display: block;}
+            @include media-query(palm) {
+                margin-bottom: 1em;
+            }
+            @media only screen and (min-width:480px) and (max-width:800px) {
+                height: 210px;
+            }
+        }
+        .resume-mot__header--entretiens {
+            .resume-mot__titre {
+                @include font-size(30px);
+                color: #000;
+            }
+        }

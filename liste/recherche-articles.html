@@ -1,7 +1,12 @@
-#SET{defaut_tri,#ARRAY{points,-1,date,1}}
+#SET{defaut_tri,#ARRAY{points,-1,date,-1}} 
 <B_articles>
 #ANCRE_PAGINATION
-<p class="tri">Trier par [<span class="critere-tri">(#TRI{date,'Date de publication',ajax})</span>] [<span class="critere-tri">(#TRI{points,'Pertinence',ajax})</span>]</p>
+<nav class="tri tri--recherche nav--position nav--is-top">
+    <ul class="inline-list">
+        <li class="inline-list__item critere-tri critere-tri--recherche[ (#TRI|=={date}|oui)nav-item--is-active]">[(#TRI{date,<:tri_date:>,ajax})]</li>
+        <li class="inline-list__item critere-tri critere-tri--recherche[ (#TRI|=={points}|oui)nav-item--is-active]">[(#TRI{points,<:tri_pertinence:>,ajax})]</li>
+    </ul>
+</nav>
 <ul class="block-list resultats-list">
     <BOUCLE_articles(ARTICLES){recherche}{tri points,#GET{defaut_tri}}{pagination 5}>
     <li class="block-list__item resultats-list__item">#INCLURE{fond=resume/article-texte,id_article}</li>

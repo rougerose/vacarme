@@ -17,13 +17,23 @@
             }
          }
 
+    /*  .self__titre
+        ========================================================================== */
+        .self__titre {
+            color: #000;
+        }
+
+        .self__titre--mot {
+            font-style: italic;
+        }
+
+
     /*  .self__chapo
         ========================================================================== */
         .self__chapo {
             @include font-size(19px);
             @include media-query(lap-and-up) {
                 padding-right: $base-spacing-unit*2;
-                //@include font-size(18px);
             }
         }
 
@@ -50,6 +60,15 @@
                 width: 100%;
             }
          }
+
+         /*
+          * self__body--mot
+          */
+          .self__body--mot {
+            p {
+                @include font-size(22px);
+            }
+          }
 
 // TODO : à fusionner
 

@@ -1,0 +1,38 @@
+[(#REM)
+
+    Résumé d'un article, version accordeon.
+    
+    **********************************************************
+    Variables environnement
+    **********************************************************
+    afficher_auteur     oui|''
+    afficher_date-titre oui|''
+
+]
+<BOUCLE_resume_article_accordeon(ARTICLES){id_article}>
+<article class="resume-article accordeon__container">
+    <header class="resume-article__header accordeon__header">
+        <span class="icon-svg icon-svg--accordeon">#INCLURE{fond=img/css/icon--chevron-bas.svg}</span>
+        <h1 class="hN resume-article__titre accordeon__header-titre"><a href="#URL_ARTICLE">#TITRE</a>[(#ENV{afficher_date-titre}|oui)[ <small class="accordeon__header-date">(#DATE|affdate_court)</small>]]</h1>
+    </header>
+    <div class="accordeon__body">
+        <div class="resume-article__descriptif accordeon__descriptif">
+            [(#ENV{afficher_auteur}|non)
+                [<p class="resume-article__auteurs[ (#ENV{article_selection}|oui) resume-article__auteurs--selection] auteurs"><:par_auteur:>(#MODELE{auteurs,id_article=#ENV{id_article},contexte=resume})</p>]
+            ]
+            [(#DESCRIPTIF|sinon{#INTRODUCTION|couper{100}|wrap{<p>}})]
+            <ul class="inline-list inline-list--pipe">
+                <li class="inline-list__item"><time pubdate datetime="[(#DATE|date_iso)]" class="resume-meta__label resume-meta__label--date">[(#DATE|affdate_court)]</time></li>
+                <li class="inline-list__item"><a href="#URL_ARTICLE" class="suite-lien"><:suite_lire:> <em>&#8594;</em></a></li>
+            </ul>
+        </div>
+        <footer class="resume-article__footer accordeon__footer">
+            <BOUCLE_hierarchie_numero(HIERARCHIE){id_article}{si #ID_SECTEUR|=={115}}>
+            [(#PROFONDEUR|=={1}|oui)
+                [<img src="(#LOGO_RUBRIQUE|image_reduire{432,0}|extraire_attribut{src})" alt="#TITRE[, (#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]]">]
+            ]
+            </BOUCLE_hierarchie_numero>
+        </footer>
+    </div>
+</article>
+</BOUCLE_resume_article_accordeon>

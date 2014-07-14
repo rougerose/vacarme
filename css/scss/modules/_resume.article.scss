@@ -16,9 +16,9 @@
     *   -------------------------------------
     *   .resume-article--texte 
     *   
-    *   .resume-article__titre--selection
-    *   .resume-article__auteurs--selection
-    *   .resume-article__descriptif--selection
+    *   .resume-article__titre--une
+    *   .resume-article__auteurs--une
+    *   .resume-article__descriptif--une
     *
     *   états
     *   -------------------------------------
@@ -29,22 +29,8 @@
 
     .resume-article {
         position: relative;
-        // margin-bottom: 3.5em;
-        @include media-query(palm){
-            // margin-bottom: 2em;
-        }
     }
-        .resume-article__logo {
-            overflow:hidden;
-            position: relative;
-            width: 100%;
-            height: 310px;
-            margin-bottom: 1em;
-            @media only screen and (min-width:480px) and (max-width:800px) {
-                height: 210px;
-            }
-            a {display: block;}
-        }
+        .resume-article__logo {}
         .resume-article__header {}
             .resume-article__titre {
                 @include font-size(19px);
@@ -65,52 +51,85 @@
             }
         .resume-article__descriptif {
             padding-right: 1.5em;
+            margin-bottom: 1.5em;
             p {
-                @include font-size(15px,$line-height:false);
+                @include font-size(16px,$line-height: false);
                 line-height: 1.313;
             }
             .resultats-list__item & {
-                p {margin-bottom: .5em;}
+                p { margin-bottom: .5em; }
             }
         }
-        .resume-article__date {
-            font-family: $font-HLC;
-            color: $couleur-gris-bleu;
-            margin-right: 0.15em;
-        }
+        .resume-article__date {}
         .resume-article__numero {
             position: absolute;
             bottom: 0.5em;
             left: 5px;
-            color: #fff;
         }
             .resume-article__numero-titre {
                 margin-bottom: 0;
                 font-family: $font-HC;
                 text-transform: uppercase;
                 @include font-size(16px);
+                color: #fff;
                 .soustitre {
                     font-family: $font-HLC;
                     display: inline; 
                     font-style: normal; font-size: 100%;}
             }
 
+
 /*  modificateurs
     ========================================================================== */
     
-    /*
-     * .resume-article--texte
-     */
+    /* .resume-article--texte */
     .resume-article--texte {}
 
-    /*
-     * .resume-article__XX--selection
-     */
-    .resume-article__titre--selection {@include font-size(24px);}
-    .resume-article__auteurs--selection {@include font-size(18px);}
-    .resume-article__descriptif--selection {
-        p {@include font-size(18px,$line-height: true);}
+    /* .resume-article--complet */
+    .resume-article--texte,
+    .resume-article--complet {
+        border-bottom: 1px solid #000;
+        margin-bottom: 1.5em;
+        @include media-query(lap-and-up) {
+            border: none;
+            margin-bottom: 3em;
+        }
     }
+    .resume-article__logo--complet {
+        @include media-query(lap-and-up) {
+            margin: 0;
+        }
+    }
+    .resume-article__titre--complet {
+        @include font-size(24px);
+        @include media-query(lap-and-up) {
+            @include font-size(20px);
+        }
+    }
+    .resume-article__descriptif--complet {
+        @include media-query(lap-and-up) {
+            padding-right: 15%;
+        }
+    }
+
+    /* .resume-article--une */
+    .resume-article--une {}
+    .resume-article__titre--une { @include font-size(24px); }
+    .resume-article__auteurs--une { @include font-size(18px); }
+    .resume-article__descriptif--une {
+        p { @include font-size(18px,$line-height: true); }
+    }
+
+    /* .resume-article--selection-img-titre */
+    .resume-article--selection-img-titre {}
+        .resume-article__logo--selection-img-titre {}
+        .resume-article__header--selection-img-titre {
+            position: absolute;
+            bottom: 0.5em;
+            left: 0.5em;
+            color: #fff;
+        }
+        .resume-article__titre--selection-img-titre {margin-bottom: 0;}
 
 /*  états
     ========================================================================== */
@@ -119,7 +138,7 @@
      */
     .resume-article--is-postdate {
         .hN,
-        p {color: $couleur-gris-moyen;}
+        p { color: $couleur-gris-moyen; }
         &:hover {
             .message--warning-texte.postdate-message {
                 background-color: $couleur-warning;
