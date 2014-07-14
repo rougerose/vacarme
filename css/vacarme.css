@@ -7256,18 +7256,18 @@ a:hover .cover--issue {
       display: none; } }
 
 @media only screen and (min-width: 481px) {
-  /* line 37, scss/modules/_medias.cover.scss */
+  /* line 36, scss/modules/_medias.cover.scss */
   .cover-feature--small {
     display: none; } }
 
-/* line 43, scss/modules/_medias.cover.scss */
+/* line 42, scss/modules/_medias.cover.scss */
 .cover--meta {
   margin-top: -2em;
   position: absolute;
   right: 0;
   width: 25%; }
   @media only screen and (min-width: 481px) {
-    /* line 43, scss/modules/_medias.cover.scss */
+    /* line 42, scss/modules/_medias.cover.scss */
     .cover--meta {
       margin-top: -2.5em;
       position: static;

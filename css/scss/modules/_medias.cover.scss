@@ -29,7 +29,6 @@
     .cover-feature--large {
         display: block;
         margin-top: -46px;
-        // margin-left: -12px;
         @include media-query(palm) {
             display: none;
         }
