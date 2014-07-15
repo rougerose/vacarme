@@ -45,9 +45,14 @@
 
 /*  états
     ========================================================================== */
-
+    .nav-item--is-disabled {
+        > .on {
+            color: rgba(0,0,0,0.15);
+            font-weight: normal;
+        }
+    }
     .nav-item--is-active {
-        .on {
+        > .on {
             color: #000;
             cursor: default;
             @include media-query(lap-and-up) {
