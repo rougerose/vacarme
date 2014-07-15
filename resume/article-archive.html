@@ -6,6 +6,7 @@
     Variables environnement
     **********************************************************
     logo_format         1/4|1/2
+    recadrage           portrait|paysage|''
 
     afficher_auteur     oui|''
 
@@ -17,7 +18,7 @@
         <div class="resume-article__logo thumbnail[ is--(#ENV{logo_format})]">
             <div class="thumbnail-container[ is--(#ENV{logo_format})][ is--(#GET{focal}|explode{' '}|implode{-})]">
                 [(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|oui)
-                [(#INCLURE{fond=inclure/article-logo,id_article,logo_format=#ENV{logo_format},focal=#GET{focal}})] ]
+                [(#INCLURE{fond=inclure/article-logo,id_article,logo_format=#ENV{logo_format},focal=#GET{focal},recadrage=#ENV{recadrage}})] ]
             </div>
             <BOUCLE_titre_numero(HIERARCHIE){id_rubrique}{tout}>
             [(#PROFONDEUR|=={1}|oui)

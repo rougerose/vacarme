@@ -7,12 +7,12 @@
 ]
 <BOUCLE_archives_fronts_mouvements(ARTICLES){id_secteur=115}{id_mot IN 521,522}{age>365}{par hasard}{0,1}>
 <div class="grid__item lap-and-up-one-quarter">
-    [(#INCLURE{fond=resume/article-archive,id_article,logo_format='1/4',recadrage})]
+    [(#INCLURE{fond=resume/article-archive,id_article,logo_format='1/4',recadrage=portrait})]
 </div><!-- /.grid__item -->
 </BOUCLE_archives_fronts_mouvements>
 <BOUCLE_archives_entretiens(ARTICLES){id_secteur=115}{id_mot=11}{age>365}{par hasard}{0,1}>
 <div class="grid__item lap-and-up-one-quarter">
-    [(#INCLURE{fond=resume/article-archive,id_article,logo_format='1/4'})]
+    [(#INCLURE{fond=resume/article-archive,id_article,logo_format='1/4',recadrage=portrait})]
 </div><!-- /.grid__item -->
 </BOUCLE_archives_entretiens>
 [(#REM) Le troisième item est issu de la grappe. Il peut s'agir d'une rubrique ou d'un article ]
