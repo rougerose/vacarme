@@ -1,11 +1,11 @@
 <section id="accordeon" class="accordeon__container">
     <div class="accordeon__header">
         <span class="icon-svg icon-svg--accordeon">#INCLURE{fond=img/css/icon--chevron-bas.svg}</span>
-        <h2 class="hN accordeon__header-titre">Trier par catégorie et thème</h2>
+        <h2 class="hN accordeon__header-titre accordeon__header-titre--filtres">Trier par catégorie et thème</h2>
     </div>
     <div class="accordeon__body filtres--liste">
         <ul class="inline-list">
-            <BOUCLE_liste_mots(MOTS){id_article IN #ENV{articles}}{id_mot !IN #ENV{mots_exclus}}{par titre}>
+            <BOUCLE_liste_mots(MOTS){id_article IN #ENV{articles}}{id_mot !IN #ENV{mots_exclus}}{id_groupe !IN #ENV{groupes_exclus}}{par titre}>
             #SET{avecunmotdeplus, #ARRAY{}} #SET{env-mots,#ENV{mots}}
             [(#SET{avecunmotdeplus,[(#GET{env-mots, #ARRAY{}}|push{#ID_MOT})]})]
             <INCLURE{fond=nav/filtres-mot-articles,mots=#GET{avecunmotdeplus},id_mot=#ID_MOT,id_groupe=#ID_GROUPE,id_mot_reference=#ENV{id_mot_reference},critere_mots=#ENV{mots}} />

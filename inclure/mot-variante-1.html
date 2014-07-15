@@ -30,7 +30,7 @@
     -   Le seul élément spécifique est la chaîne de l'intertitre, 
         construite selon le principe 'categorie_tous_id_mot'
 ]
-    #SET{mots_exclus,#ARRAY{0,#ID_MOT}}
+    #SET{mots_exclus,#ARRAY{0,#ID_MOT}} #SET{groupes_exclus,#ARRAY{0,16,1,15,2,14}}
 
 <BOUCLE_liste_articles(ARTICLES){id_mot}>#SET_PUSH{articles,#ID_ARTICLE}</BOUCLE_liste_articles>
 <section class="mb+">
@@ -40,7 +40,7 @@
                 <h1 class="hN intertitre-section intertitre-section--first is-couleur-#ID_GROUPE-text">[(#VAL{local:categorie_tous_#ID_MOT}|_T)]</h1>
             </div><!-- /.grid__item -->
             <div class="grid__item lap-and-up-three-quarters">
-                <INCLURE{fond=nav/filtres-article,articles=#GET{articles},mots_exclus=#GET{mots_exclus},id_mot_reference=#ID_MOT,env} />
+                <INCLURE{fond=nav/filtres-article,articles=#GET{articles},mots_exclus=#GET{mots_exclus},groupes_exclus=#GET{groupes_exclus},id_mot_reference=#ID_MOT,env} />
             </div><!-- /.grid__item -->
         </div><!-- /.grid -->
     </div><!-- /.grid__item -->
@@ -54,7 +54,7 @@
             [(#INCLURE{fond=resume/article-complet,id_article,logo_format=1/4,recadrage=portrait})]
         </BOUCLE_articles_tri>
     </div><!-- /.grid__item -->
-    [<nav class="pagination pagination--bottom pagination--page">(#PAGINATION{li})</nav>]
+    [<nav class="pagination pagination--bottom pagination--page nav--position nav--is-bottom">(#PAGINATION{li})</nav>]
     </B_articles_tri>
     [
         (#REM) Les articles triés par date, défaut

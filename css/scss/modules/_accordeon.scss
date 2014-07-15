@@ -18,7 +18,7 @@
                     border-bottom: 1px solid $couleur-gris-sombre;
                     @include font-size(18px);
                     font-style: italic;
-                    @include transition(border-color 0.35s ease-out);
+                    @include transition(border-color 0.35s ease-out,color 0.35s);
                     @include media-query(palm) { padding-right: 2em; }
                 }
                 .accordeon__header-date {
@@ -54,3 +54,10 @@
                     }
                 }
             }
+
+/*  .modificateurs
+    ========================================================================== */
+    .accordeon__header-titre--filtres {
+        font-family: $font-HLC;
+        font-style: normal;
+    }
