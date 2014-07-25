@@ -1,5 +1,4 @@
 <BOUCLE_sousrubrique_semainier(RUBRIQUES){id_rubrique}>
-<BOUCLE_soustitre(MOTS){id_rubrique}{id_groupe=15}{0,1}>#SET{soustitre,#TITRE}</BOUCLE_soustitre>
 <BOUCLE_auteurs_articles(ARTICLES){id_rubrique}><BOUCLE_liste_auteurs(AUTEURS){id_article}>[(#SET_PUSH{liste_auteurs,#ID_AUTEUR})]</BOUCLE_liste_auteurs></BOUCLE_auteurs_articles>
 <div class="grid">
     <article class="rubrique self">
@@ -8,7 +7,7 @@
                 <p class="self-meta__item"><span class="self-meta__item--titre">(#INFO_TITRE{rubrique,#ID_PARENT})</span></p>
             </div><!-- /.self-meta--head-timeline -->]
             <header class="self__header self__header--timeline">
-                <h1 class="hN"><span class="#EDIT{titre} titre">#TITRE</span>[ <small class="#EDIT{soustitre} soustitre">(#GET{soustitre})</small>]</h1>
+                <h1 class="hN"><span class="#EDIT{titre} titre">#TITRE</span></h1>
                 <B_auteurs>
                     <p class="resume__auteur"><:par_auteur:><BOUCLE_auteurs(AUTEURS){id_auteur IN #GET{liste_auteurs}}{', '}>[(#NOM|prenom_nom)]</BOUCLE_auteurs></p>
                 </B_auteurs>
