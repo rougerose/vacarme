@@ -7,7 +7,14 @@
 
     /*  .self__header
         ========================================================================== */
-
+        .self__header {
+          .titre {
+            @include font-size(32px);
+            @include media-query(lap-and-up) {
+              @include font-size(36px)
+            }
+          }
+        }
         /*
          * self__header--timeline
          */

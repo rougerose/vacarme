@@ -6,13 +6,8 @@
                 Le mot-clé dans @feuilletons (#id_groupe 15) constitue le titre de la série du Semainier : 7 jours à...
                 Le mot-clé dans @Semainier (#id_groupe 20) sous-titre est le sous-titre de la série. 
             ]
-            <BOUCLE_titre_semainier(MOTS){id_article}>
-                [(#ID_GROUPE|=={15}|oui)#SET{titre-semainier,#TITRE}]
-                [(#ID_GROUPE|=={20}|oui)#SET{soustitre-semainier,#TITRE}]
-            </BOUCLE_titre_semainier>
-            [(#GET{titre-semainier}|ou{#GET{soustitre-semainier}}|oui)
-            <div class="meta self-meta self-meta--head self-meta--head-timeline">
-                <p class="self-meta__item">[<span class="self-meta__item--titre">(#GET{titre-semainier})</span>][ <span class="self-meta__item--soustitre">(#GET{soustitre-semainier})</span>]</p>
+            [<div class="meta self-meta self-meta--head self-meta--head-timeline">
+                <p class="self-meta__item self-meta__item--titre">(#INFO_TITRE{rubrique,#ID_RUBRIQUE})</p>
             </div><!-- /.self-meta--head-timeline -->]
             <header class="self__header self__header--timeline mb+">
                 [<p class="#EDIT{surtitre} surtitre">(#SURTITRE)</p>]
