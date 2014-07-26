@@ -36,8 +36,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     
     'categorie_selection'                         => "Une sélection", // version générique à utiliser ? 
     'categorie_tous_4'                            => 'Tous les articles', // catégorie Ecritures
-    'categorie_tous_227'                          => 'Tous les Entretiens', // catégorie Tribunes
-    'categorie_tous_231'                          => 'Toutes les Tribunes', // catégorie Tribunes
+    'categorie_tous_227'                          => 'Tous les dossiers', // catégorie Dossiers
+    'categorie_tous_231'                          => 'Toutes les tribunes', // catégorie Tribunes
     'categorie_tous_302'                          => 'Tous les feuilletons', // catégorie Feuilletons
     'categorie_tous_451'                          => 'Tous les articles', // catégorie Critiques
     'categorie_tous_521'                          => 'Tous les articles', // catégorie Fronts
