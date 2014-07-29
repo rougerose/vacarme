@@ -11,7 +11,7 @@
 
 ]
 <BOUCLE_resume_article_selection(ARTICLES){id_article}>
-#SET{focal,center center} 
+#SET{focal,center center}
 <BOUCLE_focal(MOTS){id_rubrique}{id_groupe=20}{technique=oui}{0,1}>#SET{focal,#TITRE}</BOUCLE_focal>
 <article class="resume-article resume-article--selection-img-titre">
     <a href="#URL_ARTICLE">
@@ -20,12 +20,16 @@
                 [(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|oui)
                 [(#INCLURE{fond=inclure/article-logo,id_article,logo_format=#ENV{logo_format},focal=#GET{focal}})] ]
             </div>
-            <BOUCLE_nom_personne(MOTS){id_article}{id_groupe=11}{0,1}>
             <div class="overlay overlay--article-archive"></div>
             <header class="resume-article__header resume-article__header--selection-img-titre">
+                [(#REM) si catégorie Entretiens ]
+                <BOUCLE_nom_personne(MOTS){id_article}{id_groupe=11}{0,1}{si #ENV{id_mot}|=={11}}>
                 <h2 class="hN resume-article__titre resume-article__titre--selection-img-titre">[(#TITRE|prenom_nom)][ <small class="soustitre">(#INFO_TITRE{article,#ID_ARTICLE})</small>]</h2>
+                </BOUCLE_nom_personne>
+                [(#REM) si toutes les autres catégories]
+                <h2 class="hN resume-article__titre resume-article__titre--selection-img-titre">[(#TITRE)]</h2>
+                <//B_nom_personne>
             </header>
-            </BOUCLE_nom_personne>
         </div>
     </a>
 </article>
