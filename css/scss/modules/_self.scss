@@ -5,27 +5,27 @@
         overflow: hidden;
     }
 
-    /*  .self__header
-        ========================================================================== */
+/*  .self__header
+    ========================================================================== */
         .self__header {
-          .titre {
-            @include font-size(32px);
-            @include media-query(lap-and-up) {
-              @include font-size(36px)
+            .titre {
+                @include font-size(32px);
+                @include media-query(lap-and-up) {
+                    @include font-size(36px)
+                }
             }
-          }
         }
         /*
          * self__header--timeline
          */
-         .self__header--timeline {
+        .self__header--timeline {
             @include media-query(lap-and-up) {
                 text-align: center;
             }
-         }
+        }
 
-    /*  .self__titre
-        ========================================================================== */
+/*  .self__titre
+    ========================================================================== */
         .self__titre {
             color: #000;
         }
@@ -35,8 +35,8 @@
         }
 
 
-    /*  .self__chapo
-        ========================================================================== */
+/*  .self__chapo
+    ========================================================================== */
         .self__chapo {
             @include font-size(19px);
             @include media-query(lap-and-up) {
@@ -52,30 +52,39 @@
             position: relative;
          }
 
-    /* .self_body
-       ========================================================================== */
-        .self__body {}
+/*  .self_body
+    ========================================================================== */
+    .self__body {}
         
         /*
          * self__body--timeline
          */
-         .self__body--timeline {
+        .self__body--timeline {
             position: relative;
             .self__texte,
             .self__ps,
             .self__notes {
                 width: 100%;
             }
-         }
+        }
+        .self__body-rubrique--timeline {
+            @include media-query(lap-and-up) {
+                text-align: center;
+                .self__texte {
+                    margin: 0 auto;
+                    width: 50%;
+                }
+            }
+        }
 
-         /*
-          * self__body--mot
-          */
-          .self__body--mot {
+        /*
+        * self__body--mot
+        */
+        .self__body--mot {
             p {
                 @include font-size(22px);
             }
-          }
+        }
 
 // TODO : à fusionner
 

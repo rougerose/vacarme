@@ -13,7 +13,8 @@ module.exports = function(grunt) {
           style: 'compressed',
         },
         files: {
-          'css/vacarme.css':'css/vacarme.scss'
+          'css/vacarme.css':'css/vacarme.scss',
+          'css/vacarme_prive.css':'css/vacarme_prive.scss'
         }
       },
       dev: {
@@ -27,7 +28,8 @@ module.exports = function(grunt) {
           lineNumbers: true
         },
         files: {
-          'css/vacarme.css':'css/vacarme.scss'
+          'css/vacarme.css':'css/vacarme.scss',
+          'css/vacarme_prive.css':'css/vacarme_prive.scss'
         }
       }
     },

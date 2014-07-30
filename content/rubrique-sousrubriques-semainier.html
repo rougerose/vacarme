@@ -12,6 +12,11 @@
                     <p class="resume__auteur"><:par_auteur:><BOUCLE_auteurs(AUTEURS){id_auteur IN #GET{liste_auteurs}}{', '}>[(#NOM|prenom_nom)]</BOUCLE_auteurs></p>
                 </B_auteurs>
             </header>
+            [<div class="self__body self__body--timeline self__body-rubrique--timeline">
+                <div class="self__texte surlignable">
+                    (#DESCRIPTIF)
+                </div>
+            </div>]
             <div class="timeline timeline--2col">
                 <BOUCLE_articles_semainier(ARTICLES){id_rubrique}{par num titre, date}> 
                 <div class="timeline__item[ timeline__item--(#COMPTEUR_BOUCLE|alterner{pair,impair})] timeline-dot">

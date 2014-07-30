@@ -84,10 +84,12 @@
                 }
                 &:before {
                     top: -13px;
+                    top: 0;
                     right: -45px;
                     left: auto;
                 }
             }
+            img {margin-top: 1em;}
         }
         .spip_documents_left,
         .spip_documents_right {
