@@ -13,9 +13,10 @@
     }
     .thumbnail-container {
         overflow:hidden;
+        position: relative;
         width: 120%;
         height: 120%;
-        @include transform(translate(-10px,-20px));
+        @include transform(translate(-10px,-5px));
         @include transition(transform 0.35s,opacity 0.35s);
         @include backface-visibility(hidden);
         a:hover & {
@@ -39,9 +40,19 @@
             @include media-query(lap) {height: 280px; }
             @include media-query(desk) { height: 300px; }
         }
-        // &.is--1\/4 {
-        //     @include media-query(lap-and-up) {height: 300px; }
-        // }
+    }
+    .thumbnail-container {
+        @include media-query(desk) {
+            &.is--1\/2 {
+                &.is--paysage {
+                    width: 200%;
+                    left: -50%;
+                }
+                &.is--portrait {
+                    top: -10%;
+                }
+            }
+        }
     }
 
     // .thumbnail-container {

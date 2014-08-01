@@ -16,7 +16,7 @@
     resize
 
 ]
-<BOUCLE_article_logo(RUBRIQUES){id_rubrique}>
+<BOUCLE_rubrique_logo(RUBRIQUES){id_rubrique}>
 #SET{focal,#ENV{focal,center center}}
 [(#SET{t,#LOGO_RUBRIQUE})]
 [(#GET{t}|largeur|>{#GET{t}|hauteur}|?{#SET{o,paysage},#SET{o,portrait}})]
@@ -27,14 +27,11 @@
         [<img src="(#LOGO_RUBRIQUE|image_reduire{450,0}|image_recadre{450,630,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
     })]
 ][(#ENV{logo_format}|=={1/2}|oui)
-    [(#GET{o}|=={paysage}|?{ 
-        [<img src="(#LOGO_RUBRIQUE|image_reduire{534,0}|image_recadre{534,356,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">],
-        [<img src="(#LOGO_RUBRIQUE|image_reduire{534,0}|image_recadre{534,747,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
-    })]
+    [<img src="(#LOGO_RUBRIQUE|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
 ][(#ENV{logo_format}|=={1/1}|oui)
     [(#GET{o}|=={paysage}|?{ 
         [<img src="(#LOGO_RUBRIQUE|image_reduire{1000,0}|image_recadre{1000,666,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">],
         [<img src="(#LOGO_RUBRIQUE|image_reduire{1000,0}|image_recadre{1000,1399,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
     })]
 ]
-</BOUCLE_article_logo>
+</BOUCLE_rubrique_logo>

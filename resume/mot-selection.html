@@ -1,6 +1,6 @@
 [(#REM)
 
-    Résumé d'une rubrique, version selection dossiers, avec image.
+    Résumé d'un mot, version selection feuilletons, avec image.
     
     **********************************************************
     Variables environnement
@@ -10,15 +10,26 @@
     afficher_auteur     oui|''
 
 ]
-<BOUCLE_resume_rubrique_selection(RUBRIQUES){id_rubrique}>
-[(#SET{logo,#LOGO_RUBRIQUE})]
+<BOUCLE_resume_mot_selection(MOTS){id_mot}>
+#SET{rubrique,''}
+#SET{logo,#LOGO_MOT}
+<BOUCLE_logo_alt(ARTICLES){id_mot}{id_secteur=115}{par hasard}{0,1}><BOUCLE_numero(HIERARCHIE){id_article}>[(#PROFONDEUR|=={1}|oui) #SET{rubrique,#ID_RUBRIQUE} [(#GET{logo}|non)#SET{logo,#LOGO_RUBRIQUE}] ]</BOUCLE_numero></BOUCLE_logo_alt>
+
 [(#GET{logo}|largeur|>{#GET{logo}|hauteur}|?{#SET{orientation,paysage},#SET{orientation,portrait}})]
+
 <article class="resume-article resume-article--selection-img-titre">
-    <a href="#URL_RUBRIQUE">
+    <a href="#URL_MOT">
         <div class="resume-article__logo resume-article__logo--selection-img-titre thumbnail[ is--(#ENV{logo_format})]">
-            [(#LOGO_RUBRIQUE|oui)
+            [(#GET{logo}|oui)
             <div class="thumbnail-container[ is--(#ENV{logo_format})][ is--(#GET{orientation})]">
-                [(#INCLURE{fond=inclure/rubrique-logo,id_rubrique,logo_format=#ENV{logo_format},orientation=#GET{orientation}})]
+                [(#LOGO_MOT|oui)
+                    [(#INCLURE{fond=inclure/mot-logo,id_mot,logo_format=#ENV{logo_format}})]
+                ]
+                [(#LOGO_MOT|non)
+                    [(#GET{rubrique}|oui)
+                        [(#INCLURE{fond=inclure/rubrique-logo,id_rubrique=#GET{rubrique},logo_format=#ENV{logo_format}})]
+                    ]
+                ]
             </div>]
             <div class="overlay overlay--article-archive"></div>
             <header class="resume-article__header resume-article__header--selection-img-titre">
@@ -27,4 +38,4 @@
         </div>
     </a>
 </article>
-</BOUCLE_resume_rubrique_selection>
+</BOUCLE_resume_mot_selection>

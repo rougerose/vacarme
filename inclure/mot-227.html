@@ -6,15 +6,11 @@
         <div class="grid__item">
             <h1 class="hN intertitre-section intertitre-section--first is-couleur-#ID_GROUPE-text"><:categorie_selection:></h1>
         </div><!-- /.grid__item -->
-        <BOUCLE_item1(GRAPPES_LIENS){id_grappe=#ID_OBJET}{par rang}{0,1}>
-        [<div class="grid__item desk-two-quarters">
-            (#INCLURE{fond=resume/rubrique-selection,id_rubrique=#ID_OBJET,logo_format=1/1,id_mot})
-        </div><!-- /.grid__item -->]
-        </BOUCLE_item1><BOUCLE_item2_3(GRAPPES_LIENS){id_grappe=#ID_OBJET}{par rang}{1,2}>
+        <BOUCLE_item1(GRAPPES_LIENS){id_grappe=#ID_OBJET}{par rang}{0,4}>
         [<div class="grid__item lap-one-half desk-one-quarter">
             (#INCLURE{fond=resume/rubrique-selection,id_rubrique=#ID_OBJET,logo_format=1/2,id_mot})
         </div><!-- /.grid__item -->]
-        </BOUCLE_item2_3>
+        </BOUCLE_item1>
     </section>
     </B_item1>
 </BOUCLE_grappe_selection>
