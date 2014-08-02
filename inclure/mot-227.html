@@ -1,0 +1,38 @@
+<BOUCLE_mot(MOTS){id_mot}>
+<B_grappe_selection>
+<BOUCLE_grappe_selection(spip_mots_liens){id_mot}{objet=grappe}{0,1}>
+    <B_item1>
+    <section class="mb++">
+        <div class="grid__item">
+            <h1 class="hN intertitre-section intertitre-section--first is-couleur-#ID_GROUPE-text"><:categorie_selection:></h1>
+        </div><!-- /.grid__item -->
+        <BOUCLE_item1(GRAPPES_LIENS){id_grappe=#ID_OBJET}{par rang}{0,4}>
+        [<div class="grid__item lap-one-half desk-one-quarter">
+            (#INCLURE{fond=resume/rubrique-selection,id_rubrique=#ID_OBJET,logo_format=1/2,id_mot})
+        </div><!-- /.grid__item -->]
+        </BOUCLE_item1>
+    </section>
+    </B_item1>
+</BOUCLE_grappe_selection>
+</B_grappe_selection>
+
+<section class="mb+">
+    <div class="grid__item">
+        <div class="grid">
+            <div class="grid__item lap-and-up-one-quarter">
+                <h1 class="hN intertitre-section intertitre-section--first is-couleur-#ID_GROUPE-text">[(#VAL{local:categorie_tous_#ID_MOT}|_T)]</h1>
+            </div><!-- /.grid__item -->
+            <div class="grid__item lap-and-up-three-quarters">
+                <INCLURE{fond=nav/filtres-dossiers,id_mot,env} />
+            </div><!-- /.grid__item -->
+        </div><!-- /.grid -->
+    </div><!-- /.grid__item -->
+
+    <BOUCLE_test_tri(CONDITION){si #ENV{mots}}>
+        <INCLURE{fond=inclure/mot-227-theme,env} />
+    </BOUCLE_test_tri>
+        <INCLURE{fond=inclure/mot-227-date,env} />
+    <//B_test_tri>
+
+</section>
+</BOUCLE_mot>

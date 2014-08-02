@@ -1,6 +1,23 @@
+Page auteurs:
+ ☐ elle est à refaire. 
+
+Page mot:
+ ☐ refaire en fonction de la maquette envisagée
+
+Page motS:
+ ☐ à faire
+
 Videos:
  ☐ articles en sélection : afficher titre en surimpression image + éventuellement carousel ?
-   
+
+Dossier:
+ ☐ article > sommaire du dossier : afficher le logo du dossier en marge gauche comme pour la couverture du numéro ?Ou alors en image de fond + dégradé derrière le sommaire ?
+
+ Article:
+  ☐ vérifier l'affichage des documents joints.
+
+jqueryui:
+ ☐ le pipeline du plugin prévoit de ne pas charger les css dans les pages publiques (avec un define), mais ça ne semble pas fonctionner. A régler plus tard
 Non classé:
  ☐ Important : couverture numéro dans article : ajouter boutons abonner/acheter.
  ☐ qualifier les auteurs : http://plugins.spip.net/roles_auteurs.html
@@ -21,25 +38,25 @@ Non classé:
  ☐ affichage palm, rubrique d'un numéro. Certains articles ont une marge gauche supérieure à certains autres.
  ☐ rubrique Au front : elle est invisible actuellement. Trouver une solution pour son emplacement et son affichage.
  ☐ @Fil : dépublier toutes les brèves.
- ☐ Page Entretiens : si on veut un index des interviews par nom de personne, il va falloir procéder autrement. En l'état, impossible a priori, de faire un tri alphabétique. Rajouter un mot-clé Personne à chaque entretien dont le titre sera noté Nom*prénom ? 
  ☐ formulaire (notamment login et spip_pass) : mise en forme à faire.
  ☐ Multilinguisme : gérer les traductions et le fait que certains articles ne sont pas en français.
  ☐ article d'un numéro : ajouter navigation interne dans une rubrique + retour au sommaire. 
  ☐ ajouter fil d'Ariane
  ☐ ajouter pied de page
  ☐ UNIFIER : pour la rubrique numeros : chaque numéro devrait appeler inclure/resumes/numero.html
- ☐ mot-contenu-11 (entretiens) : proposer un tri par numéro en plus du tri alpha qui est proposé par défaut ? 
  ☐ auteurs : revoir le html notamment au niveau du résumé auteur. Et utiliser pour le nom d'auteur la class resume--hero mise en place pour les entretiens, tribunes, etc. 
- ☐ mot-contenu-standard : seuls les articles sont affichés. Afficher également les rubriques ? Pour le moment, il s'agit d'afficher Critiques et Société uniquement, donc les rubriques n'ont pas beaucoup d'intérêt (?).
- ☐ utiliser les compositions pour tous les articles ? 
  ☐ le traitement des logos dans le squelette article et les compositions sont différentes. Il faut harmoniser. 
  ☐ supprimer les sous-titres des pages accueil, rubrique, index, etc...
  ☐ Rubrique d'un numéro : calculer l'info relative à la gratuité et le l'affichage du verrou en fonction de la date de sortie du numéro et non de la date de publication de l'article. Cela permet de publier des archives
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ utiliser les compositions pour tous les articles ? @done (14-07-14 14:44) @project(Non classé)
+ ✔ mot-contenu-standard : seuls les articles sont affichés. Afficher également les rubriques ? Pour le moment, il s'agit d'afficher Critiques et Société uniquement, donc les rubriques n'ont pas beaucoup d'intérêt (?). @done (14-07-14 14:44) @project(Non classé)
+ ✔ mot-contenu-11 (entretiens) : proposer un tri par numéro en plus du tri alpha qui est proposé par défaut ? @done (14-07-14 14:44) @project(Non classé)
+ ✔ Page Entretiens : si on veut un index des interviews par nom de personne, il va falloir procéder autrement. En l'état, impossible a priori, de faire un tri alphabétique. Rajouter un mot-clé Personne à chaque entretien dont le titre sera noté Nom*prénom ? @done (14-07-14 14:43) @project(Non classé)
  ✔ Fusionner composition article-numero et article : la dissociation n'a pas vraiment d'utilité. Et un seul squelette permet de régler le problème de la couverture d'un numéro qui doit apparaitre sur un article d'un dossier "travail en cours" qui est aussi dans un chantier d'un numéro. @done (14-06-20 12:36) @project(Videos)
- ✔ navigation : styles avec js désactivé @done (13-08-06 12:59)
- ✔ pied de page article : version plus simple (sans "à propos de l'article + version en ligne") pour les articles hors du secteur 115 ? @done (13-09-26 00:04)
- ✔ article = gérer les versions intégrales et les aperçus. !! IMPORTANT !! @done (13-10-20 10:49)
  ✔ rubrique-numero_rubrique = pour le moment, le sommaire du numéro intégrale est repris. Modifier dans un second temps. Principe envisageable : @done (13-10-20 10:50)
+ ✔ article = gérer les versions intégrales et les aperçus. !! IMPORTANT !! @done (13-10-20 10:49)
+ ✔ pied de page article : version plus simple (sans "à propos de l'article + version en ligne") pour les articles hors du secteur 115 ? @done (13-09-26 00:04)
+ ✔ navigation : styles avec js désactivé @done (13-08-06 12:59)

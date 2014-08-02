@@ -2,15 +2,22 @@
 
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
-// jquery ui tabs
-function vacarme_jqueryui_plugins($scripts){
-    $scripts[] = "jquery.ui.tabs";
-    return $scripts;
-}
-
 // css spécifiques
 function vacarme_header_prive_css($flux) {
     $flux .= '<link rel="stylesheet" type="text/css" href="'._DIR_PLUGIN_VACARME.'css/vacarme_prive.css" />';
     return $flux;
 }
+
+// cron
+
+// fonction désactivée pour le moment. La date de rédaction n'étant pas disponible
+// pour tous les articles (hors secteur 115), le tri par date_redac dans la recherche
+// est donc faussé. Le tri dans la recherche se fera sur la date de publication
+// pour le moment.
+
+function vacarme_taches_generales_cron($taches_generales) {
+    // $taches_generales['ajouter_date_redac_articles'] = 60*10;
+    return $taches_generales;
+}
+
 ?>

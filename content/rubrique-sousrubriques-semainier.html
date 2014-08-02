@@ -1,5 +1,4 @@
 <BOUCLE_sousrubrique_semainier(RUBRIQUES){id_rubrique}>
-<BOUCLE_soustitre(MOTS){id_rubrique}{id_groupe=15}{0,1}>#SET{soustitre,#TITRE}</BOUCLE_soustitre>
 <BOUCLE_auteurs_articles(ARTICLES){id_rubrique}><BOUCLE_liste_auteurs(AUTEURS){id_article}>[(#SET_PUSH{liste_auteurs,#ID_AUTEUR})]</BOUCLE_liste_auteurs></BOUCLE_auteurs_articles>
 <div class="grid">
     <article class="rubrique self">
@@ -8,11 +7,16 @@
                 <p class="self-meta__item"><span class="self-meta__item--titre">(#INFO_TITRE{rubrique,#ID_PARENT})</span></p>
             </div><!-- /.self-meta--head-timeline -->]
             <header class="self__header self__header--timeline">
-                <h1 class="hN"><span class="#EDIT{titre} titre">#TITRE</span>[ <small class="#EDIT{soustitre} soustitre">(#GET{soustitre})</small>]</h1>
+                <h1 class="hN"><span class="#EDIT{titre} titre">#TITRE</span></h1>
                 <B_auteurs>
                     <p class="resume__auteur"><:par_auteur:><BOUCLE_auteurs(AUTEURS){id_auteur IN #GET{liste_auteurs}}{', '}>[(#NOM|prenom_nom)]</BOUCLE_auteurs></p>
                 </B_auteurs>
             </header>
+            [<div class="self__body self__body--timeline self__body-rubrique--timeline">
+                <div class="self__texte surlignable">
+                    (#DESCRIPTIF)
+                </div>
+            </div>]
             <div class="timeline timeline--2col">
                 <BOUCLE_articles_semainier(ARTICLES){id_rubrique}{par num titre, date}> 
                 <div class="timeline__item[ timeline__item--(#COMPTEUR_BOUCLE|alterner{pair,impair})] timeline-dot">
@@ -26,7 +30,7 @@
                             </header>
                             [<div class="resume-article__desc">
                                 <div class="resume__desc">
-                                    (#DESCRIPTIF|sinon{#INTRODUCTION|couper{100}|wrap{<p>}})
+                                    (#DESCRIPTIF|sinon{#INTRODUCTION{400}|wrap{<p>}})
                                 </div>
                                 <p class="more more--read"><a href="#URL_ARTICLE"><:local:more_read:></a></p>
                             </div>]

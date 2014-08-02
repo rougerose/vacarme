@@ -1,0 +1,38 @@
+[(#REM)
+
+    Résumé d'un article, version selection (pages catégories), avec image.
+    
+    **********************************************************
+    Variables environnement
+    **********************************************************
+    logo_format         1/4|1/2|1/1
+
+    afficher_auteur     oui|''
+
+    orientation         paysage|portrait
+
+]
+<BOUCLE_resume_article_selection(ARTICLES){id_article}>
+[(#SET{logo,#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}})]
+[(#GET{logo}|largeur|>{#GET{logo}|hauteur}|?{#SET{orientation,paysage},#SET{orientation,portrait}})]
+<article class="resume-article resume-article--selection-img-titre">
+    <a href="#URL_ARTICLE">
+        <div class="resume-article__logo resume-article__logo--selection-img-titre thumbnail[ is--(#ENV{logo_format})]">
+            [(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|oui)
+            <div class="thumbnail-container[ is--(#ENV{logo_format})][ is--(#GET{orientation})]">
+                [(#INCLURE{fond=inclure/article-logo,id_article,logo_format=#ENV{logo_format},orientation=#GET{orientation}})]
+            </div>]
+            <div class="overlay overlay--article-archive"></div>
+            <header class="resume-article__header resume-article__header--selection-img-titre">
+                [(#REM) si catégorie Entretiens ]
+                <BOUCLE_nom_personne(MOTS){id_article}{id_groupe=11}{0,1}{si #ENV{id_mot}|=={11}}>
+                <h2 class="hN resume-article__titre resume-article__titre--selection-img-titre">[(#TITRE|prenom_nom)][ <small class="soustitre">(#INFO_TITRE{article,#ID_ARTICLE})</small>]</h2>
+                </BOUCLE_nom_personne>
+                [(#REM) si toutes les autres catégories]
+                <h2 class="hN resume-article__titre resume-article__titre--selection-img-titre">[(#TITRE)]</h2>
+                <//B_nom_personne>
+            </header>
+        </div>
+    </a>
+</article>
+</BOUCLE_resume_article_selection>

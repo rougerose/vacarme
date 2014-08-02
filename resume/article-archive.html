@@ -1,0 +1,44 @@
+[(#REM)
+
+    Résumé d'un article, version archive (page d'accueil), avec image.
+    
+    **********************************************************
+    Variables environnement
+    **********************************************************
+    logo_format         1/4|1/2
+    recadrage           portrait|paysage|''
+
+    afficher_auteur     oui|''
+
+]
+<BOUCLE_resume_article_archive(ARTICLES){id_article}>
+#SET{focal,center center}
+<article class="resume-article">
+    <a href="#URL_ARTICLE">
+        <div class="resume-article__logo thumbnail[ is--(#ENV{logo_format})]">
+            <div class="thumbnail-container[ is--(#ENV{logo_format})][ is--(#GET{focal}|explode{' '}|implode{-})]">
+                [(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|oui)
+                [(#INCLURE{fond=inclure/article-logo,id_article,logo_format=#ENV{logo_format},focal=#GET{focal},recadrage=#ENV{recadrage}})] ]
+            </div>
+            <BOUCLE_titre_numero(HIERARCHIE){id_rubrique}{tout}>
+            [(#PROFONDEUR|=={1}|oui)
+                <div class="overlay overlay--article-archive"></div>
+                <div class="resume-article__numero">
+                    <h2 class="hN resume-article__numero-titre">[(#TITRE)][ <small class="soustitre">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</small>]</h2>
+                </div>
+            ]
+            </BOUCLE_titre_numero>
+        </div>
+    </a>
+    <header class="resume-article__header">
+        <h1 class="hN resume-article__titre"><a href="#URL_ARTICLE">#TITRE</a></h1>
+        [(#ENV{afficher_auteur}|non)
+            [<p class="resume-article__auteurs auteurs"><:par_auteur:>(#MODELE{auteurs,id_article=#ENV{id_article},contexte=resume})</p>]
+        ]
+    </header>
+    <div class="resume-article__descriptif">
+        [(#DESCRIPTIF|sinon{#INTRODUCTION|couper{100}|wrap{<p>}})]
+        <p><a href="#URL_ARTICLE" class="suite-lien"><:suite_lire:> <em>&#8594;</em></a></p>
+    </div>
+</article>
+</BOUCLE_resume_article_archive>

@@ -163,6 +163,7 @@
             &.self__body--timeline {
                 &:before {
                     bottom: auto;
+                    top: -3em;
                 }
             }
             @include media-query(lap-and-up) {
@@ -213,7 +214,9 @@
             }
             .timeline__item--pair & {
                 &:before {
-                    left: -40px;
+                    @include media-query(lap-and-up) {
+                        left: -40px;
+                    }
                 }
             }
          }

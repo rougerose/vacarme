@@ -2,10 +2,12 @@
 
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
+// define('_JQUERYUI_CSS_NON',1);
+
 // en dev, pas de cache
 // define('_NO_CACHE', 1);
 
-//define('_LOG_FILTRE_GRAVITE',7);
+// define('_LOG_FILTRE_GRAVITE',5);
 //define('_LOG_FILELINE',true);
 
 // intertitres

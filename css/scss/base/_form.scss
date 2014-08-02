@@ -27,15 +27,10 @@ input[type="search"] {
     
 }
 
-.formulaire_recherche {
-    .js & {
-        margin: 2em 0 0;
-    }
-}
-    .search__form {text-align:center;}
-    .search__label {
-        @include accessibility;
-    }
+.formulaire_recherche {}
+    
+    .search__label {@include accessibility;}
+
     .search__field {
         padding-left: 0.2em;
         width: 15em;
@@ -43,29 +38,42 @@ input[type="search"] {
         border-radius: 4px;
         margin-right: 0.3em;
         background: #fff;
-        font-family: $font-HC;
-        line-height: 1.5;
+        line-height: 1.4;
         box-shadow: inset 0 1px 2px rgba(0,0,0,0.09);
         .js & {
             width: 70%;
             background: #fff;
-            @include font-size(36px,$line-height:false);
+            @include font-size(34px,$line-height:false);
         }
     }
     .search__submit {
         border: 1px solid #ccc;
         border-radius: 4px;
         background: #fefefe;
+        padding: 0.25em;
         color:$color-text-input;
         font-family: $font-HC;
-        line-height: 1.4;
+        line-height: 1.2;
+        vertical-align: bottom;
         @include transition (all 0.3s ease-in-out);
         .js & {
             width: 15%;
-            @include font-size(36px,$line-height:false);
+            @include font-size(30px,$line-height:false);
         }
         &:hover {
             color: #000;
-            background: $color-text-input;
+            // background: $color-text-input;
         }
+    }
+
+/*  modificateurs
+    ========================================================================== */
+    .s--header {
+        .js & {
+            margin: 2em 0 0;
+        }
+        .search__form {text-align:center;}
+    }
+    .s--recherche {
+        margin: 2em 0;
     }

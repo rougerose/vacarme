@@ -7,9 +7,7 @@
             </header>
             <div class="timeline timeline--2col">
                 <BOUCLE_sousrubriques_semainier(RUBRIQUES){id_parent}{par num titre}>
-                #SET{liste_auteurs,''} #SET{soustitre,''}
-                [(#REM) Le sous-titre du semainier, issu du groupe @feuilletons ]
-                    <BOUCLE_soustitre_semainier(MOTS){id_rubrique}{id_groupe=15}{0,1}>#SET{soustitre,#TITRE}</BOUCLE_soustitre_semainier>
+                #SET{liste_auteurs,''}
                 [(#REM) Les auteurs des articles du semainier ]
                     <BOUCLE_articles_semainier(ARTICLES){id_rubrique}>
                         <BOUCLE_liste_auteurs(AUTEURS){id_article}>[(#SET_PUSH{liste_auteurs,#ID_AUTEUR})]</BOUCLE_liste_auteurs>
@@ -21,11 +19,16 @@
                         </div>
                         <div class="resume-semainier__body">
                             <header>
-                                <h1 class="hN resume__titre"><a href="[(#URL_RUBRIQUE)]">#TITRE[ <small class="resume__soustitre">(#GET{soustitre})</small>]</a></h1>
+                                <h1 class="hN resume__titre"><a href="[(#URL_RUBRIQUE)]">#TITRE</a></h1>
                                 <B_auteurs>
                                 <p class="resume__auteur"><:par_auteur:><BOUCLE_auteurs(AUTEURS){id_auteur IN #GET{liste_auteurs}}{', '}>[(#NOM|prenom_nom)]</BOUCLE_auteurs></p>
                                 </B_auteurs>
                             </header>
+                            [<div class="resume-article__desc">
+                                <div class="resume__desc">
+                                    (#DESCRIPTIF) 
+                                </div>
+                            </div>]
                             <ul class="bare-list">
                                 <BOUCLE_articles_jour(ARTICLES){id_rubrique}{par num titre, date}>
                                 <li class=""><h2 class="hN resume__titre--jour timeline-dot timeline-dot--s timeline-dot--gris"><a href="#URL_ARTICLE">#TITRE</a></h2></li>

@@ -1,30 +1,55 @@
 [(#REM) 
-    Les variantes des fichiers à inclure selon l'ID_MOT
-    ===================================================
-    - 11 => Entretiens
-    - 227 => Dossiers
-    - 231 => Tribunes
-    - 302 => Feuilletons
+    Les différents mots-clés de type Catégories
+    ==========================================================================
+    Entretiens  => 11
+    Dossiers    => 227
+    Tribunes    => 231
+    Feuilletons => 302
+    Ecritures   => 4
+    Critiques   => 451
+    Enquetes    => 529
+    Fronts      => 521
+    Mouvements  => 522
+
+    Quels squelettes selon les cas ?
+    ==========================================================================
+    Tous les autres mots-clés s'affichent selon un squelette standard.
+
+    Mais Tribunes, Ecritures, Critiques, Enquetes, Fronts et Mouvements
+    sont traités de manière identique, donc utilisation d'un unique 
+    squelette, variante 1.
+
 ]
-[(#SET{variantes_skel,#LISTE{11,227,231,302}})]
+    #SET{variante_1,#LISTE{231,4,451,529,521,522}}
+    #SET{variante_2,#LISTE{11}}
+    #SET{variante_3,#LISTE{227}}
+    #SET{variante_4,#LISTE{302}}
+
 <BOUCLE_mot(MOTS){id_mot}>
 <div class="grid">
     <article class="self mot">
-        <div class="grid__item">
-            <header class="self__header self__header--rubrique">
-                <h1 class="hN titre"><span class="#EDIT{titre}">[(#TITRE|prenom_nom)]</span></h1>
+        <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
+            <header class="self__header">
+                <h1 class="hN titre self__titre self__titre--mot[ is-couleur-(#ID_GROUPE)-text]"><span class="#EDIT{titre}">[(#TITRE|prenom_nom)]</span></h1>
             </header>
-        </div><!-- /.grid__item -->
-        [<div class="grid__item desk-three-quarters push--desk-one-quarter">
-            <div class="self__body self__body--rubrique landmark">
-                <div class="#EDIT{texte} self__texte surlignable">
-                    (#TEXTE|image_reduire{500,0})
+            [<div class="self__body self__body--mot mb++">
+                <div class="#EDIT{texte} surlignable">
+                    (#TEXTE)
                 </div>
-            </div>
-        </div><!-- /.grid__item -->]
-        [(#GET{variantes_skel}|find{#ID_MOT}|?{
-            [(#INCLURE{fond=inclure/mot-contenu-mot#ID_MOT,id_mot})],
-            [(#INCLURE{fond=inclure/mot-contenu-standard,id_mot})]
+            </div>]
+        </div><!-- /.grid__item -->
+        [(#GET{variante_1}|find{#ID_MOT}|?{
+            [(#INCLURE{fond=inclure/mot-variante-1,id_mot,env,ajax})],
+            [(#GET{variante_2}|find{#ID_MOT}|?{
+                [(#INCLURE{fond=inclure/mot-11,id_mot,env,ajax})],
+                [(#GET{variante_3}|find{#ID_MOT}|?{
+                    [(#INCLURE{fond=inclure/mot-227,id_mot,env,ajax})],
+                    [(#GET{variante_4}|find{#ID_MOT}|?{
+                        [(#INCLURE{fond=inclure/mot-302,id_mot,env,ajax})],
+                        [(#INCLURE{fond=inclure/mot-standard,id_mot,env,ajax})]
+                    })]
+                })]
+            })]
         })]
     </article>
 </div><!-- /.grid -->

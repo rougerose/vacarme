@@ -1,0 +1,23 @@
+<BOUCLE_mot(MOTS){id_mot}>
+
+<BOUCLE_articles_feuilletons(ARTICLES){id_mot}{!par date}>
+    <BOUCLE_mots_g_14_15_articles(MOTS){id_article}{id_groupe IN 14,15}{doublons}>
+        [(#SET{element, #ARRAY{id_objet,#ID_MOT,date,#_articles_feuilletons:DATE}})]
+        [(#SET_PUSH{elements,#GET{element}})]
+    </BOUCLE_mots_g_14_15_articles>
+</BOUCLE_articles_feuilletons>
+
+<B_feuilletons>
+#ANCRE_PAGINATION
+<BOUCLE_feuilletons(DATA){source table,#GET{elements}}{!par date}{pagination 20}>
+<div class="grid__item lap-and-up-one-half">
+    #SET{id_objet,#VALEUR|table_valeur{id_objet}}
+    [(#INCLURE{fond=resume/mot-dossiers,id_mot=#GET{id_objet},logo_format=1/2,suite=<:suite_feuilleton:>,id_mot_reference=#ID_MOT})]
+</div><!-- /.grid__item -->
+</BOUCLE_feuilletons>
+[<div class="grid__item">
+    <nav class="pagination pagination--bottom pagination--page nav--position nav--is-bottom">(#PAGINATION{li})</nav>
+</div><!-- /.grid__item -->]
+</B_feuilletons>
+
+</BOUCLE_mot>

@@ -18,12 +18,43 @@ a {
 .spip_in,
 .spip_out,
 .liens a {
-    border-bottom: 1px dotted $link-color;
-    &:hover {
-            color: #000; //#d8680d;
-            border-bottom-style: solid;
-        }
+  border-bottom: 1px dotted $link-color;
+  &:hover {
+    color: #000; //#d8680d;
+    border-bottom-style: solid;
+  }
 }
+
+/* .suite-lien
+   ========================================================================== */
+   .suite-lien {
+       position: relative;
+       border-bottom: 1px dotted $couleur-gris-bleu;
+       // margin-left: 0.5em;
+       font-style: italic;
+       color: #000;
+       em {
+           font-style: normal;
+           @include transition(all 0.35s ease-out);
+       }
+       // &:before {
+       //     position: absolute;
+       //     top: 0;
+       //     left: -0.5em;
+       //     width: 1px;
+       //     height: 100%;
+       //     content: '';
+       //     border-left: 1px solid $couleur-gris-clair;
+       // }
+       &:hover {
+           color: $couleur-lien;
+           border-bottom: 1px solid $couleur-lien;
+           em {
+               padding-left:0.5em;
+               color: $couleur-lien;
+           }
+       }
+   }
 
 /*==========  more  ==========*/
 .more {

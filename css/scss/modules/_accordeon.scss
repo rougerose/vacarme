@@ -1,0 +1,63 @@
+/*  ==========================================================================
+    .accordeon
+    ========================================================================== */
+    .accordeon {}
+        .accordeon__container {
+            overflow: hidden;
+            margin-bottom: 2em;
+            &.resume-article { margin-left: 1em; }
+        }
+            .accordeon__header {
+                position: relative;
+                cursor: pointer;
+                &:hover {
+                    color: $couleur-lien;
+                }
+            }
+                .accordeon__header-titre {
+                    border-bottom: 1px solid $couleur-gris-sombre;
+                    @include font-size(18px);
+                    font-style: italic;
+                    @include transition(border-color 0.35s ease-out,color 0.35s);
+                    @include media-query(palm) { padding-right: 2em; }
+                }
+                .accordeon__header-date {
+                    display: block;
+                    color: $couleur-gris;
+                    @include media-query(lap-and-up) {
+                        display: inline;
+                        padding-left: 1em;
+                    }
+                }
+            .accordeon__body { 
+                @extend .cf;
+                // .js & { display:none; }
+                .resume-article & {
+                    border-bottom: 1px dotted $couleur-lien;
+                }
+            }
+                .accordeon__descriptif {
+                    width: 50%;
+                    float: left;
+                }
+            .accordeon__footer {
+                &.resume-article__footer {
+                    position: relative;
+                    z-index: -1;
+                    padding: 5px 10px 0;
+                    width: 50%;
+                    max-height: 150px;
+                    float: right;
+                    @include media-query(lap-and-up) { max-height: 200px; }
+                    img {
+                        box-shadow: 0 3px 5px rgba(0,0,0,0.8);
+                    }
+                }
+            }
+
+/*  .modificateurs
+    ========================================================================== */
+    .accordeon__header-titre--filtres {
+        font-family: $font-HLC;
+        font-style: normal;
+    }

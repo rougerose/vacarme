@@ -7,13 +7,13 @@
 
 .videos-carousel {
     padding-bottom: 1.5em;
-    &:after {
-        content:'';
-        height: 1px;
-        display: block;
-        margin-top: 1.5em;
-        @include background-image(linear-gradient(to right,transparent 0%,#000 50%,transparent 100%));
-    }
+    // &:after {
+    //     content:'';
+    //     height: 1px;
+    //     display: block;
+    //     margin-top: 1.5em;
+    //     @include background-image(linear-gradient(to right,transparent 0%,#000 50%,transparent 100%));
+    // }
 }
 .carousel__item {
     display: inline-block;

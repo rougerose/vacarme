@@ -1,0 +1,52 @@
+/*  ==========================================================================
+    .pagination
+    ========================================================================== */
+
+    .pagination {
+        position: relative;
+    }
+    .pagination__label {
+        @include font-size(16px);
+        display: inline-block;
+        color: $couleur-gris-bleu;
+        margin-right: 2em;
+    }
+        .pagination__item {
+            a,
+            span,
+            strong {
+                display: block;
+                padding: 0 0.35em;
+                margin: 0 0.15em;
+            }
+        }
+
+
+/*  modificateurs
+    ========================================================================== */
+
+    .pagination--top {}
+
+    .pagination--abc {
+        padding: 0 0.2em;
+        @include font-size(20px);
+    }
+    .pagination--abc__item { 
+        a,span,strong { margin: 0; }
+    }
+    .pagination--page,
+    .pagination--prev-next {
+        text-align: center;
+    }
+
+/*  états
+    ========================================================================== */
+
+    .pagination__item--is-disabled {
+        color: rgba(0,0,0,0.15);
+    }
+    .pagination__item--is-active {
+        .on {
+            @include font-size(22px);
+        }
+    }

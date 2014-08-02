@@ -7,16 +7,16 @@
 
     (#SET{item, #ENV{page_courante}|moins{2}|mult{#ENV{pas}} })
 
-]<ul class="nav">
-    [<li class="prev pagination__item[(#ENV{page_courante}|<={1}|oui)disabled]">(#ENV{url_precedent,#ENV{url}
+]<ul class="inline-list">
+    [<li class="inline-list__item prev pagination__item[(#ENV{page_courante}|<={1}|oui) nav-item--is-disabled]">(#ENV{url_precedent,#ENV{url}
         |parametre_url{#ENV{debut},#GET{item}|?{#GET{item}}}}
         |ancre_url{#ENV{ancre}}
         |lien_ou_expose{#ENV{label_precedent,<:local:page_previous:>},#ENV{page_courante}|<={1},'lien_pagination','',nofollow}
         |inserer_attribut{rel,prev})</li
-    >]<li class="pagination__item"><span class="on"><:local:info_page:>[ (#ENV{page_courante})]/[(#ENV{nombre_pages})]</span></li
+    >]<li class="inline-list__item pagination__item nav-item--is-active"><span class="on"><:local:info_page:>[ (#ENV{page_courante})]/[(#ENV{nombre_pages})]</span></li
     >[
     (#SET{item, #ENV{page_courante}|mult{#ENV{pas}} })
-    ][<li class="next pagination__item[(#ENV{page_courante}|>={#ENV{nombre_pages}}|oui)disabled]">(#ENV{url_suivant,#ENV{url}
+    ][<li class="inline-list__item next pagination__item[(#ENV{page_courante}|>={#ENV{nombre_pages}}|oui) nav-item--is-disabled]">(#ENV{url_suivant,#ENV{url}
         |parametre_url{#ENV{debut},#GET{item}|?{#GET{item}}}}
         |ancre_url{#ENV{ancre}}
         |lien_ou_expose{#ENV{label_suivant,<:local:page_next:>},#ENV{page_courante}|>={#ENV{nombre_pages}},'lien_pagination','',nofollow}

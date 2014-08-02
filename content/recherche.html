@@ -1,41 +1,50 @@
-[(#REM) constante ][
-    (#SET{total,''})
+#SET{total,''} #SET{total_articles,''} #SET{total_auteurs,''} #SET{total_mots,''}
 
-]<BOUCLE_articles(ARTICLES){recherche}{!par points}{lang}>[
-(#SET_PUSH{articles,#ID_ARTICLE})
-]</BOUCLE_articles><BOUCLE_auteurs(AUTEURS){recherche}{!par points}>[
-(#SET_PUSH{auteurs,#ID_AUTEUR})
-]</BOUCLE_auteurs><BOUCLE_rubriques(RUBRIQUES){recherche}{!par points}>[
-(#SET_PUSH{rubriques,#ID_RUBRIQUE})
-]</BOUCLE_rubriques><BOUCLE_mots(MOTS){recherche}{!par points}>[
-(#SET_PUSH{mots,#ID_MOT})
-]</BOUCLE_mots>[
-(#SET{total,#GET{articles}|count
-    |plus{#GET{rubriques}|count}
-    |plus{#GET{auteurs}|count}
-    |plus{#GET{documents}|count}
-    |plus{#GET{mots}|count} }
-)]
+<BOUCLE_articles(ARTICLES){recherche}{!par points}{lang}> </BOUCLE_articles>[(#SET{total_articles,#TOTAL_BOUCLE})]</B_articles>
+<BOUCLE_auteurs(AUTEURS){recherche}> </BOUCLE_auteurs>[(#SET{total_auteurs,#TOTAL_BOUCLE})]</B_auteurs>
+<BOUCLE_mots(MOTS){recherche}{!par points}> </BOUCLE_mots>[(#SET{total_mots,#TOTAL_BOUCLE})]</B_mots>
+
+[(#SET{total,#GET{total_articles}|plus{#GET{total_auteurs}}|plus{#GET{total_mots}}})]
+
 <div class="grid">
     <article class="self recherche">
-        <div class="grid__item">
-            <header class="self__header self__header--rubrique">
-                <h1 class="hN titre"><:resultats_recherche:></h1>
+        <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
+            <header class="self__header">
+                <h1 class="hN titre"><:recherche_titre:></h1>
             </header>
+            #FORMULAIRE_RECHERCHE{'',s--recherche}
         </div><!-- /.grid__item -->
-
+        <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
         [(#GET{total}|>{0}|oui)
-        <div class="grid__item desk-three-quarters push--desk-one-quarter">[
-            (#GET{articles}|count|>{0}|oui)
-                [(#INCLURE{fond=liste/recherche-articles,selection=#GET{articles},env,ajax})]
-            ][(#GET{auteurs}|count|>{0}|oui)
-                [(#INCLURE{fond=liste/recherche-auteurs,selection=#GET{auteurs},env,ajax})]
-            ][(#GET{rubriques}|count|>{0}|oui)
-                [(#INCLURE{fond=liste/recherche-rubriques,selection=#GET{rubriques},env,ajax})]
-            ][(#GET{mots}|count|>{0}|oui)
-                [(#INCLURE{fond=liste/recherche-mots,selection=#GET{mots},env,ajax})]
-            ]
-        </div><!-- /.grid__item -->]
-        
+            <div id="tabs" class="tabs">
+                <nav id="tabs-nav" class="tabs-nav-container nav--position nav--is-top">
+                    <h1 class="hN tabs-nav-container__titre">[(#GET{total}|singulier_ou_pluriel{local:recherche_resultat,local:recherche_resultats})]</h1>
+                    <ul class="tabs-nav">
+                        [<li class="tabs-nav__item"><a href="#recherche-articles">(#GET{total_articles}|oui)[(#GET{total_articles}|singulier_ou_pluriel{local:nombre_article,local:nombre_articles})]</a></li>]
+                        [<li class="tabs-nav__item"><a href="#recherche-auteurs">(#GET{total_auteurs}|oui)[(#GET{total_auteurs}|singulier_ou_pluriel{local:nombre_auteur,local:nombre_auteurs})]</a></li>]
+                        [<li class="tabs-nav__item"><a href="#recherche-themes">(#GET{total_mots}|oui)[(#GET{total_mots}|singulier_ou_pluriel{local:nombre_mot,local:nombre_mots})]</a></li>]
+                    </ul>
+                </nav>
+                <div id="tabs-contenu" class="tabs-contenu">
+                    [(#GET{total_articles}|oui)
+                        <section id="recherche-articles" class="tabs-section">
+                            <h2 class="hN tabs-section__titre"><:info_articles:></h2>
+                        [(#INCLURE{fond=liste/recherche-articles,articles=#ENV{articles},env,ajax})]
+                        </section>
+                    ][(#GET{total_auteurs}|oui)
+                        <section id="recherche-auteurs" class="tabs-section">
+                            <h2 class="hN tabs-section__titre"><:info_auteurs:></h2>
+                        [(#INCLURE{fond=liste/recherche-auteurs,auteurs=#ENV{auteurs},env,ajax})]
+                        </section>
+                    ][(#GET{total_mots}|oui)
+                        <section id="recherche-themes" class="tabs-section">
+                            <h2 class="hN tabs-section__titre"><:info_themes:></h2>
+                        [(#INCLURE{fond=liste/recherche-mots,mots=#ENV{mots},env,ajax})]
+                    ]
+                </div><!-- /.tabs__contenu -->
+            </div>
+        ]
+        [(#GET{total}|=={0}|oui)<p><:local:recherche_aucun_resultat:></p>]
+        </div><!-- /.grid__item -->
     </article><!-- /.self recherche -->
 </div><!-- /.grid -->

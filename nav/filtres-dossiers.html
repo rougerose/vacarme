@@ -1,0 +1,45 @@
+[(#REM)
+    La liste des mots-clés des dossiers
+    ----------------------------------------------------------------------------
+    Pour limiter un peu la liste (sinon très longue, pas nécessairement 
+    très pertinente et problème de performance), exclusion des groupes 
+    Catégories (19), Dossiers isolés (16), @feuilletons (15), Lignes (14), 
+    et @rubriques (4).
+
+]
+<BOUCLE_rubriques_dossiers(RUBRIQUES){id_mot}>
+    #SET_PUSH{rubriques_exclues,#ID_RUBRIQUE}
+    <BOUCLE_mots_rubrique(MOTS){id_rubrique}{id_mot !IN 227}{id_groupe !IN 19,16,15,14,4}>#SET_PUSH{filtres,#ID_MOT}</BOUCLE_mots_rubrique>
+</BOUCLE_rubriques_dossiers>
+
+<BOUCLE_articles_dossiers_isoles(ARTICLES){id_mot}{id_rubrique !IN #GET{rubriques_exclues}}>
+    <BOUCLE_mots_autres(MOTS){id_article}{id_mot !IN 227}{id_groupe !IN 19,16,15,14,4}>#SET_PUSH{filtres,#ID_MOT}</BOUCLE_mots_autres>
+</BOUCLE_articles_dossiers_isoles>
+
+[(#SET{filtres,[(#GET{filtres}|array_unique)]})]
+
+<section id="accordeon" class="accordeon__container">
+    <div class="accordeon__header">
+        <span class="icon-svg icon-svg--accordeon">#INCLURE{fond=img/css/icon--chevron-bas.svg}</span>
+        <h2 class="hN accordeon__header-titre accordeon__header-titre--filtres">Trier par catégorie et thème</h2>
+    </div>
+    <div class="accordeon__body filtres--liste">
+        <ul class="inline-list">
+            <BOUCLE_liste_mots(MOTS){id_mot IN #GET{filtres}}{par titre}>
+            #SET{avecunmotdeplus, #ARRAY{}} #SET{env-mots,#ENV{mots}}
+            [(#SET{avecunmotdeplus,[(#GET{env-mots, #ARRAY{}}|push{#ID_MOT})]})]
+            <INCLURE{fond=nav/filtres-mot-dossiers,mots=#GET{avecunmotdeplus},id_mot=#ID_MOT,id_groupe=#ID_GROUPE,id_mot_reference=#ENV{id_mot},critere_mots=#ENV{mots}} />
+            </BOUCLE_liste_mots>
+        </ul>
+    </div><!-- /.accordeon__body -->
+    <B_selection>
+    <footer class="accordeon__footer filtres--selection">
+        <ul class="inline-list">
+            <BOUCLE_selection(MOTS){id_mot IN #ENV{mots}}{par titre}>[(#SET{lesautresmots,[(#ENV{mots}|critere_mots_enleve_mot_de_liste{#ID_MOT})]})]
+            <li class="inline-list__item"><a class="filtre-mot filtre-mot--selection filtre-mot--is-selected[ is-couleur-(#ID_GROUPE)-bg-selected] ajax" href="[(#INFO_URL{mot,#ENV{id_mot}}|parametre_url{mots,#GET{lesautresmots}})]"[ title="Supprimer (#TITRE|attribut_html)"]>[(#TITRE|prenom_nom)]</a></li>
+            </BOUCLE_selection>
+        </ul>
+    </footer>
+    </B_selection>
+    [(#CHEMIN{js/accordeon.min.js}|oui)<script>$(function() {$("#accordeon").accordeon();});</script>]
+</section><!-- /.accordeon__container -->

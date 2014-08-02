@@ -1,16 +1,16 @@
+#SET{defaut_tri,#ARRAY{points,-1,date,-1}} 
 <B_articles>
 #ANCRE_PAGINATION
-<section class="articles search-results landmark">
-    <h2 class="hN intertitre-section intertitre-section--first">[(#GRAND_TOTAL|singulier_ou_pluriel{local:article_number,local:articles_number})]</h2>
-    <div class="grid">
-        <ul class="list">
-            <BOUCLE_articles(ARTICLES){id_article IN #ENV{selection}}{pagination 20}>
-            <li class="grid__item lap-and-up-one-third">
-                #INCLURE{fond=inclure/resumes/article,id_article}
-            </li><!-- /.grid__item -->
-            </BOUCLE_articles>
-        </ul>
-    </div><!-- /.grid -->
-    [<nav class="pagination pagination--prev-next pagination--bottom">(#PAGINATION{precedent_suivant_compteur})</nav>]
-</section>
+<nav class="tri tri--recherche nav--position nav--is-top">
+    <ul class="inline-list">
+        <li class="inline-list__item critere-tri critere-tri--recherche[ (#TRI|=={date}|oui)nav-item--is-active]">[(#TRI{date,<:tri_date:>,ajax})]</li>
+        <li class="inline-list__item critere-tri critere-tri--recherche[ (#TRI|=={points}|oui)nav-item--is-active]">[(#TRI{points,<:tri_pertinence:>,ajax})]</li>
+    </ul>
+</nav>
+<ul class="block-list resultats-list">
+    <BOUCLE_articles(ARTICLES){recherche}{tri points,#GET{defaut_tri}}{pagination 5}>
+    <li class="block-list__item resultats-list__item">#INCLURE{fond=resume/article-texte,id_article}</li>
+    </BOUCLE_articles>
+</ul>
+[<nav class="pagination pagination--prev-next pagination--bottom nav--position nav--is-bottom">(#PAGINATION{precedent_suivant_compteur})</nav>]
 </B_articles>

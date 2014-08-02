@@ -1,0 +1,33 @@
+<BOUCLE_mot(MOTS){id_mot}>
+
+<BOUCLE_articles_dossiers_isoles(ARTICLES){id_mot}>
+    <BOUCLE_mots_g16_articles(MOTS){id_article}{id_groupe=16}{doublons}>
+        [(#SET{element, #ARRAY{objet,"mot",id_objet,#ID_MOT,titre,#TITRE,date,#_articles_dossiers_isoles:DATE}})]
+        [(#SET_PUSH{elements,#GET{element}})]
+    </BOUCLE_mots_g16_articles>
+</BOUCLE_articles_dossiers_isoles>
+
+<BOUCLE_rubriques(RUBRIQUES){id_mot}>
+    <BOUCLE_art_recent(ARTICLES){id_rubrique}{!par date}{0,1}>#SET{date-article,#DATE}</BOUCLE_art_recent>
+    #SET{element, #ARRAY{objet,"rubrique",id_objet,#ID_RUBRIQUE,date,#GET{date-article}}} 
+    #SET_PUSH{elements,#GET{element}}
+</BOUCLE_rubriques>
+
+<B_dossiers>
+#ANCRE_PAGINATION
+<BOUCLE_dossiers(DATA){source table,#GET{elements}}{!par date}{pagination 20}>
+<div class="grid__item lap-and-up-one-half">
+    #SET{id_objet,#VALEUR|table_valeur{id_objet}}
+    #SET{objet,#VALEUR|table_valeur{objet}}
+    [(#GET{objet}=={mot}|?{
+        [(#INCLURE{fond=resume/mot-dossiers,id_mot=#GET{id_objet},logo_format=1/2,recadrage=paysage})],
+        [(#INCLURE{fond=resume/rubrique-dossiers,id_rubrique=#GET{id_objet},logo_format=1/2,recadrage=paysage})]
+    })]
+</div><!-- /.grid__item -->
+</BOUCLE_dossiers>
+[<div class="grid__item">
+    <nav class="pagination pagination--bottom pagination--page nav--position nav--is-bottom">(#PAGINATION{li})</nav>
+</div><!-- /.grid__item -->]
+</B_dossiers>
+
+</BOUCLE_mot>

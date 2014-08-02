@@ -1,0 +1,64 @@
+<BOUCLE_mot_entretiens(MOTS){id_mot}>
+
+[(#REM) 
+    Les entretiens
+    =======================
+    Récupérer les articles qui ont le mot Entretiens (les grands entretiens et les entretiens isolés) et qui ont un mot de Personnes.
+]
+<BOUCLE_articles_entretiens(ARTICLES){id_mot}>
+    <BOUCLE_personnes_article(MOTS){id_article}{id_groupe=11}>
+        #SET_PUSH{personnes,#ID_MOT}
+    </BOUCLE_personnes_article>
+</BOUCLE_articles_entretiens>
+
+[(#REM)
+    Abécédaire
+]
+    [(#SET{debut,#ARRAY})][(#SET{alphabet, [(#VAL{ABCDEFGHIJKLMNOPQRSTUVWXYZ}|str_split)]})
+]<BOUCLE_liste_alpha(MOTS){id_mot IN #GET{personnes}}{par titre}>[
+    (#SET_PUSH{commence_par[(#TITRE|desaccentuer)],#ID_MOT})
+][
+    (#SET_PUSH{auteurs_alpha,#TITRE|desaccentuer})
+]</BOUCLE_liste_alpha>[
+    (#SET{debut,#GET{auteurs_alpha}|array_sort|table_valeur{0}})
+]
+<section id="entretiens" class="mb+">
+    <div class="grid__item">
+        <div class="grid">
+            <div class="grid__item lap-and-up-one-quarter">
+                <h1 class="hN intertitre-section intertitre-section--first is-couleur-#ID_GROUPE-text"><:categorie_entretiens_tous:></h1>
+            </div><!-- /.grid__item -->
+            <div class="grid__item lap-and-up-three-quarters">
+                [
+                    (#INCLURE{fond=nav/tri-entretiens,env})
+                ]
+                <B_pagination_abc>
+                <nav class="pagination pagination--top pagination--abc nav--position nav--is-top">
+                    <ul class="inline-list">
+                        <BOUCLE_pagination_abc(POUR){tableau #GET{alphabet}}>[(#SET{active,#VALEUR|=={#ENV{lettre,#GET{debut}}}|?{' ',''}})][(#SET{indisponible,#VALEUR|in_array{#GET{auteurs_alpha}}|?{'',' '}})
+                        ]<li class="inline-list__item pagination__item pagination--abc__item[ (#GET{indisponible}|oui)pagination__item--is-disabled nav-item--is-disabled][ (#GET{active}|?{pagination__item--is-active nav-item--is-active})]"
+                        >[(#GET{indisponible}|?{<span>,<a[ class="(#GET{active}|?{on})"] href="[(#SELF|parametre_url{lettre,#VALEUR})]">})]#VALEUR[(#GET{content}|?{</span>,</a>})]</li
+                        ></BOUCLE_pagination_abc>
+                    </ul>
+                </nav>
+                </B_pagination_abc>
+            </div><!-- /.grid__item -->
+        </div><!-- /.grid -->
+    </div><!-- /.grid__item -->
+
+    <B_artlettre>
+    <div id="accordeon" class="grid__item">
+        <div class="grid">
+            <BOUCLE_artlettre(MOTS){id_mot IN #GET{commence_par#ENV{lettre,#GET{debut}}}}{par titre}>
+            [
+                (#INCLURE{fond=resume/mot-entretiens,id_mot,logo_format=1/4,tri=alpha})
+            ]
+            </BOUCLE_artlettre>
+        </div><!-- /.grid -->
+    </div><!-- /.grid__item -->
+    [
+        (#CHEMIN{js/accordeon.min.js}|oui)<script>$(function() {$("#accordeon").accordeon();});</script>
+    ]
+    </B_artlettre>
+</section>
+</BOUCLE_mot_entretiens>

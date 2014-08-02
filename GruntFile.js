@@ -13,7 +13,8 @@ module.exports = function(grunt) {
           style: 'compressed',
         },
         files: {
-          'css/vacarme.css':'css/vacarme.scss'
+          'css/vacarme.css':'css/vacarme.scss',
+          'css/vacarme_prive.css':'css/vacarme_prive.scss'
         }
       },
       dev: {
@@ -27,14 +28,16 @@ module.exports = function(grunt) {
           lineNumbers: true
         },
         files: {
-          'css/vacarme.css':'css/vacarme.scss'
+          'css/vacarme.css':'css/vacarme.scss',
+          'css/vacarme_prive.css':'css/vacarme_prive.scss'
         }
       }
     },
     uglify: {
       my_target: {
         files: {
-          'js/public.min.js': ['js/navigation.js', 'js/vacarme.js']
+          'js/public.min.js': ['js/src/navigation.js','js/src/vacarme.js'],
+          'js/accordeon.min.js':'js/src/accordeon.js'
         }
       }
     },
@@ -51,7 +54,7 @@ module.exports = function(grunt) {
     watch: {
       grunt: { files: ['GruntFile.js'] },
       uglify: {
-        files: 'js/*.js',
+        files: 'js/src/*.js',
         tasks: 'uglify:my_target'
       },
       sass: {

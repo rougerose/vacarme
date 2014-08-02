@@ -1,0 +1,37 @@
+[(#REM)
+
+    Logo d'une rubrique
+    
+    **********************************************************
+    Variables environnement
+    **********************************************************
+    logo_format         1/4|1/2|1/1
+    focal               top|center|bottom left|center|right
+                        center center (par défaut)
+    recadrage           paysage|''
+
+    afficher_auteur     oui|''
+    t(aille)            largeur hauteur
+    o(rientation)       paysage|portrait
+    resize
+
+]
+<BOUCLE_rubrique_logo(RUBRIQUES){id_rubrique}>
+#SET{focal,#ENV{focal,center center}}
+[(#SET{t,#LOGO_RUBRIQUE})]
+[(#GET{t}|largeur|>{#GET{t}|hauteur}|?{#SET{o,paysage},#SET{o,portrait}})]
+[(#ENV{recadrage}|oui)#SET{o,#ENV{recadrage}}]
+[(#ENV{logo_format}|=={1/4}|oui)
+    [(#GET{o}|=={paysage}|?{ 
+        [<img src="(#LOGO_RUBRIQUE|image_reduire{450,0}|image_recadre{450,300,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">],
+        [<img src="(#LOGO_RUBRIQUE|image_reduire{450,0}|image_recadre{450,630,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
+    })]
+][(#ENV{logo_format}|=={1/2}|oui)
+    [<img src="(#LOGO_RUBRIQUE|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
+][(#ENV{logo_format}|=={1/1}|oui)
+    [(#GET{o}|=={paysage}|?{ 
+        [<img src="(#LOGO_RUBRIQUE|image_reduire{1000,0}|image_recadre{1000,666,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">],
+        [<img src="(#LOGO_RUBRIQUE|image_reduire{1000,0}|image_recadre{1000,1399,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
+    })]
+]
+</BOUCLE_rubrique_logo>

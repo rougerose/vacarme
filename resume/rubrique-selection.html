@@ -1,0 +1,30 @@
+[(#REM)
+
+    Résumé d'une rubrique, version selection dossiers, avec image.
+    
+    **********************************************************
+    Variables environnement
+    **********************************************************
+    logo_format         1/4|1/2|1/1
+
+    afficher_auteur     oui|''
+
+]
+<BOUCLE_resume_rubrique_selection(RUBRIQUES){id_rubrique}>
+[(#SET{logo,#LOGO_RUBRIQUE})]
+[(#GET{logo}|largeur|>{#GET{logo}|hauteur}|?{#SET{orientation,paysage},#SET{orientation,portrait}})]
+<article class="resume-article resume-article--selection-img-titre">
+    <a href="#URL_RUBRIQUE">
+        <div class="resume-article__logo resume-article__logo--selection-img-titre thumbnail[ is--(#ENV{logo_format})]">
+            [(#LOGO_RUBRIQUE|oui)
+            <div class="thumbnail-container[ is--(#ENV{logo_format})][ is--(#GET{orientation})]">
+                [(#INCLURE{fond=inclure/rubrique-logo,id_rubrique,logo_format=#ENV{logo_format},orientation=#GET{orientation}})]
+            </div>]
+            <div class="overlay overlay--article-archive"></div>
+            <header class="resume-article__header resume-article__header--selection-img-titre">
+                <h2 class="hN resume-article__titre resume-article__titre--selection-img-titre">[(#TITRE)]</h2>
+            </header>
+        </div>
+    </a>
+</article>
+</BOUCLE_resume_rubrique_selection>

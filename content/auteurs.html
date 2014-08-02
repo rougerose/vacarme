@@ -15,11 +15,11 @@
         </div><!-- /.grid__item -->
         <div class="grid__item desk-three-quarters push--desk-one-quarter">
             <B_pagination_abc>
-            <nav class="pagination pagination--top pagination--abc">
-                <ul class="nav">
-                    <BOUCLE_pagination_abc(POUR){tableau #GET{alphabet}}>[(#SET{actif,#VALEUR|=={#ENV{lettre,#GET{debut}}}|?{' ',''}})][(#SET{content,#VALEUR|in_array{#GET{auteurs_alpha}}|?{' ',''}})
-                    ]<li class="pagination__item pagination--abc__item[ (#GET{content}|non)disabled][ (#VALEUR|=={[(#ENV{lettre,#GET{debut} })]}|?{on})]"
-                    >[(#GET{content}|?{<a[ class="(#GET{actif}|?{on})"] href="[(#SELF|parametre_url{lettre,#VALEUR})]">,<span>})]#VALEUR[(#GET{content}|?{</a>,</span>})]</li
+            <nav class="pagination pagination--top pagination--abc nav--position nav--is-top">
+                <ul class="inline-list">
+                    <BOUCLE_pagination_abc(POUR){tableau #GET{alphabet}}>[(#SET{active,#VALEUR|=={#ENV{lettre,#GET{debut}}}|?{' ',''}})][(#SET{indisponible,#VALEUR|in_array{#GET{auteurs_alpha}}|?{'',' '}})
+                    ]<li class="inline-list__item pagination__item pagination--abc__item[ (#GET{indisponible}|oui)pagination__item--is-disabled nav-item--is-disabled][ (#GET{active}|?{pagination__item--is-active nav-item--is-active})]"
+                    >[(#GET{indisponible}|?{<span>,<a[ class="(#GET{active}|?{on})"] href="[(#SELF|parametre_url{lettre,#VALEUR})]">})]#VALEUR[(#GET{content}|?{</span>,</a>})]</li
                     ></BOUCLE_pagination_abc>
                 </ul>
             </nav>
