@@ -8,13 +8,15 @@
         </div><!-- /.grid__item -->
         <div class="grid__item lap-and-up-three-quarters">
             <div class="meta-article">
-                <h2 class="hN meta__section-titre"><:local:publication_about:></h2>
+                <h2 class="hN intertitre-section intertitre-section--first"><:publication_about:></h2>
+                <!-- <h2 class="hN meta__section-titre"><:local:publication_about:></h2> -->
                 <div class="grid">
                     <div class="grid__item desk-one-third lap-one-half">
                         <dl class="simple-def-list">
                             <dt class="meta-article__titre"><:local:version_online:></dt>
-                            <dd class="">
+                            <dd>
                                 <p><:local:published_date:> <time pubdate datetime="[(#DATE|date_iso)]" itemprop="datePublished" content="[(#DATE|affdate{Y-m-d})]">[(#DATE|affdate)]</time></p>
+                                [<p class="liens">(#INCLURE{fond=inclure/objets/categories,id_objet=#ID_ARTICLE,objet=article})</p>]
                                 [<p class="liens">(#INCLURE{fond=inclure/objets/categories,id_objet=#ID_ARTICLE,objet=article})</p>]
                                 [<p class="liens">(#INCLURE{fond=inclure/objets/mots,id_objet=#ID_ARTICLE,objet=article})</p>]
                             </dd>
@@ -34,13 +36,11 @@
                     </div><!-- /.grid__item -->
                 </div><!-- /.grid -->
             </div><!-- /.meta-article -->
-            [(#REM) vidéos : navigation précédent/suivant. Si l'article est dans une grappe dont le titre contient le mot Série ]
-            <BOUCLE_test_grappe(GRAPPES){id_article}{titre LIKE %serie%}{0,1}> </BOUCLE_test_grappe>
+            [(#REM) Vidéos ]
             [(#COMPOSITION|=={videos}|oui)
-                #INCLURE{fond=inclure/article-videos-footer-nav-prevnext,id_article}
+                [(#REM) les vidéos de la série : les articles de la même rubrique qui sont liés à cet article ]
+                #INCLURE{fond=inclure/videos-carousel-serie,id_article}
             ]
-            </B_test_grappe>
-            
             [(#REM) dossier ]
             <BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
             [(#COMPOSITION|=={dossier}|oui)

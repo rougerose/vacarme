@@ -142,16 +142,16 @@
 
     /* TODO : reprendre à partir d'ici */
 
-.meta__section-titre {
-    display: inline-block;
-    margin-left: -$base-spacing-unit/2;
-    padding-left: $base-spacing-unit/2;
-    padding-right: $base-spacing-unit/2;
-    border-bottom: 1px solid #555;
-    font-family: $font-HBC;
-    @include font-size(18px);
-    text-transform: uppercase;
-}
+// .meta__section-titre {
+//     display: inline-block;
+//     margin-left: -$base-spacing-unit/2;
+//     padding-left: $base-spacing-unit/2;
+//     padding-right: $base-spacing-unit/2;
+//     border-bottom: 1px solid #555;
+//     font-family: $font-HBC;
+//     @include font-size(18px);
+//     text-transform: uppercase;
+// }
 
 /* 
    .meta-article
@@ -167,6 +167,6 @@
 .meta-article__titre {
     margin-bottom: .5em;
     font-style:italic;
-    @include font-size(20px);
+    @include font-size(18px);
     color: #444;
 }
