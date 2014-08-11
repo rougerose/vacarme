@@ -1,3 +1,13 @@
+Backend:
+ ☐ revoir le backend : article d'un numéro à parution qui sont réellement disponible. 
+
+Pagination:
+ ☐ pagination rubrique 115 à corriger.
+ ☐ verifier si erreurs ailleurs
+
+catégories :
+ ☐ ajouter dans le titre de la page, le titre du mot sélectionnés. On aurait par exemple Entretiens : titre mot[] - Vacarme
+
 Page auteurs:
  ☐ elle est à refaire. 
 
