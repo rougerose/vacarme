@@ -7,8 +7,8 @@
   "license": "N/A",
   "private": true,
   "dependencies": {
-    "inuit.css": "~5.0.1",
-    "fontawesome": "~4.0.3",
+    "inuit.css": "*",
+    "fontawesome": "*",
     "bourbon": "~4.0.0"
   }
 }
