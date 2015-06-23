@@ -34,14 +34,13 @@
     #SET{fichier,#GET{fichier}|extraire_attribut{src}}
     [(#GET{height}|>{#GET{width}}|?{#SET{format,image--portrait},#SET{format,image--paysage}})]
 ]
-<figure class="spip_document_#ID_DOCUMENT spip_documents[ spip_documents_(#ENV{align})][ (#ENV{class})][ (#GET{format})] doc">
+<figure class="spip_document_#ID_DOCUMENT spip_documents[ spip_documents_(#ENV{align})][ (#ENV{class})][ (#GET{format})] doc media media media--illustration[ media--(#ENV{align})]">
     [<a href="(#GET{url})"[ class="(#ENV{lien_class})"]>][<img src="(#GET{fichier})" alt="[(#TITRE|ou{#DESCRIPTIF}|ou{#CREDITS}|sinon{<:local:document:>})]">][(#GET{url}|?{</a>})]
     [(#TITRE|ou{#DESCRIPTIF}|ou{#CREDITS}|oui)
-    <figcaption class="spip_doc_legende"[ style="width:(#GET{width})px;"]>
+    <figcaption class="spip_doc_legende media__legende--illustration"[ style="width:(#GET{width})px;"]>
         [<h3 class="#EDIT{titre} hN spip_doc_titre">(#TITRE)</h3>][(#DESCRIPTIF|ou{#CREDITS}|oui)
-        <p class="spip_doc_descriptif">[<span class="#EDIT{descriptif}">(#DESCRIPTIF|PtoBR)</span>][ <span class="#EDIT{credits}">(#CREDITS)</span>]</p>]
+        <p class="spip_doc_descriptif">[<span class="#EDIT{descriptif}">(#DESCRIPTIF|PtoBR)</span>][<p class=""></p> <span class="#EDIT{credits}">(#CREDITS)</span>]</p>]
     </figcaption>]
 </figure>
-
 </BOUCLE_doc>
 #FILTRE{trim}

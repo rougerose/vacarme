@@ -1,14 +1,14 @@
 <BOUCLE_article(ARTICLES){id_article}>
 #SET{type,''} #SET{type-titre,''} #SET{id_numero,''} #SET{format_logo,''} #SET{taille_logo,''} #SET{integral,' '}
 
-[(#REM) Est-ce un article d'un numéro ? 
-        On cherche tous les rubriques parentes de l'article. 
+[(#REM) Est-ce un article d'un numéro ?
+        On cherche tous les rubriques parentes de l'article.
         Le plugin polyhierarchie est nécessaire.
 ]
 <BOUCLE_branche(RUBRIQUES){parents}>
     <BOUCLE_secteur_numeros(RUBRIQUES){id_rubrique}{si #ID_SECTEUR|=={115}}>
-        [(#REM) 
-            Le numéro a-t-il plus de 364 jours ? Si oui, l'article est en version intégrale, 
+        [(#REM)
+            Le numéro a-t-il plus de 364 jours ? Si oui, l'article est en version intégrale,
             sauf si le mot-clé adhoc a été ajouté.
             Au passage, récupération de l'identifiant de la rubrique du numéro.
         ]
@@ -18,9 +18,9 @@
             [(#SET{id_numero,#ID_RUBRIQUE})][(#SET{titre_numero,#TITRE})]
         </BOUCLE_age_numero>
         [(#REM)
-            L'article est lié à des mots-clés "techniques" : 
-                1- Est-ce un entretien ? 
-                2- Version intégrale (avant le délai d'un an) ? 
+            L'article est lié à des mots-clés "techniques" :
+                1- Est-ce un entretien ?
+                2- Version intégrale (avant le délai d'un an) ?
         ]
         <BOUCLE_mots_techniques(MOTS){id_article}{id_groupe=5}{tout}>
         [(#REM) 1- ][(#ID_MOT|=={75}|oui)#SET{type,entretien}][(#SET{type-titre,#TITRE})]
@@ -113,22 +113,34 @@
                             <p><:local:apercu_info_article{titre_numero=#GET{titre_numero}}:></p>
                        </div>
                    </div>]
-                   [<section class="#EDIT{ps} self__ps landmark ps surlignable">
-                       <h2 class="hN intertitre-section intertitre-section--first"><:info_ps:></h2>
-                       (#PS)
-                   </section>]
-                   [<section class="self__notes landmark">
-                       <h2 class="hN intertitre-section intertitre-section--first"><:info_notes:></h2>
-                       <div class="self__notes__body">
-                           (#NOTES)
-                       </div>
-                   </section>]
                 ]
                 [(#REM) version intégrale ]
                 [(#GET{integral}|oui)
                     [<div class="#EDIT{texte} self__texte landmark surlignable liens">
                         (#TEXTE)
                     </div>]
+                ]
+                [(#PAGE|=={contact}|oui)
+                    [<div class="self__texte landmark surlignable">
+                        (#FORMULAIRE_ECRIRE_AUTEUR)
+                    </div>]
+                ][(#GET{integral}|non)
+                    [<section class="#EDIT{ps} self__ps landmark ps surlignable">
+                        <h2 class="hN intertitre-section intertitre-section--first"><:info_ps:></h2>
+                        (#PS)
+                    </section>]
+                    [<section class="self__notes landmark">
+                        <h2 class="hN intertitre-section intertitre-section--first"><:info_notes:></h2>
+                        <div class="self__notes__body">
+                            (#NOTES)
+                        </div>
+                    </section>]
+                ][(#GET{integral}|oui)
+                    [(#COMPOSITION|=={diaporama}|oui)
+                        [<div class="landmark">
+                            (#INCLURE{fond=inclure/article-diaporama,id_article})
+                        </div>]
+                    ]
                     [<section class="#EDIT{ps} self__ps landmark ps surlignable">
                         <h2 class="hN intertitre-section intertitre-section--first"><:info_ps:></h2>
                         (#PS)
@@ -142,11 +154,6 @@
                     [<section>
                         (#INCLURE{fond=inclure/documents,id_article})
                     </section>]
-                ]
-                [(#PAGE|=={contact}|oui)
-                    [<div class="self__texte landmark surlignable">
-                        (#FORMULAIRE_ECRIRE_AUTEUR)
-                    </div>]
                 ]
             </div>
         </div><!-- /.grid__item -->
