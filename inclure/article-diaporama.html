@@ -1,0 +1,18 @@
+<BOUCLE_diaporama(ARTICLES){id_article}>
+    <BOUCLE_album(ALBUMS){id_article}>
+        <div>
+            <BOUCLE_docs(DOCUMENTS){id_album}{par num titre,id_document}{extension IN jpg,png}>
+                <figure class="media media media--diaporama">
+                    [<img src="(#FICHIER|image_reduire{783,0}|extraire_attribut{src})" alt="[(#TITRE|ou{#DESCRIPTIF}|ou{#CREDITS}|sinon{<:local:document:>})]">]
+                    [(#TITRE|ou{#DESCRIPTIF}|ou{#CREDITS}|oui)
+                    <figcaption class="spip_doc_legende media__legende--diaporama">
+                        [<h3 class="hN spip_doc_titre media__titre--diaporama #EDIT{titre}">(#TITRE)</h3>][(#DESCRIPTIF|ou{#CREDITS}|oui)
+                        [<p class="spip_doc_descriptif media__descriptif--diaporama #EDIT{descriptif}">(#DESCRIPTIF|PtoBR)</p>]
+                        [<p class="spip_doc_credit media__credit--diaporama #EDIT{credits}">(#CREDITS)</p>]
+                        ]
+                    </figcaption>]
+                </figure>
+            </BOUCLE_docs>
+        </div>
+    </BOUCLE_album>
+</BOUCLE_diaporama>
