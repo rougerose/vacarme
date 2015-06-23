@@ -1,5 +1,5 @@
 <composition>
     <nom>Article Diaporama</nom>
-    <description>Composition pour afficher un diaporama</description>
-    <icon>img/composition-article-numero.png</icon>
+    <description>Composition pour afficher un diaporama d'images sous le texte de l'article.</description>
+    <icon>img/composition-article-diaporama.png</icon>
 </composition>
