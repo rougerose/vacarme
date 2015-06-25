@@ -1,4 +1,7 @@
-<BOUCLE_doc (DOCUMENTS) {id_document} {tout}>
+<BOUCLE_doc_cairn(DOCUMENTS){id_document}{tout}{si #ENV{page}|=={cairn}}>
+#MODELE{doc_cairn,id_document=#ID_DOCUMENT}
+</BOUCLE_doc_cairn>
+<BOUCLE_doc(DOCUMENTS){id_document}{tout}>
 [<!--(#REM)
 
     Modele pour <doc> en dl/dt/dd
@@ -45,4 +48,5 @@
     </figcaption>]
 </figure>
 </BOUCLE_doc>
+<//B_doc_cairn>
 #FILTRE{trim}
