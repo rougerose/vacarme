@@ -1,1 +1,26 @@
-<p>Cette page n'est pas encore réalisée.</p>
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+<div class="grid">
+    <article class="rubrique self">
+        <div class="grid__item">
+            <header class="self__header self__header--rubrique">
+                <h1 class="hN titre"><span class="#EDIT{titre}">#TITRE</span></h1>
+            </header>
+        </div><!-- /.grid__item -->
+        <div class="grid__item desk-three-quarters push--desk-one-quarter">
+            [<div class="self__body self__body--rubrique landmark">
+                <div class="#EDIT{texte} self__texte surlignable">
+                    (#TEXTE|image_reduire{500,0})
+                </div>
+            </div>]
+            [(#INCLURE{fond=liste/articles-titrenum,
+                id_rubrique,
+                afficher_date=oui,
+                suite_afficher=oui,
+                layout=1colonne,
+                type_resume=text,
+                env,ajax}
+            )]
+        </div><!-- /.grid__item -->
+    </article>
+</div><!-- /.grid -->
+</BOUCLE_rubrique>
