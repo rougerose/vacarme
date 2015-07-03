@@ -1,0 +1,15 @@
+<B_articles>
+<section class="landmark groupe-section">
+    #ANCRE_PAGINATION
+    <div class="grid">
+        <BOUCLE_articles(ARTICLES){id_rubrique?}{id_mot?}{par num titre, titre}{pagination 12}>
+        <div class="grid__item lap-and-up-one-third">
+            [(#INCLURE{fond=resume/article-texte,id_article})]
+        </div><!-- /.grid__item -->
+        </BOUCLE_articles>
+    </div><!-- /.grid -->
+    [<nav class="pagination pagination--bottom pagination--page">
+        (#PAGINATION{li})
+    </nav>]
+</section>
+</B_articles>
