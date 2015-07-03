@@ -138,7 +138,7 @@
                     <nav class="nav-prevnext prevnext mb++">
                         <ul class="grid">
                             <li class="grid__item one-half">
-                                <BOUCLE_precedent(ARTICLES){id_rubrique}{id_mot IN #GET{tags}}{par date}{precedent}>
+                                <BOUCLE_precedent(ARTICLES){id_rubrique}{id_mot IN #GET{tags}}{par num titre, date}{precedent}>
                                 <a class="prevnext__item prevnext__item--prev is-active" href="#URL_ARTICLE" rel="prev" data-sequence-title="[(#TITRE|attribut_html)]">
                                     <span class="prevnext__icon prevnext__icon--prev is-active">
                                         <svg width="32" height="32" viewBox="0 0 64 64">
@@ -156,7 +156,7 @@
                                     <:info_precedent:>
                                 </span><//B_precedent>
                             <li class="grid__item one-half">
-                                <BOUCLE_suivant(ARTICLES){id_rubrique}{id_mot IN #GET{tags}}{par date}{suivant}>
+                                <BOUCLE_suivant(ARTICLES){id_rubrique}{id_mot IN #GET{tags}}{par num titre, date}{suivant}>
                                 <a class="prevnext__item prevnext__item--next is-active" href="#URL_ARTICLE" rel="next" data-sequence-title="[(#TITRE|attribut_html)]">
                                     <span class="prevnext__icon prevnext__icon--next is-active">
                                         <svg width="32" height="32" viewBox="0 0 64 64">
