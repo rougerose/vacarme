@@ -1,5 +1,6 @@
 <BOUCLE_article(ARTICLES){id_article}>
-#SET{type,''} #SET{type-titre,''} #SET{id_numero,''} #SET{format_logo,''} #SET{taille_logo,''} #SET{integral,' '}
+#SET{type,''} #SET{type-titre,''} #SET{id_numero,''} #SET{contexte,''} #SET{format_logo,''} #SET{taille_logo,''} #SET{integral,' '}
+[(#ENV{page}|=={mentions}|?{'',#SET{contexte,' '}})]
 
 [(#REM) Est-ce un article d'un numéro ?
         On cherche tous les rubriques parentes de l'article.
@@ -28,11 +29,10 @@
         </BOUCLE_mots_techniques>
     </BOUCLE_secteur_numeros>
 </BOUCLE_branche>
+
 [(#REM) Le format du logo ]
 [(#LOGO_ARTICLE|oui)
-    [(#COMPOSITION|=={numero-nologo}|non)
-        [(#LOGO_ARTICLE|largeur|>{#LOGO_ARTICLE|hauteur}|?{#SET{format_logo,paysage},#SET{format_logo,portrait}})]
-    ]
+    [(#LOGO_ARTICLE|largeur|>{#LOGO_ARTICLE|hauteur}|?{#SET{format_logo,paysage},#SET{format_logo,portrait}})]
 ]
 <article class="self article" itemscope itemtype="http://schema.org/Article">
     <div class="grid">
@@ -70,29 +70,18 @@
         <div class="grid__item[(#GET{taille_logo}|=={L}|oui) lap-and-up-three-quarters push--lap-and-up-one-quarter]">
                 <div class="media landmark">
                     [(#GET{taille_logo}|=={L}|oui)
-                        [<img src="(#LOGO_ARTICLE|image_reduire{805,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="logo--horizontal media--full landmark">]
+                        [<img src="(#LOGO_ARTICLE|image_reduire{805,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="logo--horizontal landmark">]
                     ]
                     [(#GET{taille_logo}|=={XL}|oui)
                         [<img src="(#LOGO_ARTICLE|image_reduire{1100,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="media--full">]
                     ]
                 </div>
         </div><!-- /.grid__item -->]
-        [(#COMPOSITION|=={numero-logo_vertical}|oui)
-        <div class="grid__item">
-            <div class="chapo-logo--vertical">
-                [<img src="(#LOGO_ARTICLE|image_reduire{350,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="logo--vertical">]
-            </div>
-            [<div class="#EDIT{chapo} self__chapo chapo-text--vertical landmark surlignable liens">
+        [<div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
+            <div class="#EDIT{chapo} self__chapo landmark surlignable">
                 (#CHAPO)
-            </div>]
+            </div>
         </div><!-- /.grid__item -->]
-        [(#COMPOSITION|=={numero-logo_vertical}|non)
-            [<div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
-                <div class="#EDIT{chapo} self__chapo landmark surlignable">
-                    (#CHAPO)
-                </div>
-            </div><!-- /.grid__item -->]
-        ]
         <div class="grid__item lap-and-up-three-quarters float--right">
             <div class="self__body self__body--article">
                 [(#GET{integral}|non)
@@ -112,48 +101,81 @@
                             <p><:local:apercu_info_article{titre_numero=#GET{titre_numero}}:></p>
                        </div>
                    </div>]
+                   [<section class="#EDIT{ps} self__ps landmark ps surlignable">
+                       <h2 class="hN intertitre-section intertitre-section--first"><:info_ps:></h2>
+                       (#PS)
+                   </section>]
+                   [<section class="self__notes landmark">
+                       <h2 class="hN intertitre-section intertitre-section--first"><:info_notes:></h2>
+                       <div class="self__notes__body">
+                           (#NOTES)
+                       </div>
+                   </section>]
                 ]
                 [(#REM) version intégrale ]
                 [(#GET{integral}|oui)
                     [<div class="#EDIT{texte} self__texte landmark surlignable liens">
                         (#TEXTE)
                     </div>]
-                ]
-                [(#PAGE|=={contact}|oui)
-                    [<div class="self__texte landmark surlignable">
-                        (#FORMULAIRE_ECRIRE_AUTEUR)
-                    </div>]
-                ][(#GET{integral}|non)
                     [<section class="#EDIT{ps} self__ps landmark ps surlignable">
                         <h2 class="hN intertitre-section intertitre-section--first"><:info_ps:></h2>
                         (#PS)
-                    </section>]
-                    [<section class="self__notes landmark">
-                        <h2 class="hN intertitre-section intertitre-section--first"><:info_notes:></h2>
-                        <div class="self__notes__body">
-                            (#NOTES)
-                        </div>
-                    </section>]
-                ][(#GET{integral}|oui)
-                    [(#COMPOSITION|=={diaporama}|oui)
-                        [<div class="landmark">
-                            (#INCLURE{fond=inclure/article-diaporama,id_article})
-                        </div>]
-                    ]
-                    [<section class="#EDIT{ps} self__ps landmark ps surlignable">
-                        <h2 class="hN intertitre-section intertitre-section--first"><:info_ps:></h2>
-                        (#PS)
-                    </section>]
-                    [<section class="self__notes landmark">
-                        <h2 class="hN intertitre-section intertitre-section--first"><:info_notes:></h2>
-                        <div class="self__notes__body">
-                            (#NOTES)
-                        </div>
                     </section>]
                     [<section>
                         (#INCLURE{fond=inclure/documents,id_article})
                     </section>]
                 ]
+                [(#PAGE|=={contact}|oui)
+                    [<div class="self__texte landmark surlignable">
+                        (#FORMULAIRE_ECRIRE_AUTEUR)
+                    </div>]
+                ]
+                <!-- Nav Précédent/Suivant -->
+                #SET{tags,#ARRAY}
+                <BOUCLE_mots(MOTS){id_article}{id_groupe!=19}>#SET{tags,#GET{tags}|push{#ID_MOT}}</BOUCLE_mots>
+
+                <div class="self__texte landmark">
+                    <nav class="nav-prevnext prevnext mb++">
+                        <ul class="grid">
+                            <li class="grid__item one-half">
+                                <BOUCLE_precedent(ARTICLES){id_rubrique}{id_mot IN #GET{tags}}{par date}{precedent}>
+                                <a class="prevnext__item prevnext__item--prev is-active" href="#URL_ARTICLE" rel="prev" data-sequence-title="[(#TITRE|attribut_html)]">
+                                    <span class="prevnext__icon prevnext__icon--prev is-active">
+                                        <svg width="32" height="32" viewBox="0 0 64 64">
+                                            <path id="arrow-left-5" d="M48 10.667q1.104 0 1.885 0.781t0.781 1.885-0.792 1.896l-16.771 16.771 16.771 16.771q0.792 0.792 0.792 1.896t-0.781 1.885-1.885 0.781q-1.125 0-1.896-0.771l-18.667-18.667q-0.771-0.771-0.771-1.896t0.771-1.896l18.667-18.667q0.771-0.771 1.896-0.771zM32 10.667q1.104 0 1.885 0.781t0.781 1.885-0.792 1.896l-16.771 16.771 16.771 16.771q0.792 0.792 0.792 1.896t-0.781 1.885-1.885 0.781q-1.125 0-1.896-0.771l-18.667-18.667q-0.771-0.771-0.771-1.896t0.771-1.896l18.667-18.667q0.771-0.771 1.896-0.771z" />
+                                        </svg>
+                                    </span>
+                                    <:info_precedent:>
+                                </a></BOUCLE_precedent>
+                                <span class="prevnext__item prevnext__item--prev is-disabled">
+                                    <span class="prevnext__icon prevnext__icon--prev is-disabled">
+                                        <svg width="32" height="32" viewBox="0 0 64 64">
+                                            <path id="arrow-left-5" d="M48 10.667q1.104 0 1.885 0.781t0.781 1.885-0.792 1.896l-16.771 16.771 16.771 16.771q0.792 0.792 0.792 1.896t-0.781 1.885-1.885 0.781q-1.125 0-1.896-0.771l-18.667-18.667q-0.771-0.771-0.771-1.896t0.771-1.896l18.667-18.667q0.771-0.771 1.896-0.771zM32 10.667q1.104 0 1.885 0.781t0.781 1.885-0.792 1.896l-16.771 16.771 16.771 16.771q0.792 0.792 0.792 1.896t-0.781 1.885-1.885 0.781q-1.125 0-1.896-0.771l-18.667-18.667q-0.771-0.771-0.771-1.896t0.771-1.896l18.667-18.667q0.771-0.771 1.896-0.771z" />
+                                        </svg>
+                                    </span>
+                                    <:info_precedent:>
+                                </span><//B_precedent>
+                            <li class="grid__item one-half">
+                                <BOUCLE_suivant(ARTICLES){id_rubrique}{id_mot IN #GET{tags}}{par date}{suivant}>
+                                <a class="prevnext__item prevnext__item--next is-active" href="#URL_ARTICLE" rel="next" data-sequence-title="[(#TITRE|attribut_html)]">
+                                    <span class="prevnext__icon prevnext__icon--next is-active">
+                                        <svg width="32" height="32" viewBox="0 0 64 64">
+                                            <path id="arrow-right-5" d="M29.333 10.667q1.104 0 1.875 0.771l18.667 18.667q0.792 0.792 0.792 1.896t-0.792 1.896l-18.667 18.667q-0.771 0.771-1.875 0.771t-1.885-0.781-0.781-1.885q0-1.125 0.771-1.896l16.771-16.771-16.771-16.771q-0.771-0.771-0.771-1.896 0-1.146 0.76-1.906t1.906-0.76zM13.333 10.667q1.104 0 1.875 0.771l18.667 18.667q0.792 0.792 0.792 1.896t-0.792 1.896l-18.667 18.667q-0.771 0.771-1.875 0.771t-1.885-0.781-0.781-1.885q0-1.125 0.771-1.896l16.771-16.771-16.771-16.771q-0.771-0.771-0.771-1.896 0-1.146 0.76-1.906t1.906-0.76z" />
+                                        </svg>
+                                    </span>
+                                    <:info_suivant:>
+                                </a></BOUCLE_suivant>
+                                <span class="prevnext__item prevnext__item--next is-disabled">
+                                    <span class="prevnext__icon prevnext__icon--next is-disabled">
+                                        <svg width="32" height="32" viewBox="0 0 64 64">
+                                            <path id="arrow-right-5" d="M29.333 10.667q1.104 0 1.875 0.771l18.667 18.667q0.792 0.792 0.792 1.896t-0.792 1.896l-18.667 18.667q-0.771 0.771-1.875 0.771t-1.885-0.781-0.781-1.885q0-1.125 0.771-1.896l16.771-16.771-16.771-16.771q-0.771-0.771-0.771-1.896 0-1.146 0.76-1.906t1.906-0.76zM13.333 10.667q1.104 0 1.875 0.771l18.667 18.667q0.792 0.792 0.792 1.896t-0.792 1.896l-18.667 18.667q-0.771 0.771-1.875 0.771t-1.885-0.781-0.781-1.885q0-1.125 0.771-1.896l16.771-16.771-16.771-16.771q-0.771-0.771-0.771-1.896 0-1.146 0.76-1.906t1.906-0.76z" />
+                                        </svg>
+                                    </span>
+                                    <:info_suivant:>
+                                </span><//B_suivant>
+                        </ul>
+                    </nav>
+                </div>
             </div>
         </div><!-- /.grid__item -->
         <div class="grid__item lap-and-up-one-quarter float--left">
@@ -165,7 +187,7 @@
             <aside class="related related--aside landmark">
                 <h2 class="hN intertitre-section intertitre-section--first intertitre-section--aside"><:local:read_also:></h2>
                 <ul class="list list--dash list--aside">
-                    <BOUCLE_articles_lies(ARTICLES){id_article IN #ARTICLES_LIES}>
+                    <BOUCLE_articles_lies(ARTICLES){id_article IN #ARTICLES_LIES}{si #GET{contexte}|oui}>
                     <li class="related__item">
                         <h3 class="hN"><a href="[(#URL_ARTICLE)]" class="spip_in" rel="next">#TITRE</a>[ <small class="soustitre">(#SOUSTITRE)</small>]</h3>
                     </li>

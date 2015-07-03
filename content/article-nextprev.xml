@@ -1,0 +1,5 @@
+<composition>
+    <nom>Article & navigation précédent/suivant</nom>
+    <description>Composition pour afficher un article (maquette par défaut) accompagné d'une navigation Précédent/Suivant.</description>
+    <icon>img/composition-article-diaporama.png</icon>
+</composition>
