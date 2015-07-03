@@ -11,7 +11,7 @@
 
     /*  1. nav
         ========================================================================== */
-        
+
 
     /* 2. navigation-site
        ========================================================================== */
@@ -22,8 +22,8 @@
             .navigation-site {
                 padding-top: 8em;
                 background: $nav-bg;
-                
-                // intertitres 
+
+                // intertitres
                 .hN {
                     margin-bottom: 0em;
                     border-bottom: 1px solid #fff;
@@ -149,7 +149,7 @@
                 .wrap-in {
                     @include transform(translate3d(70%,0,0)scale3d(1,1,1));
                 }
-            }   
+            }
         }
         // lap : éléments spécifiques.
         @include media-query(lap) {
@@ -160,7 +160,7 @@
                 .wrap-in {
                     @include transform(translate3d(50%,0,0)scale3d(1,1,1));
                 }
-            } 
+            }
         }
 
         // desk
@@ -202,15 +202,103 @@
             }
         }
 
+    /*
+       prevnext
+       ========================================================================== */
+
+    .prevnext {}
+        .prevnext__item {
+            position: relative;
+            display: block;
+            line-height: 32px;
+            -webkit-transition: padding 0.3s;
+            transition: padding 0.3s;
+            &:before {
+                position: absolute;
+                top: -16px;
+                z-index: -1;
+                width: 64px;
+                height: 64px;
+                border-radius: 100%;
+                background: $couleur-lien;
+                content: '';
+                opacity: 0.1;
+            }
+            &.is-active {
+                svg {fill: $couleur-lien;}
+                &:before {
+                    -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+                    transition: transform 0.3s, opacity 0.3s;
+                    -webkit-transform: scale(0.9);
+                    transform: scale(0.9);
+                }
+                &:hover {
+                    &:before {
+                        opacity: 1;
+                        -webkit-transform: scale(1);
+                        transform: scale(1);
+                    }
+                    svg {
+                        fill: #fff;
+                    }
+                }
+            }
+            &.is-disabled {
+                color: $soft;
+                svg {fill: $soft;}
+                &:before {
+                    background-color: $soft;
+                }
+            }
+        }
+        .prevnext__item--prev {
+            text-align: left;
+            padding-left: 50px;
+            &:before {
+                left: 0;
+            }
+            &.is-active{
+                &:hover {
+                    padding-left: 68px;
+                }
+            }
+        }
+        .prevnext__item--next {
+            text-align: right;
+            padding-right: 50px;
+            &:before {
+                right:0;
+            }
+            &.is-active{
+                &:hover {
+                    padding-right: 68px;
+                }
+            }
+        }
+        /* icon < > */
+        .prevnext__icon {
+            position: absolute;
+        }
+        .prevnext__icon--prev {
+            left: 16px;
+        }
+        .prevnext__icon--next {
+            right: 16px;
+        }
+
+
     /*  nav-prevnext
         ========================================================================== */
         .nav-prevnext {}
+
+        /* nav-prevnext */
+        .nav-prevnext__item {}
 
         /* nav-prevnext--logos */
         .nav-prevnext--logos {
             margin-left: -24px;
         }
-            .nav-prevnext__item {}
+
             .nav-prevnext__item--prev {
                 text-align: left;
             }
@@ -237,7 +325,3 @@
                     width: 50%;
                 }
             }
-
-
-
-
