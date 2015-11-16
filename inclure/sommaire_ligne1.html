@@ -6,7 +6,7 @@
     <BOUCLE_test_rubrique(POUR){tableau #VALEUR}{cle==rubrique}>
 <div class="grid__item desk-one-quarter lap-one-half">
     <BOUCLE_rubrique(RUBRIQUES){id_rubrique=#VALEUR}>[
-    (#LOGO_RUBRIQUE|largeur|>{599}|oui) 
+    (#LOGO_RUBRIQUE|largeur|>{599}|oui)
         [(#LOGO_RUBRIQUE|hauteur|>{#LOGO_RUBRIQUE|largeur}|oui)
             #SET{logo," "}
             [(#INCLURE{fond=inclure/resumes/rubrique,
@@ -27,7 +27,7 @@
         [(#LOGO_ARTICLE|hauteur|>{#LOGO_ARTICLE|largeur}|oui)
             #SET{logo," "}
             [(#INCLURE{fond=inclure/resumes/article,
-                id_article,type_resume=stack,logo_afficher=oui,logo_objet=article,logo_logo=portrait})]
+                id_article,type_resume=stack,logo_afficher=oui,logo_objet=article,logo_format=portrait})]
         ]
     ][
     (#GET{logo}|non)
