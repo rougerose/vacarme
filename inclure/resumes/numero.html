@@ -1,4 +1,5 @@
 <BOUCLE_numero(RUBRIQUES){id_rubrique}>
+<BOUCLE_numero_epuise(MOTS){id_rubrique}{id_mot=108}{tout}>#SET{numero_epuise,' '}</BOUCLE_numero_epuise>
 <article class="resume resume-numero resume-numero--logo[ (#ENV{type_resume_numero})][ resume--(#GET{type_resume})]  ">
     <a href="#URL_RUBRIQUE">
         [(#INCLURE{fond=inclure/objets/logo-rubrique,
@@ -12,5 +13,9 @@
                 numero_titre_url=#ENV{numero_titre_url}})]
         </header>
     </a>
+    [(#GET{numero_epuise}|oui)
+      <div class="Stock Stock--posAbs Stock--out">
+        <p class="Stock-info"><:local:numero_epuise:></p>
+      </div>]
 </article>
 </BOUCLE_numero>

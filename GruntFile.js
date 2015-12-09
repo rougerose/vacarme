@@ -70,6 +70,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.registerTask('analyse', ['cssmetrics:common']);
   grunt.registerTask('compile', ['sass:dist','uglify:my_target']);
+  grunt.registerTask('dist', ['sass:dist']);
   grunt.registerTask('dev', ['sass:dev','uglify:my_target']);
   grunt.registerTask('default', ['dev','analyse']);
 }
