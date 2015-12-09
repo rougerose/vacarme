@@ -1,0 +1,29 @@
+/**
+ * Stock
+ */
+
+.Stock {
+  width: 100%;
+  padding: 6px 0;
+  text-align: center;
+  @include media-query(desk) {
+    width: 50%;
+  }
+}
+
+.Stock--posAbs {
+  position: absolute;
+  top: 50%;
+}
+
+.Stock--out {
+  background-color: #d21919;
+  color: #fff;
+}
+
+  .Stock-info {
+    margin: 0;
+    font-family: $font-HBC;
+    @include font-size(15px);
+    text-transform: uppercase;
+  }

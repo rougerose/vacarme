@@ -1,5 +1,6 @@
 [(#REM) Le conteneur -- footer, div, section... est dans le squelette à partir duquel l'inclusion se fait. Il doit porter la classe "related" ]
 <BOUCLE_numero_related(RUBRIQUES){id_rubrique}>
+<BOUCLE_numero_epuise(MOTS){id_rubrique}{id_mot=108}{tout}>#SET{numero_epuise,' '}</BOUCLE_numero_epuise>
 <h2 class="hN intertitre-section intertitre-section--first intertitre-section--content"><:local:issue_about:></h2>
 <div class=media>
     [<a href="#URL_RUBRIQUE">(#LOGO_RUBRIQUE||image_reduire{160,0}|inserer_attribut{class,media__img cover cover--thumb}|inserer_attribut{itemprop,image})</a>]
@@ -11,9 +12,13 @@
             [<li><span itemprop="numberOfPages">(#PAGES_TOTAL|>{0}|oui)#PAGES_TOTAL</span> <:local:pages:></li>]
             <li>Éditeur : Vacarme. Diffusion en librairies : Les Belles Lettres.</li>
             [<li>ISBN <span itemprop="isbn">(#ISBN|>{0}|oui)#ISBN</span></li>]
+            [(#GET{numero_epuise}|oui)<li class="Stock Stock--out"><span class="Stock-info"><:local:numero_epuise:></span></li> ]
         </ul>
         <p>
-            <a href="http://commande.vacarme.org/spip.php?rubrique2" class="btn btn--small btn--primary btn--ok btn--commande"><:local:acheter:></a>
+            [(#GET{numero_epuise}|?{
+              <a href="#" class="btn btn--small btn--primary btn--commande is-inactive"><:local:acheter:></a>,
+              <a href="http://commande.vacarme.org/spip.php?rubrique2" class="btn btn--small btn--primary btn--commande"><:local:acheter:></a>
+            })]
             <a href="http://commande.vacarme.org/spip.php?rubrique1" class="btn btn--small btn--primary btn--ok btn--commande"><:local:abonner:></a>
         </p>
 

@@ -25,7 +25,7 @@ $fa-font-path: "fonts/fontawesome";
         "scss/layout/page-head",
         "scss/layout/page-content",
         "scss/layout/page-foot",
-        
+
         // modules
         "scss/modules/list",
         "scss/modules/accordeon",
@@ -37,22 +37,22 @@ $fa-font-path: "fonts/fontawesome";
         "scss/modules/pagination",
         "scss/modules/tri",
         "scss/modules/filtres",
-        
+
         "scss/modules/section",
         "scss/modules/site-logo",
-        
-        
+
+
         "scss/modules/tabs",
         "scss/modules/rubrique-dossier",
         "scss/modules/timeline",
 
-        
+
         "scss/modules/auteurs",
         "scss/modules/preview",
         "scss/modules/overlay",
         "scss/modules/meta",
         "scss/modules/toc",
-        
+
         // icones
         "scss/modules/icon",
 
@@ -74,11 +74,13 @@ $fa-font-path: "fonts/fontawesome";
         "scss/modules/resume.mot",
         "scss/modules/resume.dossier",
 
-        // self 
+        // self
         "scss/modules/self",
-        
+
         // couleurs
         "scss/modules/couleurs";
+
+@import "scss/modules/stock";
 
 
 
@@ -100,7 +102,7 @@ $fa-font-path: "fonts/fontawesome";
 // images - base
 // @import "ui/images";
 
-// links 
+// links
 //@import "ui/links";
 
 // navigation

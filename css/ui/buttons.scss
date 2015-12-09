@@ -8,10 +8,11 @@
     font-weight: normal;
 }
 
-.btn--ok {
-    background: darken($ok,15%);
-    color: #000;
-}
+// .btn--ok {
+//     background: darken($ok,15%);
+//     color: #000;
+//
+// }
 
 // .btn--nav {
 //     padding: 3px 6px;
@@ -42,7 +43,14 @@
 
 .btn--commande {
     border-radius: 3px;
-    @include vendor(box-shadow, 0 1px 2px rgba(0,0,0,0.1));
+    // @include vendor(box-shadow, 0 1px 2px rgba(0,0,0,0.1));
+    background: darken($ok, 15%);
+    color: #000;
+
+    &:hover {
+      color: #fff;
+      background: $ok;
+    }
 }
 
 .btn--send {
@@ -55,5 +63,13 @@
     }
 }
 
-/*-----  End of buttons  ------*/
+.is-inactive {
+  &,
+  &:hover {
+    background-color:#ddd;
+    color:#777;
+    cursor:text;
+  }
+}
 
+/*-----  End of buttons  ------*/

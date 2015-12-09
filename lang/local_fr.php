@@ -22,10 +22,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'authors_number'                              => '@nb@ auteurs',
     'authors'                                     => "Les auteurs",
     'author'                                      => "L’auteur",
-    
+
     // B
     'back_to_top'                                 => "Revenir en haut",
-    
+
     // C
     'categorie_critiques_tous'                    => "Tous les articles",
     'categorie_ecriture_tous'                     => "Tous les articles",
@@ -33,8 +33,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'categorie_entretiens_selection'              => "Une sélection",
     'categorie_entretiens_tous'                   => "Tous les entretiens",
     'categorie_fronts_tous'                       => "Tous les articles",
-    
-    'categorie_selection'                         => "Une sélection", // version générique à utiliser ? 
+
+    'categorie_selection'                         => "Une sélection", // version générique à utiliser ?
     'categorie_tous_4'                            => 'Tous les articles', // catégorie Ecritures
     'categorie_tous_227'                          => 'Tous les dossiers', // catégorie Dossiers
     'categorie_tous_231'                          => 'Toutes les tribunes', // catégorie Tribunes
@@ -51,14 +51,14 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'category_singular'                           => 'Catégorie',
     'classe_dans_categorie'                       => "Classé dans",
     'close'                                       => "Fermer",
-    
+
     // D
     'documents_fichier'                           => 'Documents associés',
     'documents_image'                             => 'Images associées',
-    
+
     // E
     'esprit_de_suite'                             => "Esprit de suite",
-    
+
     // I
     'info_articles'                               => "Articles",
     'info_auteurs'                                => "Auteurs",
@@ -73,16 +73,16 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'issue_about'                                 => "À propos de ce numéro",
     'info_precedent'                              => "Précédent",
     'info_suivant'                                => "Suivant",
-    
+
     // J
     'jour_precedent'                              => "Journée précédente",
     'jour_suivant'                                => "Journée suivante",
-    
+
     // K
     'keyword_number'                              => '1 mot-clé',
     'keywords_all'                                => 'Tous les mots-clés',
     'keywords_number'                             => '@nb@ mot-clés',
-    
+
     // M
     'message_404_title'                           => "Page indisponible.",
     'message_404_desc'                            => "Nous sommes désolé-e-s, la page que vous recherchez n’est pas disponible.<br />Revenir à <a href='@urlsite@' class='spip_in'>la page d'accueil du site</a>.",
@@ -93,7 +93,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'more_issue'                                  => 'Le sommaire complet',
     'more_arrow'                                  => '<em>&#8594;</em>',
     'more_read'                                   => 'Lire <em>&#8594;</em>',
-    
+
     // N
     'navigation'                                  => "Navigation",
     'navigation_categories'                       => "Catégories",
@@ -106,8 +106,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'nombre_auteurs'                              => '@nb@ auteurs',
     'nombre_mot'                                  => "1 thème",
     'nombre_mots'                                 => "@nb@ thèmes",
-    
-    
+    'numero_epuise' => "Numéro épuisé",
+
+
     // P
     'page_abrev'                                  => 'pp.&nbsp;@debut@-@fin@.',
     'page_next'                                   => 'Page suivante',
@@ -121,9 +122,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'published_in'                                => 'Publiée dans',
     'published_date'                              => 'Publiée le',
     'published_date_alt'                          => "Publié le",
-    
+
     'publie_en_ligne'                             => "Publié en ligne le",
-    
+
     // R
     'read_also'                                   => 'Lire également',
     'redaction_en_chef'                           => "Rédaction en chef",
@@ -132,7 +133,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'recherche_resultat'                          => '1 résultat',
     'recherche_resultats'                         => '@nb@ résultats',
     'recherche_titre'                             => "Recherche",
-    
+
     // S
     'section_number'                              => '1 rubrique',
     'sections_number'                             => '@nb@ rubriques',
@@ -141,7 +142,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'suite_lire' => "Lire la suite",
     'suite_dossier' => "Afficher le dossier",
     'suite_feuilleton' => "Afficher le feuilleton",
-    
+
     // T
     'table_of_content'                            => "Sommaire",
     'tag_plural'                                  => 'Mots-clés',
@@ -156,10 +157,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'tri_nom'                                     => "Nom",
     'tri_pertinence'                              => 'Pertinence',
     'tri_titre'                                   => 'Titre',
-    
+
     // V
     'version_online'                              => "Version en ligne",
     'version_print'                               => "Version imprimée"
-   
+
    );
 ?>

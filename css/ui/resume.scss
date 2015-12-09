@@ -88,7 +88,7 @@
         line-height: 1;
     }
     .numero-soustitre {
-        display: inline; 
+        display: inline;
         font-size: 100%;
     }
 }
@@ -141,7 +141,9 @@
 }
 
 /*==========  resume-numero  ==========*/
-// .resume-numero {}
+.resume-numero {
+  position: relative;
+}
 .resume-numero__titre {
     line-height: 1;
 }
@@ -290,4 +292,3 @@
 
 
 /*-----  End of resume  ------*/
-

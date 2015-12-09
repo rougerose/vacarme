@@ -1,4 +1,5 @@
 <BOUCLE_numero_resume(RUBRIQUES){id_rubrique}>
+<BOUCLE_numero_epuise(MOTS){id_rubrique}{id_mot=108}{tout}>#SET{numero_epuise,' '}</BOUCLE_numero_epuise>
 [(#SET{logo_alternatif,#ENV{logo_alternatif,''}})]
 <article class="issue rubrique#ID_RUBRIQUE">
     <div class="grid__item[ (#ENV{grid_1})]">
@@ -18,6 +19,10 @@
             </li>
             </BOUCLE_contenu_numero>
         </ul>
+        [(#GET{numero_epuise}|oui)
+          <div class="Stock Stock--out">
+            <p class="Stock-info"><:local:numero_epuise:></p>
+          </div>]
         </B_contenu_numero>
     </div><!-- /.grid__item -->
 </article>
