@@ -3,7 +3,10 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 $GLOBALS[$GLOBALS['idx_lang']] = array(
     // A
     'abonner'                                     => "S’abonner",
-    'acheter'                                     => 'Acheter',
+    'abonnez'                                     => "Abonnez-vous",
+    'abonnez_newsletter_argu'                     => "La pr&eacute;rennit&eacute; d&#8217;une revue d&eacute;pend de ses abonn&eacute;-e-s. <br>Pour tout abonnement &agrave; Vacarme, vous recevrez un cadeau&nbsp;: <span style='color: #e7c900;'>1 livre</span> pour un abonnement d&#8217;<span style='color: @span_color;'>1 an</span>&nbsp;; <span style='color: #e7c900;'>2 livres</span> pour un abonnement de <span style='color: #e7c900;'>2 ans</span>.",
+    'abonnez_newsletter_bouton'                   => 'Je m&#8217;abonne',
+    'acheter'                                     => "Acheter",
     'apercu_info_article'                         => "L'intégralité de cet article est disponible dans <em>@titre_numero@</em> actuellement en vente dans votre librairie ou <a href='http://commande.vacarme.org'>en ligne</a>.",
     'apercu_info_numero'                          => "Vacarme aime la gratuité, mais ce numéro est actuellement en vente en librairie et par <a href='http://commande.vacarme.org'>abonnement</a>. Seuls les articles précédés de cette icône <span class='icon icon--unlock'></span> sont disponibles dans leur intégralité.",
     'archives'                                    => "Archives",
@@ -106,7 +109,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'nombre_auteurs'                              => '@nb@ auteurs',
     'nombre_mot'                                  => "1 thème",
     'nombre_mots'                                 => "@nb@ thèmes",
-    'numero_epuise' => "Numéro épuisé",
+    'numero_epuise'                               => "Numéro épuisé",
 
 
     // P
@@ -117,7 +120,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'page_previous'                               => 'Page précédente',
     'pass_changer'                                => "Changer votre mot de passe",
     'poursuivre_lecture'                          => 'Poursuivre la lecture',
-    'poursuivre_serie' => "Dans la même série",
+    'poursuivre_serie'                            => "Dans la même série",
     'publication_about'                           => "À propos de l’article",
     'published_in'                                => 'Publiée dans',
     'published_date'                              => 'Publiée le',
@@ -139,9 +142,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'sections_number'                             => '@nb@ rubriques',
     'semaine_precedente'                          => "Semaine précédente",
     'semaine_suivante'                            => "Semaine suivante",
-    'suite_lire' => "Lire la suite",
-    'suite_dossier' => "Afficher le dossier",
-    'suite_feuilleton' => "Afficher le feuilleton",
+    'social_facebook'                             => "Facebook",
+    'social_seenthis'                             => "Seenthis",
+    'social_twitter'                              => "Twitter",
+    'suite_lire'                                  => "Lire la suite",
+    'suite_dossier'                               => "Afficher le dossier",
+    'suite_feuilleton'                            => "Afficher le feuilleton",
 
     // T
     'table_of_content'                            => "Sommaire",
@@ -159,6 +165,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'tri_titre'                                   => 'Titre',
 
     // V
+    'vacarme_about'                               => "À propos de Vacarme",
+    'vacarme_infos_desabonnement'                 => "Se désabonner de Vacarme-infos",
     'version_online'                              => "Version en ligne",
     'version_print'                               => "Version imprimée"
 
