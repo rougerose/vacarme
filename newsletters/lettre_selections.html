@@ -252,12 +252,8 @@ h6 {font-size: 20px;}
   </td>
 </tr>
 
-<!-- TODO: reprendre ici le code de la boucle déconne -->
-
 <BOUCLE_selection_premiere(SELECTIONS){id_newsletter}{par num titre, id_selection}{0,1}{doublons}>
-  <BOUCLE_selection_premiere_contenus(SELECTIONS_CONTENUS){id_selection}{par num titre, titre}>
-    [(#INCLURE{fond=newsletters/inclure/selections_contenus,id_selection})]
-  </BOUCLE_selection_premiere_contenus>
+  [(#INCLURE{fond=newsletters/inclure/selections_contenus,id_selection})]
 </BOUCLE_selection_premiere>
 
 <!-- MODULE ROW // -->
@@ -316,9 +312,7 @@ h6 {font-size: 20px;}
 <!-- // MODULE ROW -->
 <BOUCLE_selections_suivantes(SELECTIONS){id_newsletter}{par num titre, id_selection}{doublons}>
   [(#INCLURE{fond=newsletters/inclure/selections,id_selection})]
-  <BOUCLE_selections_suivantes_contenus(SELECTIONS_CONTENUS){id_selection}{par num titre, titre}>
-    [(#INCLURE{fond=newsletters/inclure/selections_contenus,id_selection})]
-  </BOUCLE_selections_suivantes_contenus>
+  [(#INCLURE{fond=newsletters/inclure/selections_contenus,id_selection})]
 </BOUCLE_selections_suivantes>
 <!-- MODULE ROW // -->
 <tr>
