@@ -67,6 +67,7 @@
             [(#COMPOSITION|non) #SET{taille_logo,L} ]
             [(#COMPOSITION|match{numero}|oui) #SET{taille_logo,L} ]
             [(#COMPOSITION|match{numero-logo_XL}|oui) #SET{taille_logo,XL} ]
+            [(#COMPOSITION|=={diaporama-logo}|oui) #SET{taille_logo,L} ]
         <div class="grid__item[(#GET{taille_logo}|=={L}|oui) lap-and-up-three-quarters push--lap-and-up-one-quarter]">
                 <div class="media landmark">
                     [(#GET{taille_logo}|=={L}|oui)
@@ -135,7 +136,7 @@
                         </div>
                     </section>]
                 ][(#GET{integral}|oui)
-                    [(#COMPOSITION|=={diaporama}|oui)
+                    [(#COMPOSITION|match{diaporama}|oui)
                         [<div class="landmark">
                             (#INCLURE{fond=inclure/article-diaporama,id_article})
                         </div>]
