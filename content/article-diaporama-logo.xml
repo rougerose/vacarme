@@ -1,0 +1,5 @@
+<composition>
+    <nom>Article Diaporama + Logo</nom>
+    <description>Composition pour afficher un logo en tête d'article accompagné d'un diaporama d'images sous le texte.</description>
+    <icon>img/composition-article-diaporama.png</icon>
+</composition>
