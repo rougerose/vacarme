@@ -12,23 +12,27 @@
             Le numéro a-t-il plus de 364 jours ? Si oui, l'article est en version intégrale,
             sauf si le mot-clé adhoc a été ajouté.
             Au passage, récupération de l'identifiant de la rubrique du numéro.
+            -----
+            Ajout du 08/06/2016 : ce test ne concerne que les articles issus d'un numéro et qui utiliserait également la polyhierarchie.
         ]
         #SET{integral,''}
         <BOUCLE_age_numero(HIERARCHIE){id_article}{1,1}>
             [(#DATE_NUMERO|date_comparaison{365}|?{#SET{integral,' '},''})]
             [(#SET{id_numero,#ID_RUBRIQUE})][(#SET{titre_numero,#TITRE})]
         </BOUCLE_age_numero>
-        [(#REM)
-            L'article est lié à des mots-clés "techniques" :
-                1- Est-ce un entretien ?
-                2- Version intégrale (avant le délai d'un an) ?
-        ]
-        <BOUCLE_mots_techniques(MOTS){id_article}{id_groupe=5}{tout}>
-        [(#REM) 1- ][(#ID_MOT|=={75}|oui)#SET{type,entretien}][(#SET{type-titre,#TITRE})]
-        [(#REM) 2- ][(#ID_MOT|=={7}|?{#SET{integral,' '}})]
-        </BOUCLE_mots_techniques>
     </BOUCLE_secteur_numeros>
 </BOUCLE_branche>
+
+[(#REM)
+    L'article est lié à des mots-clés "techniques" :
+        1- Est-ce un entretien ?
+        2- Version intégrale (avant le délai d'un an) ?
+        Ce test n'a de sens que pour un article issu d'un numéro et qui utilise la polyhierarchie.
+]
+<BOUCLE_mots_techniques(MOTS){id_article}{id_groupe=5}{tout}>
+[(#REM) 1- ][(#ID_MOT|=={75}|oui)#SET{type,entretien}][(#SET{type-titre,#TITRE})]
+[(#REM) 2- ][(#ID_MOT|=={7}|?{#SET{integral,' '}})]
+</BOUCLE_mots_techniques>
 
 [(#REM) Le format du logo ]
 [(#LOGO_ARTICLE|oui)
