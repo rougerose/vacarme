@@ -1,15 +1,15 @@
 <BOUCLE_article(ARTICLES){id_article}>
 #SET{type,''} #SET{type-titre,''} #SET{id_numero,''} #SET{contexte,''} #SET{format_logo,''} #SET{taille_logo,''} #SET{integral,' '}
-[(#ENV{page}|=={mentions}|?{'',#SET{contexte,' '}})] 
+[(#ENV{page}|=={mentions}|?{'',#SET{contexte,' '}})]
 
-[(#REM) Est-ce un article d'un numéro ? 
-        On cherche tous les rubriques parentes de l'article. 
+[(#REM) Est-ce un article d'un numéro ?
+        On cherche tous les rubriques parentes de l'article.
         Le plugin polyhierarchie est nécessaire.
 ]
 <BOUCLE_branche(RUBRIQUES){parents}>
     <BOUCLE_secteur_numeros(RUBRIQUES){id_rubrique}{si #ID_SECTEUR|=={115}}>
-        [(#REM) 
-            Le numéro a-t-il plus de 364 jours ? Si oui, l'article est en version intégrale, 
+        [(#REM)
+            Le numéro a-t-il plus de 364 jours ? Si oui, l'article est en version intégrale,
             sauf si le mot-clé adhoc a été ajouté.
             Au passage, récupération de l'identifiant de la rubrique du numéro.
         ]
@@ -19,9 +19,9 @@
             [(#SET{id_numero,#ID_RUBRIQUE})][(#SET{titre_numero,#TITRE})]
         </BOUCLE_age_numero>
         [(#REM)
-            L'article est lié à des mots-clés "techniques" : 
-                1- Est-ce un entretien ? 
-                2- Version intégrale (avant le délai d'un an) ? 
+            L'article est lié à des mots-clés "techniques" :
+                1- Est-ce un entretien ?
+                2- Version intégrale (avant le délai d'un an) ?
         ]
         <BOUCLE_mots_techniques(MOTS){id_article}{id_groupe=5}{tout}>
         [(#REM) 1- ][(#ID_MOT|=={75}|oui)#SET{type,entretien}][(#SET{type-titre,#TITRE})]
@@ -120,6 +120,12 @@
                     [<section class="#EDIT{ps} self__ps landmark ps surlignable">
                         <h2 class="hN intertitre-section intertitre-section--first"><:info_ps:></h2>
                         (#PS)
+                    </section>]
+                    [<section class="self__notes landmark">
+                        <h2 class="hN intertitre-section intertitre-section--first"><:info_notes:></h2>
+                        <div class="self__notes__body">
+                            (#NOTES)
+                        </div>
                     </section>]
                     [<section>
                         (#INCLURE{fond=inclure/documents,id_article})
