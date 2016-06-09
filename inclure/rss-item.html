@@ -1,4 +1,4 @@
-<BOUCLE_un_article(ARTICLES){id_article}>
+<BOUCLE_un_article(ARTICLES){id_article}>#SET{couverture,''}
 	<item[ xml:lang="(#LANG)"]>
 		<title>[(#TITRE|supprimer_tags|texte_backend)]</title>
 		<link>[(#URL_ARTICLE|url_absolue|texte_backend)]</link>
@@ -14,7 +14,10 @@
 ]<BOUCLE_mots_rss(MOTS){id_article}>
 		[<dc:subject>(#TITRE|prenom_nom|texte_backend)</dc:subject>]</BOUCLE_mots_rss>
 
-		<description>[(#INTRODUCTION|texte_backend)]
+		<description>
+			<BOUCLE_hierarchie(HIERARCHIE){id_article}{1,1}><BOUCLE_rubrique_couverture(RUBRIQUES){id_rubrique}>[(#SET{couverture,[(#LOGO_RUBRIQUE|inserer_attribut{class,webfeedsFeaturedVisual}|inserer_attribut{alt,[(#TITRE|texte_backend)]})]})]</BOUCLE_rubrique_couverture></BOUCLE_hierarchie>
+			[(#LOGO_ARTICLE|inserer_attribut{class,webfeedsFeaturedVisual}|inserer_attribut{alt,[(#TITRE|texte_backend)]}|sinon{#GET{couverture}}|texte_backend)]
+			[(#INTRODUCTION|texte_backend)]
 
 [(#REM)
 	Le bloc qui suit diffuse la rubrique et les mots-cles

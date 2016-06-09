@@ -1,4 +1,4 @@
-[(#REM)
+[(#CACHE{0})][(#REM)
   Surcharge du flux RSS de SPIP
   ==============================
 
@@ -17,6 +17,7 @@ version="1.0"[ encoding="(#CHARSET)"]?>
 <rss version="2.0" [(#REM) rss 2.0.9)]
 	xmlns:dc="http://purl.org/dc/elements/1.1/"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:webfeeds="http://webfeeds.org/rss/1.0"
 >
 
 <channel[ xml:lang="(#LANG)"]>
@@ -37,7 +38,6 @@ version="1.0"[ encoding="(#CHARSET)"]?>
 
 #SET{articles,#ARRAY}
 <BOUCLE_rubrique_numeros(RUBRIQUES){id_rubrique=115}>
-
   <BOUCLE_dernier_numero(RUBRIQUES){id_parent}{0,1}{par titre}{inverse}>
     <BOUCLE_articles_consultables(ARTICLES){branche}{id_mot=7}{par id_rubrique, num titre}>
       [(#SET{articles,#GET{articles}|push{#ID_ARTICLE}})]
@@ -52,7 +52,6 @@ version="1.0"[ encoding="(#CHARSET)"]?>
       [(#SET{articles,#GET{articles}|push{#ID_ARTICLE}})]
     </BOUCLE_articles_gratuits>
   </BOUCLE_numero_gratuit>
-
 </BOUCLE_rubrique_numeros>
 
 <BOUCLE_autres_rubriques(RUBRIQUES){id_rubrique IN 82,440}>
@@ -61,7 +60,7 @@ version="1.0"[ encoding="(#CHARSET)"]?>
   </BOUCLE_derniers_articles>
 </BOUCLE_autres_rubriques>
 
-<BOUCLE_articles(ARTICLES){id_article IN #GET{articles}}>
+<BOUCLE_articles(ARTICLES){id_article IN #GET{articles}}{!par date}>
 <INCLURE{fond=inclure/rss-item, id_article} />
 </BOUCLE_articles>
 
