@@ -1,4 +1,18 @@
-[(#HTTP_HEADER{Content-type: text/xml[; charset=(#CHARSET)]})]<?xml
+[(#REM)
+  Surcharge du flux RSS de SPIP
+  ==============================
+
+  Le flux récupère les éléments suivants:
+    - les articles en version intégrale du dernier numéro publié.
+    - tous les articles d'un numéro paru il y a au moins un an (à partir de la date de consultation) et qui sont par conséquent tous en version intégrale.
+    - les 10 derniers articles des rubriques Actualités et Travail en cours.
+
+  Les articles sont récupérés dans un tableau, puis affichés dans le flux par ordre chronologique inverse.
+
+  Le fichier inclure/rss-item.html est une surcharge de inc-rss-item.html, avec uniquement l'ajout du filtre |prenom_nom sur les titres de mots-clés.
+
+
+][(#HTTP_HEADER{Content-type: text/xml[; charset=(#CHARSET)]})]<?xml
 version="1.0"[ encoding="(#CHARSET)"]?>
 <rss version="2.0" [(#REM) rss 2.0.9)]
 	xmlns:dc="http://purl.org/dc/elements/1.1/"

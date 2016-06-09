@@ -1,4 +1,4 @@
-<?php 
+<?php
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
 function prenom_nom($texte) {
@@ -56,7 +56,7 @@ function desaccentuer($texte,$couper='oui') {
     return $t_initiale;
 }
 
-// Supprimer l'article au début d'une chaîne : la,le,les,l',des,du,de,d'. 
+// Supprimer l'article au début d'une chaîne : la,le,les,l',des,du,de,d'.
 // Et désaccentuation de la première lettre.
 function sans_article($texte) {
     $encoding = 'UTF-8';
@@ -120,8 +120,8 @@ function tri_tableau(&$array, $key,$reverse=false) {
 * Fonction comparaison de date
 *
 **/
-/* 
-Pour l'utiliser il faut modifier 
+/*
+Pour l'utiliser il faut modifier
 la méthode de calcul de l'age des articles, voir todo.
 usage : [(#DATE_NUMERO|date_comparaison{365}|?{oui,non})]
 */
@@ -136,6 +136,18 @@ function date_comparaison($date,$jours) {
     } else {
         return false;
     }
+}
+
+
+/*
+  Calculer une date
+  par exemple un an avant : 
+  $modif = '-1 year'
+*/
+function date_modif($date, $modif) {
+  $time = new DateTime($date);
+  $newtime = $time->modify($modif)->format('Y-m-d H:i:s');
+  return $newtime;
 }
 
 ?>
