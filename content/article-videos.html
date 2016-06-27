@@ -27,7 +27,7 @@
         <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
             <BOUCLE_video(DOCUMENTS){id_article}{media=video}{par num titre, id_document}{0,1}>
             [<div class="video mb+">
-                    (#INCLURE{fond=inclure/video-document,id_document})
+                    (#MODELE{oembed,url=#OEMBED})
             </div><!-- /.video -->]
             </BOUCLE_video>
             <p class="message message--erreur"><:message_erreur_video_aucune:></p>
