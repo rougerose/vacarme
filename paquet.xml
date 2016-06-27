@@ -1,4 +1,4 @@
-<paquet categorie="squelette" compatibilite="[3.0.10;[" etat="dev" logo="img/vacarme-128.png" prefix="vacarme" version="3.2.00">
+<paquet categorie="squelette" compatibilite="[3.0.10;[" etat="dev" logo="img/vacarme-128.png" prefix="vacarme" version="3.2.01">
     <nom>Vacarme</nom>
     <auteur lien="http://rouge-rose.net">christophe le drean</auteur>
     <licence>GNU/GPL</licence>
@@ -13,8 +13,7 @@
     <necessite nom="albums" compatibilite="[3.3.0;[" />
     <utilise nom="newsletters" compatibilite="[1.3.16;[" />
     <utilise nom="selections_editoriales" />
-    <utilise nom="videos" compatibilite="[0.10.9;[" />
+    <utilise nom="oembed" compatibilite="[1.6.3;[" />
     <utilise nom="medias" compatibilite="[2.7.45;[" />
-    <menu nom="vacarme" titre="Vidéos vignettes auto" parent="menu_squelette" icone="images/videos-16.png" action="videos_vignette" />
     <chemin path=""/>
 </paquet>
