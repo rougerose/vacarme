@@ -2,10 +2,19 @@
 
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
-// css spécifiques
-function vacarme_header_prive_css($flux) {
+// css espace privé
+function vacarme_header_prive($flux) {
     $flux .= '<link rel="stylesheet" type="text/css" href="'._DIR_PLUGIN_VACARME.'css/vacarme_prive.css" />';
     return $flux;
+}
+
+// css espace public
+function vacarme_insert_head_css($flux) {
+  $flux .= '<link rel="stylesheet" type="text/css" href="'._DIR_PLUGIN_VACARME.'js/flexslider/flexslider.css" />';
+  $flux .= '<link rel="stylesheet" type="text/css" href="'._DIR_PLUGIN_VACARME.'js/owl-carousel/owl.carousel.css" />';
+  $flux .= '<link rel="stylesheet" type="text/css" href="'._DIR_PLUGIN_VACARME.'css/vacarme.min.css" />';
+
+  return $flux;
 }
 
 // cron
