@@ -1,0 +1,103 @@
+// =====================================
+// @print
+// =====================================
+
+@media print {
+  @page {
+    margin: 0.5cm;
+  }
+
+  //
+  // principes généraux
+  // -------------------------------------
+
+  html {
+    font: 12pt/1.4  $base-font-family;
+  }
+
+  body {
+    padding: 0;
+    margin: 0 10%;
+  }
+
+  //
+  // container principal
+  // -------------------------------------
+
+  .page-block {
+    max-width: inherit;
+    padding: 0;
+  }
+
+  //
+  // éléments invisibles
+  // -------------------------------------
+
+  // header
+  .btn-shortcut-container,
+  .navigation-site,
+
+  // pied de page
+  .page-foot,
+
+  // rubrique Numéros : image numéro en cours version grand format
+  .cover-feature--large,
+
+  // spip-admin
+  .spip-admin-float {
+    display: none;
+  }
+
+  //
+  // images
+  // -------------------------------------
+
+  .cover--issue,
+  .resume__figure {
+    width: 300px;
+  }
+
+  // page d'accueil > archives
+  .thumbnail,
+  .resume-numero--logo {
+    width: 25%;
+  }
+
+  //
+  // contenus
+  // -------------------------------------
+
+  // rubrique Numéros : liste des numéros
+  .issue {
+    width: 50%;
+  }
+
+  //
+  // liens
+  // -------------------------------------
+
+  a,
+  a.spip_out,
+  a.spip_in,
+  a.spip_note,
+  a.more,
+  a.active {
+    color: $couleur-print;
+    border-bottom: 1px solid $couleur-print;
+  }
+
+  .article {
+    p {
+      & a {
+        word-wrap: break-word;
+      }
+      & a[href^="http://"],
+      .spip_out {
+        &:after {
+          content: " (" attr(href) ")";
+          font-size: 90%;
+        }
+      }
+    }
+  }
+}

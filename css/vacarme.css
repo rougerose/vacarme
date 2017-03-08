@@ -4267,3 +4267,14 @@ body .spip-admin-bloc:hover, body .spip-admin-float:hover { right: 0; }
 #spip-admin .spip-admin-boutons { font: 10px/1 "Geneva", "Consolas", "Menlo", monospace; display: block; text-align: center; margin-bottom: 5px; border-radius: 5px 0 0 5px; }
 
 /*-----  End of misc  ------*/
+@media print { @page { margin: 0.5cm; }
+  html { font: 12pt/1.4 "Palatino", "Plantin", serif; }
+  body { padding: 0; margin: 0 10%; }
+  .page-block { max-width: inherit; padding: 0; }
+  .btn-shortcut-container, .navigation-site, .page-foot, .cover-feature--large, .spip-admin-float { display: none; }
+  .cover--issue, .resume__figure { width: 300px; }
+  .thumbnail, .resume-numero--logo { width: 25%; }
+  .issue { width: 50%; }
+  a, a.spip_out, a.spip_in, a.spip_note, a.more, a.active { color: #000; border-bottom: 1px solid #000; }
+  .article p a { word-wrap: break-word; }
+  .article p a[href^="http://"]:after, .article p .spip_out:after { content: " (" attr(href) ")"; font-size: 90%; } }
