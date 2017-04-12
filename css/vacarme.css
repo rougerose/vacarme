@@ -2514,6 +2514,8 @@ hr.spip { border: 0; height: 1px; background: #000; background: linear-gradient(
 /* message */
 .message__important { font-size: 18px; font-size: 1.125rem; line-height: 1.33333; background-color: #c1e732; }
 
+.u-textCenter { text-align: center; }
+
 /*-----  End of typo  ------*/
 /*------------------------------------*    $QUOTES
 \*------------------------------------*/
