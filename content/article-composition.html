@@ -19,11 +19,11 @@
         </BOUCLE_age_numero>
         [(#REM)
             L'article est lié à des mots-clés "techniques" :
-                1- Est-ce un entretien ?
+                1- Est-ce un entretien ou "propos recueillis par..." ?
                 2- Version intégrale (avant le délai d'un an) ?
         ]
-        <BOUCLE_mots_techniques(MOTS){id_article}{id_groupe=5}{tout}>
-        [(#REM) 1- ][(#ID_MOT|=={75}|oui) [(#SET{type,entretien})] [(#SET{type-titre,#TITRE})] ]
+        <BOUCLE_mots_techniques(MOTS){id_article}{id_groupe=5}{tout}>#ID_MOT
+        [(#REM) 1- ][(#ID_MOT|match{75|240}|oui) [(#SET{type,entretien})] [(#SET{type-titre,#TITRE})] ]
         [(#REM) 2- ][(#ID_MOT|=={7}|?{#SET{integral,' '}})]
         </BOUCLE_mots_techniques>
     </BOUCLE_secteur_numeros>
