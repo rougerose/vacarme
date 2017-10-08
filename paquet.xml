@@ -4,7 +4,7 @@
   etat="stable"
   logo="img/vacarme-128.png"
   prefix="vacarme"
-  version="3.2.09"
+  version="3.2.10"
 >
     <nom>Vacarme</nom>
     <auteur lien="http://rouge-rose.net">christophe le drean</auteur>
