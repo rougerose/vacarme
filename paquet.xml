@@ -15,12 +15,12 @@
     <pipeline nom="taches_generales_cron" inclure="vacarme_pipelines.php" />
 
     <necessite compatibilite="[2.0.1;2.0.*]" nom="Z5"/>
-    <necessite compatibilite="[2.2.1;2.4.*]" nom="Zcore"/>
+    <necessite compatibilite="[2.2.1;2.6.*]" nom="Zcore"/>
     <necessite nom="IntertitresTdm" compatibilite="[0.9.5;0.9.*]" />
-    <necessite nom="suivant_precedent" compatibilite="[1.3.2;1.3.*]" />
-    <necessite nom="polyhier" compatibilite="[2.0.8;2.0.*]" />
+    <necessite nom="suivant_precedent" compatibilite="[1.3.2;1.4.*]" />
+    <necessite nom="polyhier" compatibilite="[2.0.8;3.6.*]" />
     <necessite nom="critere_mots" compatibilite="[2.1.3;2.1.*]" />
-    <necessite nom="albums" compatibilite="[3.3.0;3.3.*]" />
+    <necessite nom="albums" compatibilite="[3.3.0;3.5.*]" />
 
     <utilise nom="newsletters" compatibilite="[1.3.16;1.3.*]" />
     <utilise nom="selections_editoriales" />
