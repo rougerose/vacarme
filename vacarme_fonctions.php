@@ -1,6 +1,10 @@
 <?php
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
+function filtre_prenom_nom($texte) {
+  return prenom_nom($texte);
+}
+
 function prenom_nom($texte) {
     if (strstr($texte, "*")) {
         $prenom = prenom($texte);
@@ -141,7 +145,7 @@ function date_comparaison($date,$jours) {
 
 /*
   Calculer une date
-  par exemple un an avant : 
+  par exemple un an avant :
   $modif = '-1 year'
 */
 function date_modif($date, $modif) {
