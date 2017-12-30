@@ -24,9 +24,9 @@ function vacarme_insert_head_css($flux) {
 // est donc faussé. Le tri dans la recherche se fera sur la date de publication
 // pour le moment.
 
-function vacarme_taches_generales_cron($taches_generales) {
-    // $taches_generales['ajouter_date_redac_articles'] = 60*10;
-    return $taches_generales;
-}
+// function vacarme_taches_generales_cron($taches_generales) {
+//     // $taches_generales['ajouter_date_redac_articles'] = 60*10;
+//     return $taches_generales;
+// }
 
 ?>
