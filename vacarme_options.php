@@ -2,6 +2,8 @@
 
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
+$GLOBALS['z_blocs'] = array('content', 'head', 'head_js', 'header', 'footer');
+
 // define('_JQUERYUI_CSS_NON',1);
 
 // en dev, pas de cache
