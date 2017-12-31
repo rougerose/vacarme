@@ -24,19 +24,19 @@
             <section class="toc grid">
                 <div class="toc-header">
                     <h2 class="hN intertitre-section toc__title"><:local:table_of_content:></h2>
-                    [(#REM) 
-                        Le numéro a-t-il moins d'un an ? Si oui, on affiche l'info relative 
+                    [(#REM)
+                        Le numéro a-t-il moins d'un an ? Si oui, on affiche l'info relative
                         à la gratuité de certains articles.
                     ]
                     <BOUCLE_age_articles(ARTICLES){branche}{par date}{0,1}{age<365}>#SET{apercu_info_numero,oui}</BOUCLE_age_articles>
                     [(#GET{apercu_info_numero}|?{<p class='toc__info'><:local:apercu_info_numero:></p>})]
                 </div>
                 [(#REM)
-                    Éditorial. 
+                    Éditorial.
                     -----------
-                    Certains numéros en contiennent plus d'un. 
-                    Les articles sont placés directement dans la rubrique du Numéro. 
-                    Pour faire simple dans la mise en page, on considère qu'ils n'ont pas de logo. 
+                    Certains numéros en contiennent plus d'un.
+                    Les articles sont placés directement dans la rubrique du Numéro.
+                    Pour faire simple dans la mise en page, on considère qu'ils n'ont pas de logo.
                 ]
                 <B_editorial>
                 <section class="grid__item">
@@ -64,8 +64,8 @@
                 </section><!-- /.grid__item -->
                 </B_editorial>
 
-                [(#REM) 
-                    Les rubriques du numéro. 
+                [(#REM)
+                    Les rubriques du numéro.
                     -------------------------
                 ]
                 <BOUCLE_rubriques_numero(RUBRIQUES){id_parent}{par num titre, titre}>
@@ -75,12 +75,12 @@
                     </BOUCLE_type_rubriques>
                     <h2 class="hN intertitre-section intertitre-section--first">[(#TITRE)]</h2>
                     <//B_type_rubriques>
-                    [(#REM) 
-                        La rubrique contient combien d'articles ? Si plus de 2 articles, la mise en page change. 
+                    [(#REM)
+                        La rubrique contient combien d'articles ? Si plus de 2 articles, la mise en page change.
                     ]
                     <B_combien><BOUCLE_combien(ARTICLES){branche_complete}> </BOUCLE_combien>[(#TOTAL_BOUCLE|>{2}|?{#SET{layout,rubrique-4col2lignesRubArt},#SET{layout,rubrique-4col1ligneRubArt}})]</B_combien>
                     [(#REM)
-                        La rubrique possède son propre logo ? 
+                        La rubrique possède son propre logo ?
                     ]
                     [(#LOGO_RUBRIQUE|fichier|match{^rubon#ID_RUBRIQUE}|?{
                         #SET{rubrique_logo_supprimer,''},
@@ -115,3 +115,4 @@
     </article><!-- /.self rubrique -->
 </div><!-- /.grid -->
 </BOUCLE_numero>
+#FILTRE{mini_html}

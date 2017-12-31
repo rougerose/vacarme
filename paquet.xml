@@ -1,6 +1,6 @@
 <paquet
   categorie="squelette"
-  compatibilite="[3.0.10;3.0.*]"
+  compatibilite="[3.2.0;3.2.*]"
   etat="stable"
   logo="img/vacarme-128.png"
   prefix="vacarme"

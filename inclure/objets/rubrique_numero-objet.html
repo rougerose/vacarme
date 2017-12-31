@@ -24,7 +24,7 @@
                     id_objet=#ENV{id_objet},
                     type=#ENV{type},
                     logo_format=#ENV{logo_format}})
-                ]}) 
+                ]})
         </div><!-- /.grid__item -->]
         <div class="grid__item[ (#GET{colonne_contenu})][ (#ENV{logo_objet}|=={non}|?{push--lap-and-up-one-quarter})]">
             [(#SET{fichier_inclus,#VAL{inclure/objets/rubrique_numero-objet}|concat{-#ENV{objet}}})]
@@ -47,4 +47,4 @@
         </B_articles_rubrique>
     </div><!-- /.grid -->
 </article>
-#FILTRE{trim}
+#FILTRE{mini_html}

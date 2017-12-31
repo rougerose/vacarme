@@ -9,7 +9,7 @@
 
 <BOUCLE_rubriques(RUBRIQUES){id_mot}>
     <BOUCLE_art_recent(ARTICLES){id_rubrique}{!par date}{0,1}>#SET{date-article,#DATE}</BOUCLE_art_recent>
-    #SET{element, #ARRAY{objet,"rubrique",id_objet,#ID_RUBRIQUE,date,#GET{date-article}}} 
+    #SET{element, #ARRAY{objet,"rubrique",id_objet,#ID_RUBRIQUE,date,#GET{date-article}}}
     #SET_PUSH{elements,#GET{element}}
 </BOUCLE_rubriques>
 
@@ -31,3 +31,4 @@
 </B_dossiers>
 
 </BOUCLE_mot>
+#FILTRE{mini_html}

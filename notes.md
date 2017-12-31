@@ -5,3 +5,6 @@
 
 # évolutions
 * paquet.xml : avec spip 3.1, utiliser balise <spip> pour les css et le js. Le js est à la fin du fichier body.html
+
+# bugs
+* vidéos avec oembed : voir article2653
