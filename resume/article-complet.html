@@ -32,7 +32,7 @@
             <header class="resume-article__header">
                 <h1 class="hN resume-article__titre resume-article__titre--complet"><a href="#URL_ARTICLE">#TITRE</a></h1>
                 [(#ENV{afficher_auteur}|non)
-                    [<p class="resume-article__auteurs auteurs"><:par_auteur:>(#MODELE{auteurs,id_article=#ENV{id_article},contexte=resume})</p>]
+                    [<p class="resume-article__auteurs auteurs-nom"><:par_auteur:>(#MODELE{auteurs,id_article=#ENV{id_article},contexte=resume})</p>]
                 ]
             </header>
             <div class="resume-article__descriptif resume-article__descriptif--complet">

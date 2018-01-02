@@ -18,7 +18,7 @@
     <div class="accordeon__body">
         <div class="resume-article__descriptif accordeon__descriptif">
             [(#ENV{afficher_auteur}|non)
-                [<p class="resume-article__auteurs[ (#ENV{article_selection}|oui) resume-article__auteurs--selection] auteurs"><:par_auteur:>(#MODELE{auteurs,id_article=#ENV{id_article},contexte=resume})</p>]
+                [<p class="resume-article__auteurs[ (#ENV{article_selection}|oui) resume-article__auteurs--selection] auteurs-nom"><:par_auteur:>(#MODELE{auteurs,id_article=#ENV{id_article},contexte=resume})</p>]
             ]
             [(#DESCRIPTIF|sinon{#INTRODUCTION|couper{100}|wrap{<p>}})]
             <ul class="inline-list inline-list--pipe">
