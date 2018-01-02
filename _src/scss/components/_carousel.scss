@@ -1,0 +1,65 @@
+/* ==========================================================================
+   carousel
+   ========================================================================== */
+
+/* videos-carousel
+   ========================================================================== */
+
+.videos-carousel {
+    padding-bottom: 1.5em;
+    // &:after {
+    //     content:'';
+    //     height: 1px;
+    //     display: block;
+    //     margin-top: 1.5em;
+    //     @include background-image(linear-gradient(to right,transparent 0%,#000 50%,transparent 100%));
+    // }
+}
+.carousel__item {
+    display: inline-block;
+    width: 100%;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+
+/* carousel flexslider (page d'accueil)
+   ========================================================================== */
+
+.flexslider__container {
+    .js & {
+        overflow: hidden;
+    }
+}
+.flexslider {
+    border-width: 0;
+    @include vendor(box-shadow,none);
+}
+
+.flex-direction-nav {
+    @extend .nav;
+    position: absolute;
+    z-index: 5;
+    bottom: $base-spacing-unit/2;
+    right: 0;
+    @include media-query(palm) {
+        top: $base-spacing-unit/4;
+    }
+    @include media-query(lap) {
+        bottom: 4em;
+    }
+    a {
+        margin: 0 6px;
+        padding: 0 12px 3px;
+        border: none;
+        background: rgba(#fff,0.75);
+        color: #000;
+        @include font-size(24px,$line-height:false);
+        font-family: Georgia,Times,serif;
+        @include vendor(transition,all 0.35s ease-out);
+        &:hover {
+            color: #000;
+            background: rgba(#fff,1);
+        }
+    }
+}
