@@ -36,7 +36,7 @@
 .nav--principale {
     @include media-query(desk) {
         margin-left: -24px; // .grid
-        font-family: $HCReg-font;
+        font-family: $Helvetica-font;
         text-transform: uppercase;
         .nav {
             border-bottom: 2px solid #000;
@@ -258,4 +258,3 @@
 }
 
 /*-----  End of navigation  ------*/
-

@@ -1,20 +1,25 @@
 {
-  "name": "vacarme",
-  "version": "0.2.0",
-  "private": true,
-  "description": "vacarme.org",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/rougerose/vacarme.git"
-  },
-  "author": "christophe le drean",
-  "devDependencies": {
-    "clean-css": "^4.0.8",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^4.1.0",
-    "gulp-plumber-notifier": "0.0.3",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
-    "vinyl-map": "^1.0.2"
-  }
+	"name": "vacarme",
+	"version": "0.2.0",
+	"private": true,
+	"description": "vacarme.org",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/rougerose/vacarme.git"
+	},
+	"author": "christophe le drean",
+	"devDependencies": {
+		"clean-css": "^4.0.8",
+		"gulp": "^3.9.1",
+		"gulp-autoprefixer": "^4.1.0",
+		"gulp-plumber-notifier": "0.0.3",
+		"gulp-rename": "^1.2.2",
+		"gulp-sass": "^3.1.0",
+		"stylelint-config-recommended": "^2.0.1",
+		"vinyl-map": "^1.0.2"
+	},
+	"prettier": {},
+	"stylelint": {
+		"extends": "stylelint-config-recommended"
+	}
 }

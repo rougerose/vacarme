@@ -1,0 +1,76 @@
+/*===============================
+=            buttons            =
+===============================*/
+
+.btn--primary{
+    font-family: $Helvetica-font;
+    text-transform: uppercase;
+    // font-weight: normal;
+}
+
+// .btn--ok {
+//     background: darken($ok,15%);
+//     color: #000;
+//
+// }
+
+// .btn--nav {
+//     padding: 3px 6px;
+//     line-height: 1.8;
+// }
+
+// .btn--nav-open {
+//     margin-left: 6px;
+//     background-color: #fff;
+//     &:hover {
+//         background-color: $nav-bg;
+//         color: #fff;
+//     }
+// }
+
+// .btn--nav-close {
+//     position: absolute;
+//     z-index: -1;
+//     top: .5em;
+//     background-color: $nav-bg;
+// }
+
+.btn--search {
+    float:right;
+    padding-top: 3px;
+    line-height: 1.8;
+}
+
+.btn--commande {
+	margin-right: 1em;
+    border-radius: 3px;
+    // @include vendor(box-shadow, 0 1px 2px rgba(0,0,0,0.1));
+    background: darken($ok, 15%);
+    color: #000;
+
+    &:hover {
+      color: #fff;
+      background: $ok;
+    }
+}
+
+.btn--send {
+    border: 1px solid $soft;
+    background-color: transparent;
+    color: $soft;
+    &:hover {
+        border-color: #000;
+        color: #000;
+    }
+}
+
+.is-inactive {
+  &,
+  &:hover {
+    background-color:#ddd;
+    color:#777;
+    cursor:text;
+  }
+}
+
+/*-----  End of buttons  ------*/
