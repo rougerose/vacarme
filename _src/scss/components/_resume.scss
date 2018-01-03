@@ -117,21 +117,7 @@
    is-selected
    ========================================================================== */
 
-    .resume__titre--is-selected {
-        strong {
-            font-weight: normal;
-            &:before {
-                display: inline-block;
-                margin-left: -1em;
-                margin-right: 0.3em;
-                content: '\f00c';
-                font-family: 'FontAwesome';
-                font-weight: normal;
-                font-style: normal;
-                color: $ok;
-            }
-        }
-    }
+    // .resume__titre--is-selected {}
 
 /* 
    is-postdate

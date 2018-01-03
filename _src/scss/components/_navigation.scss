@@ -123,7 +123,7 @@
                 }
                 .btn-nav-close {
                     right: 0;
-                    .fa {color: #fff;}
+                    // .fa {color: #fff;}
                 }
                 .nav__item--search {display:none;}
             }
@@ -148,7 +148,7 @@
             }
             .js-nav {
                 .wrap-in {
-					transform: translate3d(70%,0,0), scale3d(1,1,1);
+					transform: translate3d(70%,0,0) scale3d(1,1,1);
                     // @include transform(translate3d(70%,0,0)scale3d(1,1,1));
                 }
             }
@@ -160,7 +160,7 @@
             }
             .js-nav {
                 .wrap-in {
-					transform: translate3d(50%,0,0), scale3d(1,1,1);
+					transform: translate3d(50%,0,0) scale3d(1,1,1);
                 }
             }
         }

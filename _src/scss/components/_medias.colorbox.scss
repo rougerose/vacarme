@@ -10,8 +10,8 @@
         }
       }
       #cboxLoadedContent {
-        background: none;
-        padding: 0;
+        background: none !important;
+        padding: 0 !important;
       }
 
    /*
@@ -39,7 +39,10 @@
    // #cboxOverlay{background:#fff;}
 
    //  #colorbox{}
-   //      #cboxContent{margin-top:32px;}
+	#cboxContent{
+		background-color: transparent !important;
+		
+	}
    //          #cboxLoadedContent{}
    //          #cboxLoadingGraphic{background:url(../img/css/loading.gif) center center no-repeat;}
    //          #cboxLoadingOverlay{background:#fff;}

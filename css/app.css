@@ -1324,7 +1324,7 @@ blockquote { quotes: none; }
 
 @media only screen and (min-width: 481px) { .btn-nav-open { left: 24px; } }
 
-@media only screen and (min-width: 1024px) { .btn-nav-search { padding: 0; line-height: 1; vertical-align: text-top; } }
+@media only screen and (min-width: 1024px) { .btn-nav-search { padding: 0; line-height: 1; } }
 
 /*===============================
 =            buttons            =
@@ -1436,15 +1436,14 @@ blockquote { quotes: none; }
   .js-ready #nav .btn-nav-close { display: block; background: transparent; }
   .js-ready .navigation-site { padding-top: 3em; background: #282831; -webkit-box-shadow: inset -1.5em 0 1.5em -0.75em rgba(0, 0, 0, 0.25); box-shadow: inset -1.5em 0 1.5em -0.75em rgba(0, 0, 0, 0.25); -webkit-transform: translate3d(-100%, 0, 0); transform: translate3d(-100%, 0, 0); -webkit-transform: translate(-100%, 0); transform: translate(-100%, 0); -webkit-backface-visibility: hidden; backface-visibility: hidden; }
   .js-ready .btn-nav-close { right: 0; }
-  .js-ready .btn-nav-close .fa { color: #fff; }
   .js-ready .nav__item--search { display: none; }
   .js-nav .wrap-in:after { width: 100%; height: 100%; opacity: 1; } }
 
 @media only screen and (max-width: 480px) { .js-ready .navigation-site { width: 70%; }
-  .js-nav .wrap-in { -webkit-transform: translate3d(70%, 0, 0), scale3d(1, 1, 1); transform: translate3d(70%, 0, 0), scale3d(1, 1, 1); } }
+  .js-nav .wrap-in { -webkit-transform: translate3d(70%, 0, 0) scale3d(1, 1, 1); transform: translate3d(70%, 0, 0) scale3d(1, 1, 1); } }
 
 @media only screen and (min-width: 481px) and (max-width: 1023px) { .js-ready .navigation-site { width: 50%; }
-  .js-nav .wrap-in { -webkit-transform: translate3d(50%, 0, 0), scale3d(1, 1, 1); transform: translate3d(50%, 0, 0), scale3d(1, 1, 1); } }
+  .js-nav .wrap-in { -webkit-transform: translate3d(50%, 0, 0) scale3d(1, 1, 1); transform: translate3d(50%, 0, 0) scale3d(1, 1, 1); } }
 
 @media only screen and (min-width: 1024px) { .nav-revue { position: absolute; left: 0; top: 0; width: 100%; font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300; font-size: 15px; font-size: 0.9375rem; line-height: 1.6; text-align: center; text-transform: uppercase; }
   .nav-revue .nav__item { display: inline-block; margin-right: 1em; }
@@ -1955,9 +1954,9 @@ a:hover .nav-prevnext__item-label { border-top-color: #e88e0e; }
 @media only screen and (min-width: 481px) { .icon--video-defaut { height: 100%; } }
 
 /*  .icon-svg ========================================================================== */
-.icon-svg { display: inline-block; cursor: pointer; }
+.icon-svg { width: 24px; height: 24px; display: inline-block; cursor: pointer; }
 
-.icon-svg--accordeon { width: 24px; height: 24px; position: absolute; right: 0; z-index: 100; -webkit-transition: all 0.35s ease-out; transition: all 0.35s ease-out; }
+.icon-svg--accordeon { position: absolute; right: 0; z-index: 100; -webkit-transition: all 0.35s ease-out; transition: all 0.35s ease-out; }
 
 .accordeon__header:hover .icon-svg--accordeon, .icon-svg--accordeon.icon-svg--accordeon--is-open { padding-top: .3em; }
 
@@ -1967,9 +1966,9 @@ a:hover .nav-prevnext__item-label { border-top-color: #e88e0e; }
 
 .icon-svg--accordeon.icon-svg--accordeon--is-open { -webkit-transform: rotate(180deg); transform: rotate(180deg); }
 
-.icon-svg--chevron-bas { width: 24px; height: 24px; }
-
 #icon-svg--chevron-bas { fill: #999; -webkit-transition: fill 0.35s ease-out; transition: fill 0.35s ease-out; }
+
+.icon-svg--close { border-radius: 50%; background-color: #fff; }
 
 /*  ========================================================================== cover ========================================================================== */
 .cover { border: 1px solid #eee; border-color: rgba(238, 238, 238, 0.8); -webkit-transition: border-color 0.35s ease-in 0.1s; transition: border-color 0.35s ease-in 0.1s; }
@@ -2106,10 +2105,12 @@ a:hover .thumbnail-container { -webkit-transform: translate(0, 0); transform: tr
 /* content-box au lieu de border-box sur le conteneur sinon l'image est partiellement masquée. */
 #colorbox, #colorbox:before, #colorbox:after { -webkit-box-sizing: content-box; -ms-box-sizing: content-box; -o-box-sizing: content-box; box-sizing: content-box; }
 
-#cboxLoadedContent { background: none; padding: 0; }
+#cboxLoadedContent { background: none !important; padding: 0 !important; }
 
 /* ColorBox Core Style The following rules are the styles that are consistant between themes. Avoid changing this area to maintain compatability with future versions of ColorBox. */
 /*  ColorBox example user style The following rules are ordered and tabbed in a way that represents the order/nesting of the generated HTML, so that the structure easier to understand. */
+#cboxContent { background-color: transparent !important; }
+
 /* ========================================================================== carousel ========================================================================== */
 /* videos-carousel ========================================================================== */
 .videos-carousel { padding-bottom: 1.5em; }
@@ -2215,10 +2216,6 @@ a:hover .thumbnail-container { -webkit-transform: translate(0, 0); transform: tr
 .resume-article--court .resume__signature { margin-bottom: 0; }
 
 /*  is-selected ========================================================================== */
-.resume__titre--is-selected strong { font-weight: normal; }
-
-.resume__titre--is-selected strong:before { display: inline-block; margin-left: -1em; margin-right: 0.3em; content: '\f00c'; font-family: 'FontAwesome'; font-weight: normal; font-style: normal; color: #c1e732; }
-
 /*  is-postdate ========================================================================== */
 /*  .postdate-info-overlay ========================================================================== */
 .postdate-info-overlay { position: absolute; left: 0; bottom: 0; right: 0; padding: 0 0.5em; text-align: center; font-family: "Geneva", "Consolas", "Menlo", monospace; font-size: 10px; font-size: 0.625rem; line-height: 2.4; color: #999; background: #fff; border: 1px dotted #fff; border-radius: 2px; -webkit-transition: background 0.3s ease,color 0.3s ease; transition: background 0.3s ease,color 0.3s ease; }

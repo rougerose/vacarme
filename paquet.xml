@@ -10,9 +10,6 @@
     <auteur lien="http://rouge-rose.net">christophe le drean</auteur>
     <licence>GNU/GPL</licence>
 
-    <pipeline nom="header_prive" inclure="vacarme_pipelines.php" />
-    <pipeline nom="insert_head_css" inclure="vacarme_pipelines.php" />
-
     <necessite nom="Zcore" compatibilite="[2.6.5;[" />
     <necessite nom="IntertitresTdm" compatibilite="[0.9.12;[" />
     <necessite nom="suivant_precedent" compatibilite="[1.4.4;[" />
@@ -34,4 +31,11 @@
     <utilise nom="pb_selection" compatibilite="[3.2.0;[" />
     <utilise nom="selections_editoriales" compatibilite="[1.7.6;[" />
     <utilise nom="tickets" compatibilite="[4.1.3;[" />
+	
+	<spip compatibilite="[3.2.0;3.2.*]">
+		<style type="public" source="js/flexslider/flexslider.css" />
+		<style type="public" source="js/owl-carousel/owl.carousel.css" />
+		<style type="public" source="css/app.css" />
+		<style type="prive" source="css/vacarme_prive.css" />
+	</spip>
 </paquet>

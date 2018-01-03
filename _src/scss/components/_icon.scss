@@ -83,13 +83,13 @@
     ========================================================================== */
     
     .icon-svg {
+		width: 24px; 
+        height: 24px;
         display: inline-block;
         cursor: pointer;
     }
     
     .icon-svg--accordeon {
-        width: 24px; 
-        height: 24px;
         position: absolute;
         right: 0;
         z-index: 100;
@@ -110,13 +110,17 @@
         }
     }
 
-    .icon-svg--chevron-bas {
-        width: 24px;
-        height: 24px;
-    }
+    .icon-svg--chevron-bas {}
 
     #icon-svg--chevron-bas {
       fill: $couleur-gris-moyen;
 	  transition: fill 0.35s ease-out
     }
+	
+	.icon-svg--menu {}
+	
+	.icon-svg--close {
+		border-radius: 50%;
+		background-color: #fff;
+	}
     
