@@ -1,6 +1,3 @@
-# A faire
-* supprimer fontawesome
-
 # plugins
 * sélections d'articles : désactiver ? N'est utilisé que dans travail en cours/dossiers et travail en cours/vidéo
 * champs extra : gérer les champs depuis le plugin (installation/désinstallation) ?
