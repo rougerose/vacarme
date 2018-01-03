@@ -1,10 +1,10 @@
 <paquet
   categorie="squelette"
   compatibilite="[3.2.0;3.2.*]"
-  etat="stable"
+  etat="dev"
   logo="img/vacarme-128.png"
   prefix="vacarme"
-  version="3.2.12"
+  version="3.3.00"
 >
     <nom>Vacarme</nom>
     <auteur lien="http://rouge-rose.net">christophe le drean</auteur>
