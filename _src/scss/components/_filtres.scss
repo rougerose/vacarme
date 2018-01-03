@@ -1,0 +1,41 @@
+/*  ==========================================================================
+    .filtres
+    ========================================================================== */
+    .filtres {}
+    .filtre-mot {
+        display: inline-block;
+        padding: 0 0.4em 0;
+        margin: 0 0.4em 0.4em 0;
+        border: 1px solid #fff;
+        border-radius: 2px;
+        @include font-size(14px);
+        background-color: $couleur-gris-blanc;
+        color: #000;
+        &.filtre-mot--selection {
+            &:after {
+                content:'x';
+                margin-left: 0.5em;
+                padding-left: 0.3em;
+                border-left: 1px solid #fff;
+                color: #fff;
+                font-family: sans-serif;
+				transition: color .3s ease-out,border .3s ease-out;
+            }
+
+        }
+    }
+
+/*  modificateurs
+    ========================================================================== */
+    .filtres--liste {
+        border-bottom: 1px dotted $couleur-gris-blanc;
+        margin-bottom: 1em;
+        padding-bottom: 1em;
+    }
+    .filtres--selection {
+        margin-bottom: 2em;
+    }
+    .filtre-mot--is-selected {}
+    .filtre-mot--is-disabled {
+        color: $couleur-gris-moyen;
+    }

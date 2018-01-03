@@ -35,7 +35,7 @@
         <header class="resume-article__header">
             <h1 class="hN resume-article__titre[ (#ENV{article_une}|oui) resume-article__titre--une]">[(#GET{article_postdate}|non)<a href="#URL_ARTICLE">]#TITRE[(#GET{article_postdate}|non)</a>]</h1>
             [(#ENV{afficher_auteur}|non)
-                [<p class="resume-article__auteurs[ (#ENV{article_une}|oui) resume-article__auteurs--une] auteurs"><:par_auteur:>(#MODELE{auteurs,id_article=#ENV{id_article},contexte=resume})</p>]
+                [<p class="resume-article__auteurs[ (#ENV{article_une}|oui) resume-article__auteurs--une] auteurs-nom"><:par_auteur:>(#MODELE{auteurs,id_article=#ENV{id_article},contexte=resume})</p>]
             ]
         </header>
         <div class="resume-article__descriptif[ (#ENV{article_une}|oui) resume-article__descriptif--une]">

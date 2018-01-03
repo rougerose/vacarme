@@ -18,7 +18,7 @@
                 </div>
             </div>]
             <div class="timeline timeline--2col">
-                <BOUCLE_articles_semainier(ARTICLES){id_rubrique}{par num titre, date}> 
+                <BOUCLE_articles_semainier(ARTICLES){id_rubrique}{par num titre, date}>
                 <div class="timeline__item[ timeline__item--(#COMPTEUR_BOUCLE|alterner{pair,impair})] timeline-dot">
                     <article class="resume-semainier mb+ cf">
                         <div class="resume-semainier__img">
@@ -53,3 +53,4 @@
     </article>
 </div><!-- /.grid -->
 </BOUCLE_sousrubrique_semainier>
+#FILTRE{mini_html}

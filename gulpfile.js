@@ -46,18 +46,19 @@ var options = {
   scss: {
     paths       : [
       './node_modules/',
-      'bower_components/bourbon/dist',
-      'bower_components/inuit.css',
-      'bower_components/fontawesome/scss'
+	  './bower_components/'
+      // 'bower_components/bourbon/dist',
+      // 'bower_components/inuit.css',
+      // 'bower_components/fontawesome/scss'
     ],
-    file        : 'css/vacarme.scss',
-    files       : 'css/**/*.scss',
+    file        : '_src/scss/app.scss',
+    files       : '_src/scss/**/*.scss',
     destination : 'css'
   },
 
   // ----- CSS ----- //
   css: {
-    file        : 'css/vacarme.css',
+    file        : 'css/app.css',
     destination : 'css'
   },
 
@@ -70,7 +71,7 @@ var options = {
     },
     run: function () {
       return [
-        ['compile:scss']
+        ['compile:scss', 'minify:css']
       ]
     }
   }
@@ -96,8 +97,7 @@ gulp.task( 'compile:scss', function () {
       outputStyle: 'compact'
     }) )
     .pipe( autoprefixer({
-      browsers: [ 'last 2 versions' ],
-      cascade: true
+      browsers: [ 'last 2 versions' ]
     }) )
     .pipe( gulp.dest(options.scss.destination) )
 });

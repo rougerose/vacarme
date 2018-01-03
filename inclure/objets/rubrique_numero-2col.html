@@ -16,7 +16,7 @@
                     id_objet=#ENV{id_objet},
                     logo_format=#ENV{logo_format}})
                 ]
-            }) 
+            })
         </div><!-- /.grid__item -->]
         <div class="grid__item[ (#GET{colonne_contenu})]">
             [(#ENV{titre_descriptif}|=={oui}|?{
@@ -34,4 +34,4 @@
         </div><!-- /.grid__item -->
     </div><!-- /.grid -->
 </article>
-#FILTRE{trim}
+#FILTRE{mini_html}

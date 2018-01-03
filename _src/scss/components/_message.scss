@@ -1,0 +1,46 @@
+/*  ==========================================================================
+    .message
+    ========================================================================== */
+    .message {
+        padding: .8em .8em .5em;
+        @include font-size(20px);
+        text-align: center;
+    }
+
+/*  tailles
+    ========================================================================== */
+    .message--S {
+        padding: 0;
+    }
+
+/*  types
+    ========================================================================== */
+    .message--erreur {
+        background-color: $couleur-erreur;
+        color: #fff;
+    }
+    .message--overlay { // rubrique-dossier message article-postdate;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+    .message--warning-texte {
+        border: 1px solid $couleur-warning;
+        color: $couleur-warning;
+        background-color: #fff;
+        transition: all 0.35s ease-out;
+    }
+
+
+/*  .postdate-message
+    ========================================================================== */
+    .postdate-message {
+        font-family: $Helvetica-font;
+        @include font-size(14px);
+    }
+	
+	
+	.message__important {
+	    @include font-size(18px);
+	    background-color: $ok;
+	}

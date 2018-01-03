@@ -21,11 +21,11 @@
 </BOUCLE_grappe_selection>
 </B_grappe_selection>
 
-[(#REM) 
+[(#REM)
     Tous les articles
     ----------------------------------------------------------------------------
     -   Le mot-clé principal est exclus de la liste des filtres disponibles.
-    -   Le seul élément spécifique est la chaîne de l'intertitre, 
+    -   Le seul élément spécifique est la chaîne de l'intertitre,
         construite selon le principe 'categorie_tous_id_mot'
 ]
     #SET{mots_exclus,#ARRAY{0,#ID_MOT}} #SET{groupes_exclus,#ARRAY{0,16,1,15,2,14}}
@@ -71,3 +71,4 @@
     <//B_articles_tri>
 </section>
 </BOUCLE_mot_variante_1>
+#FILTRE{mini_html}

@@ -1,0 +1,213 @@
+/*  ==========================================================================
+    .self
+    ========================================================================== */
+    .self {
+        overflow: hidden;
+    }
+
+/*  .self__header
+    ========================================================================== */
+        .self__header {
+            .titre {
+                @include font-size(32px);
+                @include media-query(lap-and-up) {
+                    @include font-size(36px)
+                }
+            }
+        }
+        /*
+         * self__header--timeline
+         */
+        .self__header--timeline {
+            @include media-query(lap-and-up) {
+                text-align: center;
+            }
+        }
+
+/*  .self__titre
+    ========================================================================== */
+        .self__titre {
+            color: #000;
+        }
+
+        .self__titre--mot {
+            font-style: italic;
+        }
+
+
+/*  .self__chapo
+    ========================================================================== */
+        .self__chapo {
+            @include font-size(19px);
+            @include media-query(lap-and-up) {
+                padding-right: $base-spacing-unit*2;
+            }
+        }
+
+        /*
+         * self__chapo--timeline
+         */
+         .self__chapo--timeline {
+            padding-right: 0;
+            position: relative;
+         }
+
+/*  .self_body
+    ========================================================================== */
+    .self__body {}
+        
+        /*
+         * self__body--timeline
+         */
+        .self__body--timeline {
+            position: relative;
+            .self__texte,
+            .self__ps,
+            .self__notes {
+                width: 100%;
+            }
+        }
+        .self__body-rubrique--timeline {
+            @include media-query(lap-and-up) {
+                text-align: center;
+                .self__texte {
+                    margin: 0 auto;
+                    width: 50%;
+                }
+            }
+        }
+
+        /*
+        * self__body--mot
+        */
+        .self__body--mot {
+            p {
+                @include font-size(22px);
+            }
+        }
+
+// TODO : à fusionner
+
+    /* 
+    .self__footer
+    ========================================================================== */
+
+    .self__footer {
+        clear: both;
+        position: relative;
+    }
+    @include media-query(lap-and-up) {
+        .logoportrait {
+            float: left;
+            margin-left: -50%;
+            width: 80%;
+            margin-right: 24px;
+        }
+        .portrait {
+            padding-left: 25%;
+            .logo {
+                float: left;
+                width: 70%;
+                margin-left: -50%;
+                margin-right: 24px;
+            }
+            .chapo {}
+            .texte {
+                width: 66%;
+            }
+        }
+    }
+    
+
+
+	
+	// .self__body {}
+	.self__texte {
+	    blockquote {
+	        margin-left: $base-spacing-unit*2;
+	        // quotes: '';
+	        text-indent: 0;
+	    }
+	}
+
+	// .self__notes { }
+	.self__notes__body {
+	    @include media-query(lap-and-up) {
+	        width: 75%;
+	    }
+	    p {
+	        @include font-size(14px);
+	    }
+	}
+
+	@media only screen and(min-width:800px) {
+	    .self__texte,
+	    .self__ps,
+	    .self__notes {
+	        width: 66.666%;
+	    }
+	}
+
+	/*==========  self__header  ==========*/
+	.self__header {
+	    .titre {
+	        &:first-letter {
+	            text-transform: uppercase;
+	        }
+	    }
+	}
+	.self__header--rubrique {
+	    .titre {
+	        @extend .intertitre-section--first;
+	        font-style: italic;
+	        font-weight: 600;
+	    }
+	}
+	.self__header--art {
+	    .surtitre {
+	        margin-bottom: 0;
+	        margin-top: -1em;
+	        @include font-size(22px);
+	    }
+	    .titre {
+	        margin-top: 0.15em;
+	        color: #000;
+	    }
+	    .soustitre {
+	        font-size: 71%; // 26px;
+	        color: $text-color;
+	    }
+	}
+
+	/*==========  self__body  ==========*/
+	/* article */
+	.self__body--article {
+	    margin-bottom: 4em;
+	}
+	.self__body--rubrique {
+	    .self__texte {
+	        width: 75%;
+	    }
+	}
+
+	/* article version aperçu/integrale */
+	.apercu__info {
+	    background: #222;
+	    color: #ddd;
+	    position: relative;
+	    padding: .5em .5em .25em;
+	    text-align: center;
+	    border-radius: 5px;
+	    a {
+	        color: #fff;
+	    }
+	}
+	.apercu__fade {
+	    width: 100%;
+	    position: absolute;
+	    left: 0;
+	    top: -150px;
+	    height: 150px;
+	    /* degradé */
+		background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 63%, rgba(255,255,255,1) 100%);
+	}
