@@ -3420,6 +3420,8 @@ a:hover .thumbnail-container { transform: translate(0, 0); opacity: 0.7; }
 /* fichier uniquement */
 .fichier { padding-bottom: 1.5em; }
 
+.spip_documents.oembed_video { margin-bottom: 24px; }
+
 /*  ========================================================================== #ALBUMS ========================================================================== */
 .album ul { margin: 0; }
 
