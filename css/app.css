@@ -2081,6 +2081,8 @@ a:hover .thumbnail-container { -webkit-transform: translate(0, 0); transform: tr
 /* fichier uniquement */
 .fichier { padding-bottom: 1.5em; }
 
+.spip_documents.oembed_video { margin-bottom: 24px; }
+
 /*  ========================================================================== #ALBUMS ========================================================================== */
 .album ul { margin: 0; }
 
