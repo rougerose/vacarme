@@ -1,93 +1,195 @@
-@charset "UTF-8";
+// /**
+//  * CONTENTS
+//  *
+//  * SETTINGS
+// // Config...............Project-level configuration and feature switches.
+//  * Core.................inuitcss’ core and setup settings.
+//  * Global...............Project-wide variables and settings.
+//  *
+//  * TOOLS
+//  * Font-size............A mixin which guarantees baseline-friendly line-heights.
+//  * Clearfix.............Micro clearfix mixin.
+//  * Hidden...............Mixin for hiding elements.
+//  * Sass MQ..............inuitcss’ default media query manager.
+//  *
+//  * GENERIC
+//  * Box-sizing...........Better default `box-sizing`.
+//  * Normalize.css........A level playing field using @necolas’ Normalize.css.
+//  * Reset................A tiny reset to complement Normalize.css.
+//  * Shared...............Sensibly and tersely share some global commonalities
+//  *                      (particularly useful when managing vertical rhythm).
+//  *
+//  * ELEMENTS
+//  * Page.................Set up our document’s default `font-size` and
+//  *                      `line-height`.
+//  * Headings.............Very minimal (i.e. only font-size information) for
+//  *                      headings 1 through 6.
+//  * Images...............Base image styles.
+//  * Tables...............Simple table styles.
+//  *
+//  * OBJECTS
+//  * Wrapper..............Page constraint object.
+//  * Layout...............Generic layout module.
+//  * Media................Image- and text-like content side by side. The
+//  *                      poster-child of OOCSS.
+//  * Flag.................Table-layout-based advancement on the Media object.
+//  * List-bare............Lists with no bullets or indents.
+//  * List-inline..........A list whose items all site in a line.
+//  * Box..................Simple boxing abstraction.
+//  * Block................Image-on-top-of-text object.
+//  * Ratio................A container for maintaining aspect ratio of content.
+//  * Crop.................Provide a cropping context for media (images, etc.).
+//  * Table................Classes for manipulating `table`s.
+//  * Pack.................Pack items into available horizontal space.
+//  *
+//  * COMPONENTS
+//  * Buttons..............An example button component, and how it fits into the
+//  *                      inuitcss framework.
+//  *
+//  * UTILITIES
+//  * Clearfix.............Bind our clearfix onto a utility class.
+//  * Widths...............Simple width helper classes.
+//  * Headings.............Reassigning our heading styles to helper classes.
+//  * Spacings.............Nudge bits of the DOM around with these spacing
+//  *                      classes.
+//  * Responsive-Spacings..Enhances the function of normal spacings for
+//  *                      responsive usage.
+//  * Print................Reset-like styles taken from the HTML5 Boilerplate.
+//  * Hide.................Helper classes to hide content
+//  */
 
-// @import "bourbon/dist/bourbon";
+// SETTINGS
+@import "inuitcss/settings/settings.core";
+@import "settings/globals";
 
-// settings
-@import "settings/vars";
+// TOOLS
+@import "inuitcss/tools/tools.font-size";
+@import "inuitcss/tools/tools.clearfix";
+@import "inuitcss/tools/tools.hidden";
+@import "sass-mq/mq";
 
-//
-// inuit css
-// -------------------------------------
-@import "inuit.css/inuit";
+@import "tools/alias";
 
-//
-// elements
-// -------------------------------------
+@import "tools/out_hidden"; // TODO: obsolète
+@import "tools/out_mixins"; // TODO: obsolète
+
+// GENERIC
+@import "inuitcss/generic/generic.box-sizing";
+@import "inuitcss/generic/generic.normalize";
+@import "inuitcss/generic/generic.reset";
+@import "inuitcss/generic/generic.shared";
+@import "inuit.css/generic/clearfix"; // TODO: Obsolète
+
+// ELEMENTS
 @import "elements/webfonts";
-@import "elements/headings";
-@import "elements/form";
-@import "elements/liens";
-@import "elements/page";
-@import "elements/page-head";
-@import "elements/page-content";
-@import "elements/page-foot";
-@import "elements/table";
-@import "elements/list";
-@import "elements/col";
-@import "elements/hr";
-@import "elements/blockquote";
 
-//
-// components
-// -------------------------------------
+@import "elements/page"; // TODO: des classes obsolètes dans le fichier page sont à supprimer.
 
-@import "components/accordeon";
-@import "components/box";
-@import "components/btn";
-@import "components/buttons";
-@import "components/list";
-@import "components/nav";
-@import "components/navigation";
-@import "components/pagination";
-@import "components/tri";
-@import "components/filtres";
-@import "components/section";
-@import "components/sections";
-@import "components/site-logo";
-@import "components/tabs";
-@import "components/rubrique-dossier";
-@import "components/timeline";
-@import "components/auteurs";
-@import "components/person";
-@import "components/preview";
-@import "components/overlay";
-@import "components/meta";
-@import "components/toc";
-@import "components/icon";
+@import "elements/page-head"; // TODO: obsolète
+@import "elements/page-content"; // TODO: obsolète
+@import "elements/page-foot"; // TODO: obsolète
 
-@import "components/medias.cover";
-@import "components/medias.thumbnail";
-@import "components/medias.media";
-@import "components/medias.spip_documents";
-@import "components/medias.albums";
-@import "components/medias.video";
-@import "components/medias.colorbox";
-@import "components/carousel";
-@import "components/carousel.owl.theme";
-@import "components/message";
+@import "inuitcss/elements/elements.headings";
+@import "elements/headings"; // TODO: obsolète
 
-@import "components/resume";
-@import "components/resume.article";
-@import "components/resume.mot";
-@import "components/resume.dossier";
-@import "components/related";
+@import "inuitcss/elements/elements.images";
+@import "inuitcss/elements/elements.tables";
 
-@import "components/self";
-@import "components/chapo";
+@import "inuit.css/base/tables"; // TODO: obsolète
+@import "inuit.css/base/paragraphs"; // TODO: obsolète
+@import "elements/table"; // TODO: obsolète
+@import "elements/form"; // TODO: obsolète
+@import "elements/liens"; // TODO: obsolète
+@import "elements/list"; // TODO: obsolète
+@import "elements/col"; // TODO: obsolète
+@import "elements/hr"; // TODO: obsolète
+@import "elements/blockquote"; // TODO: obsolète
 
+// OBJECTS
 
-@import "components/couleurs";
-@import "components/stock";
-@import "components/exergue";
-@import "components/poesie";
+@import "inuit.css/objects/grids"; // TODO: obsolète
+@import "inuit.css/objects/island"; // TODO: obsolète
+@import "inuit.css/objects/media"; // TODO: obsolète
+@import "inuit.css/objects/sprite"; // TODO: obsolète
 
-//
-// utilities
-// -------------------------------------
+// @import "inuitcss/objects/objects.wrapper";
+@import "inuitcss/objects/objects.layout";
+// @import "inuitcss/objects/objects.media";
+// @import "inuitcss/objects/objects.flag";
+// @import "inuitcss/objects/objects.list-bare";
+// @import "inuitcss/objects/objects.list-inline";
+// @import "inuitcss/objects/objects.box";
+// @import "inuitcss/objects/objects.block";
+// @import "inuitcss/objects/objects.ratio";
+// @import "inuitcss/objects/objects.crop";
+// @import "inuitcss/objects/objects.table";
+// @import "inuitcss/objects/objects.pack";
+
+// COMPONENTS
+
+@import "components/accordeon"; // TODO: obsolète
+@import "components/box"; // TODO: obsolète
+@import "components/btn"; // TODO: obsolète
+@import "components/buttons"; // TODO: obsolète
+@import "components/list"; // TODO: obsolète
+@import "components/nav"; // TODO: obsolète
+@import "components/navigation"; // TODO: obsolète
+@import "components/pagination"; // TODO: obsolète
+@import "components/tri"; // TODO: obsolète
+@import "components/filtres"; // TODO: obsolète
+@import "components/section"; // TODO: obsolète
+@import "components/sections"; // TODO: obsolète
+@import "components/site-logo"; // TODO: obsolète
+@import "components/tabs"; // TODO: obsolète
+@import "components/rubrique-dossier"; // TODO: obsolète
+@import "components/timeline"; // TODO: obsolète
+@import "components/auteurs"; // TODO: obsolète
+@import "components/person"; // TODO: obsolète
+@import "components/preview"; // TODO: obsolète
+@import "components/overlay"; // TODO: obsolète
+@import "components/meta"; // TODO: obsolète
+@import "components/toc"; // TODO: obsolète
+@import "components/icon"; // TODO: obsolète
+
+@import "components/medias.cover"; // TODO: obsolète
+@import "components/medias.thumbnail"; // TODO: obsolète
+@import "components/medias.media"; // TODO: obsolète
+@import "components/medias.spip_documents"; // TODO: obsolète
+@import "components/medias.albums"; // TODO: obsolète
+@import "components/medias.video"; // TODO: obsolète
+@import "components/medias.colorbox"; // TODO: obsolète
+@import "components/carousel"; // TODO: obsolète
+@import "components/carousel.owl.theme"; // TODO: obsolète
+@import "components/message"; // TODO: obsolète
+
+@import "components/resume"; // TODO: obsolète
+@import "components/resume.article"; // TODO: obsolète
+@import "components/resume.mot"; // TODO: obsolète
+@import "components/resume.dossier"; // TODO: obsolète
+@import "components/related"; // TODO: obsolète
+
+@import "components/self"; // TODO: obsolète
+@import "components/chapo"; // TODO: obsolète
+
+@import "components/couleurs"; // TODO: obsolète
+@import "components/stock"; // TODO: obsolète
+@import "components/exergue"; // TODO: obsolète
+@import "components/poesie"; // TODO: obsolète
+
+// UTILITIES
+// @import "inuitcss/utilities/utilities.clearfix";
+@import "inuitcss/utilities/utilities.widths";
+// @import "inuitcss/utilities/utilities.headings";
+// @import "inuitcss/utilities/utilities.spacings";
+// @import "inuitcss/utilities/utilities.responsive-spacings";
+// @import "inuitcss/utilities/utilities.print";
+@import "inuitcss/utilities/utilities.hide";
+@import "utilities/out_hidden"; // TODO: obsolète
 @import "utilities/misc";
 
-@import "utilities/helpers";
-@import "utilities/helpers.marges";
-@import "utilities/text";
-
-@import "utilities/print";
+@import "inuit.css/generic/widths"; // TODO: obsolète
+@import "utilities/misc"; // TODO: obsolète
+@import "utilities/helpers"; // TODO: obsolète
+@import "utilities/helpers.marges"; // TODO: obsolète
+@import "utilities/text"; // TODO: obsolète
+@import "utilities/print"; // TODO: obsolète

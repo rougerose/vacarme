@@ -1,27 +1,43 @@
 /* ==========================================================================
-   .page
+   #PAGE
    ========================================================================== */
 
+/**
+ * Simple page-level setup.
+ *
+ * 1. Set the default `font-size` and `line-height` for the entire project,
+ *    sourced from our default variables. The `font-size` is calculated to exist
+ *    in ems, the `line-height` is calculated to exist unitlessly.
+ * 2. Force scrollbars to always be visible to prevent awkward ‘jumps’ when
+ *    navigating between pages that do/do not have enough content to produce
+ *    scrollbars naturally.
+ * 3. Ensure the page always fills at least the entire height of the viewport.
+ */
+
 html {
-    color: $text-color; //#252525;
+	// ----- INUITCSS ----- //
+	font-size: ($inuit-global-font-size / 16px) * 1em; /* [1] */
+	line-height: $inuit-global-line-height / $inuit-global-font-size; /* [1] */
+	overflow-y: scroll; /* [2] */
+	min-height: 100%; /* [3] */
+	// ----- VACARME ----- //
+	font-family: $base-font-family;
+	color: $text-color;
 }
 
-    .wrap-out {
-        position: relative;
-        overflow: hidden;
-        width: 100%;
-    }
-
-        .wrap-in {
-            position: relative;
-            width: 100%;
-            // -webkit-transition: -webkit-transform 0.5s;
-            // transition: transform 0.5s;
-        }
-
+// TODO: Obsolète ?
+.wrap-out {
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+}
+.wrap-in {
+	position: relative;
+	width: 100%;
+}
 .page-block {
-    margin: 0 auto;
-    max-width: 68.750em;
-    padding-left: $base-spacing-unit;
-    padding-right: $base-spacing-unit;
+	margin: 0 auto;
+	max-width: 68.75em;
+	padding-left: $base-spacing-unit;
+	padding-right: $base-spacing-unit;
 }

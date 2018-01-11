@@ -1,0 +1,72 @@
+// =====================================
+// GLOBALS
+// =====================================
+
+//
+// INUITCSS V5 GLOBALS *** OBSOLÈTE ***
+// -------------------------------------
+
+// ----- variables par defaut ----- //
+@import "inuit.css/defaults";
+$use-grids: true;
+$use-media: true;
+$use-island: true;
+$use-sprite: true;
+
+$base-font-family: "Plantin", "Palatino", serif;
+
+//
+// INUITCSS V6 GLOBALS
+// -------------------------------------
+
+// ----- Grille ----- //
+// $inuit-fractions: 12;
+
+// ----- Mediaqueries INUITCSS ----- //
+$mq-breakpoints: (
+	lap-and-up: 481px,
+	desk: 1024px
+);
+
+//
+// VACARME
+// -------------------------------------
+
+// ----- Fonts ----- //
+
+$mono-font: "Geneva", "Consolas", "Menlo", monospace;
+$base-Helvetica: Helvetica, Arial, sans-serif;
+$Helvetica-font: "HelveticaNeueCd", "Helvetica Neue", $base-Helvetica;
+
+// ----- Couleurs ----- //
+
+// TODO: Obsolète
+$link-color: #e88e0e;
+$site-color: #7c88d3;
+$couleur-site: $site-color;
+$soft-black: #555;
+$text-color: #393939;
+$nav-bg: #282831;
+$gray-light: #ccccda;
+$gray-white: #eee;
+$gray-blue: #8888a7;
+$warm-gray: #aba49e;
+$gray: #777;
+$orange: #b94912;
+$gris-soustitre: #7b6d88;
+$soft: #999;
+$ok: #c1e732;
+$erreur: #e75d32;
+$couleur-un: #7c88d3;
+$couleur-un-sombre: #313653;
+$couleur-lien: #e88e0e;
+$couleur-gris-sombre: #555;
+$couleur-gris: #777;
+$couleur-gris-2: #7b6d88;
+$couleur-gris-bleu: #8888a7;
+$couleur-gris-moyen: #999;
+$couleur-gris-blanc: #eee;
+$couleur-gris-clair: #ccccda;
+$couleur-erreur: #e75d32;
+$couleur-warning: #fa0;
+$couleur-print: #000;

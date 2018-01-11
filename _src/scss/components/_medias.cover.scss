@@ -1,52 +1,52 @@
 /*  ==========================================================================
     cover
     ========================================================================== */
-    
-    .cover {
-        border: 1px solid $gray-white;
-        border-color: rgba($gray-white,0.8);
-        @include vendor(transition,border-color 0.35s ease-in 0.1s);
-    }
-    .cover--thumb {
-        margin-right:$base-spacing-unit/2;
-        &:hover {
-            border-color: rgb(210,210,210);
-        }
-    }
-    .cover--issue {
-        a:hover & {
-            border-color: rgb(210,210,210);
-        }
-    }
-    .cover--bottom {
-        border-width: 0 0 1px;
-        border-color: $gray-white;
-        padding: 0 6px 0 4px;
-    }
-    .cover-callout--small {
-        margin-top: -1em;
-    }
-    .cover-feature--large {
-        display: block;
-        margin-top: -46px;
-        @include media-query(palm) {
-            display: none;
-        }
-    }
-    .cover-feature--small {
-        @include media-query(lap-and-up) {
-            display: none;
-        }
-    }
 
-    .cover--meta {
-        margin-top: -2em;
-        position: absolute;
-        right: 0;
-        width: 25%;
-        @include media-query(lap-and-up) {
-            margin-top: -2.5em;
-            position: static;
-            width: auto;
-        }
-    }
+.cover {
+	border: 1px solid $gray-white;
+	border-color: rgba($gray-white, 0.8);
+	transition: border-color 0.35s ease-in 0.1s;
+}
+.cover--thumb {
+	margin-right: $base-spacing-unit/2;
+	&:hover {
+		border-color: rgb(210, 210, 210);
+	}
+}
+.cover--issue {
+	a:hover & {
+		border-color: rgb(210, 210, 210);
+	}
+}
+.cover--bottom {
+	border-width: 0 0 1px;
+	border-color: $gray-white;
+	padding: 0 6px 0 4px;
+}
+.cover-callout--small {
+	margin-top: -1em;
+}
+.cover-feature--large {
+	display: block;
+	margin-top: -46px;
+	@include media-query(palm) {
+		display: none;
+	}
+}
+.cover-feature--small {
+	@include media-query(lap-and-up) {
+		display: none;
+	}
+}
+
+.cover--meta {
+	margin-top: -2em;
+	position: absolute;
+	right: 0;
+	width: 25%;
+	@include media-query(lap-and-up) {
+		margin-top: -2.5em;
+		position: static;
+		width: auto;
+	}
+}

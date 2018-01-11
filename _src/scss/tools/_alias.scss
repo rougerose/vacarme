@@ -1,0 +1,15 @@
+// =====================================
+// Alias
+// =====================================
+
+// ----- inuit-font-size ----- //
+
+@mixin font-size($arguments...) {
+	@include inuit-font-size($arguments...);
+}
+
+// TODO: Obsolète
+// ----- correspondances variables inuitcss v5 => v6 + styles vacarme ----- //
+$base-spacing-unit: $inuit-global-spacing-unit;
+$base-font-size: $inuit-global-font-size;
+$half-spacing-unit: $base-spacing-unit / 2;

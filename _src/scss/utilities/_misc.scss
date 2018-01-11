@@ -2,68 +2,98 @@
 =            misc            =
 ============================*/
 
+// Repris de inuit.css/generic/_helper.scss
+/**
+ * Add/remove floats
+ */
+.float--right {
+	float: right !important;
+}
+.float--left {
+	float: left !important;
+}
+.float--none {
+	float: none !important;
+}
+
+/**
+ * Text alignment
+ */
+.text--left {
+	text-align: left !important;
+}
+.text--center {
+	text-align: center !important;
+}
+.text--right {
+	text-align: right !important;
+}
+
 /*==========  grid__item--bottom  ==========*/
 .grid__item--bottom {
-    vertical-align: bottom;
-    .grid__item {
-        vertical-align: bottom;
-    }
+	vertical-align: bottom;
+	.grid__item {
+		vertical-align: bottom;
+	}
 }
 
 /*==========  push (push)  ==========*/
 
-[class*="push--"]{ position:relative; }
+[class*="push--"] {
+	position: relative;
+}
 
 @include media-query(desk) {
-    .push--desk-one-quarter {
-        left: 25%;
-    }
-    .push--desk-one-eighth {
-        left: 12.5%;
-    }
+	.push--desk-one-quarter {
+		left: 25%;
+	}
+	.push--desk-one-eighth {
+		left: 12.5%;
+	}
 }
 
 @include media-query(lap-and-up) {
-    .push--lap-and-up-one-quarter {
-        left: 25%;
-    }
-    .push--lap-and-up-one-eighth {
-        left: 12.5%;
-    }
-    .push--lap-and-up-two-quarters,
-    .push--lap-and-up-one-half {
-        left: 50%;
-    }
-    .psh--lap-and-up-one-quarter {
-        padding-left: 25%;
-    } 
-    .psh--lap-and-up-one-half {
-        .toc__img {
-            width: 48%;
-            float: right;
-        }
-    }
+	.push--lap-and-up-one-quarter {
+		left: 25%;
+	}
+	.push--lap-and-up-one-eighth {
+		left: 12.5%;
+	}
+	.push--lap-and-up-two-quarters,
+	.push--lap-and-up-one-half {
+		left: 50%;
+	}
+	.psh--lap-and-up-one-quarter {
+		padding-left: 25%;
+	}
+	.psh--lap-and-up-one-half {
+		.toc__img {
+			width: 48%;
+			float: right;
+		}
+	}
 }
-
 
 /*==========  spip-admin  ==========*/
 body {
-    .spip-admin-bloc,
-    .spip-admin-float {
-        z-index: 99999; top: 10%; left: auto; right: -3%;
-        @include vendor(transition,right 0.35s ease-in 0.1s);
-        &:hover {
-            right: 0;
-        }
-    }
+	.spip-admin-bloc,
+	.spip-admin-float {
+		z-index: 99999;
+		top: 10%;
+		left: auto;
+		right: -3%;
+		transition: right 0.35s ease-in 0.1s;
+		&:hover {
+			right: 0;
+		}
+	}
 }
 #spip-admin .spip-admin-boutons {
-    font:10px/1 $mono-font;
-    display: block;
-    text-align: center;
-    margin-bottom: 5px;
-    border-radius: 5px 0 0 5px;
+	font: 10px/1 $mono-font;
+	display: block;
+	text-align: center;
+	margin-bottom: 5px;
+	border-radius: 5px 0 0 5px;
 }
 
 /*-----  End of misc  ------*/
-
