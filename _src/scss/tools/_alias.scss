@@ -2,6 +2,15 @@
 // Alias
 // =====================================
 
+$baseline: $inuit-global-line-height;
+
+// ----- $spacing-unit ----- //
+$spacing-unit: $inuit-global-spacing-unit;
+$spacing-unit-tiny: $inuit-global-spacing-unit-tiny;
+$spacing-unit-small: $inuit-global-spacing-unit-small;
+$spacing-unit-large: $inuit-global-spacing-unit-large;
+$spacing-unit-huge: $inuit-global-spacing-unit-huge;
+
 // ----- inuit-font-size ----- //
 
 @mixin font-size($arguments...) {

@@ -74,26 +74,4 @@
 	}
 }
 
-/*==========  spip-admin  ==========*/
-body {
-	.spip-admin-bloc,
-	.spip-admin-float {
-		z-index: 99999;
-		top: 10%;
-		left: auto;
-		right: -3%;
-		transition: right 0.35s ease-in 0.1s;
-		&:hover {
-			right: 0;
-		}
-	}
-}
-#spip-admin .spip-admin-boutons {
-	font: 10px/1 $mono-font;
-	display: block;
-	text-align: center;
-	margin-bottom: 5px;
-	border-radius: 5px 0 0 5px;
-}
-
 /*-----  End of misc  ------*/

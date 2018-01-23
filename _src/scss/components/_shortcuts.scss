@@ -1,0 +1,51 @@
+// =====================================
+// c-shortcuts
+// =====================================
+
+.c-shortcuts {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: flex-end;
+	min-height: $spacing-unit-large;
+	
+	@include mq(desktop) {
+		justify-content: space-between;
+	}
+}
+
+
+//
+// c-shortcuts__group
+// -------------------------------------
+.c-shortcuts__group {
+	display: flex;
+	flex-flow: row nowrap;
+	
+	&:first-child {
+		@include mq(desktop) {
+			flex: 1;
+		}
+	}
+}
+
+
+//
+// c-shortcuts__item
+// -------------------------------------
+.c-shortcuts__item {
+	margin: auto 0;
+	margin-right: $spacing-unit-small;
+	
+	&--rev {
+		margin: auto;
+		margin-left: $spacing-unit-small;
+	}
+}
+
+
+//
+// c-shortcuts__link
+// -------------------------------------
+.c-shortcuts__link {
+	color: $color-white;
+}

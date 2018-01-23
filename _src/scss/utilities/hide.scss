@@ -1,0 +1,26 @@
+// =====================================
+// u-hide
+// =====================================
+
+
+// u-hide et responsive
+
+.u-hide {
+	&-until-tablet {
+		@include mq($until: tablet) {
+			display: none;
+		}
+	}
+	
+	&-until-desktop {
+		@include mq($until: desktop) {
+			display: none;
+		}
+	}
+	
+	&-from-desktop {
+		@include mq(desktop) {
+			display: none;
+		}
+	}
+}

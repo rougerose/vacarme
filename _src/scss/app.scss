@@ -112,6 +112,8 @@
 @import "inuit.css/objects/media"; // TODO: obsolète
 @import "inuit.css/objects/sprite"; // TODO: obsolète
 
+// ----- INUITCSS V6 ----- //
+@import "objects/wrapper";
 // @import "inuitcss/objects/objects.wrapper";
 @import "inuitcss/objects/objects.layout";
 // @import "inuitcss/objects/objects.media";
@@ -124,9 +126,12 @@
 // @import "inuitcss/objects/objects.crop";
 // @import "inuitcss/objects/objects.table";
 // @import "inuitcss/objects/objects.pack";
+@import "objects/icon";
+
 
 // COMPONENTS
 
+// ----- Avec InuitCSS v5 ----- //
 @import "components/accordeon"; // TODO: obsolète
 @import "components/box"; // TODO: obsolète
 @import "components/btn"; // TODO: obsolète
@@ -176,6 +181,14 @@
 @import "components/exergue"; // TODO: obsolète
 @import "components/poesie"; // TODO: obsolète
 
+// ----- Avec InuitCSS v6 ----- //
+@import "components/page-header";
+@import "components/shortcuts";
+@import "components/site-nav";
+@import "components/boutons";
+
+@import "components/spip-admin";
+
 // UTILITIES
 // @import "inuitcss/utilities/utilities.clearfix";
 @import "inuitcss/utilities/utilities.widths";
@@ -184,6 +197,7 @@
 // @import "inuitcss/utilities/utilities.responsive-spacings";
 // @import "inuitcss/utilities/utilities.print";
 @import "inuitcss/utilities/utilities.hide";
+@import "utilities/hide";
 @import "utilities/out_hidden"; // TODO: obsolète
 @import "utilities/misc";
 

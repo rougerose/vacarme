@@ -1,0 +1,176 @@
+// =====================================
+// c-site-nav
+// =====================================
+
+.c-site-nav {}
+
+
+//
+// c-site-nav__shortcuts
+// -------------------------------------
+.c-site-nav__shortcuts {
+	background-color: $color-black;
+	color: $color-white;
+	font-family: $font-helvetica;
+	// @include font-size(14px, false);
+	text-transform: uppercase;
+}
+
+
+//
+// c-site-nav__main
+// -------------------------------------
+.c-site-nav__main {
+	margin-bottom: $spacing-unit-large;
+	padding: $spacing-unit 0;
+	@include inuit-font-size(20px);
+}
+
+
+//
+// c-site-nav__list
+// -------------------------------------
+.c-site-nav__list {
+	margin: 0;
+	list-style: none;
+}
+
+
+//
+// c-site-nav__item
+// -------------------------------------
+.c-site-nav__item {}
+
+
+// c-site-nav__logo
+// -------------------------------------
+// 
+// Conteneur qui positionne le logo sur 6 colonnes de la grille.
+// Cette classe est associée dans le HTML à .o-layout__item
+// 
+.c-site-nav__logo {
+	@include mq(desktop) {
+		width: 50%;
+	}
+}
+
+
+//
+// c-site-nav__home
+// -------------------------------------
+// 
+// Lien retour page d'accueil sur le logo
+//
+.c-site-nav__home {
+	display: block;
+	text-align: center;
+
+	@include mq(desktop) {
+		padding-right: $spacing-unit-large;
+		text-align: left;
+	}
+}
+
+//
+// c-site-nav__logo-img
+// -------------------------------------
+// 
+// Conteneur du logo
+// 
+.c-site-nav__logo-img {}
+
+
+//
+// c-site-nav__menu
+// -------------------------------------
+// 
+// Les éléments de navigation principaux
+// 
+// En version mobile, bouton "hamburger" et panneau coulissant.
+// 
+.c-site-nav__menu {
+	@include mq($until: desktop) {
+		position: fixed;
+		z-index: $zindex-site-nav__menu;
+		bottom: 0;
+		right: 0;
+		height: 100%;
+		margin-right: $spacing-unit + ($btn-burger-width / 2);
+		padding: $spacing-unit;
+		overflow: auto;
+		background-color: $color-white;
+		transform: translateX(-110%);
+		transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+		will-change: transform;
+
+		.is-open & {
+			transform: translateX(0);
+			
+			.c-site-nav__group {
+				margin: 0;
+			}
+		}
+	}
+	
+	@include mq(desktop) {
+		width: 50%;
+		vertical-align: bottom;
+	}
+}
+
+
+//
+// c-site-nav__menu-overlay
+// -------------------------------------
+// 
+// Lorsque le menu est apparent (version mobile), le contenu en-dessous
+// est légèrement masqué.
+// 
+.c-site-nav__menu-overlay {
+	@include mq($until: desktop) {
+		position: fixed;
+		z-index: $zindex-site-nav__menu - 1;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 0;
+		background-color: rgba($color-black, 0.5);
+		opacity: 0;
+		transition: opacity 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+		
+		.is-open & {
+			width: 100%;
+			opacity: 1;
+		}
+	}
+	@include mq(desktop) {
+		display: none;
+	}
+}
+
+//
+// c-site-nav__group
+// -------------------------------------
+// 
+.c-site-nav__group {
+	@include mq($until: desktop) {
+		&.o-layout {
+			margin-bottom: $spacing-unit !important;
+			padding-left: $spacing-unit;
+		}
+	}
+}
+
+
+//
+// c-site-nav__group-title
+// -------------------------------------
+// 
+.c-site-nav__group-title {
+	margin-bottom: 0;
+	font-family: $font-helvetica;
+	// @include inuit-font-size()
+	@include mq(desktop) {
+		@include inuit-hidden-visually();
+	}
+}

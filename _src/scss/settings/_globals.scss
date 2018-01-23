@@ -13,6 +13,10 @@ $use-media: true;
 $use-island: true;
 $use-sprite: true;
 
+// les breakpoints utilisés dans cette version :
+// $lap:         481px
+// $desk:        1024px;
+
 $base-font-family: "Plantin", "Palatino", serif;
 
 //
@@ -20,27 +24,37 @@ $base-font-family: "Plantin", "Palatino", serif;
 // -------------------------------------
 
 // ----- Grille ----- //
+$inuit-wrapper-width: 1100px;
 // $inuit-fractions: 12;
+$inuit-use-markup-fix: true;
+
 
 // ----- Mediaqueries INUITCSS ----- //
 $mq-breakpoints: (
-	lap-and-up: 481px,
-	desk: 1024px
+	tablet: 640px,
+	desktop: 1024px
 );
+
 
 //
 // VACARME
 // -------------------------------------
 
 // ----- Fonts ----- //
+$font-base: Helvetica, Arial, sans-serif;
 
-$mono-font: "Geneva", "Consolas", "Menlo", monospace;
-$base-Helvetica: Helvetica, Arial, sans-serif;
-$Helvetica-font: "HelveticaNeueCd", "Helvetica Neue", $base-Helvetica;
+$font-mono: "Menlo", monospace;
+$font-helvetica: "HelveticaNeueCd", "Helvetica Neue", $font-base;
+
+// V5 
+// TODO: obsolète
+$mono-font: $font-mono;
+$Helvetica-font: $font-helvetica;
 
 // ----- Couleurs ----- //
 
 // TODO: Obsolète
+// V5
 $link-color: #e88e0e;
 $site-color: #7c88d3;
 $couleur-site: $site-color;
@@ -70,3 +84,18 @@ $couleur-gris-clair: #ccccda;
 $couleur-erreur: #e75d32;
 $couleur-warning: #fa0;
 $couleur-print: #000;
+
+// V6
+
+	// ----- couleurs ----- //
+
+	$color-black: #000;
+	$color-white: #fff;
+	$color-orange: #e88e0e;
+	
+	// ----- site-nav ----- //
+	$zindex-site-nav__menu: 100;
+	
+	// ----- btn--burger ----- //
+	$btn-burger-height: $inuit-global-spacing-unit + $inuit-global-spacing-unit-tiny;
+	$btn-burger-width: $btn-burger-height;
