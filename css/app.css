@@ -2231,7 +2231,7 @@
 
 /* line 64, _src/scss/components/_site-nav.scss */ .c-site-nav__home { display: block; text-align: center; }
 
-@media (min-width: 64em) { /* line 64, _src/scss/components/_site-nav.scss */ .c-site-nav__home { padding-right: 48px; text-align: left; } }
+@media (min-width: 64em) { /* line 64, _src/scss/components/_site-nav.scss */ .c-site-nav__home { padding-right: 96px; text-align: left; } }
 
 @media (max-width: 63.99em) { /* line 91, _src/scss/components/_site-nav.scss */ .c-site-nav__menu { position: fixed; z-index: 100; bottom: 0; right: 0; height: 100%; margin-right: 39px; padding: 24px; overflow: auto; background-color: #fff; -webkit-transform: translateX(-110%); transform: translateX(-110%); -webkit-transition: -webkit-transform 0.35s cubic-bezier(0.23, 1, 0.32, 1); transition: -webkit-transform 0.35s cubic-bezier(0.23, 1, 0.32, 1); transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1); transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1), -webkit-transform 0.35s cubic-bezier(0.23, 1, 0.32, 1); will-change: transform; }
   /* line 106, _src/scss/components/_site-nav.scss */ .is-open .c-site-nav__menu { -webkit-transform: translateX(0); transform: translateX(0); }
