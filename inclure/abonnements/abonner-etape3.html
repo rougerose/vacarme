@@ -1,0 +1,47 @@
+[(#REM)
+	<!-- Page Abonnement, étape 3 : cadeau --> 
+]
+<B_cadeaux>
+	<section>
+		<h2><:vacarme:abonnement_etape_cadeau_titre:></h2>
+		<p><:vacarme:abonnement_etape_cadeau_desc:></p>
+		<ul class="o-layout">
+			<BOUCLE_cadeaux(PRODUITS){id_rubrique}{par titre}>
+				<li class="o-layout__item">
+					<div class="c-card c-card--media c-card--colorbg-abonnement">
+						[(#SET{logo, #LOGO_PRODUIT|extraire_attribut{src}})]
+						[<div class="c-card__img">
+							(#INCLURE{fond=inclure/logo/abonnements-numero, logo=#GET{logo}})
+						</div>]
+						<div class="c-card__body">
+							<h3>#TITRE</h3>
+							[(#TEXTE)]
+							[(#SET{options, #ARRAY})]
+							[(#SET{options, #GET{options}|array_merge{#ARRAY{region, #ENV{opt_region, ''}}}})]
+							[(#SET{options, #GET{options}|array_merge{#ARRAY{numero, #ENV{opt_numero, ''}}}})]
+							[(#SET{options, #GET{options}|array_merge{#ARRAY{cadeau, #ID_PRODUIT}}})]
+							[(#SET{options, #GET{options}|serialize})]
+							[(#SET{args, #VAL{abonnements_offre}|concat{/#ENV{id_objet}}|concat{/1}|concat{/}|concat{/#GET{options}}})]
+							[(#BOUTON_ACTION{<:vacarme:choisir_avec_cadeau:>, #URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 4}|parametre_url{id_objet, #ENV{id_objet}}}, c-btn-form c-btn-form--white ajax})]
+						</div>
+					</div>
+				</li>
+			</BOUCLE_cadeaux>
+			<li class="o-layout__item">
+				<div class="c-card c-card--colorbg-abonnement">
+					<div class="c-card__body c-card__body--push">
+						<h3><:vacarme:abonnement_sans_cadeau_titre:></h3>
+						<p><:vacarme:abonnement_sans_cadeau_desc:></p>
+						[(#SET{options, #ARRAY})]
+						[(#SET{options, #GET{options}|array_merge{#ARRAY{region, #ENV{opt_region, ''}}}})]
+						[(#SET{options, #GET{options}|array_merge{#ARRAY{numero, #ENV{opt_numero, ''}}}})]
+						[(#SET{options, #GET{options}|array_merge{#ARRAY{cadeau, -1}}})]
+						[(#SET{options, #GET{options}|serialize})]
+						[(#SET{args, #VAL{abonnements_offre}|concat{/#ENV{id_objet}}|concat{/1}|concat{/}|concat{/#GET{options}}})]
+						[(#BOUTON_ACTION{<:vacarme:choisir_sans_cadeau:>, #URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 4}|parametre_url{id_objet, #ENV{id_objet}}}, c-btn-form c-btn-form--white ajax})]
+					</div>
+				</div>
+			</li>
+		</ul>
+	</section>
+</B_cadeaux>

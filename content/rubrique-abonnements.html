@@ -1,0 +1,13 @@
+#SET{choix, #ARRAY{abonner, abonner, renouveler, renouveler, offrir, offrir}}
+#SET{choix, #ENV{choix}|in_array{#GET{choix}}|?{#ENV{choix}, abonner}}
+
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+	<h1>#TITRE</h1>
+	#TEXTE
+	<ul>
+		<li><a href="[(#URL_RUBRIQUE|parametre_url{choix, abonner})]">Vous abonner</a></li>
+		<li><a href="[(#URL_RUBRIQUE|parametre_url{choix, renouveler})]">Renouveler votre abonnement</a></li>
+		<li><a href="[(#URL_RUBRIQUE|parametre_url{choix, offrir})]">Offrir un abonnement</a></li>
+	</ul>
+	<INCLURE{fond=inclure/abonnements/#GET{choix}, ajax, env} />
+</BOUCLE_rubrique>

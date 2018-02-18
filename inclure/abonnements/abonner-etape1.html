@@ -1,0 +1,59 @@
+[(#REM)
+	<!-- Page Abonnement, étape 1 : offre d'abonnement -->
+]
+#SET{regions, #ARRAY} #SET{region, #ENV{region, 1063}}
+<section>
+	<h2><:vacarme:abonnement_etape_abonnement_titre:></h2>
+	<p><:vacarme:abonnement_etape_abonnement_desc:></p>
+	<B_regions_abonnements>
+		<nav class="c-tab-nav">
+			<ul class="c-tab-nav__list">
+				<BOUCLE_regions_abonnements(MOTS spip_mots_liens){id_groupe=23}{objet=abonnements_offre}{par num titre}>
+				<li class="c-tab-nav__item"><a href="[(#SELF|parametre_url{region, #ID_MOT})]" class="c-tab-nav__link [(#GET{region}|=={#ID_MOT}|oui) is-selected] ajax" role="tab" aria-selected="[(#GET{region}|=={#ID_MOT}|?{true, false})]"><:vacarme:abonnement_region_{=#TITRE}:></a></li>
+				</BOUCLE_regions_abonnements>
+			</ul>
+		</nav>
+		<BOUCLE_abonnements_duree(ABONNEMENTS_OFFRES spip_mots_liens){par duree, prix_ht}{id_mot=#GET{region}}>
+			<BOUCLE_total_duree(ABONNEMENTS_OFFRES spip_mots_liens){duree=#DUREE}{id_mot=#GET{region}}{doublons}>
+				#SET{total, #TOTAL_BOUCLE}
+			</BOUCLE_total_duree>
+			<BOUCLE_type_offre(MOTS){id_abonnements_offre}{id_groupe=24}>
+				#SET{type, #ID_MOT}
+			</BOUCLE_type_offre>
+
+		[(#DUREE|unique|oui)
+			[(#SET{compteur, 1})]
+			<section class="o-layout c-abonnement-offres">
+				<header class="o-layout__item c-abonnement-offres__header">
+					<h3 class="c-abonnement-offres__titre">
+						[(#DUREE|duree_en_clair)]
+						#INCLURE{fond=img/svg/ic_arrow-right_48px.svg, class='o-icon o-icon--m'}
+						[(#DUREE|numero_en_clair)]
+					</h3>
+				</header>
+		]
+				<div class="o-layout__item[ u-1/(#GET{total})@tabletPlus]">
+					<div class="c-card[ c-card--colorbg-(#GET{type})]">
+						<h4 class="c-card__title">#TITRE</h4>
+						[<div class="c-card__desc">
+							(#DESCRIPTIF)
+						</div>]
+						[<p class="c-card__prix">(#PRIX)</p>]
+						[(#SET{options, #ARRAY})]
+						[(#SET{options, #GET{options}|array_merge{#ARRAY{region, #GET{region}}}})]
+						[(#SET{options, #GET{options}|array_merge{#ARRAY{numero, #ENV{opt_numero, ''}}}})]
+						[(#SET{options, #GET{options}|array_merge{#ARRAY{cadeau, #ENV{opt_cadeau, ''}}}})]
+						[(#SET{options, #GET{options}|serialize})]
+						[(#SET{args, #VAL{abonnements_offre}|concat{/#ID_ABONNEMENTS_OFFRE}|concat{/1}|concat{/}|concat{/#GET{options}}})]
+
+						[(#BOUTON_ACTION{<:vacarme:choisir:>, #URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 2}|parametre_url{id_objet, #ID_ABONNEMENTS_OFFRE}}, c-btn-form c-btn-form--white ajax})]
+					</div>
+				</div>
+			[(#GET{compteur}|=={#GET{total}}|oui)
+			</section>]
+			
+		[(#SET{compteur, #GET{compteur}|plus{1}})]
+		</BOUCLE_abonnements_duree>
+	</B_regions_abonnements>
+</section>
+#FILTRE{mini_html}

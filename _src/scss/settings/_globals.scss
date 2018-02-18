@@ -31,8 +31,11 @@ $inuit-use-markup-fix: true;
 
 // ----- Mediaqueries INUITCSS ----- //
 $mq-breakpoints: (
-	tablet: 640px,
-	desktop: 1024px
+	mobile:     320px, // 20em
+	mobilePlus: 439px, // 27.43em
+	tablet:     640px, // 40em
+	tabletPlus: 768px, // 48em
+	desktop:    1024px
 );
 
 
@@ -91,7 +94,24 @@ $couleur-print: #000;
 
 	$color-black: #000;
 	$color-white: #fff;
+	
+	// color-gray
+	$color-gray: #ccc;
+	$color-gray-light: #ddd;
+	
+	// color-orange
 	$color-orange: #e88e0e;
+	$color-orange-dark: #e65100;
+	$color-orange-900: #e65100;
+	
+	// color-amber
+	$color-amber-500: #ffc107;
+	
+	// color-red: 
+	$color-red: #e75d32;
+	
+	// alias
+	$color-error: $color-red;
 	
 	// ----- site-nav ----- //
 	$zindex-site-nav__menu: 100;
@@ -99,3 +119,6 @@ $couleur-print: #000;
 	// ----- btn--burger ----- //
 	$btn-burger-height: $inuit-global-spacing-unit + $inuit-global-spacing-unit-tiny;
 	$btn-burger-width: $btn-burger-height;
+	
+	// ----- transitions ----- //
+	$transform-transition: transform 0.15s cubic-bezier(0.33, 0.66, 0.66, 1);

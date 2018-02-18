@@ -1,0 +1,30 @@
+// =====================================
+// c-abonnement-offres
+// =====================================
+
+
+.c-abonnement-offres {
+	font-family: $font-helvetica;
+	text-transform: uppercase;
+}
+
+
+
+//
+// c-abonnement-offres__header
+// -------------------------------------
+.c-abonnement-offres__header {
+	margin-top: $spacing-unit;
+}
+
+
+
+//
+// c-abonnement-offres__titre
+// -------------------------------------
+.c-abonnement-offres__titre {
+	> .o-icon {
+		margin: 0 $spacing-unit-small;
+		vertical-align: middle;
+	}
+}

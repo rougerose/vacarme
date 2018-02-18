@@ -19,8 +19,9 @@
     <necessite nom="newsletters" compatibilite="[1.5.3;[" />
     <necessite nom="compositions" compatibilite="[3.6.0;[" />
 	
-	<utilise nom="vextras" />
-	<utilise nom="vabonnements" />
+	<necessite nom="vextras" />
+	<necessite nom="vabonnements" />
+	<necessite nom="vpaniers_options" />
 
     <utilise nom="a2a" compatibilite="[2.2.2;[" />
     <utilise nom="bellespuces" compatibilite="[0.1.7;[" />

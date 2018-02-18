@@ -1,46 +1,24 @@
-/*  ==========================================================================
-    .message
-    ========================================================================== */
-    .message {
-        padding: .8em .8em .5em;
-        @include font-size(20px);
-        text-align: center;
-    }
+// déprécié
+@import "deprecie/message";
 
-/*  tailles
-    ========================================================================== */
-    .message--S {
-        padding: 0;
-    }
+// =====================================
+// c-message
+// =====================================
 
-/*  types
-    ========================================================================== */
-    .message--erreur {
-        background-color: $couleur-erreur;
-        color: #fff;
-    }
-    .message--overlay { // rubrique-dossier message article-postdate;
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-    }
-    .message--warning-texte {
-        border: 1px solid $couleur-warning;
-        color: $couleur-warning;
-        background-color: #fff;
-        transition: all 0.35s ease-out;
-    }
-
-
-/*  .postdate-message
-    ========================================================================== */
-    .postdate-message {
-        font-family: $Helvetica-font;
-        @include font-size(14px);
-    }
+.c-message {
+	padding: $spacing-unit;
+	@include inuit-font-size(20px);
+	text-align: center;
 	
-	
-	.message__important {
-	    @include font-size(18px);
-	    background-color: $ok;
+	> a {
+		border-bottom: 1px dotted $link-color;
 	}
+	
+	//
+	// Variantes
+	// -------------------------------------
+
+	&--error {
+		border: 3px solid $color-error;
+	}
+}

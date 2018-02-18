@@ -1,0 +1,8 @@
+<BOUCLE_progression(PANIERS_LIENS){id_panier=#SESSION{id_panier}}>
+[<p>Panier (#ID_PANIER|unique)</p>]
+<p>#OBJET #ID_OBJET</p>
+[<p>(#OPTIONS|table_valeur{region})</p>]
+[<p>(#OPTIONS|table_valeur{numero})</p>]
+[<p>(#OPTIONS|table_valeur{cadeau})</p>]
+[(#BOUTON_ACTION{supprimer, #URL_ACTION_AUTEUR{supprimer_element_panier, #OBJET-#ID_OBJET, #URL_RUBRIQUE{#ENV{id_rubrique}}}, ajax})]
+</BOUCLE_progression>

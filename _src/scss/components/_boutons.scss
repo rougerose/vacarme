@@ -7,7 +7,8 @@
 	display: inline-block;
 	margin: 0;
 	overflow: visible;
-	padding: $inuit-global-spacing-unit-small $inuit-global-spacing-unit;
+	margin: $spacing-unit-tiny $spacing-unit-small $spacing-unit-tiny 0;
+	padding: $spacing-unit-tiny;
 	vertical-align: middle;
 	color: inherit;
 	font: inherit;
@@ -31,4 +32,36 @@
 	width: $btn-burger-width;
 	background-color: $color-orange;
 	color: $color-white;
+}
+
+
+//
+// c-btn--white
+// -------------------------------------
+.c-btn--white {
+	border: 1px solid $color-white;
+	background-color: transparent;
+	color: $color-white;
+	
+	&:hover,
+	&:focus {
+		color: $color-black;
+		border-color: $color-black;
+	}
+}
+
+
+//
+// c-btn-form
+// -------------------------------------
+.c-btn-form {
+	button {
+		@extend .c-btn;
+	}
+}
+
+.c-btn-form--white {
+	button {
+		@extend .c-btn--white;
+	}
 }
