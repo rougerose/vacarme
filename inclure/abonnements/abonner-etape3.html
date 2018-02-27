@@ -5,6 +5,7 @@
 	<section>
 		<h2><:vacarme:abonnement_etape_cadeau_titre:></h2>
 		<p><:vacarme:abonnement_etape_cadeau_desc:></p>
+
 		<ul class="o-layout">
 			<BOUCLE_cadeaux(PRODUITS){id_rubrique}{par titre}>
 				<li class="o-layout__item">
@@ -21,8 +22,8 @@
 							[(#SET{options, #GET{options}|array_merge{#ARRAY{numero, #ENV{opt_numero, ''}}}})]
 							[(#SET{options, #GET{options}|array_merge{#ARRAY{cadeau, #ID_PRODUIT}}})]
 							[(#SET{options, #GET{options}|serialize})]
-							[(#SET{args, #VAL{abonnements_offre}|concat{/#ENV{id_objet}}|concat{/1}|concat{/}|concat{/#GET{options}}})]
-							[(#BOUTON_ACTION{<:vacarme:choisir_avec_cadeau:>, #URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 4}|parametre_url{id_objet, #ENV{id_objet}}}, c-btn-form c-btn-form--white ajax})]
+							[(#SET{args, #VAL{abonnements_offre}|concat{/#ENV{id_abonnements_offre}}|concat{/1}|concat{/}|concat{/#GET{options}}})]
+							[(#BOUTON_ACTION{<:vacarme:choisir_avec_cadeau:>, #URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 4}}, c-btn-form c-btn-form--white ajax})]
 						</div>
 					</div>
 				</li>
@@ -37,8 +38,8 @@
 						[(#SET{options, #GET{options}|array_merge{#ARRAY{numero, #ENV{opt_numero, ''}}}})]
 						[(#SET{options, #GET{options}|array_merge{#ARRAY{cadeau, -1}}})]
 						[(#SET{options, #GET{options}|serialize})]
-						[(#SET{args, #VAL{abonnements_offre}|concat{/#ENV{id_objet}}|concat{/1}|concat{/}|concat{/#GET{options}}})]
-						[(#BOUTON_ACTION{<:vacarme:choisir_sans_cadeau:>, #URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 4}|parametre_url{id_objet, #ENV{id_objet}}}, c-btn-form c-btn-form--white ajax})]
+						[(#SET{args, #VAL{abonnements_offre}|concat{/#ENV{id_abonnements_offre}}|concat{/1}|concat{/}|concat{/#GET{options}}})]
+						[(#BOUTON_ACTION{<:vacarme:choisir_sans_cadeau:>, #URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 4}}, c-btn-form c-btn-form--white ajax})]
 					</div>
 				</div>
 			</li>

@@ -1,8 +1,13 @@
-<BOUCLE_progression(PANIERS_LIENS){id_panier=#SESSION{id_panier}}>
+#SESSION{id_auteur}<br>
+
+#SET{afficher_panier, oui}
+[(#SESSION{id_auteur}|et{#ENV{etape}|=={4}}|oui) #SET{afficher_panier, non} ]
+<BOUCLE_progression(PANIERS_LIENS){id_panier=#SESSION{id_panier}}{si #GET{afficher_panier}|=={oui}}>
 [<p>Panier (#ID_PANIER|unique)</p>]
-<p>#OBJET #ID_OBJET</p>
-[<p>(#OPTIONS|table_valeur{region})</p>]
-[<p>(#OPTIONS|table_valeur{numero})</p>]
+
+<p><a class="ajax" href="[(#URL_PAGE{abonner}|parametre_url{etape, 1}|parametre_url{id_abonnements_offre, #ID_OBJET})]">#OBJET #ID_OBJET</a></p>
+[<p><a href="[(#URL_PAGE{abonner}|parametre_url{etape, 1}|parametre_url{id_abonnements_offre, #ID_OBJET})]">(#OPTIONS|table_valeur{region})</a></p>]
+[<p><a href="[(#SELF|parametre_url{etape, 2}|parametre_url{id_abonnements_offre, #ID_OBJET})]">(#OPTIONS|table_valeur{numero})</a></p>]
 [<p>(#OPTIONS|table_valeur{cadeau})</p>]
-[(#BOUTON_ACTION{supprimer, #URL_ACTION_AUTEUR{supprimer_element_panier, #OBJET-#ID_OBJET, #URL_RUBRIQUE{#ENV{id_rubrique}}}, ajax})]
+[(#BOUTON_ACTION{supprimer, #URL_ACTION_AUTEUR{supprimer_element_panier, #OBJET-#ID_OBJET, #URL_PAGE{abonner}}})]
 </BOUCLE_progression>

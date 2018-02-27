@@ -9,6 +9,7 @@
 <B_numeros>
 	<section>
 		<h2><:vacarme:abonnement_etape_numero_titre:></h2>
+
 		<ul class="o-layout">
 			<BOUCLE_numeros(RUBRIQUES){id_rubrique IN #GET{numeros}}{par titre}>
 				<li class="o-layout__item u-1/3@tabletPlus">
@@ -24,9 +25,9 @@
 							[(#SET{options, #GET{options}|array_merge{#ARRAY{numero, #REFERENCE}}})]
 							[(#SET{options, #GET{options}|array_merge{#ARRAY{cadeau, #ENV{opt_cadeau, ''}}}})]
 							[(#SET{options, #GET{options}|serialize})]
-							[(#SET{args, #VAL{abonnements_offre}|concat{/#ENV{id_objet}}|concat{/1}|concat{/}|concat{/#GET{options}}})]
+							[(#SET{args, #VAL{abonnements_offre}|concat{/#ENV{id_abonnements_offre}}|concat{/1}|concat{/}|concat{/#GET{options}}})]
 
-							[(#BOUTON_ACTION{<:vacarme:choisir:>, #URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 3}|parametre_url{id_objet, #ENV{id_objet}}}, c-btn-form c-btn-form--white ajax})]
+							[(#BOUTON_ACTION{<:vacarme:choisir:>, #URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 3}}, c-btn-form c-btn-form--white ajax})]
 						</div>
 					</div>
 				</li>
@@ -50,9 +51,9 @@
 						[(#SET{options, #GET{options}|array_merge{#ARRAY{numero, #GET{numero_actuel}|table_valeur{reference}}}})]
 						[(#SET{options, #GET{options}|array_merge{#ARRAY{cadeau, #ENV{opt_cadeau}}}})]
 						[(#SET{options, #GET{options}|serialize})]
-						[(#SET{args, #VAL{abonnements_offre}|concat{/#ENV{id_objet}}|concat{/1}|concat{/}|concat{/#GET{options}}})]
+						[(#SET{args, #VAL{abonnements_offre}|concat{/#ENV{id_abonnements_offre}}|concat{/1}|concat{/}|concat{/#GET{options}}})]
 
-						[(#BOUTON_ACTION{<:vacarme:choisir:>, #URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 3}|parametre_url{id_objet, #ENV{id_objet}}}, c-btn-form c-btn-form--white ajax})]
+						[(#BOUTON_ACTION{<:vacarme:choisir:>, #URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 3}}, c-btn-form c-btn-form--white ajax})]
 					</div>
 				</div>
 			</li>

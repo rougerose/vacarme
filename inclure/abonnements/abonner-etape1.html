@@ -1,10 +1,12 @@
 [(#REM)
 	<!-- Page Abonnement, étape 1 : offre d'abonnement -->
 ]
-#SET{regions, #ARRAY} #SET{region, #ENV{region, 1063}}
+#SET{regions, #ARRAY}
+#SET{region, #ENV{region, 1063}}
 <section>
 	<h2><:vacarme:abonnement_etape_abonnement_titre:></h2>
 	<p><:vacarme:abonnement_etape_abonnement_desc:></p>
+
 	<B_regions_abonnements>
 		<nav class="c-tab-nav">
 			<ul class="c-tab-nav__list">
@@ -46,7 +48,7 @@
 						[(#SET{options, #GET{options}|serialize})]
 						[(#SET{args, #VAL{abonnements_offre}|concat{/#ID_ABONNEMENTS_OFFRE}|concat{/1}|concat{/}|concat{/#GET{options}}})]
 
-						[(#BOUTON_ACTION{<:vacarme:choisir:>, #URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 2}|parametre_url{id_objet, #ID_ABONNEMENTS_OFFRE}}, c-btn-form c-btn-form--white ajax})]
+						[(#BOUTON_ACTION{<:vacarme:choisir:>, #URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 2}|parametre_url{id_abonnements_offre, #ID_ABONNEMENTS_OFFRE}}, c-btn-form c-btn-form--white ajax})]
 					</div>
 				</div>
 			[(#GET{compteur}|=={#GET{total}}|oui)

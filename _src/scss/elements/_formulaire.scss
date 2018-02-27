@@ -1,0 +1,23 @@
+// =====================================
+// .formulaire
+// =====================================
+
+
+//
+// formulaire__heading
+// -------------------------------------
+.formulaire__intertitre {
+	font-family: $font-helvetica;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+
+.formulaire__groupe {
+	> .editer {
+		display: flex;
+	}
+}
+
+
+.formulaire_spip {}

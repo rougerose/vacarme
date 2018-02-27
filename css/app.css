@@ -601,6 +601,10 @@
 
 /* line 5, _src/scss/elements/_blockquote.scss */ blockquote p:last-of-type { margin-bottom: 0; }
 
+/* line 9, _src/scss/elements/_formulaire.scss */ .formulaire__intertitre { font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: bold; text-transform: uppercase; }
+
+/* line 17, _src/scss/elements/_formulaire.scss */ .formulaire__groupe > .editer { display: -webkit-box; display: -ms-flexbox; display: flex; }
+
 /*------------------------------------*    $GRIDS
 \*------------------------------------*/
 /** Fluid and nestable grid system, e.g.: <div class="grid"> <div class="grid__item  one-third"> <p>One third grid</p> </div><!-- --><div class="grid__item  two-thirds"> <p>Two thirds grid</p> </div><!-- --><div class="grid__item  one-half"> <p>One half grid</p> </div><!-- --><div class="grid__item  one-quarter"> <p>One quarter grid</p> </div><!-- --><div class="grid__item  one-quarter"> <p>One quarter grid</p> </div> </div> Demo: jsfiddle.net/inuitcss/CLYUC */

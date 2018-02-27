@@ -1,11 +1,13 @@
 #SET{etapes, #ARRAY{abonnement, 1, numero, 2, cadeau, 3, validation, 4}}
 #SET{etape, #ENV{etape}|in_array{#GET{etapes}}|?{#ENV{etape}, 1}}
 
+#ENV{id_abonnements_offre}
+
 #SET{test_panier, non} 
-#SET{id_objet, #ENV{id_objet, ''}} 
+#SET{id_abonnements_offre, #ENV{id_abonnements_offre, ''}} 
 #SET{opt_region, ''} #SET{opt_numero, ''} #SET{opt_cadeau, ''}
 <BOUCLE_panier(PANIERS){id_panier=#SESSION{id_panier}}>
-	<BOUCLE_objet_abonnement(PANIERS_LIENS){id_panier}{objet=abonnements_offre}{id_objet=#GET{id_objet}}>
+	<BOUCLE_objet_abonnement(PANIERS_LIENS){id_panier}{objet=abonnements_offre}{id_objet=#GET{id_abonnements_offre}}>
 		[(#SET{test_panier, oui})]
 		[(#SET{opt_region, #OPTIONS|table_valeur{region}|sinon{''}})]
 		[(#SET{opt_numero, #OPTIONS|table_valeur{numero}|sinon{''}})]
@@ -19,7 +21,7 @@
 	<div class="o-layout__item u-2/3@mobilePlus">
 		[(#INCLURE{fond=inclure/abonnements/abonner-etape#GET{etape}, 
 			test_panier=#GET{test_panier}, 
-			id_objet=#GET{id_objet}, 
+			id_abonnements_offre=#GET{id_abonnements_offre}, 
 			opt_region=#GET{opt_region}, 
 			opt_numero=#GET{opt_numero}, 
 			opt_cadeau=#GET{opt_cadeau}, env})]

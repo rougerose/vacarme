@@ -1,3 +1,20 @@
 [(#REM)
 	<!-- Page Abonnement, étape 4 : identification --> 
+]<h1>étape 4</h1>
+
+[(#SET{formulaire, #ENV{form, inscription}})]
+#SET{self, #URL_PAGE{abonner}|parametre_url{etape, 4}}
+
+[(#SESSION{id_auteur}|non)
+	[(#GET{formulaire}|=={inscription}|?{
+		[[<p><a href="(#GET{self}|parametre_url{form, identification})">Vous avez déjà un compte ? Identifiez-vous</a></p>]
+		(#FORMULAIRE_INSCRIPTION{6forum})],
+		[[<p><a href="(#GET{self}|parametre_url{form, inscription})">Créez votre compte</a></p>]
+		(#LOGIN_PUBLIC{#GET{self}})]
+	})]
+]
+[(#SESSION{id_auteur}|oui)
+	<p><a href="#URL_LOGOUT">Déconnexion</a></p>
+	
+	[(#INCLURE{fond=inclure/abonnements/abonner-etape4-validation, env})]
 ]
