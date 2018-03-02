@@ -1,5 +1,5 @@
 [(#REM)
-	<!-- Page Abonnement, étape 4 : identification --> 
+	<!-- Page Abonnement, étape 4 : identification et récapitulatif de commande --> 
 ]<h1>étape 4</h1>
 
 [(#SET{formulaire, #ENV{form, inscription}})]
@@ -14,7 +14,7 @@
 	})]
 ]
 [(#SESSION{id_auteur}|oui)
-	<p><a href="#URL_LOGOUT">Déconnexion</a></p>
+	<p><a href="#URL_LOGOUT">Déconnexion id_auteur #SESSION{id_auteur}</a></p>
 	
 	[(#INCLURE{fond=inclure/abonnements/abonner-etape4-validation, env})]
 ]

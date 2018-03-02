@@ -21,13 +21,15 @@
 							<h3>#TITRE <small>[(#DATE_NUMERO|saison)][ (#DATE_NUMERO|annee)]</small></h3>
 							<p>Voir le sommaire</p>
 							[(#SET{options, #ARRAY})]
-							[(#SET{options, #GET{options}|array_merge{#ARRAY{region, #ENV{opt_region, ''}}}})]
 							[(#SET{options, #GET{options}|array_merge{#ARRAY{numero, #REFERENCE}}})]
 							[(#SET{options, #GET{options}|array_merge{#ARRAY{cadeau, #ENV{opt_cadeau, ''}}}})]
 							[(#SET{options, #GET{options}|serialize})]
-							[(#SET{args, #VAL{abonnements_offre}|concat{/#ENV{id_abonnements_offre}}|concat{/1}|concat{/}|concat{/#GET{options}}})]
+							[(#SET{args, #VAL{abonnements_offre}|concat{/#ENV{id_abonnements_offre}}
+								|concat{/1}|concat{/}|concat{/#GET{options}}})]
 
-							[(#BOUTON_ACTION{<:vacarme:choisir:>, #URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 3}}, c-btn-form c-btn-form--white ajax})]
+							[(#BOUTON_ACTION{<:vacarme:choisir:>, 
+								#URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 3}|parametre_url{id_abonnements_offre, #ENV{id_abonnements_offre}}},
+								c-btn-form c-btn-form--white ajax})]
 						</div>
 					</div>
 				</li>
@@ -51,9 +53,12 @@
 						[(#SET{options, #GET{options}|array_merge{#ARRAY{numero, #GET{numero_actuel}|table_valeur{reference}}}})]
 						[(#SET{options, #GET{options}|array_merge{#ARRAY{cadeau, #ENV{opt_cadeau}}}})]
 						[(#SET{options, #GET{options}|serialize})]
-						[(#SET{args, #VAL{abonnements_offre}|concat{/#ENV{id_abonnements_offre}}|concat{/1}|concat{/}|concat{/#GET{options}}})]
+						[(#SET{args, #VAL{abonnements_offre}|concat{/#ENV{id_abonnements_offre}}
+							|concat{/1}|concat{/}|concat{/#GET{options}}})]
 
-						[(#BOUTON_ACTION{<:vacarme:choisir:>, #URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 3}}, c-btn-form c-btn-form--white ajax})]
+						[(#BOUTON_ACTION{<:vacarme:choisir:>, 
+							#URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 3}|parametre_url{id_abonnements_offre, #ENV{id_abonnements_offre}}},
+							c-btn-form c-btn-form--white ajax})]
 					</div>
 				</div>
 			</li>

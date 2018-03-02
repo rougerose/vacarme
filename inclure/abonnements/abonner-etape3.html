@@ -18,12 +18,15 @@
 							<h3>#TITRE</h3>
 							[(#TEXTE)]
 							[(#SET{options, #ARRAY})]
-							[(#SET{options, #GET{options}|array_merge{#ARRAY{region, #ENV{opt_region, ''}}}})]
 							[(#SET{options, #GET{options}|array_merge{#ARRAY{numero, #ENV{opt_numero, ''}}}})]
 							[(#SET{options, #GET{options}|array_merge{#ARRAY{cadeau, #ID_PRODUIT}}})]
 							[(#SET{options, #GET{options}|serialize})]
-							[(#SET{args, #VAL{abonnements_offre}|concat{/#ENV{id_abonnements_offre}}|concat{/1}|concat{/}|concat{/#GET{options}}})]
-							[(#BOUTON_ACTION{<:vacarme:choisir_avec_cadeau:>, #URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 4}}, c-btn-form c-btn-form--white ajax})]
+							[(#SET{args, #VAL{abonnements_offre}|concat{/#ENV{id_abonnements_offre}}
+								|concat{/1}|concat{/}|concat{/#GET{options}}})]
+							
+							[(#BOUTON_ACTION{<:vacarme:choisir_avec_cadeau:>, 
+								#URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 4}|parametre_url{id_abonnements_offre, #ENV{id_abonnements_offre}}},
+								c-btn-form c-btn-form--white ajax})]
 						</div>
 					</div>
 				</li>
@@ -34,12 +37,15 @@
 						<h3><:vacarme:abonnement_sans_cadeau_titre:></h3>
 						<p><:vacarme:abonnement_sans_cadeau_desc:></p>
 						[(#SET{options, #ARRAY})]
-						[(#SET{options, #GET{options}|array_merge{#ARRAY{region, #ENV{opt_region, ''}}}})]
 						[(#SET{options, #GET{options}|array_merge{#ARRAY{numero, #ENV{opt_numero, ''}}}})]
 						[(#SET{options, #GET{options}|array_merge{#ARRAY{cadeau, -1}}})]
 						[(#SET{options, #GET{options}|serialize})]
-						[(#SET{args, #VAL{abonnements_offre}|concat{/#ENV{id_abonnements_offre}}|concat{/1}|concat{/}|concat{/#GET{options}}})]
-						[(#BOUTON_ACTION{<:vacarme:choisir_sans_cadeau:>, #URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 4}}, c-btn-form c-btn-form--white ajax})]
+						[(#SET{args, #VAL{abonnements_offre}|concat{/#ENV{id_abonnements_offre}}
+							|concat{/1}|concat{/}|concat{/#GET{options}}})]
+						
+						[(#BOUTON_ACTION{<:vacarme:choisir_sans_cadeau:>, 
+							#URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 4}|parametre_url{id_abonnements_offre, #ENV{id_abonnements_offre}}}, 
+							c-btn-form c-btn-form--white ajax})]
 					</div>
 				</div>
 			</li>

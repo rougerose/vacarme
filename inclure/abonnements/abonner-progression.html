@@ -1,13 +1,21 @@
-#SESSION{id_auteur}<br>
-
 #SET{afficher_panier, oui}
+#SET{afficher_confirmer, non}
 [(#SESSION{id_auteur}|et{#ENV{etape}|=={4}}|oui) #SET{afficher_panier, non} ]
+<B_progression>
 <BOUCLE_progression(PANIERS_LIENS){id_panier=#SESSION{id_panier}}{si #GET{afficher_panier}|=={oui}}>
-[<p>Panier (#ID_PANIER|unique)</p>]
-
-<p><a class="ajax" href="[(#URL_PAGE{abonner}|parametre_url{etape, 1}|parametre_url{id_abonnements_offre, #ID_OBJET})]">#OBJET #ID_OBJET</a></p>
-[<p><a href="[(#URL_PAGE{abonner}|parametre_url{etape, 1}|parametre_url{id_abonnements_offre, #ID_OBJET})]">(#OPTIONS|table_valeur{region})</a></p>]
-[<p><a href="[(#SELF|parametre_url{etape, 2}|parametre_url{id_abonnements_offre, #ID_OBJET})]">(#OPTIONS|table_valeur{numero})</a></p>]
-[<p>(#OPTIONS|table_valeur{cadeau})</p>]
-[(#BOUTON_ACTION{supprimer, #URL_ACTION_AUTEUR{supprimer_element_panier, #OBJET-#ID_OBJET, #URL_PAGE{abonner}}})]
+[(#OBJET|=={abonnements_offre}|oui)
+	[<p>Panier (#ID_PANIER|unique) / Auteur #SESSION{id_auteur}</p>]
+	<p>#OBJET #ID_OBJET</p>
+	[<p><a class="ajax" href="[(#SELF|parametre_url{etape, 2}|parametre_url{id_abonnements_offre, #ID_OBJET})]">(#OPTIONS|table_valeur{numero})</a></p>]
+	[<p><a class="ajax" href="[(#SELF|parametre_url{etape, 3}|parametre_url{id_abonnements_offre, #ID_OBJET})]">(#OPTIONS|table_valeur{cadeau})</a></p>]
+	[(#BOUTON_ACTION{supprimer, 
+		#URL_ACTION_AUTEUR{supprimer_element_panier, #OBJET-#ID_OBJET, #URL_PAGE{abonner}}})]
+	[(#OPTIONS|table_valeur{numero}|et{#OPTIONS|table_valeur{cadeau}}|oui)
+		#SET{afficher_confirmer, oui}
+	]
+]
 </BOUCLE_progression>
+	[(#GET{afficher_confirmer}|=={oui}|oui)
+		[<a href="(#URL_PAGE{abonner}|parametre_url{etape, 4})">Confirmer et payer</a>]
+	]
+</B_progression>

@@ -42,13 +42,15 @@
 						</div>]
 						[<p class="c-card__prix">(#PRIX)</p>]
 						[(#SET{options, #ARRAY})]
-						[(#SET{options, #GET{options}|array_merge{#ARRAY{region, #GET{region}}}})]
 						[(#SET{options, #GET{options}|array_merge{#ARRAY{numero, #ENV{opt_numero, ''}}}})]
 						[(#SET{options, #GET{options}|array_merge{#ARRAY{cadeau, #ENV{opt_cadeau, ''}}}})]
 						[(#SET{options, #GET{options}|serialize})]
-						[(#SET{args, #VAL{abonnements_offre}|concat{/#ID_ABONNEMENTS_OFFRE}|concat{/1}|concat{/}|concat{/#GET{options}}})]
-
-						[(#BOUTON_ACTION{<:vacarme:choisir:>, #URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 2}|parametre_url{id_abonnements_offre, #ID_ABONNEMENTS_OFFRE}}, c-btn-form c-btn-form--white ajax})]
+						[(#SET{args, #VAL{abonnements_offre}|concat{/#ID_ABONNEMENTS_OFFRE}
+							|concat{/1}|concat{/}|concat{/#GET{options}}})]
+						
+						[(#BOUTON_ACTION{<:vacarme:choisir:>, 
+							#URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 2}|parametre_url{id_abonnements_offre, #ID_ABONNEMENTS_OFFRE}},
+							c-btn-form c-btn-form--white ajax})]
 					</div>
 				</div>
 			[(#GET{compteur}|=={#GET{total}}|oui)
