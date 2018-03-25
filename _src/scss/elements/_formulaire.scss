@@ -4,7 +4,7 @@
 
 
 //
-// formulaire__heading
+// formulaire__intertitre
 // -------------------------------------
 .formulaire__intertitre {
 	font-family: $font-helvetica;
@@ -15,7 +15,20 @@
 
 .formulaire__groupe {
 	> .editer {
-		display: flex;
+		
+ 		&.saisie_radio {
+			margin-bottom: $spacing-unit;
+		}
+		
+		&.saisie_input,
+		&.saisie_pays,
+		&.saisie_email {
+			margin-bottom: $spacing-unit;
+			
+			> label {
+				display: block
+			}
+		}
 	}
 }
 

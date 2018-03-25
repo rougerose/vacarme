@@ -603,7 +603,11 @@
 
 /* line 9, _src/scss/elements/_formulaire.scss */ .formulaire__intertitre { font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: bold; text-transform: uppercase; }
 
-/* line 17, _src/scss/elements/_formulaire.scss */ .formulaire__groupe > .editer { display: -webkit-box; display: -ms-flexbox; display: flex; }
+/* line 19, _src/scss/elements/_formulaire.scss */ .formulaire__groupe > .editer.saisie_radio { margin-bottom: 24px; }
+
+/* line 23, _src/scss/elements/_formulaire.scss */ .formulaire__groupe > .editer.saisie_input, .formulaire__groupe > .editer.saisie_pays, .formulaire__groupe > .editer.saisie_email { margin-bottom: 24px; }
+
+/* line 28, _src/scss/elements/_formulaire.scss */ .formulaire__groupe > .editer.saisie_input > label, .formulaire__groupe > .editer.saisie_pays > label, .formulaire__groupe > .editer.saisie_email > label { display: block; }
 
 /*------------------------------------*    $GRIDS
 \*------------------------------------*/

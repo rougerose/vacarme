@@ -19,7 +19,7 @@
     <necessite nom="newsletters" compatibilite="[1.5.3;[" />
     <necessite nom="compositions" compatibilite="[3.6.0;[" />
 	
-	<necessite nom="vextras" />
+	<!-- <necessite nom="vextras" /> -->
 	<necessite nom="vabonnements" />
 	<necessite nom="vpaniers_options" />
 	<necessite nom="vinscriptions" />
