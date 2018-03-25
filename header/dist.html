@@ -2,8 +2,8 @@
 	<div class="c-site-nav__shortcuts">
 		<div class="o-wrapper c-shortcuts">
 			<ul class="c-site-nav__list c-shortcuts__group c-shortcuts__group--review u-hide-until-desktop">
-				<li class="c-site-nav__item c-shortcuts__item"><a class="c-shortcuts__link" href="#">La revue</a></li>
-				<li class="c-site-nav__item c-shortcuts__item"><a class="c-shortcuts__link" href="#">Les numéros</a></li>
+				<li class="c-site-nav__item c-shortcuts__item"><a class="c-shortcuts__link" href="#URL_RUBRIQUE{10}">La revue</a></li>
+				<li class="c-site-nav__item c-shortcuts__item"><a class="c-shortcuts__link" href="#URL_RUBRIQUE{115}">#INFO_TITRE{rubrique, 115}</a></li>
 				<li class="c-site-nav__item c-shortcuts__item"><a class="c-shortcuts__link" href="#URL_RUBRIQUE{504}">S'abonner</a></li>
 				<li class="c-site-nav__item c-shortcuts__item"><a class="c-shortcuts__link" href="#">Acheter</a></li>
 			</ul>
@@ -41,21 +41,9 @@
 					</div>
 					<div class="o-layout c-site-nav__group">
 						<h2 class="o-layout__item c-site-nav__group-title">Les thèmes</h2>
-						<ul class="o-layout__item u-1/3@desktop c-site-nav__list">
-							<li class="c-site-nav__item"><a href="#">Entretiens</a></li>
-							<li class="c-site-nav__item"><a href="#">Tribunes</a></li>
-							<li class="c-site-nav__item"><a href="#">Dossiers</a></li>
-						</ul>
-						<ul class="o-layout__item u-1/3@desktop c-site-nav__list">
-							<li class="c-site-nav__item"><a href="#">Entretiens</a></li>
-							<li class="c-site-nav__item"><a href="#">Tribunes</a></li>
-							<li class="c-site-nav__item"><a href="#">Dossiers</a></li>
-						</ul>
-						<ul class="o-layout__item u-1/3@desktop c-site-nav__list">
-							<li class="c-site-nav__item"><a href="#">Entretiens</a></li>
-							<li class="c-site-nav__item"><a href="#">Tribunes</a></li>
-							<li class="c-site-nav__item"><a href="#">Dossiers</a></li>
-						</ul>
+						[(#INCLURE{fond=inclure/menu,env,identifiant=nav_cat_1})]
+						[(#INCLURE{fond=inclure/menu,env,identifiant=nav_cat_2})]
+						[(#INCLURE{fond=inclure/menu,env,identifiant=nav_cat_3})]
 					</div>
 				</div>
 			</div>
