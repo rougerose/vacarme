@@ -7,10 +7,10 @@
 [(#SESSION{id_auteur}|non)
 	[(#GET{formulaire}|=={inscription}|?{
 		[<h1>Créer votre compte</h1>
-		[<p><a href="(#GET{self}|parametre_url{form, identification})">Vous avez déjà un compte ? Identifiez-vous</a></p>]
+		[<p><strong><a href="(#GET{self}|parametre_url{form, identification})">Vous avez déjà un compte ? Identifiez-vous</a></strong></p>]
 		(#FORMULAIRE_INSCRIPTION{6forum})],
 		[<h1>Vous identifier</h1>
-		[<p><a href="(#GET{self}|parametre_url{form, inscription})">Créez votre compte</a></p>]
+		[<p><strong><a href="(#GET{self}|parametre_url{form, inscription})">Créez votre compte</a></strong></p>]
 		(#LOGIN_PUBLIC{#GET{self}})]
 	})]
 ]
