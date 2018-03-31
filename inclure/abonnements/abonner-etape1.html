@@ -30,7 +30,7 @@
 					<h3 class="c-abonnement-offres__titre">
 						[(#DUREE|duree_en_clair)]
 						#INCLURE{fond=img/svg/ic_arrow-right_48px.svg, class='o-icon o-icon--m'}
-						[(#DUREE|numero_en_clair)]
+						[(#DUREE|numeros_nombre_en_clair)]
 					</h3>
 				</header>
 		]
@@ -50,7 +50,7 @@
 						
 						[(#BOUTON_ACTION{<:vacarme:choisir:>, 
 							#URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 2}|parametre_url{id_abonnements_offre, #ID_ABONNEMENTS_OFFRE}},
-							c-btn-form c-btn-form--white ajax})]
+							c-btn-form c-btn-form--white c-btn-form--upper ajax})]
 					</div>
 				</div>
 			[(#GET{compteur}|=={#GET{total}}|oui)
