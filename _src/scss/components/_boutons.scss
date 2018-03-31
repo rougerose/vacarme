@@ -8,7 +8,7 @@
 	margin: 0;
 	overflow: visible;
 	margin: $spacing-unit-tiny $spacing-unit-small $spacing-unit-tiny 0;
-	padding: $spacing-unit-tiny;
+	padding: $spacing-unit-tiny + $spacing-unit-tiny/2 $spacing-unit-tiny $spacing-unit-tiny;
 	vertical-align: middle;
 	color: inherit;
 	font: inherit;
@@ -52,6 +52,14 @@
 
 
 //
+// c-btn--upper
+// -------------------------------------
+.c-btn--upper {
+	text-transform: uppercase;
+}
+
+
+//
 // c-btn-form
 // -------------------------------------
 .c-btn-form {
@@ -63,5 +71,11 @@
 .c-btn-form--white {
 	button {
 		@extend .c-btn--white;
+	}
+}
+
+.c-btn-form--upper {
+	button {
+		@extend .c-btn--upper;
 	}
 }
