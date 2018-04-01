@@ -15,29 +15,14 @@
  */
 
 html {
+	
 	// ----- INUITCSS ----- //
 	font-size: ($inuit-global-font-size / 16px) * 1em; /* [1] */
 	line-height: $inuit-global-line-height / $inuit-global-font-size; /* [1] */
 	overflow-y: scroll; /* [2] */
 	min-height: 100%; /* [3] */
+	
 	// ----- VACARME ----- //
 	font-family: $base-font-family;
 	color: $text-color;
-}
-
-// TODO: Obsolète ?
-// .wrap-out {
-// 	position: relative;
-// 	overflow: hidden;
-// 	width: 100%;
-// }
-// .wrap-in {
-// 	position: relative;
-// 	width: 100%;
-// }
-.page-block {
-	margin: 0 auto;
-	max-width: 68.75em;
-	padding-left: $base-spacing-unit;
-	padding-right: $base-spacing-unit;
 }

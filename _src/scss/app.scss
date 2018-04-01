@@ -86,7 +86,8 @@
 @import "elements/page"; // TODO: des classes obsolètes dans le fichier page sont à supprimer.
 
 @import "elements/page-head"; // TODO: obsolète
-@import "elements/page-content"; // TODO: obsolète
+@import "elements/deprecie/page-content";
+@import "elements/deprecie/page-block";
 @import "elements/page-foot"; // TODO: obsolète
 
 @import "inuitcss/elements/elements.headings";
