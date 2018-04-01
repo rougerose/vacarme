@@ -10,11 +10,8 @@
 	
 	&--colorbg-1065 {
 		.c-progress__item {
-			
 			&.is-active {
-				&:first-child {
-					background-color: $color-amber-500;
-				}
+				background-color: $color-amber-500;
 				
 				&:nth-child(2) {
 					background-color: $color-amber-400;
@@ -34,9 +31,7 @@
 	&--colorbg-1066 {
 		.c-progress__item {
 			&.is-active {
-				&:first-child {
-					background-color: $color-orange-500;
-				}
+				background-color: $color-orange-500;
 				
 				&:nth-child(2) {
 					background-color: $color-orange-400;
@@ -56,9 +51,7 @@
 	&--colorbg-1067 {
 		.c-progress__item {
 			&.is-active {
-				&:first-child {
-					background-color: $color-deep-orange-500;
-				}
+				background-color: $color-deep-orange-500;
 				
 				&:nth-child(2) {
 					background-color: $color-deep-orange-400;
@@ -79,8 +72,20 @@
 	
 	.c-progress__item {
 		padding: $spacing-unit-small;
-		background-color: $color-gray-400;
+		background-color: $color-gray-500;
 		color: $color-gray-100;
+		
+		&:nth-child(2) {
+			background-color: $color-gray-400;
+		}
+		
+		&:nth-child(3) {
+			background-color: $color-gray-300;
+		}
+		
+		&.c-progress__item--action {
+			background-color: $color-gray-200;
+		}
 		
 		&.is-active {
 			color: $color-black;
