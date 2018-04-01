@@ -1,42 +1,46 @@
 <BOUCLE_rubrique_numero_rubrique(RUBRIQUES){id_rubrique}>
-<div class="grid">
-    <div class="grid__item">
-        #SET{logo_objet,non} #SET{logo_format,''} #SET{compo,''} #SET{titre_descriptif,oui} #SET{id_objet,#ID_RUBRIQUE} #SET{objet,rubrique}
-        <BOUCLE_type_rubriques(MOTS){id_rubrique}{id_groupe=4}{tout}>
-        <h2 class="hN intertitre-section intertitre-section--first">[(#TITRE|sinon{rubrique})]</h2>
-        </BOUCLE_type_rubriques>
+<main id="main" class="page-content" role="main">
+	<div class="page-block">
+		<div class="grid">
+		    <div class="grid__item">
+		        #SET{logo_objet,non} #SET{logo_format,''} #SET{compo,''} #SET{titre_descriptif,oui} #SET{id_objet,#ID_RUBRIQUE} #SET{objet,rubrique}
+		        <BOUCLE_type_rubriques(MOTS){id_rubrique}{id_groupe=4}{tout}>
+		        <h2 class="hN intertitre-section intertitre-section--first">[(#TITRE|sinon{rubrique})]</h2>
+		        </BOUCLE_type_rubriques>
 
-        <B_combien><BOUCLE_combien(ARTICLES){branche_complete}> </BOUCLE_combien>[(#TOTAL_BOUCLE|>{3}|?{#SET{compo,4col},#SET{compo,2col}})]</B_combien>
+		        <B_combien><BOUCLE_combien(ARTICLES){branche_complete}> </BOUCLE_combien>[(#TOTAL_BOUCLE|>{3}|?{#SET{compo,4col},#SET{compo,2col}})]</B_combien>
 
-        [(#REM) un logo ?]
-        [(#LOGO_RUBRIQUE|fichier|match{^rubon#ID_RUBRIQUE}|?{
-            #SET{logo_objet,oui}
-            [(#LOGO_RUBRIQUE|largeur|>{#LOGO_RUBRIQUE|hauteur}|?{
-                #SET{logo_format,paysage},#SET{logo_format,portrait}})
-            ]
-        })]
-        [(#GET{compo}|=={2col}|?{
-            [(#INCLURE{fond=inclure/objets/rubrique_numero-2col,
-                objet=#GET{objet}, id_objet=#GET{id_objet},
-                logo_objet=#GET{logo_objet}, logo_format=#GET{logo_format},
-                titre_descriptif=#GET{titre_descriptif}
-            })]
-        })]
-        [(#GET{compo}|=={4col}|?{
-            [(#INCLURE{fond=inclure/objets/rubrique_numero-4col,
-                objet=#GET{objet}, id_objet=#GET{id_objet},
-                logo_objet=#GET{logo_objet}, logo_format=#GET{logo_format},
-                titre_descriptif=#GET{titre_descriptif}
-            })]
-        })]
-    </div><!-- /.grid__item -->
-    <BOUCLE_numero_related(RUBRIQUES){id_rubrique=#ID_PARENT}>
-    <div class="grid__item push--lap-and-up-one-quarter">
-        [<div class="related">
-            (#INCLURE{fond=inclure/objets/numero-related,id_rubrique,lien_retour=oui})
-        </div>]
-    </div><!-- /.grid__item -->
-    </BOUCLE_numero_related>
-</div><!-- /.grid -->
+		        [(#REM) un logo ?]
+		        [(#LOGO_RUBRIQUE|fichier|match{^rubon#ID_RUBRIQUE}|?{
+		            #SET{logo_objet,oui}
+		            [(#LOGO_RUBRIQUE|largeur|>{#LOGO_RUBRIQUE|hauteur}|?{
+		                #SET{logo_format,paysage},#SET{logo_format,portrait}})
+		            ]
+		        })]
+		        [(#GET{compo}|=={2col}|?{
+		            [(#INCLURE{fond=inclure/objets/rubrique_numero-2col,
+		                objet=#GET{objet}, id_objet=#GET{id_objet},
+		                logo_objet=#GET{logo_objet}, logo_format=#GET{logo_format},
+		                titre_descriptif=#GET{titre_descriptif}
+		            })]
+		        })]
+		        [(#GET{compo}|=={4col}|?{
+		            [(#INCLURE{fond=inclure/objets/rubrique_numero-4col,
+		                objet=#GET{objet}, id_objet=#GET{id_objet},
+		                logo_objet=#GET{logo_objet}, logo_format=#GET{logo_format},
+		                titre_descriptif=#GET{titre_descriptif}
+		            })]
+		        })]
+		    </div><!-- /.grid__item -->
+		    <BOUCLE_numero_related(RUBRIQUES){id_rubrique=#ID_PARENT}>
+		    <div class="grid__item push--lap-and-up-one-quarter">
+		        [<div class="related">
+		            (#INCLURE{fond=inclure/objets/numero-related,id_rubrique,lien_retour=oui})
+		        </div>]
+		    </div><!-- /.grid__item -->
+		    </BOUCLE_numero_related>
+		</div><!-- /.grid -->
+	</div>
+</main>
 </BOUCLE_rubrique_numero_rubrique>
 #FILTRE{mini_html}

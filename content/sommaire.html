@@ -1,95 +1,99 @@
-<div class="grid">
-    [(#REM) ligne features ]
-    <section class="grid__item groupe-section sommaire__section section--features">
-        <div class="grid">
-            <BOUCLE_grappe_carousel(GRAPPES){id_grappe=1}>
-            [<div class="grid__item desk-two-quarters">
-                (#INCLURE{fond=inclure/carousel,id_grappe})
-            </div><!-- /.grid__item -->]
-            </BOUCLE_grappe_carousel>
-            <BOUCLE_grappe_ligne1(GRAPPES){id_grappe=2}>
-            [(#INCLURE{fond=inclure/sommaire_ligne1,id_grappe})]
-            </BOUCLE_grappe_ligne1>
-        </div><!-- /.grid -->
-    </section><!-- /.grid__item .section -->
-    [(#REM) travail en cours ]
-    <BOUCLE_grappe_travail_encours(GRAPPES){id_grappe=8}>
-    <section class="grid__item groupe-section sommaire-section sommaire__section">
-        <h1 class="hN intertitre-section intertitre-section--first">#TITRE</h1>
-        <div class="grid">
-            <BOUCLE_premier_objet(spip_grappes_liens){id_grappe}{par rang}{0,1}>
-            <div class="grid__item lap-and-up-one-quarter">
-                [(#OBJET|=={article}|?{
-                    [(#INCLURE{fond=resume/article-texte,id_article=#ID_OBJET})],
-                    [(#INCLURE{fond=inclure/resumes/rubrique,id_rubrique=#ID_OBJET,type_resume=text})]
-                })]
-            </div><!-- /.grid__item -->
-            </BOUCLE_premier_objet>
-            <BOUCLE_deuxieme_objet(spip_grappes_liens){id_grappe}{par rang}{1,1}>
-            <div class="grid__item lap-and-up-two-quarters">
-                [(#OBJET|=={article}|?{
-                    [(#INCLURE{fond=inclure/resumes/article,id_article=#ID_OBJET,type_resume=stack,logo_afficher=oui,logo_objet=article,logo_format=paysage})],
-                    [(#INCLURE{fond=inclure/resumes/rubrique,id_rubrique=#ID_OBJET,type_resume=stack,logo_afficher=oui,logo_objet=rubrique,logo_format=paysage})]
-                })]
-            </div><!-- /.grid__item -->
-            </BOUCLE_deuxieme_objet>
-            <B_dernier_numero>
-            <div class="grid__item lap-and-up-one-quarter">
-            <BOUCLE_dernier_numero(RUBRIQUES){id_parent=115}{!par titre}{0,1}>
-                <article class="resume resume-rubrique resume--stack">
-                    <a href="#URL_RUBRIQUE">
-                        <figure class="resume__figure">
-                            [<img src="(#LOGO_RUBRIQUE|image_passe_partout{732,1024}|image_recadre{732,1024,'top center',000}|extraire_attribut{src})">]
-                        </figure><div class="resume__body-x"><p class="resume__category">Nouveau</p><div class="resume__cartouche resume__cartouche--portrait">
-                        <header><h1 class="hN resume__titre resume-rubrique__titre resume__titre--stack">#TITRE</h1>
-                        </header><p class="resume__desc resume-rubrique__desc resume__desc--stack">Maintenant disponible.</p></div></div></a>
-                </article>
-                </BOUCLE_dernier_numero>
-            </div>
-            </B_dernier_numero>
-        </div><!-- /.grid -->
-    </section><!-- /.grid__item .section -->
-    </BOUCLE_grappe_travail_encours>
-    [(#REM) ligne actu ]
-    <BOUCLE_grappe_actualites(GRAPPES){id_grappe=3}>
-    <B_actus>
-    <section class="grid__item groupe-section sommaire__section">
-        <h1 class="hN intertitre-section intertitre-section--first">#INFO_TITRE{rubrique,82}</h1>
-        <div class="grid">
-            <BOUCLE_actus(ARTICLES){id_grappe}{par rang}>
-            <div class="grid__item lap-and-up-one-quarter">
-                [(#INCLURE{fond=resume/article-texte,id_article})]
-            </div><!-- /.grid__item -->
-            </BOUCLE_actus>
-        </div><!-- /.grid -->
-    </section><!-- /.grid__item .section -->
-    </B_actus>
-    </BOUCLE_grappe_actualites>
-    [(#REM) ligne archives ]
-    <BOUCLE_grappe_archives(GRAPPES){id_grappe=7}>
-    <section class="grid__item groupe-section sommaire__section">
-        <h1 class="hN intertitre-section intertitre-section--first"><:local:archives:></h1>
-        <div class="grid">
-            [(#INCLURE{fond=inclure/sommaire_grappe_archives,id_grappe})]
-        </div><!-- /.grid -->
-    </section><!-- /.grid__item -->
-    </BOUCLE_grappe_archives>
-    [(#REM) ligne numéros ]
-    <BOUCLE_numeros(RUBRIQUES){id_rubrique=115}>
-    <section class="grid__item groupe-section sommaire__section">
-        <h1 class="hN intertitre-section intertitre-section--first">#TITRE</h1>
-        <div class="grid">
-            <BOUCLE_numero(RUBRIQUES){id_parent}{!par titre}{0,7}>
-            [<div class="grid__item desk-one-eighth lap-one-quarter palm-one-half">
-                (#INCLURE{fond=inclure/resumes/numero,id_rubrique,type_resume=logo,type_resume_numero=resume-numero--logoTitre})
-            </div><!-- /.grid__item -->]
-            </BOUCLE_numero>
-            <div class="grid__item desk-one-eighth lap-one-quarter palm-one-half">
-                <a href="#INFO_URL{rubrique,115}" class="more-arrow--big">&#12297;</a>
-            </div><!-- /.grid__item -->
-            </B_numero>
-        </div><!-- /.grid -->
-    </section><!-- /.grid__item -->
-    </BOUCLE_numeros>
-</div><!-- /.grid -->
+<main id="main" class="page-content" role="main">
+	<div class="page-block">
+		<div class="grid">
+		    [(#REM) ligne features ]
+		    <section class="grid__item groupe-section sommaire__section section--features">
+		        <div class="grid">
+		            <BOUCLE_grappe_carousel(GRAPPES){id_grappe=1}>
+		            [<div class="grid__item desk-two-quarters">
+		                (#INCLURE{fond=inclure/carousel,id_grappe})
+		            </div><!-- /.grid__item -->]
+		            </BOUCLE_grappe_carousel>
+		            <BOUCLE_grappe_ligne1(GRAPPES){id_grappe=2}>
+		            [(#INCLURE{fond=inclure/sommaire_ligne1,id_grappe})]
+		            </BOUCLE_grappe_ligne1>
+		        </div><!-- /.grid -->
+		    </section><!-- /.grid__item .section -->
+		    [(#REM) travail en cours ]
+		    <BOUCLE_grappe_travail_encours(GRAPPES){id_grappe=8}>
+		    <section class="grid__item groupe-section sommaire-section sommaire__section">
+		        <h1 class="hN intertitre-section intertitre-section--first">#TITRE</h1>
+		        <div class="grid">
+		            <BOUCLE_premier_objet(spip_grappes_liens){id_grappe}{par rang}{0,1}>
+		            <div class="grid__item lap-and-up-one-quarter">
+		                [(#OBJET|=={article}|?{
+		                    [(#INCLURE{fond=resume/article-texte,id_article=#ID_OBJET})],
+		                    [(#INCLURE{fond=inclure/resumes/rubrique,id_rubrique=#ID_OBJET,type_resume=text})]
+		                })]
+		            </div><!-- /.grid__item -->
+		            </BOUCLE_premier_objet>
+		            <BOUCLE_deuxieme_objet(spip_grappes_liens){id_grappe}{par rang}{1,1}>
+		            <div class="grid__item lap-and-up-two-quarters">
+		                [(#OBJET|=={article}|?{
+		                    [(#INCLURE{fond=inclure/resumes/article,id_article=#ID_OBJET,type_resume=stack,logo_afficher=oui,logo_objet=article,logo_format=paysage})],
+		                    [(#INCLURE{fond=inclure/resumes/rubrique,id_rubrique=#ID_OBJET,type_resume=stack,logo_afficher=oui,logo_objet=rubrique,logo_format=paysage})]
+		                })]
+		            </div><!-- /.grid__item -->
+		            </BOUCLE_deuxieme_objet>
+		            <B_dernier_numero>
+		            <div class="grid__item lap-and-up-one-quarter">
+		            <BOUCLE_dernier_numero(RUBRIQUES){id_parent=115}{!par titre}{0,1}>
+		                <article class="resume resume-rubrique resume--stack">
+		                    <a href="#URL_RUBRIQUE">
+		                        <figure class="resume__figure">
+		                            [<img src="(#LOGO_RUBRIQUE|image_passe_partout{732,1024}|image_recadre{732,1024,'top center',000}|extraire_attribut{src})">]
+		                        </figure><div class="resume__body-x"><p class="resume__category">Nouveau</p><div class="resume__cartouche resume__cartouche--portrait">
+		                        <header><h1 class="hN resume__titre resume-rubrique__titre resume__titre--stack">#TITRE</h1>
+		                        </header><p class="resume__desc resume-rubrique__desc resume__desc--stack">Maintenant disponible.</p></div></div></a>
+		                </article>
+		                </BOUCLE_dernier_numero>
+		            </div>
+		            </B_dernier_numero>
+		        </div><!-- /.grid -->
+		    </section><!-- /.grid__item .section -->
+		    </BOUCLE_grappe_travail_encours>
+		    [(#REM) ligne actu ]
+		    <BOUCLE_grappe_actualites(GRAPPES){id_grappe=3}>
+		    <B_actus>
+		    <section class="grid__item groupe-section sommaire__section">
+		        <h1 class="hN intertitre-section intertitre-section--first">#INFO_TITRE{rubrique,82}</h1>
+		        <div class="grid">
+		            <BOUCLE_actus(ARTICLES){id_grappe}{par rang}>
+		            <div class="grid__item lap-and-up-one-quarter">
+		                [(#INCLURE{fond=resume/article-texte,id_article})]
+		            </div><!-- /.grid__item -->
+		            </BOUCLE_actus>
+		        </div><!-- /.grid -->
+		    </section><!-- /.grid__item .section -->
+		    </B_actus>
+		    </BOUCLE_grappe_actualites>
+		    [(#REM) ligne archives ]
+		    <BOUCLE_grappe_archives(GRAPPES){id_grappe=7}>
+		    <section class="grid__item groupe-section sommaire__section">
+		        <h1 class="hN intertitre-section intertitre-section--first"><:local:archives:></h1>
+		        <div class="grid">
+		            [(#INCLURE{fond=inclure/sommaire_grappe_archives,id_grappe})]
+		        </div><!-- /.grid -->
+		    </section><!-- /.grid__item -->
+		    </BOUCLE_grappe_archives>
+		    [(#REM) ligne numéros ]
+		    <BOUCLE_numeros(RUBRIQUES){id_rubrique=115}>
+		    <section class="grid__item groupe-section sommaire__section">
+		        <h1 class="hN intertitre-section intertitre-section--first">#TITRE</h1>
+		        <div class="grid">
+		            <BOUCLE_numero(RUBRIQUES){id_parent}{!par titre}{0,7}>
+		            [<div class="grid__item desk-one-eighth lap-one-quarter palm-one-half">
+		                (#INCLURE{fond=inclure/resumes/numero,id_rubrique,type_resume=logo,type_resume_numero=resume-numero--logoTitre})
+		            </div><!-- /.grid__item -->]
+		            </BOUCLE_numero>
+		            <div class="grid__item desk-one-eighth lap-one-quarter palm-one-half">
+		                <a href="#INFO_URL{rubrique,115}" class="more-arrow--big">&#12297;</a>
+		            </div><!-- /.grid__item -->
+		            </B_numero>
+		        </div><!-- /.grid -->
+		    </section><!-- /.grid__item -->
+		    </BOUCLE_numeros>
+		</div><!-- /.grid -->
+	</div>
+</main>
 #FILTRE{mini_html}

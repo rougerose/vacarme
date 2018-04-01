@@ -2,11 +2,7 @@
 	<header class="c-page-header" role="banner">
 		<INCLURE{fond=header/#ENV{type-page}, env} />
 	</header>
-	<main id="main" class="page-content" role="main">
-		<div class="page-block">
-			<INCLURE{fond=content/#ENV{type-page},env} />
-		</div>
-	</main>
+	<INCLURE{fond=content/#ENV{type-page}, env} />
 	<footer class="page-foot">
 		<div class="page-block">
 			<INCLURE{fond=footer/#ENV{type-page},env} />

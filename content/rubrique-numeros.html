@@ -1,37 +1,41 @@
 <BOUCLE_les_numeros(RUBRIQUES){id_rubrique}> [(#SET{logo_feature,#LOGO_RUBRIQUE|image_reduire{520,0}|image_recadre{520,400,'top left'}|extraire_attribut{src}|sinon{http://placehold.it/520x400/ff5230/ffffff&text=logo+obligatoire+!}})]
-<div class="grid">
-    <article class="self rubrique index">
-        <div class="grid__item">
-            <div class="landmark">
-                <header class="self__header self__header--rubrique">
-                    <h1 class="hN titre"><span class="#EDIT{titre}">#TITRE</span></h1>
-                </header>
-                [<div class="self__body">
-                    <div class="#EDIT{texte} self__texte surlignable">
-                        (#TEXTE|image_reduire{500,0})
-                    </div>
-                </div>]
-            </div>
-        </div><!-- /.grid__item -->
-        <div class="grid__item">
-            <B_dernier_numero>
-            <section class="index-feature landmark">
-                <div class="grid">
-                    <BOUCLE_dernier_numero(RUBRIQUES){id_parent}{par titre}{inverse}{0,1}{doublons}>[
-                    (#INCLURE{fond=inclure/objets/numero-resume,
-                        id_rubrique,
-                        grid_1=palm-one-third lap-and-up-one-half,grid_2=palm-two-thirds lap-and-up-one-half,
-                        logo_standard=250,logo_alternatif=#GET{logo_feature},
-                        class_logo_standard=cover cover-feature--small,class_logo_alternatif=cover-feature--large})
-                    ]</BOUCLE_dernier_numero>
-                </div><!-- /.grid -->
-            </section>
-            </B_dernier_numero>
-        </div><!-- /.grid__item -->
-        <div class="grid__item">
-            <INCLURE{fond=liste/numeros,env,doublons,ajax} />
-        </div><!-- /.grid__item -->
-    </article>
-</div><!-- /.grid -->
+<main id="main" class="page-content" role="main">
+	<div class="page-block">
+		<div class="grid">
+		    <article class="self rubrique index">
+		        <div class="grid__item">
+		            <div class="landmark">
+		                <header class="self__header self__header--rubrique">
+		                    <h1 class="hN titre"><span class="#EDIT{titre}">#TITRE</span></h1>
+		                </header>
+		                [<div class="self__body">
+		                    <div class="#EDIT{texte} self__texte surlignable">
+		                        (#TEXTE|image_reduire{500,0})
+		                    </div>
+		                </div>]
+		            </div>
+		        </div><!-- /.grid__item -->
+		        <div class="grid__item">
+		            <B_dernier_numero>
+		            <section class="index-feature landmark">
+		                <div class="grid">
+		                    <BOUCLE_dernier_numero(RUBRIQUES){id_parent}{par titre}{inverse}{0,1}{doublons}>[
+		                    (#INCLURE{fond=inclure/objets/numero-resume,
+		                        id_rubrique,
+		                        grid_1=palm-one-third lap-and-up-one-half,grid_2=palm-two-thirds lap-and-up-one-half,
+		                        logo_standard=250,logo_alternatif=#GET{logo_feature},
+		                        class_logo_standard=cover cover-feature--small,class_logo_alternatif=cover-feature--large})
+		                    ]</BOUCLE_dernier_numero>
+		                </div><!-- /.grid -->
+		            </section>
+		            </B_dernier_numero>
+		        </div><!-- /.grid__item -->
+		        <div class="grid__item">
+		            <INCLURE{fond=liste/numeros,env,doublons,ajax} />
+		        </div><!-- /.grid__item -->
+		    </article>
+		</div><!-- /.grid -->
+	</div>
+</main>
 </BOUCLE_les_numeros>
 #FILTRE{mini_html}

@@ -38,133 +38,137 @@
 [(#LOGO_ARTICLE|oui)
     [(#LOGO_ARTICLE|largeur|>{#LOGO_ARTICLE|hauteur}|?{#SET{format_logo,paysage},#SET{format_logo,portrait}})]
 ]
-<article class="self article" itemscope itemtype="http://schema.org/Article">
-    <div class="grid">
-        <div class="grid__item">
-            <div class="meta self-meta self-meta--head self-meta--head-std">
-                <p class="self-meta__item"><time pubdate datetime="[(#DATE|date_iso)]" itemprop="datePublished" content="[(#DATE|affdate{Y-m-d})]">[(#DATE|affdate)]</time></p>
-                <p class="self-meta__item rubrique">
-                    [(#GET{id_numero}|oui)[<a href="[(#INFO_URL{rubrique,#GET{id_numero}})]">(#INFO_TITRE{rubrique,#GET{id_numero}})</a>][ / <a href="[(#INFO_URL{rubrique,#ID_RUBRIQUE})]">(#INFO_TITRE{rubrique,#ID_RUBRIQUE})</a>]]
-                    [(#GET{id_numero}|non)[<a href="[(#INFO_URL{rubrique,#ID_RUBRIQUE})]">(#INFO_TITRE{rubrique,#ID_RUBRIQUE})</a>]]
-                </p>
-            </div><!-- /.self-meta--head-std -->
-        </div><!-- /.grid__item -->
-        <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
-            <header class="self__header landmark">
-                [<p class="#EDIT{surtitre} surtitre">(#SURTITRE)</p>]
-                <h1 itemprop="name" class="hN">
-                    <span class="#EDIT{titre} titre">#TITRE</span>[ <small class="#EDIT{soustitre} soustitre">(#SOUSTITRE)</small>]
-                </h1>
-                <BOUCLE_auteurs(AUTEURS){id_article}{0,1}{si #GET{type}|non}>
-                [(#INCLURE{fond=inclure/auteurs-article,id_article})]
-                </BOUCLE_auteurs>
-                [(#GET{type}|non)
-                    [(#CREDIT_LOGO|oui)
-                        [(#INCLURE{fond=inclure/objets/credit-logo,id_article})]
-                    ]
-                ]
-            </header>
-        </div><!-- /.grid__item -->
-        [(#REM) schema/article : description
-        ][<meta itemprop="description" content="(#DESCRIPTIF|sinon{#INTRODUCTION{300}}|textebrut)" />]
-        [(#GET{format_logo}|match{paysage}|oui)
-            [(#COMPOSITION|non) #SET{taille_logo,L} ]
-            [(#COMPOSITION|match{numero}|oui) #SET{taille_logo,L} ]
-            [(#COMPOSITION|match{numero-logo_XL}|oui) #SET{taille_logo,XL} ]
-        <div class="grid__item[(#GET{taille_logo}|=={L}|oui) lap-and-up-three-quarters push--lap-and-up-one-quarter]">
-                <div class="media landmark">
-                    [(#GET{taille_logo}|=={L}|oui)
-                        [<img src="(#LOGO_ARTICLE|image_reduire{805,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="logo--horizontal landmark">]
-                    ]
-                    [(#GET{taille_logo}|=={XL}|oui)
-                        [<img src="(#LOGO_ARTICLE|image_reduire{1100,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="media--full">]
-                    ]
-                </div>
-        </div><!-- /.grid__item -->]
-        [<div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
-            <div class="#EDIT{chapo} self__chapo landmark surlignable">
-                (#CHAPO)
-            </div>
-        </div><!-- /.grid__item -->]
-        <div class="grid__item lap-and-up-three-quarters float--right">
-            <div class="self__body self__body--article">
-                [(#GET{integral}|non)
-                  [(#SESSION{statut}|=={0minirezo}|oui)
-                    #SET{integral,' '}
-                    <p class="message message__important"><:local:article_integral_admin:></p>
-                  ]
-                ]
+<main id="main" class="page-content" role="main">
+	<div class="page-block">
+		<article class="self article" itemscope itemtype="http://schema.org/Article">
+		    <div class="grid">
+		        <div class="grid__item">
+		            <div class="meta self-meta self-meta--head self-meta--head-std">
+		                <p class="self-meta__item"><time pubdate datetime="[(#DATE|date_iso)]" itemprop="datePublished" content="[(#DATE|affdate{Y-m-d})]">[(#DATE|affdate)]</time></p>
+		                <p class="self-meta__item rubrique">
+		                    [(#GET{id_numero}|oui)[<a href="[(#INFO_URL{rubrique,#GET{id_numero}})]">(#INFO_TITRE{rubrique,#GET{id_numero}})</a>][ / <a href="[(#INFO_URL{rubrique,#ID_RUBRIQUE})]">(#INFO_TITRE{rubrique,#ID_RUBRIQUE})</a>]]
+		                    [(#GET{id_numero}|non)[<a href="[(#INFO_URL{rubrique,#ID_RUBRIQUE})]">(#INFO_TITRE{rubrique,#ID_RUBRIQUE})</a>]]
+		                </p>
+		            </div><!-- /.self-meta--head-std -->
+		        </div><!-- /.grid__item -->
+		        <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
+		            <header class="self__header landmark">
+		                [<p class="#EDIT{surtitre} surtitre">(#SURTITRE)</p>]
+		                <h1 itemprop="name" class="hN">
+		                    <span class="#EDIT{titre} titre">#TITRE</span>[ <small class="#EDIT{soustitre} soustitre">(#SOUSTITRE)</small>]
+		                </h1>
+		                <BOUCLE_auteurs(AUTEURS){id_article}{0,1}{si #GET{type}|non}>
+		                [(#INCLURE{fond=inclure/auteurs-article,id_article})]
+		                </BOUCLE_auteurs>
+		                [(#GET{type}|non)
+		                    [(#CREDIT_LOGO|oui)
+		                        [(#INCLURE{fond=inclure/objets/credit-logo,id_article})]
+		                    ]
+		                ]
+		            </header>
+		        </div><!-- /.grid__item -->
+		        [(#REM) schema/article : description
+		        ][<meta itemprop="description" content="(#DESCRIPTIF|sinon{#INTRODUCTION{300}}|textebrut)" />]
+		        [(#GET{format_logo}|match{paysage}|oui)
+		            [(#COMPOSITION|non) #SET{taille_logo,L} ]
+		            [(#COMPOSITION|match{numero}|oui) #SET{taille_logo,L} ]
+		            [(#COMPOSITION|match{numero-logo_XL}|oui) #SET{taille_logo,XL} ]
+		        <div class="grid__item[(#GET{taille_logo}|=={L}|oui) lap-and-up-three-quarters push--lap-and-up-one-quarter]">
+		                <div class="media landmark">
+		                    [(#GET{taille_logo}|=={L}|oui)
+		                        [<img src="(#LOGO_ARTICLE|image_reduire{805,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="logo--horizontal landmark">]
+		                    ]
+		                    [(#GET{taille_logo}|=={XL}|oui)
+		                        [<img src="(#LOGO_ARTICLE|image_reduire{1100,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="media--full">]
+		                    ]
+		                </div>
+		        </div><!-- /.grid__item -->]
+		        [<div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
+		            <div class="#EDIT{chapo} self__chapo landmark surlignable">
+		                (#CHAPO)
+		            </div>
+		        </div><!-- /.grid__item -->]
+		        <div class="grid__item lap-and-up-three-quarters float--right">
+		            <div class="self__body self__body--article">
+		                [(#GET{integral}|non)
+		                  [(#SESSION{statut}|=={0minirezo}|oui)
+		                    #SET{integral,' '}
+		                    <p class="message message__important"><:local:article_integral_admin:></p>
+		                  ]
+		                ]
 
-                [(#REM) version apercu ]
-                [(#GET{integral}|non)
-                   [<div class="#EDIT{texte} self__texte landmark surlignable liens">
-                       (#TEXTE*|intro|propre)
-                       <div class="apercu__info">
-                            <div class="apercu__fade"></div>
-                            <p><span class="icon icon--lock"></span></p>
-                            <p><:local:apercu_info_article{titre_numero=#GET{titre_numero}}:></p>
-                       </div>
-                   </div>]
-                   [<section class="#EDIT{ps} self__ps landmark ps surlignable">
-                       <h2 class="hN intertitre-section intertitre-section--first"><:info_ps:></h2>
-                       (#PS)
-                   </section>]
-                   [<section class="self__notes landmark">
-                       <h2 class="hN intertitre-section intertitre-section--first"><:info_notes:></h2>
-                       <div class="self__notes__body">
-                           (#NOTES)
-                       </div>
-                   </section>]
-                ]
-                [(#REM) version intégrale ]
-                [(#GET{integral}|oui)
-                    [<div class="#EDIT{texte} self__texte landmark surlignable liens">
-                        (#TEXTE)
-                    </div>]
-                    [<section class="#EDIT{ps} self__ps landmark ps surlignable">
-                        <h2 class="hN intertitre-section intertitre-section--first"><:info_ps:></h2>
-                        (#PS)
-                    </section>]
-                    [<section class="self__notes landmark">
-                        <h2 class="hN intertitre-section intertitre-section--first"><:info_notes:></h2>
-                        <div class="self__notes__body">
-                            (#NOTES)
-                        </div>
-                    </section>]
-                    [<section>
-                        (#INCLURE{fond=inclure/documents,id_article})
-                    </section>]
-                ]
-                [(#PAGE|=={contact}|oui)
-                    [<div class="self__texte landmark surlignable">
-                        (#FORMULAIRE_ECRIRE_AUTEUR)
-                    </div>]
-                ]
-            </div>
-        </div><!-- /.grid__item -->
-        <div class="grid__item lap-and-up-one-quarter float--left">
-            [   (#REM) auteurs article/entretien
-            ][      (#GET{type}|match{entretien}|oui)
-                        [(#INCLURE{fond=inclure/objets/authors-interview-aside,id_article,type-titre=#GET{type-titre}})]
-            ]
-            <B_articles_lies>
-            <aside class="related related--aside landmark">
-                <h2 class="hN intertitre-section intertitre-section--first intertitre-section--aside"><:local:read_also:></h2>
-                <ul class="list list--dash list--aside">
-                    <BOUCLE_articles_lies(ARTICLES){id_article IN #ARTICLES_LIES}{si #GET{contexte}|oui}>
-                    <li class="related__item">
-                        <h3 class="hN"><a href="[(#URL_ARTICLE)]" class="spip_in" rel="next">#TITRE</a>[ <small class="soustitre">(#SOUSTITRE)</small>]</h3>
-                    </li>
-                    </BOUCLE_articles_lies>
-                <ul>
-            </aside>
-            </B_articles_lies>
-        </div><!-- /.grid__item -->
-    </div><!-- /.grid -->
-    [(#ENV{page}|=={mentions}|non)
-    <footer class="self__footer">
-        [(#INCLURE{fond=inclure/article-footer,id_article,id_numero=#GET{id_numero}})]
-    </footer>]
-</article>
+		                [(#REM) version apercu ]
+		                [(#GET{integral}|non)
+		                   [<div class="#EDIT{texte} self__texte landmark surlignable liens">
+		                       (#TEXTE*|intro|propre)
+		                       <div class="apercu__info">
+		                            <div class="apercu__fade"></div>
+		                            <p><span class="icon icon--lock"></span></p>
+		                            <p><:local:apercu_info_article{titre_numero=#GET{titre_numero}}:></p>
+		                       </div>
+		                   </div>]
+		                   [<section class="#EDIT{ps} self__ps landmark ps surlignable">
+		                       <h2 class="hN intertitre-section intertitre-section--first"><:info_ps:></h2>
+		                       (#PS)
+		                   </section>]
+		                   [<section class="self__notes landmark">
+		                       <h2 class="hN intertitre-section intertitre-section--first"><:info_notes:></h2>
+		                       <div class="self__notes__body">
+		                           (#NOTES)
+		                       </div>
+		                   </section>]
+		                ]
+		                [(#REM) version intégrale ]
+		                [(#GET{integral}|oui)
+		                    [<div class="#EDIT{texte} self__texte landmark surlignable liens">
+		                        (#TEXTE)
+		                    </div>]
+		                    [<section class="#EDIT{ps} self__ps landmark ps surlignable">
+		                        <h2 class="hN intertitre-section intertitre-section--first"><:info_ps:></h2>
+		                        (#PS)
+		                    </section>]
+		                    [<section class="self__notes landmark">
+		                        <h2 class="hN intertitre-section intertitre-section--first"><:info_notes:></h2>
+		                        <div class="self__notes__body">
+		                            (#NOTES)
+		                        </div>
+		                    </section>]
+		                    [<section>
+		                        (#INCLURE{fond=inclure/documents,id_article})
+		                    </section>]
+		                ]
+		                [(#PAGE|=={contact}|oui)
+		                    [<div class="self__texte landmark surlignable">
+		                        (#FORMULAIRE_ECRIRE_AUTEUR)
+		                    </div>]
+		                ]
+		            </div>
+		        </div><!-- /.grid__item -->
+		        <div class="grid__item lap-and-up-one-quarter float--left">
+		            [   (#REM) auteurs article/entretien
+		            ][      (#GET{type}|match{entretien}|oui)
+		                        [(#INCLURE{fond=inclure/objets/authors-interview-aside,id_article,type-titre=#GET{type-titre}})]
+		            ]
+		            <B_articles_lies>
+		            <aside class="related related--aside landmark">
+		                <h2 class="hN intertitre-section intertitre-section--first intertitre-section--aside"><:local:read_also:></h2>
+		                <ul class="list list--dash list--aside">
+		                    <BOUCLE_articles_lies(ARTICLES){id_article IN #ARTICLES_LIES}{si #GET{contexte}|oui}>
+		                    <li class="related__item">
+		                        <h3 class="hN"><a href="[(#URL_ARTICLE)]" class="spip_in" rel="next">#TITRE</a>[ <small class="soustitre">(#SOUSTITRE)</small>]</h3>
+		                    </li>
+		                    </BOUCLE_articles_lies>
+		                <ul>
+		            </aside>
+		            </B_articles_lies>
+		        </div><!-- /.grid__item -->
+		    </div><!-- /.grid -->
+		    [(#ENV{page}|=={mentions}|non)
+		    <footer class="self__footer">
+		        [(#INCLURE{fond=inclure/article-footer,id_article,id_numero=#GET{id_numero}})]
+		    </footer>]
+		</article>
+	</div>
+</main>
 </BOUCLE_article>
 #FILTRE{mini_html}

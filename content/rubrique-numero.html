@@ -1,118 +1,122 @@
 <BOUCLE_numero(RUBRIQUES){id_rubrique}>
-<div class="grid">
-    <article class="self rubrique" itemscope itemtype="http://schema.org/Book">
-        <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
-            <div class="grid">
-                <div class="grid__item lap-and-up-one-third">
-                    [<img src="(#LOGO_RUBRIQUE|image_reduire{500,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="cover cover--issue" itemprop="image" />]
-                </div><!-- /.grid__item -->
-                <div class="grid__item lap-and-up-two-thirds">
-                    <div class="landmark">
-                        <header class="self__header self__header--rubrique">
-                            <h1 itemprop="name" class="hN numero-titre"><span class="#EDIT{titre}">#TITRE</span>[ <small class="soustitre numero-soustitre">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</small>]</h1>
-                        </header>
-                        [<div class="self__body">
-                            <div class="#EDIT{texte} self__texte landmark surlignable" itemprop="description">
-                                (#TEXTE|image_reduire{500,0})
-                            </div>
-                        </div>]
-                    </div>
-                </div><!-- /.grid__item -->
-            </div><!-- /.grid -->
-        </div><!-- /.grid__item -->
-        <div class="grid__item">
-            <section class="toc grid">
-                <div class="toc-header">
-                    <h2 class="hN intertitre-section toc__title"><:local:table_of_content:></h2>
-                    [(#REM)
-                        Le numéro a-t-il moins d'un an ? Si oui, on affiche l'info relative
-                        à la gratuité de certains articles.
-                    ]
-                    <BOUCLE_age_articles(ARTICLES){branche}{par date}{0,1}{age<365}>#SET{apercu_info_numero,oui}</BOUCLE_age_articles>
-                    [(#GET{apercu_info_numero}|?{<p class='toc__info'><:local:apercu_info_numero:></p>})]
-                </div>
-                [(#REM)
-                    Éditorial.
-                    -----------
-                    Certains numéros en contiennent plus d'un.
-                    Les articles sont placés directement dans la rubrique du Numéro.
-                    Pour faire simple dans la mise en page, on considère qu'ils n'ont pas de logo.
-                ]
-                <B_editorial>
-                <section class="grid__item">
-                    <BOUCLE_type_edito(MOTS){id_mot=5}{tout}>
-                    <h2 class="hN intertitre-section intertitre-section--first">#TITRE</h2>
-                    </BOUCLE_type_edito>
-                    <div class="toc__item">
-                        <div class="grid">
-                            <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
-                                <div class="grid">
-                                    <BOUCLE_editorial(ARTICLES){id_rubrique}{!par date}>
-                                    <div class="grid__item lap-and-up-one-third">
-                                        [(#INCLURE{fond=inclure/layout/article-1colArt,
-                                            id_article,
-                                            article_logo_supprimer=oui,
-                                            article_verrou_afficher=oui,
-                                            article_suite_afficher=oui}
-                                        )]
-                                    </div><!-- /.grid__item -->
-                                    </BOUCLE_editorial>
-                                </div><!-- /.grid -->
-                            </div><!-- /.grid__item -->
-                        </div><!-- /.grid -->
-                    </div><!-- /.toc__item -->
-                </section><!-- /.grid__item -->
-                </B_editorial>
+<main id="main" class="page-content" role="main">
+	<div class="page-block">
+		<div class="grid">
+		    <article class="self rubrique" itemscope itemtype="http://schema.org/Book">
+		        <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
+		            <div class="grid">
+		                <div class="grid__item lap-and-up-one-third">
+		                    [<img src="(#LOGO_RUBRIQUE|image_reduire{500,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="cover cover--issue" itemprop="image" />]
+		                </div><!-- /.grid__item -->
+		                <div class="grid__item lap-and-up-two-thirds">
+		                    <div class="landmark">
+		                        <header class="self__header self__header--rubrique">
+		                            <h1 itemprop="name" class="hN numero-titre"><span class="#EDIT{titre}">#TITRE</span>[ <small class="soustitre numero-soustitre">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</small>]</h1>
+		                        </header>
+		                        [<div class="self__body">
+		                            <div class="#EDIT{texte} self__texte landmark surlignable" itemprop="description">
+		                                (#TEXTE|image_reduire{500,0})
+		                            </div>
+		                        </div>]
+		                    </div>
+		                </div><!-- /.grid__item -->
+		            </div><!-- /.grid -->
+		        </div><!-- /.grid__item -->
+		        <div class="grid__item">
+		            <section class="toc grid">
+		                <div class="toc-header">
+		                    <h2 class="hN intertitre-section toc__title"><:local:table_of_content:></h2>
+		                    [(#REM)
+		                        Le numéro a-t-il moins d'un an ? Si oui, on affiche l'info relative
+		                        à la gratuité de certains articles.
+		                    ]
+		                    <BOUCLE_age_articles(ARTICLES){branche}{par date}{0,1}{age<365}>#SET{apercu_info_numero,oui}</BOUCLE_age_articles>
+		                    [(#GET{apercu_info_numero}|?{<p class='toc__info'><:local:apercu_info_numero:></p>})]
+		                </div>
+		                [(#REM)
+		                    Éditorial.
+		                    -----------
+		                    Certains numéros en contiennent plus d'un.
+		                    Les articles sont placés directement dans la rubrique du Numéro.
+		                    Pour faire simple dans la mise en page, on considère qu'ils n'ont pas de logo.
+		                ]
+		                <B_editorial>
+		                <section class="grid__item">
+		                    <BOUCLE_type_edito(MOTS){id_mot=5}{tout}>
+		                    <h2 class="hN intertitre-section intertitre-section--first">#TITRE</h2>
+		                    </BOUCLE_type_edito>
+		                    <div class="toc__item">
+		                        <div class="grid">
+		                            <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
+		                                <div class="grid">
+		                                    <BOUCLE_editorial(ARTICLES){id_rubrique}{!par date}>
+		                                    <div class="grid__item lap-and-up-one-third">
+		                                        [(#INCLURE{fond=inclure/layout/article-1colArt,
+		                                            id_article,
+		                                            article_logo_supprimer=oui,
+		                                            article_verrou_afficher=oui,
+		                                            article_suite_afficher=oui}
+		                                        )]
+		                                    </div><!-- /.grid__item -->
+		                                    </BOUCLE_editorial>
+		                                </div><!-- /.grid -->
+		                            </div><!-- /.grid__item -->
+		                        </div><!-- /.grid -->
+		                    </div><!-- /.toc__item -->
+		                </section><!-- /.grid__item -->
+		                </B_editorial>
 
-                [(#REM)
-                    Les rubriques du numéro.
-                    -------------------------
-                ]
-                <BOUCLE_rubriques_numero(RUBRIQUES){id_parent}{par num titre, titre}>
-                <section class="grid__item">
-                    <BOUCLE_type_rubriques(MOTS){id_rubrique}{id_groupe=4}{tout}{0,1}>
-                    <h2 class="hN intertitre-section intertitre-section--first">[(#TITRE)]</h2>
-                    </BOUCLE_type_rubriques>
-                    <h2 class="hN intertitre-section intertitre-section--first">[(#TITRE)]</h2>
-                    <//B_type_rubriques>
-                    [(#REM)
-                        La rubrique contient combien d'articles ? Si plus de 2 articles, la mise en page change.
-                    ]
-                    <B_combien><BOUCLE_combien(ARTICLES){branche_complete}> </BOUCLE_combien>[(#TOTAL_BOUCLE|>{2}|?{#SET{layout,rubrique-4col2lignesRubArt},#SET{layout,rubrique-4col1ligneRubArt}})]</B_combien>
-                    [(#REM)
-                        La rubrique possède son propre logo ?
-                    ]
-                    [(#LOGO_RUBRIQUE|fichier|match{^rubon#ID_RUBRIQUE}|?{
-                        #SET{rubrique_logo_supprimer,''},
-                        #SET{rubrique_logo_supprimer,oui}
-                    })]
-                    [(#INCLURE{fond=inclure/layout/#GET{layout},
-                        id_rubrique,
-                        rubrique_resume_type=toc__item resume--hero,
-                        rubrique_titre_class=resume__titre--hero,
-                        rubrique_desc_class=resume__desc--hero,
-                        rubrique_logo_supprimer=#GET{rubrique_logo_supprimer},
-                        article_verrou_afficher=oui,
-                        article_suite_afficher=oui}
-                    )]
-                </section><!-- /.grid__item -->
-                </BOUCLE_rubriques_numero>
-            </section><!-- /.toc grid -->
-        </div><!-- /.grid__item -->
-        <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
-            [<section class="self__notes landmark">
-                <h2 class="hN intertitre-section intertitre-section--first"><:info_notes:></h2>
-                <div class="self__notes__body">
-                    (#NOTES)
-                </div>
-            </section>]
-            <BOUCLE_numero_related(RUBRIQUES){id_rubrique}>
-            [<footer class="related">
-                (#INCLURE{fond=inclure/objets/numero-related,id_rubrique})
-            </footer>]
-            </BOUCLE_numero_related>
-        </div><!-- /.grid__item -->
-    </article><!-- /.self rubrique -->
-</div><!-- /.grid -->
+		                [(#REM)
+		                    Les rubriques du numéro.
+		                    -------------------------
+		                ]
+		                <BOUCLE_rubriques_numero(RUBRIQUES){id_parent}{par num titre, titre}>
+		                <section class="grid__item">
+		                    <BOUCLE_type_rubriques(MOTS){id_rubrique}{id_groupe=4}{tout}{0,1}>
+		                    <h2 class="hN intertitre-section intertitre-section--first">[(#TITRE)]</h2>
+		                    </BOUCLE_type_rubriques>
+		                    <h2 class="hN intertitre-section intertitre-section--first">[(#TITRE)]</h2>
+		                    <//B_type_rubriques>
+		                    [(#REM)
+		                        La rubrique contient combien d'articles ? Si plus de 2 articles, la mise en page change.
+		                    ]
+		                    <B_combien><BOUCLE_combien(ARTICLES){branche_complete}> </BOUCLE_combien>[(#TOTAL_BOUCLE|>{2}|?{#SET{layout,rubrique-4col2lignesRubArt},#SET{layout,rubrique-4col1ligneRubArt}})]</B_combien>
+		                    [(#REM)
+		                        La rubrique possède son propre logo ?
+		                    ]
+		                    [(#LOGO_RUBRIQUE|fichier|match{^rubon#ID_RUBRIQUE}|?{
+		                        #SET{rubrique_logo_supprimer,''},
+		                        #SET{rubrique_logo_supprimer,oui}
+		                    })]
+		                    [(#INCLURE{fond=inclure/layout/#GET{layout},
+		                        id_rubrique,
+		                        rubrique_resume_type=toc__item resume--hero,
+		                        rubrique_titre_class=resume__titre--hero,
+		                        rubrique_desc_class=resume__desc--hero,
+		                        rubrique_logo_supprimer=#GET{rubrique_logo_supprimer},
+		                        article_verrou_afficher=oui,
+		                        article_suite_afficher=oui}
+		                    )]
+		                </section><!-- /.grid__item -->
+		                </BOUCLE_rubriques_numero>
+		            </section><!-- /.toc grid -->
+		        </div><!-- /.grid__item -->
+		        <div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
+		            [<section class="self__notes landmark">
+		                <h2 class="hN intertitre-section intertitre-section--first"><:info_notes:></h2>
+		                <div class="self__notes__body">
+		                    (#NOTES)
+		                </div>
+		            </section>]
+		            <BOUCLE_numero_related(RUBRIQUES){id_rubrique}>
+		            [<footer class="related">
+		                (#INCLURE{fond=inclure/objets/numero-related,id_rubrique})
+		            </footer>]
+		            </BOUCLE_numero_related>
+		        </div><!-- /.grid__item -->
+		    </article><!-- /.self rubrique -->
+		</div><!-- /.grid -->
+	</div>
+</main>
 </BOUCLE_numero>
 #FILTRE{mini_html}
