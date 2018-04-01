@@ -9,38 +9,15 @@
 		<BOUCLE_progression(PANIERS_LIENS){id_panier=#SESSION{id_panier}}>
 			<BOUCLE_abonnement(ABONNEMENTS_OFFRES){id_abonnements_offre=#ID_OBJET}{si #OBJET|=={abonnements_offre}}>
 				<BOUCLE_type_offre(MOTS){id_abonnements_offre}{id_groupe=24}>#SET{type_offre, #ID_MOT}</BOUCLE_type_offre>
-				[(#SET{id_offre, #ID_OBJET})]
-				[(#SET{titre, #TITRE})]
 				[(#SET{duree, #DUREE|duree_en_clair})]
 				[(#SET{numeros, #DUREE|numeros_nombre_en_clair})]
 				[(#SET{prix, #PRIX})]
 				[(#OPTIONS|table_valeur{numero}|oui) #SET{numero, #OPTIONS|table_valeur{numero}} ]
 				[(#OPTIONS|table_valeur{cadeau}|oui) #SET{cadeau, #OPTIONS|table_valeur{cadeau}} ]
+				[(#INCLURE{fond=inclure/abonnements/abonner-progression-panier, id_abonnements_offre, type_offre=#GET{type_offre}, titre=#TITRE, duree=#GET{duree}, numeros=#GET{numeros}, prix=#PRIX, numero=#GET{numero}, cadeau=#GET{cadeau} })]
 			</BOUCLE_abonnement>
 		</BOUCLE_progression>
-		
-		<ol class="c-progress[ c-progress--colorbg-(#GET{type_offre})]">
-			<li class="c-progress__item[ (#GET{type_offre}|oui)is-active]">
-				<span><:vacarme:abonnement_progression_label_abonnement:></span>[
-				(#GET{titre}|oui)[ (#GET{titre})][ / (#GET{numeros})][ / (#GET{prix})]]
-			</li>
-			<li class="c-progress__item[ (#GET{numero}|oui)is-active]">
-				<span><:vacarme:abonnement_progression_label_numero:></span>[
-				(#GET{numero}|oui ) [(#GET{numero}|calculer_numero_futur_titre{0})]]
-			</li>
-			<li class="c-progress__item[ (#GET{cadeau}|oui)is-active]">
-				<span><:vacarme:abonnement_progression_label_cadeau:></span>[
-				(#GET{cadeau}|=={-1}|?{<:vacarme:abonnement_progression_cadeau_vide:>,#INFO_TITRE{produit, #GET{cadeau}}})]
-			</li>
-			[<li class="c-progress__item c-progress__item--action">
-				(#GET{id_offre}|oui)
-					[(#BOUTON_ACTION{Supprimer, 
-						#URL_ACTION_AUTEUR{supprimer_element_panier, abonnements_offre-#GET{id_offre}, #URL_PAGE{abonner}}, c-btn-form c-btn-form--white c-btn-form--upper})]
-					[(#GET{numero}|et{#GET{cadeau}}|oui)
-						[(#BOUTON_ACTION{Confirmer, [(#URL_PAGE{abonner}|parametre_url{etape, 4})], c-btn-form c-btn-form--white c-btn-form--upper})]
-					]
-			</li>]
-		</ol>
-		
+		[(#INCLURE{fond=inclure/abonnements/abonner-progression-panier})]
+		<//B_progression>
 	</section>
 </BOUCLE_affichage>
