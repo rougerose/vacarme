@@ -287,30 +287,30 @@
 /*================================
 =            headings            =
 ================================*/
-/* line 5, _src/scss/elements/_headings.scss */ .hN { font-weight: normal; }
+/* line 5, _src/scss/elements/deprecie/_headings.scss */ .hN { font-weight: normal; }
 
-/* line 7, _src/scss/elements/_headings.scss */ .navigation .hN { margin-bottom: 0; padding-left: 24px; border-bottom: 2px solid #fff; font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: bold; font-size: 16px; font-size: 1rem; line-height: 1.5; text-transform: uppercase; color: #fff; }
+/* line 7, _src/scss/elements/deprecie/_headings.scss */ .navigation .hN { margin-bottom: 0; padding-left: 24px; border-bottom: 2px solid #fff; font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: bold; font-size: 16px; font-size: 1rem; line-height: 1.5; text-transform: uppercase; color: #fff; }
 
-/* line 18, _src/scss/elements/_headings.scss */ .soustitre { display: block; font-style: italic; line-height: inherit; }
+/* line 18, _src/scss/elements/deprecie/_headings.scss */ .soustitre { display: block; font-style: italic; line-height: inherit; }
 
-/* line 22, _src/scss/elements/_headings.scss */ .related .soustitre { font-size: 100%; }
+/* line 22, _src/scss/elements/deprecie/_headings.scss */ .related .soustitre { font-size: 100%; }
 
-/* line 27, _src/scss/elements/_headings.scss */ .numero-titre { font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: normal; text-transform: uppercase; }
+/* line 27, _src/scss/elements/deprecie/_headings.scss */ .numero-titre { font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: normal; text-transform: uppercase; }
 
-/* line 32, _src/scss/elements/_headings.scss */ .numero-titre a { font-weight: normal; }
+/* line 32, _src/scss/elements/deprecie/_headings.scss */ .numero-titre a { font-weight: normal; }
 
-/* line 36, _src/scss/elements/_headings.scss */ .self__header--rubrique .numero-titre, .index-feature .numero-titre { font-size: 48px; font-size: 3rem; line-height: 1; }
+/* line 36, _src/scss/elements/deprecie/_headings.scss */ .self__header--rubrique .numero-titre, .index-feature .numero-titre { font-size: 48px; font-size: 3rem; line-height: 1; }
 
-/* line 42, _src/scss/elements/_headings.scss */ .index-issues .numero-titre { font-size: 28px; font-size: 1.75rem; line-height: 1.71429; }
+/* line 42, _src/scss/elements/deprecie/_headings.scss */ .index-issues .numero-titre { font-size: 28px; font-size: 1.75rem; line-height: 1.71429; }
 
-/* line 46, _src/scss/elements/_headings.scss */ .numero-soustitre { font-style: normal; color: #7b6d88; }
+/* line 46, _src/scss/elements/deprecie/_headings.scss */ .numero-soustitre { font-style: normal; color: #7b6d88; }
 
-/* line 49, _src/scss/elements/_headings.scss */ .self__header--rubrique .numero-soustitre, .index-feature .numero-soustitre { font-size: .7em; }
+/* line 49, _src/scss/elements/deprecie/_headings.scss */ .self__header--rubrique .numero-soustitre, .index-feature .numero-soustitre { font-size: .7em; }
 
 /*==========  intertitres texte (spip)  ==========*/
-/* line 56, _src/scss/elements/_headings.scss */ h2.spip, h3.spip, h4.spip, h5.spip, h6.spip { font-weight: normal; line-height: 1; color: #000; }
+/* line 56, _src/scss/elements/deprecie/_headings.scss */ h2.spip, h3.spip, h4.spip, h5.spip, h6.spip { font-weight: normal; line-height: 1; color: #000; }
 
-/* line 64, _src/scss/elements/_headings.scss */ p + h2.spip, p + h3.spip, p + h4.spip, p + h5.spip, p + h6.spip { margin-top: 48px; margin-top: 3rem; }
+/* line 64, _src/scss/elements/deprecie/_headings.scss */ p + h2.spip, p + h3.spip, p + h4.spip, p + h5.spip, p + h6.spip { margin-top: 48px; margin-top: 3rem; }
 
 /*-----  End of headings  ------*/
 /* ========================================================================== #IMAGES ========================================================================== */

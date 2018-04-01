@@ -90,7 +90,8 @@
 @import "elements/page-foot"; // TODO: obsolète
 
 @import "inuitcss/elements/elements.headings";
-@import "elements/headings"; // TODO: obsolète
+
+@import "elements/deprecie/headings";
 
 @import "inuitcss/elements/elements.images";
 @import "inuitcss/elements/elements.tables";
@@ -106,6 +107,7 @@
 @import "elements/blockquote"; // TODO: obsolète
 
 @import "elements/formulaire";
+// @import "elements/headings";
 
 // OBJECTS
 
