@@ -32,9 +32,8 @@ a {
 .suite-lien {
 	position: relative;
 	border-bottom: 1px dotted $couleur-gris-bleu;
-	// margin-left: 0.5em;
 	font-style: italic;
-	color: #000;
+	color: $color-black;
 	em {
 		font-style: normal;
 		transition: all 0.35s ease-out;
@@ -42,10 +41,10 @@ a {
 
 	&:hover {
 		color: $couleur-lien;
-		border-bottom: 1px solid $couleur-lien;
+		border-bottom: 1px solid;
 		em {
 			padding-left: 0.5em;
-			color: $couleur-lien;
+			color: currentColor;
 		}
 	}
 }

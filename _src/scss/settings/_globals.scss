@@ -115,11 +115,11 @@ $couleur-print: #000;
 	$color-orange-100: #ffe0b2;
 	
 	// color-deep-orange
-	$color-deep-orange-500: #ff5722;
-	$color-deep-orange-400: #ff7043;
-	$color-deep-orange-300: #ff8a65;
-	$color-deep-orange-200: #ffab91;
-	$color-deep-orange-100: #ffccbc;
+	$color-deep-orange-500: #ff8022; // #ff5722;
+	$color-deep-orange-400: #ff9245; //#ff7043;
+	$color-deep-orange-300: #ffa769; //#ff8a65;
+	$color-deep-orange-200: #ffbc8c; //#ffab91;
+	$color-deep-orange-100: #ffd1b0; //#ffccbc;
 	
 	// color-amber
 	$color-amber-500: #ffc107;
@@ -127,6 +127,10 @@ $couleur-print: #000;
 	$color-amber-300: #ffd54f;
 	$color-amber-200: #ffe082;
 	$color-amber-100: #ffecb3;
+	
+	// color-yellow
+	$color-yellow-700: #fbc02d;
+	$color-yellow-800: #f9a825;
 	
 	// color-red: 
 	$color-red: #e75d32;
