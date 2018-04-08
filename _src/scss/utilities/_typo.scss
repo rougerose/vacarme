@@ -1,0 +1,31 @@
+// =====================================
+// u-typo
+// =====================================
+
+	//
+	// u-typo-font
+	// -------------------------------------
+
+	// Fonte HelveticaNeue ou Plantin
+	// selon le type de contenus :
+	// - pour ce qui concerne la revue, Helvetica
+	// - pour ce qui concerne les articles, Plantin
+
+	.u-typo-font {
+		&-vacarme {
+			font-family: $font-helvetica;
+		}
+		
+		&-editorial {
+			font-family: $base-font-family;
+		}
+	}
+	
+	
+	//
+	// u-typo-upper
+	// -------------------------------------
+	
+	.u-typo-upper {
+		text-transform: uppercase;
+	}
