@@ -1,0 +1,174 @@
+// *************************************
+//
+// c-abonner
+// 
+// c-abonner-header
+// 
+// c-abonner-section
+// 
+// c-abonner-offres
+//
+// *************************************
+
+
+.c-abonner {}
+
+	//
+	// c-abonner-header
+	// -------------------------------------
+
+	.c-abonner-header {}
+
+		// ----- c-abonner-header__titre ----- //
+		.c-abonner-header__titre {
+			@include inuit-font-size(32px, 1.2);
+			margin-bottom: $spacing-unit-large;
+		}
+		
+		// ----- c-abonner-header__intro ----- //
+		.c-abonner-header__intro {
+			padding-right: $spacing-unit-large;
+			@include inuit-font-size(20px);
+		}
+		
+		// ----- c-abonner-header__list ----- //
+		.c-abonner-header__list {
+			display: flex;
+			justify-content: space-between;
+			flex-grow: 1;
+			flex-wrap: wrap;
+			list-style: none;
+			margin-left: 0;
+		}
+	
+		// ----- c-abonner-intro__list-item ----- //
+		.c-abonner-header__list-item {
+			width: 50%;
+			@include inuit-font-size(20px);
+			
+			&:nth-child(3) {
+				margin-top: $spacing-unit-large;
+			}
+			
+			span {
+				display: block;
+				font-weight: bold;
+				
+				&:before {
+					border-top: 1px solid;
+					display: block;
+					margin-bottom: 1em;
+					width: 2em;
+					content: '';
+				}
+			}
+		}
+
+
+
+	//
+	// c-abonner-section
+	// -------------------------------------
+	
+	.c-abonner-section {
+		margin-bottom: $spacing-unit-large;
+	}
+	
+		// ----- c-abonner-section__titre ----- //
+		.c-abonner-section__titre {
+			@include inuit-font-size(26px, 1.2);
+		}
+		
+		// ----- c-abonner-section__intro ----- //
+		.c-abonner-section__intro {
+			@extend .c-abonner-header__intro;
+		}
+
+
+
+	//
+	// c-abonner-couleur
+	// -------------------------------------
+	.c-abonner-couleur {
+		
+		a {
+			color: $color-white;
+			border-bottom-color: currentColor;
+			&:hover {
+				color: $color-black;
+			}
+		}
+		
+		// ----- variantes ----- //
+		&--bgc-1065 {
+			background-color: $color-amber-500;
+		}
+		
+		&--bgc-1066 {
+			background-color: $color-orange-500;
+		}
+		
+		&--bgc-1067 {
+			background-color: $color-deep-orange-500;
+		}
+		
+		&--bgc-abonnement {
+			background-color: $color-yellow-800;
+		}
+	}
+
+
+
+	//
+	// c-abonner-offres
+	// -------------------------------------
+	
+	.c-abonner-offres {
+		font-family: $font-helvetica;
+		text-transform: uppercase;
+	}
+	
+		.c-abonner-offres__header {
+			margin-top: $spacing-unit;
+		}
+		
+		.c-abonner-offres__titre {
+			> .o-icon {
+				margin: 0 $spacing-unit-tiny;
+				vertical-align: middle;
+			}
+		}
+
+
+
+	//
+	// c-abonner-numero
+	// -------------------------------------
+	
+	.c-abonner-numero {}
+	
+		.c-abonner-numero__surtitre {
+			margin-bottom: $spacing-unit-small;
+			@include inuit-font-size(22px);
+			font-weight: bold;
+			
+			@include mq(tabletPlus) {
+				@include inuit-font-size(16px);
+			}
+		}
+		
+		.c-abonner-numero__titre {
+			small {
+				display: block;
+				font-weight: 300;
+			}
+		}
+	
+	
+	// 
+	// c-abonner-cadeau
+	// -------------------------------------
+
+	.c-abonner-cadeau {
+		padding: $spacing-unit;
+	}

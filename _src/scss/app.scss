@@ -107,7 +107,7 @@
 @import "elements/hr"; // TODO: obsolète
 @import "elements/blockquote"; // TODO: obsolète
 
-@import "elements/formulaire";
+// @import "elements/formulaire";
 // @import "elements/headings";
 
 // OBJECTS
@@ -191,10 +191,12 @@
 @import "components/shortcuts";
 @import "components/site-nav";
 @import "components/tab-nav";
+@import "components/form";
 @import "components/boutons";
 @import "components/card";
 
 @import "components/abonner";
+@import "components/inscription";
 
 @import "components/progress";
 

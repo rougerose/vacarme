@@ -3,6 +3,7 @@
 
 #SET{id_abonnements_offre, #ENV{id_abonnements_offre, ''}}
 #SET{opt_numero, ''} #SET{opt_cadeau, ''}
+
 <BOUCLE_panier(PANIERS){id_panier=#SESSION{id_panier}}>
 	<BOUCLE_objet_abonnement(PANIERS_LIENS){id_panier}{objet=abonnements_offre}{id_objet=#GET{id_abonnements_offre}}>
 		[(#SET{opt_numero, #OPTIONS|table_valeur{numero}|sinon{''}})]
@@ -11,6 +12,11 @@
 </BOUCLE_panier>
 
 <div class="o-layout">
+	<div class="o-layout__item">
+		<header class="c-abonner-header">
+			<h1 class="c-abonner-header__titre u-typo-font-vacarme u-typo-upper"><:abonnement:souscrire:></h1>
+		</header>
+	</div>
 	<div class="o-layout__item u-2/3@mobilePlus">
 		[(#INCLURE{fond=inclure/abonnements/abonner-etape#GET{etape}, 
 			id_abonnements_offre=#GET{id_abonnements_offre}, 

@@ -17,51 +17,84 @@
 }
 
 
-//
-// c-btn--burger
-// -------------------------------------
-.c-btn--burger {
-	position: relative;
-	z-index: $zindex-site-nav__menu + 1;
-	top: -2px;
-	padding: 0;
-	border: none;
-	border-radius: 50%;
-	margin: auto 0 auto $spacing-unit-small;
-	height: $btn-burger-height;
-	width: $btn-burger-width;
-	background-color: $color-orange;
-	color: $color-white;
-}
-
-
-//
-// c-btn--white
-// -------------------------------------
-.c-btn--white {
-	border: 1px solid $color-white;
-	background-color: transparent;
-	color: $color-white;
-	
-	&:hover,
-	&:focus {
-		color: $color-black;
-		border-color: $color-black;
+	//
+	// c-btn--burger
+	// -------------------------------------
+	.c-btn--burger {
+		position: relative;
+		z-index: $zindex-site-nav__menu + 1;
+		top: -2px;
+		padding: 0;
+		border: none;
+		border-radius: 50%;
+		margin: auto 0 auto $spacing-unit-small;
+		height: $btn-burger-height;
+		width: $btn-burger-width;
+		background-color: $color-orange;
+		color: $color-white;
 	}
-}
+	
+	//
+	// c-btn--submit
+	// -------------------------------------
+	.c-btn--submit {
+		background-color: $color-orange;
+		color: $color-white;
+		font-weight: bold;
+		letter-spacing: .05em;
+		transition: all .3s;
+		
+		&:hover,
+		&:focus {
+			background-color: darken($color-orange, 5%);
+		}
+	}
+
+	//
+	// c-btn--white
+	// -------------------------------------
+	.c-btn--white {
+		border: 1px solid $color-white;
+		background-color: transparent;
+		color: $color-white;
+		
+		&:hover,
+		&:focus {
+			color: $color-black;
+			border-color: $color-black;
+		}
+	}
+
+	//
+	// c-btn--upper
+	// -------------------------------------
+	.c-btn--upper {
+		text-transform: uppercase;
+	}
+
+	//
+	// c-btn-extended
+	// -------------------------------------
+	.c-btn--extended {
+		width: 100%;
+	}
+
+	//
+	// c-btn--round
+	// -------------------------------------
+	.c-btn--round {
+		border-radius: 5px;
+	}
 
 
-//
-// c-btn--upper
-// -------------------------------------
-.c-btn--upper {
-	text-transform: uppercase;
-}
 
-
-//
 // c-btn-form
 // -------------------------------------
+// 
+// Avec une balise #BOUTON_ACTION, les styles du bouton ne sont
+// pas accessibles, seul le conteneur <form> l'est.
+// 
+
 .c-btn-form {
 	button {
 		@extend .c-btn;

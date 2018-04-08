@@ -1,0 +1,112 @@
+// =====================================
+// c-inscription
+// =====================================
+
+$color-background: lighten($color-blue-grey-100, 10%);
+$width-1col: 100%;
+$width-2col: 48%;
+
+.c-inscription {}
+
+	//
+	// c-inscription-section
+	// -------------------------------------
+
+	.c-inscription-section {
+		margin-top: $spacing-unit-large;
+	}
+
+	.c-inscription-section__titre {
+		margin-bottom: $spacing-unit-small;
+		@include inuit-font-size(24px);
+	}
+
+	//
+	// c-inscription-groupe
+	// -------------------------------------
+	
+	.c-inscription-groupe {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		padding: $spacing-unit;
+		background-color: $color-background;
+		
+		&--organisation {
+			width: $width-1col;
+			padding: 0;
+		}
+	}
+	
+	// ***
+	// Les saisies de SPIP ne permettent pas de personnaliser la classe
+	// du container. 
+	// ***
+	.c-inscription-groupe {
+		// civilité
+		.editer_civilite,
+		.editer_type_client {
+			width: $width-1col;
+			display: flex;
+			flex-wrap: wrap;
+			
+			> label {
+				width: $width-1col;
+			}
+		}
+		
+		// nom, prénom, mot de passe,
+		// organisation, service,
+		// complément d'adresse, BP,
+		// code postal, ville,
+		// région, pays
+		.editer_nom_inscription,
+		.editer_prenom,
+		.editer_password,
+		.editer_password_confirmation,
+		.editer_organisation,
+		.editer_service,
+		.editer_complement,
+		.editer_boite_postale,
+		.editer_code_postal,
+		.editer_ville,
+		.editer_region,
+		.editer_pays {
+			width: $width-1col;
+			@include mq(tabletPlus) {
+				width: $width-2col;
+			}
+		}
+		
+		// e-mail,
+		// adresse principale
+		.editer_mail_inscription,
+		.editer_voie {
+			width: $width-1col;
+		}
+	}
+
+	//
+	// c-inscription__champ
+	// -------------------------------------
+	
+	.c-inscription__champ {
+		
+		&--civilite {
+			width: $width-2col;
+		}
+		
+		&--typeClient {
+			width: $width-1col;
+			@include mq(tabletPlus) {
+				width: $width-2col;
+			}
+		}
+	}
+	
+	//
+	// c-inscription__bouton
+	// -------------------------------------
+	.c-inscription__btn {
+		// background-color: lighten($color-background, 10%);
+	}

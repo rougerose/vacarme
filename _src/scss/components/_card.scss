@@ -14,23 +14,6 @@
 		box-shadow: -2px 0 2px 0 rgba(0,0,0,0.16),2px 0 2px 0 rgba(0,0,0,0.16),0 2px 2px 0 rgba(0,0,0,0.23);
 		transform: translate(0, -3px);
 	}
-	
-	// ----- couleurs ----- //
-	&--colorbg-1065 {
-		background-color: $color-amber-500;
-	}
-	
-	&--colorbg-1066 {
-		background-color: $color-orange-500;
-	}
-	
-	&--colorbg-1067 {
-		background-color: $color-deep-orange-500;
-	}
-	
-	&--colorbg-abonnement {
-		background-color: $color-orange-900;
-	}
 }
 
 
@@ -38,7 +21,9 @@
 //
 // c-card__img
 // -------------------------------------
-
+.c-card__img {
+	margin-bottom: $spacing-unit;
+}
 
 
 //
@@ -47,7 +32,7 @@
 .c-card__body {}
 
 	.c-card__body--push {
-		@include mq(tablet) {
+		@include mq(tabletPlus) {
 			margin-left: 50%;
 			padding-left: $spacing-unit;
 		}
@@ -91,13 +76,13 @@
 // -------------------------------------
 .c-card--media {
 	
-	@include mq(tablet) {
+	@include mq(tabletPlus) {
 		@include inuit-clearfix();
 		display: block;
 	}
 	
 	.c-card__img {
-		@include mq(tablet) {
+		@include mq(tabletPlus) {
 			float: left;
 			margin-right: $spacing-unit;
 			width: 50%;
@@ -109,7 +94,7 @@
 	}
 	
 	.c-card__body {
-		@include mq(tablet) {
+		@include mq(tabletPlus) {
 			overflow: hidden;
 		}
 	}

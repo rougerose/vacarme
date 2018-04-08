@@ -1,9 +1,25 @@
 <BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
-	<h1>#TITRE</h1>
-	#TEXTE
-	<ul>
-		<li><a href="#URL_PAGE{abonner}">Vous abonner</a></li>
-		<li><a href="#">Renouveler votre abonnement [??]</a></li>
-		<li><a href="#">Offrir un abonnement</a></li>
-	</ul>
+	<main id="main" class="c-abonner" role="main">
+		<div class="o-wrapper">
+			<header class="c-abonner-header">
+				<div class="o-layout">
+					<div class="o-layout__item">
+						<h1 class="c-abonner-header__titre u-typo-font-vacarme u-typo-upper">#TITRE</h1>
+					</div>
+					<div class="o-layout__item u-1/2">
+						[<div class="c-abonner-header__intro">
+							(#TEXTE)
+						</div>]
+					</div
+					><div class="o-layout__item u-1/2">
+						<ul class="c-abonner-header__list u-typo-font-vacarme u-typo-upper">
+							<li class="c-abonner-header__list-item"><a href="#URL_PAGE{abonner}"><:abonnement:souscrire:></a></li>
+							<li class="c-abonner-header__list-item"><a href="#"><:abonnement:offrir:></a></li>
+							<li class="c-abonner-header__list-item"><a href="#"><:abonnement:renouveler:></a></li>
+						</ul>
+					</div>
+				</div>
+			</header>
+		</div>
+	</main>
 </BOUCLE_rubrique>

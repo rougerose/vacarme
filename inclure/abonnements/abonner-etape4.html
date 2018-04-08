@@ -2,20 +2,28 @@
 	<!-- Page Abonnement, étape 4 : identification et récapitulatif de commande --> 
 ]
 [(#SET{formulaire, #ENV{form, inscription}})]
-#SET{self, #URL_PAGE{abonner}|parametre_url{etape, 4}}
+[(#SET{self, #URL_PAGE{abonner}|parametre_url{etape, 4}})]
 
 [(#SESSION{id_auteur}|non)
-	[(#GET{formulaire}|=={inscription}|?{
-		[<h1>Créer votre compte</h1>
-		[<p><strong><a href="(#GET{self}|parametre_url{form, identification})">Vous avez déjà un compte ? Identifiez-vous</a></strong></p>]
-		(#FORMULAIRE_INSCRIPTION{6forum})],
-		[<h1>Vous identifier</h1>
-		[<p><strong><a href="(#GET{self}|parametre_url{form, inscription})">Créez votre compte</a></strong></p>]
-		(#LOGIN_PUBLIC{#GET{self}})]
-	})]
+	<section class="c-abonner-section">
+		[(#GET{formulaire}|=={inscription}|?{
+			[<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_etape_compte_creer_titre:></h2>
+			[(#SET{url, #GET{self}|parametre_url{form, identification}})]
+			<div class="c-abonner-section__intro">
+				<p><strong><:vacarme:abonnement_etape_compte_login_info{url=#GET{url}}:></a></strong></p>
+			</div>
+				(#FORMULAIRE_INSCRIPTION{6forum})]
+			,
+			[<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_etape_compte_login_titre:></h2>
+			[(#SET{url, #GET{self}|parametre_url{form, inscription}})]
+			<div class="c-abonner-section__intro">
+				<p><strong><:vacarme:abonnement_etape_compte_creer_info{url=#GET{url}}:></a></strong></p>
+			</div>
+				(#LOGIN_PUBLIC{#GET{self}})]
+		})]
+	</section>
 ]
 [(#SESSION{id_auteur}|oui)
 	<!-- <p><a href="#URL_LOGOUT">Déconnexion id_auteur #SESSION{id_auteur}</a></p> -->
-	
 	[(#INCLURE{fond=inclure/abonnements/abonner-etape4-recap, env})]
 ]

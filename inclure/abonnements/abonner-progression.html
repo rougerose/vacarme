@@ -4,7 +4,7 @@
 #SET{id_offre, ''}
 
 <BOUCLE_affichage(CONDITION){si #GET{afficher_panier}|=={oui}}>
-	<section>
+	<section class="c-abonner-choix">
 		<h2><:vacarme:abonnements_progression_titre:></h2>
 		<BOUCLE_progression(PANIERS_LIENS){id_panier=#SESSION{id_panier}}>
 			<BOUCLE_abonnement(ABONNEMENTS_OFFRES){id_abonnements_offre=#ID_OBJET}{si #OBJET|=={abonnements_offre}}>

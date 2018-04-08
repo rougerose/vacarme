@@ -2,20 +2,21 @@
 	<!-- Page Abonnement, étape 3 : cadeau --> 
 ]
 <B_cadeaux>
-	<section>
-		<h2><:vacarme:abonnement_etape_cadeau_titre:></h2>
-		<p><:vacarme:abonnement_etape_cadeau_desc:></p>
-
+	<section class="c-abonner-section">
+		<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_etape_cadeau_titre:></h2>
+		<div class="c-abonner-section__intro">
+			<p><:vacarme:abonnement_etape_cadeau_desc:></p>
+		</div>
 		<ul class="o-layout">
 			<BOUCLE_cadeaux(PRODUITS){id_rubrique}{par titre}>
 				<li class="o-layout__item">
-					<div class="c-card c-card--media c-card--colorbg-abonnement">
+					<div class="c-card c-card--media c-abonner-cadeau c-abonner-couleur c-abonner-couleur--bgc-abonnement">
 						[(#SET{logo, #LOGO_PRODUIT|extraire_attribut{src}})]
 						[<div class="c-card__img">
 							(#INCLURE{fond=inclure/logo/abonnements-numero, logo=#GET{logo}})
 						</div>]
 						<div class="c-card__body">
-							<h3>#TITRE</h3>
+							<h3 class="c-card__title u-typo-font-vacarme u-typo-upper">#TITRE</h3>
 							[(#TEXTE)]
 							[(#SET{options, #ARRAY})]
 							[(#SET{options, #GET{options}|array_merge{#ARRAY{numero, #ENV{opt_numero, ''}}}})]
@@ -26,15 +27,15 @@
 							
 							[(#BOUTON_ACTION{<:vacarme:choisir_avec_cadeau:>, 
 								#URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 4}|parametre_url{id_abonnements_offre, #ENV{id_abonnements_offre}}},
-								c-btn-form c-btn-form--white ajax})]
+								c-btn-form c-btn-form--white c-btn-form--upper u-typo-font-vacarme ajax})]
 						</div>
 					</div>
 				</li>
 			</BOUCLE_cadeaux>
 			<li class="o-layout__item">
-				<div class="c-card c-card--colorbg-abonnement">
+				<div class="c-card c-abonner-cadeau c-abonner-couleur c-abonner-couleur--bgc-abonnement">
 					<div class="c-card__body c-card__body--push">
-						<h3><:vacarme:abonnement_sans_cadeau_titre:></h3>
+						<h3 class="c-card__title u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_sans_cadeau_titre:></h3>
 						<p><:vacarme:abonnement_sans_cadeau_desc:></p>
 						[(#SET{options, #ARRAY})]
 						[(#SET{options, #GET{options}|array_merge{#ARRAY{numero, #ENV{opt_numero, ''}}}})]
@@ -45,16 +46,10 @@
 						
 						[(#BOUTON_ACTION{<:vacarme:choisir_sans_cadeau:>, 
 							#URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 4}|parametre_url{id_abonnements_offre, #ENV{id_abonnements_offre}}}, 
-							c-btn-form c-btn-form--white ajax})]
+							c-btn-form c-btn-form--white c-btn-form--upper u-typo-font-vacarme ajax})]
 					</div>
 				</div>
 			</li>
 		</ul>
-	</section>
-	<section class="c-faq">
-	  <header>
-	    <h3>FAQ cadeau [??]</h3>
-	  </header>
-	  <p></p>
 	</section>
 </B_cadeaux>
