@@ -1,0 +1,12 @@
+<ol class="c-progress[ c-progress--colorbg-(#ENV{type_offre})]">
+	<li class="c-progress__item[ (#ENV{type_offre}|oui)is-active]">
+		<span><:vacarme:abonnement_progression_label_abonnement:></span>[
+		(#ENV{titre}|oui)[ (#ENV{titre})][ / (#ENV{numeros})][ / (#ENV{prix})]]
+	</li>
+	[<li class="c-progress__item c-progress__item--action">
+		(#ID_ABONNEMENTS_OFFRE|oui)
+			[(#BOUTON_ACTION{Supprimer, 
+				#URL_ACTION_AUTEUR{supprimer_element_panier, abonnements_offre-#ID_ABONNEMENTS_OFFRE, #URL_PAGE{offrir}}, c-btn-form c-btn-form--white c-btn-form--upper})]
+			[(#BOUTON_ACTION{Confirmer, [(#URL_PAGE{offrir}|parametre_url{etape, 2})], c-btn-form c-btn-form--white c-btn-form--upper})]
+	</li>]
+</ol>

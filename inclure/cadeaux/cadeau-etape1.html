@@ -1,0 +1,21 @@
+[(#SET{formulaire, #ENV{form, inscription}})]
+[(#SET{self, #URL_PAGE{cadeau}})]
+[(#SESSION{id_auteur}|non)
+	<section class="c-abonner-section">
+		[(#GET{formulaire}|=={inscription}|?{
+			[<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper">Créez votre compte</h2>
+			[(#SET{url, #GET{self}|parametre_url{form, identification}})]
+			<div class="c-abonner-section__intro">
+				<p><strong><:vacarme:abonnement_etape_compte_login_info{url=#GET{url}}:></a></strong></p>
+			</div>
+				(#FORMULAIRE_INSCRIPTION{6forum})]
+			,
+			[<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_etape_compte_login_titre:></h2>
+			[(#SET{url, #GET{self}|parametre_url{form, inscription}})]
+			<div class="c-abonner-section__intro">
+				<p><strong><:vacarme:abonnement_etape_compte_creer_info{url=#GET{url}}:></a></strong></p>
+			</div>
+				(#LOGIN_PUBLIC{#GET{self}|parametre_url{etape, 2}})]
+		})]
+	</section>
+]

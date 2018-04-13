@@ -1,0 +1,43 @@
+[(#REM)
+	<!-- 
+		Page Offrir un abonnement, étape 2 : 
+			Si la session du payeur est absente : création de son compte ou identification 
+			Si la session du payeur est présente : identité du bénéficiaire 
+	--> 
+]
+[(#SET{formulaire, #ENV{form, inscription}})]
+[(#SET{self, #URL_PAGE{offrir}|parametre_url{etape, 2}})]
+
+[(#SESSION{id_auteur}|non)
+	<section class="c-abonner-section">
+		[(#GET{formulaire}|=={inscription}|?{
+			[<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_etape_compte_creer_titre:></h2>
+			[(#SET{url, #GET{self}|parametre_url{form, identification}})]
+			<div class="c-abonner-section__intro">
+				<p><strong><:vacarme:abonnement_etape_compte_login_info{url=#GET{url}}:></a></strong></p>
+			</div>
+				(#FORMULAIRE_INSCRIPTION{6forum})]
+			,
+			[<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_etape_compte_login_titre:></h2>
+			[(#SET{url, #GET{self}|parametre_url{form, inscription}})]
+			<div class="c-abonner-section__intro">
+				<p><strong><:vacarme:abonnement_etape_compte_creer_info{url=#GET{url}}:></a></strong></p>
+			</div>
+				(#LOGIN_PUBLIC{#GET{self}|parametre_url{etape,3}})]
+		})]
+	</section>
+]
+<BOUCLE_auteur(AUTEURS){id_auteur=#SESSION{id_auteur}}{tout}>
+	<BOUCLE_contact(CONTACTS){id_auteur}>
+		[(#CIVILITE|et{#PRENOM}|et{#NOM}|?{
+			<p>Vous êtes identifié avec le compte de [(#CIVILITE)][ (#PRENOM)][ (#NOM)]</p>
+			,
+			[(#FORMULAIRE_UPDATE_CONTACT{id_auteur})]
+		})]
+	</BOUCLE_contact>
+	[<p>Avant de poursuivre, veuillez modifier ou confirmer les informations vous concernant</p>
+	(#FORMULAIRE_UPDATE_CONTACT{id_auteur})]
+	<//B_contact>
+	
+<p><a href="#URL_LOGOUT">Déconnexion id_auteur #SESSION{id_auteur}</a></p>
+</BOUCLE_auteur>

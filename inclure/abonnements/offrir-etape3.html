@@ -1,0 +1,14 @@
+[(#REM)
+	<!-- Page Abonnement, étape 5 : paiement --> 
+]<h1>étape 3</h1>
+<BOUCLE_commande(COMMANDES){id_commande=#SESSION{id_commande}}>
+<h1>Commande #ID_COMMANDE  - Ref #REFERENCE</h1>
+[(#FORMULAIRE_PAYER_ACTE{#PRIX*,
+	#ARRAY{
+		montant_ht,#PRIX_HT*,
+		id_commande,#ID_COMMANDE,
+		id_auteur,#ID_AUTEUR,
+	}
+})]
+
+</BOUCLE_commande>

@@ -1,4 +1,4 @@
-#SET{etapes, #ARRAY{abonnement, 1, numero, 2, cadeau, 3, validation, 4, paiement, 5}}
+#SET{etapes, #ARRAY{abonnement, 1, identification, 2, cadeau, 3, validation, 4, paiement, 5}}
 #SET{etape, #ENV{etape}|in_array{#GET{etapes}}|?{#ENV{etape}, 1}}
 
 #SET{id_abonnements_offre, #ENV{id_abonnements_offre, ''}}
@@ -18,13 +18,13 @@
 		</header>
 	</div>
 	<div class="o-layout__item u-2/3@mobilePlus">
-		[(#INCLURE{fond=inclure/abonnements/abonner-etape#GET{etape}, 
+		[(#INCLURE{fond=inclure/abonnements/offrir-etape#GET{etape}, 
 			id_abonnements_offre=#GET{id_abonnements_offre}, 
 			opt_numero=#GET{opt_numero}, 
 			opt_cadeau=#GET{opt_cadeau}, env})]
 	</div
 	>[<div class="o-layout__item u-1/3@mobilePlus">
 		(#GET{etape}|<{5}|oui)
-			[(#INCLURE{fond=inclure/abonnements/abonner-progression, env})]
+			[(#INCLURE{fond=inclure/abonnements/offrir-progression, env})]
 	</div>]
 </div>

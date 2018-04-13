@@ -1,0 +1,13 @@
+#SET{etapes, #ARRAY{compte, 1, activation, 2}}
+#SET{etape, #ENV{etape}|in_array{#GET{etapes}}|?{#ENV{etape}, 1}}
+
+<div class="o-layout">
+	<div class="o-layout__item">
+		<header class="c-abonner-header">
+			<h1 class="c-abonner-header__titre u-typo-font-vacarme u-typo-upper">Utiliser votre bon cadeau</h1>
+		</header>
+	</div>
+	<div class="o-layout__item">
+		[(#INCLURE{fond=inclure/cadeaux/cadeau-etape#GET{etape}, env})]
+	</div>
+</div>

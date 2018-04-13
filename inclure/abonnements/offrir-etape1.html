@@ -1,14 +1,14 @@
 [(#REM)
-	<!-- Page Abonnement, étape 1 : offre d'abonnement -->
+	<!-- Page Offrir un abonnement, étape 1 : offre d'abonnement -->
 ]
 #SET{regions, #ARRAY}
 #SET{region, #ENV{region, 1063}}
-
+<p>Prévoir un premier paragraphe d'explication en fonction du processus proposé ?</p>
 <section class="c-abonner-section">
 	<header class="c-abonner-section__header">
-		<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_souscrire_etape_abonnement_titre:></h2>
+		<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_offrir_etape_abonnement_titre:></h2>
 		<div class="c-abonner-section__intro">
-			<p><:vacarme:abonnement_souscrire_etape_abonnement_desc:></p>
+			<p><:vacarme:abonnement_offrir_etape_abonnement_desc:></p>
 		</div>
 	</header>
 	<B_regions_abonnements>
@@ -46,8 +46,9 @@
 						</div>]
 						[<p class="c-card__prix">(#PRIX)</p>]
 						[(#SET{options, #ARRAY})]
-						[(#SET{options, #GET{options}|array_merge{#ARRAY{numero, #ENV{opt_numero, ''}}}})]
-						[(#SET{options, #GET{options}|array_merge{#ARRAY{cadeau, #ENV{opt_cadeau, ''}}}})]
+						[(#SET{options, #GET{options}|array_merge{#ARRAY{numero, ''}}})]
+						[(#SET{options, #GET{options}|array_merge{#ARRAY{cadeau, ''}}})]
+						[(#SET{options, #GET{options}|array_merge{#ARRAY{coupon, 'oui'}}})]
 						[(#SET{options, #GET{options}|serialize})]
 						[(#SET{args, #VAL{abonnements_offre}|concat{/#ID_ABONNEMENTS_OFFRE}
 							|concat{/1}|concat{/}|concat{/#GET{options}}})]
