@@ -1,43 +1,74 @@
 [(#REM)
-	<!-- 
-		Page Offrir un abonnement, étape 2 : 
-			Si la session du payeur est absente : création de son compte ou identification 
-			Si la session du payeur est présente : identité du bénéficiaire 
-	--> 
+	<!-- Page Offrir un abonnement, étape 2 : numéro départ --> 
 ]
-[(#SET{formulaire, #ENV{form, inscription}})]
-[(#SET{self, #URL_PAGE{offrir}|parametre_url{etape, 2}})]
+[(#REM) <!-- Les deux derniers numéros disponibles --> ]
+	#SET{numeros, #ARRAY}
+<BOUCLE_derniers_numeros(RUBRIQUES){id_parent=115}{id_mot!=108}{!par titre}{0,2}>
+	[(#SET{numeros, #GET{numeros}|push{#ID_RUBRIQUE}})]
+</BOUCLE_derniers_numeros>
 
-[(#SESSION{id_auteur}|non)
+<B_numeros>
 	<section class="c-abonner-section">
-		[(#GET{formulaire}|=={inscription}|?{
-			[<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_etape_compte_creer_titre:></h2>
-			[(#SET{url, #GET{self}|parametre_url{form, identification}})]
-			<div class="c-abonner-section__intro">
-				<p><strong><:vacarme:abonnement_etape_compte_login_info{url=#GET{url}}:></a></strong></p>
-			</div>
-				(#FORMULAIRE_INSCRIPTION{6forum})]
-			,
-			[<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_etape_compte_login_titre:></h2>
-			[(#SET{url, #GET{self}|parametre_url{form, inscription}})]
-			<div class="c-abonner-section__intro">
-				<p><strong><:vacarme:abonnement_etape_compte_creer_info{url=#GET{url}}:></a></strong></p>
-			</div>
-				(#LOGIN_PUBLIC{#GET{self}|parametre_url{etape,3}})]
-		})]
+		<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_offrir_etape_numero_titre:></h2>
+		<ul class="o-layout">
+			<BOUCLE_numeros(RUBRIQUES){id_rubrique IN #GET{numeros}}{par titre}>
+				<li class="o-layout__item u-1/3@tabletPlus">
+					<div class="c-card c-abonner-numero c-abonner-couleur c-abonner-couleur--bgc-abonnement">
+						<p class="c-abonner-numero__surtitre u-typo-font-vacarme u-typo-upper"><:vacarme:{=abonnement_numero_#COMPTEUR_BOUCLE}:></p>
+						[(#SET{logo, #LOGO_RUBRIQUE|extraire_attribut{src}})]
+						[(#INCLURE{fond=inclure/logo/abonnements-numero, logo=#GET{logo}, class=c-card__img})]
+						<div class="c-card__body">
+							<h3 class="c-card__title c-abonner-numero__titre u-typo-font-vacarme u-typo-upper">#TITRE <small>[(#DATE_NUMERO|vacarme_saison_annee)]</small></h3>
+							<p><a href="#URL_RUBRIQUE" class="suite-lien"><:vacarme:sommaire_consulter:></a></p>
+							[(#SET{options, #ARRAY})]
+							[(#SET{options, #GET{options}|array_merge{#ARRAY{numero, #REFERENCE}}})]
+							[(#SET{options, #GET{options}|array_merge{#ARRAY{cadeau, #ENV{opt_cadeau, ''}}}})]
+							[(#SET{options, #GET{options}|array_merge{#ARRAY{coupon, 'oui'}}})]
+							[(#SET{options, #GET{options}|serialize})]
+							[(#SET{args, #VAL{abonnements_offre}|concat{/#ENV{id_abonnements_offre}}
+								|concat{/1}|concat{/}|concat{/#GET{options}}})]
+
+							[(#BOUTON_ACTION{<:vacarme:choisir:>, 
+								#URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 3}|parametre_url{id_abonnements_offre, #ENV{id_abonnements_offre}}},
+								c-btn-form c-btn-form--white c-btn-form--upper u-typo-font-vacarme ajax})]
+						</div>
+					</div>
+				</li>
+				[(#REM) <!-- La date et la référence du numéro actuel --> ]
+				[(#SET{numero_prochain, #ARRAY})]
+				[(#SET{numero_prochain, #GET{numero_prochain}|array_merge{#ARRAY{titre, #REFERENCE|calculer_numero_futur_titre}}})]
+				[(#SET{numero_prochain, #GET{numero_prochain}|array_merge{#ARRAY{reference, #REFERENCE|calculer_numero_futur_reference}}})]
+				[(#SET{numero_prochain, #GET{numero_prochain}|array_merge{#ARRAY{date, #DATE_NUMERO|calculer_numero_futur_date}}})]
+				
+			</BOUCLE_numeros>
+			[(#REM) <!-- Le prochain numéro --> ]
+			<li class="o-layout__item u-1/3@tabletPlus">
+				<div class="c-card c-abonner-numero c-abonner-couleur c-abonner-couleur--bgc-abonnement">
+					<p class="c-abonner-numero__surtitre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_numero_3:></p>
+					[(#SET{logo, #CHEMIN{img/vacarme-couverture-prochain.png}})]
+					[(#INCLURE{fond=inclure/logo/abonnements-numero, logo=#GET{logo}, class=c-card__img})]
+					<div class="c-card__body">
+						<h3 class="c-card__title c-abonner-numero__titre u-typo-font-vacarme u-typo-upper">[
+							(#GET{numero_prochain}|table_valeur{titre})] <small>[(#GET{numero_prochain}|table_valeur{date}|vacarme_saison_annee)]</small>
+						</h3>
+						<p>&nbsp;</p>
+						[(#SET{options, #ARRAY})]
+						[(#SET{options, #GET{options}|array_merge{#ARRAY{numero, #GET{numero_prochain}|table_valeur{reference}}}})]
+						[(#SET{options, #GET{options}|array_merge{#ARRAY{cadeau, #ENV{opt_cadeau}}}})]
+						[(#SET{options, #GET{options}|array_merge{#ARRAY{coupon, 'oui'}}})]
+						[(#SET{options, #GET{options}|serialize})]
+						[(#SET{args, #VAL{abonnements_offre}|concat{/#ENV{id_abonnements_offre}}
+							|concat{/1}|concat{/}|concat{/#GET{options}}})]
+
+						[(#BOUTON_ACTION{<:vacarme:choisir:>, 
+							#URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 3}|parametre_url{id_abonnements_offre, #ENV{id_abonnements_offre}}},
+							c-btn-form c-btn-form--white c-btn-form--upper u-typo-font-vacarme ajax})]
+					</div>
+				</div>
+			</li>
+		</ul>
 	</section>
-]
-<BOUCLE_auteur(AUTEURS){id_auteur=#SESSION{id_auteur}}{tout}>
-	<BOUCLE_contact(CONTACTS){id_auteur}>
-		[(#CIVILITE|et{#PRENOM}|et{#NOM}|?{
-			<p>Vous êtes identifié avec le compte de [(#CIVILITE)][ (#PRENOM)][ (#NOM)]</p>
-			,
-			[(#FORMULAIRE_UPDATE_CONTACT{id_auteur})]
-		})]
-	</BOUCLE_contact>
-	[<p>Avant de poursuivre, veuillez modifier ou confirmer les informations vous concernant</p>
-	(#FORMULAIRE_UPDATE_CONTACT{id_auteur})]
-	<//B_contact>
-	
-<p><a href="#URL_LOGOUT">Déconnexion id_auteur #SESSION{id_auteur}</a></p>
-</BOUCLE_auteur>
+</B_numeros>
+	<p class="c-message c-message--error"><:vacarme:abonnement_erreur_etape_numero{url=#URL_RUBRIQUE}:></p>
+<//B_numeros>
+#FILTRE{mini_html}

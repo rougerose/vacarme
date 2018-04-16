@@ -1,14 +1,33 @@
 [(#REM)
-	<!-- Page Abonnement, étape 5 : paiement --> 
-]<h1>étape 3</h1>
-<BOUCLE_commande(COMMANDES){id_commande=#SESSION{id_commande}}>
-<h1>Commande #ID_COMMANDE  - Ref #REFERENCE</h1>
-[(#FORMULAIRE_PAYER_ACTE{#PRIX*,
-	#ARRAY{
-		montant_ht,#PRIX_HT*,
-		id_commande,#ID_COMMANDE,
-		id_auteur,#ID_AUTEUR,
-	}
-})]
+	<!-- 
+		Page Offrir un abonnement, étape 3 :
+			Si la session du payeur est absente : création de son compte ou identification 
+			Si la session du payeur est présente : identité du bénéficiaire 
+	--> 
+]
+[(#SET{formulaire, #ENV{form, inscription}})]
+#SET{etape, #ENV{etape}}
 
-</BOUCLE_commande>
+[(#SESSION{id_auteur}|non)
+	<section class="c-abonner-section">
+		[(#GET{formulaire}|=={inscription}|?{
+			[<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_etape_compte_creer_titre:></h2>
+			[(#SET{url, #SELF|parametre_url{form, identification}})]
+			<div class="c-abonner-section__intro">
+				<p><strong><:vacarme:abonnement_etape_compte_login_info{url=#GET{url}}:></a></strong></p>
+			</div>
+				(#FORMULAIRE_INSCRIPTION{6forum})]
+			,
+			[<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_etape_compte_login_titre:></h2>
+			[(#SET{url, #SELF|parametre_url{form, inscription}})]
+			<div class="c-abonner-section__intro">
+				<p><strong><:vacarme:abonnement_etape_compte_creer_info{url=#GET{url}}:></a></strong></p>
+			</div>
+				(#FORMULAIRE_LOGIN{#URL_PAGE{offrir, etape=#GET{etape}}})]
+		})]
+	</section>
+][(#SESSION{id_auteur}|oui)
+	[(#INCLURE{fond=inclure/abonnements/verification-compte-contact, env})]
+]
+
+<a href="#URL_LOGOUT">Deconnexion</a>

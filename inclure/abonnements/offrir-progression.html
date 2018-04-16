@@ -1,5 +1,5 @@
 #SET{afficher_panier, oui} #SET{afficher_confirmer, non}
-[(#SESSION{id_auteur}|et{#ENV{etape}|=={4}}|oui) #SET{afficher_panier, non} ]
+[(#SESSION{id_auteur}|et{#ENV{etape}|=={6}}|oui) #SET{afficher_panier, non} ]
 #SET{type_offre, ''}
 #SET{id_offre, ''}
 
@@ -12,7 +12,9 @@
 				[(#SET{duree, #DUREE|duree_en_clair})]
 				[(#SET{numeros, #DUREE|numeros_nombre_en_clair})]
 				[(#SET{prix, #PRIX})]
-				[(#INCLURE{fond=inclure/abonnements/offrir-progression-panier, id_abonnements_offre, type_offre=#GET{type_offre}, titre=#TITRE, duree=#GET{duree}, numeros=#GET{numeros}, prix=#PRIX })]
+				[(#OPTIONS|table_valeur{numero}|oui) #SET{numero, #OPTIONS|table_valeur{numero}} ]
+				[(#OPTIONS|table_valeur{cadeau}|oui) #SET{cadeau, #OPTIONS|table_valeur{cadeau}} ]
+				[(#INCLURE{fond=inclure/abonnements/offrir-progression-panier, id_abonnements_offre, type_offre=#GET{type_offre}, titre=#TITRE, duree=#GET{duree}, numeros=#GET{numeros}, prix=#PRIX, numero=#GET{numero}, cadeau=#GET{cadeau}})]
 			</BOUCLE_abonnement>
 		</BOUCLE_progression>
 		[(#INCLURE{fond=inclure/abonnements/offrir-progression-panier})]

@@ -1,4 +1,4 @@
-#SET{etapes, #ARRAY{abonnement, 1, identification, 2, cadeau, 3, validation, 4, paiement, 5}}
+#SET{etapes, #ARRAY{abonnement, 1, numero, 2, identification_payeur, 3, identification_beneficiaire, 4}}
 #SET{etape, #ENV{etape}|in_array{#GET{etapes}}|?{#ENV{etape}, 1}}
 
 #SET{id_abonnements_offre, #ENV{id_abonnements_offre, ''}}
