@@ -6,7 +6,7 @@
 // =====================================
 
 .c-message {
-	padding: $spacing-unit;
+	padding: $spacing-unit $spacing-unit $spacing-unit-small;
 	@include inuit-font-size(20px);
 	text-align: center;
 	
@@ -18,7 +18,17 @@
 	// Variantes
 	// -------------------------------------
 
-	&--error {
+	&--erreur {
 		border: 3px solid $color-error;
+	}
+	
+	
+	&--ok {
+		border: 3px solid $color-lime-500;
+	}
+	
+	
+	&--attention {
+		border: 2px solid $color-lime-500;
 	}
 }

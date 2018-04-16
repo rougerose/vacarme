@@ -27,6 +27,15 @@
 
 
 //
+// c-form__groupe
+// -------------------------------------
+
+.c-form__groupe {
+	margin-bottom: $spacing-unit;
+}
+
+
+//
 // c-form__champ
 // -------------------------------------
 
@@ -40,6 +49,6 @@
 	line-height: normal;
 	
 	&:focus {
-		border-color: $color-black;
+		border-color: $color-blue-grey-800;
 	}
 }

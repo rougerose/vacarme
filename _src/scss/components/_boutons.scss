@@ -38,15 +38,14 @@
 	// c-btn--submit
 	// -------------------------------------
 	.c-btn--submit {
-		background-color: $color-orange;
+		background-color: $color-blue-grey-600;
 		color: $color-white;
-		font-weight: bold;
 		letter-spacing: .05em;
 		transition: all .3s;
 		
 		&:hover,
 		&:focus {
-			background-color: darken($color-orange, 5%);
+			background-color: $color-blue-600;
 		}
 	}
 
