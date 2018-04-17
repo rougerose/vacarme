@@ -1,0 +1,32 @@
+[(#REM)
+    *********************************
+    Constantes
+    *********************************
+
+    Transmises dans l'environnement :
+    ---------------------------------
+    - logo_objet : article|secteur|rubrique
+    - logo_format : paysage|portrait|vignette-complete|vignette-partielle|paysage-archives
+    - logo_class
+    - figure_class
+    - figcaption_numero_titre
+    - figcaption_hX
+    - logo_url : oui|non*
+    - numero_titre_url
+
+]
+<BOUCLE_logo_selection(SELECTIONS_CONTENUS){id_selections_contenu}>
+    #SET{alt,#TITRE}
+	[(#ENV{logo_format}|=={vignette-partielle}|oui)
+		[(#SET{logo,#LOGO_SELECTIONS_CONTENU|image_reduire{500,0}|image_recadre{248,312,'center left',000}|extraire_attribut{src}})]
+	][(#ENV{logo_format}|=={portrait}|oui)
+		[(#SET{logo,#LOGO_SELECTIONS_CONTENU|image_reduire{0,1024}|image_recadre{732,1024,'top center',000}|extraire_attribut{src}})]
+	][(#ENV{logo_format}|=={paysage}|oui)
+		[(#SET{logo,#LOGO_SELECTIONS_CONTENU|image_reduire{1024,0}|image_recadre{1024,683,'top center',000}|extraire_attribut{src}})]
+	]
+[<figure class="resume__figure[ (#ENV{figure_class})]">
+    [(#ENV{logo_url}|?{<a href="#URL">})]
+    <img src="(#GET{logo})"[ alt="(#GET{alt})"][ class="(#ENV{logo_class})"]>
+    [(#ENV{logo_url}|?{</a>})]
+</figure>]
+</BOUCLE_logo_selection>
