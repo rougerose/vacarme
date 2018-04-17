@@ -1,30 +1,11 @@
-[(#SET{contenus, #ARRAY})
-]<BOUCLE_objets(spip_grappes_liens){id_grappe}{0,10}{par rang}>[
-(#SET_MERGE{contenus,#GET{contenus},#ARRAY{#OBJET#ID_OBJET,#ARRAY{#OBJET,#ID_OBJET}}})
-]</BOUCLE_objets>
 <div class="flexslider__container">
-    <div id="flexslider" class="flexslider">
-        <B_carousel>
-        <ul class="slides">
-            <BOUCLE_carousel(POUR){tableau #GET{contenus}}>
-            <BOUCLE_test_rubrique(POUR){tableau #VALEUR}{cle==rubrique}>
-            <BOUCLE_rubrique(RUBRIQUES){id_rubrique=#VALEUR}>[
-            (#LOGO_RUBRIQUE|largeur|>{959}|oui)[
-                (#LOGO_RUBRIQUE|largeur|>{#LOGO_RUBRIQUE|hauteur}|oui)
-                <li class="slides__item">
-                    [(#INCLURE{fond=inclure/resumes/rubrique,
-                        id_rubrique,type_resume=stack,logo_afficher=oui,logo_objet=rubrique,logo_format=paysage})]
-                </li>]
-            ]</BOUCLE_rubrique></BOUCLE_test_rubrique><BOUCLE_test_article(POUR){tableau #VALEUR}{cle==article}><BOUCLE_article(ARTICLES){id_article=#VALEUR}>[
-            (#LOGO_ARTICLE|largeur|>{959}|oui)[
-                (#LOGO_ARTICLE|largeur|>{#LOGO_ARTICLE|hauteur}|oui)
-                <li class="slides__item">
-                    [(#INCLURE{fond=inclure/resumes/article,
-                        id_article,type_resume=stack,logo_afficher=oui,logo_objet=article,logo_format=paysage})]
-                </li>]
-            ]</BOUCLE_article></BOUCLE_test_article>
-            </BOUCLE_carousel>
-        </ul>
-        </B_carousel>
-    </div><!-- /.flexslider -->
-</div><!-- /.flexslider__container -->
+	<div id="flexslider" class="flexslider">
+		<ul class="slides">
+			<BOUCLE_carousel(SELECTIONS_CONTENUS){id_selection}{par rang}>
+				<li class="slides_item">
+					[(#INCLURE{fond=inclure/resumes/selection, id_selections_contenu, type_resume=stack, logo_afficher=oui, logo_format=paysage})]
+				</li>
+			</BOUCLE_carousel>
+		</ul>
+	</div>
+</div>

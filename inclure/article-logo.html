@@ -15,16 +15,10 @@
 ]
 <BOUCLE_article_logo(ARTICLES){id_article}>
 [(#ENV{logo_format}|=={1/4}|oui)
-    [(#GET{o}|=={paysage}|?{ 
-        [<img class="#GET{o}" src="(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|image_passe_partout{450}|image_recadre{450,300,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">],
-        [<img class="#GET{o}" src="(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|image_passe_partout{630}|image_recadre{450,630,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
-    })]
+	[<img class="" src="(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|image_passe_partout{630}|image_recadre{450,630,center,000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
 ][(#ENV{logo_format}|=={1/2}|oui)
     [<img src="(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
 ][(#ENV{logo_format}|=={1/1}|oui)
-    [(#GET{o}|=={paysage}|?{ 
-        [<img class="#GET{o}" src="(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|image_passe_partout{1000}|image_recadre{1000,666,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">],
-        [<img class="#GET{o}" src="(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|image_passe_partout{1399}|image_recadre{1000,1399,['(#GET{focal})'],000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
-    })]
+	[<img class="" src="(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|image_passe_partout{1399}|image_recadre{1000,1399,center,000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
 ]
 </BOUCLE_article_logo>

@@ -1,0 +1,27 @@
+[(#REM)
+    Les deux premiers items sont affichés en aléatoire et renouvellés
+    toutes les 24h. Ce sont des articles qui ont plus d'un an
+    afin qu'ils soient en version intégrale.
+    Premier bloc, article issu des catégories Fronts ou Mouvements.
+    Deuxième bloc, article issu de la catégorie Entretiens.
+]
+<BOUCLE_archives_fronts_mouvements(ARTICLES){id_secteur=115}{id_mot IN 521,522}{age>365}{par hasard}{0,1}>
+<div class="grid__item lap-and-up-one-quarter">
+	[(#INCLURE{fond=resume/article-archive,id_article,logo_format='1/4',recadrage=portrait})]
+</div><!-- /.grid__item -->
+</BOUCLE_archives_fronts_mouvements>
+<BOUCLE_archives_entretiens(ARTICLES){id_secteur=115}{id_mot=11}{age>365}{par hasard}{0,1}>
+<div class="grid__item lap-and-up-one-quarter">
+    [(#INCLURE{fond=resume/article-archive,id_article,logo_format='1/4',recadrage=portrait})]
+</div><!-- /.grid__item -->
+</BOUCLE_archives_entretiens>
+[(#REM) Le troisième item est issu de la grappe. Il peut s'agir d'une rubrique ou d'un article ]
+<BOUCLE_contenu_archive(SELECTIONS_CONTENUS){id_selection}{0,1}>
+	<div class="grid__item lap-and-up-two-quarters">
+		[(#OBJET|=={rubrique}|oui)
+			[(#INCLURE{fond=resume/rubrique-archive,id_rubrique=#ID_OBJET,logo_format='1/2',recadrage=paysage})]]
+		[(#OBJET|=={article}|oui)
+			[(#INCLURE{fond=resume/article-archive,id_article=#ID_OBJET,logo_format='1/2',recadrage=paysage})]]
+	</div>
+</BOUCLE_contenu_archive>
+#FILTRE{mini_html}
