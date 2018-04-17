@@ -145,3 +145,12 @@
     .fichier {
         padding-bottom: 1.5em;
     }
+
+//
+// vidéos avec oembed
+// -------------------------------------
+.spip_documents {
+    &.oembed_video {
+        margin-bottom: $base-spacing-unit;
+    }
+}
