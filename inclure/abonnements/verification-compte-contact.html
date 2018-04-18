@@ -3,7 +3,7 @@
 	[(#SET{redirect, #URL_PAGE{#ENV{page}}|parametre_url{etape, #GET{etape}}})]
 	<BOUCLE_contact(CONTACTS){id_auteur}>
 		[(#CIVILITE|et{#PRENOM}|non)
-			<p class="c-message c-message--attention"><:vinscriptions:message_attention_compte_incomplet:> [<strong>(#CIVILITE|non)<:vinscriptions:formulaire_civilite_label:></strong>][ <strong>(#PRENOM|non)<:vinscriptions:formulaire_prenom_label:></strong>]</p>
+			<p class="c-message c-message--attention"><:vprofils:message_attention_compte_incomplet:> [<strong>(#CIVILITE|non)<:vprofils:formulaire_civilite_label:></strong>][ <strong>(#PRENOM|non)<:vprofils:formulaire_prenom_label:></strong>]</p>
 			[(#FORMULAIRE_ACTUALISER_PROFIL{#ID_CONTACT, #GET{redirect}})]
 		]
 	</BOUCLE_contact>
