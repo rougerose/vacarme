@@ -36,7 +36,8 @@
 	.self__header--rubrique &,
     .index-feature & {
         // font-family: $HCReg-font;
-        @include font-size(48px);
+        @include font-size(48px, false);
+		line-height: 1.1;
     }
     
 	.index-issues & {
