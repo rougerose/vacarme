@@ -1,12 +1,23 @@
 <BOUCLE_auteur(AUTEURS){id_auteur=#SESSION{id_auteur}}{tout}>
-	[(#SET{etape, #ENV{etape}|plus{1}})]
-	[(#SET{redirect, #URL_PAGE{#ENV{page}}|parametre_url{etape, #GET{etape}}})]
-	<BOUCLE_contact(CONTACTS){id_auteur}>
-		[(#CIVILITE|et{#PRENOM}|non)
-			<p class="c-message c-message--attention"><:vprofils:message_attention_compte_incomplet:> [<strong>(#CIVILITE|non)<:vprofils:formulaire_civilite_label:></strong>][ <strong>(#PRENOM|non)<:vprofils:formulaire_prenom_label:></strong>]</p>
-			[(#FORMULAIRE_ACTUALISER_PROFIL{#ID_CONTACT, #GET{redirect}})]
-		]
-	</BOUCLE_contact>
-		<p class="c-message c-message--erreur"><:vacarme:message_erreur_souscription_abonnement{url=#URL_PAGE{contact}}:></p>
-	<//B_contact>
+	<section class="c-abonner-section">
+		[(#SET{etape, #ENV{etape}|plus{1}})]
+		[(#SET{redirect, #URL_PAGE{#ENV{page}}|parametre_url{etape, #GET{etape}}})]
+		<BOUCLE_contact(CONTACTS){id_auteur}>
+			[(#CIVILITE|et{#PRENOM}|non)
+				<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_etape_compte_verifier_titre:></h2>
+				<p class="c-message c-message--attention"><:vprofils:message_attention_compte_incomplet:> [<strong> (#CIVILITE|non)<:vprofils:info_manquante_civilite:></strong>][ <strong>(#PRENOM|non)<:vprofils:info_manquante_prenom:></strong>]</p>
+				[(#FORMULAIRE_ACTUALISER_PROFIL{#ID_CONTACT, #GET{redirect}})]
+			][(#CIVILITE|et{#PRENOM}|oui)
+				[(#REM)
+					<!-- 
+					Les infos sont complètes et l'auteur est déjà connecté :
+					le formulaire de login fait une redirection automatique
+					vers la page qu'on lui indique.
+					-->
+				][(#FORMULAIRE_LOGIN{#GET{redirect}})]
+			]
+		</BOUCLE_contact>
+			<p class="c-message c-message--erreur"><:vacarme:message_erreur_souscription_abonnement{url=#URL_PAGE{contact}}:></p>
+		<//B_contact>
+	</section>
 </BOUCLE_auteur>
