@@ -1,0 +1,7 @@
+[(#SET{sections, #ARRAY{1, resume, 2, informations}})]
+[(#SESSION{id_auteur}|?{
+	[(#SET{section, #VAL{section-}|concat{#ENV{section}|in_array{#GET{sections}}|?{#ENV{section}, #GET{sections/1}}}})],
+	[(#SET{section, #VAL{section-}|concat{#GET{sections/1}}})]
+})]
+
+<INCLURE{fond=inclure/compte/#GET{section}, env} />

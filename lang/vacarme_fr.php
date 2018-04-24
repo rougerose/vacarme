@@ -38,6 +38,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'choisir_avec_cadeau' => "Choisir ce cadeau",
 	'choisir_sans_cadeau' => "Poursuivre sans cadeau",
 	
+	'compte_inscription_info' => "Vous n'avez pas de compte ? <a href='@url@' class='suite-lien ajax'>Créez-le <em>&#8594;</em></a>",
+	'compte_identification_info' => "Vous avez déjà un compte ? <a href='@url@' class='suite-lien ajax'>Connectez-vous <em>&#8594;</em></a>",
+	
 	// M
 	'message_erreur_souscription_abonnement' => "Nous sommes désolés, un problème technique ne permet pas de poursuivre la souscription de votre abonnement. Pour résoudre ce problème, veuillez <a href='@url@' class='suite-lien'>nous contacter <em>&#8594;</em></a>",
 	

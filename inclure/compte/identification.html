@@ -1,0 +1,12 @@
+<h1>Compte Identification</h1>
+[(#ENV{etape}|=={inscription}|non)
+	[(#SET{url, #URL_PAGE{compte, etape=inscription}})]
+	<p><strong><:vacarme:compte_inscription_info{url=#GET{url}}:></a></strong></p>
+	[(#FORMULAIRE_LOGIN{#URL_PAGE{compte}})]
+	
+][(#ENV{etape}|=={inscription}|oui)
+	[(#SET{url, #URL_PAGE{compte, etape=identification}})]
+	<p><strong><:vacarme:compte_identification_info{url=#GET{url}}:></a></strong></p>
+	#FORMULAIRE_INSCRIPTION
+	
+]

@@ -1,0 +1,17 @@
+<main id="main" class="XXc-abonner" role="main">
+	<div class="o-wrapper">
+		<header class="XXc-abonner-header">
+			<div class="o-layout">
+				<div class="o-layout__item">
+					<h1 class="XXc-abonner-header__titre u-typo-font-vacarme u-typo-upper">Votre compte</h1>
+				</div>
+				<div class="o-layout__item">#GET{section}
+					[(#SESSION{id_auteur}|?{
+						[(#INCLURE{fond=inclure/compte/section, ajax, env})],
+						[(#INCLURE{fond=inclure/compte/identification, ajax, env})]
+					})]
+				</div>
+			</div>
+		</header>
+	</div>
+</main>
