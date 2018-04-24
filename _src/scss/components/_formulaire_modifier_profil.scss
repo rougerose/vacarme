@@ -1,0 +1,59 @@
+// =====================================
+// formulaire_modifier_profil
+// =====================================
+
+$width-1col: 100%;
+$width-2col: 48%;
+
+.formulaire_modifier_profil {
+	
+	// 
+	// Régles générales pour les groupes de champs de saisie
+	// 
+	.formulaire__groupe {
+		
+		.editer-groupe {
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+		}
+	}
+	
+	// 
+	// Règles de mise en page pour chaque champ 
+	// 1 colonne ou 2 colonnes
+	// 
+	.editer_civilite {
+		width: $width-1col;
+		display: flex;
+		flex-wrap: wrap;
+		
+		label {
+			width: $width-1col;
+		}
+		
+		.choix {
+			margin-right: $spacing-unit;
+		}
+	}
+	
+	.editer_nom,
+	.editer_prenom,
+	.editer_complement,
+	.editer_boite_postale,
+	.editer_code_postal,
+	.editer_ville,
+	.editer_region,
+	.editer_pays {
+		width: $width-1col;
+		@include mq(tabletPlus) {
+			width: $width-2col;
+		}
+	}
+	
+	.editer_email,
+	.editer_organisation,
+	.editer_voie, {
+		width: $width-1col;
+	}
+}

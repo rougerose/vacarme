@@ -1,0 +1,52 @@
+// =====================================
+// formulaire_login
+// =====================================
+
+$width-1col: 100%;
+$width-2col: 48%;
+
+.formulaire_inscription {
+	
+	// Régles générales pour les groupes de champs de saisie
+	.formulaire__groupe {
+		
+		.editer-groupe {
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+		}
+	}
+	
+	
+	// 
+	// Règles de mise en page pour chaque champ 
+	// 1 colonne ou 2 colonnes
+	// 
+	.editer_civilite {
+		width: $width-1col;
+		display: flex;
+		flex-wrap: wrap;
+		
+		label {
+			width: $width-1col;
+		}
+		
+		.choix {
+			margin-right: $spacing-unit;
+		}
+	}
+	
+	.editer_nom_inscription,
+	.editer_prenom,
+	.editer_password,
+	.editer_password_confirmation, {
+		width: $width-1col;
+		@include mq(tabletPlus) {
+			width: $width-2col;
+		}
+	}
+	
+	.editer_mail_inscription {
+		width: $width-1col;
+	}
+}

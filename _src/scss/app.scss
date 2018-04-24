@@ -191,16 +191,23 @@
 @import "components/shortcuts";
 @import "components/site-nav";
 @import "components/tab-nav";
-@import "components/form";
+
 @import "components/boutons";
 @import "components/card";
+
+@import "components/formulaire_spip";
+@import "components/formulaire_login";
+@import "components/formulaire_modifier_profil";
+@import "components/formulaire_inscription";
+
+// @import "components/form";
 
 @import "components/abonner";
 @import "components/inscription";
 
 @import "components/progress";
 
-@import "components/formulaire-spip";
+
 @import "components/spip-admin";
 
 // UTILITIES

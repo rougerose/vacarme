@@ -1,0 +1,23 @@
+// =====================================
+// formulaire_login
+// =====================================
+
+.formulaire_login {
+	
+	#pass_securise {
+		position: absolute;
+		margin-top: $spacing-unit-small;
+		margin-left: $spacing-unit * -1;
+	}
+	
+	.details {
+		margin-top: $spacing-unit-small;
+		
+		a {
+			color: $color-blue-500;
+			&:hover {
+				color: $link-color;
+			}
+		}
+	}
+}

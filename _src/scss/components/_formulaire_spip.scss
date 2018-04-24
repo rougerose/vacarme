@@ -1,0 +1,95 @@
+// =====================================
+// formuaire_spip
+// =====================================
+
+// 
+// Styles pour les formulaires des pages publiques de SPIP.
+// ******************************************************************
+// 
+
+//
+// Principaux généraux
+// -------------------------------------
+
+.formulaire_spip {
+	border: 1px solid $color-blue-grey-800;
+	margin-bottom: $spacing-unit;
+	padding: $spacing-unit $spacing-unit 0;
+	font-family: $font-helvetica;
+	
+	legend,
+	.legend {
+		margin-bottom: $spacing-unit;
+		color: $color-blue-grey-800;
+		@include inuit-font-size(24px);
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	
+	.editer,
+	.saisie_input,
+	.saisie_pays,
+	.saisie_email,
+	.saisie_radio {
+		margin-bottom: $spacing-unit;
+		
+		> label {
+			display: block;
+			@include inuit-font-size(20px);
+		}
+	}
+	
+	fieldset {
+		margin-bottom: $spacing-unit-large;
+		
+		.editer {
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+
+//
+// Champs
+// -------------------------------------
+
+select,
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+	border: 1px solid $color-blue-grey-100;
+	margin: $spacing-unit-tiny 0 0;
+	padding: $spacing-unit-tiny $spacing-unit-tiny $spacing-unit-tiny/2;
+	width: 100%;
+	font-family: $font-helvetica;
+	@include inuit-font-size(18px, normal);
+	font-weight: bold;
+	
+	&:focus {
+		border-color: $color-blue-grey-800;
+	}
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+	margin-right: $spacing-unit-tiny;
+	margin-top: $spacing-unit-small;
+	
+	& + label {
+		@include inuit-font-size(20px, normal);
+	}
+}
+
+
+
+//
+// Messages
+// -------------------------------------
+
+	// ----- message d'erreur ----- //
+
+	.erreur_message {
+		color: $color-error;
+	}

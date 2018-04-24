@@ -111,3 +111,21 @@
 		@extend .c-btn--upper;
 	}
 }
+
+
+
+//
+// .boutons .submit
+// -------------------------------------
+//
+// bouton submit des formulaires SPIP
+// 
+.boutons {
+	.submit {
+		@extend .c-btn;
+		@extend .c-btn--submit;
+		@extend .c-btn--round;
+		@extend .c-btn--upper;
+		width: 100%;
+	}
+}
