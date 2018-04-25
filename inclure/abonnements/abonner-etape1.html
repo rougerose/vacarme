@@ -48,6 +48,7 @@
 						[(#SET{options, #ARRAY})]
 						[(#SET{options, #GET{options}|array_merge{#ARRAY{numero, #ENV{opt_numero, ''}}}})]
 						[(#SET{options, #GET{options}|array_merge{#ARRAY{cadeau, #ENV{opt_cadeau, ''}}}})]
+						[(#SET{options, #GET{options}|array_merge{#ARRAY{coupon, #ENV{opt_coupon, ''}}}})]
 						[(#SET{options, #GET{options}|serialize})]
 						[(#SET{args, #VAL{abonnements_offre}|concat{/#ID_ABONNEMENTS_OFFRE}
 							|concat{/1}|concat{/}|concat{/#GET{options}}})]

@@ -8,6 +8,7 @@
 	<BOUCLE_objet_abonnement(PANIERS_LIENS){id_panier}{objet=abonnements_offre}{id_objet=#GET{id_abonnements_offre}}>
 		[(#SET{opt_numero, #OPTIONS|table_valeur{numero}|sinon{''}})]
 		[(#SET{opt_cadeau, #OPTIONS|table_valeur{cadeau}|sinon{''}})]
+		[(#SET{opt_coupon, #OPTIONS|table_valeur{coupon}|sinon{''}})]
 	</BOUCLE_objet_abonnement>
 </BOUCLE_panier>
 
@@ -18,10 +19,12 @@
 		</header>
 	</div>
 	<div class="o-layout__item u-2/3@mobilePlus">
+		[(#GET{etape}|>={3}|oui) Vérification session auteur nécessaire]
 		[(#INCLURE{fond=inclure/abonnements/offrir-etape#GET{etape}, 
 			id_abonnements_offre=#GET{id_abonnements_offre}, 
 			opt_numero=#GET{opt_numero}, 
-			opt_cadeau=#GET{opt_cadeau}, env})]
+			opt_cadeau=#GET{opt_cadeau},
+			opt_coupon=#GET{opt_coupon}, env})]
 	</div
 	>[<div class="o-layout__item u-1/3@mobilePlus">
 		(#GET{etape}|<{5}|oui)

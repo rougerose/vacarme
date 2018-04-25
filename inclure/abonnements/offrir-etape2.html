@@ -23,7 +23,7 @@
 							[(#SET{options, #ARRAY})]
 							[(#SET{options, #GET{options}|array_merge{#ARRAY{numero, #REFERENCE}}})]
 							[(#SET{options, #GET{options}|array_merge{#ARRAY{cadeau, #ENV{opt_cadeau, ''}}}})]
-							[(#SET{options, #GET{options}|array_merge{#ARRAY{coupon, 'oui'}}})]
+							[(#SET{options, #GET{options}|array_merge{#ARRAY{coupon, oui}}})]
 							[(#SET{options, #GET{options}|serialize})]
 							[(#SET{args, #VAL{abonnements_offre}|concat{/#ENV{id_abonnements_offre}}
 								|concat{/1}|concat{/}|concat{/#GET{options}}})]
@@ -55,7 +55,7 @@
 						[(#SET{options, #ARRAY})]
 						[(#SET{options, #GET{options}|array_merge{#ARRAY{numero, #GET{numero_prochain}|table_valeur{reference}}}})]
 						[(#SET{options, #GET{options}|array_merge{#ARRAY{cadeau, #ENV{opt_cadeau}}}})]
-						[(#SET{options, #GET{options}|array_merge{#ARRAY{coupon, 'oui'}}})]
+						[(#SET{options, #GET{options}|array_merge{#ARRAY{coupon, oui}}})]
 						[(#SET{options, #GET{options}|serialize})]
 						[(#SET{args, #VAL{abonnements_offre}|concat{/#ENV{id_abonnements_offre}}
 							|concat{/1}|concat{/}|concat{/#GET{options}}})]

@@ -21,6 +21,7 @@
 							[(#SET{options, #ARRAY})]
 							[(#SET{options, #GET{options}|array_merge{#ARRAY{numero, #ENV{opt_numero, ''}}}})]
 							[(#SET{options, #GET{options}|array_merge{#ARRAY{cadeau, #ID_PRODUIT}}})]
+							[(#SET{options, #GET{options}|array_merge{#ARRAY{coupon, #ENV{opt_coupon, ''}}}})]
 							[(#SET{options, #GET{options}|serialize})]
 							[(#SET{args, #VAL{abonnements_offre}|concat{/#ENV{id_abonnements_offre}}
 								|concat{/1}|concat{/}|concat{/#GET{options}}})]
@@ -40,6 +41,7 @@
 						[(#SET{options, #ARRAY})]
 						[(#SET{options, #GET{options}|array_merge{#ARRAY{numero, #ENV{opt_numero, ''}}}})]
 						[(#SET{options, #GET{options}|array_merge{#ARRAY{cadeau, -1}}})]
+						[(#SET{options, #GET{options}|array_merge{#ARRAY{coupon, #ENV{opt_coupon, ''}}}})]
 						[(#SET{options, #GET{options}|serialize})]
 						[(#SET{args, #VAL{abonnements_offre}|concat{/#ENV{id_abonnements_offre}}
 							|concat{/1}|concat{/}|concat{/#GET{options}}})]
