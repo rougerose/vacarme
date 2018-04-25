@@ -1,24 +1,67 @@
-<BOUCLE_auteur(AUTEURS){id_auteur=#SESSION{id_auteur}}{tout}>#ID_AUTEUR
-	<section class="c-abonner-section">
-		[(#SET{email, #EMAIL|?{#EMAIL}})]
-		[(#SET{etape, #ENV{etape}|plus{1}})]
-		[(#SET{redirect, #URL_PAGE{#ENV{page}}|parametre_url{etape, #GET{etape}}})]
-		<BOUCLE_contact(CONTACTS){id_auteur}>
-			[(#CIVILITE|et{#GET{email}}|et{#PRENOM}|non)
-				<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_etape_compte_verifier_titre:></h2>
-				<p class="c-message c-message--attention"><:vprofils:message_attention_compte_incomplet:> [<strong> (#CIVILITE|non)<:vprofils:info_manquante_civilite:></strong>][ <strong>(#PRENOM|non)<:vprofils:info_manquante_prenom:></strong>][ <strong>(#GET{email}|non)<:vprofils:info_manquante_email:></strong>]</p>
-				[(#FORMULAIRE_ACTUALISER_PROFIL{#ID_CONTACT, #GET{redirect}})]
-			][(#GET{email}|et{#CIVILITE}|et{#PRENOM}|oui)
+<BOUCLE_auteur(AUTEURS){id_auteur=#SESSION{id_auteur}}{tout}>
+	#SET{attention, ''}
+	[(#SET{email, #EMAIL|?{#EMAIL}})]
+	<BOUCLE_contact(CONTACTS){id_auteur}>
+		[(#SET{civilite, #CIVILITE|?{#CIVILITE}})]
+		[(#SET{prenom, #PRENOM|?{#PRENOM}})]
+		<section class="c-abonner-section">
+			[(#SET{etape, #ENV{etape}|plus{1}})]
+			[(#SET{redirect, #URL_PAGE{#ENV{page}}|parametre_url{etape, #GET{etape}}})]
+			<BOUCLE_adresse(ADRESSES){id_auteur}{type=pref}>
+				[(#SET{adresse, ' '})]
+				[(#SET{voie, #VOIE|?{#VOIE}})]
+				[(#SET{code_postal, #CODE_POSTAL|?{#CODE_POSTAL}})]
+				[(#SET{ville, #VILLE|?{#VILLE}})]
+				[(#SET{pays, #PAYS|?{#PAYS}})]
+			</BOUCLE_adresse>
+				[(#SET{adresse, ''})]
+			<//B_adresse>
+			[(#GET{email}|non)[(#SET{attention, ' '})]]
+			[(#GET{civilite}|non)[(#SET{attention, ' '})]]
+			[(#GET{prenom}|non)[(#SET{attention, ' '})]]
+			[(#GET{adresse}|non)[(#SET{attention, ' '})]]
+			[(#GET{voie}|non)[(#SET{attention, ' '})]]
+			[(#GET{code_postal}|non)[(#SET{attention, ' '})]]
+			[(#GET{ville}|non)[(#SET{attention, ' '})]]
+			[(#GET{pays}|non)[(#SET{attention, ' '})]]
+			[(#GET{attention}|oui)
 				[(#REM)
-					<!-- 
-					Les infos sont complètes et l'auteur est déjà connecté :
-					le formulaire de login fait une redirection automatique
-					vers la page qu'on lui indique.
-					-->
-				]conditions ok
+				<!-- 
+					Des informations obligatoires sans manquantes : ajuster le profil. 
+				--> ]
+				<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_etape_compte_verifier_titre:></h2>
+				<p class="c-message c-message--attention">
+					<:vprofils:message_attention_compte_incomplet:>
+					[ <strong>(#GET{adresse}|non)<:vprofils:info_manquante_adresse:></strong>]
+					[(#GET{adresse}|oui)
+						[ <strong>(#GET{voie}|non)<:vprofils:info_manquante_voie:></strong>]
+						[ <strong>(#GET{code_postal}|non)<:vprofils:info_manquante_code_postal:></strong>]
+						[ <strong>(#GET{ville}|non)<:vprofils:info_manquante_ville:></strong>]
+						[ <strong>(#GET{pays}|non)<:vprofils:info_manquante_pays:></strong>]
+					][ <strong>(#GET{civilite}|non)<:vprofils:info_manquante_civilite:></strong>]
+					[ <strong>(#GET{prenom}|non)<:vprofils:info_manquante_prenom:></strong>]
+					[ <strong>(#GET{email}|non)<:vprofils:info_manquante_email:></strong>]
+				</p>
+				[<div class="ajax">
+					(#FORMULAIRE_MODIFIER_PROFIL{#ID_AUTEUR, #GET{redirect}})
+				</div>]
+			][(#GET{attention}|non)
+				[(#REM) 
+				<!-- 
+					Tout est bon. 
+					On utilise la redirection automatique du formulaire login
+					lorsque l'auteur est déjà connecté : il est envoyé 
+					à l'étape suivante.
+				--> ]
+				[(#FORMULAIRE_LOGIN{#GET{redirect}})]
 			]
-		</BOUCLE_contact>
-			<p class="c-message c-message--erreur"><:vacarme:message_erreur_souscription_abonnement{url=#URL_PAGE{contact}}:></p>
-		<//B_contact>
-	</section>
+		</section>
+	</BOUCLE_contact>
+		[(#REM)
+		<!-- 
+			Si l'auteur n'est pas lié à un contact,
+			le plus simple est qu'il se manifeste.
+		--> ]
+		<p class="c-message c-message--erreur"><:vacarme:message_erreur_souscription_abonnement{url=#URL_PAGE{contact}}:></p>
+	<//B_contact>
 </BOUCLE_auteur>
