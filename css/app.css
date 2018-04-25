@@ -2322,15 +2322,15 @@
 
 /* line 46, _src/scss/components/_formulaire_spip.scss */ .formulaire_spip fieldset .editer:last-child { margin-bottom: 0; }
 
-/* line 58, _src/scss/components/_formulaire_spip.scss */ select, input[type="text"], input[type="email"], input[type="password"] { border: 1px solid #dfdfec; margin: 6px 0 0; padding: 6px 6px 3px; width: 100%; font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 18px; font-size: 1.125rem; line-height: normal; font-weight: bold; }
+/* line 58, _src/scss/components/_formulaire_spip.scss */ select, textarea, input[type="text"], input[type="email"], input[type="password"] { border: 1px solid #dfdfec; margin: 6px 0 0; padding: 6px 6px 3px; width: 100%; font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 18px; font-size: 1.125rem; line-height: normal; font-weight: bold; }
 
-/* line 70, _src/scss/components/_formulaire_spip.scss */ select:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus { border-color: #191929; }
+/* line 71, _src/scss/components/_formulaire_spip.scss */ select:focus, textarea:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus { border-color: #191929; }
 
-/* line 75, _src/scss/components/_formulaire_spip.scss */ input[type="radio"], input[type="checkbox"] { margin-right: 6px; margin-top: 12px; }
+/* line 76, _src/scss/components/_formulaire_spip.scss */ input[type="radio"], input[type="checkbox"] { margin-right: 6px; margin-top: 12px; }
 
-/* line 80, _src/scss/components/_formulaire_spip.scss */ input[type="radio"] + label, input[type="checkbox"] + label { font-size: 20px; font-size: 1.25rem; line-height: normal; }
+/* line 81, _src/scss/components/_formulaire_spip.scss */ input[type="radio"] + label, input[type="checkbox"] + label { font-size: 20px; font-size: 1.25rem; line-height: normal; }
 
-/* line 93, _src/scss/components/_formulaire_spip.scss */ .erreur_message { color: #e75d32; }
+/* line 94, _src/scss/components/_formulaire_spip.scss */ .erreur_message { color: #e75d32; }
 
 /* line 7, _src/scss/components/_formulaire_login.scss */ .formulaire_login #pass_securise { position: absolute; margin-top: 12px; margin-left: -24px; }
 
@@ -2362,11 +2362,11 @@
 
 /* line 34, _src/scss/components/_formulaire_inscription.scss */ .formulaire_inscription .editer_civilite .choix { margin-right: 24px; }
 
-/* line 39, _src/scss/components/_formulaire_inscription.scss */ .formulaire_inscription .editer_nom_inscription, .formulaire_inscription .editer_prenom, .formulaire_inscription .editer_password, .formulaire_inscription .editer_password_confirmation { width: 100%; }
+/* line 39, _src/scss/components/_formulaire_inscription.scss */ .formulaire_inscription .editer_nom_inscription, .formulaire_inscription .editer_nom, .formulaire_inscription .editer_prenom, .formulaire_inscription .editer_password, .formulaire_inscription .editer_password_confirmation, .formulaire_inscription .editer_complement, .formulaire_inscription .editer_boite_postale, .formulaire_inscription .editer_code_postal, .formulaire_inscription .editer_ville, .formulaire_inscription .editer_region, .formulaire_inscription .editer_pays { width: 100%; }
 
-@media (min-width: 48em) { /* line 39, _src/scss/components/_formulaire_inscription.scss */ .formulaire_inscription .editer_nom_inscription, .formulaire_inscription .editer_prenom, .formulaire_inscription .editer_password, .formulaire_inscription .editer_password_confirmation { width: 48%; } }
+@media (min-width: 48em) { /* line 39, _src/scss/components/_formulaire_inscription.scss */ .formulaire_inscription .editer_nom_inscription, .formulaire_inscription .editer_nom, .formulaire_inscription .editer_prenom, .formulaire_inscription .editer_password, .formulaire_inscription .editer_password_confirmation, .formulaire_inscription .editer_complement, .formulaire_inscription .editer_boite_postale, .formulaire_inscription .editer_code_postal, .formulaire_inscription .editer_ville, .formulaire_inscription .editer_region, .formulaire_inscription .editer_pays { width: 48%; } }
 
-/* line 49, _src/scss/components/_formulaire_inscription.scss */ .formulaire_inscription .editer_mail_inscription { width: 100%; }
+/* line 56, _src/scss/components/_formulaire_inscription.scss */ .formulaire_inscription .editer_mail_inscription, .formulaire_inscription .editer_email, .formulaire_inscription .editer_organisation, .formulaire_inscription .editer_voie, .formulaire_inscription .editer_texte_message, .formulaire_inscription .editer_message_date { width: 100%; }
 
 /* line 23, _src/scss/components/_abonner.scss */ .c-abonner-header__titre { font-size: 32px; font-size: 2rem; line-height: 1.2; margin-bottom: 48px; }
 

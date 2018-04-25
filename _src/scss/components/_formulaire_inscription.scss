@@ -37,16 +37,28 @@ $width-2col: 48%;
 	}
 	
 	.editer_nom_inscription,
+	.editer_nom,
 	.editer_prenom,
 	.editer_password,
-	.editer_password_confirmation, {
+	.editer_password_confirmation,
+	.editer_complement,
+	.editer_boite_postale,
+	.editer_code_postal,
+	.editer_ville,
+	.editer_region,
+	.editer_pays {
 		width: $width-1col;
 		@include mq(tabletPlus) {
 			width: $width-2col;
 		}
 	}
 	
-	.editer_mail_inscription {
+	.editer_mail_inscription,
+	.editer_email,
+	.editer_organisation,
+	.editer_voie,
+	.editer_texte_message,
+	.editer_message_date {
 		width: $width-1col;
 	}
 }
