@@ -23,9 +23,9 @@
 			<div class="c-abonner-section__intro">
 				<p><strong><:vacarme:abonnement_etape_compte_creer_info{url=#GET{url}}:></a></strong></p>
 			</div>
-				(#FORMULAIRE_LOGIN{#URL_PAGE{offrir, etape=#GET{etape}}})]
+				(#FORMULAIRE_LOGIN)]
 		})]
 	</section>
 ][(#SESSION{id_auteur}|oui)
-	[(#INCLURE{fond=inclure/abonnements/verification-compte-contact, env})]
+	[[(#INCLURE{fond=inclure/abonnements/verification-profil-offrir, env})]
 ]

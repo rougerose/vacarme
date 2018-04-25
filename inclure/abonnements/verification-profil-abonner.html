@@ -4,30 +4,33 @@
 	<BOUCLE_contact(CONTACTS){id_auteur}>
 		[(#SET{civilite, #CIVILITE|?{#CIVILITE}})]
 		[(#SET{prenom, #PRENOM|?{#PRENOM}})]
+		[(#SET{etape, #ENV{etape}|plus{1}})]
+		[(#SET{redirect, #URL_PAGE{#ENV{page}}|parametre_url{etape, #GET{etape}}})]
+		
+		<BOUCLE_adresse(ADRESSES){id_auteur}{type=pref}>
+			[(#SET{adresse, ' '})]
+			[(#SET{voie, #VOIE|?{#VOIE}})]
+			[(#SET{code_postal, #CODE_POSTAL|?{#CODE_POSTAL}})]
+			[(#SET{ville, #VILLE|?{#VILLE}})]
+			[(#SET{pays, #PAYS|?{#PAYS}})]
+		</BOUCLE_adresse>
+			[(#SET{adresse, ''})]
+		<//B_adresse>
+		
+		[(#GET{email}|non)[(#SET{attention, ' '})]]
+		[(#GET{civilite}|non)[(#SET{attention, ' '})]]
+		[(#GET{prenom}|non)[(#SET{attention, ' '})]]
+		[(#GET{adresse}|non)[(#SET{attention, ' '})]]
+		[(#GET{voie}|non)[(#SET{attention, ' '})]]
+		[(#GET{code_postal}|non)[(#SET{attention, ' '})]]
+		[(#GET{ville}|non)[(#SET{attention, ' '})]]
+		[(#GET{pays}|non)[(#SET{attention, ' '})]]
+		
 		<section class="c-abonner-section">
-			[(#SET{etape, #ENV{etape}|plus{1}})]
-			[(#SET{redirect, #URL_PAGE{#ENV{page}}|parametre_url{etape, #GET{etape}}})]
-			<BOUCLE_adresse(ADRESSES){id_auteur}{type=pref}>
-				[(#SET{adresse, ' '})]
-				[(#SET{voie, #VOIE|?{#VOIE}})]
-				[(#SET{code_postal, #CODE_POSTAL|?{#CODE_POSTAL}})]
-				[(#SET{ville, #VILLE|?{#VILLE}})]
-				[(#SET{pays, #PAYS|?{#PAYS}})]
-			</BOUCLE_adresse>
-				[(#SET{adresse, ''})]
-			<//B_adresse>
-			[(#GET{email}|non)[(#SET{attention, ' '})]]
-			[(#GET{civilite}|non)[(#SET{attention, ' '})]]
-			[(#GET{prenom}|non)[(#SET{attention, ' '})]]
-			[(#GET{adresse}|non)[(#SET{attention, ' '})]]
-			[(#GET{voie}|non)[(#SET{attention, ' '})]]
-			[(#GET{code_postal}|non)[(#SET{attention, ' '})]]
-			[(#GET{ville}|non)[(#SET{attention, ' '})]]
-			[(#GET{pays}|non)[(#SET{attention, ' '})]]
 			[(#GET{attention}|oui)
 				[(#REM)
 				<!-- 
-					Des informations obligatoires sans manquantes : ajuster le profil. 
+					Des informations obligatoires sont manquantes : ajuster le profil. 
 				--> ]
 				<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_etape_compte_verifier_titre:></h2>
 				<p class="c-message c-message--attention">
@@ -59,8 +62,7 @@
 	</BOUCLE_contact>
 		[(#REM)
 		<!-- 
-			Si l'auteur n'est pas lié à un contact,
-			le plus simple est qu'il se manifeste.
+			Si l'auteur n'est pas lié à un contact, le plus simple est qu'il se manifeste.
 		--> ]
 		<p class="c-message c-message--erreur"><:vacarme:message_erreur_souscription_abonnement{url=#URL_PAGE{contact}}:></p>
 	<//B_contact>
