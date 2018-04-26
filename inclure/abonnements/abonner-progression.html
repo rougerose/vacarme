@@ -8,12 +8,13 @@
 		<h2><:vacarme:abonnements_progression_titre:></h2>
 		<BOUCLE_progression(PANIERS_LIENS){id_panier=#SESSION{id_panier}}>
 			<BOUCLE_abonnement(ABONNEMENTS_OFFRES){id_abonnements_offre=#ID_OBJET}{si #OBJET|=={abonnements_offre}}>
+				<BOUCLE_type_offre(MOTS){id_abonnements_offre}{id_groupe=24}>#SET{type_offre, #ID_MOT}</BOUCLE_type_offre>
 				[(#SET{duree, #DUREE|duree_en_clair})]
 				[(#SET{numeros, #DUREE|numeros_nombre_en_clair})]
 				[(#SET{prix, #PRIX})]
 				[(#OPTIONS|table_valeur{numero}|oui) #SET{numero, #OPTIONS|table_valeur{numero}} ]
 				[(#OPTIONS|table_valeur{cadeau}|oui) #SET{cadeau, #OPTIONS|table_valeur{cadeau}} ]
-				[(#INCLURE{fond=inclure/abonnements/abonner-progression-panier, id_abonnements_offre, titre=#TITRE, duree=#GET{duree}, numeros=#GET{numeros}, prix=#PRIX, numero=#GET{numero}, cadeau=#GET{cadeau} })]
+				[(#INCLURE{fond=inclure/abonnements/abonner-progression-panier, id_abonnements_offre, type_offre=#GET{type_offre}, titre=#TITRE, duree=#GET{duree}, numeros=#GET{numeros}, prix=#PRIX, numero=#GET{numero}, cadeau=#GET{cadeau} })]
 			</BOUCLE_abonnement>
 		</BOUCLE_progression>
 		[(#INCLURE{fond=inclure/abonnements/abonner-progression-panier})]
