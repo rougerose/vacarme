@@ -1,15 +1,15 @@
 <ol class="c-progress[ c-progress--colorbg-(#ENV{type_offre})]">
 	<li class="c-progress__item[ (#ENV{type_offre}|oui)is-active]">
-		<span><:vacarme:abonnement_progression_label_abonnement:></span>[
+		<span><:vacarme:abonnement_resume_label_abonnement:></span>[
 		(#ENV{titre}|oui)[ (#ENV{titre})][ / (#ENV{numeros})][ / (#ENV{prix})]]
 	</li>
 	<li class="c-progress__item[ (#ENV{numero}|oui)is-active]">
-		<span><:vacarme:abonnement_progression_label_numero:></span>[
+		<span><:vacarme:abonnement_resume_label_numero:></span>[
 		(#ENV{numero}|oui ) [(#ENV{numero}|calculer_numero_futur_titre{0})]]
 	</li>
 	<li class="c-progress__item[ (#ENV{cadeau}|oui)is-active]">
-		<span><:vacarme:abonnement_progression_label_cadeau:></span>[
-		(#ENV{cadeau}|=={-1}|?{<:vacarme:abonnement_progression_cadeau_vide:>,#INFO_TITRE{produit, #ENV{cadeau}}})]
+		<span><:vacarme:abonnement_resume_label_cadeau:></span>[
+		(#ENV{cadeau}|=={-1}|?{<:vacarme:abonnement_resume_cadeau_vide:>,#INFO_TITRE{produit, #ENV{cadeau}}})]
 	</li>
 	[<li class="c-progress__item c-progress__item--action">
 		(#ID_ABONNEMENTS_OFFRE|oui)

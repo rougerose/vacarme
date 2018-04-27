@@ -22,12 +22,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'abonnement_numero_1'                            => "Numéro précédent",
 	'abonnement_numero_2'                            => "Numéro actuel",
 	'abonnement_numero_3'                            => "Prochain numéro",
-	'abonnement_progression_label_abonnement'        => "Abonnement : ",
-	'abonnement_progression_label_abonnement_offrir' => "Abonnement offert : ",
-	'abonnement_progression_label_cadeau'            => "Cadeau : ",
-	'abonnement_progression_label_numero'            => "À partir du numéro : ",
-	'abonnement_progression_cadeau_vide'             => "Aucun",
-	'abonnements_progression_titre'                  => "Votre choix",
+	'abonnement_resume_label_abonnement'        => "Abonnement ",
+	'abonnement_resume_label_abonnement_offrir' => "Abonnement offert ",
+	'abonnement_resume_label_beneficiaire' => "Abonnement offert à ",
+	'abonnement_resume_label_cadeau'            => "Votre cadeau ",
+	'abonnement_resume_label_numero'            => "À partir du numéro ",
+	'abonnement_resume_cadeau_vide'             => "aucun",
+	'abonnements_resume_titre'                  => "Votre choix",
 	'abonnement_region_France'                       => "France <span class='u-hide-until-desktop'>(métropole et outre-mer)</span>",
 	'abonnement_region_International'                => "International",
 	'abonnement_sans_cadeau_desc'                    => "Si aucun de ces cadeaux ne vous intéressent. Vous pouvez poursuivre la sélection de votre abonnement sans cadeau.",
@@ -43,6 +44,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	
 	// M
 	'message_erreur_souscription_abonnement' => "Nous sommes désolés, un problème technique ne permet pas de poursuivre la souscription de votre abonnement. Pour résoudre ce problème, veuillez <a href='@url@' class='suite-lien'>nous contacter <em>&#8594;</em></a>",
+	
+	// P
+	'panier_titre' => "Votre panier",
 	
 	// S
 	'sommaire_consulter' => "Le sommaire <em>&#8594;</em>",
