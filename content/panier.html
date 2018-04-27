@@ -1,0 +1,12 @@
+<main id="main" class="c-panier" role="main">
+	<div class="o-wrapper">
+		<div class="o-layout">
+			<div class="o-layout__item">
+				<header class="c-panier-header">
+					<h1 class="c-panier-header__titre u-typo-font-vacarme u-typo-upper"><:vacarme:panier_titre:></h1>
+				</header>
+				<INCLURE{fond=inclure/panier-contenu, _id_panier=#SESSION{id_panier}, ajax, env} />
+			</div>
+		</div>
+	</div>
+</main>
