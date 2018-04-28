@@ -1,31 +1,7 @@
 [(#REM)
-	<!-- 
-		Page Offrir un abonnement, étape 3 :
-			Si la session du payeur est absente : création de son compte ou identification 
-			Si la session du payeur est présente : identité du bénéficiaire 
-	--> 
-]
-[(#SET{formulaire, #ENV{form, inscription}})]
-#SET{etape, #ENV{etape}}
-
-[(#SESSION{id_auteur}|non)
-	<section class="c-abonner-section">
-		[(#GET{formulaire}|=={inscription}|?{
-			[<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_etape_compte_creer_titre:></h2>
-			[(#SET{url, #SELF|parametre_url{form, identification}})]
-			<div class="c-abonner-section__intro">
-				<p><strong><:vacarme:abonnement_etape_compte_login_info{url=#GET{url}}:></a></strong></p>
-			</div>
-				(#FORMULAIRE_INSCRIPTION{6forum})]
-			,
-			[<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_etape_compte_login_titre:></h2>
-			[(#SET{url, #SELF|parametre_url{form, inscription}})]
-			<div class="c-abonner-section__intro">
-				<p><strong><:vacarme:abonnement_etape_compte_creer_info{url=#GET{url}}:></a></strong></p>
-			</div>
-				(#FORMULAIRE_LOGIN)]
-		})]
-	</section>
-][(#SESSION{id_auteur}|oui)
-	[[(#INCLURE{fond=inclure/abonnements/verification-profil-offrir, env})]
-]
+	<!-- Page Offrir un abonnement, étape 3 : coordonnées du bénéficiaire --> 
+][(#SET{redirection, #URL_PAGE{panier}})]
+<section class="c-abonner-section">
+	<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_etape_compte_tiers_creer_titre:></h2>
+	[(#FORMULAIRE_INSCRIPTION_TIERS{6forum, #GET{redirection}})]
+</section>
