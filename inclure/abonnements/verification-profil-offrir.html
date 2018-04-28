@@ -9,7 +9,7 @@
 		[(#GET{prenom}|non)[(#SET{attention, ' '})]]
 		
 		[(#SET{etape, #ENV{etape}|plus{1}})]
-		[(#SET{redirect, #URL_PAGE{#ENV{page}}|parametre_url{etape, #GET{etape}}})]
+		[(#SET{redirect, #URL_PAGE{panier}})]
 		
 		<section class="c-abonner-section">
 			[(#GET{attention}|oui)

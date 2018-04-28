@@ -4,8 +4,9 @@
 	<BOUCLE_contact(CONTACTS){id_auteur}>
 		[(#SET{civilite, #CIVILITE|?{#CIVILITE}})]
 		[(#SET{prenom, #PRENOM|?{#PRENOM}})]
+		
 		[(#SET{etape, #ENV{etape}|plus{1}})]
-		[(#SET{redirect, #URL_PAGE{#ENV{page}}|parametre_url{etape, #GET{etape}}})]
+		[(#SET{redirect, #URL_PAGE{panier}})]
 		
 		<BOUCLE_adresse(ADRESSES){id_auteur}{type=pref}>
 			[(#SET{adresse, ' '})]
