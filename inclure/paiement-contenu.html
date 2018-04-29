@@ -1,0 +1,19 @@
+#CACHE{0}
+<BOUCLE_commande(COMMANDES){id_commande=#ENV{id_commande}}{si #ENV{hash}}>
+	[(#SET{cle, #ID_AUTEUR|vpaniers_calcul_hash_commande{#ID_COMMANDE, #DATE}})]
+	[(#GET{cle}|=={#ENV{hash}}|oui)
+		<p>Votre commande numéro #REFERENCE est prête. Choisissez votre mode de réglement.</p>
+		#INCLURE{fond=inclure/commande-contenu, id_commande}
+		[(#FORMULAIRE_PAYER_ACTE{#PRIX*,
+			#ARRAY{
+				montant_ht,#PRIX_HT*,
+				id_commande,#ID_COMMANDE,
+				id_auteur,#ID_AUTEUR,
+			}
+		})]
+	][(#GET{cle}|=={#ENV{hash}}|non)
+	<p><:vacarme:commande_erreur_hash:></p>
+	]
+</BOUCLE_commande>
+<p><:vacarme:commande_inexistante:></p>
+<//B_commande>

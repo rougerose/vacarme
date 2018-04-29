@@ -22,13 +22,6 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'abonnement_numero_1'                            => "Numéro précédent",
 	'abonnement_numero_2'                            => "Numéro actuel",
 	'abonnement_numero_3'                            => "Prochain numéro",
-	'abonnement_resume_label_abonnement'        => "Abonnement ",
-	'abonnement_resume_label_abonnement_offrir' => "Abonnement offert ",
-	'abonnement_resume_label_beneficiaire' => "Abonnement offert à ",
-	'abonnement_resume_label_cadeau'            => "Votre cadeau ",
-	'abonnement_resume_label_numero'            => "À partir du numéro ",
-	'abonnement_resume_cadeau_vide'             => "aucun",
-	'abonnements_resume_titre'                  => "Votre choix",
 	'abonnement_region_France'                       => "France <span class='u-hide-until-desktop'>(métropole et outre-mer)</span>",
 	'abonnement_region_International'                => "International",
 	'abonnement_sans_cadeau_desc'                    => "Si aucun de ces cadeaux ne vous intéressent. Vous pouvez poursuivre la sélection de votre abonnement sans cadeau.",
@@ -38,14 +31,18 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'choisir'             => "Choisir",
 	'choisir_avec_cadeau' => "Choisir ce cadeau",
 	'choisir_sans_cadeau' => "Poursuivre sans cadeau",
+	'commande_inexistante' => "Cette commande n'existe pas.",
+	'commande_erreur_hash' => "Aucune commande n'est disponible.",
 	
 	'compte_inscription_info' => "Vous n'avez pas de compte ? <a href='@url@' class='suite-lien ajax'>Créez-le <em>&#8594;</em></a>",
 	'compte_identification_info' => "Vous avez déjà un compte ? <a href='@url@' class='suite-lien ajax'>Connectez-vous <em>&#8594;</em></a>",
 	
 	// M
 	'message_erreur_souscription_abonnement' => "Nous sommes désolés, un problème technique ne permet pas de poursuivre la souscription de votre abonnement. Pour résoudre ce problème, veuillez <a href='@url@' class='suite-lien'>nous contacter <em>&#8594;</em></a>",
+	'message_identification_prealable' => "Veuillez vous identifier avant de poursuivre",
 	
 	// P
+	'paiement_titre' => "Paiement de votre commande",
 	'panier_titre' => "Votre panier",
 	
 	// S

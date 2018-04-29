@@ -1,0 +1,21 @@
+<BOUCLE_abonnement(COMMANDES_DETAILS){id_commandes_detail}>
+	[(#NUMERO_DEBUT|match{^v\d+?}|oui)
+		[(#SET{debut, #NUMERO_DEBUT|calculer_numero_futur_titre{0}})]
+	][(#DESCRIPTIF|match{@}|oui)
+		[(#SET{_id_auteur, #DESCRIPTIF|strstr{@}|substr{1}})]
+	]
+	<BOUCLE_offre(ABONNEMENTS_OFFRES){id_abonnements_offre=#ID_OBJET}>
+		[(#SET{titre, #TITRE})]
+		[(#SET{numeros, #DUREE|numeros_nombre_en_clair})]
+	</BOUCLE_offre>
+	<p>
+	[<span><:vpaniers:abonnement_resume_label_abonnement:> (#GET{titre})[ / (#GET{numeros})]</span>]
+	[(#GET{debut}|oui)
+		[<br/><span><:vpaniers:abonnement_resume_label_numero:></span> (#GET{debut})]
+	][(#GET{cadeau}|oui)
+		[<br/><span><:vpaniers:abonnement_resume_label_cadeau:></span> (#GET{cadeau}|=={-1}|?{<:vpaniers:abonnement_resume_cadeau_vide:>,#INFO_TITRE{produit, #GET{cadeau}}})]
+	][(#GET{_id_auteur}|oui)
+		[(#INCLURE{fond=inclure/panier-description-beneficiaire, id_auteur=#GET{_id_auteur}})]
+	]
+	</p>
+</BOUCLE_abonnement>

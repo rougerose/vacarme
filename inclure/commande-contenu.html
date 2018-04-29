@@ -1,0 +1,56 @@
+#SET{id_offre, #ARRAY}
+#SET{id_cadeau, #ARRAY}
+
+<BOUCLE_commande(COMMANDES){id_commande}>
+<BOUCLE_commande_abonnements(COMMANDES_DETAILS){id_commande}{objet=abonnements_offre}{doublons}>
+	[(#SET{id_offre, #GET{id_offre}|push{#ID_COMMANDES_DETAIL}})]
+	[(#SET{like, [\#(#ID_OBJET)-[(#ID_COMMANDES_DETAIL)]]})]
+	<BOUCLE_cadeau_abonnements(COMMANDES_DETAILS){id_commande}{objet=produit}{descriptif LIKE %(#GET{like})%}{doublons}>
+		[(#SET{id_cadeau, #GET{id_cadeau}|push{#ID_COMMANDES_DETAIL}})]
+	</BOUCLE_cadeau_abonnements>
+	<//B_cadeau_abonnements>
+</BOUCLE_commande_abonnements>
+
+<table cellspacing="0">
+	<thead>
+		<tr>
+			<th class="description"><:paniers:panier_description:></th>
+			<th class="prix_unitaire"><:paniers:panier_prix_unitaire:></th>
+			<th class="quantite"><:paniers:panier_quantite:></th>
+			<th class="montant"><:paniers:panier_montant:></th>
+		</tr>
+	</thead>
+	<tbody>
+		<BOUCLE_article_commande(COMMANDES_DETAILS){id_commande}>
+		
+		[(#SET{prix_unitaire,#PRIX*})]
+		[(#SET{tva_objet, #PRIX*|moins{#PRIX_HT*|mult{#QUANTITE}}})]
+		[(#SET{cumul_tva, #GET{cumul_tva}|plus{#GET{tva_objet}}})]
+		[(#SET{cumul_quantite, #GET{cumul_quantite}|plus{#QUANTITE}})]
+		
+		<tr class="article">
+			<td class="description">
+				[(#OBJET|=={abonnements_offre}|oui)
+					#INCLURE{fond=inclure/commande-abonnement-contenu, id_commandes_detail}
+				]
+			</td>
+			<td class="prix_unitaire">#PRIX</td>
+			<td class="quantite">#QUANTITE</td>
+			<td class="montant">[(#PRIX*|mult{#QUANTITE}|prix_formater)]</td>
+		</tr>
+		</BOUCLE_article_commande>
+		<tr class="total_ttc">
+			<td class="description"></td>
+			<td class="total"><:paniers:panier_total_ttc:></td>
+			<td class="quantite">#GET{cumul_quantite}</td>
+			<td class="montant">#PRIX</td>
+		</tr>
+		[(#GET{cumul_tva}|>{0}|oui)
+		<tr class="taxes">
+			<td class="total" colspan="2"><:paniers:dont_total_taxe:></td>
+			<td class="quantite"></td>
+			<td class="montant">[(#GET{cumul_tva}|prix_formater)]</td>
+		</tr>]
+	</tbody>
+</table>
+</BOUCLE_commande>
