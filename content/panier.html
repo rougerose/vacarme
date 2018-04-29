@@ -5,7 +5,7 @@
 				<header class="c-panier-header">
 					<h1 class="c-panier-header__titre u-typo-font-vacarme u-typo-upper"><:vacarme:panier_titre:></h1>
 				</header>
-				[(#INCLURE{fond=inclure/panier-contenu, _id_panier=#SESSION{id_panier}, redirection=#URL_PAGE{paiement}, ajax, env})]
+				<INCLURE{fond=inclure/panier-contenu, _id_panier=#SESSION{id_panier}, redirection=#URL_PAGE{paiement}, ajax, env} />
 			</div>
 		</div>
 	</div>
