@@ -20,16 +20,24 @@
 						<div class="c-card__body">
 							<h3 class="c-card__title c-abonner-numero__titre u-typo-font-vacarme u-typo-upper">#TITRE <small>[(#DATE_NUMERO|vacarme_saison_annee)]</small></h3>
 							<p><a href="#URL_RUBRIQUE" class="suite-lien"><:vacarme:sommaire_consulter:></a></p>
-							[(#SET{options, #ARRAY})]
-							[(#SET{options, #GET{options}|array_merge{#ARRAY{numero, #REFERENCE}}})]
-							[(#SET{options, #GET{options}|array_merge{#ARRAY{cadeau, #ENV{opt_cadeau, ''}}}})]
-							[(#SET{options, #GET{options}|array_merge{#ARRAY{coupon, #ENV{opt_coupon, ''}}}})]
-							[(#SET{options, #GET{options}|serialize})]
-							[(#SET{args, #VAL{abonnements_offre}|concat{/#ENV{id_abonnements_offre}}
-								|concat{/1}|concat{/}|concat{/#GET{options}}})]
+							[(#REM)
+								<!-- 
+								Données attendues pour arg :
+								objet-id_objet-quantite-negatif-coupon/numero/cadeau/action modifier ou ajout/cle
+								-->
+							]
+
+							[(#SET{arg, 
+								#VAL{abonnements_offre-}
+								|concat{#ID_ABONNEMENTS_OFFRE}
+								|concat{-1}
+								|concat{-}
+								|concat{-#ENV{opt_coupon}
+								|concat{/#REFERENCE}
+								|concat{/}|concat{/modifier}|concat{/#ENV{cle}}}})]
 
 							[(#BOUTON_ACTION{<:vacarme:choisir:>, 
-								#URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 3}|parametre_url{id_abonnements_offre, #ENV{id_abonnements_offre}}},
+								#URL_ACTION_AUTEUR{remplir_panier, #GET{arg}, #SELF|parametre_url{etape, 3}|parametre_url{id_abonnements_offre, #ENV{id_abonnements_offre}}},
 								c-btn-form c-btn-form--white c-btn-form--upper u-typo-font-vacarme ajax})]
 						</div>
 					</div>
@@ -52,16 +60,22 @@
 							(#GET{numero_prochain}|table_valeur{titre})] <small>[(#GET{numero_prochain}|table_valeur{date}|vacarme_saison_annee)]</small>
 						</h3>
 						<p>&nbsp;</p>
-						[(#SET{options, #ARRAY})]
-						[(#SET{options, #GET{options}|array_merge{#ARRAY{numero, #GET{numero_prochain}|table_valeur{reference}}}})]
-						[(#SET{options, #GET{options}|array_merge{#ARRAY{cadeau, #ENV{opt_cadeau}}}})]
-						[(#SET{options, #GET{options}|array_merge{#ARRAY{coupon, #ENV{opt_coupon, ''}}}})]
-						[(#SET{options, #GET{options}|serialize})]
-						[(#SET{args, #VAL{abonnements_offre}|concat{/#ENV{id_abonnements_offre}}
-							|concat{/1}|concat{/}|concat{/#GET{options}}})]
+						[(#REM)
+							<!-- 
+							Données attendues pour arg :
+							objet-id_objet-quantite-negatif-coupon/numero/cadeau/action modifier ou ajout/cle
+							-->
+						][(#SET{arg, 
+							#VAL{abonnements_offre-}
+							|concat{#ID_ABONNEMENTS_OFFRE}
+							|concat{-1}
+							|concat{-}
+							|concat{-#ENV{opt_coupon}
+							|concat{/#GET{numero_prochain}|table_valeur{reference}}
+							|concat{/}|concat{/modifier}|concat{/#ENV{cle}}}})]
 
 						[(#BOUTON_ACTION{<:vacarme:choisir:>, 
-							#URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 3}|parametre_url{id_abonnements_offre, #ENV{id_abonnements_offre}}},
+							#URL_ACTION_AUTEUR{remplir_panier, #GET{arg}, #SELF|parametre_url{etape, 3}|parametre_url{id_abonnements_offre, #ENV{id_abonnements_offre}}},
 							c-btn-form c-btn-form--white c-btn-form--upper u-typo-font-vacarme ajax})]
 					</div>
 				</div>

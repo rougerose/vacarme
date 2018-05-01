@@ -45,16 +45,22 @@
 							(#DESCRIPTIF)
 						</div>]
 						[<p class="c-card__prix">(#PRIX)</p>]
-						[(#SET{options, #ARRAY})]
-						[(#SET{options, #GET{options}|array_merge{#ARRAY{numero, #ENV{opt_numero, ''}}}})]
-						[(#SET{options, #GET{options}|array_merge{#ARRAY{cadeau, #ENV{opt_cadeau, ''}}}})]
-						[(#SET{options, #GET{options}|array_merge{#ARRAY{coupon, #ENV{opt_coupon, ''}}}})]
-						[(#SET{options, #GET{options}|serialize})]
-						[(#SET{args, #VAL{abonnements_offre}|concat{/#ID_ABONNEMENTS_OFFRE}
-							|concat{/1}|concat{/}|concat{/#GET{options}}})]
-						
+						[(#REM)
+							<!-- 
+							Données attendues pour arg :
+							objet-id_objet-quantite-negatif-coupon/numero/cadeau/action modifier ou ajout/cle
+							-->
+						]
+						[(#SET{arg, 
+							#VAL{abonnements_offre-}
+							|concat{#ID_ABONNEMENTS_OFFRE}
+							|concat{-1}
+							|concat{-}
+							|concat{-non}
+							|concat{/}|concat{/}|concat{/ajout}|concat{/}})]
+							
 						[(#BOUTON_ACTION{<:vacarme:choisir:>, 
-							#URL_ACTION_AUTEUR{remplir_panier, #GET{args}, #SELF|parametre_url{etape, 2}|parametre_url{id_abonnements_offre, #ID_ABONNEMENTS_OFFRE}},
+							#URL_ACTION_AUTEUR{remplir_panier, #GET{arg}, #SELF|parametre_url{etape, 2}|parametre_url{id_abonnements_offre, #ID_ABONNEMENTS_OFFRE}},
 							c-btn-form c-btn-form--white c-btn-form--upper ajax})]
 					</div>
 				</div>
