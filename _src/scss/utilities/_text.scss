@@ -5,3 +5,8 @@
 .u-textSizeS {
   font-size: smaller;
 }
+
+
+.u-text-intro {
+	@include inuit-font-size(20px);
+}

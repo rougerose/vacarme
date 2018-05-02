@@ -2941,6 +2941,8 @@
 
 /* line 5, _src/scss/utilities/_text.scss */ .u-textSizeS { font-size: smaller; }
 
+/* line 10, _src/scss/utilities/_text.scss */ .u-text-intro { font-size: 20px; font-size: 1.25rem; line-height: 1.2; }
+
 @media print { @page { margin: 0.5cm; }
   /* line 14, _src/scss/utilities/_print.scss */ html { font: 12pt/1.4 "Plantin", "Palatino", serif; }
   /* line 18, _src/scss/utilities/_print.scss */ body { padding: 0; margin: 0 10%; }

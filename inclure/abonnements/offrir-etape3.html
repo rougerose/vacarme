@@ -3,5 +3,7 @@
 ][(#SET{redirection, #URL_PAGE{panier}})]
 <section class="c-abonner-section">
 	<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_etape_compte_tiers_creer_titre:></h2>
-	[(#FORMULAIRE_INSCRIPTION_TIERS{6forum, #GET{redirection}})]
+	<div class="ajax">
+		[(#FORMULAIRE_INSCRIPTION_TIERS{6forum, #GET{redirection}})]
+	</div>
 </section>
