@@ -11,6 +11,12 @@
 		<span><:vpaniers:abonnement_resume_label_cadeau:></span>[
 		(#ENV{cadeau}|=={0}|?{<:vpaniers:abonnement_resume_cadeau_vide:>,#INFO_TITRE{produit, #ENV{cadeau}}})]
 	</li>
+	<li class="c-progress__item[ (#SESSION{id_auteur}|oui)is-active]">
+		[(#SESSION{id_auteur}|?{
+			[<span><:vpaniers:abonnement_resume_label_auteur_on:></span> (#SESSION{nom}|prenom_nom)],
+			<span><:vpaniers:abonnement_resume_label_auteur_off:></span>
+		})]
+	</li>
 	[<li class="c-progress__item c-progress__item--action">
 		(#ID_ABONNEMENTS_OFFRE|oui)
 			[(#SET{arg, #VAL{abonnements_offre-}|concat{#ID_ABONNEMENTS_OFFRE}|concat{-#ENV{cle}}})]

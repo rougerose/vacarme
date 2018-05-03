@@ -60,10 +60,14 @@
 				&:nth-child(3) {
 					background-color: $color-deep-orange-300;
 				}
+				
+				// &:nth-child(4) {
+				// 	background-color: $color-deep-orange-200;
+				// }
 			}
 			
 			&.c-progress__item--action {
-				background-color: $color-deep-orange-200;
+				background-color: $color-deep-orange-100;
 			}
 		}
 	}

@@ -1,7 +1,21 @@
 <ol class="c-progress[ c-progress--colorbg-(#ENV{type_offre})]">
 	<li class="c-progress__item[ (#ENV{type_offre}|oui)is-active]">
-		<span><:vpaniers:abonnement_resume_label_abonnement_offrir:></span>[
+		<span><:vpaniers:abonnement_resume_label_abonnement:></span>[
 		(#ENV{titre}|oui)[ (#ENV{titre})][ / (#ENV{numeros})][ / (#ENV{prix})]]
+	</li>
+	<li class="c-progress__item[ (#SESSION{id_auteur}|oui)is-active]">
+		[(#SESSION{id_auteur}|?{
+			[<span><:vpaniers:abonnement_resume_label_auteur_on:></span> (#SESSION{nom}|prenom_nom)],
+			<span><:vpaniers:abonnement_resume_label_auteur_off:></span>
+		})]
+	</li>
+	<li class="c-progress__item[ (#ENV{beneficiaire}|is_numeric|oui)is-active]">
+		[(#ENV{beneficiaire}|is_numeric|?{
+			[<span><:vpaniers:abonnement_resume_label_beneficiaire_on:></span>
+			(#ENV{beneficiaire}|is_numeric|oui) [(#INFO_NOM{auteur, #ENV{beneficiaire}}|prenom_nom)]],
+			<span><:vpaniers:abonnement_resume_label_beneficiaire_off:></span>
+		})]
+		
 	</li>
 	[<li class="c-progress__item c-progress__item--action">
 		(#ID_ABONNEMENTS_OFFRE|oui)
