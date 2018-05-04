@@ -1,6 +1,6 @@
 [(#REM)
 	<!-- Page Abonnement, étape 3 : cadeau --> 
-]
+][(#ENV{id_abonnements_offre}|=={' '}|oui,non)]
 <B_cadeaux>
 	<section class="c-abonner-section">
 		<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_etape_cadeau_titre:></h2>
@@ -8,7 +8,7 @@
 			<p><:vacarme:abonnement_etape_cadeau_desc:></p>
 		</div>
 		<ul class="o-layout">
-			<BOUCLE_cadeaux(PRODUITS){id_rubrique}{par titre}>
+			<BOUCLE_cadeaux(PRODUITS){id_rubrique}{par titre}{si #ENV{id_abonnements_offre}|oui}>
 				<li class="o-layout__item">
 					<div class="c-card c-card--media c-abonner-cadeau c-abonner-couleur c-abonner-couleur--bgc-abonnement">
 						[(#SET{logo, #LOGO_PRODUIT|extraire_attribut{src}})]
@@ -68,3 +68,5 @@
 		</ul>
 	</section>
 </B_cadeaux>
+<p class="c-message c-message--error"><:vacarme:abonnement_erreur_etape_numero{url=#URL_PAGE{abonner}}:></p>
+<//B_cadeaux>

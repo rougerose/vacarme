@@ -11,7 +11,7 @@
 	<section class="c-abonner-section">
 		<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_etape_numero_titre:></h2>
 		<ul class="o-layout">
-			<BOUCLE_numeros(RUBRIQUES){id_rubrique IN #GET{numeros}}{par titre}>
+			<BOUCLE_numeros(RUBRIQUES){id_rubrique IN #GET{numeros}}{par titre}{si #ENV{id_abonnements_offre}|oui}>
 				<li class="o-layout__item u-1/3@tabletPlus">
 					<div class="c-card c-abonner-numero c-abonner-couleur c-abonner-couleur--bgc-abonnement">
 						<p class="c-abonner-numero__surtitre u-typo-font-vacarme u-typo-upper"><:vacarme:{=abonnement_numero_#COMPTEUR_BOUCLE}:></p>
@@ -83,6 +83,6 @@
 		</ul>
 	</section>
 </B_numeros>
-	<p class="c-message c-message--error"><:vacarme:abonnement_erreur_etape_numero{url=#URL_RUBRIQUE}:></p>
+	<p class="c-message c-message--error"><:vacarme:abonnement_erreur_etape_numero{url=#URL_PAGE{abonner}}:></p>
 <//B_numeros>
 #FILTRE{mini_html}
