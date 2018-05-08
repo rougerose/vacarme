@@ -2,7 +2,7 @@
 	<!-- Page Abonnement, étape 1 : offre d'abonnement -->
 ]
 #SET{regions, #ARRAY}
-#SET{region, #ENV{region, 1063}}
+#SET{region, #ENV{region, 1077}}
 
 <section class="c-abonner-section">
 	<header class="c-abonner-section__header">
@@ -14,7 +14,7 @@
 	<B_regions_abonnements>
 		<nav class="c-tab-nav">
 			<ul class="c-tab-nav__list">
-				<BOUCLE_regions_abonnements(MOTS spip_mots_liens){id_groupe=23}{objet=abonnements_offre}{par num titre}>
+				<BOUCLE_regions_abonnements(MOTS spip_mots_liens){id_groupe=20}{objet=abonnements_offre}{par num titre}>
 				<li class="c-tab-nav__item"><a href="[(#SELF|parametre_url{region, #ID_MOT})]" class="c-tab-nav__link [(#GET{region}|=={#ID_MOT}|oui) is-selected] ajax" role="tab" aria-selected="[(#GET{region}|=={#ID_MOT}|?{true, false})]"><:vacarme:abonnement_region_{=#TITRE}:></a></li>
 				</BOUCLE_regions_abonnements>
 			</ul>
@@ -23,7 +23,7 @@
 			<BOUCLE_total_duree(ABONNEMENTS_OFFRES spip_mots_liens){duree=#DUREE}{id_mot=#GET{region}}{doublons}>
 				#SET{total, #TOTAL_BOUCLE}
 			</BOUCLE_total_duree>
-			<BOUCLE_type_offre(MOTS){id_abonnements_offre}{id_groupe=24}>
+			<BOUCLE_type_offre(MOTS){id_abonnements_offre}{id_groupe=21}>
 				#SET{type, #ID_MOT}
 			</BOUCLE_type_offre>
 

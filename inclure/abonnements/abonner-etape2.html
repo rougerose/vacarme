@@ -3,7 +3,8 @@
 ]
 [(#REM) <!-- Les deux derniers numéros disponibles --> ]
 	#SET{numeros, #ARRAY}
-<BOUCLE_derniers_numeros(RUBRIQUES){id_parent=115}{id_mot!=108}{!par titre}{0,2}>
+<BOUCLE_epuise(RUBRIQUES){id_parent=115}{id_mot=108}{doublons}> </BOUCLE_epuise>
+<BOUCLE_derniers_numeros(RUBRIQUES){id_parent=115}{!par titre}{0,2}{doublons}>
 	[(#SET{numeros, #GET{numeros}|push{#ID_RUBRIQUE}})]
 </BOUCLE_derniers_numeros>
 
