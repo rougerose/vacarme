@@ -369,7 +369,7 @@
 		  position: relative;
 		}
 		.resume-numero__titre {
-		    line-height: 1;
+		    line-height: 1.1;
 		}
 		// SUPPRIMER
 		// .resume-numero__titre--m {
@@ -438,6 +438,7 @@
 		    position: relative;
 		    @include media-query(palm) {
 		        border: 0;
+				margin-bottom: $base-spacing-unit;
 		        .resume__figure {
 		            margin-bottom: 0;
 		        }

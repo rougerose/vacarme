@@ -1,12 +1,21 @@
 {
   "name": "vacarme",
-  "version": "0.1.0",
+  "description": "vacarme.org",
+  "main": "",
   "authors": [
-    "christophe le drean <christophe@rouge-rose.net>"
+    "christophe le drean"
   ],
   "license": "N/A",
+  "homepage": "https://github.com/rougerose/vacarme",
   "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
   "dependencies": {
-    "inuit.css": "*",
+    "inuit.css": "^5.0.1"
   }
 }
