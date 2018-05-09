@@ -70,3 +70,38 @@
 		]
 	</BOUCLE_abonnement>
 </BOUCLE_tableau>
+[(#ENV{contexte}|=={abonner}|oui)
+	<ol class="c-progress">
+		<li class="c-progress__item">
+			<span><:vpaniers:abonnement_resume_label_abonnement:></span>
+		</li>
+		<li class="c-progress__item">
+			<span><:vpaniers:abonnement_resume_label_numero:></span>
+		</li>
+		<li class="c-progress__item">
+			<span><:vpaniers:abonnement_resume_label_cadeau:></span>
+		</li>
+		<li class="c-progress__item[ (#SESSION{id_auteur}|oui)is-active]">
+			[(#SESSION{id_auteur}|?{
+				[<span><:vpaniers:abonnement_resume_label_auteur_on:></span> (#SESSION{nom}|prenom_nom)],
+				<span><:vpaniers:abonnement_resume_label_auteur_off:></span>
+			})]
+		</li>
+	</ol>]
+[(#ENV{contexte}|=={offrir}|oui)
+	<ol class="c-progress">
+		<li class="c-progress__item">
+			<span><:vpaniers:abonnement_resume_label_abonnement:></span>
+		</li>
+		<li class="c-progress__item">
+			[(#SESSION{id_auteur}|?{
+				[<span><:vpaniers:abonnement_resume_label_auteur_on:></span> (#SESSION{nom}|prenom_nom)],
+				<span><:vpaniers:abonnement_resume_label_auteur_off:></span>
+			})]
+		</li>
+		<li class="c-progress__item">
+				<span><:vpaniers:abonnement_resume_label_beneficiaire_off:></span>
+		</li>
+	</ol>
+]
+<//B_tableau>

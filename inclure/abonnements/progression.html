@@ -25,9 +25,9 @@
 		<BOUCLE_condition_et_affichage(CONDITION){si (#GET{abos}|count|>{0})}>
 			<INCLURE{fond=inclure/abonnements/progression-abonnement, abos=#GET{abos}} />
 		</BOUCLE_condition_et_affichage>
-		<INCLURE{fond=inclure/abonnements/abonner-progression-panier}/>
+		<INCLURE{fond=inclure/abonnements/progression-abonnement, contexte=#ENV{contexte}} />
 		<//B_condition_et_affichage>
 	</B_progression>
-	<INCLURE{fond=inclure/abonnements/abonner-progression-panier}/>
+	<INCLURE{fond=inclure/abonnements/progression-abonnement, contexte=#ENV{contexte}} />
 	<//B_progression>
 </section>
