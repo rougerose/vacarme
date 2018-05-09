@@ -2,7 +2,7 @@
 [(#SET{abos, #ARRAY})]
 <section class="c-abonner-choix">
 	<h2><:vpaniers:abonnements_resume_titre:></h2>
-	<BOUCLE_progression(PANIERS_LIENS){id_panier=#ENV{id_panier}}>#ID_PANIER
+	<BOUCLE_progression(PANIERS_LIENS){id_panier=#ENV{id_panier}}>
 		[(#SET{options, #OPTIONS})]
 		<BOUCLE_options(DATA){source table, #GET{options}}{si (#OBJET|=={abonnements_offre})}>
 			[(#SET{cle, #COMPTEUR_BOUCLE|moins{1}})]
