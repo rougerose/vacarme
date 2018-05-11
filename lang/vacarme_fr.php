@@ -16,9 +16,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'abonnement_etape_compte_login_info'             => "Vous avez déjà un compte ? <a href='@url@' class='suite-lien ajax'>Connectez-vous <em>&#8594;</em></a>",
 	'abonnement_etape_compte_login_titre'            => "Accéder à votre compte",
 	'abonnement_etape_compte_tiers_creer_titre'      => "À propos du bénéficiaire de votre cadeau",
-	'abonnement_etape_numero_titre'                  => "2. Choisissez le premier numéro de votre abonnement",
+	'abonnement_etape_numero_titre'                  => "Choisissez le premier numéro de votre abonnement",
 	'abonnement_etape_compte_verifier_titre'         => "Vérifiez votre compte",
-	'abonnement_offrir_etape_numero_titre'           => "2. Choisissez le premier numéro de l'abonnement",
+	'abonnement_offrir_etape_numero_titre'           => "Choisissez le premier numéro de l'abonnement",
 	'abonnement_numero_1'                            => "Numéro précédent",
 	'abonnement_numero_2'                            => "Numéro actuel",
 	'abonnement_numero_3'                            => "Prochain numéro",
@@ -28,13 +28,18 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'abonnement_sans_cadeau_titre'                   => "Pas de cadeau",
 	
 	// C
-	'choisir'             => "Choisir",
-	'choisir_avec_cadeau' => "Choisir ce cadeau",
-	'choisir_sans_cadeau' => "Poursuivre sans cadeau",
-	'commande_inexistante' => "Cette commande n'existe pas.",
-	'commande_erreur_hash' => "Aucune commande n'est disponible.",
-	
-	'compte_inscription_info' => "Vous n'avez pas de compte ? <a href='@url@' class='suite-lien ajax'>Créez-le <em>&#8594;</em></a>",
+	'cadeau_erreur_hash' => "La page que vous demandez n'est pas disponible",
+	'cadeau_etape_confirmation_titre' => "Confirmation de votre abonnement",
+	'cadeau_etape_code_titre'    => "1. Validez votre code cadeau",
+	'cadeau_etape_profil_titre'  => "2. Confirmez vos informations personnelles",
+	'cadeau_etape_profil_intro'  => "Veuillez saisir votre mot de passe et confirmer (ou modifier) vos coordonnées.",
+	'cadeau_titre_abonnement'    => "Votre abonnement offert",
+	'choisir'                    => "Choisir",
+	'choisir_avec_cadeau'        => "Choisir ce cadeau",
+	'choisir_sans_cadeau'        => "Poursuivre sans cadeau",
+	'commande_inexistante'       => "Cette commande n'existe pas.",
+	'commande_erreur_hash'       => "Aucune commande n'est disponible.",
+	'compte_inscription_info'    => "Vous n'avez pas de compte ? <a href='@url@' class='suite-lien ajax'>Créez-le <em>&#8594;</em></a>",
 	'compte_identification_info' => "Vous avez déjà un compte ? <a href='@url@' class='suite-lien ajax'>Connectez-vous <em>&#8594;</em></a>",
 	
 	// M

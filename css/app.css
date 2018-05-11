@@ -2335,11 +2335,11 @@
 
 /* line 35, _src/scss/components/_formulaire_modifier_profil.scss */ .formulaire_modifier_profil .editer_civilite .choix { margin-right: 24px; }
 
-/* line 40, _src/scss/components/_formulaire_modifier_profil.scss */ .formulaire_modifier_profil .editer_nom, .formulaire_modifier_profil .editer_prenom, .formulaire_modifier_profil .editer_complement, .formulaire_modifier_profil .editer_boite_postale, .formulaire_modifier_profil .editer_code_postal, .formulaire_modifier_profil .editer_ville, .formulaire_modifier_profil .editer_region, .formulaire_modifier_profil .editer_pays { width: 100%; }
+/* line 40, _src/scss/components/_formulaire_modifier_profil.scss */ .formulaire_modifier_profil .editer_nom, .formulaire_modifier_profil .editer_prenom, .formulaire_modifier_profil .editer_password, .formulaire_modifier_profil .editer_password_confirmation, .formulaire_modifier_profil .editer_complement, .formulaire_modifier_profil .editer_boite_postale, .formulaire_modifier_profil .editer_code_postal, .formulaire_modifier_profil .editer_ville, .formulaire_modifier_profil .editer_region, .formulaire_modifier_profil .editer_pays { width: 100%; }
 
-@media (min-width: 48em) { /* line 40, _src/scss/components/_formulaire_modifier_profil.scss */ .formulaire_modifier_profil .editer_nom, .formulaire_modifier_profil .editer_prenom, .formulaire_modifier_profil .editer_complement, .formulaire_modifier_profil .editer_boite_postale, .formulaire_modifier_profil .editer_code_postal, .formulaire_modifier_profil .editer_ville, .formulaire_modifier_profil .editer_region, .formulaire_modifier_profil .editer_pays { width: 48%; } }
+@media (min-width: 48em) { /* line 40, _src/scss/components/_formulaire_modifier_profil.scss */ .formulaire_modifier_profil .editer_nom, .formulaire_modifier_profil .editer_prenom, .formulaire_modifier_profil .editer_password, .formulaire_modifier_profil .editer_password_confirmation, .formulaire_modifier_profil .editer_complement, .formulaire_modifier_profil .editer_boite_postale, .formulaire_modifier_profil .editer_code_postal, .formulaire_modifier_profil .editer_ville, .formulaire_modifier_profil .editer_region, .formulaire_modifier_profil .editer_pays { width: 48%; } }
 
-/* line 54, _src/scss/components/_formulaire_modifier_profil.scss */ .formulaire_modifier_profil .editer_email, .formulaire_modifier_profil .editer_organisation, .formulaire_modifier_profil .editer_voie { width: 100%; }
+/* line 56, _src/scss/components/_formulaire_modifier_profil.scss */ .formulaire_modifier_profil .editer_email, .formulaire_modifier_profil .editer_organisation, .formulaire_modifier_profil .editer_voie { width: 100%; }
 
 /* line 13, _src/scss/components/_formulaire_inscription.scss */ .formulaire_inscription .formulaire__groupe .editer-groupe { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -ms-flex-wrap: wrap; flex-wrap: wrap; }
 

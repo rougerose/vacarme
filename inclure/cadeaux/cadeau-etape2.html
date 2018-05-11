@@ -1,2 +1,21 @@
-
-	#FORMULAIRE_ACTIVER_COUPON
+<BOUCLE_auteur(AUTEURS){id_auteur=#SESSION{id_auteur}}{tout}>
+	<BOUCLE_abonnement(ABONNEMENTS){id_auteur}>
+	[(#SET{cle, #ID_AUTEUR|vabonnements_calcul_hash_abonnement{#ID_ABONNEMENT, #DATE}})]
+	</BOUCLE_abonnement>
+	[(#GET{cle}|=={#ENV{hash}}|oui)
+		<section class="c-cadeau-section">
+			<header class="c-cadeau-section__header">
+				<h2 class="c-cadeau-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:cadeau_etape_profil_titre:></h2>
+				<div class="c-cadeau-section__intro">
+					<p><:vacarme:cadeau_etape_profil_intro:></p>
+				</div>
+			</header>
+			[(#SET{retour, #URL_PAGE{cadeau}|parametre_url{etape, 3}|parametre_url{hash, #ENV{hash}}})]
+			[<div class="ajax">
+				(#FORMULAIRE_MODIFIER_PROFIL{#SESSION{id_auteur}, #GET{retour}, password})
+			</div>]
+		</section>
+	][(#GET{cle}|=={#ENV{hash}}|non)
+		<p class="c-message c-message--erreur"><:vacarme:cadeau_erreur_hash:></p>
+	]
+</BOUCLE_auteur>
