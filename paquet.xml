@@ -19,11 +19,11 @@
     <necessite nom="newsletters" compatibilite="[1.5.3;[" />
     <necessite nom="compositions" compatibilite="[3.6.0;[" />
 	
-	<!-- <necessite nom="vextras" /> -->
 	<necessite nom="vabonnements" />
 	<necessite nom="vpaniers_options" />
 	<necessite nom="vprofils" />
 	
+	<utilise nom="bank" />
 	<utilise nom="paniers" />
     <utilise nom="a2a" compatibilite="[2.2.2;[" />
     <utilise nom="bellespuces" compatibilite="[0.1.7;[" />

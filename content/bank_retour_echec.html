@@ -1,0 +1,16 @@
+<main id="main" class="" role="main">
+	<div class="o-wrapper">
+		<div class="o-layout">
+			<div class="o-layout__item">
+				<header class="XXXXc-panier-header">
+					<h1 class="XXXXc-panier-header__titre u-typo-font-vacarme u-typo-upper"><:bank:titre_reglement_annule:></h1>
+				</header>
+				<BOUCLE_message(TRANSACTIONS){id_transaction}{transaction_hash}>[
+					(#MESSAGE|propre)
+				]</BOUCLE_message>
+					<p><:bank:confirme_reglement_annule:></p>
+				<//B_message>
+			</div>
+		</div>
+	</div>
+</main>
