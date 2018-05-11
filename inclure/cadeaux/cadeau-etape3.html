@@ -3,7 +3,7 @@
 	[(#SET{id_abonnement, #ID_ABONNEMENT})]
 	[(#SET{cle, #ID_AUTEUR|vabonnements_calcul_hash_abonnement{#ID_ABONNEMENT, #DATE}})]
 	</BOUCLE_abonnement>
-	<BOUCLE_condition_hash(CONDITION){si #GET{cle}|=={#ENV{hash}}}>
+	<BOUCLE_condition_hash(CONDITION){si #GET{cle}|=={#ENV{cadeau_hash}}}>
 		#SET{numeros, #ARRAY}
 		<section class="c-cadeau-section">
 			<header class="c-cadeau-section__header">
