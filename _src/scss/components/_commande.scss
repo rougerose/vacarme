@@ -1,0 +1,54 @@
+// =====================================
+// Commande
+// =====================================
+
+
+// 
+// Pour le panier et le récap de commande
+// 
+
+.c-commande {}
+
+
+
+//
+// c-commande-table
+// -------------------------------------
+
+.c-commande-table {
+	@include inuit-font-size(18px);
+}
+
+
+.c-commande-table__row {
+	border-bottom: 1px solid $color-black;
+	
+	&--total {
+		font-weight: bold;
+		@include inuit-font-size(20px);
+	}
+	
+	&--taxes {
+		color: $color-gray-500;
+		@include inuit-font-size(16px);
+	}
+}
+
+
+
+//
+// c-commande-item
+// -------------------------------------
+
+.c-commande-item {}
+
+
+.c-commande-item__desc {
+	p {
+		margin-bottom: 0;
+	}
+}
+
+.c-commande-item__title {
+	font-weight: bold;
+}
