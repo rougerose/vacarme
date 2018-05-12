@@ -120,24 +120,43 @@
 
 
 	//
-	// c-abonner-offres
+	// c-abonner-liste-offres
 	// -------------------------------------
 	
-	.c-abonner-offres {
+	.c-abonner-liste-offres {
 		font-family: $font-helvetica;
 		text-transform: uppercase;
 	}
 	
-		.c-abonner-offres__header {
+		.c-abonner-liste-offres__header {
 			margin-top: $spacing-unit;
 		}
 		
-		.c-abonner-offres__titre {
+		.c-abonner-liste-offres__titre {
 			> .o-icon {
 				margin: 0 $spacing-unit-tiny;
 				vertical-align: middle;
 			}
 		}
+	
+	
+	//
+	// c-abonner-offre
+	// -------------------------------------
+	
+	.c-abonner-offre {}
+	
+	.c-abonner-offre__title {
+		margin-bottom: $spacing-unit-tiny;
+	}
+	
+	.c-abonner-offre__desc {
+		text-transform: none;
+		@include inuit-font-size(15px, 1.2);
+		// p {
+		// 	margin-bottom: $spacing-unit-tiny;
+		// }
+	}
 
 
 

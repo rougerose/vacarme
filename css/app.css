@@ -2385,19 +2385,23 @@
 
 /* line 115, _src/scss/components/_abonner.scss */ .c-abonner-couleur--bgc-abonnement { background-color: #f9a825; }
 
-/* line 126, _src/scss/components/_abonner.scss */ .c-abonner-offres { font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase; }
+/* line 126, _src/scss/components/_abonner.scss */ .c-abonner-liste-offres { font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase; }
 
-/* line 131, _src/scss/components/_abonner.scss */ .c-abonner-offres__header { margin-top: 24px; }
+/* line 131, _src/scss/components/_abonner.scss */ .c-abonner-liste-offres__header { margin-top: 24px; }
 
-/* line 136, _src/scss/components/_abonner.scss */ .c-abonner-offres__titre > .o-icon { margin: 0 6px; vertical-align: middle; }
+/* line 136, _src/scss/components/_abonner.scss */ .c-abonner-liste-offres__titre > .o-icon { margin: 0 6px; vertical-align: middle; }
 
-/* line 150, _src/scss/components/_abonner.scss */ .c-abonner-numero__surtitre { margin-bottom: 12px; font-size: 22px; font-size: 1.375rem; line-height: 1.36364; font-weight: bold; }
+/* line 149, _src/scss/components/_abonner.scss */ .c-abonner-offre__title { margin-bottom: 6px; }
 
-@media (min-width: 48em) { /* line 150, _src/scss/components/_abonner.scss */ .c-abonner-numero__surtitre { font-size: 16px; font-size: 1rem; line-height: 1.5; } }
+/* line 153, _src/scss/components/_abonner.scss */ .c-abonner-offre__desc { text-transform: none; font-size: 15px; font-size: 0.9375rem; line-height: 1.2; }
 
-/* line 161, _src/scss/components/_abonner.scss */ .c-abonner-numero__titre small { display: block; font-weight: 300; }
+/* line 169, _src/scss/components/_abonner.scss */ .c-abonner-numero__surtitre { margin-bottom: 12px; font-size: 22px; font-size: 1.375rem; line-height: 1.36364; font-weight: bold; }
 
-/* line 172, _src/scss/components/_abonner.scss */ .c-abonner-cadeau { padding: 24px; }
+@media (min-width: 48em) { /* line 169, _src/scss/components/_abonner.scss */ .c-abonner-numero__surtitre { font-size: 16px; font-size: 1rem; line-height: 1.5; } }
+
+/* line 180, _src/scss/components/_abonner.scss */ .c-abonner-numero__titre small { display: block; font-weight: 300; }
+
+/* line 191, _src/scss/components/_abonner.scss */ .c-abonner-cadeau { padding: 24px; }
 
 /* line 15, _src/scss/components/_inscription.scss */ .c-inscription__form { border: 2px solid #191929; padding: 24px 24px 0; }
 

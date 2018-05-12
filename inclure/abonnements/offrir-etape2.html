@@ -11,7 +11,7 @@
 [(#SESSION{id_auteur}|non)
 	<section class="c-abonner-section">
 		[(#GET{formulaire}|=={inscription}|?{
-			[<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_etape_compte_creer_titre:></h2>
+			[<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper">2. <:vacarme:abonnement_etape_compte_creer_titre:></h2>
 			[(#SET{url, #SELF|parametre_url{form, identification}})]
 			<div class="c-abonner-section__intro">
 				<p><strong><:vacarme:abonnement_etape_compte_login_info{url=#GET{url}}:></a></strong></p>

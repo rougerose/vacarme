@@ -4,11 +4,11 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
 
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// A
-	'abonnement_etape_cadeau_titre'                  => "3. Votre cadeau.",
+	'abonnement_etape_cadeau_titre'                  => "Votre cadeau.",
 	'abonnement_etape_cadeau_desc'                   => "Pour vous remercier de votre abonnement, Vacarme vous offre un cadeau.",
 	'abonnement_erreur_etape_numero'                 => "Il y a un problème : des informations sont manquantes ou incohérentes. <br /> Veuillez d'abord choisir <a href='@url@'>un abonnement parmi ceux disponibles</a>.",
-	'abonnement_souscrire_etape_abonnement_titre'    => "1. Choisissez votre abonnement",
-	'abonnement_offrir_etape_abonnement_titre'       => "1. Quel abonnement souhaitez-vous offrir ?",
+	'abonnement_souscrire_etape_abonnement_titre'    => "Choisissez votre abonnement",
+	'abonnement_offrir_etape_abonnement_titre'       => "Quel abonnement souhaitez-vous offrir ?",
 	'abonnement_souscrire_etape_abonnement_desc'     => "Veuillez choisir votre abonnement selon votre localisation  : France (Métropole et Outre-mer) ou International.",
 	'abonnement_offrir_etape_abonnement_desc'        => "Veuillez choisir un abonnement selon la localisation de la personne —&nbsp;France (Métropole et Outre-mer) ou International&nbsp;— qui en bénéficiera.",
 	'abonnement_etape_compte_creer_info'             => "Vous n'avez pas de compte ? <a href='@url@' class='suite-lien ajax'>Créez-le <em>&#8594;</em></a>",
