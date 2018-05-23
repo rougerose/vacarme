@@ -94,3 +94,25 @@ input[type="checkbox"] {
 	.erreur_message {
 		color: $color-error;
 	}
+	
+	// ----- reponse_formulaire ----- //
+	
+	.reponse_formulaire {
+		padding: $message-padding;
+		@include inuit-font-size(18px);
+		text-align: center;
+		
+		> a {
+			border-bottom: $message-border-lien;
+		}
+		
+		&_erreur {
+			border: $message-border-erreur;
+		}
+		
+		
+		&_ok {
+			border: $message-border-ok;
+		}
+	}
+	

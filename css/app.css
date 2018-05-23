@@ -2321,6 +2321,14 @@
 
 /* line 94, _src/scss/components/_formulaire_spip.scss */ .erreur_message { color: #e75d32; }
 
+/* line 100, _src/scss/components/_formulaire_spip.scss */ .reponse_formulaire { padding: 24px 24px 12px; font-size: 18px; font-size: 1.125rem; line-height: 1.33333; text-align: center; }
+
+/* line 105, _src/scss/components/_formulaire_spip.scss */ .reponse_formulaire > a { border-bottom: 1px dotted #e88e0e; }
+
+/* line 109, _src/scss/components/_formulaire_spip.scss */ .reponse_formulaire_erreur { border: 3px solid #e75d32; }
+
+/* line 114, _src/scss/components/_formulaire_spip.scss */ .reponse_formulaire_ok { border: 3px solid #c1e732; }
+
 /* line 7, _src/scss/components/_formulaire_login.scss */ .formulaire_login #pass_securise { position: absolute; margin-top: 12px; margin-left: -24px; }
 
 /* line 13, _src/scss/components/_formulaire_login.scss */ .formulaire_login .details { margin-top: 12px; }

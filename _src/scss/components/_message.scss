@@ -6,12 +6,12 @@
 // =====================================
 
 .c-message {
-	padding: $spacing-unit $spacing-unit $spacing-unit-small;
+	padding: $message-padding;
 	@include inuit-font-size(20px);
 	text-align: center;
 	
 	> a {
-		border-bottom: 1px dotted $link-color;
+		border-bottom: $message-border-lien;
 	}
 	
 	//
@@ -19,16 +19,16 @@
 	// -------------------------------------
 
 	&--erreur {
-		border: 3px solid $color-error;
+		border: $message-border-erreur;
 	}
 	
 	
 	&--ok {
-		border: 3px solid $color-lime-500;
+		border: $message-border-ok;
 	}
 	
 	
 	&--attention {
-		border: 2px solid $color-lime-500;
+		border: $message-border-attention;
 	}
 }
