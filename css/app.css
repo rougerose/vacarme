@@ -2222,7 +2222,7 @@
 
 /* line 11, _src/scss/components/_site-nav.scss */ .c-site-nav__shortcuts { font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase; }
 
-/* line 23, _src/scss/components/_site-nav.scss */ .c-site-nav__main { margin-bottom: 48px; padding: 24px 0; font-size: 20px; font-size: 1.25rem; line-height: 1.5; }
+/* line 23, _src/scss/components/_site-nav.scss */ .c-site-nav__main { margin-bottom: 48px; padding: 24px 0; font-size: 18px; font-size: 1.125rem; line-height: 1.33333; }
 
 /* line 33, _src/scss/components/_site-nav.scss */ .c-site-nav__list { margin: 0; list-style: none; }
 
