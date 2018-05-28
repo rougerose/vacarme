@@ -1,0 +1,129 @@
+// =====================================
+// c-pagination
+// =====================================
+
+
+.c-pagination {
+	position: relative;
+}
+
+
+//
+// c-pagination__label
+// -------------------------------------
+
+.c-pagination__label {
+	@include font-size(16px);
+	display: inline-block;
+	// color: $couleur-gris-bleu;
+	margin-right: 2em;
+}
+
+
+//
+// c-pagination__liste
+// -------------------------------------
+
+.c-pagination__liste {
+	list-style: none;
+	margin-left: 0;
+}
+
+
+//
+// c-pagination__item
+// -------------------------------------
+
+.c-pagination__item {
+	display: inline-block;
+	
+	& a,
+	& span,
+	& strong {
+		display: block;
+		padding: 0 0.35em;
+		margin: 0 0.15em;
+	}
+	
+	&.is-disabled {
+		strong.on {
+			font-weight: normal;
+			color: $color-gray-400;
+		}
+	}
+}
+
+.c-pagination__tbc {
+	color: $color-gray-400;
+}
+
+
+// =====================================
+// VARIANTES
+// =====================================
+
+//
+// c-pagination--bottom
+// -------------------------------------
+
+.c-pagination--bottom {
+	border-top: 1px solid $color-gray-300;
+	
+	.c-pagination__item {
+		margin-top: -1px;
+		
+		& a,
+		& span,
+		& strong {
+			border-top: 1px solid transparent;
+			padding-top: $spacing-unit-tiny;
+		}
+		
+		& strong.on {
+			border-top-color: $color-cyan-800;
+			color: $color-cyan-600;
+		}
+		
+		&.is-disabled strong.on {
+			border-top-color: transparent;
+			color: $color-gray-400;
+		}
+	}
+}
+
+
+//
+// c-pagination--numeros
+// -------------------------------------
+
+.c-pagination--numeros {
+	text-align: center;
+	
+	
+	.c-pagination__item {
+		
+		@include mq($until: desktop) {
+			display: none;
+		}
+		
+		&--prev,
+		&--next {
+			display: inline-block;
+		}
+	}
+	
+}
+
+
+//
+// c-pagination__item--prev
+// c-pagination__item--next
+// -------------------------------------
+
+.c-pagination__item {
+	
+	// &--prev,
+	// &--next {
+	// 
+	// }
+}
