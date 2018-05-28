@@ -1,0 +1,24 @@
+// =====================================
+// lien
+// =====================================
+
+
+.c-lien {
+	border-bottom: 1px solid $color-black;
+	color: $color-black;
+	font-style: italic;
+	
+	em {
+		font-style: normal;
+		transition: all 0.35s ease-out;
+	}
+	
+	&:hover {
+		color: $color-lien;
+		border-color: $color-lien;
+		em {
+			padding-left: 0.5em;
+			color: currentColor;
+		}
+	}
+}

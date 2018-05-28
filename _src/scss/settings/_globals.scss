@@ -157,6 +157,10 @@ $couleur-print: #000;
 	$color-blue-500: hsl(240, 50%, 50%);
 	$color-blue-600: hsl(240, 50%, 38%);
 	
+	// color-cyan
+	$color-cyan-500: hsl(187,100%,42%);
+	
+	
 	// color-lime
 	$color-lime-500: #c1e732;
 	
@@ -165,6 +169,11 @@ $couleur-print: #000;
 	
 	// alias
 	$color-error: $color-red;
+	
+	
+	// ----- color-lien ----- //
+	$color-lien: $color-cyan-500;
+	
 	
 	// ----- site-nav ----- //
 	$zindex-site-nav__menu: 100;
@@ -175,10 +184,11 @@ $couleur-print: #000;
 	
 	// ----- transitions ----- //
 	$transform-transition: transform 0.15s cubic-bezier(0.33, 0.66, 0.66, 1);
+	$lien-transition: 0.35s ease-out;
 	
 	// ----- message et reponse_formulaire ----- //
 	$message-padding: $inuit-global-spacing-unit $inuit-global-spacing-unit $inuit-global-spacing-unit-small;
-	$message-border-erreur: 3px solid $color-error;
+	$message-border-erreur: 3px solid $color-red;
 	$message-border-ok: 3px solid $color-lime-500;
 	$message-border-attention: 2px solid $color-lime-500;
 	$message-border-lien: 1px dotted $link-color;
