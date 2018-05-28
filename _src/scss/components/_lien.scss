@@ -9,8 +9,9 @@
 	font-style: italic;
 	
 	em {
+		color: currentColor;
 		font-style: normal;
-		transition: all 0.35s ease-out;
+		transition: all $lien-transition;
 	}
 	
 	&:hover {
@@ -18,7 +19,7 @@
 		border-color: $color-lien;
 		em {
 			padding-left: 0.5em;
-			color: currentColor;
+			color: $color-lien;
 		}
 	}
 }

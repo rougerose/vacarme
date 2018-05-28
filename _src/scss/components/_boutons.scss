@@ -7,7 +7,7 @@
 	display: inline-block;
 	margin: 0;
 	overflow: visible;
-	margin: $spacing-unit-tiny $spacing-unit-small $spacing-unit-tiny 0;
+	margin: $spacing-unit-tiny 0;
 	padding: $spacing-unit-tiny + $spacing-unit-tiny/2 $spacing-unit-tiny $spacing-unit-tiny;
 	vertical-align: middle;
 	color: inherit;
@@ -41,13 +41,24 @@
 		background-color: $color-blue-grey-600;
 		color: $color-white;
 		letter-spacing: .05em;
-		transition: all .3s;
+		transition: all $lien-transition;
 		
 		&:hover,
 		&:focus {
 			background-color: $color-blue-600;
 		}
 	}
+	
+	
+	//
+	// c-btn--delete
+	// -------------------------------------
+	.c-btn--delete {
+		padding: 0;
+		margin: 0;
+		color: $color-blue-500;
+	}
+
 
 	//
 	// c-btn--white
@@ -56,6 +67,8 @@
 		border: 1px solid $color-white;
 		background-color: transparent;
 		color: $color-white;
+		letter-spacing: .05em;
+		transition: all $lien-transition;
 		
 		&:hover,
 		&:focus {
@@ -63,6 +76,26 @@
 			border-color: $color-black;
 		}
 	}
+	
+	
+	//
+	// c-btn--black
+	// -------------------------------------
+	.c-btn--black {
+		border: 1px solid $color-black;
+		background-color: transparent;
+		color: $color-black;
+		letter-spacing: .05em;
+		transition: all $lien-transition;
+		
+		&:hover,
+		&:focus {
+			color: $color-white;
+			background-color: $color-lien;
+			border-color: $color-lien;
+		}
+	}
+
 
 	//
 	// c-btn--upper
@@ -70,6 +103,7 @@
 	.c-btn--upper {
 		text-transform: uppercase;
 	}
+
 
 	//
 	// c-btn-extended
@@ -84,24 +118,14 @@
 	.c-btn--round {
 		border-radius: 5px;
 	}
-	
-	
-	//
-	// c-btn--delete
-	// -------------------------------------
-	.c-btn--delete {
-		padding: 0;
-		margin: 0;
-		color: $color-blue-500;
-	}
 
 
 
 // c-btn-form
 // -------------------------------------
 // 
-// Avec une balise #BOUTON_ACTION, les styles du bouton ne sont
-// pas accessibles, seul le conteneur <form> l'est.
+// Avec une balise #BOUTON_ACTION, la classe du bouton n'est
+// pas accessible, seul celle du conteneur <form> l'est.
 // 
 
 .c-btn-form {
@@ -113,6 +137,12 @@
 .c-btn-form--white {
 	button {
 		@extend .c-btn--white;
+	}
+}
+
+.c-btn-form--black {
+	button {
+		@extend .c-btn--black;
 	}
 }
 
