@@ -1,0 +1,149 @@
+// =====================================
+// c-numero
+// =====================================
+
+
+.c-numero {}
+
+//
+// c-numero__contenu
+// -------------------------------------
+
+.c-numero__contenu {}
+
+
+//
+// c-numero__texte
+// -------------------------------------
+
+.c-numero__texte {}
+
+
+//
+// c-numero__couverture
+// -------------------------------------
+
+.c-numero__couverture {}
+
+
+//
+// c-numero__panier
+// -------------------------------------
+
+.c-numero__panier {
+	border-bottom: 1px solid $color-black;
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-top: auto; // hauteur égale du conteneur parent
+	padding: $spacing-unit-small 0;
+	
+	&--epuise {
+		justify-content: center;
+	}
+}
+
+	.c-numero__prix {
+		font-weight: bold;
+		@include inuit-font-size(24px);
+	}
+
+	.c-numero__epuise {
+		@include inuit-font-size(20px);
+	}
+
+	.c-numero__epuise,
+	.c-numero__prix {
+		margin-bottom: 0;
+	}
+
+
+// =====================================
+// VARIANTE --resume
+// =====================================
+
+
+//
+// c-numero--resume
+// -------------------------------------
+
+.c-numero--resume {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-bottom: $spacing-unit-large;
+	
+	@include mq(tablet) {
+		width: 48%;
+	}
+}
+
+
+//
+// c-numero__contenu--resume
+// -------------------------------------
+
+.c-numero__contenu--resume {
+	@include mq(desktop) {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: nowrap;
+		width: 100%;
+	}
+}
+
+
+//
+// c-numero__texte--resume
+// -------------------------------------
+
+.c-numero__texte--resume {
+	
+	@include mq(desktop) {
+		width: 50%;
+	}
+	
+	.c-numero__titre {
+		@include inuit-font-size(32px, 1);
+		text-transform: uppercase;
+	}
+	
+	.c-numero__saison {
+		font-weight: 300;
+		text-transform: none;
+	}
+	
+	.c-numero__intro {
+		@include inuit-font-size(18px);
+		
+		p, ul {
+			margin-bottom: $spacing-unit-small;
+		}
+	}
+}
+
+
+//
+// c-numero__couverture--resume
+// -------------------------------------
+
+.c-numero__couverture--resume {
+	
+	@include mq(desktop) {
+		width: 50%;
+		
+		> img {
+			width: 90%;
+		}
+	}
+}
+
+
+//
+// c-numero__panier--resume
+// -------------------------------------
+
+.c-numero__panier--resume {
+	width: 100%;
+}

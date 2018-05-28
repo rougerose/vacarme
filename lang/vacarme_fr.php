@@ -46,8 +46,14 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_erreur_souscription_abonnement' => "Nous sommes désolés, un problème technique ne permet pas de poursuivre la souscription de votre abonnement. Pour résoudre ce problème, veuillez <a href='@url@' class='suite-lien'>nous contacter <em>&#8594;</em></a>",
 	'message_identification_prealable' => "Veuillez vous identifier avant de poursuivre",
 	
+	// N
+	'numero_voir' => "Consulter le numéro <em>&#8594;</em>",
+	
 	// P
 	'paiement_titre' => "Paiement de votre commande",
+	'pagination_numeros_next' => "Suivante &#8594;",
+	'pagination_numeros_prev' => "&#8592; Précédente",
+	'panier_ajouter' => "Ajouter au panier",
 	'panier_titre' => "Votre panier",
 	
 	// S
