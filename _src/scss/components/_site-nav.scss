@@ -49,6 +49,7 @@
 // Cette classe est associée dans le HTML à .o-layout__item
 // 
 .c-site-nav__logo {
+	
 	@include mq(desktop) {
 		width: 50%;
 	}
@@ -64,9 +65,17 @@
 .c-site-nav__home {
 	display: block;
 	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	width: 75%;
+	
+	@include mq(tablet) {
+		width: 50%;
+	}
 
 	@include mq(desktop) {
 		padding-right: $spacing-unit-huge;
+		width: auto;
 		text-align: left;
 	}
 }
