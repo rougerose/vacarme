@@ -2258,31 +2258,31 @@
 
 /* line 43, _src/scss/components/_tab-nav.scss */ .c-tab-nav__link.is-selected { border-color: #000; color: #000; background-color: #fff; }
 
-/* line 5, _src/scss/components/_boutons.scss */ .c-btn, .c-btn-form button, .boutons .submit { border: 0; display: inline-block; margin: 0; overflow: visible; margin: 6px 0; padding: 9px 6px 6px; vertical-align: middle; color: inherit; font: inherit; text-align: center; cursor: pointer; }
+/* line 5, _src/scss/components/_boutons.scss */ .c-btn, .c-btn-form button, .boutons .submit { border: 1px solid #ccc; border-color: transparent; display: inline-block; overflow: visible; padding: 6px 12px; vertical-align: middle; line-height: normal; text-align: center; font-family: inherit; font-size: 100%; cursor: pointer; }
 
-/* line 23, _src/scss/components/_boutons.scss */ .c-btn--burger { position: relative; z-index: 101; top: -2px; padding: 0; border: none; border-radius: 50%; margin: auto 0 auto 12px; height: 30px; width: 30px; background-color: #e88e0e; color: #fff; }
+/* line 24, _src/scss/components/_boutons.scss */ .c-btn--burger { position: relative; z-index: 101; top: -2px; padding: 0; border: none; border-radius: 50%; margin: auto 0 auto 12px; height: 30px; width: 30px; background-color: #e88e0e; color: #fff; }
 
-/* line 40, _src/scss/components/_boutons.scss */ .c-btn--submit, .boutons .submit { background-color: #494979; color: #fff; letter-spacing: .05em; -webkit-transition: all 0.35s ease-out; transition: all 0.35s ease-out; }
+/* line 41, _src/scss/components/_boutons.scss */ .c-btn--submit, .boutons .submit { background-color: #494979; color: #fff; -webkit-transition: all 0.35s ease-out; transition: all 0.35s ease-out; }
 
 /* line 46, _src/scss/components/_boutons.scss */ .c-btn--submit:hover, .boutons .submit:hover, .c-btn--submit:focus, .boutons .submit:focus { background-color: #303091; }
 
 /* line 56, _src/scss/components/_boutons.scss */ .c-btn--delete { padding: 0; margin: 0; color: #4040bf; }
 
-/* line 66, _src/scss/components/_boutons.scss */ .c-btn--white, .c-btn-form--white button { border: 1px solid #fff; background-color: transparent; color: #fff; letter-spacing: .05em; -webkit-transition: all 0.35s ease-out; transition: all 0.35s ease-out; }
+/* line 66, _src/scss/components/_boutons.scss */ .c-btn--white, .c-btn-form--white button { border: 1px solid #fff; background-color: transparent; color: #fff; -webkit-transition: all 0.35s ease-out; transition: all 0.35s ease-out; }
 
-/* line 73, _src/scss/components/_boutons.scss */ .c-btn--white:hover, .c-btn-form--white button:hover, .c-btn--white:focus, .c-btn-form--white button:focus { color: #000; border-color: #000; }
+/* line 72, _src/scss/components/_boutons.scss */ .c-btn--white:hover, .c-btn-form--white button:hover, .c-btn--white:focus, .c-btn-form--white button:focus { color: #000; border-color: #000; }
 
-/* line 84, _src/scss/components/_boutons.scss */ .c-btn--black, .c-btn-form--black button { border: 1px solid #000; background-color: transparent; color: #000; letter-spacing: .05em; -webkit-transition: all 0.35s ease-out; transition: all 0.35s ease-out; }
+/* line 83, _src/scss/components/_boutons.scss */ .c-btn--black, .c-btn-form--black button { border: 1px solid #000; background-color: transparent; color: #000; -webkit-transition: all 0.35s ease-out; transition: all 0.35s ease-out; }
 
-/* line 91, _src/scss/components/_boutons.scss */ .c-btn--black:hover, .c-btn-form--black button:hover, .c-btn--black:focus, .c-btn-form--black button:focus { color: #fff; background-color: #00bdd6; border-color: #00bdd6; }
+/* line 89, _src/scss/components/_boutons.scss */ .c-btn--black:hover, .c-btn-form--black button:hover, .c-btn--black:focus, .c-btn-form--black button:focus { color: #fff; background-color: #00bdd6; border-color: #00bdd6; }
 
-/* line 103, _src/scss/components/_boutons.scss */ .c-btn--upper, .c-btn-form--upper button, .boutons .submit { text-transform: uppercase; }
+/* line 101, _src/scss/components/_boutons.scss */ .c-btn--upper, .c-btn-form--upper button, .boutons .submit { padding-top: 9px; text-transform: uppercase; }
 
-/* line 111, _src/scss/components/_boutons.scss */ .c-btn--extended { width: 100%; }
+/* line 110, _src/scss/components/_boutons.scss */ .c-btn--extended { width: 100%; }
 
-/* line 118, _src/scss/components/_boutons.scss */ .c-btn--round, .boutons .submit { border-radius: 5px; }
+/* line 117, _src/scss/components/_boutons.scss */ .c-btn--round, .c-btn-form--round button, .boutons .submit { border-radius: 5px; }
 
-/* line 164, _src/scss/components/_boutons.scss */ .boutons .submit { width: 100%; }
+/* line 169, _src/scss/components/_boutons.scss */ .boutons .submit { width: 100%; }
 
 /* line 6, _src/scss/components/_lien.scss */ .c-lien { border-bottom: 1px solid #000; color: #000; font-style: italic; }
 
@@ -2544,36 +2544,56 @@
 
 @media (min-width: 40em) { /* line 9, _src/scss/components/_numeros.scss */ .c-numeros__liste { width: 100%; } }
 
-/* line 33, _src/scss/components/_numero.scss */ .c-numero__panier { border-bottom: 1px solid #000; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin-top: auto; padding: 12px 0; }
+/* line 6, _src/scss/components/_numero.scss */ .c-numero { margin-bottom: 96px; }
 
-/* line 42, _src/scss/components/_numero.scss */ .c-numero__panier--epuise { -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; }
+/* line 22, _src/scss/components/_numero.scss */ .c-numero__titre-conteneur { border-bottom: 1px solid #000; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: baseline; -ms-flex-align: baseline; align-items: baseline; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin-bottom: 48px; }
 
-/* line 47, _src/scss/components/_numero.scss */ .c-numero__prix { font-weight: bold; font-size: 24px; font-size: 1.5rem; line-height: 1.25; }
+/* line 35, _src/scss/components/_numero.scss */ .c-numero__titre { font-size: 48px; font-size: 3rem; line-height: 1; }
 
-/* line 52, _src/scss/components/_numero.scss */ .c-numero__epuise { font-size: 20px; font-size: 1.25rem; line-height: 1.5; }
+/* line 39, _src/scss/components/_numero.scss */ .c-numero__saison { font-size: 24px; font-size: 1.5rem; line-height: 1; font-weight: 300; }
 
-/* line 56, _src/scss/components/_numero.scss */ .c-numero__epuise, .c-numero__prix { margin-bottom: 0; }
+/* line 44, _src/scss/components/_numero.scss */ .c-numero__titre, .c-numero__saison { margin-bottom: 6px; text-transform: uppercase; }
 
-/* line 71, _src/scss/components/_numero.scss */ .c-numero--resume { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin-bottom: 48px; }
+/* line 56, _src/scss/components/_numero.scss */ .c-numero__intro-conteneur { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
 
-@media (min-width: 40em) { /* line 71, _src/scss/components/_numero.scss */ .c-numero--resume { width: 48%; } }
+/* line 66, _src/scss/components/_numero.scss */ .c-numero__couverture { margin-bottom: 0; width: 33%; }
 
-@media (min-width: 64em) { /* line 87, _src/scss/components/_numero.scss */ .c-numero__contenu--resume { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -ms-flex-wrap: nowrap; flex-wrap: nowrap; width: 100%; } }
+/* line 76, _src/scss/components/_numero.scss */ .c-numero__intro { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; width: 60%; }
 
-@media (min-width: 64em) { /* line 101, _src/scss/components/_numero.scss */ .c-numero__texte--resume { width: 50%; } }
+/* line 95, _src/scss/components/_numero.scss */ .c-numero__achat { border-top: 1px solid #000; }
 
-/* line 107, _src/scss/components/_numero.scss */ .c-numero__texte--resume .c-numero__titre { font-size: 32px; font-size: 2rem; line-height: 1; text-transform: uppercase; }
+/* line 98, _src/scss/components/_numero.scss */ .c-numero-resume .c-numero__achat { border-top-width: 0; }
 
-/* line 112, _src/scss/components/_numero.scss */ .c-numero__texte--resume .c-numero__saison { font-weight: 300; text-transform: none; }
+/* line 108, _src/scss/components/_numero.scss */ .c-numero__achat-item { border-bottom: 1px solid #000; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; padding: 12px 0; }
 
-/* line 117, _src/scss/components/_numero.scss */ .c-numero__texte--resume .c-numero__intro { font-size: 18px; font-size: 1.125rem; line-height: 1.33333; }
+/* line 121, _src/scss/components/_numero.scss */ .c-numero__achat-info { margin-bottom: 0; margin-top: 6px; text-transform: uppercase; }
 
-/* line 120, _src/scss/components/_numero.scss */ .c-numero__texte--resume .c-numero__intro p, .c-numero__texte--resume .c-numero__intro ul { margin-bottom: 12px; }
+/* line 126, _src/scss/components/_numero.scss */ .c-numero__achat-info > a { text-transform: none; }
 
-@media (min-width: 64em) { /* line 131, _src/scss/components/_numero.scss */ .c-numero__couverture--resume { width: 50%; }
-  /* line 136, _src/scss/components/_numero.scss */ .c-numero__couverture--resume > img { width: 90%; } }
+/* line 131, _src/scss/components/_numero.scss */ .c-numero__achat-info--epuise { font-size: 22px; font-size: 1.375rem; line-height: 1.36364; }
 
-/* line 147, _src/scss/components/_numero.scss */ .c-numero__panier--resume { width: 100%; }
+/* line 140, _src/scss/components/_numero.scss */ .c-numero__achat-label { margin-bottom: 0; margin-top: 6px; font-size: 20px; font-size: 1.25rem; line-height: 1; text-transform: uppercase; }
+
+/* line 152, _src/scss/components/_numero.scss */ .c-numero__prix { font-weight: bold; font-size: 24px; font-size: 1.5rem; line-height: 1; }
+
+/* line 5, _src/scss/components/_numero-resume.scss */ .c-numero-resume { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin-bottom: 48px; }
+
+@media (min-width: 40em) { /* line 5, _src/scss/components/_numero-resume.scss */ .c-numero-resume { width: 48%; } }
+
+/* line 22, _src/scss/components/_numero-resume.scss */ .c-numero-resume__contenu { margin-bottom: 24px; font-size: 18px; font-size: 1.125rem; line-height: 1.33333; }
+
+@media (min-width: 64em) { /* line 22, _src/scss/components/_numero-resume.scss */ .c-numero-resume__contenu { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin-bottom: 0; } }
+
+@media (min-width: 64em) { /* line 39, _src/scss/components/_numero-resume.scss */ .c-numero-resume__intro { width: 50%; } }
+
+/* line 45, _src/scss/components/_numero-resume.scss */ .c-numero-resume__intro .c-numero__titre { font-size: 32px; font-size: 2rem; line-height: 1; margin-bottom: 24px; }
+
+/* line 50, _src/scss/components/_numero-resume.scss */ .c-numero-resume__intro .c-numero__saison { font-size: 80%; text-transform: none; }
+
+/* line 64, _src/scss/components/_numero-resume.scss */ .c-numero-resume__desc p, .c-numero-resume__desc ul { margin-bottom: 12px; }
+
+@media (min-width: 64em) { /* line 75, _src/scss/components/_numero-resume.scss */ .c-numero-resume__couverture { width: 50%; }
+  /* line 80, _src/scss/components/_numero-resume.scss */ .c-numero-resume__couverture > img { width: 90%; } }
 
 /* line 5, _src/scss/components/_spip-admin.scss */ .spip-admin-float { right: 0 !important; top: auto !important; bottom: 0; }
 

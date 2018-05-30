@@ -2,8 +2,8 @@
 	#ANCRE_PAGINATION
 	<div class="c-numeros__liste">
 		<BOUCLE_numeros(RUBRIQUES){id_parent=#ID_RUBRIQUE}{!par titre}{pagination #ENV{nb_pagination, 20}}>
-			<article class="c-numero c-numero--resume">
-				<div class="c-numero__contenu c-numero__contenu--resume">
+			<article class="c-numero-resume">
+				<div class="c-numero-resume__contenu">
 					[(#REM)
 						<!--
 							Taille max et x2 du logo selon mediaqueries
@@ -16,32 +16,35 @@
 							Soit 227 468 690 1004
 						-->
 					][(#SET{logo, #LOGO_RUBRIQUE|image_reduire{1004,0}})]
-					[<figure class="c-numero__couverture c-numero__couverture--resume">
+					[<figure class="c-numero-resume__couverture">
 						<img src="(#GET{logo}|extraire_attribut{src})" sizes="(max-width: 39.99em) 100vw, (min-width: 40em) 50vw" srcset="[
 							(#GET{logo}|image_reduire{227,0}|extraire_attribut{src}) 227w,][
 							(#GET{logo}|image_reduire{468,0}|extraire_attribut{src}) 468w,][
 							(#GET{logo}|image_reduire{690,0}|extraire_attribut{src}) 690w]" alt="[(#TITRE|textebrut)]">
 					</figure>]
-					<div class="c-numero__texte c-numero__texte--resume">
+					<div class="c-numero-resume__intro">
 						<h2 class="c-numero__titre u-typo-font-vacarme"><a href="#URL_RUBRIQUE">#TITRE[ <small class="c-numero__saison">(#DATE_NUMERO|saison)[&nbsp;(#DATE_NUMERO|annee)]</small>]</a></h2>
-						<div class="c-numero__intro">
+						<div class="c-numero-resume__desc">
 							[(#DESCRIPTIF)]
 							<p><a href="#URL_RUBRIQUE" class="c-lien"><:vacarme:numero_voir:></a></p>
 						</div>
 					</div>
 				</div>
+				#SET{numero_epuise,''}
 				<BOUCLE_numero_epuise(MOTS){id_rubrique}{id_mot=108}{technique=oui}>
-					#SET{numero_epuise, ' '} #SET{info_epuise, #TITRE}
+					#SET{numero_epuise, ' '} #SET{label_epuise, #TITRE}
 				</BOUCLE_numero_epuise>
-				<div class="c-numero__panier c-numero__panier--resume[ (#GET{numero_epuise}|?{c-numero__panier--epuise})] u-typo-font-vacarme u-typo-upper">
-					[(#GET{numero_epuise}|oui)
-						<p class="c-numero__epuise">#GET{info_epuise}</p>
-					][(#GET{numero_epuise}|non)
-						<p class="c-numero__prix">#PRIX</p>
-						[(#BOUTON_ACTION{<:vacarme:panier_ajouter:>, 
-							#URL_ACTION_AUTEUR{remplir_panier, rubrique-#ID_RUBRIQUE-1, #SELF},
-							c-btn-form c-btn-form--black c-btn-form--upper ajax})]
-					]
+				<div class="c-numero__achat">
+					<div class="c-numero__achat-item u-typo-font-vacarme">
+						[(#GET{numero_epuise}|non)
+							<p class="c-numero__achat-info c-numero__prix">#PRIX</p>
+							[(#BOUTON_ACTION{<:vacarme:panier_ajouter:>, 
+								#URL_ACTION_AUTEUR{remplir_panier, rubrique-#ID_RUBRIQUE-1, #SELF},
+								c-btn-form c-btn-form--black c-btn-form--round c-btn-form--upper ajax})]
+						][(#GET{numero_epuise}|oui)
+							<p class="c-numero__achat-info c-numero__achat-info--epuise">#GET{label_epuise}</p>
+						]
+					</div>
 				</div>
 			</article>
 		</BOUCLE_numeros>

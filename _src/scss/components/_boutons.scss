@@ -3,16 +3,17 @@
 // =====================================
 
 .c-btn {
-	border: 0;
+	border: 1px solid $color-gray;
+	border-color: transparent;
 	display: inline-block;
-	margin: 0;
 	overflow: visible;
-	margin: $spacing-unit-tiny 0;
-	padding: $spacing-unit-tiny + $spacing-unit-tiny/2 $spacing-unit-tiny $spacing-unit-tiny;
+	padding: $spacing-unit-tiny $spacing-unit-small;
+	// padding: .5em 1em;
 	vertical-align: middle;
-	color: inherit;
-	font: inherit;
+	line-height: normal;
 	text-align: center;
+	font-family: inherit;
+	font-size: 100%;
 	cursor: pointer;
 }
 
@@ -40,7 +41,6 @@
 	.c-btn--submit {
 		background-color: $color-blue-grey-600;
 		color: $color-white;
-		letter-spacing: .05em;
 		transition: all $lien-transition;
 		
 		&:hover,
@@ -67,7 +67,6 @@
 		border: 1px solid $color-white;
 		background-color: transparent;
 		color: $color-white;
-		letter-spacing: .05em;
 		transition: all $lien-transition;
 		
 		&:hover,
@@ -85,7 +84,6 @@
 		border: 1px solid $color-black;
 		background-color: transparent;
 		color: $color-black;
-		letter-spacing: .05em;
 		transition: all $lien-transition;
 		
 		&:hover,
@@ -101,6 +99,7 @@
 	// c-btn--upper
 	// -------------------------------------
 	.c-btn--upper {
+		padding-top: $spacing-unit-tiny + $spacing-unit-tiny/2;
 		text-transform: uppercase;
 	}
 
@@ -149,6 +148,12 @@
 .c-btn-form--upper {
 	button {
 		@extend .c-btn--upper;
+	}
+}
+
+.c-btn-form--round {
+	button {
+		@extend .c-btn--round;
 	}
 }
 
