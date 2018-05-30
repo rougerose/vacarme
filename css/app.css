@@ -2572,9 +2572,11 @@
 
 /* line 131, _src/scss/components/_numero.scss */ .c-numero__achat-info--epuise { font-size: 22px; font-size: 1.375rem; line-height: 1.36364; }
 
-/* line 140, _src/scss/components/_numero.scss */ .c-numero__achat-label { margin-bottom: 0; margin-top: 6px; font-size: 20px; font-size: 1.25rem; line-height: 1; text-transform: uppercase; }
+/* line 134, _src/scss/components/_numero.scss */ .c-numero-resume .c-numero__achat-info--epuise { margin-left: auto; margin-right: auto; }
 
-/* line 152, _src/scss/components/_numero.scss */ .c-numero__prix { font-weight: bold; font-size: 24px; font-size: 1.5rem; line-height: 1; }
+/* line 145, _src/scss/components/_numero.scss */ .c-numero__achat-label { margin-bottom: 0; margin-top: 6px; font-size: 20px; font-size: 1.25rem; line-height: 1; text-transform: uppercase; }
+
+/* line 157, _src/scss/components/_numero.scss */ .c-numero__prix { font-weight: bold; font-size: 24px; font-size: 1.5rem; line-height: 1; }
 
 /* line 5, _src/scss/components/_numero-resume.scss */ .c-numero-resume { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin-bottom: 48px; }
 
