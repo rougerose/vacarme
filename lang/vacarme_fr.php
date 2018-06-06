@@ -47,6 +47,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'message_identification_prealable' => "Veuillez vous identifier avant de poursuivre",
 	
 	// N
+	'numero_acheter' => "Acheter ce numéro",
 	'numero_voir' => "Consulter le numéro <em>&#8594;</em>",
 	
 	// P
