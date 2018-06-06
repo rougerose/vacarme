@@ -8,7 +8,6 @@
 	display: inline-block;
 	overflow: visible;
 	padding: $spacing-unit-tiny $spacing-unit-small;
-	// padding: .5em 1em;
 	vertical-align: middle;
 	line-height: normal;
 	text-align: center;
@@ -105,11 +104,24 @@
 
 
 	//
-	// c-btn-extended
+	// c-btn--extended
 	// -------------------------------------
 	.c-btn--extended {
 		width: 100%;
 	}
+	
+	
+	//
+	// c-btn--achat-numero
+	// -------------------------------------
+	.c-btn--achat-numero {
+		width: 100%;
+		
+		@include mq(tabletPlus) {
+			width: auto;
+		}
+	}
+
 
 	//
 	// c-btn--round
@@ -154,6 +166,21 @@
 .c-btn-form--round {
 	button {
 		@extend .c-btn--round;
+	}
+}
+
+.c-btn-form--achat-numero {
+	margin-top: $spacing-unit-tiny;
+	margin-bottom: $spacing-unit-tiny;
+	
+	&,
+	button {
+		@extend .c-btn--achat-numero;
+	}
+	
+	@include mq(tabletPlus) {
+		margin-top: 0;
+		margin-bottom: 0;
 	}
 }
 

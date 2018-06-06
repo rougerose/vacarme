@@ -33,12 +33,25 @@
 		// -------------------------------------
 
 		.c-numero__titre {
-			@include inuit-font-size(48px, 1);
+			@include inuit-font-size(28px, 1);
+			
+			@include mq(mobilePlus) {
+				@include inuit-font-size(36px, false);
+				
+			}
+			
+			@include mq(desktop) {
+				@include inuit-font-size(48px, false);
+			}
 		}
 
 		.c-numero__saison {
-			@include inuit-font-size(24px, 1);
+			@include inuit-font-size(16px, 1);
 			font-weight: 300;
+			
+			@include mq(mobilePlus) {
+				@include inuit-font-size(24px, false);
+			}
 		}
 		
 		.c-numero__titre,
@@ -55,7 +68,12 @@
 	
 	.c-numero__intro-conteneur {
 		display: flex;
+		flex-direction: column;
 		justify-content: space-between;
+		
+		@include mq(tablet) {
+			flex-direction: row;
+		}
 	}
 	
 	
@@ -64,8 +82,11 @@
 		// -------------------------------------
 
 		.c-numero__couverture {
-			margin-bottom: 0;
-			width: 33%;
+			
+			@include mq(tablet) {
+				margin-bottom: 0;
+				width: 45%;
+			}
 		}
 		
 		
@@ -74,10 +95,12 @@
 		// -------------------------------------
 		
 		.c-numero__intro {
-			display: flex;
-			flex-direction: column;
-			justify-content: flex-end;
-			width: 60%;
+			@include mq(tablet) {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;
+				width: 50%;
+			}
 		}
 
 
@@ -85,7 +108,14 @@
 // c-numero__texte
 // -------------------------------------
 
-.c-numero__texte {}
+.c-numero__texte {
+	margin-bottom: $spacing-unit;
+	@include inuit-font-size(16px);
+	
+	@include mq(tabletPlus) {
+		@include inuit-font-size(18px);
+	}
+}
 
 
 //
@@ -110,6 +140,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		flex-wrap: wrap;
 		padding: $spacing-unit-small 0;
 	}
 	
@@ -145,7 +176,7 @@
 	.c-numero__achat-label {
 		margin-bottom: 0;
 		margin-top: $spacing-unit-tiny;
-		@include inuit-font-size(20px, 1);
+		@include inuit-font-size(18px, 1);
 		text-transform: uppercase;
 	}
 
@@ -156,5 +187,5 @@
 
 .c-numero__prix {
 	font-weight: bold;
-	@include inuit-font-size(24px, 1);
+	@include inuit-font-size(18px, 1);
 }

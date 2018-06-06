@@ -21,7 +21,7 @@
 
 .c-numero-resume__contenu {
 	margin-bottom: $spacing-unit;
-	@include inuit-font-size(18px);
+	@include inuit-font-size(17px);
 	
 	@include mq(desktop) {
 		display: flex;
