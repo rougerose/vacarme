@@ -1,14 +1,35 @@
+
+
+// ----- position ----- //
+
 .u-textCenter {
-  text-align: center;
+	text-align: center;
 }
 
+
+// ----- taille ----- //
+
 .u-textSizeS {
-  font-size: smaller;
+	font-size: smaller;
 }
+
+.u-text-size-xl {
+	font-size: x-large;
+}
+
+.u-text-size-l {
+	font-size: large;
+}
+
+
+// ----- couleur ----- //
 
 .u-text-color-lb500 {
 	color: hsl(199, 98%, 48%);
 }
+
+
+// ----- font ----- //
 
 .u-text-font-monospace {
 	font-family: monospace;
