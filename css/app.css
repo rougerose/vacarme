@@ -2732,6 +2732,10 @@ body .spip-admin-bloc:hover, body .spip-admin-float:hover { right: 0; }
 
 .u-textSizeS { font-size: smaller; }
 
+.u-text-color-lb500 { color: #02a6f2; }
+
+.u-text-font-monospace { font-family: monospace; }
+
 @media print { @page { margin: 0.5cm; }
   html { font: 12pt/1.4 "Plantin", "Palatino", serif; }
   body { padding: 0; margin: 0 10%; }
