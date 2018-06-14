@@ -2596,7 +2596,7 @@
 
 /* line 176, _src/scss/components/_numero.scss */ .c-numero__achat-label { margin-bottom: 0; margin-top: 6px; font-size: 18px; font-size: 1.125rem; line-height: 1; text-transform: uppercase; }
 
-/* line 188, _src/scss/components/_numero.scss */ .c-numero__prix { font-weight: bold; font-size: 18px; font-size: 1.125rem; line-height: 1; }
+/* line 188, _src/scss/components/_numero.scss */ .c-numero__prix { font-weight: bold; font-size: 22px; font-size: 1.375rem; line-height: 1; }
 
 /* line 5, _src/scss/components/_numero-resume.scss */ .c-numero-resume { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin-bottom: 48px; }
 
@@ -3075,15 +3075,17 @@
 
 /* line 16, _src/scss/utilities/_helpers.marges.scss */ .mb\+\+ { margin-bottom: 4.5em; }
 
-/* line 1, _src/scss/utilities/_text.scss */ .u-textCenter { text-align: center; }
+/* line 5, _src/scss/utilities/_text.scss */ .u-textCenter { text-align: center; }
 
-/* line 5, _src/scss/utilities/_text.scss */ .u-textSizeS { font-size: smaller; }
+/* line 12, _src/scss/utilities/_text.scss */ .u-textSizeS { font-size: smaller; }
 
-/* line 9, _src/scss/utilities/_text.scss */ .u-text-intro { font-size: 20px; font-size: 1.25rem; line-height: 1.5; }
+/* line 16, _src/scss/utilities/_text.scss */ .u-text-size-xl { font-size: x-large; }
 
-/* line 13, _src/scss/utilities/_text.scss */ .u-text-color-lb500 { color: #02a6f2; }
+/* line 20, _src/scss/utilities/_text.scss */ .u-text-size-l { font-size: large; }
 
-/* line 17, _src/scss/utilities/_text.scss */ .u-text-font-monospace { font-family: monospace; }
+/* line 27, _src/scss/utilities/_text.scss */ .u-text-color-lb500 { color: #02a6f2; }
+
+/* line 34, _src/scss/utilities/_text.scss */ .u-text-font-monospace { font-family: monospace; }
 
 @media print { @page { margin: 0.5cm; }
   /* line 14, _src/scss/utilities/_print.scss */ html { font: 12pt/1.4 "Plantin", "Palatino", serif; }
