@@ -3079,7 +3079,11 @@
 
 /* line 5, _src/scss/utilities/_text.scss */ .u-textSizeS { font-size: smaller; }
 
-/* line 10, _src/scss/utilities/_text.scss */ .u-text-intro { font-size: 20px; font-size: 1.25rem; line-height: 1.5; }
+/* line 9, _src/scss/utilities/_text.scss */ .u-text-intro { font-size: 20px; font-size: 1.25rem; line-height: 1.5; }
+
+/* line 13, _src/scss/utilities/_text.scss */ .u-text-color-lb500 { color: #02a6f2; }
+
+/* line 17, _src/scss/utilities/_text.scss */ .u-text-font-monospace { font-family: monospace; }
 
 @media print { @page { margin: 0.5cm; }
   /* line 14, _src/scss/utilities/_print.scss */ html { font: 12pt/1.4 "Plantin", "Palatino", serif; }
