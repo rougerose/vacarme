@@ -2452,17 +2452,41 @@
 
 /* line 136, _src/scss/components/_abonner.scss */ .c-abonner-liste-offres__titre > .o-icon { margin: 0 6px; vertical-align: middle; }
 
-/* line 149, _src/scss/components/_abonner.scss */ .c-abonner-offre__title { margin-bottom: 6px; }
+/* line 149, _src/scss/components/_abonner.scss */ .c-abonner-offre--pack-couvertures { position: relative; overflow: hidden; padding-left: 90px; }
 
-/* line 153, _src/scss/components/_abonner.scss */ .c-abonner-offre__desc { text-transform: none; font-size: 15px; font-size: 0.9375rem; line-height: 1.2; }
+@media (min-width: 64em) { /* line 149, _src/scss/components/_abonner.scss */ .c-abonner-offre--pack-couvertures { padding-left: 60px; } }
 
-/* line 169, _src/scss/components/_abonner.scss */ .c-abonner-numero__surtitre { margin-bottom: 12px; font-size: 22px; font-size: 1.375rem; line-height: 1.36364; font-weight: bold; }
+/* line 158, _src/scss/components/_abonner.scss */ .c-abonner-offre--pack-couvertures img { display: block; position: absolute; left: -170px; top: 32px; -webkit-box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.1); box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.1); -webkit-transform-origin: 50% 100%; transform-origin: 50% 100%; }
 
-@media (min-width: 48em) { /* line 169, _src/scss/components/_abonner.scss */ .c-abonner-numero__surtitre { font-size: 16px; font-size: 1rem; line-height: 1.5; } }
+/* line 10, _src/scss/tools/_rotate.scss */ .c-abonner-offre--pack-couvertures img:nth-of-type(1) { -webkit-transform: rotate(-1.5deg); transform: rotate(-1.5deg); }
 
-/* line 180, _src/scss/components/_abonner.scss */ .c-abonner-numero__titre small { display: block; font-weight: 300; }
+/* line 10, _src/scss/tools/_rotate.scss */ .c-abonner-offre--pack-couvertures img:nth-of-type(2) { -webkit-transform: rotate(-3deg); transform: rotate(-3deg); }
 
-/* line 191, _src/scss/components/_abonner.scss */ .c-abonner-cadeau { padding: 24px; }
+/* line 10, _src/scss/tools/_rotate.scss */ .c-abonner-offre--pack-couvertures img:nth-of-type(3) { -webkit-transform: rotate(-4.5deg); transform: rotate(-4.5deg); }
+
+/* line 10, _src/scss/tools/_rotate.scss */ .c-abonner-offre--pack-couvertures img:nth-of-type(4) { -webkit-transform: rotate(-6deg); transform: rotate(-6deg); }
+
+/* line 10, _src/scss/tools/_rotate.scss */ .c-abonner-offre--pack-couvertures img:nth-of-type(5) { -webkit-transform: rotate(-7.5deg); transform: rotate(-7.5deg); }
+
+/* line 10, _src/scss/tools/_rotate.scss */ .c-abonner-offre--pack-couvertures img:nth-of-type(6) { -webkit-transform: rotate(-9deg); transform: rotate(-9deg); }
+
+/* line 10, _src/scss/tools/_rotate.scss */ .c-abonner-offre--pack-couvertures img:nth-of-type(7) { -webkit-transform: rotate(-10.5deg); transform: rotate(-10.5deg); }
+
+/* line 10, _src/scss/tools/_rotate.scss */ .c-abonner-offre--pack-couvertures img:nth-of-type(8) { -webkit-transform: rotate(-12deg); transform: rotate(-12deg); }
+
+@media (min-width: 64em) { /* line 158, _src/scss/components/_abonner.scss */ .c-abonner-offre--pack-couvertures img { left: -160px; } }
+
+/* line 173, _src/scss/components/_abonner.scss */ .c-abonner-offre__title { margin-bottom: 6px; }
+
+/* line 177, _src/scss/components/_abonner.scss */ .c-abonner-offre__desc { text-transform: none; font-size: 15px; font-size: 0.9375rem; line-height: 1.2; }
+
+/* line 190, _src/scss/components/_abonner.scss */ .c-abonner-numero__surtitre { margin-bottom: 12px; font-size: 22px; font-size: 1.375rem; line-height: 1.36364; font-weight: bold; }
+
+@media (min-width: 48em) { /* line 190, _src/scss/components/_abonner.scss */ .c-abonner-numero__surtitre { font-size: 16px; font-size: 1rem; line-height: 1.5; } }
+
+/* line 201, _src/scss/components/_abonner.scss */ .c-abonner-numero__titre small { display: block; font-weight: 300; }
+
+/* line 212, _src/scss/components/_abonner.scss */ .c-abonner-cadeau { padding: 24px; }
 
 /* line 15, _src/scss/components/_inscription.scss */ .c-inscription__form { border: 2px solid #191929; padding: 24px 24px 0; }
 

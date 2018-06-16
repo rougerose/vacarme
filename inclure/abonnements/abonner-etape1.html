@@ -38,8 +38,8 @@
 					</h3>
 				</header>
 		]
-				<div class="o-layout__item[ u-1/(#GET{total})@tabletPlus]">
-					<div class="c-abonner-offre c-card[ c-abonner-couleur c-abonner-couleur--bgc-(#GET{type})]">
+				<div class="o-layout__item[ u-1/(#GET{total})@desktop]">
+					<div class="c-abonner-offre c-card[ c-abonner-couleur c-abonner-couleur--bgc-(#GET{type})] c-abonner-offre--pack-couvertures">
 						<h4 class="c-card__title c-abonner-offre__title">#TITRE</h4>
 						[<div class="c-card__desc c-abonner-offre__desc">
 							(#DESCRIPTIF)
@@ -62,6 +62,7 @@
 						[(#BOUTON_ACTION{<:vacarme:choisir:>, 
 							#URL_ACTION_AUTEUR{remplir_panier, #GET{arg}, #SELF|parametre_url{etape, 2}|parametre_url{id_abonnements_offre, #ID_ABONNEMENTS_OFFRE}},
 							c-btn-form c-btn-form--white c-btn-form--upper ajax})]
+						[(#INCLURE{fond=inclure/logo/numeros-collection-abonnement, nombre_numeros=#DUREE|intval|div{3}|moins{1}})]
 					</div>
 				</div>
 			[(#GET{compteur}|=={#GET{total}}|oui)

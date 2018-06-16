@@ -146,6 +146,30 @@
 	
 	.c-abonner-offre {}
 	
+	.c-abonner-offre--pack-couvertures {
+		position: relative;
+		overflow: hidden;
+		padding-left: 90px;
+		
+		@include mq(desktop) {
+			padding-left: 60px;
+		}
+		
+		img {
+			display: block;
+			position: absolute;
+			left: -170px;
+			top: 32px;
+			box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.1);
+			@include rotate(-1.5, 8);
+			transform-origin: 50% 100%;
+			
+			@include mq(desktop) {
+				left: -160px;
+			}
+		}
+	}
+	
 	.c-abonner-offre__title {
 		margin-bottom: $spacing-unit-tiny;
 	}
@@ -153,9 +177,6 @@
 	.c-abonner-offre__desc {
 		text-transform: none;
 		@include inuit-font-size(15px, 1.2);
-		// p {
-		// 	margin-bottom: $spacing-unit-tiny;
-		// }
 	}
 
 

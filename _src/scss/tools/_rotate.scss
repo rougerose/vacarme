@@ -1,0 +1,14 @@
+// =====================================
+// mixin rotate
+// =====================================
+
+// appliquer une rotation à un élément.
+
+@mixin rotate($angle, $compteur: 1) {
+  @for $i from 1 through $compteur {
+    $rotation: ($i * $angle) * 1deg;
+    &:nth-of-type(#{$i}) {
+      transform: rotate($rotation);
+    }
+  }
+}
