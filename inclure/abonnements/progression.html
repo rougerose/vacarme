@@ -1,7 +1,7 @@
 #CACHE{0}
 [(#SET{abos, #ARRAY})]
-<section class="c-abonner-choix">
-	<h2 class="u-typo-font-vacarme u-typo-upper"><:vpaniers:abonnements_resume_titre:></h2>
+<section class="c-abonner-section c-abonner-choix">
+	<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vpaniers:abonnements_resume_titre:></h2>
 	<BOUCLE_progression(PANIERS_LIENS){id_panier=#ENV{id_panier}}>
 		[(#SET{options, #OPTIONS})]
 		<BOUCLE_options(DATA){source table, #GET{options}}{si (#OBJET|=={abonnements_offre})}>
