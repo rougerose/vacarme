@@ -21,14 +21,15 @@
 
 		// ----- c-abonner-header__titre ----- //
 		.c-abonner-header__titre {
-			@include inuit-font-size(32px, 1.2);
+			@include inuit-font-size(28px, 1.2);
+			// @include inuit-font-size(32px, 1.2);
 			margin-bottom: $spacing-unit-large;
 		}
 		
 		// ----- c-abonner-header__intro ----- //
 		.c-abonner-header__intro {
 			padding-right: $spacing-unit-large;
-			@include inuit-font-size(20px);
+			@include inuit-font-size(18px);
 		}
 		
 		// ----- c-abonner-header__list ----- //
@@ -76,7 +77,7 @@
 	
 		// ----- c-abonner-section__titre ----- //
 		.c-abonner-section__titre {
-			@include inuit-font-size(26px, 1.2);
+			@include inuit-font-size(24px, 1.2);
 		}
 		
 		// ----- c-abonner-section__intro ----- //
@@ -124,11 +125,20 @@
 	// -------------------------------------
 	
 	.c-abonner-liste-offres {
+		display: flex;
+		flex-direction: column;
 		font-family: $font-helvetica;
 		text-transform: uppercase;
+		
+		@include mq(desktop) {
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
 	}
 	
 		.c-abonner-liste-offres__header {
+			width: 100%;
 			margin-top: $spacing-unit;
 		}
 		
@@ -140,11 +150,16 @@
 		}
 	
 	
+	
 	//
 	// c-abonner-offre
 	// -------------------------------------
 	
-	.c-abonner-offre {}
+	.c-abonner-offre {
+		@include mq(desktop) {
+			width: 30%;
+		}
+	}
 	
 	.c-abonner-offre--pack-couvertures {
 		position: relative;
@@ -170,13 +185,17 @@
 		}
 	}
 	
-	.c-abonner-offre__title {
+	.c-abonner-offre__titre {
 		margin-bottom: $spacing-unit-tiny;
 	}
 	
 	.c-abonner-offre__desc {
 		text-transform: none;
 		@include inuit-font-size(15px, 1.2);
+	}
+	
+	.c-abonner-offre__prix {
+		font-weight: bold;
 	}
 
 
@@ -205,6 +224,7 @@
 		}
 	
 	
+	
 	// 
 	// c-abonner-cadeau
 	// -------------------------------------
@@ -212,3 +232,11 @@
 	.c-abonner-cadeau {
 		padding: $spacing-unit;
 	}
+	
+	
+	
+	//
+	// c-abonner-choix
+	// -------------------------------------
+	
+	.c-abonner-choix {}

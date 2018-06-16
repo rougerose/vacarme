@@ -29,8 +29,8 @@
 
 		[(#DUREE|unique|oui)
 			[(#SET{compteur, 1})]
-			<section class="o-layout c-abonner-liste-offres">
-				<header class="o-layout__item c-abonner-liste-offres__header">
+			<section class="c-abonner-liste-offres">
+				<header class="c-abonner-liste-offres__header">
 					<h3 class="c-abonner-liste-offres__titre">
 						[(#DUREE|duree_en_clair)]
 						#INCLURE{fond=img/svg/ic_arrow-right_48px.svg, class='o-icon o-icon--m'}
@@ -38,32 +38,30 @@
 					</h3>
 				</header>
 		]
-				<div class="o-layout__item[ u-1/(#GET{total})@desktop]">
-					<div class="c-abonner-offre c-card[ c-abonner-couleur c-abonner-couleur--bgc-(#GET{type})] c-abonner-offre--pack-couvertures">
-						<h4 class="c-card__title c-abonner-offre__title">#TITRE</h4>
-						[<div class="c-card__desc c-abonner-offre__desc">
-							(#DESCRIPTIF)
-						</div>]
-						[<p class="c-card__prix">(#PRIX)</p>]
-						[(#REM)
-							<!-- 
-							Données attendues pour arg :
-							objet-id_objet-quantite-negatif-coupon/numero/cadeau/action modifier ou ajout/cle
-							-->
-						]
-						[(#SET{arg, 
-							#VAL{abonnements_offre-}
-							|concat{#ID_ABONNEMENTS_OFFRE}
-							|concat{-1}
-							|concat{-}
-							|concat{-non}
-							|concat{/}|concat{/}|concat{/ajout}|concat{/}})]
-							
-						[(#BOUTON_ACTION{<:vacarme:choisir:>, 
-							#URL_ACTION_AUTEUR{remplir_panier, #GET{arg}, #SELF|parametre_url{etape, 2}|parametre_url{id_abonnements_offre, #ID_ABONNEMENTS_OFFRE}},
-							c-btn-form c-btn-form--white c-btn-form--upper ajax})]
-						[(#INCLURE{fond=inclure/logo/numeros-collection-abonnement, nombre_numeros=#DUREE|intval|div{3}|moins{1}})]
-					</div>
+				<div class="c-abonner-offre c-card[ c-abonner-couleur c-abonner-couleur--bgc-(#GET{type})] c-abonner-offre--pack-couvertures">
+					<h4 class="c-card__titre c-abonner-offre__titre">#TITRE</h4>
+					[<div class="c-card__desc c-abonner-offre__desc">
+						(#DESCRIPTIF)
+					</div>]
+					[<p class="c-card__prix c-abonner-offre__prix">(#PRIX)</p>]
+					[(#REM)
+						<!-- 
+						Données attendues pour arg :
+						objet-id_objet-quantite-negatif-coupon/numero/cadeau/action modifier ou ajout/cle
+						-->
+					]
+					[(#SET{arg, 
+						#VAL{abonnements_offre-}
+						|concat{#ID_ABONNEMENTS_OFFRE}
+						|concat{-1}
+						|concat{-}
+						|concat{-non}
+						|concat{/}|concat{/}|concat{/ajout}|concat{/}})]
+						
+					[(#BOUTON_ACTION{<:vacarme:choisir:>, 
+						#URL_ACTION_AUTEUR{remplir_panier, #GET{arg}, #SELF|parametre_url{etape, 2}|parametre_url{id_abonnements_offre, #ID_ABONNEMENTS_OFFRE}},
+						c-btn-form c-btn-form--white c-btn-form--upper ajax})]
+					[(#INCLURE{fond=inclure/logo/numeros-collection-abonnement, nombre_numeros=#DUREE|intval|div{3}|moins{1}})]
 				</div>
 			[(#GET{compteur}|=={#GET{total}}|oui)
 			</section>]
