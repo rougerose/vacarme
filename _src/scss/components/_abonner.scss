@@ -220,7 +220,7 @@
 	// c-abonner-numero
 	// -------------------------------------
 	
-	.c-abonner-numero {
+	.c-abonner-numero {	
 		@include mq(tablet) {
 			width: 30%;
 		}
@@ -242,6 +242,19 @@
 				font-weight: 300;
 			}
 		}
+	
+	
+	
+	//
+	// c-abonner-cadeaux
+	// -------------------------------------
+	
+	.c-abonner-cadeaux {
+		display: flex;
+		flex-direction: column;
+		list-style: none;
+		margin-left: 0;
+	}
 	
 	
 	

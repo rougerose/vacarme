@@ -76,13 +76,13 @@
 // -------------------------------------
 .c-card--media {
 	
-	@include mq(tabletPlus) {
+	@include mq(tablet) {
 		@include inuit-clearfix();
 		display: block;
 	}
 	
 	.c-card__img {
-		@include mq(tabletPlus) {
+		@include mq(tablet) {
 			float: left;
 			margin-right: $spacing-unit;
 			width: 50%;
@@ -94,7 +94,7 @@
 	}
 	
 	.c-card__body {
-		@include mq(tabletPlus) {
+		@include mq(tablet) {
 			overflow: hidden;
 		}
 	}
