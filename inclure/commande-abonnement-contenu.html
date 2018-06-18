@@ -1,4 +1,5 @@
 <BOUCLE_abonnement(COMMANDES_DETAILS){id_commandes_detail}>
+	<!-- TODO: Ajouter logo -->
 	[(#NUMERO_DEBUT|match{^v\d+?}|oui)
 		[(#SET{debut, #NUMERO_DEBUT|calculer_numero_futur_titre{0}})]
 	][(#DESCRIPTIF|match{@}|oui)
