@@ -25,6 +25,8 @@
 	<necessite nom="vnumeros" />
 	
 	<utilise nom="bank" />
+	<utilise nom="prix" />
+	<utilise nom="commandes" />
 	<utilise nom="paniers" />
     <utilise nom="a2a" compatibilite="[2.2.2;[" />
     <utilise nom="bellespuces" compatibilite="[0.1.7;[" />
@@ -37,7 +39,7 @@
     <utilise nom="oembed" compatibilite="[2.0.1;[" />
     <utilise nom="pb_selection" compatibilite="[3.2.0;[" />
     <utilise nom="selections_editoriales" compatibilite="[1.7.6;[" />
-    <utilise nom="tickets" compatibilite="[4.1.3;[" />
+    <!-- <utilise nom="tickets" compatibilite="[4.1.3;[" /> -->
 	
 	<spip compatibilite="[3.2.0;3.2.*]">
 		<style type="public" source="js/flexslider/flexslider.css" />
