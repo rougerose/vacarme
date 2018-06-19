@@ -59,4 +59,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	
 	// S
 	'sommaire_consulter' => "Le sommaire <em>&#8594;</em>",
+	
+	// T
+	'titre_icone_recherche' => 'Recherche',
 );

@@ -4,12 +4,13 @@
 
 .c-shortcuts {
 	display: flex;
-	flex-flow: row nowrap;
+	// flex-flow: row nowrap;
 	justify-content: flex-end;
-	min-height: $spacing-unit-large;
+	padding-top: $spacing-unit-small;
+	// min-height: $spacing-unit-large;
 	
 	@include mq(desktop) {
-		justify-content: space-between;
+		// justify-content: space-between;
 	}
 }
 
@@ -19,7 +20,6 @@
 // -------------------------------------
 .c-shortcuts__group {
 	display: flex;
-	flex-flow: row nowrap;
 	
 	&:first-child {
 		@include mq(desktop) {
@@ -33,12 +33,11 @@
 // c-shortcuts__item
 // -------------------------------------
 .c-shortcuts__item {
-	margin: auto 0;
 	margin-right: $spacing-unit-small;
 	
 	&--rev {
-		margin: auto;
 		margin-left: $spacing-unit-small;
+		margin-right: 0;
 	}
 }
 
@@ -46,6 +45,43 @@
 //
 // c-shortcuts__link
 // -------------------------------------
-.c-shortcuts__link {
-	// color: $color-white;
+.c-shortcuts__link {}
+
+
+//
+// c-shortcuts__cart
+// -------------------------------------
+
+.c-shortcuts__cart {
+	svg {
+		fill: currentColor;
+	}
+	
+	&.is-filled {
+		color: $color-lien;
+	}
+}
+
+
+//
+// c-shortcuts__cart-quantity
+// -------------------------------------
+
+.c-shortcuts__cart-quantity {
+	position: relative;
+	top: $spacing-unit-small * -1;
+}
+
+//
+// c-shortcuts__account
+// -------------------------------------
+
+.c-shortcuts__account {
+	svg g {
+		stroke: currentColor;
+	}
+	
+	&.is-logon {
+		color: $color-lien;
+	}
 }
