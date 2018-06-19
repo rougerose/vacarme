@@ -4,14 +4,8 @@
 
 .c-shortcuts {
 	display: flex;
-	// flex-flow: row nowrap;
 	justify-content: flex-end;
 	padding-top: $spacing-unit-small;
-	// min-height: $spacing-unit-large;
-	
-	@include mq(desktop) {
-		// justify-content: space-between;
-	}
 }
 
 
@@ -20,10 +14,19 @@
 // -------------------------------------
 .c-shortcuts__group {
 	display: flex;
+	align-items: center;
 	
 	&:first-child {
 		@include mq(desktop) {
 			flex: 1;
+		}
+	}
+}
+
+.c-shortcuts__group--user {
+	svg {
+		@include mq(desktop) {
+			width: 18px;
 		}
 	}
 }
@@ -70,6 +73,9 @@
 .c-shortcuts__cart-quantity {
 	position: relative;
 	top: $spacing-unit-small * -1;
+	@include mq(desktop) {
+		@include inuit-font-size(14px);
+	}
 }
 
 //
