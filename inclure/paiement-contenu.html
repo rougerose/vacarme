@@ -1,19 +1,23 @@
-#CACHE{0}
-<BOUCLE_commande(COMMANDES){id_commande=#ENV{id_commande}}{si #ENV{hash}}>
-	[(#SET{cle, #ID_AUTEUR|vpaniers_calcul_hash_commande{#ID_COMMANDE, #DATE}})]
-	[(#GET{cle}|=={#ENV{hash}}|oui)
-		<p>Votre commande numéro #REFERENCE est prête. Choisissez votre mode de réglement.</p>
-		#INCLURE{fond=inclure/commande-contenu, id_commande}
-		[(#FORMULAIRE_PAYER_ACTE{#PRIX*,
-			#ARRAY{
-				montant_ht,#PRIX_HT*,
-				id_commande,#ID_COMMANDE,
-				id_auteur,#ID_AUTEUR,
-			}
-		})]
-	][(#GET{cle}|=={#ENV{hash}}|non)
-	<p class="c-message c-message--erreur"><:vacarme:commande_erreur_hash:></p>
+<BOUCLE_commande(COMMANDES){id_commande=#ENV{id_commande}}{statut IN encours, poubelle}>
+	[(#STATUT|=={encours}|oui)
+		[(#SET{cle, #ID_AUTEUR|vpaniers_calcul_hash_commande{#ID_COMMANDE, #DATE}})]
+		[(#ENV{hash_commande}|=={#GET{cle}}|oui)
+			<p><:vacarme:commande_message_commande_prete:>.</p>
+			#INCLURE{fond=inclure/commande-contenu, id_commande, hash_commande=#ENV{hash_commande}}
+			[(#FORMULAIRE_PAYER_ACTE{#PRIX*,
+				#ARRAY{
+					montant_ht, #PRIX_HT*,
+					id_commande, #ID_COMMANDE,
+					id_auteur, #ID_AUTEUR,
+					id_panier, #SESSION{id_panier}
+				}
+			})]
+		][(#GET{cle}|=={#ENV{hash_commande}}|non)
+			<p class="c-message c-message--erreur"><:vacarme:commande_erreur_hash:></p>
+		]
+	][(#STATUT|=={poubelle}|oui)
+		<p class="c-message c-message--ok"><:vacarme:commande_message_annulation:>.</p>
 	]
 </BOUCLE_commande>
-<p class="c-message c-message--erreur"><:vacarme:commande_inexistante:></p>
+	<p class="c-message c-message--erreur"><:vacarme:commande_inexistante:></p>
 <//B_commande>

@@ -73,6 +73,7 @@
 .c-shortcuts__cart-quantity {
 	position: relative;
 	top: $spacing-unit-small * -1;
+	
 	@include mq(desktop) {
 		@include inuit-font-size(14px);
 	}
