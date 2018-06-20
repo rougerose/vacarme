@@ -31,9 +31,9 @@
 		<tr class="article">
 			<td class="description">
 				[(#OBJET|=={abonnements_offre}|oui)
-					#INCLURE{fond=inclure/commande-abonnement-contenu, id_commandes_detail}
+					#INCLURE{fond=inclure/commande/contenu-abonnement, id_commandes_detail}
 				][(#OBJET|=={rubrique}|oui)
-					#INCLURE{fond=inclure/commande-numero-contenu, id_commandes_detail}
+					#INCLURE{fond=inclure/commande/contenu-numero, id_commandes_detail}
 				]
 			</td>
 			<td class="prix_unitaire">[(#PRIX_UNITAIRE_HT|mult{#TAXE|plus{1}}|prix_formater)]</td>

@@ -3,7 +3,7 @@
 		[(#SET{cle, #ID_AUTEUR|vpaniers_calcul_hash_commande{#ID_COMMANDE, #DATE}})]
 		[(#ENV{hash_commande}|=={#GET{cle}}|oui)
 			<p><:vacarme:commande_message_commande_prete:>.</p>
-			#INCLURE{fond=inclure/commande-contenu, id_commande, hash_commande=#ENV{hash_commande}}
+			#INCLURE{fond=inclure/commande/contenu, id_commande, hash_commande=#ENV{hash_commande}}
 			[(#FORMULAIRE_PAYER_ACTE{#PRIX*,
 				#ARRAY{
 					montant_ht, #PRIX_HT*,
