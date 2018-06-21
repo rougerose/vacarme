@@ -61,7 +61,8 @@
 					[(#BOUTON_ACTION{<:vacarme:choisir:>, 
 						#URL_ACTION_AUTEUR{remplir_panier, #GET{arg}, #SELF|parametre_url{etape, 2}|parametre_url{id_abonnements_offre, #ID_ABONNEMENTS_OFFRE}},
 						c-btn-form c-btn-form--white c-btn-form--upper ajax})]
-					[(#INCLURE{fond=inclure/logo/numeros-collection-abonnement, nombre_numeros=#DUREE|intval|div{3}|moins{1}})]
+					
+					[(#INCLURE{fond=inclure/logo/abonnement-collection-numeros, largeur=250, nombre_numeros=#DUREE|intval|div{3}|moins{1}})]
 				</div>
 			[(#GET{compteur}|=={#GET{total}}|oui)
 			</section>]

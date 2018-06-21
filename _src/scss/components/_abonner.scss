@@ -22,7 +22,6 @@
 		// ----- c-abonner-header__titre ----- //
 		.c-abonner-header__titre {
 			@include inuit-font-size(28px, 1.2);
-			// @include inuit-font-size(32px, 1.2);
 			margin-bottom: $spacing-unit-large;
 		}
 		
@@ -172,14 +171,14 @@
 		img {
 			display: block;
 			position: absolute;
-			left: -170px;
-			top: 32px;
+			top: 15%;
+			left: -65%;
 			box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.1);
 			@include rotate(-1.5, 8);
 			transform-origin: 50% 100%;
 			
 			@include mq(desktop) {
-				left: -160px;
+				left: -75%;
 			}
 		}
 	}
