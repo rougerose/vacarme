@@ -7,7 +7,7 @@
 
 .c-message {
 	padding: $message-padding;
-	@include inuit-font-size(20px);
+	@include inuit-font-size(16px, 1.2);
 	text-align: center;
 	
 	> a {

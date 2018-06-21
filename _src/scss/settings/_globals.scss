@@ -195,7 +195,7 @@ $couleur-print: #000;
 	$lien-transition: 0.35s ease-out;
 	
 	// ----- message et reponse_formulaire ----- //
-	$message-padding: $inuit-global-spacing-unit $inuit-global-spacing-unit $inuit-global-spacing-unit-small;
+	$message-padding: $inuit-global-spacing-unit-tiny $inuit-global-spacing-unit-tiny $inuit-global-spacing-unit-tiny / 2;
 	$message-border-erreur: 3px solid $color-red;
 	$message-border-ok: 3px solid $color-lime-500;
 	$message-border-attention: 2px solid $color-lime-500;
