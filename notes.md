@@ -6,5 +6,5 @@
 # bugs
 * vidéos avec oembed : voir article2653. Problèmes de css ? à vérifier. 
 
-# conception
-* pas de bouton "panier" et gérer le panier dans la page d'abonnement et d'achat d'exemplaire, ex: https://www.offscreenmag.com/buy/issues
+# abonnements
+* rubrique Abonnement : ajouter une section "renouveler son abonnement" + toute la mécanique derrière. 

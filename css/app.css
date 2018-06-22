@@ -2436,51 +2436,59 @@
 
 /* line 19, _src/scss/components/_formulaire_valider_panier.scss */ .valider_panier_contenu .editer_contrats, .valider_panier_contenu .boutons { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; }
 
-/* line 23, _src/scss/components/_abonner.scss */ .c-abonner-header__titre { font-size: 28px; font-size: 1.75rem; line-height: 1.2; margin-bottom: 48px; }
+/* line 25, _src/scss/components/_abonner.scss */ .c-abonner-header__titre { font-size: 28px; font-size: 1.75rem; line-height: 1.2; margin-bottom: 48px; }
 
-/* line 29, _src/scss/components/_abonner.scss */ .c-abonner-header__intro, .c-abonner-section__intro { padding-right: 48px; font-size: 18px; font-size: 1.125rem; line-height: 1.33333; }
+/* line 32, _src/scss/components/_abonner.scss */ .c-abonner-header__intro { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
 
-/* line 35, _src/scss/components/_abonner.scss */ .c-abonner-header__list { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; -ms-flex-wrap: wrap; flex-wrap: wrap; list-style: none; margin-left: 0; }
+@media (min-width: 40em) { /* line 32, _src/scss/components/_abonner.scss */ .c-abonner-header__intro { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; } }
 
-/* line 45, _src/scss/components/_abonner.scss */ .c-abonner-header__list-item { width: 50%; font-size: 20px; font-size: 1.25rem; line-height: 1.5; }
+/* line 43, _src/scss/components/_abonner.scss */ .c-abonner-header__intro-texte { margin-bottom: 48px; padding-right: 48px; font-size: 18px; font-size: 1.125rem; line-height: 1.33333; }
 
-/* line 49, _src/scss/components/_abonner.scss */ .c-abonner-header__list-item:nth-child(3) { margin-top: 48px; }
+@media (min-width: 40em) { /* line 43, _src/scss/components/_abonner.scss */ .c-abonner-header__intro-texte { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } }
 
-/* line 53, _src/scss/components/_abonner.scss */ .c-abonner-header__list-item span { display: block; font-weight: bold; }
+/* line 56, _src/scss/components/_abonner.scss */ .c-abonner-header__list { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; list-style: none; margin-left: 0; }
 
-/* line 57, _src/scss/components/_abonner.scss */ .c-abonner-header__list-item span:before { border-top: 1px solid; display: block; margin-bottom: 1em; width: 2em; content: ''; }
+@media (min-width: 40em) { /* line 56, _src/scss/components/_abonner.scss */ .c-abonner-header__list { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } }
 
-/* line 73, _src/scss/components/_abonner.scss */ .c-abonner-section { margin-bottom: 48px; }
+/* line 73, _src/scss/components/_abonner.scss */ .c-abonner-header__list-item { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; margin-bottom: 24px; font-size: 20px; font-size: 1.25rem; line-height: 1.5; }
 
-/* line 78, _src/scss/components/_abonner.scss */ .c-abonner-section__titre { font-size: 24px; font-size: 1.5rem; line-height: 1.2; }
+/* line 83, _src/scss/components/_abonner.scss */ .c-abonner-header__list-item span { display: block; font-weight: bold; }
 
-/* line 94, _src/scss/components/_abonner.scss */ .c-abonner-couleur a { color: #fff; border-bottom-color: currentColor; }
+/* line 87, _src/scss/components/_abonner.scss */ .c-abonner-header__list-item span:before { border-top: 1px solid; display: block; margin-bottom: 1em; width: 2em; content: ''; }
 
-/* line 97, _src/scss/components/_abonner.scss */ .c-abonner-couleur a:hover { color: #000; }
+/* line 103, _src/scss/components/_abonner.scss */ .c-abonner-section { margin-bottom: 48px; }
 
-/* line 103, _src/scss/components/_abonner.scss */ .c-abonner-couleur--bgc-1074 { background-color: #ffc107; }
+/* line 108, _src/scss/components/_abonner.scss */ .c-abonner-section__titre { font-size: 24px; font-size: 1.5rem; line-height: 1.2; }
 
-/* line 107, _src/scss/components/_abonner.scss */ .c-abonner-couleur--bgc-1075 { background-color: #ff9800; }
+/* line 113, _src/scss/components/_abonner.scss */ .c-abonner-section__intro { padding-right: 48px; font-size: 18px; font-size: 1.125rem; line-height: 1.33333; }
 
-/* line 111, _src/scss/components/_abonner.scss */ .c-abonner-couleur--bgc-1076 { background-color: #ff8022; }
+/* line 126, _src/scss/components/_abonner.scss */ .c-abonner-couleur a { color: #fff; border-bottom-color: currentColor; }
 
-/* line 115, _src/scss/components/_abonner.scss */ .c-abonner-couleur--bgc-abonnement { background-color: #f9a825; }
+/* line 129, _src/scss/components/_abonner.scss */ .c-abonner-couleur a:hover { color: #000; }
 
-/* line 126, _src/scss/components/_abonner.scss */ .c-abonner-liste-offres { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase; }
+/* line 135, _src/scss/components/_abonner.scss */ .c-abonner-couleur--bgc-1074 { background-color: #ffc107; }
 
-@media (min-width: 64em) { /* line 126, _src/scss/components/_abonner.scss */ .c-abonner-liste-offres { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; } }
+/* line 139, _src/scss/components/_abonner.scss */ .c-abonner-couleur--bgc-1075 { background-color: #ff9800; }
 
-/* line 138, _src/scss/components/_abonner.scss */ .c-abonner-liste-offres__header { width: 100%; margin-top: 24px; }
+/* line 143, _src/scss/components/_abonner.scss */ .c-abonner-couleur--bgc-1076 { background-color: #ff8022; }
 
-/* line 144, _src/scss/components/_abonner.scss */ .c-abonner-liste-offres__titre > .o-icon { margin: 0 6px; vertical-align: middle; }
+/* line 147, _src/scss/components/_abonner.scss */ .c-abonner-couleur--bgc-abonnement { background-color: #f9a825; }
 
-@media (min-width: 64em) { /* line 156, _src/scss/components/_abonner.scss */ .c-abonner-offre { width: 30%; } }
+/* line 158, _src/scss/components/_abonner.scss */ .c-abonner-liste-offres { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase; }
 
-/* line 162, _src/scss/components/_abonner.scss */ .c-abonner-offre--pack-couvertures { position: relative; overflow: hidden; padding-left: 90px; }
+@media (min-width: 64em) { /* line 158, _src/scss/components/_abonner.scss */ .c-abonner-liste-offres { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; } }
 
-@media (min-width: 64em) { /* line 162, _src/scss/components/_abonner.scss */ .c-abonner-offre--pack-couvertures { padding-left: 60px; } }
+/* line 170, _src/scss/components/_abonner.scss */ .c-abonner-liste-offres__header { width: 100%; margin-top: 24px; }
 
-/* line 171, _src/scss/components/_abonner.scss */ .c-abonner-offre--pack-couvertures img { display: block; position: absolute; top: 15%; left: -180px; -webkit-box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.1); box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.1); -webkit-transform-origin: 50% 100%; transform-origin: 50% 100%; width: 250px; }
+/* line 176, _src/scss/components/_abonner.scss */ .c-abonner-liste-offres__titre > .o-icon { margin: 0 6px; vertical-align: middle; }
+
+@media (min-width: 64em) { /* line 188, _src/scss/components/_abonner.scss */ .c-abonner-offre { width: 30%; } }
+
+/* line 194, _src/scss/components/_abonner.scss */ .c-abonner-offre--pack-couvertures { position: relative; overflow: hidden; padding-left: 90px; }
+
+@media (min-width: 64em) { /* line 194, _src/scss/components/_abonner.scss */ .c-abonner-offre--pack-couvertures { padding-left: 60px; } }
+
+/* line 203, _src/scss/components/_abonner.scss */ .c-abonner-offre--pack-couvertures img { display: block; position: absolute; top: 15%; left: -180px; -webkit-box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.1); box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.1); -webkit-transform-origin: 50% 100%; transform-origin: 50% 100%; width: 250px; }
 
 /* line 10, _src/scss/tools/_rotate.scss */ .c-abonner-offre--pack-couvertures img:nth-of-type(1) { -webkit-transform: rotate(-1.5deg); transform: rotate(-1.5deg); }
 
@@ -2498,29 +2506,29 @@
 
 /* line 10, _src/scss/tools/_rotate.scss */ .c-abonner-offre--pack-couvertures img:nth-of-type(8) { -webkit-transform: rotate(-12deg); transform: rotate(-12deg); }
 
-@media (min-width: 64em) { /* line 171, _src/scss/components/_abonner.scss */ .c-abonner-offre--pack-couvertures img { left: -160px; } }
+@media (min-width: 64em) { /* line 203, _src/scss/components/_abonner.scss */ .c-abonner-offre--pack-couvertures img { left: -160px; } }
 
-/* line 187, _src/scss/components/_abonner.scss */ .c-abonner-offre__titre { margin-bottom: 6px; }
+/* line 219, _src/scss/components/_abonner.scss */ .c-abonner-offre__titre { margin-bottom: 6px; }
 
-/* line 191, _src/scss/components/_abonner.scss */ .c-abonner-offre__desc { text-transform: none; font-size: 15px; font-size: 0.9375rem; line-height: 1.2; }
+/* line 223, _src/scss/components/_abonner.scss */ .c-abonner-offre__desc { text-transform: none; font-size: 15px; font-size: 0.9375rem; line-height: 1.2; }
 
-/* line 196, _src/scss/components/_abonner.scss */ .c-abonner-offre__prix { font-weight: bold; }
+/* line 228, _src/scss/components/_abonner.scss */ .c-abonner-offre__prix { font-weight: bold; }
 
-/* line 206, _src/scss/components/_abonner.scss */ .c-abonner-numeros { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; list-style: none; margin-left: 0; }
+/* line 238, _src/scss/components/_abonner.scss */ .c-abonner-numeros { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; list-style: none; margin-left: 0; }
 
-@media (min-width: 40em) { /* line 206, _src/scss/components/_abonner.scss */ .c-abonner-numeros { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; } }
+@media (min-width: 40em) { /* line 238, _src/scss/components/_abonner.scss */ .c-abonner-numeros { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; } }
 
-@media (min-width: 40em) { /* line 223, _src/scss/components/_abonner.scss */ .c-abonner-numero { width: 30%; } }
+@media (min-width: 40em) { /* line 255, _src/scss/components/_abonner.scss */ .c-abonner-numero { width: 30%; } }
 
-/* line 229, _src/scss/components/_abonner.scss */ .c-abonner-numero__surtitre { margin-bottom: 12px; font-size: 22px; font-size: 1.375rem; line-height: 1.36364; font-weight: bold; }
+/* line 261, _src/scss/components/_abonner.scss */ .c-abonner-numero__surtitre { margin-bottom: 12px; font-size: 22px; font-size: 1.375rem; line-height: 1.36364; font-weight: bold; }
 
-@media (min-width: 48em) { /* line 229, _src/scss/components/_abonner.scss */ .c-abonner-numero__surtitre { font-size: 16px; font-size: 1rem; line-height: 1.5; } }
+@media (min-width: 48em) { /* line 261, _src/scss/components/_abonner.scss */ .c-abonner-numero__surtitre { font-size: 16px; font-size: 1rem; line-height: 1.5; } }
 
-/* line 240, _src/scss/components/_abonner.scss */ .c-abonner-numero__titre small { display: block; font-weight: 300; }
+/* line 272, _src/scss/components/_abonner.scss */ .c-abonner-numero__titre small { display: block; font-weight: 300; }
 
-/* line 252, _src/scss/components/_abonner.scss */ .c-abonner-cadeaux { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; list-style: none; margin-left: 0; }
+/* line 284, _src/scss/components/_abonner.scss */ .c-abonner-cadeaux { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; list-style: none; margin-left: 0; }
 
-/* line 265, _src/scss/components/_abonner.scss */ .c-abonner-cadeau { padding: 24px; }
+/* line 297, _src/scss/components/_abonner.scss */ .c-abonner-cadeau { padding: 24px; }
 
 /* line 15, _src/scss/components/_inscription.scss */ .c-inscription__form { border: 2px solid #191929; padding: 24px 24px 0; }
 
