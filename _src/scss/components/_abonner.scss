@@ -56,10 +56,6 @@
 		.c-abonner-header__list {
 			display: flex;
 			justify-content: space-between;
-			// display: flex;
-			// justify-content: space-between;
-			// flex-grow: 1;
-			// flex-wrap: wrap;
 			list-style: none;
 			margin-left: 0;
 			
@@ -73,12 +69,7 @@
 		.c-abonner-header__list-item {
 			flex: 1;
 			margin-bottom: $spacing-unit;
-			// width: 50%;
 			@include inuit-font-size(20px);
-			
-			// &:nth-child(3) {
-			// 	margin-top: $spacing-unit-large;
-			// }
 			
 			span {
 				display: block;
