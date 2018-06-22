@@ -3,7 +3,7 @@
 ]
 #SET{regions, #ARRAY}
 #SET{region, #ENV{region, 1077}}
-
+<BOUCLE_numero_actuel(RUBRIQUES){id_parent=115}{!par titre}{0,1}>#SET{reference_numero_actuel, #REFERENCE}</BOUCLE_numero_actuel>
 <section class="c-abonner-section">
 	<header class="c-abonner-section__header">
 		<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper">1. <:vacarme:abonnement_souscrire_etape_abonnement_titre:></h2>
@@ -62,7 +62,7 @@
 						#URL_ACTION_AUTEUR{remplir_panier, #GET{arg}, #SELF|parametre_url{etape, 2}|parametre_url{id_abonnements_offre, #ID_ABONNEMENTS_OFFRE}},
 						c-btn-form c-btn-form--white c-btn-form--upper ajax})]
 					
-					[(#INCLURE{fond=inclure/logo/abonnement-collection-numeros, largeur=250, nombre_numeros=#DUREE|intval|div{3}|moins{1}})]
+					[(#INCLURE{fond=inclure/logo/abonnement-collection-numeros, reference_numero_debut=#GET{reference_numero_actuel}, largeur=250, nombre_numeros=#DUREE|intval|div{3}|moins{1}})]
 				</div>
 			[(#GET{compteur}|=={#GET{total}}|oui)
 			</section>]

@@ -40,7 +40,7 @@
 							c-btn-form c-btn-form--white c-btn-form--upper u-typo-font-vacarme ajax})]
 					</div>
 				</li>
-				[(#REM) <!-- La date et la référence du numéro actuel --> ]
+				[(#REM) <!-- La date, le titre et la référence du numéro actuel --> ]
 				[(#SET{numero_prochain, #ARRAY})]
 				[(#SET{numero_prochain, #GET{numero_prochain}|array_merge{#ARRAY{titre, #REFERENCE|calculer_numero_futur_titre}}})]
 				[(#SET{numero_prochain, #GET{numero_prochain}|array_merge{#ARRAY{reference, #REFERENCE|calculer_numero_futur_reference}}})]
@@ -49,7 +49,7 @@
 			[(#REM) <!-- Le prochain numéro --> ]
 			<li class="c-card c-abonner-numero c-abonner-couleur c-abonner-couleur--bgc-abonnement">
 				<p class="c-abonner-numero__surtitre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_numero_3:></p>
-				[(#SET{logo, #CHEMIN{img/vacarme-couverture-prochain.png}})]
+				[(#SET{logo, #CHEMIN{images/vacarme-couverture-prochain.jpg}})]
 				[(#INCLURE{fond=inclure/logo/abonnements-numero, logo=#GET{logo}, class=c-card__img})]
 				<div class="c-card__body">
 					<h3 class="c-card__title c-abonner-numero__titre u-typo-font-vacarme u-typo-upper">[
