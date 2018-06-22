@@ -12,8 +12,8 @@
 // -------------------------------------
 
 .formulaire_spip {
-	border: 1px solid $color-blue-grey-800;
-	margin-bottom: $spacing-unit;
+	border: 1px solid $color-gray-300; //$color-blue-grey-800;
+	// margin-bottom: $spacing-unit;
 	padding: $spacing-unit $spacing-unit 0;
 	font-family: $font-helvetica;
 	
@@ -21,7 +21,7 @@
 	.legend {
 		margin-bottom: $spacing-unit;
 		color: $color-blue-grey-800;
-		@include inuit-font-size(24px);
+		@include inuit-font-size(18px);
 		font-weight: bold;
 		text-transform: uppercase;
 	}
@@ -35,7 +35,7 @@
 		
 		> label {
 			display: block;
-			@include inuit-font-size(20px);
+			@include inuit-font-size(18px);
 		}
 	}
 	
@@ -79,7 +79,7 @@ input[type="checkbox"] {
 	margin-top: $spacing-unit-small;
 	
 	& + label {
-		@include inuit-font-size(20px, normal);
+		@include inuit-font-size(18px, normal);
 	}
 }
 
@@ -99,7 +99,7 @@ input[type="checkbox"] {
 	
 	.reponse_formulaire {
 		padding: $message-padding;
-		@include inuit-font-size(18px);
+		// @include inuit-font-size(18px);
 		text-align: center;
 		
 		> a {

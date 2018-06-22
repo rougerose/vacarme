@@ -1,0 +1,77 @@
+// =====================================
+// compte
+// =====================================
+
+
+.c-compte {}
+
+
+	.c-compte-header {}
+	
+		.c-compte-header__titre {
+			@include inuit-font-size(28px, 1.2);
+			// margin-bottom: $spacing-unit-large;
+		}
+	
+	
+	.c-compte-section {}
+	
+		.c-compte-section__titre {
+			margin-bottom: $spacing-unit-large;
+			@include inuit-font-size(22px, 1.2);
+			
+			@include mq(tablet) {
+				text-align: center;
+			}
+		}
+		
+		.c-compte-section__titre--s {
+			@include inuit-font-size(18px, false);
+		}
+		
+	
+	.c-compte-identification {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		
+		@include mq(tablet) {
+			flex-direction: row;
+		}
+	}
+	
+	
+		.c-compte-identification__section {
+			flex: 1;
+			margin-bottom: $spacing-unit-large;
+			
+			&:nth-of-type(2) {
+				border-top: 1px solid $color-gray-300;
+				padding-top: $spacing-unit-large;
+			}
+			
+			@include mq(tablet) {
+				&:nth-of-type(2) {
+					border-top: none;
+					padding-top: 0;
+					margin-left: 10%;
+					
+					&:before {
+						position: absolute;
+						top: 0;
+						left: 50%;
+						height: 100%;
+						border-left: 1px solid $color-gray-300;
+						content: '';
+					}
+				}
+			}
+		}
+		
+		.c-compte-identification__section--login {
+			// form legend {
+			// 	display: none;
+			// }
+		}
+		
+		.c-compte-identification__section--inscription {}

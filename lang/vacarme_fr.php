@@ -43,8 +43,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'commande_message_commande_prete' => "Votre commande est maintenant prête",
 	'commande_inexistante'       => "Cette commande n'existe pas.",
 	'commande_erreur_hash'       => "Aucune commande n'est disponible.",
-	'compte_inscription_info'    => "Vous n'avez pas de compte ? <a href='@url@' class='suite-lien ajax'>Créez-le <em>&#8594;</em></a>",
-	'compte_identification_info' => "Vous avez déjà un compte ? <a href='@url@' class='suite-lien ajax'>Connectez-vous <em>&#8594;</em></a>",
+	// 'compte_inscription_info'    => "Vous n'avez pas de compte ? <a href='@url@' class='suite-lien ajax'>Créez-le <em>&#8594;</em></a>",
+	'compte_inscription_info'    => "Créez-votre compte",
+	// 'compte_identification_info' => "Vous avez déjà un compte ? <a href='@url@' class='suite-lien ajax'>Connectez-vous <em>&#8594;</em></a>",
+	'compte_identification_info' => "Identifiez-vous",
 	
 	// M
 	'message_erreur_souscription_abonnement' => "Nous sommes désolés, un problème technique ne permet pas de poursuivre la souscription de votre abonnement. Pour résoudre ce problème, veuillez <a href='@url@' class='suite-lien'>nous contacter <em>&#8594;</em></a>",

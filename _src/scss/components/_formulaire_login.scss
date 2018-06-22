@@ -3,6 +3,11 @@
 // =====================================
 
 .formulaire_login {
+	legend {
+		margin-bottom: $spacing-unit-small;
+		@include inuit-font-size(16px);
+	}
+	
 	
 	#pass_securise {
 		position: absolute;

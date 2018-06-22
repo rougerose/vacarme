@@ -1,12 +1,24 @@
-<h1>Compte Identification</h1>
-[(#ENV{etape}|=={inscription}|non)
-	[(#SET{url, #URL_PAGE{compte, etape=inscription}})]
-	<p><strong><:vacarme:compte_inscription_info{url=#GET{url}}:></a></strong></p>
-	[(#FORMULAIRE_LOGIN{#URL_PAGE{compte}})]
-	
-][(#ENV{etape}|=={inscription}|oui)
-	[(#SET{url, #URL_PAGE{compte, etape=identification}})]
-	<p><strong><:vacarme:compte_identification_info{url=#GET{url}}:></a></strong></p>
-	#FORMULAIRE_INSCRIPTION
-	
-]
+<section class="c-compte-section">
+	<h2 class="c-compte-section__titre u-typo-font-vacarme">Identifiez-vous pour accéder à votre compte</h2>
+	<div class="c-compte-identification">
+		[(#ENV{etape}|=={inscription}|non)
+			<section class="c-compte-section c-compte-identification__section c-compte-identification__section--login">
+				<h3 class="c-compte-section__titre c-compte-section__titre--s u-typo-font-vacarme">Vous avez déjà un compte</h3>
+				[(#FORMULAIRE_LOGIN{#URL_PAGE{compte}})]
+			</section>
+			<section class="c-compte-section c-compte-identification__section c-compte-identification__section--inscription">
+				<h3 class="c-compte-section__titre c-compte-section__titre--s u-typo-font-vacarme">Vous n'avez pas encore de compte</h3>
+				[<p class="u-typo-font-vacarme"><a href="(#URL_PAGE{compte}|parametre_url{etape, inscription})" class="c-btn c-btn--black c-btn--extended c-btn--upper ajax"><:vacarme:compte_inscription_info:></a></p>]
+			</section>
+		][(#ENV{etape}|=={inscription}|oui)
+			<section class="c-compte-section c-compte-identification__section c-compte-identification__section--inscription">
+				<h3 class="c-compte-section__titre c-compte-section__titre--s u-typo-font-vacarme">Créez votre compte</h3>
+				#FORMULAIRE_INSCRIPTION
+			</section>
+			<section class="c-compte-section c-compte-identification__section c-compte-identification__section--login">
+				<h3 class="c-compte-section__titre c-compte-section__titre--s u-typo-font-vacarme">Vous possédez déjà un compte</h3>
+				[<p class="u-typo-font-vacarme"><a href="(#URL_PAGE{compte}|parametre_url{etape, identification})" class="c-btn c-btn--black c-btn--extended c-btn--upper ajax"><:vacarme:compte_identification_info:></a></p>]
+			</section>
+		]
+	</div>
+</section>

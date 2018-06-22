@@ -2290,7 +2290,7 @@
 
 /* line 88, _src/scss/components/_boutons.scss */ .c-btn--black:hover, .c-btn-form--black button:hover, .c-btn--black:focus, .c-btn-form--black button:focus { color: #fff; background-color: #00bdd6; border-color: #00bdd6; }
 
-/* line 100, _src/scss/components/_boutons.scss */ .c-btn--upper, .c-btn-form--upper button, .boutons .submit { padding-top: 9px; text-transform: uppercase; }
+/* line 100, _src/scss/components/_boutons.scss */ .c-btn--upper, .c-btn-form--upper button, .boutons .submit { padding-top: 12px; text-transform: uppercase; }
 
 /* line 109, _src/scss/components/_boutons.scss */ .c-btn--extended { width: 100%; }
 
@@ -2362,13 +2362,13 @@
 
 @media (min-width: 40em) { /* line 96, _src/scss/components/_card.scss */ .c-card--media .c-card__body { overflow: hidden; } }
 
-/* line 14, _src/scss/components/_formulaire_spip.scss */ .formulaire_spip { border: 1px solid #191929; margin-bottom: 24px; padding: 24px 24px 0; font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+/* line 14, _src/scss/components/_formulaire_spip.scss */ .formulaire_spip { border: 1px solid #e0e0e0; padding: 24px 24px 0; font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
-/* line 20, _src/scss/components/_formulaire_spip.scss */ .formulaire_spip legend, .formulaire_spip .legend { margin-bottom: 24px; color: #191929; font-size: 24px; font-size: 1.5rem; line-height: 1.25; font-weight: bold; text-transform: uppercase; }
+/* line 20, _src/scss/components/_formulaire_spip.scss */ .formulaire_spip legend, .formulaire_spip .legend { margin-bottom: 24px; color: #191929; font-size: 18px; font-size: 1.125rem; line-height: 1.33333; font-weight: bold; text-transform: uppercase; }
 
 /* line 29, _src/scss/components/_formulaire_spip.scss */ .formulaire_spip .editer, .formulaire_spip .saisie_input, .formulaire_spip .saisie_pays, .formulaire_spip .saisie_email, .formulaire_spip .saisie_radio { margin-bottom: 24px; }
 
-/* line 36, _src/scss/components/_formulaire_spip.scss */ .formulaire_spip .editer > label, .formulaire_spip .saisie_input > label, .formulaire_spip .saisie_pays > label, .formulaire_spip .saisie_email > label, .formulaire_spip .saisie_radio > label { display: block; font-size: 20px; font-size: 1.25rem; line-height: 1.5; }
+/* line 36, _src/scss/components/_formulaire_spip.scss */ .formulaire_spip .editer > label, .formulaire_spip .saisie_input > label, .formulaire_spip .saisie_pays > label, .formulaire_spip .saisie_email > label, .formulaire_spip .saisie_radio > label { display: block; font-size: 18px; font-size: 1.125rem; line-height: 1.33333; }
 
 /* line 42, _src/scss/components/_formulaire_spip.scss */ .formulaire_spip fieldset { margin-bottom: 48px; }
 
@@ -2380,11 +2380,11 @@
 
 /* line 76, _src/scss/components/_formulaire_spip.scss */ input[type="radio"], input[type="checkbox"] { margin-right: 6px; margin-top: 12px; }
 
-/* line 81, _src/scss/components/_formulaire_spip.scss */ input[type="radio"] + label, input[type="checkbox"] + label { font-size: 20px; font-size: 1.25rem; line-height: normal; }
+/* line 81, _src/scss/components/_formulaire_spip.scss */ input[type="radio"] + label, input[type="checkbox"] + label { font-size: 18px; font-size: 1.125rem; line-height: normal; }
 
 /* line 94, _src/scss/components/_formulaire_spip.scss */ .erreur_message { color: #e75d32; }
 
-/* line 100, _src/scss/components/_formulaire_spip.scss */ .reponse_formulaire { padding: 6px 6px 3px; font-size: 18px; font-size: 1.125rem; line-height: 1.33333; text-align: center; }
+/* line 100, _src/scss/components/_formulaire_spip.scss */ .reponse_formulaire { padding: 6px 6px 3px; text-align: center; }
 
 /* line 105, _src/scss/components/_formulaire_spip.scss */ .reponse_formulaire > a { border-bottom: 1px dotted #e88e0e; }
 
@@ -2392,13 +2392,15 @@
 
 /* line 114, _src/scss/components/_formulaire_spip.scss */ .reponse_formulaire_ok { border: 2px solid #c1e732; }
 
-/* line 7, _src/scss/components/_formulaire_login.scss */ .formulaire_login #pass_securise { position: absolute; margin-top: 12px; margin-left: -24px; }
+/* line 6, _src/scss/components/_formulaire_login.scss */ .formulaire_login legend { margin-bottom: 12px; font-size: 16px; font-size: 1rem; line-height: 1.5; }
 
-/* line 13, _src/scss/components/_formulaire_login.scss */ .formulaire_login .details { margin-top: 12px; }
+/* line 12, _src/scss/components/_formulaire_login.scss */ .formulaire_login #pass_securise { position: absolute; margin-top: 12px; margin-left: -24px; }
 
-/* line 16, _src/scss/components/_formulaire_login.scss */ .formulaire_login .details a { color: #4040bf; }
+/* line 18, _src/scss/components/_formulaire_login.scss */ .formulaire_login .details { margin-top: 12px; }
 
-/* line 18, _src/scss/components/_formulaire_login.scss */ .formulaire_login .details a:hover { color: #e88e0e; }
+/* line 21, _src/scss/components/_formulaire_login.scss */ .formulaire_login .details a { color: #4040bf; }
+
+/* line 23, _src/scss/components/_formulaire_login.scss */ .formulaire_login .details a:hover { color: #e88e0e; }
 
 /* line 15, _src/scss/components/_formulaire_modifier_profil.scss */ .formulaire_modifier_profil .formulaire__groupe .editer-groupe { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -ms-flex-wrap: wrap; flex-wrap: wrap; }
 
@@ -2450,45 +2452,45 @@
 
 @media (min-width: 40em) { /* line 56, _src/scss/components/_abonner.scss */ .c-abonner-header__list { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } }
 
-/* line 73, _src/scss/components/_abonner.scss */ .c-abonner-header__list-item { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; margin-bottom: 24px; font-size: 20px; font-size: 1.25rem; line-height: 1.5; }
+/* line 69, _src/scss/components/_abonner.scss */ .c-abonner-header__list-item { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; margin-bottom: 24px; font-size: 20px; font-size: 1.25rem; line-height: 1.5; }
 
-/* line 83, _src/scss/components/_abonner.scss */ .c-abonner-header__list-item span { display: block; font-weight: bold; }
+/* line 74, _src/scss/components/_abonner.scss */ .c-abonner-header__list-item span { display: block; font-weight: bold; }
 
-/* line 87, _src/scss/components/_abonner.scss */ .c-abonner-header__list-item span:before { border-top: 1px solid; display: block; margin-bottom: 1em; width: 2em; content: ''; }
+/* line 78, _src/scss/components/_abonner.scss */ .c-abonner-header__list-item span:before { border-top: 1px solid; display: block; margin-bottom: 1em; width: 2em; content: ''; }
 
-/* line 103, _src/scss/components/_abonner.scss */ .c-abonner-section { margin-bottom: 48px; }
+/* line 94, _src/scss/components/_abonner.scss */ .c-abonner-section { margin-bottom: 48px; }
 
-/* line 108, _src/scss/components/_abonner.scss */ .c-abonner-section__titre { font-size: 24px; font-size: 1.5rem; line-height: 1.2; }
+/* line 99, _src/scss/components/_abonner.scss */ .c-abonner-section__titre { font-size: 24px; font-size: 1.5rem; line-height: 1.2; }
 
-/* line 113, _src/scss/components/_abonner.scss */ .c-abonner-section__intro { padding-right: 48px; font-size: 18px; font-size: 1.125rem; line-height: 1.33333; }
+/* line 104, _src/scss/components/_abonner.scss */ .c-abonner-section__intro { padding-right: 48px; font-size: 18px; font-size: 1.125rem; line-height: 1.33333; }
 
-/* line 126, _src/scss/components/_abonner.scss */ .c-abonner-couleur a { color: #fff; border-bottom-color: currentColor; }
+/* line 117, _src/scss/components/_abonner.scss */ .c-abonner-couleur a { color: #fff; border-bottom-color: currentColor; }
 
-/* line 129, _src/scss/components/_abonner.scss */ .c-abonner-couleur a:hover { color: #000; }
+/* line 120, _src/scss/components/_abonner.scss */ .c-abonner-couleur a:hover { color: #000; }
 
-/* line 135, _src/scss/components/_abonner.scss */ .c-abonner-couleur--bgc-1074 { background-color: #ffc107; }
+/* line 126, _src/scss/components/_abonner.scss */ .c-abonner-couleur--bgc-1074 { background-color: #ffc107; }
 
-/* line 139, _src/scss/components/_abonner.scss */ .c-abonner-couleur--bgc-1075 { background-color: #ff9800; }
+/* line 130, _src/scss/components/_abonner.scss */ .c-abonner-couleur--bgc-1075 { background-color: #ff9800; }
 
-/* line 143, _src/scss/components/_abonner.scss */ .c-abonner-couleur--bgc-1076 { background-color: #ff8022; }
+/* line 134, _src/scss/components/_abonner.scss */ .c-abonner-couleur--bgc-1076 { background-color: #ff8022; }
 
-/* line 147, _src/scss/components/_abonner.scss */ .c-abonner-couleur--bgc-abonnement { background-color: #f9a825; }
+/* line 138, _src/scss/components/_abonner.scss */ .c-abonner-couleur--bgc-abonnement { background-color: #f9a825; }
 
-/* line 158, _src/scss/components/_abonner.scss */ .c-abonner-liste-offres { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase; }
+/* line 149, _src/scss/components/_abonner.scss */ .c-abonner-liste-offres { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase; }
 
-@media (min-width: 64em) { /* line 158, _src/scss/components/_abonner.scss */ .c-abonner-liste-offres { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; } }
+@media (min-width: 64em) { /* line 149, _src/scss/components/_abonner.scss */ .c-abonner-liste-offres { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; } }
 
-/* line 170, _src/scss/components/_abonner.scss */ .c-abonner-liste-offres__header { width: 100%; margin-top: 24px; }
+/* line 161, _src/scss/components/_abonner.scss */ .c-abonner-liste-offres__header { width: 100%; margin-top: 24px; }
 
-/* line 176, _src/scss/components/_abonner.scss */ .c-abonner-liste-offres__titre > .o-icon { margin: 0 6px; vertical-align: middle; }
+/* line 167, _src/scss/components/_abonner.scss */ .c-abonner-liste-offres__titre > .o-icon { margin: 0 6px; vertical-align: middle; }
 
-@media (min-width: 64em) { /* line 188, _src/scss/components/_abonner.scss */ .c-abonner-offre { width: 30%; } }
+@media (min-width: 64em) { /* line 179, _src/scss/components/_abonner.scss */ .c-abonner-offre { width: 30%; } }
 
-/* line 194, _src/scss/components/_abonner.scss */ .c-abonner-offre--pack-couvertures { position: relative; overflow: hidden; padding-left: 90px; }
+/* line 185, _src/scss/components/_abonner.scss */ .c-abonner-offre--pack-couvertures { position: relative; overflow: hidden; padding-left: 90px; }
 
-@media (min-width: 64em) { /* line 194, _src/scss/components/_abonner.scss */ .c-abonner-offre--pack-couvertures { padding-left: 60px; } }
+@media (min-width: 64em) { /* line 185, _src/scss/components/_abonner.scss */ .c-abonner-offre--pack-couvertures { padding-left: 60px; } }
 
-/* line 203, _src/scss/components/_abonner.scss */ .c-abonner-offre--pack-couvertures img { display: block; position: absolute; top: 15%; left: -180px; -webkit-box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.1); box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.1); -webkit-transform-origin: 50% 100%; transform-origin: 50% 100%; width: 250px; }
+/* line 194, _src/scss/components/_abonner.scss */ .c-abonner-offre--pack-couvertures img { display: block; position: absolute; top: 15%; left: -180px; -webkit-box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.1); box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.1); -webkit-transform-origin: 50% 100%; transform-origin: 50% 100%; width: 250px; }
 
 /* line 10, _src/scss/tools/_rotate.scss */ .c-abonner-offre--pack-couvertures img:nth-of-type(1) { -webkit-transform: rotate(-1.5deg); transform: rotate(-1.5deg); }
 
@@ -2506,29 +2508,29 @@
 
 /* line 10, _src/scss/tools/_rotate.scss */ .c-abonner-offre--pack-couvertures img:nth-of-type(8) { -webkit-transform: rotate(-12deg); transform: rotate(-12deg); }
 
-@media (min-width: 64em) { /* line 203, _src/scss/components/_abonner.scss */ .c-abonner-offre--pack-couvertures img { left: -160px; } }
+@media (min-width: 64em) { /* line 194, _src/scss/components/_abonner.scss */ .c-abonner-offre--pack-couvertures img { left: -160px; } }
 
-/* line 219, _src/scss/components/_abonner.scss */ .c-abonner-offre__titre { margin-bottom: 6px; }
+/* line 210, _src/scss/components/_abonner.scss */ .c-abonner-offre__titre { margin-bottom: 6px; }
 
-/* line 223, _src/scss/components/_abonner.scss */ .c-abonner-offre__desc { text-transform: none; font-size: 15px; font-size: 0.9375rem; line-height: 1.2; }
+/* line 214, _src/scss/components/_abonner.scss */ .c-abonner-offre__desc { text-transform: none; font-size: 15px; font-size: 0.9375rem; line-height: 1.2; }
 
-/* line 228, _src/scss/components/_abonner.scss */ .c-abonner-offre__prix { font-weight: bold; }
+/* line 219, _src/scss/components/_abonner.scss */ .c-abonner-offre__prix { font-weight: bold; }
 
-/* line 238, _src/scss/components/_abonner.scss */ .c-abonner-numeros { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; list-style: none; margin-left: 0; }
+/* line 229, _src/scss/components/_abonner.scss */ .c-abonner-numeros { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; list-style: none; margin-left: 0; }
 
-@media (min-width: 40em) { /* line 238, _src/scss/components/_abonner.scss */ .c-abonner-numeros { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; } }
+@media (min-width: 40em) { /* line 229, _src/scss/components/_abonner.scss */ .c-abonner-numeros { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; } }
 
-@media (min-width: 40em) { /* line 255, _src/scss/components/_abonner.scss */ .c-abonner-numero { width: 30%; } }
+@media (min-width: 40em) { /* line 246, _src/scss/components/_abonner.scss */ .c-abonner-numero { width: 30%; } }
 
-/* line 261, _src/scss/components/_abonner.scss */ .c-abonner-numero__surtitre { margin-bottom: 12px; font-size: 22px; font-size: 1.375rem; line-height: 1.36364; font-weight: bold; }
+/* line 252, _src/scss/components/_abonner.scss */ .c-abonner-numero__surtitre { margin-bottom: 12px; font-size: 22px; font-size: 1.375rem; line-height: 1.36364; font-weight: bold; }
 
-@media (min-width: 48em) { /* line 261, _src/scss/components/_abonner.scss */ .c-abonner-numero__surtitre { font-size: 16px; font-size: 1rem; line-height: 1.5; } }
+@media (min-width: 48em) { /* line 252, _src/scss/components/_abonner.scss */ .c-abonner-numero__surtitre { font-size: 16px; font-size: 1rem; line-height: 1.5; } }
 
-/* line 272, _src/scss/components/_abonner.scss */ .c-abonner-numero__titre small { display: block; font-weight: 300; }
+/* line 263, _src/scss/components/_abonner.scss */ .c-abonner-numero__titre small { display: block; font-weight: 300; }
 
-/* line 284, _src/scss/components/_abonner.scss */ .c-abonner-cadeaux { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; list-style: none; margin-left: 0; }
+/* line 275, _src/scss/components/_abonner.scss */ .c-abonner-cadeaux { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; list-style: none; margin-left: 0; }
 
-/* line 297, _src/scss/components/_abonner.scss */ .c-abonner-cadeau { padding: 24px; }
+/* line 288, _src/scss/components/_abonner.scss */ .c-abonner-cadeau { padding: 24px; }
 
 /* line 15, _src/scss/components/_inscription.scss */ .c-inscription__form { border: 2px solid #191929; padding: 24px 24px 0; }
 
@@ -2635,6 +2637,25 @@
 /* line 25, _src/scss/components/_payer_mode.scss */ .payer_mode .boutons { font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 /* line 29, _src/scss/components/_payer_mode.scss */ .payer_mode .submit { margin: 6px 0; width: auto; }
+
+/* line 11, _src/scss/components/_compte.scss */ .c-compte-header__titre { font-size: 28px; font-size: 1.75rem; line-height: 1.2; }
+
+/* line 19, _src/scss/components/_compte.scss */ .c-compte-section__titre { margin-bottom: 48px; font-size: 22px; font-size: 1.375rem; line-height: 1.2; }
+
+@media (min-width: 40em) { /* line 19, _src/scss/components/_compte.scss */ .c-compte-section__titre { text-align: center; } }
+
+/* line 28, _src/scss/components/_compte.scss */ .c-compte-section__titre--s { font-size: 18px; font-size: 1.125rem; }
+
+/* line 33, _src/scss/components/_compte.scss */ .c-compte-identification { position: relative; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+
+@media (min-width: 40em) { /* line 33, _src/scss/components/_compte.scss */ .c-compte-identification { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; } }
+
+/* line 44, _src/scss/components/_compte.scss */ .c-compte-identification__section { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; margin-bottom: 48px; }
+
+/* line 48, _src/scss/components/_compte.scss */ .c-compte-identification__section:nth-of-type(2) { border-top: 1px solid #e0e0e0; padding-top: 48px; }
+
+@media (min-width: 40em) { /* line 54, _src/scss/components/_compte.scss */ .c-compte-identification__section:nth-of-type(2) { border-top: none; padding-top: 0; margin-left: 10%; }
+  /* line 59, _src/scss/components/_compte.scss */ .c-compte-identification__section:nth-of-type(2):before { position: absolute; top: 0; left: 50%; height: 100%; border-left: 1px solid #e0e0e0; content: ''; } }
 
 /* line 6, _src/scss/components/_progress.scss */ .c-progress { margin-left: 0; font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; list-style-position: inside; }
 
