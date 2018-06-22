@@ -196,7 +196,8 @@ $couleur-print: #000;
 	
 	// ----- message et reponse_formulaire ----- //
 	$message-padding: $inuit-global-spacing-unit-tiny $inuit-global-spacing-unit-tiny $inuit-global-spacing-unit-tiny / 2;
-	$message-border-erreur: 3px solid $color-red;
-	$message-border-ok: 3px solid $color-lime-500;
+	$message-border-erreur: 2px solid $color-red;
+	$message-border-ok: 2px solid $color-lime-500;
 	$message-border-attention: 2px solid $color-lime-500;
+	$message-border-info: 2px solid $color-black;
 	$message-border-lien: 1px dotted $link-color;

@@ -58,7 +58,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'pagination_numeros_next' => "Suivante &#8594;",
 	'pagination_numeros_prev' => "&#8592; Précédente",
 	'panier_ajouter' => "Ajouter au panier",
-	'panier_titre' => "Votre panier",
+	'panier_titre' => "Vos achats",
 	
 	// S
 	'sommaire_consulter' => "Le sommaire <em>&#8594;</em>",
