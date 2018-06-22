@@ -28,6 +28,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'abonnement_sans_cadeau_titre'                   => "Pas de cadeau",
 	
 	// C
+	'cadeau_abonnement_label' => "Offert avec votre abonnement",
 	'cadeau_erreur_hash' => "La page que vous demandez n'est pas disponible",
 	'cadeau_etape_confirmation_titre' => "Confirmation de votre abonnement",
 	'cadeau_etape_code_titre'    => "1. Validez votre code cadeau",
@@ -55,6 +56,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	
 	// P
 	'paiement_titre' => "Paiement de votre commande",
+	'paiement_titre_section' => "Choisissez un mode paiement sécurisé",
 	'pagination_numeros_next' => "Suivante &#8594;",
 	'pagination_numeros_prev' => "&#8592; Précédente",
 	'panier_ajouter' => "Ajouter au panier",

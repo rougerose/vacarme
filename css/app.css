@@ -2434,7 +2434,7 @@
 
 @media (min-width: 40em) { /* line 11, _src/scss/components/_formulaire_valider_panier.scss */ .valider_panier_contenu { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; } }
 
-/* line 20, _src/scss/components/_formulaire_valider_panier.scss */ .editer_contrats, .boutons { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; }
+/* line 19, _src/scss/components/_formulaire_valider_panier.scss */ .valider_panier_contenu .editer_contrats, .valider_panier_contenu .boutons { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; }
 
 /* line 23, _src/scss/components/_abonner.scss */ .c-abonner-header__titre { font-size: 28px; font-size: 1.75rem; line-height: 1.2; margin-bottom: 48px; }
 
@@ -2548,11 +2548,13 @@
 
 @media (min-width: 48em) { /* line 111, _src/scss/components/_inscription.scss */ .c-inscription__champ--typeClient { width: 48%; } }
 
-/* line 18, _src/scss/components/_commande.scss */ .c-commande-articles { border-bottom: 1px solid #000; margin-bottom: 24px; }
+/* line 39, _src/scss/components/_commande.scss */ .c-commande-section__titre { font-size: 24px; font-size: 1.5rem; line-height: 1.25; }
 
-/* line 27, _src/scss/components/_commande.scss */ .c-commande-article { position: relative; margin-top: 24px; margin-bottom: 24px; overflow: hidden; padding-left: 70px; padding-top: 24px; }
+/* line 47, _src/scss/components/_commande.scss */ .c-commande-articles { border-bottom: 1px solid #000; margin-bottom: 24px; }
 
-/* line 35, _src/scss/components/_commande.scss */ .c-commande-article > img { position: absolute; left: -138px; top: 12px; width: 200px; -webkit-box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.1); box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.1); -webkit-transform-origin: 50% 100%; transform-origin: 50% 100%; }
+/* line 56, _src/scss/components/_commande.scss */ .c-commande-article { position: relative; margin-top: 24px; margin-bottom: 24px; overflow: hidden; padding-left: 70px; padding-top: 24px; }
+
+/* line 64, _src/scss/components/_commande.scss */ .c-commande-article > img { position: absolute; left: -138px; top: 12px; width: 200px; -webkit-box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.1); box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.1); -webkit-transform-origin: 50% 100%; transform-origin: 50% 100%; }
 
 /* line 10, _src/scss/tools/_rotate.scss */ .c-commande-article > img:nth-of-type(1) { -webkit-transform: rotate(-1.5deg); transform: rotate(-1.5deg); }
 
@@ -2570,59 +2572,61 @@
 
 /* line 10, _src/scss/tools/_rotate.scss */ .c-commande-article > img:nth-of-type(8) { -webkit-transform: rotate(-12deg); transform: rotate(-12deg); }
 
-@media (min-width: 40em) { /* line 27, _src/scss/components/_commande.scss */ .c-commande-article { padding-left: 100px; }
-  /* line 48, _src/scss/components/_commande.scss */ .c-commande-article > img { left: -112px; } }
+@media (min-width: 40em) { /* line 56, _src/scss/components/_commande.scss */ .c-commande-article { padding-left: 100px; }
+  /* line 77, _src/scss/components/_commande.scss */ .c-commande-article > img { left: -112px; } }
 
-@media (min-width: 64em) { /* line 27, _src/scss/components/_commande.scss */ .c-commande-article { padding-left: 200px; }
-  /* line 56, _src/scss/components/_commande.scss */ .c-commande-article > img { left: -24px; } }
+@media (min-width: 64em) { /* line 56, _src/scss/components/_commande.scss */ .c-commande-article { padding-left: 200px; }
+  /* line 85, _src/scss/components/_commande.scss */ .c-commande-article > img { left: -24px; } }
 
-/* line 69, _src/scss/components/_commande.scss */ .c-commande-article__contenu { border-bottom: 1px solid #9e9e9e; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+/* line 97, _src/scss/components/_commande.scss */ .c-commande-article__contenu { border-bottom: 1px solid #9e9e9e; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
 
-@media (min-width: 40em) { /* line 69, _src/scss/components/_commande.scss */ .c-commande-article__contenu { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; } }
+@media (min-width: 40em) { /* line 97, _src/scss/components/_commande.scss */ .c-commande-article__contenu { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; } }
 
-/* line 79, _src/scss/components/_commande.scss */ .c-commande-article__contenu p { margin-bottom: 0; }
+/* line 107, _src/scss/components/_commande.scss */ .c-commande-article__contenu p { margin-bottom: 0; }
 
-/* line 91, _src/scss/components/_commande.scss */ .c-commande-article__logo-numero { top: 0; -webkit-transform: rotate(-6deg); transform: rotate(-6deg); }
+/* line 118, _src/scss/components/_commande.scss */ .c-commande-article__logo-numero { top: 0; -webkit-transform: rotate(-6deg); transform: rotate(-6deg); }
 
-/* line 102, _src/scss/components/_commande.scss */ .c-commande-article__descriptif { margin-bottom: 24px; }
+/* line 129, _src/scss/components/_commande.scss */ .c-commande-article__descriptif { margin-bottom: 24px; }
 
-@media (min-width: 40em) { /* line 102, _src/scss/components/_commande.scss */ .c-commande-article__descriptif { -webkit-box-flex: 2; -ms-flex: 2; flex: 2; } }
+@media (min-width: 40em) { /* line 129, _src/scss/components/_commande.scss */ .c-commande-article__descriptif { -webkit-box-flex: 2; -ms-flex: 2; flex: 2; } }
 
-/* line 114, _src/scss/components/_commande.scss */ .c-commande-article__titre { border-bottom: 1px solid #e0e0e0; margin-bottom: 12px; font-size: 18px; font-size: 1.125rem; line-height: 1.7; }
+/* line 141, _src/scss/components/_commande.scss */ .c-commande-article__titre { border-bottom: 1px solid #e0e0e0; margin-bottom: 12px; font-size: 18px; font-size: 1.125rem; line-height: 1.7; }
 
-/* line 125, _src/scss/components/_commande.scss */ .c-commande-article__prix-quantite { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; margin-bottom: auto; }
+/* line 151, _src/scss/components/_commande.scss */ .c-commande-article__prix-quantite { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; margin-bottom: auto; }
 
-@media (min-width: 40em) { /* line 125, _src/scss/components/_commande.scss */ .c-commande-article__prix-quantite { -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } }
+@media (min-width: 40em) { /* line 151, _src/scss/components/_commande.scss */ .c-commande-article__prix-quantite { -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } }
 
-/* line 143, _src/scss/components/_commande.scss */ .c-commande-article__prix-quantite-item { padding-left: 12px; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; font-size: 18px; font-size: 1.125rem; line-height: 1.7; text-align: right; }
+/* line 167, _src/scss/components/_commande.scss */ .c-commande-article__prix-quantite-item { padding-left: 12px; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; font-size: 18px; font-size: 1.125rem; line-height: 1.7; text-align: right; }
 
-@media (min-width: 40em) { /* line 143, _src/scss/components/_commande.scss */ .c-commande-article__prix-quantite-item { border-bottom: 1px solid #e0e0e0; margin-bottom: 12px; } }
+@media (min-width: 40em) { /* line 167, _src/scss/components/_commande.scss */ .c-commande-article__prix-quantite-item { border-bottom: 1px solid #e0e0e0; margin-bottom: 12px; } }
 
-/* line 154, _src/scss/components/_commande.scss */ .c-commande-article__prix-quantite-item.c-commande-article__supprimer { border-bottom-color: transparent; -webkit-box-ordinal-group: 0; -ms-flex-order: -1; order: -1; padding-left: 0; text-align: left; }
+/* line 178, _src/scss/components/_commande.scss */ .c-commande-article__prix-quantite-item.c-commande-article__supprimer { border-bottom-color: transparent; -webkit-box-ordinal-group: 0; -ms-flex-order: -1; order: -1; padding-left: 0; text-align: left; }
 
-@media (min-width: 40em) { /* line 154, _src/scss/components/_commande.scss */ .c-commande-article__prix-quantite-item.c-commande-article__supprimer { -webkit-box-flex: 1; -ms-flex: 1 1 100%; flex: 1 1 100%; -webkit-box-ordinal-group: initial; -ms-flex-order: initial; order: initial; margin-top: 12px; text-align: right; } }
+@media (min-width: 40em) { /* line 178, _src/scss/components/_commande.scss */ .c-commande-article__prix-quantite-item.c-commande-article__supprimer { -webkit-box-flex: 1; -ms-flex: 1 1 100%; flex: 1 1 100%; -webkit-box-ordinal-group: initial; -ms-flex-order: initial; order: initial; margin-top: 12px; text-align: right; } }
 
-/* line 182, _src/scss/components/_commande.scss */ .c-commande-article__prix-total { font-weight: bold; }
+/* line 203, _src/scss/components/_commande.scss */ .c-commande-article__prix-total { font-weight: bold; }
 
-/* line 192, _src/scss/components/_commande.scss */ .c-commande__totaux { margin-bottom: 24px; text-align: right; }
+/* line 213, _src/scss/components/_commande.scss */ .c-commande__totaux { margin-bottom: 24px; text-align: right; }
 
-/* line 196, _src/scss/components/_commande.scss */ .c-commande__totaux p { margin-bottom: 0; }
+/* line 217, _src/scss/components/_commande.scss */ .c-commande__totaux p { margin-bottom: 0; }
 
-/* line 207, _src/scss/components/_commande.scss */ .c-commande__total-commande { font-size: 20px; font-size: 1.25rem; line-height: 1.5; font-weight: bold; }
+/* line 226, _src/scss/components/_commande.scss */ .c-commande__total-commande { font-size: 20px; font-size: 1.25rem; line-height: 1.5; font-weight: bold; }
 
-/* line 217, _src/scss/components/_commande.scss */ .c-commande__total-tva { color: #9e9e9e; }
+/* line 235, _src/scss/components/_commande.scss */ .c-commande__total-tva { color: #9e9e9e; }
 
-/* line 226, _src/scss/components/_commande.scss */ .c-commande-table { font-size: 18px; font-size: 1.125rem; line-height: 1.33333; }
+/* line 250, _src/scss/components/_commande.scss */ .c-commande-paiement__abandon { text-align: right; }
 
-/* line 231, _src/scss/components/_commande.scss */ .c-commande-table__row { border-bottom: 1px solid #000; }
+/* line 259, _src/scss/components/_commande.scss */ .c-commandes-paiement__modes { margin-bottom: 48px; }
 
-/* line 234, _src/scss/components/_commande.scss */ .c-commande-table__row--total { font-weight: bold; font-size: 20px; font-size: 1.25rem; line-height: 1.5; }
+/* line 9, _src/scss/components/_payer_mode.scss */ .payer_mode { border-bottom: 1px solid #9e9e9e; margin-bottom: 48px; padding-bottom: 48px; }
 
-/* line 239, _src/scss/components/_commande.scss */ .c-commande-table__row--taxes { color: #9e9e9e; font-size: 16px; font-size: 1rem; line-height: 1.5; }
+/* line 14, _src/scss/components/_payer_mode.scss */ .payer_mode .titre { font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 20px; font-size: 1.25rem; line-height: 1.5; font-weight: bold; text-transform: uppercase; }
 
-/* line 255, _src/scss/components/_commande.scss */ .c-commande-item__desc p { margin-bottom: 0; }
+/* line 21, _src/scss/components/_payer_mode.scss */ .payer_mode p { margin-bottom: 12px; }
 
-/* line 260, _src/scss/components/_commande.scss */ .c-commande-item__title { font-weight: bold; }
+/* line 25, _src/scss/components/_payer_mode.scss */ .payer_mode .boutons { font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+/* line 29, _src/scss/components/_payer_mode.scss */ .payer_mode .submit { margin: 6px 0; width: auto; }
 
 /* line 6, _src/scss/components/_progress.scss */ .c-progress { margin-left: 0; font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; list-style-position: inside; }
 

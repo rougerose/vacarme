@@ -1,58 +1,23 @@
-#SET{id_offre, #ARRAY}
-#SET{id_cadeau, #ARRAY}
-
 <BOUCLE_commande(COMMANDES){id_commande}>
-<BOUCLE_commande_abonnements(COMMANDES_DETAILS){id_commande}{objet=abonnements_offre}{doublons}>
-	[(#SET{id_offre, #GET{id_offre}|push{#ID_COMMANDES_DETAIL}})]
-	[(#SET{like, [\#(#ID_OBJET)-[(#ID_COMMANDES_DETAIL)]]})]
-	<BOUCLE_cadeau_abonnements(COMMANDES_DETAILS){id_commande}{objet=produit}{descriptif LIKE %(#GET{like})%}{doublons}>
-		[(#SET{id_cadeau, #GET{id_cadeau}|push{#ID_COMMANDES_DETAIL}})]
-	</BOUCLE_cadeau_abonnements>
-	<//B_cadeau_abonnements>
-</BOUCLE_commande_abonnements>
-
-<table cellspacing="0">
-	<thead>
-		<tr>
-			<th class="description"><:paniers:panier_description:></th>
-			<th class="prix_unitaire"><:paniers:panier_prix_unitaire:></th>
-			<th class="quantite"><:paniers:panier_quantite:></th>
-			<th class="montant"><:paniers:panier_montant:></th>
-		</tr>
-	</thead>
-	<tbody>
-		<BOUCLE_article_commande(COMMANDES_DETAILS){id_commande}>
-		
-		[(#SET{prix_unitaire,#PRIX_UNITAIRE_HT*})]
-		[(#SET{tva_objet, #PRIX*|moins{#PRIX_HT*}})]
-		[(#SET{cumul_tva, #GET{cumul_tva}|plus{#GET{tva_objet}}})]
-		[(#SET{cumul_quantite, #GET{cumul_quantite}|plus{#QUANTITE}})]
-		
-		<tr class="article">
-			<td class="description">
-				[(#OBJET|=={abonnements_offre}|oui)
-					#INCLURE{fond=inclure/commande/contenu-abonnement, id_commandes_detail}
-				][(#OBJET|=={rubrique}|oui)
-					#INCLURE{fond=inclure/commande/contenu-numero, id_commandes_detail}
-				]
-			</td>
-			<td class="prix_unitaire">[(#PRIX_UNITAIRE_HT|mult{#TAXE|plus{1}}|prix_formater)]</td>
-			<td class="quantite">#QUANTITE</td>
-			<td class="montant">[(#PRIX)]</td>
-		</tr>
-		</BOUCLE_article_commande>
-		<tr class="total_ttc">
-			<td class="description"></td>
-			<td class="total"><:paniers:panier_total_ttc:></td>
-			<td class="quantite">#GET{cumul_quantite}</td>
-			<td class="montant">#PRIX</td>
-		</tr>
-		[(#GET{cumul_tva}|>{0}|oui)
-		<tr class="taxes">
-			<td class="total" colspan="2"><:paniers:dont_total_taxe:></td>
-			<td class="quantite"></td>
-			<td class="montant">[(#GET{cumul_tva}|prix_formater)]</td>
-		</tr>]
-	</tbody>
-</table>
+	<div class="c-commande-articles">
+		<BOUCLE_contenu_commande(COMMANDES_DETAILS){id_commande}>
+			[(#SET{prix_unitaire,#PRIX_UNITAIRE_HT*})]
+			[(#SET{tva_objet, #PRIX*|moins{#PRIX_HT*}})]
+			[(#SET{cumul_tva, #GET{cumul_tva}|plus{#GET{tva_objet}}})]
+			[(#SET{cumul_quantite, #GET{cumul_quantite}|plus{#QUANTITE}})]
+			
+			[(#OBJET|=={abonnements_offre}|oui)
+				#INCLURE{fond=inclure/commande/contenu-abonnement, id_commandes_detail}
+			][(#OBJET|=={produit}|oui)
+				#INCLURE{fond=inclure/commande/contenu-cadeau, id_commandes_detail}
+			][
+			(#OBJET|=={rubrique}|oui)
+				#INCLURE{fond=inclure/commande/contenu-numero, id_commandes_detail}
+			]
+		</BOUCLE_contenu_commande>
+		<div class="c-commande__totaux u-typo-font-vacarme">
+			[<p class="c-commande__total-commande"><:paniers:panier_total_ttc:> (#PRIX{commande,#ID_COMMANDE})</p>]
+			[<p class="c-commande__total-tva"><:paniers:dont_total_taxe:> (#GET{cumul_tva}|prix_formater)</p>]
+		</div>
+	</div>
 </BOUCLE_commande>

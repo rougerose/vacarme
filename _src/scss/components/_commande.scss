@@ -2,17 +2,46 @@
 // Commande
 // =====================================
 
+// 
+// Pour le panier et le recapitutalif de commande lors du paiement
+// 
+// 1/ .c-commande
+// 
+// 2/ .commande-section
+// 
+// 3/ .c-commande-articles
+// 
+// 4/ .c-commande-article
+// 
+// 5/ .c-commande-totaux
+// 
+// 6/ .c-commande-paiement
+// 
 
-// 
-// Pour le panier et le récap de commande
-// 
+
+//
+// 1/ c-commande
+// -------------------------------------
 
 .c-commande {}
 
 
+//
+// c-commande-section
+// -------------------------------------
+
+.c-commande-section {}
+
+	//
+	// c-commande-section__titre
+	// -------------------------------------
+	
+	.c-commande-section__titre {
+		@include inuit-font-size(24px);
+	}
 
 //
-// c-commande-articles
+// 2/ c-commande-articles
 // -------------------------------------
 
 .c-commande-articles {
@@ -21,7 +50,7 @@
 }
 
 //
-// c-commande-article
+// 3/ c-commande-article
 // -------------------------------------
 
 .c-commande-article {
@@ -61,7 +90,6 @@
 
 .c-commande-article--abonnement {}
 
-
 	//
 	// c-commande-article__contenu
 	// -------------------------------------
@@ -80,7 +108,6 @@
 			margin-bottom: 0;
 		}
 	}
-
 
 	//
 	// c-commande-article__logo
@@ -117,7 +144,6 @@
 		@include inuit-font-size(18px, 1.7);
 	}
 
-
 	//
 	// c-commande-article__prix-quantite
 	// -------------------------------------
@@ -133,8 +159,6 @@
 			flex: 1;
 		}
 	}
-	
-	
 	
 		//
 		// c-commande-article__prix-quantite-item
@@ -166,14 +190,11 @@
 			}
 		}
 		
-		
 		//
 		// c-commande-article__quantite
 		// -------------------------------------
 		
 		.c-commande-article__quantite {}
-	
-	
 	
 	//
 	// c-commande-article__prix-total
@@ -183,22 +204,20 @@
 		font-weight: bold;
 	}
 	
+
 	
+//
+// 4/ c-commande__totaux
+// -------------------------------------
+
+.c-commande__totaux {
+	margin-bottom: $spacing-unit;
+	text-align: right;
 	
-	//
-	// c-commande__totaux
-	// -------------------------------------
-	
-	.c-commande__totaux {
-		margin-bottom: $spacing-unit;
-		text-align: right;
-		
-		p {
-			margin-bottom: 0;
-		}
+	p {
+		margin-bottom: 0;
 	}
-	
-	
+}
 	
 	//
 	// c-commande__total-commande
@@ -208,7 +227,6 @@
 		@include inuit-font-size(20px);
 		font-weight: bold;
 	}
-	
 	
 	//
 	// c-commande__total-tva
@@ -220,43 +238,24 @@
 
 
 //
-// c-commande-table
+// 5/ c-commande-paiement
 // -------------------------------------
 
-.c-commande-table {
-	@include inuit-font-size(18px);
-}
+.c-commande-paiement {}
 
-
-.c-commande-table__row {
-	border-bottom: 1px solid $color-black;
+	//
+	// c-commande-paiement__abandon
+	// -------------------------------------
 	
-	&--total {
-		font-weight: bold;
-		@include inuit-font-size(20px);
+	.c-commande-paiement__abandon {
+		text-align: right;
 	}
+
+
+	//
+	// c-commande-paiement__modes
+	// -------------------------------------
 	
-	&--taxes {
-		color: $color-gray-500;
-		@include inuit-font-size(16px);
+	.c-commandes-paiement__modes {
+		margin-bottom: $spacing-unit-large;
 	}
-}
-
-
-
-//
-// c-commande-item
-// -------------------------------------
-
-.c-commande-item {}
-
-
-.c-commande-item__desc {
-	p {
-		margin-bottom: 0;
-	}
-}
-
-.c-commande-item__title {
-	font-weight: bold;
-}

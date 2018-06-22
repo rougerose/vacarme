@@ -15,9 +15,11 @@
 		@include mq(tablet) {
 			flex-direction: row;
 		}
-	}
-	
+		
 		.editer_contrats,
 		.boutons {
 			flex: 1;
 		}
+	}
+	
+		

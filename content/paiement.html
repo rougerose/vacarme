@@ -1,11 +1,11 @@
-<main id="main" class="" role="main">
+<main id="main" class="c-commande" role="main">
 	<div class="o-wrapper">
 		<div class="o-layout">
 			<div class="o-layout__item">
-				<header class="c-panier-header">
-					<h1 class="c-panier-header__titre u-typo-font-vacarme u-typo-upper"><:vacarme:paiement_titre:></h1>
+				<header class="c-commande-header">
+					<h1 class="c-commande-header__titre u-typo-font-vacarme u-typo-upper"><:vacarme:paiement_titre:></h1>
 				</header>
-				<INCLURE{fond=inclure/paiement-commande, id_commande, hash_commande=#ENV{hash_commande}, env} />
+				<INCLURE{fond=inclure/commande/paiement, id_commande, hash_commande=#ENV{hash_commande}, env} />
 			</div>
 		</div>
 	</div>

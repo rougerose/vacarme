@@ -1,22 +1,27 @@
 <BOUCLE_abonnement(COMMANDES_DETAILS){id_commandes_detail}>
-	<!-- TODO: Ajouter logo -->
 	[(#NUMERO_DEBUT|match{^v\d+?}|oui)
 		[(#SET{debut, #NUMERO_DEBUT|calculer_numero_futur_titre{0}})]
+		[(#SET{reference_numero_debut, #NUMERO_DEBUT})]
 	][(#DESCRIPTIF|match{@}|oui)
-		[(#SET{_id_auteur, #DESCRIPTIF|strstr{@}|substr{1}})]
+		[(#SET{id_beneficiaire, #DESCRIPTIF|strstr{@}|substr{1}})]
 	]
 	<BOUCLE_offre(ABONNEMENTS_OFFRES){id_abonnements_offre=#ID_OBJET}>
-		[(#SET{titre, #TITRE})]
-		[(#SET{numeros, #DUREE|numeros_nombre_en_clair})]
+		<div class="c-commande-article c-commande-article--abonnement">
+			<div class="c-commande-article__contenu">
+				<div class="c-commande-article__descriptif">
+					[<h3 class="c-commande-article__titre u-typo-font-vacarme"><:vpaniers:abonnement_resume_label_abonnement:> (#TITRE)[ / (#DUREE|numeros_nombre_en_clair)]</h3>]
+					[(#GET{debut}|oui)
+						[<p><span><:vpaniers:abonnement_resume_label_numero:></span> (#GET{debut})</p>]]
+					[(#GET{id_beneficiaire}|oui)
+						[(#INCLURE{fond=inclure/panier-description-beneficiaire, id_auteur=#GET{id_beneficiaire}})]]
+				</div>
+				<div class="c-commande-article__prix-quantite u-typo-font-vacarme">
+					<p class="c-commande-article__prix-quantite-item c-commande-article__prix-unitaire">[(#PRIX{#OBJET,#ID_OBJET})]</p>
+					<p class="c-commande-article__prix-quantite-item c-commande-article__quantite">&times; 1</p>
+					<p class="c-commande-article__prix-quantite-item c-commande-article__prix-total">[(#PRIX{#OBJET,#ID_OBJET})]</p>
+				</div>
+			</div>
+			[(#INCLURE{fond=inclure/logo/abonnement-collection-numeros, largeur=200, reference_numero_debut=#GET{reference_numero_debut}, nombre_numeros=#DUREE|intval|div{3}|moins{1}})]
+		</div>
 	</BOUCLE_offre>
-	<p>
-	[<span><:vpaniers:abonnement_resume_label_abonnement:> (#GET{titre})[ / (#GET{numeros})]</span>]
-	[(#GET{debut}|oui)
-		[<br/><span><:vpaniers:abonnement_resume_label_numero:></span> (#GET{debut})]
-	][(#GET{cadeau}|oui)
-		[<br/><span><:vpaniers:abonnement_resume_label_cadeau:></span> (#GET{cadeau}|=={-1}|?{<:vpaniers:abonnement_resume_cadeau_vide:>,#INFO_TITRE{produit, #GET{cadeau}}})]
-	][(#GET{_id_auteur}|oui)
-		[(#INCLURE{fond=inclure/panier-description-beneficiaire, id_auteur=#GET{_id_auteur}})]
-	]
-	</p>
 </BOUCLE_abonnement>
