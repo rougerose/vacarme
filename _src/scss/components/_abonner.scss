@@ -22,10 +22,8 @@
 
 		// ----- c-abonner-header__titre ----- //
 		
-		.c-abonner-header__titre {
-			@include inuit-font-size(28px, 1.2);
-			margin-bottom: $spacing-unit-large;
-		}
+		.c-abonner-header__titre {}
+		
 		
 		// ----- c-abonner-header__intro ----- //
 		
@@ -37,6 +35,7 @@
 				flex-direction: row;
 			}
 		}
+		
 		
 		// ----- c-abonner-header__intro-texte ----- //
 		
@@ -95,16 +94,15 @@
 		margin-bottom: $spacing-unit-large;
 	}
 	
+	
 		// ----- c-abonner-section__titre ----- //
-		.c-abonner-section__titre {
-			@include inuit-font-size(24px, 1.2);
-		}
+		.c-abonner-section__titre {}
+		
 		
 		// ----- c-abonner-section__intro ----- //
 		.c-abonner-section__intro {
 			padding-right: $spacing-unit-large;
 			@include inuit-font-size(18px);
-			// @extend .c-abonner-header__intro;
 		}
 
 
@@ -288,11 +286,3 @@
 	.c-abonner-cadeau {
 		padding: $spacing-unit;
 	}
-	
-	
-	
-	//
-	// c-abonner-choix
-	// -------------------------------------
-	
-	.c-abonner-choix {}

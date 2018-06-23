@@ -8,14 +8,10 @@
 
 	.c-compte-header {}
 	
-		.c-compte-header__titre {
-			@include inuit-font-size(28px, 1.2);
-		}
+		.c-compte-header__titre {}
 	
 	
 	.c-compte-section {
-		
-		
 		@include mq (tablet) {
 			margin-bottom: $spacing-unit;
 		}

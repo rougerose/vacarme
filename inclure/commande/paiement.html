@@ -2,8 +2,8 @@
 	[(#STATUT|=={encours}|oui)
 		[(#SET{cle, #ID_AUTEUR|vpaniers_calcul_hash_commande{#ID_COMMANDE, #DATE}})]
 		[(#ENV{hash_commande}|=={#GET{cle}}|oui)
-			<section class="c-commande-section">
-				<h2 class="c-commande-section__titre u-typo-font-vacarme"><:vacarme:commande_message_commande_prete:></h2>
+			<section class="c-section c-commande-section">
+				<h2 class="c-section__titre c-commande-section__titre u-typo-font-vacarme"><:vacarme:commande_message_commande_prete:></h2>
 				[(#INCLURE{fond=inclure/commande/contenu, id_commande, hash_commande=#ENV{hash_commande}})]
 			</section>
 

@@ -11,13 +11,13 @@
 		[(#SET{etape, #ENV{etape}|plus{1}})]
 		[(#SET{redirect, #URL_PAGE{#ENV{page}}|parametre_url{etape, #GET{etape}}})]
 		
-		<section class="c-abonner-section">
+		<section class="c-section c-abonner-section">
 			[(#GET{attention}|oui)
 				[(#REM)
 				<!-- 
 					Des informations obligatoires sont manquantes : ajuster le profil. 
 				--> ]
-				<h2 class="c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_etape_compte_verifier_titre:></h2>
+				<h2 class="c-section__titre c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_etape_compte_verifier_titre:></h2>
 				<p class="c-message c-message--attention">
 					<:vprofils:message_attention_compte_incomplet:>
 					[ <strong>(#GET{civilite}|non)<:vprofils:info_manquante_civilite:></strong>]

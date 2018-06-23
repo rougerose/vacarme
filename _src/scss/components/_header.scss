@@ -1,0 +1,11 @@
+// =====================================
+// header
+// =====================================
+
+.c-header {}
+
+
+	.c-header__titre {
+		@include inuit-font-size(28px, 1.2);
+		margin-bottom: $spacing-unit-large;
+	}
