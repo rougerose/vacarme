@@ -12,15 +12,18 @@
 // -------------------------------------
 
 .formulaire_spip {
-	border: 1px solid $color-gray-300; //$color-blue-grey-800;
-	// margin-bottom: $spacing-unit;
-	padding: $spacing-unit $spacing-unit 0;
-	font-family: $font-helvetica;
+	
+	form {
+		border: 1px solid $color-black;
+		// margin-bottom: $spacing-unit;
+		padding: $spacing-unit $spacing-unit 0;
+		font-family: $font-helvetica;
+	}
 	
 	legend,
 	.legend {
 		margin-bottom: $spacing-unit;
-		color: $color-blue-grey-800;
+		color: $color-black;
 		@include inuit-font-size(18px);
 		font-weight: bold;
 		text-transform: uppercase;

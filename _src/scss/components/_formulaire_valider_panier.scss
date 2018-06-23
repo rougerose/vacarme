@@ -3,9 +3,12 @@
 // =====================================
 
 .formulaire_valider_panier {
-	border-width: 0 0 1px;
 	margin-bottom: $spacing-unit-huge;
-	padding: 0;
+	
+	form {
+		border-width: 0 0 1px;
+		padding: 0;
+	}
 }
 
 	.valider_panier_contenu {
