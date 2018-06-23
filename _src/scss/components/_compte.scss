@@ -10,23 +10,23 @@
 	
 		.c-compte-header__titre {
 			@include inuit-font-size(28px, 1.2);
-			// margin-bottom: $spacing-unit-large;
 		}
 	
 	
-	.c-compte-section {}
+	.c-compte-section {
+		
+		
+		@include mq (tablet) {
+			margin-bottom: $spacing-unit;
+		}
+	}
 	
 		.c-compte-section__titre {
-			margin-bottom: $spacing-unit-large;
-			@include inuit-font-size(22px, 1.2);
-			
-			@include mq(tablet) {
-				text-align: center;
-			}
+			@include inuit-font-size(24px, 1.2);
 		}
 		
 		.c-compte-section__titre--s {
-			@include inuit-font-size(18px, false);
+			@include inuit-font-size(20px, false);
 		}
 		
 	
@@ -44,6 +44,7 @@
 		.c-compte-identification__section {
 			flex: 1;
 			margin-bottom: $spacing-unit-large;
+			padding-top: $spacing-unit;
 			
 			&:nth-of-type(2) {
 				border-top: 1px solid $color-gray-300;
@@ -51,10 +52,14 @@
 			}
 			
 			@include mq(tablet) {
+				padding-top: $spacing-unit;
+				padding-bottom: $spacing-unit;
+				margin-bottom: 0;
+				
 				&:nth-of-type(2) {
 					border-top: none;
-					padding-top: 0;
 					margin-left: 10%;
+					padding-top: $spacing-unit;
 					
 					&:before {
 						position: absolute;
@@ -68,10 +73,6 @@
 			}
 		}
 		
-		.c-compte-identification__section--login {
-			// form legend {
-			// 	display: none;
-			// }
-		}
+		.c-compte-identification__section--login {}
 		
 		.c-compte-identification__section--inscription {}
