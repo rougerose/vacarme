@@ -17,20 +17,18 @@
 			</section>
 		]
 		[(#ENV{formulaire}|=={inscription}|oui)
-			<section class="c-section">
-				<h3 class="c-section__titre c-section__titre--small u-typo-font-vacarme u-typo-upper"><:vacarme:compte_inscription_intertitre:></h3>
+			<div class="c-section">
 				[(#FORMULAIRE_INSCRIPTION{6forum})]
-			</section>
+			</div>
 			<section class="c-section">
 				<h3 class="c-section__titre c-section__titre--small u-typo-font-vacarme u-typo-upper"><:vacarme:compte_identification_intertitre:></h3>
 				[<p class="u-typo-font-vacarme"><a href="(#GET{self}|parametre_url{formulaire, identification})" class="c-btn c-btn--black c-btn--extended c-btn--upper ajax"><:vacarme:compte_identification_info:></a></p>]
 			</section>
 		][
 		(#ENV{formulaire}|=={identification}|oui)
-			<section class="c-section">
-				<h3 class="c-section__titre c-section__titre--small u-typo-font-vacarme u-typo-upper"><:vacarme:compte_identification_intertitre:></h3>
+			<div class="c-section">
 				[(#FORMULAIRE_LOGIN)]
-			</section>
+			</div>
 			<section class="c-section">
 				<h3 class="c-section__titre c-section__titre--small u-typo-font-vacarme u-typo-upper"><:vacarme:compte_inscription_intertitre:></h3>
 				[<p class="u-typo-font-vacarme"><a href="(#GET{self}|parametre_url{formulaire, inscription})" class="c-btn c-btn--black c-btn--extended c-btn--upper ajax"><:vacarme:compte_inscription_info:></a></p>]
