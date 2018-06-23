@@ -1,9 +1,13 @@
 <BOUCLE_abonnement(COMMANDES_DETAILS){id_commandes_detail}>
+	<BOUCLE_numero_actuel(RUBRIQUES){id_parent=115}{!par titre}{0,1}>
+		#SET{reference_numero_actuel, #REFERENCE}
+	</BOUCLE_numero_actuel>
 	[(#NUMERO_DEBUT|match{^v\d+?}|oui)
 		[(#SET{debut, #NUMERO_DEBUT|calculer_numero_futur_titre{0}})]
 		[(#SET{reference_numero_debut, #NUMERO_DEBUT})]
 	][(#DESCRIPTIF|match{@}|oui)
 		[(#SET{id_beneficiaire, #DESCRIPTIF|strstr{@}|substr{1}})]
+		[(#GET{reference_numero_debut}|non) #SET{reference_numero_debut, #GET{reference_numero_actuel}}]
 	]
 	<BOUCLE_offre(ABONNEMENTS_OFFRES){id_abonnements_offre=#ID_OBJET}>
 		<div class="c-commande-article c-commande-article--abonnement">
