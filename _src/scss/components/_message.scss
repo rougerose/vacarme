@@ -11,7 +11,8 @@
 	text-align: center;
 	
 	> a {
-		border-bottom: $message-border-lien;
+		color: $color-lien;
+		// border-bottom: $message-border-lien;
 	}
 	
 	//
