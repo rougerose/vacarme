@@ -1,7 +1,7 @@
-[(#SET{sections, #ARRAY{1, resume, 2, informations}})]
-[(#SESSION{id_auteur}|?{
-	[(#SET{section, #VAL{section-}|concat{#ENV{section}|in_array{#GET{sections}}|?{#ENV{section}, #GET{sections/1}}}})],
-	[(#SET{section, #VAL{section-}|concat{#GET{sections/1}}})]
-})]
-
-<INCLURE{fond=inclure/compte/#GET{section}, env} />
+<BOUCLE_auteur(AUTEURS){id_auteur=#SESSION{id_auteur}}{tout}>
+	[(#SET{sections, #ARRAY{1, accueil, 2, informations}})]
+	[(#SET{section, #ENV{section}|in_array{#GET{sections}}|?{#ENV{section}, accueil}})]
+	<p>[(#NOM|prenom_nom) ]<a href="[(#URL_LOGOUT)]">[Déconnexion]</a></p>
+	<p></p>
+	#INCLURE{fond=inclure/compte/#GET{section}, id_auteur}
+</BOUCLE_auteur>

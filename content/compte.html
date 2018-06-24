@@ -3,9 +3,10 @@
 		<header class="c-compte-header">
 			<h1 class="c-compte-header__titre u-typo-font-vacarme u-typo-upper">Votre compte</h1>
 		</header>
-		[(#SESSION{id_auteur}|?{
-			[(#INCLURE{fond=inclure/compte/section, ajax, env})],
-			[(#INCLURE{fond=inclure/compte/identification, ajax, env})]
-		})]
+		<?php if ($GLOBALS['visiteur_session']['id_auteur']) { ?>
+			<INCLURE{fond=inclure/compte/section, section=#ENV{section}}/>
+		<?php } else { ?>
+			<INCLURE{fond=inclure/compte/identification}/>
+		<?php } ?>
 	</div>
 </main>
