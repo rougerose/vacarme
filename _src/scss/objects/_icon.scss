@@ -78,3 +78,20 @@
 		}
 	}
 }
+
+
+//
+// o-icon--logout
+// -------------------------------------
+
+.o-icon--logout {
+	width: 18px;
+	height: 18px;
+	
+	stroke: currentColor;
+	
+	@include mq(mobilePlus) {
+		margin-top: -2px;
+		margin-right: $spacing-unit-tiny;
+	} 
+}
