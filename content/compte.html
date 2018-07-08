@@ -1,12 +1,9 @@
 <main id="main" class="c-compte" role="main">
 	<div class="o-wrapper">
-		<header class="c-compte-header">
-			<h1 class="c-compte-header__titre u-typo-font-vacarme u-typo-upper">Votre compte</h1>
-		</header>
-		<?php if ($GLOBALS['visiteur_session']['id_auteur']) { ?>
-			<INCLURE{fond=inclure/compte/section, section=#ENV{section}}/>
-		<?php } else { ?>
-			<INCLURE{fond=inclure/compte/identification}/>
-		<?php } ?>
+		<BOUCLE_auteur(AUTEURS){id_auteur=#SESSION{id_auteur}}>
+			<INCLURE{fond=inclure/compte/sections, section=#ENV{section}, id_auteur} />
+		</BOUCLE_auteur>
+			<INCLURE{fond=inclure/compte/identification, formulaire=#ENV{formulaire}, section=#ENV{section}} />
+		<//B_auteur>
 	</div>
 </main>
