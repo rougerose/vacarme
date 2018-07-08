@@ -14,12 +14,12 @@
 		<h2 class="c-section__titre c-abonner-section__titre u-typo-font-vacarme u-typo-upper">2. <:vacarme:abonnement_etape_compte_titre:></h2>
 		[(#ENV{formulaire}|non)
 			<section class="c-section">
-				<h3 class="c-section__titre c-section__titre--small u-typo-font-vacarme u-typo-upper"><:vacarme:compte_inscription_intertitre:></h3>
-				[<p class="u-typo-font-vacarme"><a href="(#GET{self}|parametre_url{formulaire, inscription})" class="c-btn c-btn--black c-btn--extended c-btn--upper ajax"><:vacarme:compte_inscription_info:></a></p>]
+				<h3 class="c-section__titre c-section__titre--small u-typo-font-vacarme u-typo-upper"><:vprofils:compte_inscription_intertitre:></h3>
+				[<p class="u-typo-font-vacarme"><a href="(#GET{self}|parametre_url{formulaire, inscription})" class="c-btn c-btn--black c-btn--extended c-btn--upper ajax"><:vprofils:compte_inscription_info:></a></p>]
 			</section>
 			<section class="c-section">
-				<h3 class="c-section__titre c-section__titre--small u-typo-font-vacarme u-typo-upper"><:vacarme:compte_identification_intertitre:></h3>
-				[<p class="u-typo-font-vacarme"><a href="(#GET{self}|parametre_url{formulaire, identification})" class="c-btn c-btn--black c-btn--extended c-btn--upper ajax"><:vacarme:compte_identification_info:></a></p>]
+				<h3 class="c-section__titre c-section__titre--small u-typo-font-vacarme u-typo-upper"><:vprofils:compte_identification_intertitre:></h3>
+				[<p class="u-typo-font-vacarme"><a href="(#GET{self}|parametre_url{formulaire, identification})" class="c-btn c-btn--black c-btn--extended c-btn--upper ajax"><:vprofils:compte_identification_info:></a></p>]
 			</section>
 		]
 		[(#ENV{formulaire}|=={inscription}|oui)
@@ -27,8 +27,8 @@
 				[(#FORMULAIRE_INSCRIPTION{6forum})]
 			</div>
 			<section class="c-section">
-				<h3 class="c-section__titre c-section__titre--small u-typo-font-vacarme u-typo-upper"><:vacarme:compte_identification_intertitre:></h3>
-				[<p class="u-typo-font-vacarme"><a href="(#GET{self}|parametre_url{formulaire, identification})" class="c-btn c-btn--black c-btn--extended c-btn--upper ajax"><:vacarme:compte_identification_info:></a></p>]
+				<h3 class="c-section__titre c-section__titre--small u-typo-font-vacarme u-typo-upper"><:vprofils:compte_identification_intertitre:></h3>
+				[<p class="u-typo-font-vacarme"><a href="(#GET{self}|parametre_url{formulaire, identification})" class="c-btn c-btn--black c-btn--extended c-btn--upper ajax"><:vprofils:compte_identification_info:></a></p>]
 			</section>
 		][
 		(#ENV{formulaire}|=={identification}|oui)
@@ -36,8 +36,8 @@
 				[(#FORMULAIRE_LOGIN)]
 			</div>
 			<section class="c-section">
-				<h3 class="c-section__titre c-section__titre--small u-typo-font-vacarme u-typo-upper"><:vacarme:compte_inscription_intertitre:></h3>
-				[<p class="u-typo-font-vacarme"><a href="(#GET{self}|parametre_url{formulaire, inscription})" class="c-btn c-btn--black c-btn--extended c-btn--upper ajax"><:vacarme:compte_inscription_info:></a></p>]
+				<h3 class="c-section__titre c-section__titre--small u-typo-font-vacarme u-typo-upper"><:vprofils:compte_inscription_intertitre:></h3>
+				[<p class="u-typo-font-vacarme"><a href="(#GET{self}|parametre_url{formulaire, inscription})" class="c-btn c-btn--black c-btn--extended c-btn--upper ajax"><:vprofils:compte_inscription_info:></a></p>]
 			</section>
 		]
 	</section>
