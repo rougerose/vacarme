@@ -129,4 +129,5 @@ function mini_html($texte) {
   return $texte;
 }
 
+
 ?>

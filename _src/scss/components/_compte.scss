@@ -6,17 +6,53 @@
 .c-compte {}
 
 
-	.c-compte-header {}
+	//
+	// c-compte-header
+	// -------------------------------------
 	
-		.c-compte-header__titre {}
+	.c-compte-header {
+		margin-bottom: $spacing-unit-large;
+	}
+
+		//
+		// c-compte-header__titre
+		// -------------------------------------
+		
+		.c-compte-header__titre {
+			margin-bottom: $spacing-unit;
+		}
+		
+		
+		//
+		// c-compte-header__bonjour
+		// -------------------------------------
+		
+		.c-compte-header__bonjour {
+			display: flex;
+			justify-content: space-between;
+			
+			p {
+				margin-bottom: 0;
+				padding-top: 9px;
+			}
+		}
 	
+	
+	//
+	// c-compte-section
+	// -------------------------------------
 	
 	.c-compte-section {
-		@include mq (tablet) {
+		@include mq(tablet) {
 			margin-bottom: $spacing-unit;
 		}
 	}
 	
+	
+		//
+		// c-compte-section__titre
+		// -------------------------------------
+		
 		.c-compte-section__titre {
 			@include inuit-font-size(24px, 1.2);
 		}
@@ -25,6 +61,11 @@
 			@include inuit-font-size(20px, false);
 		}
 		
+	
+	
+	//
+	// c-compte-identification
+	// -------------------------------------
 	
 	.c-compte-identification {
 		position: relative;
