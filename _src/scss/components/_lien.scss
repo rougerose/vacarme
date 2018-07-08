@@ -4,7 +4,7 @@
 
 
 .c-lien {
-	border-bottom: 1px solid $color-black;
+	border-bottom: 1px dotted $color-black;
 	color: $color-black;
 	font-style: italic;
 	
@@ -16,7 +16,7 @@
 	
 	&:hover {
 		color: $color-lien;
-		border-color: $color-lien;
+		border-bottom: 1px solid $color-lien;
 		em {
 			padding-left: 0.5em;
 			color: $color-lien;
