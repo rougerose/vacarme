@@ -45,7 +45,8 @@
 			@include inuit-font-size(18px);
 			
 			@include mq(tablet) {
-				flex: 1;
+				flex: 0 1 50%;
+				// flex: 1;
 			}
 		}
 		
@@ -53,36 +54,14 @@
 		// ----- c-abonner-header__list ----- //
 		
 		.c-abonner-header__list {
-			display: flex;
-			justify-content: space-between;
-			list-style: none;
-			margin-left: 0;
-			
 			@include mq(tablet) {
-				flex: 1;
+				flex: 0 1 50%;
 			}
 		}
 	
 		// ----- c-abonner-intro__list-item ----- //
 		
-		.c-abonner-header__list-item {
-			flex: 1;
-			margin-bottom: $spacing-unit;
-			@include inuit-font-size(20px);
-			
-			span {
-				display: block;
-				font-weight: bold;
-				
-				&:before {
-					border-top: 1px solid;
-					display: block;
-					margin-bottom: 1em;
-					width: 2em;
-					content: '';
-				}
-			}
-		}
+		.c-abonner-header__list-item {}
 
 
 

@@ -9,3 +9,41 @@
 		@include inuit-font-size(28px, 1.2);
 		margin-bottom: $spacing-unit-large;
 	}
+	
+	
+	.c-header__list {
+		display: flex;
+		flex-direction: column;
+		list-style: none;
+		margin-left: $spacing-unit * -1;
+		
+		@include mq(mobilePlus) {
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+	}
+	
+	
+		.c-header__list-item {
+			margin-bottom: $spacing-unit;
+			padding-left: 24px;
+			@include inuit-font-size(20px, 1.2);
+			
+			span {
+				display: block;
+				font-weight: bold;
+			}
+			
+			&:before {
+				border-top: 1px solid;
+				display: block;
+				margin-bottom: 1em;
+				width: 2em;
+				content: '';
+			}
+			
+			@include mq(mobilePlus) {
+				margin-bottom: $spacing-unit-huge;
+				flex: 0 1 50%;
+			}
+		}
