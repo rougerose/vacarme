@@ -3,7 +3,7 @@
 		$panier = paniers_nombre_produits($GLOBALS["visiteur_session"]['id_panier'], true);
 	}?>
 	<a class="c-shortcuts__link c-shortcuts__cart <?php if ($panier > 0) {echo 'is-filled';} ?>" href="#URL_PAGE{panier}" aria-label="<:vpaniers:label_afficher_panier:>">
-		#INCLURE{fond=img/svg/icon-cart-24.svg}
+		<INCLURE{fond=img/svg/icon-cart-24.svg}/>
 		<?php if ($panier > 0) {echo '<span class="c-shortcuts__cart-quantity">' . $panier . '</span>';} ?>
 	</a>
 </li>
