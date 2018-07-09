@@ -1,33 +1,38 @@
 <BOUCLE_auteur(AUTEURS){id_auteur=#SESSION{id_auteur}}{tout}>
 	#SET{attention, ''}
-	[(#SET{email, #EMAIL|?{#EMAIL}})]
+	#SET{infos_manquantes, #ARRAY}
+	[(#SET{email, #EMAIL|?{#EMAIL, #SET{infos_manquantes, #GET{infos_manquantes}|push{email}}}})]
 	<BOUCLE_contact(CONTACTS){id_auteur}>
-		[(#SET{civilite, #CIVILITE|?{#CIVILITE}})]
-		[(#SET{prenom, #PRENOM|?{#PRENOM}})]
-		[(#GET{email}|non)[(#SET{attention, ' '})]]
-		[(#GET{civilite}|non)[(#SET{attention, ' '})]]
-		[(#GET{prenom}|non)[(#SET{attention, ' '})]]
+		[(#SET{civilite, #CIVILITE|?{#CIVILITE, #SET{infos_manquantes, #GET{infos_manquantes}|push{civilite}}}})]
+		[(#SET{prenom, #PRENOM|?{#PRENOM, #SET{infos_manquantes, #GET{infos_manquantes}|push{prenom}}}})]
 		
+		<BOUCLE_adresse(ADRESSES){id_auteur}{type=pref}>
+			[(#SET{voie, #VOIE|?{#VOIE, #SET{infos_manquantes, #GET{infos_manquantes}|push{voie}}}})]
+			[(#SET{code_postal, #CODE_POSTAL|?{#CODE_POSTAL, #SET{infos_manquantes, #GET{infos_manquantes}|push{code_postal}}}})]
+			[(#SET{ville, #VILLE|?{#VILLE, #SET{infos_manquantes, #GET{infos_manquantes}|push{ville}}}})]
+			[(#SET{pays, #PAYS|?{#PAYS, #SET{infos_manquantes, #GET{infos_manquantes}|push{pays}}}})]
+		</BOUCLE_adresse>
+			[(#SET{infos_manquantes, #GET{infos_manquantes}|push{adresse}})]
+		<//B_adresse>
 		[(#SET{etape, #ENV{etape}|plus{1}})]
 		[(#SET{redirect, #URL_PAGE{#ENV{page}}|parametre_url{etape, #GET{etape}}})]
-		
 		<section class="c-section c-abonner-section">
-			[(#GET{attention}|oui)
+			<BOUCLE_corriger_profil(CONDITION){si #GET{infos_manquantes}|count|>{0}}>
 				[(#REM)
 				<!-- 
 					Des informations obligatoires sont manquantes : ajuster le profil. 
 				--> ]
-				<h2 class="c-section__titre c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_etape_compte_verifier_titre:></h2>
-				<p class="c-message c-message--attention">
-					<:vprofils:message_attention_compte_incomplet:>
-					[ <strong>(#GET{civilite}|non)<:vprofils:info_manquante_civilite:></strong>]
-					[ <strong>(#GET{prenom}|non)<:vprofils:info_manquante_prenom:></strong>]
-					[ <strong>(#GET{email}|non)<:vprofils:info_manquante_email:></strong>]
-				</p>
-				[<div class="ajax">
-					(#FORMULAIRE_MODIFIER_PROFIL{#ID_AUTEUR, #GET{redirect}})
-				</div>]
-			][(#GET{attention}|non)
+				<B_ajuster_profil>
+					<h2 class="c-section__titre c-abonner-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_etape_compte_verifier_titre:></h2>
+					<p class="c-message c-message--attention">
+						<:vprofils:message_attention_compte_incomplet:>
+						<BOUCLE_ajuster_profil(DATA){source tableau, #GET{infos_manquantes}}{", "}><strong><:{=vprofils:info_manquante_#VALEUR}:></strong></BOUCLE_ajuster_profil>
+					</p>
+					[<div class="ajax">
+						(#FORMULAIRE_MODIFIER_PROFIL{#ID_AUTEUR, #GET{redirect}})
+					</div>]
+				</B_ajuster_profil>
+			</BOUCLE_corriger_profil>
 				[(#REM) 
 				<!-- 
 					Tout est bon. 
@@ -36,12 +41,12 @@
 					à l'étape suivante.
 				--> ]
 				[(#FORMULAIRE_LOGIN{#GET{redirect}})]
-			]
+			<//B_corriger_profil>
 		</section>
 	</BOUCLE_contact>
 		[(#REM)
 		<!-- 
-			Si l'auteur n'est pas lié à un contact, le plus simple est qu'il se manifeste.
+			Si l'auteur n'est lié à aucun contact, le plus simple est qu'il se manifeste.
 		--> ]
 		<p class="c-message c-message--erreur"><:vacarme:message_erreur_souscription_abonnement{url=#URL_PAGE{contact}}:></p>
 	<//B_contact>
