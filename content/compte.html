@@ -1,6 +1,6 @@
 <main id="main" class="c-compte" role="main">
 	<div class="o-wrapper">
-		<BOUCLE_auteur(AUTEURS){id_auteur=#SESSION{id_auteur}}>
+		<BOUCLE_auteur(AUTEURS){id_auteur=#SESSION{id_auteur}}{tout}>
 			<INCLURE{fond=inclure/compte/sections, section=#ENV{section}, id_auteur} />
 		</BOUCLE_auteur>
 			<INCLURE{fond=inclure/compte/identification, formulaire=#ENV{formulaire}, section=#ENV{section}} />
