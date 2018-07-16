@@ -15,9 +15,8 @@
 			[(#SET{infos_manquantes, #GET{infos_manquantes}|push{adresse}})]
 		<//B_adresse>
 		
-		[(#SET{etape, #ENV{etape}|plus{1}})]
-		[(#SET{redirect, #URL_PAGE{#ENV{page}}|parametre_url{etape, #GET{etape}}})]
-		
+		#SET{redirect, #URL_PAGE{panier}}
+
 		<section class="c-section c-abonner-section">
 			<BOUCLE_corriger_profil(CONDITION){si #GET{infos_manquantes}|count|>{0}}>
 				[(#REM)
@@ -42,7 +41,7 @@
 					lorsque l'auteur est déjà connecté : il est envoyé 
 					à l'étape suivante.
 				--> ]
-				[(#FORMULAIRE_LOGIN{#GET{redirect}})]
+				[(#FORMULAIRE_LOGIN{#GET{redirect}, #LOGIN})]
 			<//B_corriger_profil>
 		</section>
 	</BOUCLE_contact>
