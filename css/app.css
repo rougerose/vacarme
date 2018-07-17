@@ -2292,9 +2292,11 @@
 
 /* line 5, _src/scss/components/_section.scss */ .c-section { margin-bottom: 48px; }
 
-/* line 10, _src/scss/components/_section.scss */ .c-section__titre { font-size: 24px; font-size: 1.5rem; line-height: 1.2; }
+/* line 9, _src/scss/components/_section.scss */ .c-section--std { margin-bottom: 24px; }
 
-/* line 14, _src/scss/components/_section.scss */ .c-section__titre--small { font-size: 20px; font-size: 1.25rem; }
+/* line 14, _src/scss/components/_section.scss */ .c-section__titre { font-size: 24px; font-size: 1.5rem; line-height: 1.2; }
+
+/* line 18, _src/scss/components/_section.scss */ .c-section__titre--small { font-size: 20px; font-size: 1.25rem; }
 
 /* line 5, _src/scss/components/_boutons.scss */ .c-btn, .c-btn-form button, .boutons .submit { border: 1px solid #ccc; border-color: transparent; display: inline-block; overflow: visible; padding: 6px 12px; vertical-align: middle; line-height: normal; text-align: center; font-family: inherit; font-size: 100%; cursor: pointer; }
 
@@ -2324,7 +2326,7 @@
 
 /* line 129, _src/scss/components/_boutons.scss */ .c-btn--round, .c-btn-form--round button, .boutons .submit { border-radius: 5px; }
 
-/* line 138, _src/scss/components/_boutons.scss */ .c-btn--logout { display: -webkit-box; display: -ms-flexbox; display: flex; padding: 9px; margin-bottom: auto; }
+/* line 138, _src/scss/components/_boutons.scss */ .c-btn--logout { display: -webkit-box; display: -ms-flexbox; display: flex; padding: 9px 9px 6px; margin-bottom: auto; }
 
 @media (max-width: 27.4275em) { /* line 144, _src/scss/components/_boutons.scss */ .c-btn--logout span { border: 0 !important; clip: rect(0 0 0 0) !important; -webkit-clip-path: inset(50%) !important; clip-path: inset(50%) !important; height: 1px !important; margin: -1px !important; overflow: hidden !important; padding: 0 !important; position: absolute !important; white-space: nowrap !important; width: 1px !important; } }
 
@@ -2460,9 +2462,10 @@
 
 /* line 39, _src/scss/components/_formulaire_inscription.scss */ .formulaire_inscription .editer_nom_inscription, .formulaire_inscription .editer_nom, .formulaire_inscription .editer_prenom, .formulaire_inscription .editer_password, .formulaire_inscription .editer_password_confirmation, .formulaire_inscription .editer_complement, .formulaire_inscription .editer_boite_postale, .formulaire_inscription .editer_code_postal, .formulaire_inscription .editer_ville, .formulaire_inscription .editer_region, .formulaire_inscription .editer_pays { width: 100%; }
 
-@media (min-width: 48em) { /* line 39, _src/scss/components/_formulaire_inscription.scss */ .formulaire_inscription .editer_nom_inscription, .formulaire_inscription .editer_nom, .formulaire_inscription .editer_prenom, .formulaire_inscription .editer_password, .formulaire_inscription .editer_password_confirmation, .formulaire_inscription .editer_complement, .formulaire_inscription .editer_boite_postale, .formulaire_inscription .editer_code_postal, .formulaire_inscription .editer_ville, .formulaire_inscription .editer_region, .formulaire_inscription .editer_pays { width: 48%; } }
+@media (min-width: 48em) { /* line 39, _src/scss/components/_formulaire_inscription.scss */ .formulaire_inscription .editer_nom_inscription, .formulaire_inscription .editer_nom, .formulaire_inscription .editer_prenom, .formulaire_inscription .editer_password, .formulaire_inscription .editer_password_confirmation, .formulaire_inscription .editer_complement, .formulaire_inscription .editer_boite_postale, .formulaire_inscription .editer_code_postal, .formulaire_inscription .editer_ville, .formulaire_inscription .editer_region, .formulaire_inscription .editer_pays { width: 48%; }
+  /* line 54, _src/scss/components/_formulaire_inscription.scss */ .c-compte-identification__section--inscription .formulaire_inscription .editer_nom_inscription, .c-compte-identification__section--inscription .formulaire_inscription .editer_nom, .c-compte-identification__section--inscription .formulaire_inscription .editer_prenom, .c-compte-identification__section--inscription .formulaire_inscription .editer_password, .c-compte-identification__section--inscription .formulaire_inscription .editer_password_confirmation, .c-compte-identification__section--inscription .formulaire_inscription .editer_complement, .c-compte-identification__section--inscription .formulaire_inscription .editer_boite_postale, .c-compte-identification__section--inscription .formulaire_inscription .editer_code_postal, .c-compte-identification__section--inscription .formulaire_inscription .editer_ville, .c-compte-identification__section--inscription .formulaire_inscription .editer_region, .c-compte-identification__section--inscription .formulaire_inscription .editer_pays { width: 100%; } }
 
-/* line 56, _src/scss/components/_formulaire_inscription.scss */ .formulaire_inscription .editer_mail_inscription, .formulaire_inscription .editer_email, .formulaire_inscription .editer_organisation, .formulaire_inscription .editer_voie, .formulaire_inscription .editer_texte_message, .formulaire_inscription .editer_message_date { width: 100%; }
+/* line 60, _src/scss/components/_formulaire_inscription.scss */ .formulaire_inscription .editer_mail_inscription, .formulaire_inscription .editer_email, .formulaire_inscription .editer_organisation, .formulaire_inscription .editer_voie, .formulaire_inscription .editer_texte_message, .formulaire_inscription .editer_message_date { width: 100%; }
 
 /* line 5, _src/scss/components/_formulaire_valider_panier.scss */ .formulaire_valider_panier { margin-bottom: 96px; }
 
@@ -2586,11 +2589,23 @@
 
 @media (min-width: 48em) { /* line 111, _src/scss/components/_inscription.scss */ .c-inscription__champ--typeClient { width: 48%; } }
 
-/* line 45, _src/scss/components/_commande.scss */ .c-commande-articles { border-bottom: 1px solid #000; margin-bottom: 24px; }
+/* line 46, _src/scss/components/_commande.scss */ .c-commande-identification { border-bottom: 1px solid #000; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
 
-/* line 54, _src/scss/components/_commande.scss */ .c-commande-article { position: relative; margin-top: 24px; margin-bottom: 24px; overflow: hidden; padding-left: 70px; padding-top: 24px; }
+@media (min-width: 40em) { /* line 46, _src/scss/components/_commande.scss */ .c-commande-identification { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; } }
 
-/* line 62, _src/scss/components/_commande.scss */ .c-commande-article > img { position: absolute; left: -138px; top: 12px; width: 200px; -webkit-box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.1); box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.1); -webkit-transform-origin: 50% 100%; transform-origin: 50% 100%; }
+/* line 57, _src/scss/components/_commande.scss */ .c-commande-identification__inscription { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; }
+
+/* line 61, _src/scss/components/_commande.scss */ .c-commande-identification__login { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; }
+
+@media (min-width: 40em) { /* line 61, _src/scss/components/_commande.scss */ .c-commande-identification__login { margin-left: 10%; } }
+
+/* line 74, _src/scss/components/_commande.scss */ .c-commande-contenu { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+
+/* line 84, _src/scss/components/_commande.scss */ .c-commande-articles { border-bottom: 1px solid #000; margin-bottom: 24px; }
+
+/* line 93, _src/scss/components/_commande.scss */ .c-commande-article { position: relative; margin-top: 24px; margin-bottom: 24px; overflow: hidden; padding-left: 70px; padding-top: 24px; }
+
+/* line 101, _src/scss/components/_commande.scss */ .c-commande-article > img { position: absolute; left: -138px; top: 12px; width: 200px; -webkit-box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.1); box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.1); -webkit-transform-origin: 50% 100%; transform-origin: 50% 100%; }
 
 /* line 10, _src/scss/tools/_rotate.scss */ .c-commande-article > img:nth-of-type(1) { -webkit-transform: rotate(-1.5deg); transform: rotate(-1.5deg); }
 
@@ -2608,51 +2623,51 @@
 
 /* line 10, _src/scss/tools/_rotate.scss */ .c-commande-article > img:nth-of-type(8) { -webkit-transform: rotate(-12deg); transform: rotate(-12deg); }
 
-@media (min-width: 40em) { /* line 54, _src/scss/components/_commande.scss */ .c-commande-article { padding-left: 100px; }
-  /* line 75, _src/scss/components/_commande.scss */ .c-commande-article > img { left: -112px; } }
+@media (min-width: 40em) { /* line 93, _src/scss/components/_commande.scss */ .c-commande-article { padding-left: 100px; }
+  /* line 114, _src/scss/components/_commande.scss */ .c-commande-article > img { left: -112px; } }
 
-@media (min-width: 64em) { /* line 54, _src/scss/components/_commande.scss */ .c-commande-article { padding-left: 200px; }
-  /* line 83, _src/scss/components/_commande.scss */ .c-commande-article > img { left: -24px; } }
+@media (min-width: 64em) { /* line 93, _src/scss/components/_commande.scss */ .c-commande-article { padding-left: 200px; }
+  /* line 122, _src/scss/components/_commande.scss */ .c-commande-article > img { left: -24px; } }
 
-/* line 95, _src/scss/components/_commande.scss */ .c-commande-article__contenu { border-bottom: 1px solid #9e9e9e; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+/* line 134, _src/scss/components/_commande.scss */ .c-commande-article__contenu { border-bottom: 1px solid #9e9e9e; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
 
-@media (min-width: 40em) { /* line 95, _src/scss/components/_commande.scss */ .c-commande-article__contenu { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; } }
+@media (min-width: 40em) { /* line 134, _src/scss/components/_commande.scss */ .c-commande-article__contenu { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; } }
 
-/* line 105, _src/scss/components/_commande.scss */ .c-commande-article__contenu p { margin-bottom: 0; }
+/* line 144, _src/scss/components/_commande.scss */ .c-commande-article__contenu p { margin-bottom: 0; }
 
-/* line 116, _src/scss/components/_commande.scss */ .c-commande-article__logo-numero { top: 0; -webkit-transform: rotate(-6deg); transform: rotate(-6deg); }
+/* line 155, _src/scss/components/_commande.scss */ .c-commande-article__logo-numero { top: 0; -webkit-transform: rotate(-6deg); transform: rotate(-6deg); }
 
-/* line 127, _src/scss/components/_commande.scss */ .c-commande-article__descriptif { margin-bottom: 24px; }
+/* line 166, _src/scss/components/_commande.scss */ .c-commande-article__descriptif { margin-bottom: 24px; }
 
-@media (min-width: 40em) { /* line 127, _src/scss/components/_commande.scss */ .c-commande-article__descriptif { -webkit-box-flex: 2; -ms-flex: 2; flex: 2; } }
+@media (min-width: 40em) { /* line 166, _src/scss/components/_commande.scss */ .c-commande-article__descriptif { -webkit-box-flex: 2; -ms-flex: 2; flex: 2; } }
 
-/* line 139, _src/scss/components/_commande.scss */ .c-commande-article__titre { border-bottom: 1px solid #e0e0e0; margin-bottom: 12px; font-size: 18px; font-size: 1.125rem; line-height: 1.7; }
+/* line 178, _src/scss/components/_commande.scss */ .c-commande-article__titre { border-bottom: 1px solid #e0e0e0; margin-bottom: 12px; font-size: 18px; font-size: 1.125rem; line-height: 1.7; }
 
-/* line 149, _src/scss/components/_commande.scss */ .c-commande-article__prix-quantite { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; margin-bottom: auto; }
+/* line 188, _src/scss/components/_commande.scss */ .c-commande-article__prix-quantite { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; margin-bottom: auto; }
 
-@media (min-width: 40em) { /* line 149, _src/scss/components/_commande.scss */ .c-commande-article__prix-quantite { -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } }
+@media (min-width: 40em) { /* line 188, _src/scss/components/_commande.scss */ .c-commande-article__prix-quantite { -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; } }
 
-/* line 165, _src/scss/components/_commande.scss */ .c-commande-article__prix-quantite-item { padding-left: 12px; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; font-size: 18px; font-size: 1.125rem; line-height: 1.7; text-align: right; }
+/* line 204, _src/scss/components/_commande.scss */ .c-commande-article__prix-quantite-item { padding-left: 12px; -webkit-box-flex: 1; -ms-flex: 1; flex: 1; font-size: 18px; font-size: 1.125rem; line-height: 1.7; text-align: right; }
 
-@media (min-width: 40em) { /* line 165, _src/scss/components/_commande.scss */ .c-commande-article__prix-quantite-item { border-bottom: 1px solid #e0e0e0; margin-bottom: 12px; } }
+@media (min-width: 40em) { /* line 204, _src/scss/components/_commande.scss */ .c-commande-article__prix-quantite-item { border-bottom: 1px solid #e0e0e0; margin-bottom: 12px; } }
 
-/* line 176, _src/scss/components/_commande.scss */ .c-commande-article__prix-quantite-item.c-commande-article__supprimer { border-bottom-color: transparent; -webkit-box-ordinal-group: 0; -ms-flex-order: -1; order: -1; padding-left: 0; text-align: left; }
+/* line 215, _src/scss/components/_commande.scss */ .c-commande-article__prix-quantite-item.c-commande-article__supprimer { border-bottom-color: transparent; -webkit-box-ordinal-group: 0; -ms-flex-order: -1; order: -1; padding-left: 0; text-align: left; }
 
-@media (min-width: 40em) { /* line 176, _src/scss/components/_commande.scss */ .c-commande-article__prix-quantite-item.c-commande-article__supprimer { -webkit-box-flex: 1; -ms-flex: 1 1 100%; flex: 1 1 100%; -webkit-box-ordinal-group: initial; -ms-flex-order: initial; order: initial; margin-top: 12px; text-align: right; } }
+@media (min-width: 40em) { /* line 215, _src/scss/components/_commande.scss */ .c-commande-article__prix-quantite-item.c-commande-article__supprimer { -webkit-box-flex: 1; -ms-flex: 1 1 100%; flex: 1 1 100%; -webkit-box-ordinal-group: initial; -ms-flex-order: initial; order: initial; margin-top: 12px; text-align: right; } }
 
-/* line 201, _src/scss/components/_commande.scss */ .c-commande-article__prix-total { font-weight: bold; }
+/* line 240, _src/scss/components/_commande.scss */ .c-commande-article__prix-total { font-weight: bold; }
 
-/* line 211, _src/scss/components/_commande.scss */ .c-commande__totaux { margin-bottom: 24px; text-align: right; }
+/* line 250, _src/scss/components/_commande.scss */ .c-commande__totaux { margin-bottom: 24px; text-align: right; }
 
-/* line 215, _src/scss/components/_commande.scss */ .c-commande__totaux p { margin-bottom: 0; }
+/* line 254, _src/scss/components/_commande.scss */ .c-commande__totaux p { margin-bottom: 0; }
 
-/* line 224, _src/scss/components/_commande.scss */ .c-commande__total-commande { font-size: 20px; font-size: 1.25rem; line-height: 1.5; font-weight: bold; }
+/* line 263, _src/scss/components/_commande.scss */ .c-commande__total-commande { font-size: 20px; font-size: 1.25rem; line-height: 1.5; font-weight: bold; }
 
-/* line 233, _src/scss/components/_commande.scss */ .c-commande__total-tva { color: #9e9e9e; }
+/* line 272, _src/scss/components/_commande.scss */ .c-commande__total-tva { color: #9e9e9e; }
 
-/* line 248, _src/scss/components/_commande.scss */ .c-commande-paiement__abandon { text-align: right; }
+/* line 287, _src/scss/components/_commande.scss */ .c-commande-paiement__abandon { text-align: right; }
 
-/* line 257, _src/scss/components/_commande.scss */ .c-commandes-paiement__modes { margin-bottom: 48px; }
+/* line 296, _src/scss/components/_commande.scss */ .c-commandes-paiement__modes { margin-bottom: 48px; }
 
 /* line 9, _src/scss/components/_payer_mode.scss */ .payer_mode { border-bottom: 1px solid #9e9e9e; margin-bottom: 48px; padding-bottom: 48px; }
 

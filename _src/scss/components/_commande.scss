@@ -38,6 +38,45 @@
 	
 	.c-commande-section__titre {}
 
+
+//
+// c-commande-identification
+// -------------------------------------
+
+.c-commande-identification {
+	border-bottom: 1px solid $color-black;
+	display: flex;
+	flex-direction: column;
+	
+	@include mq(tablet) {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
+	
+	.c-commande-identification__inscription {
+		flex: 1;
+	}
+	
+	.c-commande-identification__login {
+		flex: 1;
+		
+		@include mq(tablet) {
+			margin-left: 10%;
+		}
+	}
+
+
+//
+// c-commande-contenu
+// -------------------------------------
+
+.c-commande-contenu {
+	display: flex;
+	flex-direction: column;
+}
+
+
 //
 // 2/ c-commande-articles
 // -------------------------------------

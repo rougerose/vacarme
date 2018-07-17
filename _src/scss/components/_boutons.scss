@@ -137,7 +137,7 @@
 	
 	.c-btn--logout {
 		display: flex;
-		padding: 9px;
+		padding: 9px 9px 6px;
 		margin-bottom: auto;
 		
 		@include mq($until: mobilePlus) {

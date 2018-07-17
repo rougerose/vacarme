@@ -6,6 +6,10 @@
 	margin-bottom: $spacing-unit-large;
 }
 
+.c-section--std {
+	margin-bottom: $spacing-unit;
+}
+
 
 	.c-section__titre {
 		@include inuit-font-size(24px, 1.2);

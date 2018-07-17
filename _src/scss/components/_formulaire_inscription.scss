@@ -50,6 +50,10 @@ $width-2col: 48%;
 		width: $width-1col;
 		@include mq(tabletPlus) {
 			width: $width-2col;
+			
+			.c-compte-identification__section--inscription & {
+				width: $width-1col;
+			}
 		}
 	}
 	
