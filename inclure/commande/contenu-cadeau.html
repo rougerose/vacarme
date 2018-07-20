@@ -1,18 +1,17 @@
 <BOUCLE_cadeau(COMMANDES_DETAILS){id_commandes_detail}>
 	<BOUCLE_numero_cadeau(PRODUITS){id_produit=#ID_OBJET}>
-		<div class="c-commande-article">
+		<div class="c-commande-article c-commande-article--s">
 			<div class="c-commande-article__contenu">
 				<div class="c-commande-article__descriptif">
-					[<h3 class="c-commande-article__titre u-typo-font-vacarme">(#TITRE)</h3>]
+					[<h4 class="c-commande-article__titre u-typo-font-vacarme">(#TITRE)</h4>]
 					<p><:vacarme:cadeau_abonnement_label:></p>
 				</div>
 				<div class="c-commande-article__prix-quantite u-typo-font-vacarme">
-					<p class="c-commande-article__prix-quantite-item c-commande-article__prix-unitaire">[(#PRIX{#OBJET,#ID_OBJET})]</p>
+					<p class="c-commande-article__prix-quantite-item c-commande-article__prix-unitaire">[(#PRIX{#OBJET, #ID_OBJET})]</p>
 					<p class="c-commande-article__prix-quantite-item c-commande-article__quantite">&times; #QUANTITE</p>
-					<p class="c-commande-article__prix-quantite-item c-commande-article__prix-total">[(#PRIX{#OBJET,#ID_OBJET})]</p>
+					<p class="c-commande-article__prix-quantite-item c-commande-article__prix-total">[(#PRIX{#OBJET, #ID_OBJET})]</p>
 				</div>
 			</div>
-			[<img src="(#LOGO_PRODUIT|image_reduire{200,0}|extraire_attribut{src})"[ alt="(#TITRE|textebrut)"] class="c-commande-article__logo-numero">]
 		</div>
 	</BOUCLE_numero_cadeau>
 </BOUCLE_cadeau>

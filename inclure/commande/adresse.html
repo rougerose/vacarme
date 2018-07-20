@@ -1,0 +1,26 @@
+<BOUCLE_commande(COMMANDES){id_commande}>
+	#SET{articles_offerts, #ARRAY}
+	#SET{articles_perso, #ARRAY}
+	<BOUCLE_contenu_commande(COMMANDES_DETAILS){id_commande}>
+		[(#OBJET|=={abonnements_offre}|oui)
+			[(#DESCRIPTIF|match{offert@}|?{
+				[(#SET{articles_offerts, #GET{articles_offerts}|push{#ID_OBJET}})],
+				[(#SET{articles_perso, #GET{articles_perso}|push{#ID_OBJET}})]
+			})]
+		]
+		[(#OBJET|match{produit|rubrique}|oui)
+			#SET{articles_perso, #GET{articles_perso}|push{#ID_OBJET}}
+		]
+	</BOUCLE_contenu_commande>
+	<section class="c-section c-commande-adresse">
+		<h2 class="c-section__titre--small u-typo-font-vacarme"><:vacarme:commande_adresse_titre:></h2>
+		[(#REM) article(s) perso ]
+		<BOUCLE_adresse(ADRESSES){id_auteur}{si #GET{articles_perso}|count|>{0}}>
+			[<p>(#GET{articles_perso}|count|singulier_ou_pluriel{<:vacarme:commande_message_adresse_article_perso:>, <:vacarme:commande_message_adresse_articles_perso:>})<strong>[(#VOIE)][, (#COMPLEMENT)][, (#BOITE_POSTALE)][ (#CODE_POSTAL)][ (#VILLE)][ (#PAYS)].</strong>[ <a href="(#URL_PAGE{compte}|parametre_url{section, informations})" class="c-btn c-btn--black u-typo-font-vacarme u-typo-upper"><:vacarme:commande_adresse_bouton_modifier:></a>]</p>]
+		</BOUCLE_adresse>
+		[(#REM) article(s) offert(s) ]
+		[(#GET{articles_offerts}|count|>{0}|oui)
+			[<p>(#GET{articles_offerts}|count|singulier_ou_pluriel{<:vacarme:commande_message_adresse_article_offert:>, <:vacarme:commande_message_adresse_articles_offerts:>}).</p>]
+		]
+	</section>
+</BOUCLE_commande>

@@ -5,15 +5,15 @@
 	[(#NUMERO_DEBUT|match{^v\d+?}|oui)
 		[(#SET{debut, #NUMERO_DEBUT|calculer_numero_futur_titre{0}})]
 		[(#SET{reference_numero_debut, #NUMERO_DEBUT})]
-	][(#DESCRIPTIF|match{@}|oui)
+	][(#DESCRIPTIF|match{offert@}|oui)
 		[(#SET{id_beneficiaire, #DESCRIPTIF|strstr{@}|substr{1}})]
 		[(#GET{reference_numero_debut}|non) #SET{reference_numero_debut, #GET{reference_numero_actuel}}]
 	]
 	<BOUCLE_offre(ABONNEMENTS_OFFRES){id_abonnements_offre=#ID_OBJET}>
-		<div class="c-commande-article c-commande-article--abonnement">
+		<div class="c-commande-article c-commande-article--s">
 			<div class="c-commande-article__contenu">
 				<div class="c-commande-article__descriptif">
-					[<h3 class="c-commande-article__titre u-typo-font-vacarme"><:vpaniers:abonnement_resume_label_abonnement:> (#TITRE)[ / (#DUREE|numeros_nombre_en_clair)]</h3>]
+					[<h4 class="c-commande-article__titre u-typo-font-vacarme"><:vpaniers:abonnement_resume_label_abonnement:> (#TITRE)[ / (#DUREE|numeros_nombre_en_clair)]</h4>]
 					[(#GET{debut}|oui)
 						[<p><span><:vpaniers:abonnement_resume_label_numero:></span> (#GET{debut})</p>]]
 					[(#GET{id_beneficiaire}|oui)
@@ -25,7 +25,6 @@
 					<p class="c-commande-article__prix-quantite-item c-commande-article__prix-total">[(#PRIX{#OBJET,#ID_OBJET})]</p>
 				</div>
 			</div>
-			[(#INCLURE{fond=inclure/logo/abonnement-collection-numeros, largeur=200, reference_numero_debut=#GET{reference_numero_debut}, nombre_numeros=#DUREE|intval|div{3}|moins{1}})]
 		</div>
 	</BOUCLE_offre>
 </BOUCLE_abonnement>

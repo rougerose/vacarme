@@ -168,7 +168,30 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'vacarme_about'                               => "À propos de Vacarme",
     'vacarme_infos_desabonnement'                 => "Se désabonner de Vacarme-infos",
     'version_online'                              => "Version en ligne",
-    'version_print'                               => "Version imprimée"
-
-   );
-?>
+    'version_print'                               => "Version imprimée",
+	
+	// *********************
+	// Surcharge plugin Bank
+	// *********************
+	
+	'info_virement_etablir' => 'Afin de faciliter son traitement, veuillez préciser en référence de votre virement : «Transaction numéro @transaction@»
+_ Montant de votre virement : @montant@
+	
+Nos coordonnées bancaires :
+-* Bénéficiaire : @ordre@
+-* Banque : @banque@ <br/> @adressebanque@
+-* IBAN : @iban@
+-* BIC : @bic@',
+	
+	// Info paiement chèque
+	// --------------------
+	'info_cheque_imprimer' => 'Les instructions concernant l’établissement du chèque seront fournies après avoir cliqué sur «Régler par chèque».
+	Transaction : #@transaction@
+	Montant : @montant@',
+	
+	// Info paiement virement
+	// ----------------------
+	'info_virement' => 'Les instructions concernant l’établissement du virement seront fournies après avoir cliqué sur «Régler par virement bancaire».
+	Transaction: #@transaction@
+	Montant : @montant@',
+);

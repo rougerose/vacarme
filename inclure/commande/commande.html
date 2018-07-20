@@ -1,0 +1,3 @@
+#SET{etapes, #ARRAY{1, livraison, 2, paiement}}
+[(#SET{etape, #ENV{etape}|in_array{#GET{etapes}}|?{#ENV{etape}, livraison}})]
+<INCLURE{fond=inclure/commande/#GET{etape}, id_commande, hash_commande=#ENV{hash_commande}}/>

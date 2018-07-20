@@ -5,17 +5,19 @@
 // 
 // Pour le panier et le recapitutalif de commande lors du paiement
 // 
-// 1/ .c-commande
+// .c-commande
 // 
-// 2/ .commande-section
+// .commande-section
 // 
-// 3/ .c-commande-articles
+// .c-commande-identification (panier uniquement)
 // 
-// 4/ .c-commande-article
+// .c-commande-articles
 // 
-// 5/ .c-commande-totaux
+// .c-commande-article
 // 
-// 6/ .c-commande-paiement
+// .c-commande-totaux
+// 
+// .c-commande-paiement
 // 
 
 
@@ -40,7 +42,7 @@
 
 
 //
-// c-commande-identification
+// c-commande-identification (panier uniquement)
 // -------------------------------------
 
 .c-commande-identification {
@@ -68,16 +70,6 @@
 
 
 //
-// c-commande-contenu
-// -------------------------------------
-
-.c-commande-contenu {
-	display: flex;
-	flex-direction: column;
-}
-
-
-//
 // 2/ c-commande-articles
 // -------------------------------------
 
@@ -85,6 +77,8 @@
 	border-bottom: 1px solid $color-black;
 	margin-bottom: $spacing-unit;
 }
+
+	.c-commande-articles__titre {}
 
 //
 // 3/ c-commande-article
@@ -125,7 +119,11 @@
 	}
 }
 
-.c-commande-article--abonnement {}
+
+.c-commande-article--s {
+	padding-left: 0;
+	padding-top: 0;
+}
 
 	//
 	// c-commande-article__contenu
@@ -169,6 +167,10 @@
 		@include mq(tablet) {
 			flex: 2;
 		}
+		
+		.c-commande-article--s & {
+			margin-bottom: 0;
+		}
 	}
 	
 	//
@@ -179,6 +181,10 @@
 		border-bottom: 1px solid $color-gray-300;
 		margin-bottom: $spacing-unit-small;
 		@include inuit-font-size(18px, 1.7);
+		
+		.c-commande-article--s & {
+			border-bottom-width: 0;
+		}
 	}
 
 	//
@@ -210,6 +216,10 @@
 			@include mq(tablet) {
 				border-bottom: 1px solid $color-gray-300;
 				margin-bottom: $spacing-unit-small;
+				
+				.c-commande-article--s & {
+					border-bottom-width: 0;
+				}
 			}
 			
 			&.c-commande-article__supprimer {
@@ -241,7 +251,6 @@
 		font-weight: bold;
 	}
 	
-
 	
 //
 // 4/ c-commande__totaux
@@ -275,24 +284,68 @@
 
 
 //
-// 5/ c-commande-paiement
+// 5/ c-commande-boutons
 // -------------------------------------
 
-.c-commande-paiement {}
+.c-commande-boutons {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: $spacing-unit;
+	
+	@include mq(mobilePlus) {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
+
+	//
+	// c-commande-bouton__annuler
+	// -------------------------------------
+	
+	.c-commande-bouton__annuler {
+		order: 2;
+		margin-left: auto;
+		margin-right: auto;
+		
+		@include mq(mobilePlus) {
+			order: 0;
+			margin: 0;
+		}
+	}
+	
+	//
+	// c-commande-bouton__confirmer
+	// -------------------------------------
+	
+	.c-commande-bouton__confirmer {
+		margin-bottom: $spacing-unit;
+		@include mq(mobilePlus) {
+			width: 50%;
+		}
+	}
 
 	//
 	// c-commande-paiement__abandon
 	// -------------------------------------
 	
-	.c-commande-paiement__abandon {
-		text-align: right;
-	}
+	// .c-commande-paiement__abandon {
+	// 	text-align: right;
+	// }
 
+
+//
+// c-commande-paiement
+// -------------------------------------
+
+.c-commande-paiement {}
 
 	//
 	// c-commande-paiement__modes
 	// -------------------------------------
 	
-	.c-commandes-paiement__modes {
-		margin-bottom: $spacing-unit-large;
+	.c-commande-paiement__modes {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		margin: 5px 0;
 	}

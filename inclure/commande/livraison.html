@@ -1,21 +1,15 @@
 <BOUCLE_commande(COMMANDES){id_commande=#ENV{id_commande}}{statut IN encours, poubelle}>
-	<BOUCLE_transaction(TRANSACTIONS){id_commande}>#SET{transaction, #ID_TRANSACTION}</BOUCLE_transaction>
 	[(#STATUT|=={encours}|oui)
 		[(#SET{cle, #ID_AUTEUR|vpaniers_calcul_hash_commande{#ID_COMMANDE, #DATE}})]
 		[(#ENV{hash_commande}|=={#GET{cle}}|oui)
-			[<section class="c-section c-commande-section c-commande-paiement">
-				(#FORMULAIRE_PAYER_ACTE{#PRIX*,
-					#ARRAY{
-						montant_ht, #PRIX_HT*,
-						id_commande, #ID_COMMANDE,
-						id_auteur, #ID_AUTEUR,
-						id_panier, #SESSION{id_panier}
-					}
-				})
+			[(#INCLURE{fond=inclure/commande/adresse, id_commande})]
+			[(#INCLURE{fond=inclure/commande/contenu, id_commande})]
+			<div class="c-commande-boutons">
 				[(#BOUTON_ACTION{<:vacarme:commande_bouton_annuler:>, 
-					#URL_ACTION_AUTEUR{abandonner_transaction, #GET{transaction}, #SELF},
+					#URL_ACTION_AUTEUR{supprimer_commande, #ID_COMMANDE, #SELF},
 					c-commande-bouton__annuler c-btn-form c-btn-form--black c-btn-form--upper u-typo-font-vacarme ajax})]
-			</section>]
+				[<a href="(#SELF|parametre_url{etape, paiement})" class="c-commande-bouton__confirmer c-btn c-btn--submit c-btn--round u-typo-font-vacarme c-btn--upper"><:vacarme:commande_bouton_payer:></a>]
+			</div>
 		][(#GET{cle}|=={#ENV{hash_commande}}|non)
 			<p class="c-message c-message--erreur"><:vacarme:commande_erreur_hash:></p>
 		]

@@ -1,9 +1,9 @@
 <BOUCLE_numero(COMMANDES_DETAILS){id_commandes_detail}>
 	<BOUCLE_numero_rubrique(RUBRIQUES){id_rubrique=#ID_OBJET}>
-		<div class="c-commande-article">
+		<div class="c-commande-article c-commande-article--s">
 			<div class="c-commande-article__contenu">
 				<div class="c-commande-article__descriptif">
-					[<h3 class="c-commande-article__titre u-typo-font-vacarme">(#TITRE)[ / (#DATE_NUMERO|saison)[&nbsp;(#DATE_NUMERO|annee)]]</h3>]
+					[<h4 class="c-commande-article__titre u-typo-font-vacarme">(#TITRE)[ / (#DATE_NUMERO|saison)[&nbsp;(#DATE_NUMERO|annee)]]</h4>]
 				</div>
 				<div class="c-commande-article__prix-quantite u-typo-font-vacarme">
 					<p class="c-commande-article__prix-quantite-item c-commande-article__prix-unitaire">[(#PRIX{#OBJET,#ID_OBJET})]</p>
@@ -11,7 +11,6 @@
 					<p class="c-commande-article__prix-quantite-item c-commande-article__prix-total">[(#PRIX{#OBJET,#ID_OBJET})]</p>
 				</div>
 			</div>
-			[<img src="(#LOGO_RUBRIQUE|image_reduire{200,0}|extraire_attribut{src})"[ alt="(#TITRE|textebrut)"] class="c-commande-article__logo-numero">]
 		</div>
 	</BOUCLE_numero_rubrique>
 </BOUCLE_numero>

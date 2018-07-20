@@ -38,11 +38,20 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'choisir'                    => "Choisir",
 	'choisir_avec_cadeau'        => "Choisir ce cadeau",
 	'choisir_sans_cadeau'        => "Poursuivre sans cadeau",
-	'commande_annuler' => "Annuler cette commande",
+	'commande_adresse_titre' => "Adresse d’expédition",
+	'commande_adresse_bouton_modifier' => "Modifier votre adresse",
+	'commande_bouton_annuler' => "Annuler votre commande",
+	'commande_bouton_payer' => "Payer votre commande",
+	'commande_erreur_hash'       => "Aucune commande n'est disponible.",
+	'commande_inexistante'       => "Cette commande n'existe pas.",
 	'commande_message_annulation' => "Votre commande est annulée",
 	'commande_message_commande_prete' => "Votre commande est maintenant prête",
-	'commande_inexistante'       => "Cette commande n'existe pas.",
-	'commande_erreur_hash'       => "Aucune commande n'est disponible.",
+	'commande_message_adresse_article_perso' => "L’article qui vous est destiné sera expédié ",
+	'commande_message_adresse_articles_perso' => "Les articles qui vous sont destinés seront expédiés ",
+	'commande_message_adresse_article_offert' => "L’article offert sera expédié à l'adresse du bénéficiaire",
+	'commande_message_adresse_articles_offerts' => "Les articles offerts seront expédiés à l'adresse du bénéficiaire",
+	'commande_page_titre' => "Votre commande",
+	'commande_recapitulatif_titre' => "Rappel de votre commande",
 	
 	// M
 	'message_erreur_souscription_abonnement' => "Nous sommes désolés, un problème technique ne permet pas de poursuivre la souscription de votre abonnement. Pour résoudre ce problème, veuillez <a href='@url@' class='suite-lien'>nous contacter <em>&#8594;</em></a>",
@@ -53,7 +62,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'numero_voir' => "Consulter le numéro <em>&#8594;</em>",
 	
 	// P
-	'paiement_titre' => "Paiement de votre commande",
+	'paiement_titre' => "Votre commande est maintenant prête",
 	'paiement_titre_section' => "Choisissez un mode paiement sécurisé",
 	'pagination_numeros_next' => "Suivante &#8594;",
 	'pagination_numeros_prev' => "&#8592; Précédente",

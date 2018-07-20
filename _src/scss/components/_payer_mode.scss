@@ -7,13 +7,21 @@
 // 
 
 .payer_mode {
-	border-bottom: 1px solid $color-gray-500;
-	margin-bottom: $spacing-unit-large;
-	padding-bottom: $spacing-unit-large;
+	flex: 1 1 100%;
+	border: 1px solid $color-blue-grey-200;
+	margin: 5px;
+	padding: 10px;
+	background-color: $color-blue-grey-100;
+	
+	@include mq(tabletPlus) {
+		flex: 1 1 30%;
+		&:first-child { margin-left: 0; }
+		&:last-child { margin-right: 0; } 
+	}
 	
 	.titre {
 		font-family: $font-helvetica;
-		@include inuit-font-size(20px);
+		@include inuit-font-size(18px);
 		font-weight: bold;
 		text-transform: uppercase;
 	}

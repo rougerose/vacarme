@@ -1,5 +1,6 @@
 <BOUCLE_commande(COMMANDES){id_commande}>
-	<div class="c-commande-articles">
+	<section class="c-section c-commande-articles">
+		<h2 class="c-section__titre--small u-typo-font-vacarme c-commande-articles__titre">Articles commandés</h2>
 		<BOUCLE_contenu_commande(COMMANDES_DETAILS){id_commande}>
 			[(#SET{prix_unitaire,#PRIX_UNITAIRE_HT*})]
 			[(#SET{tva_objet, #PRIX*|moins{#PRIX_HT*}})]
@@ -19,5 +20,5 @@
 			[<p class="c-commande__total-commande"><:paniers:panier_total_ttc:> (#PRIX{commande,#ID_COMMANDE})</p>]
 			[<p class="c-commande__total-tva"><:paniers:dont_total_taxe:> (#GET{cumul_tva}|prix_formater)</p>]
 		</div>
-	</div>
+	</section>
 </BOUCLE_commande>
