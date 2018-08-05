@@ -37,5 +37,10 @@
 	</section>
 ]
 [(#SESSION{id_auteur}|oui)
-	[(#INCLURE{fond=inclure/abonnements/verification-profil-abonner, env})]
+	<section class="c-section c-abonner-section">
+		<h2 class="c-section__titre c-abonner-section__titre u-typo-font-vacarme u-typo-upper">4. <:vacarme:abonnement_etape_compte_verifier_titre:></h2>
+		[<div class="ajax">
+			(#FORMULAIRE_MODIFIER_PROFIL{#SESSION{id_auteur}, #URL_PAGE{panier}})
+		</div>]
+	</section>
 ]

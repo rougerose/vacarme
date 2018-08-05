@@ -173,15 +173,15 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// *********************
 	// Surcharge plugin Bank
 	// *********************
+	'info_virement_etablir' => "Afin de faciliter le traitement de votre paiement, veuillez indiquer la référence <b>Transaction numéro @transaction@</b> avec votre virement.
 	
-	'info_virement_etablir' => 'Afin de faciliter son traitement, veuillez préciser en référence de votre virement : «Transaction numéro @transaction@»
-_ Montant de votre virement : @montant@
+	Le montant attendu est de @montant@
 	
-Nos coordonnées bancaires :
--* Bénéficiaire : @ordre@
--* Banque : @banque@ <br/> @adressebanque@
+	Nos coordonnées bancaires :
+-* Bénéficiaire : « @ordre@ »
+-* Banque : @banque@<br/>@adressebanque@
 -* IBAN : @iban@
--* BIC : @bic@',
+-* BIC : @bic@",
 	
 	// Info paiement chèque
 	// --------------------

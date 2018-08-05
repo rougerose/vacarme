@@ -42,5 +42,12 @@
 		]
 	</section>
 ][(#SESSION{id_auteur}|oui)
-	[(#INCLURE{fond=inclure/abonnements/verification-profil-offrir, env})]
+	[(#SET{etape, #ENV{etape}|plus{1}})]
+	[(#SET{redirect, #URL_PAGE{#ENV{page}}|parametre_url{etape, #GET{etape}}})]
+	<section class="c-section c-abonner-section">
+		<h2 class="c-section__titre c-abonner-section__titre u-typo-font-vacarme u-typo-upper">2. <:vacarme:abonnement_etape_compte_verifier_titre:></h2>
+		[<div class="ajax">
+			(#FORMULAIRE_MODIFIER_PROFIL{#SESSION{id_auteur}, #GET{redirect}})
+		</div>]
+	</section>
 ]
