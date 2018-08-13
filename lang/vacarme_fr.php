@@ -69,6 +69,15 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'panier_ajouter' => "Ajouter au panier",
 	'panier_titre' => "Vos achats",
 	
+	'navigation_desktop_revue_titre' => "La Revue",
+	'navigation_desktop_abonner_titre' => "Vous abonner",
+	'navigation_desktop_acheter_titre' => "Acheter",
+	'navigation_mobile_revue_titre' => "À propos de Vacarme",
+	'navigation_mobile_abonner_titre' => "Vous abonner",
+	'navigation_mobile_acheter_titre' => "Acheter",
+	'navigation_mobile_categorie_revue_titre' => "La Revue",
+	'navigation_mobile_categorie_themes_titre' => "Nos articles par thèmes",
+	
 	// S
 	'sommaire_consulter' => "Le sommaire <em>&#8594;</em>",
 	
