@@ -99,7 +99,7 @@
 	// c-btn--upper
 	// -------------------------------------
 	.c-btn--upper {
-		//padding-top: $spacing-unit-small; //-tiny + $spacing-unit-tiny/2;
+		padding-top: $spacing-unit-tiny + ($spacing-unit-tiny / 2);
 		text-transform: uppercase;
 	}
 

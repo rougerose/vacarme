@@ -1655,13 +1655,15 @@
 
 /* line 13, _src/scss/components/_message.scss */ .c-message > a { color: #00bdd6; }
 
-/* line 22, _src/scss/components/_message.scss */ .c-message--erreur { border: 2px solid #e75d32; }
+/* line 21, _src/scss/components/_message.scss */ .c-message--simple { padding: 0; }
 
-/* line 27, _src/scss/components/_message.scss */ .c-message--ok { border: 2px solid #c1e732; }
+/* line 25, _src/scss/components/_message.scss */ .c-message--erreur { border: 2px solid #e75d32; }
 
-/* line 32, _src/scss/components/_message.scss */ .c-message--attention { border: 2px solid #c1e732; }
+/* line 30, _src/scss/components/_message.scss */ .c-message--ok { border: 2px solid #c1e732; }
 
-/* line 36, _src/scss/components/_message.scss */ .c-message--info { border: 2px solid #000; }
+/* line 35, _src/scss/components/_message.scss */ .c-message--attention { border: 2px solid #c1e732; }
+
+/* line 39, _src/scss/components/_message.scss */ .c-message--info { border: 2px solid #000; }
 
 /*  ========================================================================== resume ========================================================================== */
 /* line 24, _src/scss/components/_resume.scss */ .resume__titre { font-size: 18px; font-size: 1.125rem; line-height: 1.2; }
@@ -2316,7 +2318,7 @@
 
 /* line 89, _src/scss/components/_boutons.scss */ .c-btn--black:hover, .c-btn-form--black button:hover, .c-btn--black:focus, .c-btn-form--black button:focus { color: #fff; background-color: #00bdd6; border-color: #00bdd6; }
 
-/* line 101, _src/scss/components/_boutons.scss */ .c-btn--upper, .c-btn-form--upper button, .boutons .submit { text-transform: uppercase; }
+/* line 101, _src/scss/components/_boutons.scss */ .c-btn--upper, .c-btn-form--upper button, .boutons .submit { padding-top: 9px; text-transform: uppercase; }
 
 /* line 110, _src/scss/components/_boutons.scss */ .c-btn--extended { width: 100%; }
 
@@ -3300,15 +3302,17 @@
 
 /* line 5, _src/scss/utilities/_text.scss */ .u-textCenter { text-align: center; }
 
-/* line 12, _src/scss/utilities/_text.scss */ .u-textSizeS { font-size: smaller; }
+/* line 9, _src/scss/utilities/_text.scss */ .u-textLeft { text-align: left; }
 
-/* line 16, _src/scss/utilities/_text.scss */ .u-text-size-xl { font-size: x-large; }
+/* line 16, _src/scss/utilities/_text.scss */ .u-textSizeS { font-size: smaller; }
 
-/* line 20, _src/scss/utilities/_text.scss */ .u-text-size-l { font-size: large; }
+/* line 20, _src/scss/utilities/_text.scss */ .u-text-size-xl { font-size: x-large; }
 
-/* line 27, _src/scss/utilities/_text.scss */ .u-text-color-lb500 { color: #02a6f2; }
+/* line 24, _src/scss/utilities/_text.scss */ .u-text-size-l { font-size: large; }
 
-/* line 34, _src/scss/utilities/_text.scss */ .u-text-font-monospace { font-family: monospace; }
+/* line 31, _src/scss/utilities/_text.scss */ .u-text-color-lb500 { color: #02a6f2; }
+
+/* line 38, _src/scss/utilities/_text.scss */ .u-text-font-monospace { font-family: monospace; }
 
 @media print { @page { margin: 0.5cm; }
   /* line 14, _src/scss/utilities/_print.scss */ html { font: 12pt/1.4 "Plantin", "Palatino", serif; }

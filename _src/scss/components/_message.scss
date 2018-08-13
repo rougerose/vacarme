@@ -12,13 +12,16 @@
 	
 	> a {
 		color: $color-lien;
-		// border-bottom: $message-border-lien;
 	}
 	
 	//
 	// Variantes
 	// -------------------------------------
-
+	
+	&--simple {
+		padding: 0;
+	}
+	
 	&--erreur {
 		border: $message-border-erreur;
 	}
