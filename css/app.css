@@ -218,7 +218,7 @@
 
 /* ========================================================================== #PAGE ========================================================================== */
 /** Simple page-level setup. 1. Set the default `font-size` and `line-height` for the entire project, sourced from our default variables. The `font-size` is calculated to exist in ems, the `line-height` is calculated to exist unitlessly. 2. Force scrollbars to always be visible to prevent awkward ‘jumps’ when navigating between pages that do/do not have enough content to produce scrollbars naturally. 3. Ensure the page always fills at least the entire height of the viewport. */
-/* line 17, _src/scss/elements/_page.scss */ html { font-size: 1em; /* [1] */ line-height: 1.5; /* [1] */ overflow-y: scroll; /* [2] */ min-height: 100%; /* [3] */ font-family: "Plantin", "Palatino", serif; color: #393939; }
+/* line 17, _src/scss/elements/_page.scss */ html { font-size: 1em; /* [1] */ line-height: 1.5; /* [1] */ min-height: 100%; /* [3] */ font-family: "Plantin", "Palatino", serif; color: #393939; }
 
 /*=================================
 =            page-head            =
@@ -725,6 +725,12 @@
 /** Cause layout items to take up a non-explicit amount of width. */
 /* line 304, node_modules/inuitcss/objects/_objects.layout.scss */ .o-layout--auto > .o-layout__item { width: auto; }
 
+/* ========================================================================== #LIST-BARE ========================================================================== */
+/** Strip list-like appearance from lists by removing their bullets and any indentation. Note: Declaring the item class might not be necessary everywhere, but is for example in <dl> lists for the <dd> children. */
+/* line 13, node_modules/inuitcss/objects/_objects.list-bare.scss */ .o-list-bare { list-style: none; margin-left: 0; }
+
+/* line 18, node_modules/inuitcss/objects/_objects.list-bare.scss */ .o-list-bare__item { margin-left: 0; }
+
 /* line 13, _src/scss/objects/_icon.scss */ .o-icon--s { height: 16px; width: 16px; }
 
 /* line 18, _src/scss/objects/_icon.scss */ .o-icon--m { height: 24px; width: 24px; }
@@ -743,9 +749,15 @@
 
 /* line 74, _src/scss/objects/_icon.scss */ .is-open .o-icon--burger:after { bottom: 0; -webkit-transform: rotate(-90deg); transform: rotate(-90deg); -webkit-transition: bottom 0.075s ease, -webkit-transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1); transition: bottom 0.075s ease, -webkit-transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1); transition: bottom 0.075s ease, transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1); transition: bottom 0.075s ease, transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1); }
 
-/* line 87, _src/scss/objects/_icon.scss */ .o-icon--logout { width: 18px; height: 18px; stroke: currentColor; }
+/* line 87, _src/scss/objects/_icon.scss */ .o-icon--croix { display: block; top: 50%; margin-top: -1px; -webkit-transform: rotate(45deg); transform: rotate(45deg); }
 
-@media (min-width: 27.4375em) { /* line 87, _src/scss/objects/_icon.scss */ .o-icon--logout { margin-top: -2px; margin-right: 6px; } }
+/* line 93, _src/scss/objects/_icon.scss */ .o-icon--croix, .o-icon--croix:after { position: absolute; left: 0; right: 0; height: 2px; width: 18px; margin-left: auto; margin-right: auto; content: ''; background-color: currentColor; -webkit-transition: -webkit-transform .15s ease; transition: -webkit-transform .15s ease; transition: transform .15s ease; transition: transform .15s ease, -webkit-transform .15s ease; }
+
+/* line 107, _src/scss/objects/_icon.scss */ .o-icon--croix:after { bottom: 0; -webkit-transform: rotate(-90deg); transform: rotate(-90deg); -webkit-transition: bottom 0.075s ease, -webkit-transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1); transition: bottom 0.075s ease, -webkit-transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1); transition: bottom 0.075s ease, transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1); transition: bottom 0.075s ease, transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1); }
+
+/* line 120, _src/scss/objects/_icon.scss */ .o-icon--logout { width: 18px; height: 18px; stroke: currentColor; }
+
+@media (min-width: 27.4375em) { /* line 120, _src/scss/objects/_icon.scss */ .o-icon--logout { margin-top: -2px; margin-right: 6px; } }
 
 /*  ========================================================================== .accordeon ========================================================================== */
 /* line 5, _src/scss/components/_accordeon.scss */ .accordeon__container { overflow: hidden; margin-bottom: 2em; }
@@ -2302,42 +2314,44 @@
 
 /* line 5, _src/scss/components/_boutons.scss */ .c-btn, .c-btn-form button, .boutons .submit { border: 1px solid #ccc; border-color: transparent; display: inline-block; overflow: visible; padding: 6px 6px 3px; vertical-align: middle; line-height: normal; text-align: center; font-family: inherit; font-size: 100%; cursor: pointer; }
 
-/* line 23, _src/scss/components/_boutons.scss */ .c-btn--burger { position: relative; z-index: 101; top: -2px; padding: 0; border: none; border-radius: 50%; margin: auto 0 auto 12px; height: 30px; width: 30px; background-color: #e88e0e; color: #fff; }
+/* line 23, _src/scss/components/_boutons.scss */ .c-btn--burger { position: relative; z-index: 101; top: -2px; padding: 0; border: none; border-radius: 50%; margin: auto 0 auto 12px; height: 30px; width: 30px; background-color: #00bdd6; color: #fff; }
 
-/* line 40, _src/scss/components/_boutons.scss */ .c-btn--submit, .boutons .submit { background-color: #494979; color: #fff; -webkit-transition: all 0.35s ease-out; transition: all 0.35s ease-out; }
+/* line 41, _src/scss/components/_boutons.scss */ .c-btn--croix { position: absolute; z-index: 201; top: 18px; left: -28px; padding: 0; border: none; border-radius: 50%; margin: auto 0 auto 12px; height: 30px; width: 30px; background-color: #00bdd6; color: #fff; }
 
-/* line 45, _src/scss/components/_boutons.scss */ .c-btn--submit:hover, .boutons .submit:hover, .c-btn--submit:focus, .boutons .submit:focus { color: #fff; background-color: #303091; }
+/* line 59, _src/scss/components/_boutons.scss */ .c-btn--submit, .boutons .submit { background-color: #494979; color: #fff; -webkit-transition: all 0.35s ease-out; transition: all 0.35s ease-out; }
 
-/* line 56, _src/scss/components/_boutons.scss */ .c-btn--delete { padding: 0; margin: 0; color: #00bdd6; }
+/* line 64, _src/scss/components/_boutons.scss */ .c-btn--submit:hover, .boutons .submit:hover, .c-btn--submit:focus, .boutons .submit:focus { color: #fff; background-color: #303091; }
 
-/* line 66, _src/scss/components/_boutons.scss */ .c-btn--white, .c-btn-form--white button { border: 1px solid #fff; background-color: transparent; color: #fff; -webkit-transition: all 0.35s ease-out; transition: all 0.35s ease-out; }
+/* line 75, _src/scss/components/_boutons.scss */ .c-btn--delete { padding: 0; margin: 0; color: #00bdd6; }
 
-/* line 72, _src/scss/components/_boutons.scss */ .c-btn--white:hover, .c-btn-form--white button:hover, .c-btn--white:focus, .c-btn-form--white button:focus { color: #000; border-color: #000; }
+/* line 85, _src/scss/components/_boutons.scss */ .c-btn--white, .c-btn-form--white button { border: 1px solid #fff; background-color: transparent; color: #fff; -webkit-transition: all 0.35s ease-out; transition: all 0.35s ease-out; }
 
-/* line 83, _src/scss/components/_boutons.scss */ .c-btn--black, .c-btn-form--black button { border: 1px solid #000; background-color: transparent; color: #000; -webkit-transition: all 0.35s ease-out; transition: all 0.35s ease-out; }
+/* line 91, _src/scss/components/_boutons.scss */ .c-btn--white:hover, .c-btn-form--white button:hover, .c-btn--white:focus, .c-btn-form--white button:focus { color: #000; border-color: #000; }
 
-/* line 89, _src/scss/components/_boutons.scss */ .c-btn--black:hover, .c-btn-form--black button:hover, .c-btn--black:focus, .c-btn-form--black button:focus { color: #fff; background-color: #00bdd6; border-color: #00bdd6; }
+/* line 102, _src/scss/components/_boutons.scss */ .c-btn--black, .c-btn-form--black button { border: 1px solid #000; background-color: transparent; color: #000; -webkit-transition: all 0.35s ease-out; transition: all 0.35s ease-out; }
 
-/* line 101, _src/scss/components/_boutons.scss */ .c-btn--upper, .c-btn-form--upper button, .boutons .submit { padding-top: 9px; text-transform: uppercase; }
+/* line 108, _src/scss/components/_boutons.scss */ .c-btn--black:hover, .c-btn-form--black button:hover, .c-btn--black:focus, .c-btn-form--black button:focus { color: #fff; background-color: #00bdd6; border-color: #00bdd6; }
 
-/* line 110, _src/scss/components/_boutons.scss */ .c-btn--extended { width: 100%; }
+/* line 120, _src/scss/components/_boutons.scss */ .c-btn--upper, .c-btn-form--upper button, .boutons .submit { padding-top: 9px; text-transform: uppercase; }
 
-/* line 118, _src/scss/components/_boutons.scss */ .c-btn--achat-numero, .c-btn-form--achat-numero, .c-btn-form--achat-numero button { width: 100%; }
+/* line 129, _src/scss/components/_boutons.scss */ .c-btn--extended { width: 100%; }
 
-@media (min-width: 48em) { /* line 118, _src/scss/components/_boutons.scss */ .c-btn--achat-numero, .c-btn-form--achat-numero, .c-btn-form--achat-numero button { width: auto; } }
+/* line 137, _src/scss/components/_boutons.scss */ .c-btn--achat-numero, .c-btn-form--achat-numero, .c-btn-form--achat-numero button { width: 100%; }
 
-/* line 130, _src/scss/components/_boutons.scss */ .c-btn--round, .c-btn-form--round button, .boutons .submit { border-radius: 5px; }
+@media (min-width: 48em) { /* line 137, _src/scss/components/_boutons.scss */ .c-btn--achat-numero, .c-btn-form--achat-numero, .c-btn-form--achat-numero button { width: auto; } }
 
-/* line 139, _src/scss/components/_boutons.scss */ .c-btn--logout { display: -webkit-box; display: -ms-flexbox; display: flex; margin-bottom: auto; }
+/* line 149, _src/scss/components/_boutons.scss */ .c-btn--round, .c-btn-form--round button, .boutons .submit { border-radius: 5px; }
 
-@media (max-width: 27.4275em) { /* line 139, _src/scss/components/_boutons.scss */ .c-btn--logout { padding-top: 3px; }
-  /* line 146, _src/scss/components/_boutons.scss */ .c-btn--logout span { border: 0 !important; clip: rect(0 0 0 0) !important; -webkit-clip-path: inset(50%) !important; clip-path: inset(50%) !important; height: 1px !important; margin: -1px !important; overflow: hidden !important; padding: 0 !important; position: absolute !important; white-space: nowrap !important; width: 1px !important; } }
+/* line 158, _src/scss/components/_boutons.scss */ .c-btn--logout { display: -webkit-box; display: -ms-flexbox; display: flex; margin-bottom: auto; }
 
-/* line 191, _src/scss/components/_boutons.scss */ .c-btn-form--achat-numero { margin-top: 6px; margin-bottom: 6px; }
+@media (max-width: 27.4275em) { /* line 158, _src/scss/components/_boutons.scss */ .c-btn--logout { padding-top: 3px; }
+  /* line 165, _src/scss/components/_boutons.scss */ .c-btn--logout span { border: 0 !important; clip: rect(0 0 0 0) !important; -webkit-clip-path: inset(50%) !important; clip-path: inset(50%) !important; height: 1px !important; margin: -1px !important; overflow: hidden !important; padding: 0 !important; position: absolute !important; white-space: nowrap !important; width: 1px !important; } }
 
-@media (min-width: 48em) { /* line 191, _src/scss/components/_boutons.scss */ .c-btn-form--achat-numero { margin-top: 0; margin-bottom: 0; } }
+/* line 210, _src/scss/components/_boutons.scss */ .c-btn-form--achat-numero { margin-top: 6px; margin-bottom: 6px; }
 
-/* line 215, _src/scss/components/_boutons.scss */ .boutons .submit { width: 100%; }
+@media (min-width: 48em) { /* line 210, _src/scss/components/_boutons.scss */ .c-btn-form--achat-numero { margin-top: 0; margin-bottom: 0; } }
+
+/* line 234, _src/scss/components/_boutons.scss */ .boutons .submit { width: 100%; }
 
 /* line 6, _src/scss/components/_lien.scss */ .c-lien { border-bottom: 1px dotted #000; color: #000; font-style: italic; }
 
@@ -2687,6 +2701,80 @@
 
 /* line 346, _src/scss/components/_commande.scss */ .c-commande-paiement__modes { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; margin: 5px 0; }
 
+/* line 6, _src/scss/components/_panier-mini.scss */ .c-panier-mini { position: fixed; top: 0; right: calc(calc(100vw - calc(24px * 3)) * -1); z-index: 200; height: 100%; width: calc(100vw - calc(24px * 3)); padding: 24px; visibility: hidden; background-color: #fff; -webkit-transition: visibility ease-in-out .3s, -webkit-transform ease-in-out 0.3s; transition: visibility ease-in-out .3s, -webkit-transform ease-in-out 0.3s; transition: transform ease-in-out 0.3s, visibility ease-in-out .3s; transition: transform ease-in-out 0.3s, visibility ease-in-out .3s, -webkit-transform ease-in-out 0.3s; }
+
+/* line 18, _src/scss/components/_panier-mini.scss */ .c-panier-mini.est-ouvert { display: block; visibility: visible; -webkit-transform: translateX(-100%); transform: translateX(-100%); }
+
+/* line 24, _src/scss/components/_panier-mini.scss */ .c-panier-mini > div { height: 100%; }
+
+@media (min-width: 40em) { /* line 6, _src/scss/components/_panier-mini.scss */ .c-panier-mini { right: calc(calc(100vw - calc(24px * 6)) * -1); width: calc(100vw - calc(24px * 6)); } }
+
+@media (min-width: 48em) { /* line 6, _src/scss/components/_panier-mini.scss */ .c-panier-mini { right: -470px; width: 470px; } }
+
+/* line 46, _src/scss/components/_panier-mini.scss */ .c-panier-mini__titre { margin-bottom: 12px; font-size: 18px; font-size: 1.125rem; line-height: 1.33333; }
+
+/* line 53, _src/scss/components/_panier-mini.scss */ .c-panier-mini__contenu { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-flow: column nowrap; flex-flow: column nowrap; height: calc(100% - calc(24px)); width: 100%; }
+
+/* line 70, _src/scss/components/_panier-mini.scss */ .c-panier-mini__liste-items { border-top: 1px solid #000; margin-bottom: 0; }
+
+/* line 77, _src/scss/components/_panier-mini.scss */ .c-panier-mini-item { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; width: 100%; }
+
+/* line 83, _src/scss/components/_panier-mini.scss */ .c-panier-mini-item--vide { display: block; padding-top: 48px; }
+
+/* line 95, _src/scss/components/_panier-mini.scss */ .c-panier-mini-item__titre { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
+
+/* line 102, _src/scss/components/_panier-mini.scss */ .c-panier-mini-item__intitule { margin-bottom: 0; }
+
+/* line 105, _src/scss/components/_panier-mini.scss */ .c-panier-mini-item__intitule, .c-panier-mini-item__intitule + span { font-size: 14px; font-size: 0.875rem; line-height: 1.2; }
+
+/* line 110, _src/scss/components/_panier-mini.scss */ .c-panier-mini-item__intitule + span { font-weight: bold; }
+
+@media (min-width: 40em) { /* line 115, _src/scss/components/_panier-mini.scss */ .c-panier-mini-item__intitule, .c-panier-mini-item__intitule + span { font-size: 16px; font-size: 1rem; } }
+
+/* line 124, _src/scss/components/_panier-mini.scss */ .c-panier-mini-item__designation { margin-bottom: 0; font-size: 13px; font-size: 0.8125rem; line-height: 1.2; }
+
+@media (min-width: 40em) { /* line 124, _src/scss/components/_panier-mini.scss */ .c-panier-mini-item__designation { font-size: 15px; font-size: 0.9375rem; } }
+
+/* line 141, _src/scss/components/_panier-mini.scss */ .c-panier-mini__liste-articles { -webkit-box-flex: 1; -ms-flex: 1 1 auto; flex: 1 1 auto; overflow-y: scroll; }
+
+/* line 150, _src/scss/components/_panier-mini.scss */ .c-panier-mini-article { -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding: 24px 0; }
+
+/* line 159, _src/scss/components/_panier-mini.scss */ .c-panier-mini-article__img { -webkit-box-flex: 0; -ms-flex: 0 0 30%; flex: 0 0 30%; padding-right: 12px; }
+
+/* line 163, _src/scss/components/_panier-mini.scss */ .c-panier-mini-article__img--collection { -ms-flex-item-align: start; align-self: flex-start; position: relative; width: 30%; }
+
+/* line 168, _src/scss/components/_panier-mini.scss */ .c-panier-mini-article__img--collection > img { position: absolute; top: 0; left: 8px; -webkit-transform-origin: 50% 30%; transform-origin: 50% 30%; width: 70%; }
+
+/* line 10, _src/scss/tools/_rotate.scss */ .c-panier-mini-article__img--collection > img:nth-of-type(1) { -webkit-transform: rotate(1.5deg); transform: rotate(1.5deg); }
+
+/* line 10, _src/scss/tools/_rotate.scss */ .c-panier-mini-article__img--collection > img:nth-of-type(2) { -webkit-transform: rotate(3deg); transform: rotate(3deg); }
+
+/* line 10, _src/scss/tools/_rotate.scss */ .c-panier-mini-article__img--collection > img:nth-of-type(3) { -webkit-transform: rotate(4.5deg); transform: rotate(4.5deg); }
+
+/* line 10, _src/scss/tools/_rotate.scss */ .c-panier-mini-article__img--collection > img:nth-of-type(4) { -webkit-transform: rotate(6deg); transform: rotate(6deg); }
+
+/* line 10, _src/scss/tools/_rotate.scss */ .c-panier-mini-article__img--collection > img:nth-of-type(5) { -webkit-transform: rotate(7.5deg); transform: rotate(7.5deg); }
+
+/* line 10, _src/scss/tools/_rotate.scss */ .c-panier-mini-article__img--collection > img:nth-of-type(6) { -webkit-transform: rotate(9deg); transform: rotate(9deg); }
+
+/* line 10, _src/scss/tools/_rotate.scss */ .c-panier-mini-article__img--collection > img:nth-of-type(7) { -webkit-transform: rotate(10.5deg); transform: rotate(10.5deg); }
+
+/* line 10, _src/scss/tools/_rotate.scss */ .c-panier-mini-article__img--collection > img:nth-of-type(8) { -webkit-transform: rotate(12deg); transform: rotate(12deg); }
+
+/* line 183, _src/scss/components/_panier-mini.scss */ .c-panier-mini-article__descriptif { -webkit-box-flex: 0; -ms-flex: 0 0 66%; flex: 0 0 66%; width: 66%; }
+
+/* line 192, _src/scss/components/_panier-mini.scss */ .c-panier-mini-article__titre { margin-bottom: 12px; }
+
+/* line 200, _src/scss/components/_panier-mini.scss */ .c-panier-mini-article__intitule { margin-right: 6px; }
+
+/* line 231, _src/scss/components/_panier-mini.scss */ .c-panier-mini-totaux { padding-top: 6px; }
+
+/* line 237, _src/scss/components/_panier-mini.scss */ .c-panier-mini-total { padding: 6px 0; }
+
+/* line 245, _src/scss/components/_panier-mini.scss */ .c-panier-mini-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 0; background-color: rgba(0, 0, 0, 0.45); opacity: 0; visibility: hidden; -webkit-transition: opacity ease-in-out 0.3s, visibility ease-in-out 0.3s; transition: opacity ease-in-out 0.3s, visibility ease-in-out 0.3s; }
+
+/* line 257, _src/scss/components/_panier-mini.scss */ .c-panier-mini-overlay.est-visible { display: block; visibility: visible; z-index: 199; opacity: 1; }
+
 /* line 9, _src/scss/components/_payer_mode.scss */ .payer_mode { -webkit-box-flex: 1; -ms-flex: 1 1 100%; flex: 1 1 100%; border: 1px solid #bfbfd9; margin: 5px; padding: 10px; background-color: #dfdfec; }
 
 @media (min-width: 48em) { /* line 9, _src/scss/components/_payer_mode.scss */ .payer_mode { -webkit-box-flex: 1; -ms-flex: 1 1 30%; flex: 1 1 30%; }
@@ -2842,9 +2930,9 @@
 @media (min-width: 64em) { /* line 75, _src/scss/components/_numero-resume.scss */ .c-numero-resume__couverture { width: 50%; }
   /* line 80, _src/scss/components/_numero-resume.scss */ .c-numero-resume__couverture > img { width: 90%; } }
 
-/* line 5, _src/scss/components/_spip-admin.scss */ .spip-admin-float { right: 0 !important; top: auto !important; bottom: 0; }
+/* line 5, _src/scss/components/_spip-admin.scss */ .spip-admin-float { right: 0 !important; top: auto !important; bottom: 0; z-index: 210 !important; }
 
-/* line 10, _src/scss/components/_spip-admin.scss */ .spip-admin-float .spip-admin-boutons { border-radius: 5px 5px 0 0; font-family: "Menlo", monospace; font-size: 10px; font-size: 0.625rem; line-height: 1; font-weight: normal; text-align: left; }
+/* line 11, _src/scss/components/_spip-admin.scss */ .spip-admin-float .spip-admin-boutons { border-radius: 5px 5px 0 0; font-family: "Menlo", monospace; font-size: 10px; font-size: 0.625rem; line-height: 1; font-weight: normal; text-align: left; }
 
 /* ========================================================================== #WIDTHS ========================================================================== */
 /** inuitcss generates a series of utility classes that give a fluid width to whichever element they’re applied, e.g.: <img src="" alt="" class="u-1/2" /> These classes are most commonly used in conjunction with our layout system, e.g.: <div class="o-layout__item  u-1/2"> By default, inuitcss will also generate responsive variants of each of these classes by using your Sass MQ configuration, e.g.: <div class="o-layout__item  u-1/1  u-1/2@tablet  u-1/3@desktop"> Optionally, inuitcss can generate offset classes which can push and pull elements left and right by a specified amount, e.g.: <div class="o-layout__item  u-2/3  u-pull-1/3"> This is useful for making very granular changes to the rendered order of items in a layout. N.B. This option is turned off by default. */
@@ -3017,6 +3105,8 @@
 /* line 19, _src/scss/utilities/_typo.scss */ .u-typo-font-editorial { font-family: "Plantin", "Palatino", serif; }
 
 /* line 29, _src/scss/utilities/_typo.scss */ .u-typo-upper { text-transform: uppercase; }
+
+/* line 5, _src/scss/utilities/_noscroll.scss */ .u-noscroll { overflow: hidden; }
 
 /*------------------------------------*\ $WIDTHS \*------------------------------------*/
 /** Sizes in human readable format. These are used in conjunction with other objects and abstractions found in inuit.css, most commonly the grid system and faux flexbox. We have a mixin to generate our widths and their breakpoint-specific variations. */

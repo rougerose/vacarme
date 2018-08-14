@@ -2,7 +2,7 @@
 
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
-$GLOBALS['z_blocs'] = array('content', 'head', 'head_js', 'header', 'footer');
+$GLOBALS['z_blocs'] = array('content', 'head', 'head_js', 'header', 'panier', 'footer');
 
 // define('_JQUERYUI_CSS_NON',1);
 

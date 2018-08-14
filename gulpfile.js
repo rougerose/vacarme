@@ -21,7 +21,7 @@ var plumberNotifier = require("gulp-plumber-notifier");
 var uglify          = require("gulp-uglify");
 var concat          = require("gulp-concat");
 var wrap            = require("gulp-wrap");
-
+var pump = require("pump");
 
 // =====================================
 // options
@@ -124,12 +124,13 @@ gulp.task("minify:css", function() {
 // =====================================
 // task: minify:js
 // =====================================
-gulp.task("minify:js", function() {
-	gulp.src( options.js.destination + '/' + options.js.fileName )
-		.pipe( plumberNotifier() )
-		.pipe( uglify() )
-		.pipe( rename( { suffix: '.min' } ) )
-		.pipe( gulp.dest( options.js.destination ) )
+gulp.task("minify:js", function(cb) {
+	pump([
+		gulp.src(options.js.destination + '/' + options.js.fileName),
+		uglify(),
+		rename({suffix: '.min'}),
+		gulp.dest(options.js.destination)
+	], cb);
 });
 
 

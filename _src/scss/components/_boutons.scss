@@ -22,8 +22,27 @@
 	// -------------------------------------
 	.c-btn--burger {
 		position: relative;
-		z-index: $zindex-site-nav__menu + 1;
+		z-index: $zindex-site-nav__menu-button;
 		top: -2px;
+		padding: 0;
+		border: none;
+		border-radius: 50%;
+		margin: auto 0 auto $spacing-unit-small;
+		height: $btn-burger-height;
+		width: $btn-burger-width;
+		background-color: $color-lien;
+		color: $color-white;
+	}
+	
+	//
+	// c-btn--croix
+	// -------------------------------------
+	
+	.c-btn--croix {
+		position: absolute;
+		z-index: $zindex-panier-mini + 1;
+		top: 18px;
+		left: -28px;
 		padding: 0;
 		border: none;
 		border-radius: 50%;

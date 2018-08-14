@@ -124,7 +124,7 @@
 @import "inuitcss/objects/objects.layout";
 // @import "inuitcss/objects/objects.media";
 // @import "inuitcss/objects/objects.flag";
-// @import "inuitcss/objects/objects.list-bare";
+@import "inuitcss/objects/objects.list-bare";
 // @import "inuitcss/objects/objects.list-inline";
 // @import "inuitcss/objects/objects.box";
 // @import "inuitcss/objects/objects.block";
@@ -220,6 +220,7 @@
 @import "components/abonner";
 @import "components/inscription";
 @import "components/commande";
+@import "components/panier-mini";
 @import "components/payer_mode";
 @import "components/compte";
 
@@ -244,6 +245,7 @@
 @import "utilities/misc"; // TODO: obsolète ?
 
 @import "utilities/typo";
+@import "utilities/noscroll";
 
 @import "inuit.css/generic/widths"; // TODO: obsolète
 @import "utilities/misc"; // TODO: obsolète

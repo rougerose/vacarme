@@ -19,7 +19,9 @@ html {
 	// ----- INUITCSS ----- //
 	font-size: ($inuit-global-font-size / 16px) * 1em; /* [1] */
 	line-height: $inuit-global-line-height / $inuit-global-font-size; /* [1] */
-	overflow-y: scroll; /* [2] */
+	// 14/08/2018 : désactiver le scroll afin de rendre disponible un scroll
+	// dans le mini-panier lorsque nécessaire. 
+	// overflow-y: scroll; /* [2] */
 	min-height: 100%; /* [3] */
 	
 	// ----- VACARME ----- //
