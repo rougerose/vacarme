@@ -4,13 +4,10 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 
 $GLOBALS['z_blocs'] = array('content', 'head', 'head_js', 'header', 'panier', 'footer');
 
-// define('_JQUERYUI_CSS_NON',1);
-
-// en dev, pas de cache
-// define('_NO_CACHE', 1);
-
-// define('_LOG_FILTRE_GRAVITE',5);
-//define('_LOG_FILELINE',true);
+// debug
+error_reporting(E_ALL^E_NOTICE);
+ini_set ("display_errors", "On");
+define('SPIP_ERREUR_REPORT',E_ALL);
 
 // intertitres
 $GLOBALS['debut_intertitre'] = "\n<h2>";
