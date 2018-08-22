@@ -1,3 +1,17 @@
-<div class="ajax">
-	#FORMULAIRE_SOUSCRIRE_ABONNEMENT
-</div>
+<BOUCLE_abonner(RUBRIQUES){id_rubrique}>
+	#SET{choix, #ENV{choix, souscrire}}
+	<header class="c-header c-abonner-header">
+		<h1 class="c-header__titre c-abonner-header__titre u-typo-font-vacarme u-typo-upper">#TITRE</h1>
+		<div class="c-abonner-header__intro">
+			[<div class="c-abonner-header__intro-texte">
+				(#TEXTE)
+			</div>]
+			<ul class="c-header__list c-abonner-header__list u-typo-font-vacarme u-typo-upper">
+				<li class="c-header__list-item c-abonner-header__list-item"><a href="[(#URL_RUBRIQUE|parametre_url{choix, souscrire}|ancre_url{abonnement})]" class="ajax"><:abonnement:souscrire:></a></li>
+				<li class="c-header__list-item c-abonner-header__list-item"><a href="[(#URL_RUBRIQUE|parametre_url{choix, offrir}|ancre_url{abonnement})]" class="ajax"><:abonnement:offrir:></a></li>
+				<!-- <li class="c-header__list-item c-abonner-header__list-item"><a href="#"><:abonnement:renouveler:></a></li> -->
+			</ul>
+		</div>
+	</header>
+	<INCLURE{fond=inclure/abonnements/abonner-#GET{choix}, env}/>
+</BOUCLE_abonner>

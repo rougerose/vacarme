@@ -238,4 +238,19 @@
 		@extend .c-btn--upper;
 		width: 100%;
 	}
+	
+	&--multiples {
+		display: flex;
+		justify-content: space-between;
+		.submit--secondaire {
+			order: 1;
+			flex: 1 1 30%;
+			margin-right: $spacing-unit-large;
+		}
+		
+		.submit--primaire {
+			order: 2;
+			flex: 1 1 70%;
+		}
+	}
 }

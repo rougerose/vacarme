@@ -7,6 +7,15 @@ $width-2col: 48%;
 
 .formulaire_inscription {
 	
+	&--abonnement-tiers {
+		margin-top: $spacing-unit + $spacing-unit-small;
+		
+		> form { 
+			border: none;
+			padding: 0;
+		}
+	}
+	
 	// Régles générales pour les groupes de champs de saisie
 	.formulaire__groupe {
 		
