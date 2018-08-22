@@ -1,9 +1,0 @@
-#SET{nombre_numeros, #ENV{nombre_numeros}}
-<BOUCLE_enumerer_nombre_numeros(DATA){enum 1, #GET{nombre_numeros}}>
-	[(#SET{couverture_thumbnail_pack, #CHEMIN{#VAL{images/vacarme-couverture-pack-}|concat{#VALEUR}|concat{.jpg}}})]
-	[(#INCLURE{fond=inclure/logo/numero-couverture-thumbnail-pack, image=#GET{couverture_thumbnail_pack}})]
-</BOUCLE_enumerer_nombre_numeros>
-<BOUCLE_epuise(RUBRIQUES){id_parent=115}{id_mot=108}{doublons}> </BOUCLE_epuise>
-<BOUCLE_dernier_numero(RUBRIQUES){id_parent=115}{!par titre}{0,1}{doublons}>
-	[(#LOGO_RUBRIQUE|oui)[(#INCLURE{fond=inclure/logo/numero-couverture-thumbnail-pack, image=#LOGO_RUBRIQUE|extraire_attribut{src}})]]
-</BOUCLE_dernier_numero>

@@ -25,7 +25,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'abonnement_region_France'                       => "France <span class='u-hide-until-desktop'>(métropole et outre-mer)</span>",
 	'abonnement_region_International'                => "International",
 	'abonnement_sans_cadeau_desc'                    => "Si aucun de ces cadeaux ne vous intéressent. Vous pouvez poursuivre la sélection de votre abonnement sans cadeau.",
-	'abonnement_sans_cadeau_titre'                   => "Pas de cadeau",
+	// 'abonnement_sans_cadeau_titre'                   => "Pas de cadeau",
 	
 	// C
 	'cadeau_abonnement_label' => "Offert avec votre abonnement",

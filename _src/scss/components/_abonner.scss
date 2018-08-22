@@ -7,6 +7,8 @@
 // c-abonner-section
 // 
 // c-abonner-offres
+// 
+// c-abonner-formulaire
 //
 // *************************************
 
@@ -154,48 +156,54 @@
 	// -------------------------------------
 	
 	.c-abonner-offre {
-		@include mq(desktop) {
-			width: 30%;
-		}
-	}
-	
-	.c-abonner-offre--pack-couvertures {
-		position: relative;
-		overflow: hidden;
-		padding-left: 90px;
+		display: flex;
 		
-		@include mq(desktop) {
-			padding-left: 60px;
-		}
-		
-		img {
-			display: block;
-			position: absolute;
-			top: 15%;
-			left: -180px;
-			box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.1);
-			@include rotate(-1.5, 8);
-			transform-origin: 50% 100%;
-			width: 250px;
-			
-			@include mq(desktop) {
-				left: -160px;
-			}
-		}
 	}
 	
-	.c-abonner-offre__titre {
-		margin-bottom: $spacing-unit-tiny;
-	}
 	
-	.c-abonner-offre__desc {
-		text-transform: none;
-		@include inuit-font-size(15px, 1.2);
-	}
-	
-	.c-abonner-offre__prix {
-		font-weight: bold;
-	}
+	// .c-abonner-offre {
+	// 	@include mq(desktop) {
+	// 		width: 30%;
+	// 	}
+	// }
+	// 
+	// .c-abonner-offre--pack-couvertures {
+	// 	position: relative;
+	// 	overflow: hidden;
+	// 	padding-left: 90px;
+	// 
+	// 	@include mq(desktop) {
+	// 		padding-left: 60px;
+	// 	}
+	// 
+	// 	img {
+	// 		display: block;
+	// 		position: absolute;
+	// 		top: 15%;
+	// 		left: -180px;
+	// 		box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.1);
+	// 		@include rotate(-1.5, 8);
+	// 		transform-origin: 50% 100%;
+	// 		width: 250px;
+	// 
+	// 		@include mq(desktop) {
+	// 			left: -160px;
+	// 		}
+	// 	}
+	// }
+	// 
+	// .c-abonner-offre__titre {
+	// 	margin-bottom: $spacing-unit-tiny;
+	// }
+	// 
+	// .c-abonner-offre__desc {
+	// 	text-transform: none;
+	// 	@include inuit-font-size(15px, 1.2);
+	// }
+	// 
+	// .c-abonner-offre__prix {
+	// 	font-weight: bold;
+	// }
 	
 	
 	
@@ -265,3 +273,81 @@
 	.c-abonner-cadeau {
 		padding: $spacing-unit;
 	}
+
+
+
+//
+// c-abonner-formulaire
+// -------------------------------------
+/*
+.c-abonner-formulaire,
+.formulaire_souscrire_abonnement {
+	&.formulaire_spip {
+		form {
+			border-width: 0;
+			border-top: 1px solid $color-yellow-800;
+			padding: $spacing-unit-large 0 0;
+		}
+		
+		fieldset {
+			margin-bottom: $spacing-unit + $spacing-unit-small;
+		}
+		
+		legend,
+		.legend {
+			margin-bottom: $spacing-unit-small;
+		}
+		
+		input[type="radio"] {
+			margin: 9px 6px;
+		}
+		
+		.editer {
+			margin-bottom: 0;
+		}
+	}
+	
+	
+}
+
+	// .c-abonner-formulaire__form {}
+	
+		// .c-abonner-formulaire__fieldset {}
+		
+			.c-abonner-formulaire__choix {
+				margin-bottom: $spacing-unit-tiny;
+			}
+				
+				.c-abonner-formulaire__radio-label {
+					cursor: pointer;
+					display: block;
+					position: relative;
+				}
+					
+					.c-abonner-formulaire__radio-input {
+						position: absolute;
+						z-index: 1;
+						
+						&:hover {
+							+ .c-abonner-formulaire__radio-label-texte {
+								background-color: $color-yellow-700;
+							}
+						}
+						
+						&:checked {
+							+ .c-abonner-formulaire__radio-label-texte {
+								background-color: $color-yellow-800;
+								border-color: $color-yellow-800;
+							}
+						}
+					}
+				
+					.c-abonner-formulaire__radio-label-texte {
+						border: 1px solid $color-yellow-700;
+						border-radius: 3px;
+						display: flex;
+						padding: $spacing-unit-tiny $spacing-unit-tiny ($spacing-unit-tiny / 2) $spacing-unit;
+						pointer-events: none;
+						transition: background-color ease-in .3s;
+					}
+*/

@@ -1,0 +1,223 @@
+// =====================================
+// formulaire_souscrire_abonnement (fsa)
+// =====================================
+
+
+.formulaire_souscrire_abonnement {
+	form {
+		border-width: 0;
+		border-top: 1px solid $color-yellow-800;
+		padding: $spacing-unit-large 0 0;
+	}
+	
+	fieldset {
+		margin-bottom: $spacing-unit + $spacing-unit-small;
+	}
+	
+	legend,
+	.legend {
+		margin-bottom: $spacing-unit-small;
+		@include inuit-font-size(20px, 1.2);
+	}
+	
+	input[type="radio"] {
+		margin-left: .18em; // 3px
+		margin: .18em .18em .18em (.18em * 2);
+	}
+	
+	.editer {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 0;
+		
+		@include mq(tablet) {
+			flex-direction: row;
+			justify-content: space-between;
+			
+			&.editer_abonnements_offre,
+			&.editer_soutien__montant {
+				flex-direction: column;
+				position: relative;
+			}
+		}
+	}
+}
+	
+	// ----- fsa__choix ----- //
+	
+	.fsa__choix {
+		border: 1px solid $color-yellow-700;
+		border-radius: 3px;
+		margin-bottom: $spacing-unit-small;
+		padding: $spacing-unit-small $spacing-unit-small $spacing-unit-tiny 0;
+		transition: background-color ease-in .3s;
+		
+		&:hover {
+			background-color: $color-yellow-700;
+		}
+		
+		&.is-selected {
+			border-color: $color-yellow-800;
+			background-color: $color-yellow-800;
+		}
+	}
+
+		// ----- fsa__label ----- //
+		
+		.fsa__label {
+			cursor: pointer;
+			display: block;
+			position: relative;
+			line-height: 1.4;
+		}
+		
+			// ----- fsa__label-text ----- //
+			
+			.fsa__label-text {
+				display: flex;
+				padding-left: $spacing-unit + $spacing-unit-tiny;
+				pointer-events: none;
+				
+				&--vertical {
+					flex-direction: column;
+				}
+			}
+			
+			// ----- fsa__radio ----- //
+			
+			.fsa__radio {
+				position: absolute;
+				z-index: 1;
+			}
+			
+			// ----- fsa__extra ----- //
+			
+			.fsa__extra {
+				padding-left: $spacing-unit + $spacing-unit-tiny;
+				margin: $spacing-unit-tiny 0;
+				position: relative;
+				z-index: 10;
+			}
+
+//
+// fsa-text
+// -------------------------------------
+
+.fsa-text {}
+
+	// ----- fsa-text__surtitre ----- //
+	
+	.fsa-text__surtitre {
+		margin-top: $spacing-unit-small;
+		// margin: $spacing-unit-tiny 0 0;
+		color: $color-gray-600;
+		@include inuit-font-size(14px, false);
+		text-transform: uppercase;
+	}
+	
+	// ----- fsa-text__titre ----- //
+	
+	.fsa-text__titre {
+		@include inuit-font-size(18px, false);
+		font-weight: bold;
+	}
+	
+	// ----- fsa-text__desc ----- //
+	
+	.fsa-text__desc {
+		margin: $spacing-unit-small 0;
+		font-family: $base-font-family;
+		color: $color-gray-600;
+		
+		> p {
+			margin-bottom: 0;
+		}
+	}
+	
+	// ----- fsa-text__img ----- //
+	
+	.fsa-text__img {
+		margin: $spacing-unit-small 0;
+	}
+
+
+//
+// fsa-offres
+// -------------------------------------
+
+.fsa-offres {
+	display: flex;
+	flex-direction: column;
+	transition: opacity ease-in .4s;
+	position: relative;
+	
+	// si le js est actif
+	// les blocs sont rendus invisibles et sont superposés
+	.js & {
+		opacity: 0;
+	}
+	
+	&.is-stacked {
+		position: absolute;
+	}
+	
+	@include mq(tablet) {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
+
+
+
+//
+// fsa-offre
+// -------------------------------------
+
+.fsa-offre {}
+
+	// ----- fsa-offre__text ----- //
+	
+	.fsa-offre__text {
+		flex-direction: column;
+	}
+
+	// ----- fsa-offre__titre ----- //
+	
+	.fsa-offre__titre {}
+	
+	// ----- fsa-offre__desc ----- //
+	
+	.fsa-offre__desc {}
+	
+	// ----- fsa-offre__prix ----- //
+	
+	.fsa-offre__prix {
+		@include inuit-font-size(20px, false);
+		font-weight: bold;
+	}
+	
+	// ----- fsa-offre__prix-client ----- //
+	
+	.fsa-offre__prix-client {
+		input {
+			width: 4rem;
+		}
+	}
+	
+
+//
+// mise en page
+// -------------------------------------
+
+@include mq(tablet) {
+	
+	.fsa__choix {
+		&--medium {
+			flex: 0 1 49%;
+		}
+		
+		&--small {
+			flex: 0 1 31%;
+		}
+	}
+}
