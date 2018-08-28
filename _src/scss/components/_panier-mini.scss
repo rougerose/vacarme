@@ -13,7 +13,7 @@
 	padding: $spacing-unit;
 	visibility: hidden;
 	background-color: $color-white;
-	transition: transform ease-in-out 0.3s, visibility ease-in-out .3s;
+	transition: transform ease-in-out 0.5s, visibility ease-in-out .5s;
 	
 	&.est-ouvert {
 		display: block;
@@ -148,8 +148,13 @@
 		// c-panier-mini-article
 		// -------------------------------------
 		.c-panier-mini-article {
+			border-top: 1px solid $color-gray-300;
 			align-items: center;
-			padding: $spacing-unit 0;
+			padding: $spacing-unit $spacing-unit-small;
+			
+			&:first-child {
+				border-top: none;
+			}
 		}
 		
 		
@@ -157,23 +162,24 @@
 		// c-panier-mini-article__img
 		// -------------------------------------
 		.c-panier-mini-article__img {
+			align-self: flex-start;
 			flex: 0 0 30%;
 			padding-right: $spacing-unit-small;
 			
-			&--collection {
-				align-self: flex-start;
-				position: relative;
-				width: 30%;
-				
-				> img {
-					position: absolute;
-					top: 0;
-					left: 8px;
-					@include rotate(1.5, 8);
-					transform-origin: 50% 30%;
-					width: 70%;
-				}
-			}
+			// &--collection {
+			// 	align-self: flex-start;
+			// 	position: relative;
+			// 	width: 30%;
+			// 
+			// 	> img {
+			// 		position: absolute;
+			// 		top: 0;
+			// 		left: 8px;
+			// 		@include rotate(1.5, 8);
+			// 		transform-origin: 50% 30%;
+			// 		width: 70%;
+			// 	}
+			// }
 		}
 		
 		
@@ -198,7 +204,7 @@
 				// c-panier-mini-article__intitule
 				// -------------------------------------
 				.c-panier-mini-article__intitule {
-					margin-right: $spacing-unit-tiny;
+					margin-right: $spacing-unit-small;
 				}
 				
 				
