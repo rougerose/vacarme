@@ -150,10 +150,14 @@
 		.c-panier-mini-article {
 			border-top: 1px solid $color-gray-300;
 			align-items: center;
-			padding: $spacing-unit $spacing-unit-small;
+			padding: $spacing-unit 0;
 			
 			&:first-child {
 				border-top: none;
+			}
+			
+			@include mq(tablet) {
+				padding: $spacing-unit $spacing-unit-small;
 			}
 		}
 		
