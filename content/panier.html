@@ -6,7 +6,7 @@
 					<h1 class="c-header__titre c-commande-header__titre u-typo-font-vacarme u-typo-upper"><:vpaniers:page_panier_titre:></h1>
 				</header>
 				[(#SET{redirection, #URL_PAGE{commande}|parametre_url{etape, livraison}})]
-				<INCLURE{fond=inclure/panier-contenu, redirection=#GET{redirection}, env} />
+				<INCLURE{fond=inclure/panier, ajax, env}/>
 			</div>
 		</div>
 	</div>

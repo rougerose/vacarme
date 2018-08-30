@@ -105,9 +105,6 @@
 						&,
 						+ span {
 							@include inuit-font-size(14px, 1.2);
-						}
-						
-						+ span {
 							font-weight: bold;
 						}
 						
@@ -122,8 +119,12 @@
 				
 				// ----- c-panier-mini-item__designation ----- //
 				.c-panier-mini-item__designation {
-					margin-bottom: 0;
+					margin-bottom: $spacing-unit-tiny;
 					@include inuit-font-size(13px, 1.2);
+					
+					> span:first-child {
+						font-style: italic;
+					}
 					
 					@include mq(tablet) {
 						@include inuit-font-size(15px, false);
@@ -192,7 +193,7 @@
 		// -------------------------------------
 		.c-panier-mini-article__descriptif {
 			flex: 0 0 66%;
-			width: 66%;
+			// width: 66%;
 		}
 		
 		

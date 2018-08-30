@@ -3,26 +3,26 @@
 // =====================================
 
 .formulaire_valider_panier {
-	margin-bottom: $spacing-unit-huge;
+	// margin-bottom: $spacing-unit-huge;
 	
 	form {
-		border-width: 0 0 1px;
+		border: none;
 		padding: 0;
 	}
 }
 
-	.valider_panier_contenu {
-		display: flex;
-		flex-direction: column;
-		
-		@include mq(tablet) {
-			flex-direction: row;
-		}
-		
-		.editer_contrats,
-		.boutons {
-			flex: 1;
-		}
-	}
+	// .valider_panier_contenu {
+	// 	display: flex;
+	// 	flex-direction: column;
+	// 
+	// 	@include mq(tablet) {
+	// 		flex-direction: row;
+	// 	}
+	// 
+	// 	.editer_contrats,
+	// 	.boutons {
+	// 		flex: 1;
+	// 	}
+	// }
 	
 		

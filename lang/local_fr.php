@@ -85,6 +85,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'keyword_number'                              => '1 mot-clé',
     'keywords_all'                                => 'Tous les mots-clés',
     'keywords_number'                             => '@nb@ mot-clés',
+	
+	'login_login2' => "Votre adresse email",
+	'login_pass2' => "Votre mot de passe",
 
     // M
     'message_404_title'                           => "Page indisponible.",

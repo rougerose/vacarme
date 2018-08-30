@@ -2,6 +2,247 @@
 // Commande
 // =====================================
 
+
+.c-commande {}
+
+
+//
+// c-commande-header
+// -------------------------------------
+
+.c-commande-header {}
+
+	// ----- c-commande-header__titre ----- //
+	
+	.c-commande-header__titre {
+		border-bottom: 1px solid $color-black;
+		margin-bottom: 0;
+		padding-bottom: $spacing-unit;
+	}
+
+
+
+//
+// c-commande-articles
+// -------------------------------------
+
+.c-commande-articles {
+	&.est-vide {
+		padding: $spacing-unit-large 0;
+	}
+}
+
+
+//
+// c-commande__liste
+// -------------------------------------
+
+.c-commande__liste {
+	padding: $spacing-unit-small 0;
+	margin-bottom: 0;
+}
+
+
+//
+// c-commande-article
+// -------------------------------------
+
+.c-commande-article {
+	border-top: 1px solid $color-gray-300;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	// justify-content: space-between;
+	padding: $spacing-unit 0;
+	width: 100%;
+	
+	&:first-child {
+		border-top: none;
+	}
+	
+	@include mq(tablet) {
+		padding: $spacing-unit $spacing-unit-small;
+	}
+}
+
+
+	// ----- c-commande-article__img ----- //
+	
+	.c-commande-article__img {
+		align-self: flex-start;
+		width: 35%;
+		padding-right: $spacing-unit-small;
+		
+		@include mq(desktop) {
+			padding-right: $spacing-unit;
+			width: 200px;
+		}
+	}
+	
+	
+	// ----- c-commande-article__descriptif ----- //
+	
+	.c-commande-article__descriptif {
+		flex: 1;
+		// flex: 0 0 66%;
+	}
+	
+	
+	// ----- c-commande-article__titre ----- //
+	
+	.c-commande-article__titre {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: $spacing-unit-small;
+	}
+	
+	
+		// ----- c-commande-article__intitule ----- //
+		
+		.c-commande-article__intitule {
+			margin-bottom: 0;
+			margin-right: $spacing-unit-small;
+			
+			&,
+			+ span {
+				@include inuit-font-size(16px, 1.2);
+				font-weight: bold;
+			}
+			
+			@include mq(tablet) {
+				&,
+				+ span {
+					@include inuit-font-size(18px, false);
+				}
+			}
+		}
+		
+	
+	// ----- c-commande-article__designation ----- //
+	
+	.c-commande-article__designation {
+		margin-bottom: $spacing-unit-tiny;
+		@include inuit-font-size(15px, 1.2);
+		
+		> span:first-child {
+			font-style: italic;
+		}
+		
+		@include mq(tablet) {
+			@include inuit-font-size(16px, false);
+		}
+	}
+	
+	
+	// ----- c-commande-article__quantite-modifier ----- //
+	
+	.c-commande-article__quantite-modifier {
+		display: flex;
+		margin: $spacing-unit-small 0;
+	}
+	
+	
+	// ----- c-commande-article__quantite ----- //
+	
+	.c-commande-article__quantite {
+		display: inline-block;
+		
+		> span {
+			font-style: italic;
+		}
+		
+		form + & {
+			margin: 0 $spacing-unit-small;
+		}
+	}
+
+
+//
+// c-commande-total
+// -------------------------------------
+
+.c-commande-total {
+	border-top: 1px solid $color-black;
+	padding-top: $spacing-unit-tiny;
+}
+
+
+	// ----- c-commande-total__item ----- //
+	
+	.c-commande-total__item {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: $spacing-unit-tiny;
+		@include inuit-font-size(18px);
+		font-weight: bold;
+		
+		&--total {
+			@include inuit-font-size(22px);
+		}
+		
+		&--tva {
+			align-content: flex-end;
+			color: $color-gray-500;
+			@include inuit-font-size(16px);
+			font-weight: normal;
+			
+		}
+	}
+
+
+//
+// c-commande-identification
+// -------------------------------------
+
+.c-commande-identification {
+	border-top: 1px solid $color-black;
+	padding: $spacing-unit-large 0 $spacing-unit;
+	
+	@include mq(tablet) {
+		padding: $spacing-unit-large 0;
+	}
+}
+
+
+	// ----- c-commande-identification__titre ----- //
+	
+	.c-commande-identification__titre {
+		@include inuit-font-size(18px, 1.2);
+		text-align: center;
+		
+		@include mq(tablet) {
+			@include inuit-font-size(20px, false);
+		}
+	}
+
+	// ----- c-commande-identification__actions ----- //
+	
+	.c-commande-identification__actions {
+		display: flex;
+		flex-direction: column;
+		
+		> a {
+			flex: 1;
+			margin-bottom: $spacing-unit;
+		}
+		
+		@include mq(tablet) {
+			flex-direction: row;
+			justify-content: space-between;
+			
+			> a {
+				flex: 0 0 48%;
+				margin-bottom: 0;
+			}
+		}
+	}
+
+
+
+
+
+
+
 // 
 // Pour le panier et le recapitutalif de commande lors du paiement
 // 
@@ -21,331 +262,331 @@
 // 
 
 
-//
-// 1/ c-commande
-// -------------------------------------
-
-.c-commande {}
-
-
-//
-// c-commande-section
-// -------------------------------------
-
-.c-commande-section {}
-
-	//
-	// c-commande-section__titre
-	// -------------------------------------
-	
-	.c-commande-section__titre {}
-
-
-//
-// c-commande-identification (panier uniquement)
-// -------------------------------------
-
-.c-commande-identification {
-	border-bottom: 1px solid $color-black;
-	display: flex;
-	flex-direction: column;
-	
-	@include mq(tablet) {
-		flex-direction: row;
-		justify-content: space-between;
-	}
-}
-	
-	.c-commande-identification__inscription {
-		flex: 1;
-	}
-	
-	.c-commande-identification__login {
-		flex: 1;
-		
-		@include mq(tablet) {
-			margin-left: 10%;
-		}
-	}
-
-
-//
-// 2/ c-commande-articles
-// -------------------------------------
-
-.c-commande-articles {
-	border-bottom: 1px solid $color-black;
-	margin-bottom: $spacing-unit;
-}
-
-	.c-commande-articles__titre {}
-
-//
-// 3/ c-commande-article
-// -------------------------------------
-
-.c-commande-article {
-	position: relative;
-	margin-top: $spacing-unit;
-	margin-bottom: $spacing-unit;
-	overflow: hidden;
-	padding-left: 70px;
-	padding-top: $spacing-unit;
-	
-	& > img {
-		position: absolute;
-		left: -138px;
-		top: $spacing-unit-small;
-		width: 200px;
-		box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.1);
-		@include rotate(-1.5, 8);
-		transform-origin: 50% 100%;
-	}
-	
-	@include mq(tablet) {
-		padding-left: 100px;
-		
-		> img {
-			left: -112px;
-		}
-	}
-	
-	@include mq(desktop) {
-		padding-left: 200px;
-		
-		> img {
-			left: $spacing-unit * -1;
-		}
-	}
-}
-
-
-.c-commande-article--s {
-	padding-left: 0;
-	padding-top: 0;
-}
-
-	//
-	// c-commande-article__contenu
-	// -------------------------------------
-	
-	.c-commande-article__contenu {
-		border-bottom: 1px solid $color-gray-500;
-		display: flex;
-		flex-direction: column;
-		
-		@include mq(tablet) {
-			flex-flow: row wrap;
-			justify-content: space-between;
-		}
-		
-		p {
-			margin-bottom: 0;
-		}
-	}
-
-	//
-	// c-commande-article__logo
-	// -------------------------------------
-	
-	.c-commande-article__logo {}
-	
-	.c-commande-article__logo-numero {
-		top: 0;
-		transform: rotate(-6deg);
-	}
-	
-	
-	
-	//
-	// c-commande-article__descriptif
-	// -------------------------------------
-	
-	.c-commande-article__descriptif {
-		margin-bottom: $spacing-unit;
-		
-		@include mq(tablet) {
-			flex: 2;
-		}
-		
-		.c-commande-article--s & {
-			margin-bottom: 0;
-		}
-	}
-	
-	//
-	// c-commande-article__titre
-	// -------------------------------------
-	
-	.c-commande-article__titre {
-		border-bottom: 1px solid $color-gray-300;
-		margin-bottom: $spacing-unit-small;
-		@include inuit-font-size(18px, 1.7);
-		
-		.c-commande-article--s & {
-			border-bottom-width: 0;
-		}
-	}
-
-	//
-	// c-commande-article__prix-quantite
-	// -------------------------------------
-	
-	.c-commande-article__prix-quantite {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: flex-end;
-		margin-bottom: auto;
-		
-		@include mq(tablet) {
-			justify-content: flex-start;
-			flex: 1;
-		}
-	}
-	
-		//
-		// c-commande-article__prix-quantite-item
-		// -------------------------------------
-		
-		.c-commande-article__prix-quantite-item {
-			padding-left: $spacing-unit-small;
-			flex: 1;
-			@include inuit-font-size(18px, 1.7);
-			text-align: right;
-			
-			@include mq(tablet) {
-				border-bottom: 1px solid $color-gray-300;
-				margin-bottom: $spacing-unit-small;
-				
-				.c-commande-article--s & {
-					border-bottom-width: 0;
-				}
-			}
-			
-			&.c-commande-article__supprimer {
-				border-bottom-color: transparent;
-				order: -1;
-				padding-left: 0;
-				text-align: left;
-				
-				@include mq(tablet) {
-					flex: 1 1 100%;
-					order: initial;
-					margin-top: $spacing-unit-small;
-					text-align: right;
-				}
-			}
-		}
-		
-		//
-		// c-commande-article__quantite
-		// -------------------------------------
-		
-		.c-commande-article__quantite {}
-	
-	//
-	// c-commande-article__prix-total
-	// -------------------------------------
-	
-	.c-commande-article__prix-total {
-		font-weight: bold;
-	}
-	
-	
-//
-// 4/ c-commande__totaux
-// -------------------------------------
-
-.c-commande__totaux {
-	margin-bottom: $spacing-unit;
-	text-align: right;
-	
-	p {
-		margin-bottom: 0;
-	}
-}
-	
-	//
-	// c-commande__total-commande
-	// -------------------------------------
-	
-	.c-commande__total-commande {
-		@include inuit-font-size(20px);
-		font-weight: bold;
-	}
-	
-	//
-	// c-commande__total-tva
-	// -------------------------------------
-	
-	.c-commande__total-tva {
-		color: $color-gray-500;
-	}
-
-
-//
-// 5/ c-commande-boutons
-// -------------------------------------
-
-.c-commande-boutons {
-	display: flex;
-	flex-direction: column;
-	margin-bottom: $spacing-unit;
-	
-	@include mq(mobilePlus) {
-		flex-direction: row;
-		justify-content: space-between;
-	}
-}
-
-	//
-	// c-commande-bouton__annuler
-	// -------------------------------------
-	
-	.c-commande-bouton__annuler {
-		order: 2;
-		margin-left: auto;
-		margin-right: auto;
-		
-		@include mq(mobilePlus) {
-			order: 0;
-			margin: 0;
-		}
-	}
-	
-	//
-	// c-commande-bouton__confirmer
-	// -------------------------------------
-	
-	.c-commande-bouton__confirmer {
-		margin-bottom: $spacing-unit;
-		@include mq(mobilePlus) {
-			width: 50%;
-		}
-	}
-
-	//
-	// c-commande-paiement__abandon
-	// -------------------------------------
-	
-	// .c-commande-paiement__abandon {
-	// 	text-align: right;
-	// }
-
-
-//
-// c-commande-paiement
-// -------------------------------------
-
-.c-commande-paiement {}
-
-	//
-	// c-commande-paiement__modes
-	// -------------------------------------
-	
-	.c-commande-paiement__modes {
-		display: flex;
-		flex-flow: row wrap;
-		justify-content: center;
-		margin: 5px 0;
-	}
+// //
+// // 1/ c-commande
+// // -------------------------------------
+// 
+// .c-commande {}
+// 
+// 
+// //
+// // c-commande-section
+// // -------------------------------------
+// 
+// .c-commande-section {}
+// 
+// 	//
+// 	// c-commande-section__titre
+// 	// -------------------------------------
+// 
+// 	.c-commande-section__titre {}
+// 
+// 
+// //
+// // c-commande-identification (panier uniquement)
+// // -------------------------------------
+// 
+// .c-commande-identification {
+// 	border-bottom: 1px solid $color-black;
+// 	display: flex;
+// 	flex-direction: column;
+// 
+// 	@include mq(tablet) {
+// 		flex-direction: row;
+// 		justify-content: space-between;
+// 	}
+// }
+// 
+// 	.c-commande-identification__inscription {
+// 		flex: 1;
+// 	}
+// 
+// 	.c-commande-identification__login {
+// 		flex: 1;
+// 
+// 		@include mq(tablet) {
+// 			margin-left: 10%;
+// 		}
+// 	}
+// 
+// 
+// //
+// // 2/ c-commande-articles
+// // -------------------------------------
+// 
+// .c-commande-articles {
+// 	border-bottom: 1px solid $color-black;
+// 	margin-bottom: $spacing-unit;
+// }
+// 
+// 	.c-commande-articles__titre {}
+// 
+// //
+// // 3/ c-commande-article
+// // -------------------------------------
+// 
+// .c-commande-article {
+// 	position: relative;
+// 	margin-top: $spacing-unit;
+// 	margin-bottom: $spacing-unit;
+// 	overflow: hidden;
+// 	padding-left: 70px;
+// 	padding-top: $spacing-unit;
+// 
+// 	& > img {
+// 		position: absolute;
+// 		left: -138px;
+// 		top: $spacing-unit-small;
+// 		width: 200px;
+// 		box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.1);
+// 		@include rotate(-1.5, 8);
+// 		transform-origin: 50% 100%;
+// 	}
+// 
+// 	@include mq(tablet) {
+// 		padding-left: 100px;
+// 
+// 		> img {
+// 			left: -112px;
+// 		}
+// 	}
+// 
+// 	@include mq(desktop) {
+// 		padding-left: 200px;
+// 
+// 		> img {
+// 			left: $spacing-unit * -1;
+// 		}
+// 	}
+// }
+// 
+// 
+// .c-commande-article--s {
+// 	padding-left: 0;
+// 	padding-top: 0;
+// }
+// 
+// 	//
+// 	// c-commande-article__contenu
+// 	// -------------------------------------
+// 
+// 	.c-commande-article__contenu {
+// 		border-bottom: 1px solid $color-gray-500;
+// 		display: flex;
+// 		flex-direction: column;
+// 
+// 		@include mq(tablet) {
+// 			flex-flow: row wrap;
+// 			justify-content: space-between;
+// 		}
+// 
+// 		p {
+// 			margin-bottom: 0;
+// 		}
+// 	}
+// 
+// 	//
+// 	// c-commande-article__logo
+// 	// -------------------------------------
+// 
+// 	.c-commande-article__logo {}
+// 
+// 	.c-commande-article__logo-numero {
+// 		top: 0;
+// 		transform: rotate(-6deg);
+// 	}
+// 
+// 
+// 
+// 	//
+// 	// c-commande-article__descriptif
+// 	// -------------------------------------
+// 
+// 	.c-commande-article__descriptif {
+// 		margin-bottom: $spacing-unit;
+// 
+// 		@include mq(tablet) {
+// 			flex: 2;
+// 		}
+// 
+// 		.c-commande-article--s & {
+// 			margin-bottom: 0;
+// 		}
+// 	}
+// 
+// 	//
+// 	// c-commande-article__titre
+// 	// -------------------------------------
+// 
+// 	.c-commande-article__titre {
+// 		border-bottom: 1px solid $color-gray-300;
+// 		margin-bottom: $spacing-unit-small;
+// 		@include inuit-font-size(18px, 1.7);
+// 
+// 		.c-commande-article--s & {
+// 			border-bottom-width: 0;
+// 		}
+// 	}
+// 
+// 	//
+// 	// c-commande-article__prix-quantite
+// 	// -------------------------------------
+// 
+// 	.c-commande-article__prix-quantite {
+// 		display: flex;
+// 		flex-wrap: wrap;
+// 		justify-content: flex-end;
+// 		margin-bottom: auto;
+// 
+// 		@include mq(tablet) {
+// 			justify-content: flex-start;
+// 			flex: 1;
+// 		}
+// 	}
+// 
+// 		//
+// 		// c-commande-article__prix-quantite-item
+// 		// -------------------------------------
+// 
+// 		.c-commande-article__prix-quantite-item {
+// 			padding-left: $spacing-unit-small;
+// 			flex: 1;
+// 			@include inuit-font-size(18px, 1.7);
+// 			text-align: right;
+// 
+// 			@include mq(tablet) {
+// 				border-bottom: 1px solid $color-gray-300;
+// 				margin-bottom: $spacing-unit-small;
+// 
+// 				.c-commande-article--s & {
+// 					border-bottom-width: 0;
+// 				}
+// 			}
+// 
+// 			&.c-commande-article__supprimer {
+// 				border-bottom-color: transparent;
+// 				order: -1;
+// 				padding-left: 0;
+// 				text-align: left;
+// 
+// 				@include mq(tablet) {
+// 					flex: 1 1 100%;
+// 					order: initial;
+// 					margin-top: $spacing-unit-small;
+// 					text-align: right;
+// 				}
+// 			}
+// 		}
+// 
+// 		//
+// 		// c-commande-article__quantite
+// 		// -------------------------------------
+// 
+// 		.c-commande-article__quantite {}
+// 
+// 	//
+// 	// c-commande-article__prix-total
+// 	// -------------------------------------
+// 
+// 	.c-commande-article__prix-total {
+// 		font-weight: bold;
+// 	}
+// 
+// 
+// //
+// // 4/ c-commande__totaux
+// // -------------------------------------
+// 
+// .c-commande__totaux {
+// 	margin-bottom: $spacing-unit;
+// 	text-align: right;
+// 
+// 	p {
+// 		margin-bottom: 0;
+// 	}
+// }
+// 
+// 	//
+// 	// c-commande__total-commande
+// 	// -------------------------------------
+// 
+// 	.c-commande__total-commande {
+// 		@include inuit-font-size(20px);
+// 		font-weight: bold;
+// 	}
+// 
+// 	//
+// 	// c-commande__total-tva
+// 	// -------------------------------------
+// 
+// 	.c-commande__total-tva {
+// 		color: $color-gray-500;
+// 	}
+// 
+// 
+// //
+// // 5/ c-commande-boutons
+// // -------------------------------------
+// 
+// .c-commande-boutons {
+// 	display: flex;
+// 	flex-direction: column;
+// 	margin-bottom: $spacing-unit;
+// 
+// 	@include mq(mobilePlus) {
+// 		flex-direction: row;
+// 		justify-content: space-between;
+// 	}
+// }
+// 
+// 	//
+// 	// c-commande-bouton__annuler
+// 	// -------------------------------------
+// 
+// 	.c-commande-bouton__annuler {
+// 		order: 2;
+// 		margin-left: auto;
+// 		margin-right: auto;
+// 
+// 		@include mq(mobilePlus) {
+// 			order: 0;
+// 			margin: 0;
+// 		}
+// 	}
+// 
+// 	//
+// 	// c-commande-bouton__confirmer
+// 	// -------------------------------------
+// 
+// 	.c-commande-bouton__confirmer {
+// 		margin-bottom: $spacing-unit;
+// 		@include mq(mobilePlus) {
+// 			width: 50%;
+// 		}
+// 	}
+// 
+// 	//
+// 	// c-commande-paiement__abandon
+// 	// -------------------------------------
+// 
+// 	// .c-commande-paiement__abandon {
+// 	// 	text-align: right;
+// 	// }
+// 
+// 
+// //
+// // c-commande-paiement
+// // -------------------------------------
+// 
+// .c-commande-paiement {}
+// 
+// 	//
+// 	// c-commande-paiement__modes
+// 	// -------------------------------------
+// 
+// 	.c-commande-paiement__modes {
+// 		display: flex;
+// 		flex-flow: row wrap;
+// 		justify-content: center;
+// 		margin: 5px 0;
+// 	}
