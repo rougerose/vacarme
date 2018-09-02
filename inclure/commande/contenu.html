@@ -1,24 +1,33 @@
 <BOUCLE_commande(COMMANDES){id_commande}>
-	<section class="c-section c-commande-articles">
-		<h2 class="c-section__titre--small u-typo-font-vacarme c-commande-articles__titre">Articles commandés</h2>
-		<BOUCLE_contenu_commande(COMMANDES_DETAILS){id_commande}>
-			[(#SET{prix_unitaire,#PRIX_UNITAIRE_HT*})]
-			[(#SET{tva_objet, #PRIX*|moins{#PRIX_HT*}})]
-			[(#SET{cumul_tva, #GET{cumul_tva}|plus{#GET{tva_objet}}})]
-			[(#SET{cumul_quantite, #GET{cumul_quantite}|plus{#QUANTITE}})]
-			
-			[(#OBJET|=={abonnements_offre}|oui)
-				#INCLURE{fond=inclure/commande/contenu-abonnement, id_commandes_detail}
-			][(#OBJET|=={produit}|oui)
-				#INCLURE{fond=inclure/commande/contenu-cadeau, id_commandes_detail}
-			][
-			(#OBJET|=={rubrique}|oui)
-				#INCLURE{fond=inclure/commande/contenu-numero, id_commandes_detail}
-			]
-		</BOUCLE_contenu_commande>
-		<div class="c-commande__totaux u-typo-font-vacarme">
-			[<p class="c-commande__total-commande"><:paniers:panier_total_ttc:> (#PRIX{commande,#ID_COMMANDE})</p>]
-			[<p class="c-commande__total-tva"><:paniers:dont_total_taxe:> (#GET{cumul_tva}|prix_formater)</p>]
+	<section class="c-section c-commande-section c-commande-articles">
+		<h2 class="c-section__titre--small c-commande-section__titre u-typo-font-vacarme">Articles commandés</h2>
+		<div class="c-commande-articles">
+			<B_contenu_commande>
+				<ul class="o-list-bare c-commande__liste">
+					<BOUCLE_contenu_commande(COMMANDES_DETAILS){id_commande}>
+						[(#OBJET|=={rubrique}|oui)
+							#INCLURE{fond=inclure/commande/contenu-numero, id_commandes_detail}
+						][(#OBJET|=={abonnements_offre}|oui)
+							#INCLURE{fond=inclure/commande/contenu-abonnement, id_commandes_detail}
+						][(#OBJET|=={produit}|oui)
+							#INCLURE{fond=inclure/commande/contenu-cadeau, id_commandes_detail}
+						]
+					</BOUCLE_contenu_commande>
+				</ul>
+				<div class="c-commande-total">
+					<ul class="o-list-bare c-commande__liste">
+						<li class="o-list-bare__item">
+							<p class="c-commande-total__item u-typo-font-vacarme"><:vpaniers:info_livraison:> <span><:vpaniers:info_montant_gratuit:></span></p>
+						</li>
+						<li class="o-list-bare__item">
+							<p class="c-commande-total__item c-commande-total__item--total u-typo-font-vacarme"><:vpaniers:info_total:> [<span>(#PRIX{commande, #ID_COMMANDE})</span>]</p>
+						</li>
+						<li class="o-list-bare__item">
+							<p class="c-commande-total__item c-commande-total__item--tva u-typo-font-vacarme"><:vpaniers:info_total_tva:> [<span>(#PRIX*{commande, #ID_COMMANDE}|moins{#PRIX_HT*{commande, #ID_COMMANDE}}|prix_formater)</span>]</p>
+						</li>
+					</ul>
+				</div>
+			</B_contenu_commande>
 		</div>
 	</section>
 </BOUCLE_commande>

@@ -1,16 +1,19 @@
-<BOUCLE_numero(COMMANDES_DETAILS){id_commandes_detail}>
+<BOUCLE_commande_numero(COMMANDES_DETAILS){id_commandes_detail}>
 	<BOUCLE_numero_rubrique(RUBRIQUES){id_rubrique=#ID_OBJET}>
-		<div class="c-commande-article c-commande-article--s">
-			<div class="c-commande-article__contenu">
-				<div class="c-commande-article__descriptif">
-					[<h4 class="c-commande-article__titre u-typo-font-vacarme">(#TITRE)[ / (#DATE_NUMERO|saison)[&nbsp;(#DATE_NUMERO|annee)]]</h4>]
+		<li class="o-list-bare__item c-commande-article">
+			<div class="c-commande-article__img">
+				[<a href="[(#URL_RUBRIQUE)]"><img src="(#LOGO_RUBRIQUE|image_reduire{200,0}|extraire_attribut{src})"[ alt="(#TITRE|textebrut)"]></a>]
+			</div>
+			<div class="c-commande-article__descriptif">
+				<div class="c-commande-article__titre u-typo-font-vacarme">
+					[<h3 class="c-commande-article__intitule"><a href="#URL_RUBRIQUE">(#TITRE)[ / (#DATE_NUMERO|saison)[&nbsp;(#DATE_NUMERO|annee)]]</a></h3>]
+					[<span>(#PRIX*{#OBJET,#ID_OBJET}|mult{#QUANTITE}|prix_formater)</span>]
 				</div>
-				<div class="c-commande-article__prix-quantite u-typo-font-vacarme">
-					<p class="c-commande-article__prix-quantite-item c-commande-article__prix-unitaire">[(#PRIX{#OBJET,#ID_OBJET})]</p>
-					<p class="c-commande-article__prix-quantite-item c-commande-article__quantite">&times; #QUANTITE</p>
-					<p class="c-commande-article__prix-quantite-item c-commande-article__prix-total">[(#PRIX{#OBJET,#ID_OBJET})]</p>
+				<p class="c-commande-article__designation c-commande-article__prix-unitaire">[(#PRIX{#OBJET,#ID_OBJET})]</p>
+				<div class="c-commande-article__quantite-modifier">
+					<span class="c-commande-article__quantite"><span><:vpaniers:info_quantite:></span> 1</span>
 				</div>
 			</div>
-		</div>
+		</li>
 	</BOUCLE_numero_rubrique>
-</BOUCLE_numero>
+</BOUCLE_commande_numero>

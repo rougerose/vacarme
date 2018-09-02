@@ -48,8 +48,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'commande_message_commande_prete' => "Votre commande est maintenant prête",
 	'commande_message_adresse_article_perso' => "L’article qui vous est destiné sera expédié ",
 	'commande_message_adresse_articles_perso' => "Les articles qui vous sont destinés seront expédiés ",
-	'commande_message_adresse_article_offert' => "L’article offert sera expédié à l'adresse du bénéficiaire",
-	'commande_message_adresse_articles_offerts' => "Les articles offerts seront expédiés à l'adresse du bénéficiaire",
+	'commande_message_adresse_article_offert' => "L’abonnement offert sera expédié à l'adresse du bénéficiaire",
+	'commande_message_adresse_articles_offerts' => "Les abonnements offerts seront expédiés à l'adresse du/des bénéficiaire/s",
 	'commande_page_titre' => "Votre commande",
 	'commande_recapitulatif_titre' => "Rappel de votre commande",
 	

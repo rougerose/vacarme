@@ -14,6 +14,7 @@
 	font-family: inherit;
 	font-size: 100%;
 	cursor: pointer;
+	transition: all $lien-transition;
 }
 
 
@@ -57,14 +58,13 @@
 	// c-btn--submit
 	// -------------------------------------
 	.c-btn--submit {
-		background-color: $color-blue-grey-600;
+		background-color: $color-cyan-600; //$color-blue-grey-600;
 		color: $color-white;
-		transition: all $lien-transition;
 		
 		&:hover,
 		&:focus {
 			color: $color-white;
-			background-color: $color-blue-600;
+			background-color: $color-cyan-400;
 		}
 	}
 	
@@ -141,6 +141,21 @@
 			width: auto;
 		}
 	}
+	
+	
+	//
+	// c-btn--annuler
+	// -------------------------------------
+	
+	.c-btn--annuler {
+		background-color: $color-gray-300;
+		color: $color-white;
+		
+		&:hover,
+		&:focus {
+			background-color: $color-lien;
+		}
+	}
 
 
 	//
@@ -157,7 +172,6 @@
 	
 	.c-btn--logout {
 		display: flex;
-		//padding: 9px 9px 6px;
 		margin-bottom: auto;
 		
 		@include mq($until: mobilePlus) {
@@ -246,6 +260,12 @@
 	}
 }
 
+.c-btn-form--annuler {
+	button {
+		@extend .c-btn--annuler;
+	}
+}
+
 
 
 .c-btn-form--achat-numero {
@@ -279,50 +299,56 @@
 		@extend .c-btn--upper;
 		width: 100%;
 	}
+}
+
+
+//
+// boutons multiples variante hétérogène
+// -------------------------------------
+// 
+// Cf. page validation de commande.
+// 
+
+.c-btn-multiples,
+.boutons--multiples {
+	display: flex;
+	flex-flow: column wrap;
 	
-	&--multiples {
-		display: flex;
-		flex-direction: column;
-		
-		> .submit--primaire {
-			order: 1;
-		}
-		
-		> .submit--secondaire {
-			background-color: $color-gray-400;
-			order: 3;
-			margin: 0 20%;
-			width: 60%;
-		}
-		
-		> .label-alternative {
-			display: inline-block;
-			order: 2;
-			text-align: center;
-			margin: $spacing-unit-small 0;
-			font-family: $base-font-family;
-			font-style: italic;
-		}
-		
-		@include mq(tablet) {
-			flex-direction: row;
-			justify-content: space-between;
-			
-			> .submit--secondaire {
-				order: 1;
-				flex: 1 1 30%;
-				margin: 0 $spacing-unit-large 0 0;
-			}
-			
-			> .submit--primaire {
-				order: 2;
-				flex: 1 1 70%;
-			}
-			
-			> .label-alternative {
-				display: none;
-			}
-		}
-		
+	@include mq(tablet) {
+		flex-flow: row wrap;
+		justify-content: space-between;
 	}
 }
+
+	.c-btn--primaire,
+	.c-btn-form--primaire,
+	.submit--primaire {
+		order: 1;
+		flex: 1 1 auto;
+		margin-bottom: $spacing-unit;
+		
+		@include mq(tablet) {
+			order: 2;
+			flex: 1 1 58%;
+			margin-bottom: 0;
+		}
+	}
+	
+	.c-btn--secondaire,
+	.c-btn-form--secondaire,
+	.submit--secondaire {
+		order: 2;
+		flex: 1 1 auto;
+		
+		@include mq(tablet) {
+			order: 1;
+			flex: 1 1 30%;
+			margin-right: $spacing-unit-large;
+		}
+	}
+	
+	.c-btn-form--secondaire {
+		.submit {
+			width: 100%;
+		}
+	}

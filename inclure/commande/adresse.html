@@ -12,15 +12,15 @@
 			#SET{articles_perso, #GET{articles_perso}|push{#ID_OBJET}}
 		]
 	</BOUCLE_contenu_commande>
-	<section class="c-section c-commande-adresse">
-		<h2 class="c-section__titre--small u-typo-font-vacarme"><:vacarme:commande_adresse_titre:></h2>
+	<section class="c-section c-commande-section c-commande-adresse">
+		<h2 class="c-section__titre--small c-commande-section__titre u-typo-font-vacarme"><:vacarme:commande_adresse_titre:></h2>
 		[(#REM) article(s) perso ]
 		<BOUCLE_adresse(ADRESSES){id_auteur}{si #GET{articles_perso}|count|>{0}}>
-			[<p>(#GET{articles_perso}|count|singulier_ou_pluriel{vacarme:commande_message_adresse_article_perso, vacarme:commande_message_adresse_articles_perso})<strong>[(#VOIE)][, (#COMPLEMENT)][, (#BOITE_POSTALE)][ (#CODE_POSTAL)][ (#VILLE)][ (#REGION)][ (#PAYS)].</strong>[ <a href="(#URL_PAGE{compte}|parametre_url{section, informations})" class="c-btn c-btn--black u-typo-font-vacarme u-typo-upper"><:vacarme:commande_adresse_bouton_modifier:></a>]</p>]
+			[<p class="c-commande-adresse__info"><span>(#GET{articles_perso}|count|singulier_ou_pluriel{vacarme:commande_message_adresse_article_perso, vacarme:commande_message_adresse_articles_perso})<strong>[(#ORGANISATION)][ (#SERVICE),][ (#VOIE)][, (#COMPLEMENT)][, (#BOITE_POSTALE)][ (#CODE_POSTAL)][ (#VILLE)][ (#REGION)][ (#PAYS)].</strong></span>[ <span><a href="(#URL_PAGE{compte}|parametre_url{section, informations}|parametre_url{retour, #SELF})" class="c-btn c-btn--black u-typo-font-vacarme u-typo-upper"><:vacarme:commande_adresse_bouton_modifier:></a></span>]</p>]
 		</BOUCLE_adresse>
 		[(#REM) article(s) offert(s) ]
 		[(#GET{articles_offerts}|count|>{0}|oui)
-			[<p>(#GET{articles_offerts}|count|singulier_ou_pluriel{vacarme:commande_message_adresse_article_offert,vacarme:commande_message_adresse_articles_offerts}).</p>]
+			[<p class"c-commande-adresse__info">(#GET{articles_offerts}|count|singulier_ou_pluriel{vacarme:commande_message_adresse_article_offert,vacarme:commande_message_adresse_articles_offerts}).</p>]
 		]
 	</section>
 </BOUCLE_commande>

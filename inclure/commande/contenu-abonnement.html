@@ -1,30 +1,46 @@
-<BOUCLE_abonnement(COMMANDES_DETAILS){id_commandes_detail}>
-	<BOUCLE_numero_actuel(RUBRIQUES){id_parent=115}{!par titre}{0,1}>
-		#SET{reference_numero_actuel, #REFERENCE}
-	</BOUCLE_numero_actuel>
-	[(#NUMERO_DEBUT|match{^v\d+?}|oui)
-		[(#SET{debut, #NUMERO_DEBUT|calculer_numero_futur_titre{0}})]
-		[(#SET{reference_numero_debut, #NUMERO_DEBUT})]
-	][(#DESCRIPTIF|match{offert@}|oui)
-		[(#SET{id_beneficiaire, #DESCRIPTIF|strstr{@}|substr{1}})]
-		[(#GET{reference_numero_debut}|non) #SET{reference_numero_debut, #GET{reference_numero_actuel}}]
-	]
-	<BOUCLE_offre(ABONNEMENTS_OFFRES){id_abonnements_offre=#ID_OBJET}>
-		<div class="c-commande-article c-commande-article--s">
-			<div class="c-commande-article__contenu">
-				<div class="c-commande-article__descriptif">
-					[<h4 class="c-commande-article__titre u-typo-font-vacarme"><:vpaniers:abonnement_resume_label_abonnement:> (#TITRE)[ / (#DUREE|numeros_nombre_en_clair)]</h4>]
-					[(#GET{debut}|oui)
-						[<p><span><:vpaniers:abonnement_resume_label_numero:></span> (#GET{debut})</p>]]
-					[(#GET{id_beneficiaire}|oui)
-						[(#INCLURE{fond=inclure/panier-description-beneficiaire, id_auteur=#GET{id_beneficiaire}})]]
+<BOUCLE_commande_abonnement(COMMANDES_DETAILS){id_commandes_detail}>
+	[(#SET{options, #OPTIONS|vpaniers_options_expliquer_options})]
+	<BOUCLE_abonnement(ABONNEMENTS_OFFRES){id_abonnements_offre=#ID_OBJET}>
+		[(#SET{titre, #TITRE})]
+		[(#SET{numeros, #DUREE|numeros_nombre_en_clair})]
+		[(#SET{duree_nb, #DUREE|numeros_nombre})]
+		[(#SET{prix_abonnement, #PRIX})]
+	</BOUCLE_abonnement>
+	<BOUCLE_data(DATA){source tableau, #GET{options}}>
+		[(#SET{prix, [(#VALEUR{prix_souscripteur}|?{
+			[(#VALEUR{prix_souscripteur}|prix_formater)],
+			[(#GET{prix_abonnement})]})] 
+		})]
+		<li class="o-list-bare__item c-commande-article">
+			<div class="c-commande-article__img">
+				<BOUCLE_couverture(RUBRIQUES){reference=#VALEUR{numero_debut}}>
+					[(#INCLURE{fond=inclure/logo/numero-couverture-thumbnail, largeur=200, image=#LOGO_RUBRIQUE|extraire_attribut{src}})]
+				</BOUCLE_couverture>
+					[(#SET{image_prochain, #CHEMIN{images/vacarme-couverture-prochain.jpg}})]
+					[(#INCLURE{fond=inclure/logo/numero-couverture-thumbnail, image=#GET{image_prochain}, largeur=200})]
+				<//B_couverture>
+			</div>
+			<div class="c-commande-article__descriptif">
+				<div class="c-commande-article__titre u-typo-font-vacarme">
+					[<h3 class="c-commande-article__intitule"><:vpaniers:abonnement_resume_label_abonnement:> (#GET{titre})[ / (#GET{numeros})]</h3>]
+					[<span>(#GET{prix})</span>]
 				</div>
-				<div class="c-commande-article__prix-quantite u-typo-font-vacarme">
-					<p class="c-commande-article__prix-quantite-item c-commande-article__prix-unitaire">[(#PRIX{#OBJET,#ID_OBJET})]</p>
-					<p class="c-commande-article__prix-quantite-item c-commande-article__quantite">&times; 1</p>
-					<p class="c-commande-article__prix-quantite-item c-commande-article__prix-total">[(#PRIX{#OBJET,#ID_OBJET})]</p>
+				[<p class="c-commande-article__designation"><span><:vpaniers:abonnement_resume_label_numero:></span> (#VALEUR{numero_debut}|calculer_numero_futur_titre{0})</p>]
+				<p class="c-commande-article__designation">
+					<span><:vpaniers:abonnement_resume_label_cadeau:></span> [ (#VALEUR{cadeau}|?{#INFO_TITRE{produit, #VALEUR{cadeau}},<:vpaniers:abonnement_resume_cadeau_vide:>})]
+				</p>
+				[(#VALEUR{nom_inscription}|oui)
+					<p class="c-commande-article__designation"><span><:vpaniers:abonnement_resume_label_beneficiaire:></span>[ (#VALEUR{prenom})][ (#VALEUR{nom_inscription})]</p>
+					[<p class="c-commande-article__designation"><span><:vpaniers:abonnement_resume_label_date_message_beneficaire:></span> (#VALEUR{date_message}|vpaniers_timestamp_vers_date|affdate)</p>]
+					[(#VALEUR{message}|oui)
+						<p class="c-commande-article__designation"><span><:vpaniers:abonnement_resume_label_message_beneficaire:></span> [<span>(#VALEUR{message})</span></p>]
+					]
+				]
+				<p class="c-commande-article__designation">[ (#GET{prix})]</p>
+				<div class="c-commande-article__quantite-modifier">
+					<span class="c-commande-article__quantite"><span><:vpaniers:info_quantite:></span> 1</span>
 				</div>
 			</div>
-		</div>
-	</BOUCLE_offre>
-</BOUCLE_abonnement>
+		</li>
+	</BOUCLE_data>
+</BOUCLE_commande_abonnement>

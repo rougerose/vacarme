@@ -2312,15 +2312,15 @@
 
 /* line 18, _src/scss/components/_section.scss */ .c-section__titre--small { font-size: 20px; font-size: 1.25rem; }
 
-/* line 5, _src/scss/components/_boutons.scss */ .c-btn, .c-btn-form button, .boutons .submit { border: 1px solid #ccc; border-color: transparent; display: inline-block; overflow: visible; padding: 6px 6px 3px; vertical-align: middle; line-height: normal; text-align: center; font-family: inherit; font-size: 100%; cursor: pointer; }
+/* line 5, _src/scss/components/_boutons.scss */ .c-btn, .c-btn-form button, .boutons .submit { border: 1px solid #ccc; border-color: transparent; display: inline-block; overflow: visible; padding: 6px 6px 3px; vertical-align: middle; line-height: normal; text-align: center; font-family: inherit; font-size: 100%; cursor: pointer; -webkit-transition: all 0.35s ease-out; transition: all 0.35s ease-out; }
 
-/* line 23, _src/scss/components/_boutons.scss */ .c-btn--burger { position: relative; z-index: 101; top: -2px; padding: 0; border: none; border-radius: 50%; margin: auto 0 auto 12px; height: 30px; width: 30px; background-color: #00bdd6; color: #fff; }
+/* line 24, _src/scss/components/_boutons.scss */ .c-btn--burger { position: relative; z-index: 101; top: -2px; padding: 0; border: none; border-radius: 50%; margin: auto 0 auto 12px; height: 30px; width: 30px; background-color: #00bdd6; color: #fff; }
 
-/* line 41, _src/scss/components/_boutons.scss */ .c-btn--croix { position: absolute; z-index: 201; top: 18px; left: -28px; padding: 0; border: none; border-radius: 50%; margin: auto 0 auto 12px; height: 30px; width: 30px; background-color: #00bdd6; color: #fff; }
+/* line 42, _src/scss/components/_boutons.scss */ .c-btn--croix { position: absolute; z-index: 201; top: 18px; left: -28px; padding: 0; border: none; border-radius: 50%; margin: auto 0 auto 12px; height: 30px; width: 30px; background-color: #00bdd6; color: #fff; }
 
-/* line 59, _src/scss/components/_boutons.scss */ .c-btn--submit, .boutons .submit { background-color: #494979; color: #fff; -webkit-transition: all 0.35s ease-out; transition: all 0.35s ease-out; }
+/* line 60, _src/scss/components/_boutons.scss */ .c-btn--submit, .boutons .submit { background-color: #00abc2; color: #fff; }
 
-/* line 64, _src/scss/components/_boutons.scss */ .c-btn--submit:hover, .boutons .submit:hover, .c-btn--submit:focus, .boutons .submit:focus { color: #fff; background-color: #303091; }
+/* line 64, _src/scss/components/_boutons.scss */ .c-btn--submit:hover, .boutons .submit:hover, .c-btn--submit:focus, .boutons .submit:focus { color: #fff; background-color: #00cfeb; }
 
 /* line 75, _src/scss/components/_boutons.scss */ .c-btn--delete { padding: 0; margin: 0; color: #00bdd6; }
 
@@ -2340,37 +2340,42 @@
 
 @media (min-width: 48em) { /* line 137, _src/scss/components/_boutons.scss */ .c-btn--achat-numero, .c-btn-form--achat-numero, .c-btn-form--achat-numero button { width: auto; } }
 
-/* line 149, _src/scss/components/_boutons.scss */ .c-btn--round, .c-btn-form--round button, .boutons .submit { border-radius: 5px; }
+/* line 150, _src/scss/components/_boutons.scss */ .c-btn--annuler, .c-btn-form--annuler button { background-color: #e0e0e0; color: #fff; }
 
-/* line 158, _src/scss/components/_boutons.scss */ .c-btn--logout { display: -webkit-box; display: -ms-flexbox; display: flex; margin-bottom: auto; }
+/* line 154, _src/scss/components/_boutons.scss */ .c-btn--annuler:hover, .c-btn-form--annuler button:hover, .c-btn--annuler:focus, .c-btn-form--annuler button:focus { background-color: #00bdd6; }
 
-@media (max-width: 27.4275em) { /* line 158, _src/scss/components/_boutons.scss */ .c-btn--logout { padding-top: 3px; }
-  /* line 165, _src/scss/components/_boutons.scss */ .c-btn--logout span { border: 0 !important; clip: rect(0 0 0 0) !important; -webkit-clip-path: inset(50%) !important; clip-path: inset(50%) !important; height: 1px !important; margin: -1px !important; overflow: hidden !important; padding: 0 !important; position: absolute !important; white-space: nowrap !important; width: 1px !important; } }
+/* line 164, _src/scss/components/_boutons.scss */ .c-btn--round, .c-btn-form--round button, .boutons .submit { border-radius: 5px; }
 
-/* line 176, _src/scss/components/_boutons.scss */ .c-btn--square, .c-btn-form--square button { padding: 3px 0 0; width: 24px; height: 24px; }
+/* line 173, _src/scss/components/_boutons.scss */ .c-btn--logout { display: -webkit-box; display: -ms-flexbox; display: flex; margin-bottom: auto; }
 
-/* line 187, _src/scss/components/_boutons.scss */ .c-btn--link, .c-btn-form--link button { border-bottom: 1px solid transparent; padding: 0; background-color: transparent; color: #00bdd6; -webkit-transition: border-color 0.35s ease-out; transition: border-color 0.35s ease-out; }
+@media (max-width: 27.4275em) { /* line 173, _src/scss/components/_boutons.scss */ .c-btn--logout { padding-top: 3px; }
+  /* line 179, _src/scss/components/_boutons.scss */ .c-btn--logout span { border: 0 !important; clip: rect(0 0 0 0) !important; -webkit-clip-path: inset(50%) !important; clip-path: inset(50%) !important; height: 1px !important; margin: -1px !important; overflow: hidden !important; padding: 0 !important; position: absolute !important; white-space: nowrap !important; width: 1px !important; } }
 
-/* line 194, _src/scss/components/_boutons.scss */ .c-btn--link:hover, .c-btn-form--link button:hover { border-bottom-color: #00bdd6; }
+/* line 190, _src/scss/components/_boutons.scss */ .c-btn--square, .c-btn-form--square button { padding: 3px 0 0; width: 24px; height: 24px; }
 
-/* line 251, _src/scss/components/_boutons.scss */ .c-btn-form--achat-numero { margin-top: 6px; margin-bottom: 6px; }
+/* line 201, _src/scss/components/_boutons.scss */ .c-btn--link, .c-btn-form--link button { border-bottom: 1px solid transparent; padding: 0; background-color: transparent; color: #00bdd6; -webkit-transition: border-color 0.35s ease-out; transition: border-color 0.35s ease-out; }
 
-@media (min-width: 48em) { /* line 251, _src/scss/components/_boutons.scss */ .c-btn-form--achat-numero { margin-top: 0; margin-bottom: 0; } }
+/* line 208, _src/scss/components/_boutons.scss */ .c-btn--link:hover, .c-btn-form--link button:hover { border-bottom-color: #00bdd6; }
 
-/* line 275, _src/scss/components/_boutons.scss */ .boutons .submit { width: 100%; }
+/* line 271, _src/scss/components/_boutons.scss */ .c-btn-form--achat-numero { margin-top: 6px; margin-bottom: 6px; }
 
-/* line 283, _src/scss/components/_boutons.scss */ .boutons--multiples { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+@media (min-width: 48em) { /* line 271, _src/scss/components/_boutons.scss */ .c-btn-form--achat-numero { margin-top: 0; margin-bottom: 0; } }
 
-/* line 287, _src/scss/components/_boutons.scss */ .boutons--multiples > .submit--primaire { -webkit-box-ordinal-group: 2; -ms-flex-order: 1; order: 1; }
+/* line 295, _src/scss/components/_boutons.scss */ .boutons .submit { width: 100%; }
 
-/* line 291, _src/scss/components/_boutons.scss */ .boutons--multiples > .submit--secondaire { background-color: #bdbdbd; -webkit-box-ordinal-group: 4; -ms-flex-order: 3; order: 3; margin: 0 20%; width: 60%; }
+/* line 358, _src/scss/components/_boutons.scss */ .c-btn-multiples, .boutons--multiples { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-flow: column wrap; flex-flow: column wrap; }
 
-/* line 298, _src/scss/components/_boutons.scss */ .boutons--multiples > .label-alternative { display: inline-block; -webkit-box-ordinal-group: 3; -ms-flex-order: 2; order: 2; text-align: center; margin: 12px 0; font-family: "Plantin", "Palatino", serif; font-style: italic; }
+@media (min-width: 40em) { /* line 358, _src/scss/components/_boutons.scss */ .c-btn-multiples, .boutons--multiples { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; } }
 
-@media (min-width: 40em) { /* line 283, _src/scss/components/_boutons.scss */ .boutons--multiples { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
-  /* line 311, _src/scss/components/_boutons.scss */ .boutons--multiples > .submit--secondaire { -webkit-box-ordinal-group: 2; -ms-flex-order: 1; order: 1; -webkit-box-flex: 1; -ms-flex: 1 1 30%; flex: 1 1 30%; margin: 0 48px 0 0; }
-  /* line 317, _src/scss/components/_boutons.scss */ .boutons--multiples > .submit--primaire { -webkit-box-ordinal-group: 3; -ms-flex-order: 2; order: 2; -webkit-box-flex: 1; -ms-flex: 1 1 70%; flex: 1 1 70%; }
-  /* line 322, _src/scss/components/_boutons.scss */ .boutons--multiples > .label-alternative { display: none; } }
+/* line 369, _src/scss/components/_boutons.scss */ .c-btn--primaire, .c-btn-form--primaire, .submit--primaire { -webkit-box-ordinal-group: 2; -ms-flex-order: 1; order: 1; -webkit-box-flex: 1; -ms-flex: 1 1 auto; flex: 1 1 auto; margin-bottom: 24px; }
+
+@media (min-width: 40em) { /* line 369, _src/scss/components/_boutons.scss */ .c-btn--primaire, .c-btn-form--primaire, .submit--primaire { -webkit-box-ordinal-group: 3; -ms-flex-order: 2; order: 2; -webkit-box-flex: 1; -ms-flex: 1 1 58%; flex: 1 1 58%; margin-bottom: 0; } }
+
+/* line 383, _src/scss/components/_boutons.scss */ .c-btn--secondaire, .c-btn-form--secondaire, .submit--secondaire { -webkit-box-ordinal-group: 3; -ms-flex-order: 2; order: 2; -webkit-box-flex: 1; -ms-flex: 1 1 auto; flex: 1 1 auto; }
+
+@media (min-width: 40em) { /* line 383, _src/scss/components/_boutons.scss */ .c-btn--secondaire, .c-btn-form--secondaire, .submit--secondaire { -webkit-box-ordinal-group: 2; -ms-flex-order: 1; order: 1; -webkit-box-flex: 1; -ms-flex: 1 1 30%; flex: 1 1 30%; margin-right: 48px; } }
+
+/* line 397, _src/scss/components/_boutons.scss */ .c-btn-form--secondaire .submit { width: 100%; }
 
 /* line 16, _src/scss/components/_formulaire_spip.scss */ .formulaire_spip form { border: 1px solid #000; margin-bottom: 24px; padding: 24px 24px 0; font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
@@ -2650,68 +2655,80 @@
 
 @media (min-width: 48em) { /* line 111, _src/scss/components/_inscription.scss */ .c-inscription__champ--typeClient { width: 48%; } }
 
-/* line 17, _src/scss/components/_commande.scss */ .c-commande-header__titre { border-bottom: 1px solid #000; margin-bottom: 0; padding-bottom: 24px; }
+/* line 17, _src/scss/components/_commande.scss */ .c-commande-header__titre { border-bottom: 1px solid #000; margin-bottom: 0; }
 
-/* line 30, _src/scss/components/_commande.scss */ .c-commande-articles.est-vide { padding: 48px 0; }
+/* line 32, _src/scss/components/_commande.scss */ .c-commande-section__titre { border-bottom: 1px solid #000; }
 
-/* line 40, _src/scss/components/_commande.scss */ .c-commande__liste { padding: 12px 0; margin-bottom: 0; }
+/* line 41, _src/scss/components/_commande.scss */ .c-commande-articles { margin-bottom: 0; }
 
-/* line 50, _src/scss/components/_commande.scss */ .c-commande-article { border-top: 1px solid #e0e0e0; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding: 24px 0; width: 100%; }
+/* line 44, _src/scss/components/_commande.scss */ .c-commande-articles.est-vide { padding: 48px 0; }
 
-/* line 59, _src/scss/components/_commande.scss */ .c-commande-article:first-child { border-top: none; }
+/* line 54, _src/scss/components/_commande.scss */ .c-commande__liste { padding-bottom: 12px; margin-bottom: 0; }
 
-@media (min-width: 40em) { /* line 50, _src/scss/components/_commande.scss */ .c-commande-article { padding: 24px 12px; } }
+/* line 65, _src/scss/components/_commande.scss */ .c-commande-article { border-top: 1px solid #e0e0e0; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding: 24px 0; width: 100%; }
 
-/* line 71, _src/scss/components/_commande.scss */ .c-commande-article__img { -ms-flex-item-align: start; align-self: flex-start; width: 35%; padding-right: 12px; }
+/* line 74, _src/scss/components/_commande.scss */ .c-commande-article:first-child { border-top: none; }
 
-@media (min-width: 64em) { /* line 71, _src/scss/components/_commande.scss */ .c-commande-article__img { padding-right: 24px; width: 200px; } }
+@media (min-width: 40em) { /* line 65, _src/scss/components/_commande.scss */ .c-commande-article { padding: 24px 12px; } }
 
-/* line 85, _src/scss/components/_commande.scss */ .c-commande-article__descriptif { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; }
+/* line 86, _src/scss/components/_commande.scss */ .c-commande-article__img { -ms-flex-item-align: start; align-self: flex-start; width: 35%; padding-right: 12px; }
 
-/* line 93, _src/scss/components/_commande.scss */ .c-commande-article__titre { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin-bottom: 12px; }
+@media (min-width: 64em) { /* line 86, _src/scss/components/_commande.scss */ .c-commande-article__img { padding-right: 24px; width: 200px; } }
 
-/* line 102, _src/scss/components/_commande.scss */ .c-commande-article__intitule { margin-bottom: 0; margin-right: 12px; }
+/* line 100, _src/scss/components/_commande.scss */ .c-commande-article__descriptif { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; }
 
-/* line 106, _src/scss/components/_commande.scss */ .c-commande-article__intitule, .c-commande-article__intitule + span { font-size: 16px; font-size: 1rem; line-height: 1.2; font-weight: bold; }
+/* line 108, _src/scss/components/_commande.scss */ .c-commande-article__titre { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin-bottom: 12px; }
 
-@media (min-width: 40em) { /* line 113, _src/scss/components/_commande.scss */ .c-commande-article__intitule, .c-commande-article__intitule + span { font-size: 18px; font-size: 1.125rem; } }
+/* line 117, _src/scss/components/_commande.scss */ .c-commande-article__intitule { margin-bottom: 0; margin-right: 12px; }
 
-/* line 123, _src/scss/components/_commande.scss */ .c-commande-article__designation { margin-bottom: 6px; font-size: 15px; font-size: 0.9375rem; line-height: 1.2; }
+/* line 121, _src/scss/components/_commande.scss */ .c-commande-article__intitule, .c-commande-article__intitule + span { font-size: 16px; font-size: 1rem; line-height: 1.2; font-weight: bold; }
 
-/* line 127, _src/scss/components/_commande.scss */ .c-commande-article__designation > span:first-child { font-style: italic; }
+@media (min-width: 40em) { /* line 128, _src/scss/components/_commande.scss */ .c-commande-article__intitule, .c-commande-article__intitule + span { font-size: 18px; font-size: 1.125rem; } }
 
-@media (min-width: 40em) { /* line 123, _src/scss/components/_commande.scss */ .c-commande-article__designation { font-size: 16px; font-size: 1rem; } }
+/* line 138, _src/scss/components/_commande.scss */ .c-commande-article__designation { margin-bottom: 6px; font-size: 15px; font-size: 0.9375rem; line-height: 1.2; }
 
-/* line 139, _src/scss/components/_commande.scss */ .c-commande-article__quantite-modifier { display: -webkit-box; display: -ms-flexbox; display: flex; margin: 12px 0; }
+/* line 142, _src/scss/components/_commande.scss */ .c-commande-article__designation > span:first-child { font-style: italic; }
 
-/* line 147, _src/scss/components/_commande.scss */ .c-commande-article__quantite { display: inline-block; }
+@media (min-width: 40em) { /* line 138, _src/scss/components/_commande.scss */ .c-commande-article__designation { font-size: 16px; font-size: 1rem; } }
 
-/* line 150, _src/scss/components/_commande.scss */ .c-commande-article__quantite > span { font-style: italic; }
+/* line 154, _src/scss/components/_commande.scss */ .c-commande-article__quantite-modifier { display: -webkit-box; display: -ms-flexbox; display: flex; margin: 12px 0; }
 
-/* line 154, _src/scss/components/_commande.scss */ form + .c-commande-article__quantite { margin: 0 12px; }
+/* line 162, _src/scss/components/_commande.scss */ .c-commande-article__quantite { display: inline-block; }
 
-/* line 164, _src/scss/components/_commande.scss */ .c-commande-total { border-top: 1px solid #000; padding-top: 6px; }
+/* line 165, _src/scss/components/_commande.scss */ .c-commande-article__quantite > span { font-style: italic; }
 
-/* line 172, _src/scss/components/_commande.scss */ .c-commande-total__item { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin-bottom: 6px; font-size: 18px; font-size: 1.125rem; line-height: 1.33333; font-weight: bold; }
+/* line 169, _src/scss/components/_commande.scss */ form + .c-commande-article__quantite { margin: 0 12px; }
 
-/* line 179, _src/scss/components/_commande.scss */ .c-commande-total__item--total { font-size: 22px; font-size: 1.375rem; line-height: 1.36364; }
+/* line 179, _src/scss/components/_commande.scss */ .c-commande-total { border-top: 1px solid #000; padding-top: 6px; }
 
-/* line 183, _src/scss/components/_commande.scss */ .c-commande-total__item--tva { -ms-flex-line-pack: end; align-content: flex-end; color: #9e9e9e; font-size: 16px; font-size: 1rem; line-height: 1.5; font-weight: normal; }
+/* line 187, _src/scss/components/_commande.scss */ .c-commande-total__item { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin-bottom: 6px; font-size: 18px; font-size: 1.125rem; line-height: 1.33333; font-weight: bold; }
 
-/* line 197, _src/scss/components/_commande.scss */ .c-commande-identification { border-top: 1px solid #000; padding: 48px 0 24px; }
+/* line 194, _src/scss/components/_commande.scss */ .c-commande-total__item--total { font-size: 22px; font-size: 1.375rem; line-height: 1.36364; }
 
-@media (min-width: 40em) { /* line 197, _src/scss/components/_commande.scss */ .c-commande-identification { padding: 48px 0; } }
+/* line 198, _src/scss/components/_commande.scss */ .c-commande-total__item--tva { -ms-flex-line-pack: end; align-content: flex-end; color: #9e9e9e; font-size: 16px; font-size: 1rem; line-height: 1.5; font-weight: normal; }
 
-/* line 209, _src/scss/components/_commande.scss */ .c-commande-identification__titre { font-size: 18px; font-size: 1.125rem; line-height: 1.2; text-align: center; }
+/* line 212, _src/scss/components/_commande.scss */ .c-commande-identification { border-top: 1px solid #000; padding: 48px 0 24px; }
 
-@media (min-width: 40em) { /* line 209, _src/scss/components/_commande.scss */ .c-commande-identification__titre { font-size: 20px; font-size: 1.25rem; } }
+@media (min-width: 40em) { /* line 212, _src/scss/components/_commande.scss */ .c-commande-identification { padding: 48px 0; } }
 
-/* line 220, _src/scss/components/_commande.scss */ .c-commande-identification__actions { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+/* line 224, _src/scss/components/_commande.scss */ .c-commande-identification__titre { font-size: 18px; font-size: 1.125rem; line-height: 1.2; text-align: center; }
 
-/* line 224, _src/scss/components/_commande.scss */ .c-commande-identification__actions > a { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; margin-bottom: 24px; }
+@media (min-width: 40em) { /* line 224, _src/scss/components/_commande.scss */ .c-commande-identification__titre { font-size: 20px; font-size: 1.25rem; } }
 
-@media (min-width: 40em) { /* line 220, _src/scss/components/_commande.scss */ .c-commande-identification__actions { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
-  /* line 233, _src/scss/components/_commande.scss */ .c-commande-identification__actions > a { -webkit-box-flex: 0; -ms-flex: 0 0 48%; flex: 0 0 48%; margin-bottom: 0; } }
+/* line 235, _src/scss/components/_commande.scss */ .c-commande-identification__actions { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+
+/* line 239, _src/scss/components/_commande.scss */ .c-commande-identification__actions > a { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; margin-bottom: 24px; }
+
+@media (min-width: 40em) { /* line 235, _src/scss/components/_commande.scss */ .c-commande-identification__actions { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
+  /* line 248, _src/scss/components/_commande.scss */ .c-commande-identification__actions > a { -webkit-box-flex: 0; -ms-flex: 0 0 48%; flex: 0 0 48%; margin-bottom: 0; } }
+
+/* line 260, _src/scss/components/_commande.scss */ .c-commande-adresse { margin: 48px 0; }
+
+/* line 267, _src/scss/components/_commande.scss */ .c-commande-adresse__info { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+
+/* line 271, _src/scss/components/_commande.scss */ .c-commande-adresse__info .c-btn, .c-commande-adresse__info .c-btn-form button, .c-btn-form .c-commande-adresse__info button, .c-commande-adresse__info .boutons .submit, .boutons .c-commande-adresse__info .submit { margin-top: 6px; }
+
+/* line 277, _src/scss/components/_commande.scss */ .c-commande-actions { padding: 12px 0 24px; }
 
 /* line 6, _src/scss/components/_panier-mini.scss */ .c-panier-mini { position: fixed; top: 0; right: calc(calc(100vw - calc(24px * 3)) * -1); z-index: 200; height: 100%; width: calc(100vw - calc(24px * 3)); padding: 24px; visibility: hidden; background-color: #fff; -webkit-transition: visibility ease-in-out .5s, -webkit-transform ease-in-out 0.5s; transition: visibility ease-in-out .5s, -webkit-transform ease-in-out 0.5s; transition: transform ease-in-out 0.5s, visibility ease-in-out .5s; transition: transform ease-in-out 0.5s, visibility ease-in-out .5s, -webkit-transform ease-in-out 0.5s; }
 

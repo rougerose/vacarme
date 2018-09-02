@@ -128,6 +128,3 @@ function mini_html($texte) {
   $texte = preg_replace(",\n+,", "", $texte);
   return $texte;
 }
-
-
-?>

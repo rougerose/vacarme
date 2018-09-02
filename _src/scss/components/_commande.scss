@@ -17,9 +17,21 @@
 	.c-commande-header__titre {
 		border-bottom: 1px solid $color-black;
 		margin-bottom: 0;
-		padding-bottom: $spacing-unit;
 	}
 
+
+//
+// c-commande-section
+// -------------------------------------
+
+c.commande-section {}
+
+
+	// ----- c-commande-section__titre ----- //
+	
+	.c-commande-section__titre {
+		border-bottom: 1px solid $color-black;
+	}
 
 
 //
@@ -27,6 +39,8 @@
 // -------------------------------------
 
 .c-commande-articles {
+	margin-bottom: 0;
+	
 	&.est-vide {
 		padding: $spacing-unit-large 0;
 	}
@@ -38,7 +52,8 @@
 // -------------------------------------
 
 .c-commande__liste {
-	padding: $spacing-unit-small 0;
+	// padding: 0 $spacing-unit-small 0;
+	padding-bottom: $spacing-unit-small;
 	margin-bottom: 0;
 }
 
@@ -238,355 +253,31 @@
 	}
 
 
+//
+// c-commande-adresse
+// -------------------------------------
+
+.c-commande-adresse {
+	margin: $spacing-unit-large 0;
+}
 
 
+	// ----- c-commande-article__info ----- //
+	
+	.c-commande-adresse__info {
+		display: flex;
+		flex-direction: column;
+		
+		.c-btn {
+			margin-top: $spacing-unit-tiny;
+		}
+	}
 
 
+//
+// c-commande-actions
+// -------------------------------------
 
-// 
-// Pour le panier et le recapitutalif de commande lors du paiement
-// 
-// .c-commande
-// 
-// .commande-section
-// 
-// .c-commande-identification (panier uniquement)
-// 
-// .c-commande-articles
-// 
-// .c-commande-article
-// 
-// .c-commande-totaux
-// 
-// .c-commande-paiement
-// 
-
-
-// //
-// // 1/ c-commande
-// // -------------------------------------
-// 
-// .c-commande {}
-// 
-// 
-// //
-// // c-commande-section
-// // -------------------------------------
-// 
-// .c-commande-section {}
-// 
-// 	//
-// 	// c-commande-section__titre
-// 	// -------------------------------------
-// 
-// 	.c-commande-section__titre {}
-// 
-// 
-// //
-// // c-commande-identification (panier uniquement)
-// // -------------------------------------
-// 
-// .c-commande-identification {
-// 	border-bottom: 1px solid $color-black;
-// 	display: flex;
-// 	flex-direction: column;
-// 
-// 	@include mq(tablet) {
-// 		flex-direction: row;
-// 		justify-content: space-between;
-// 	}
-// }
-// 
-// 	.c-commande-identification__inscription {
-// 		flex: 1;
-// 	}
-// 
-// 	.c-commande-identification__login {
-// 		flex: 1;
-// 
-// 		@include mq(tablet) {
-// 			margin-left: 10%;
-// 		}
-// 	}
-// 
-// 
-// //
-// // 2/ c-commande-articles
-// // -------------------------------------
-// 
-// .c-commande-articles {
-// 	border-bottom: 1px solid $color-black;
-// 	margin-bottom: $spacing-unit;
-// }
-// 
-// 	.c-commande-articles__titre {}
-// 
-// //
-// // 3/ c-commande-article
-// // -------------------------------------
-// 
-// .c-commande-article {
-// 	position: relative;
-// 	margin-top: $spacing-unit;
-// 	margin-bottom: $spacing-unit;
-// 	overflow: hidden;
-// 	padding-left: 70px;
-// 	padding-top: $spacing-unit;
-// 
-// 	& > img {
-// 		position: absolute;
-// 		left: -138px;
-// 		top: $spacing-unit-small;
-// 		width: 200px;
-// 		box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.1);
-// 		@include rotate(-1.5, 8);
-// 		transform-origin: 50% 100%;
-// 	}
-// 
-// 	@include mq(tablet) {
-// 		padding-left: 100px;
-// 
-// 		> img {
-// 			left: -112px;
-// 		}
-// 	}
-// 
-// 	@include mq(desktop) {
-// 		padding-left: 200px;
-// 
-// 		> img {
-// 			left: $spacing-unit * -1;
-// 		}
-// 	}
-// }
-// 
-// 
-// .c-commande-article--s {
-// 	padding-left: 0;
-// 	padding-top: 0;
-// }
-// 
-// 	//
-// 	// c-commande-article__contenu
-// 	// -------------------------------------
-// 
-// 	.c-commande-article__contenu {
-// 		border-bottom: 1px solid $color-gray-500;
-// 		display: flex;
-// 		flex-direction: column;
-// 
-// 		@include mq(tablet) {
-// 			flex-flow: row wrap;
-// 			justify-content: space-between;
-// 		}
-// 
-// 		p {
-// 			margin-bottom: 0;
-// 		}
-// 	}
-// 
-// 	//
-// 	// c-commande-article__logo
-// 	// -------------------------------------
-// 
-// 	.c-commande-article__logo {}
-// 
-// 	.c-commande-article__logo-numero {
-// 		top: 0;
-// 		transform: rotate(-6deg);
-// 	}
-// 
-// 
-// 
-// 	//
-// 	// c-commande-article__descriptif
-// 	// -------------------------------------
-// 
-// 	.c-commande-article__descriptif {
-// 		margin-bottom: $spacing-unit;
-// 
-// 		@include mq(tablet) {
-// 			flex: 2;
-// 		}
-// 
-// 		.c-commande-article--s & {
-// 			margin-bottom: 0;
-// 		}
-// 	}
-// 
-// 	//
-// 	// c-commande-article__titre
-// 	// -------------------------------------
-// 
-// 	.c-commande-article__titre {
-// 		border-bottom: 1px solid $color-gray-300;
-// 		margin-bottom: $spacing-unit-small;
-// 		@include inuit-font-size(18px, 1.7);
-// 
-// 		.c-commande-article--s & {
-// 			border-bottom-width: 0;
-// 		}
-// 	}
-// 
-// 	//
-// 	// c-commande-article__prix-quantite
-// 	// -------------------------------------
-// 
-// 	.c-commande-article__prix-quantite {
-// 		display: flex;
-// 		flex-wrap: wrap;
-// 		justify-content: flex-end;
-// 		margin-bottom: auto;
-// 
-// 		@include mq(tablet) {
-// 			justify-content: flex-start;
-// 			flex: 1;
-// 		}
-// 	}
-// 
-// 		//
-// 		// c-commande-article__prix-quantite-item
-// 		// -------------------------------------
-// 
-// 		.c-commande-article__prix-quantite-item {
-// 			padding-left: $spacing-unit-small;
-// 			flex: 1;
-// 			@include inuit-font-size(18px, 1.7);
-// 			text-align: right;
-// 
-// 			@include mq(tablet) {
-// 				border-bottom: 1px solid $color-gray-300;
-// 				margin-bottom: $spacing-unit-small;
-// 
-// 				.c-commande-article--s & {
-// 					border-bottom-width: 0;
-// 				}
-// 			}
-// 
-// 			&.c-commande-article__supprimer {
-// 				border-bottom-color: transparent;
-// 				order: -1;
-// 				padding-left: 0;
-// 				text-align: left;
-// 
-// 				@include mq(tablet) {
-// 					flex: 1 1 100%;
-// 					order: initial;
-// 					margin-top: $spacing-unit-small;
-// 					text-align: right;
-// 				}
-// 			}
-// 		}
-// 
-// 		//
-// 		// c-commande-article__quantite
-// 		// -------------------------------------
-// 
-// 		.c-commande-article__quantite {}
-// 
-// 	//
-// 	// c-commande-article__prix-total
-// 	// -------------------------------------
-// 
-// 	.c-commande-article__prix-total {
-// 		font-weight: bold;
-// 	}
-// 
-// 
-// //
-// // 4/ c-commande__totaux
-// // -------------------------------------
-// 
-// .c-commande__totaux {
-// 	margin-bottom: $spacing-unit;
-// 	text-align: right;
-// 
-// 	p {
-// 		margin-bottom: 0;
-// 	}
-// }
-// 
-// 	//
-// 	// c-commande__total-commande
-// 	// -------------------------------------
-// 
-// 	.c-commande__total-commande {
-// 		@include inuit-font-size(20px);
-// 		font-weight: bold;
-// 	}
-// 
-// 	//
-// 	// c-commande__total-tva
-// 	// -------------------------------------
-// 
-// 	.c-commande__total-tva {
-// 		color: $color-gray-500;
-// 	}
-// 
-// 
-// //
-// // 5/ c-commande-boutons
-// // -------------------------------------
-// 
-// .c-commande-boutons {
-// 	display: flex;
-// 	flex-direction: column;
-// 	margin-bottom: $spacing-unit;
-// 
-// 	@include mq(mobilePlus) {
-// 		flex-direction: row;
-// 		justify-content: space-between;
-// 	}
-// }
-// 
-// 	//
-// 	// c-commande-bouton__annuler
-// 	// -------------------------------------
-// 
-// 	.c-commande-bouton__annuler {
-// 		order: 2;
-// 		margin-left: auto;
-// 		margin-right: auto;
-// 
-// 		@include mq(mobilePlus) {
-// 			order: 0;
-// 			margin: 0;
-// 		}
-// 	}
-// 
-// 	//
-// 	// c-commande-bouton__confirmer
-// 	// -------------------------------------
-// 
-// 	.c-commande-bouton__confirmer {
-// 		margin-bottom: $spacing-unit;
-// 		@include mq(mobilePlus) {
-// 			width: 50%;
-// 		}
-// 	}
-// 
-// 	//
-// 	// c-commande-paiement__abandon
-// 	// -------------------------------------
-// 
-// 	// .c-commande-paiement__abandon {
-// 	// 	text-align: right;
-// 	// }
-// 
-// 
-// //
-// // c-commande-paiement
-// // -------------------------------------
-// 
-// .c-commande-paiement {}
-// 
-// 	//
-// 	// c-commande-paiement__modes
-// 	// -------------------------------------
-// 
-// 	.c-commande-paiement__modes {
-// 		display: flex;
-// 		flex-flow: row wrap;
-// 		justify-content: center;
-// 		margin: 5px 0;
-// 	}
+.c-commande-actions {
+	padding: $spacing-unit-small 0 $spacing-unit;
+}
