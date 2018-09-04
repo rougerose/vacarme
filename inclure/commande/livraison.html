@@ -4,7 +4,8 @@
 	#SET{articles_perso, #ARRAY}
 	#SET{id_adresse, ''}
 	#SET{valider, ''}
-	<BOUCLE_contenu_commande(COMMANDES_DETAILS){id_commande}>
+	#SET{statut, #STATUT}
+	<BOUCLE_tests_contenu_commande(COMMANDES_DETAILS){id_commande}>
 		[(#OBJET|=={abonnements_offre}|oui)
 			[(#DESCRIPTIF|match{offert@}|?{
 				[(#SET{articles_offerts, #GET{articles_offerts}|push{#ID_OBJET}})],
@@ -14,28 +15,20 @@
 		[(#OBJET|match{produit|rubrique}|oui)
 			#SET{articles_perso, #GET{articles_perso}|push{#ID_OBJET}}
 		]
-	</BOUCLE_contenu_commande>
-
-	<section class="c-section c-commande-section c-commande-adresse">
-		<h2 class="c-section__titre--small c-commande-section__titre u-typo-font-vacarme"><:vacarme:commande_adresse_titre:></h2>
-		[(#REM) article(s) perso ]
-		<BOUCLE_adresse_articles_perso(ADRESSES){id_auteur}{type=pref}{0,1}{si #GET{articles_perso}|count|>{0}}>
-			#SET{id_adresse, #ID_ADRESSE}
-			[<p class="c-commande-adresse__info"><span>(#GET{articles_perso}|count|singulier_ou_pluriel{vacarme:commande_message_adresse_article_perso, vacarme:commande_message_adresse_articles_perso})<strong>[(#ORGANISATION)][ (#SERVICE),][ (#VOIE)][, (#COMPLEMENT)][, (#BOITE_POSTALE)][ (#CODE_POSTAL)][ (#VILLE)][ (#REGION)][ (#PAYS)].</strong></span>[ <span><a href="(#URL_PAGE{compte}|parametre_url{section, informations}|parametre_url{retour, #SELF})" class="c-btn c-btn--black u-typo-font-vacarme u-typo-upper"><:vacarme:commande_adresse_bouton_modifier:></a></span>]</p>]
-		</BOUCLE_adresse_articles_perso>
-			<p class="c-message c-message--erreur"><:vacarme:commande_erreur_adresse_inexistante:><br>[<a href="(#URL_PAGE{compte}|parametre_url{section, informations}|parametre_url{retour, #SELF})" class="c-btn c-btn--black c-btn--margin u-typo-font-vacarme u-typo-upper"><:vacarme:commande_adresse_bouton_ajouter:></a>]</p>
-		<//B_adresse_articles_perso>
-		[(#REM) article(s) offert(s) ]
-		[(#GET{articles_offerts}|count|>{0}|oui)
-			[<p class"c-commande-adresse__info">(#GET{articles_offerts}|count|singulier_ou_pluriel{vacarme:commande_message_adresse_article_offert,vacarme:commande_message_adresse_articles_offerts}).</p>]
-		]
-	</section>
+	</BOUCLE_tests_contenu_commande>
+	
+	<BOUCLE_adresse(ADRESSES){id_auteur}{type=pref}{0,1}{si #GET{statut}|=={encours}}>
+		#SET{id_adresse, #ID_ADRESSE}
+		<INCLURE{fond=inclure/commande/adresse, id_adresse=#ID_ADRESSE, articles_offerts=#GET{articles_offerts}, articles_perso=#GET{articles_perso},env}/>
+	</BOUCLE_adresse>
+	
 	[(#STATUT|=={poubelle}|oui)
 		<div class="c-commande-articles est-vide">
 			<p class="c-message c-message--ok"><:vacarme:commande_message_annulation:>.</p>
 		</div>
 	][(#STATUT|=={encours}|oui)
-		[(#INCLURE{fond=inclure/commande/contenu, id_commande})]
+		
+		<INCLURE{fond=inclure/commande/contenu, id_commande}/>
 		
 		[(#REM)
 			<!-- 
