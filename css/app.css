@@ -1667,15 +1667,19 @@
 
 /* line 13, _src/scss/components/_message.scss */ .c-message > a { color: #00bdd6; }
 
-/* line 21, _src/scss/components/_message.scss */ .c-message--simple { padding: 0; font-style: italic; }
+/* line 17, _src/scss/components/_message.scss */ .c-message > .c-btn--black, .c-btn-form--black .c-message > button { color: #000; }
 
-/* line 26, _src/scss/components/_message.scss */ .c-message--erreur { border: 2px solid #e75d32; }
+/* line 25, _src/scss/components/_message.scss */ .c-message--simple { padding: 0; font-style: italic; }
 
-/* line 31, _src/scss/components/_message.scss */ .c-message--ok { border: 2px solid #c1e732; }
+/* line 30, _src/scss/components/_message.scss */ .c-message--erreur { border: 2px solid #e75d32; color: #e75d32; }
 
-/* line 36, _src/scss/components/_message.scss */ .c-message--attention { border: 2px solid #c1e732; }
+/* line 36, _src/scss/components/_message.scss */ .c-message--ok { border: 2px solid #c1e732; }
 
-/* line 40, _src/scss/components/_message.scss */ .c-message--info { border: 2px solid #000; }
+/* line 41, _src/scss/components/_message.scss */ .c-message--attention { border: 2px solid #c1e732; }
+
+/* line 45, _src/scss/components/_message.scss */ .c-message--info { border: 2px solid #000; }
+
+/* line 52, _src/scss/components/_message.scss */ .c-message-inline--erreur { color: #e75d32; }
 
 /*  ========================================================================== resume ========================================================================== */
 /* line 24, _src/scss/components/_resume.scss */ .resume__titre { font-size: 18px; font-size: 1.125rem; line-height: 1.2; }
@@ -2314,68 +2318,70 @@
 
 /* line 5, _src/scss/components/_boutons.scss */ .c-btn, .c-btn-form button, .boutons .submit { border: 1px solid #ccc; border-color: transparent; display: inline-block; overflow: visible; padding: 6px 6px 3px; vertical-align: middle; line-height: normal; text-align: center; font-family: inherit; font-size: 100%; cursor: pointer; -webkit-transition: all 0.35s ease-out; transition: all 0.35s ease-out; }
 
-/* line 24, _src/scss/components/_boutons.scss */ .c-btn--burger { position: relative; z-index: 101; top: -2px; padding: 0; border: none; border-radius: 50%; margin: auto 0 auto 12px; height: 30px; width: 30px; background-color: #00bdd6; color: #fff; }
+/* line 23, _src/scss/components/_boutons.scss */ .c-btn--margin { margin: 24px; }
 
-/* line 42, _src/scss/components/_boutons.scss */ .c-btn--croix { position: absolute; z-index: 201; top: 18px; left: -28px; padding: 0; border: none; border-radius: 50%; margin: auto 0 auto 12px; height: 30px; width: 30px; background-color: #00bdd6; color: #fff; }
+/* line 31, _src/scss/components/_boutons.scss */ .c-btn--burger { position: relative; z-index: 101; top: -2px; padding: 0; border: none; border-radius: 50%; margin: auto 0 auto 12px; height: 30px; width: 30px; background-color: #00bdd6; color: #fff; }
 
-/* line 60, _src/scss/components/_boutons.scss */ .c-btn--submit, .boutons .submit { background-color: #00abc2; color: #fff; }
+/* line 49, _src/scss/components/_boutons.scss */ .c-btn--croix { position: absolute; z-index: 201; top: 18px; left: -28px; padding: 0; border: none; border-radius: 50%; margin: auto 0 auto 12px; height: 30px; width: 30px; background-color: #00bdd6; color: #fff; }
 
-/* line 64, _src/scss/components/_boutons.scss */ .c-btn--submit:hover, .boutons .submit:hover, .c-btn--submit:focus, .boutons .submit:focus { color: #fff; background-color: #00cfeb; }
+/* line 67, _src/scss/components/_boutons.scss */ .c-btn--submit, .boutons .submit { background-color: #00abc2; color: #fff; }
 
-/* line 75, _src/scss/components/_boutons.scss */ .c-btn--delete { padding: 0; margin: 0; color: #00bdd6; }
+/* line 71, _src/scss/components/_boutons.scss */ .c-btn--submit:hover, .boutons .submit:hover, .c-btn--submit:focus, .boutons .submit:focus { color: #fff; background-color: #00cfeb; }
 
-/* line 85, _src/scss/components/_boutons.scss */ .c-btn--white, .c-btn-form--white button { border: 1px solid #fff; background-color: transparent; color: #fff; -webkit-transition: all 0.35s ease-out; transition: all 0.35s ease-out; }
+/* line 82, _src/scss/components/_boutons.scss */ .c-btn--delete { padding: 0; margin: 0; color: #00bdd6; }
 
-/* line 91, _src/scss/components/_boutons.scss */ .c-btn--white:hover, .c-btn-form--white button:hover, .c-btn--white:focus, .c-btn-form--white button:focus { color: #000; border-color: #000; }
+/* line 92, _src/scss/components/_boutons.scss */ .c-btn--white, .c-btn-form--white button { border: 1px solid #fff; background-color: transparent; color: #fff; -webkit-transition: all 0.35s ease-out; transition: all 0.35s ease-out; }
 
-/* line 102, _src/scss/components/_boutons.scss */ .c-btn--black, .c-btn-form--black button { border: 1px solid #000; background-color: transparent; color: #000; -webkit-transition: all 0.35s ease-out; transition: all 0.35s ease-out; }
+/* line 98, _src/scss/components/_boutons.scss */ .c-btn--white:hover, .c-btn-form--white button:hover, .c-btn--white:focus, .c-btn-form--white button:focus { color: #000; border-color: #000; }
 
-/* line 108, _src/scss/components/_boutons.scss */ .c-btn--black:hover, .c-btn-form--black button:hover, .c-btn--black:focus, .c-btn-form--black button:focus { color: #fff; background-color: #00bdd6; border-color: #00bdd6; }
+/* line 109, _src/scss/components/_boutons.scss */ .c-btn--black, .c-btn-form--black button { border: 1px solid #000; background-color: transparent; color: #000; -webkit-transition: all 0.35s ease-out; transition: all 0.35s ease-out; }
 
-/* line 120, _src/scss/components/_boutons.scss */ .c-btn--upper, .c-btn-form--upper button, .boutons .submit { padding-top: 9px; text-transform: uppercase; }
+/* line 115, _src/scss/components/_boutons.scss */ .c-btn--black:hover, .c-btn-form--black button:hover, .c-btn--black:focus, .c-btn-form--black button:focus { color: #fff; background-color: #00bdd6; border-color: #00bdd6; }
 
-/* line 129, _src/scss/components/_boutons.scss */ .c-btn--extended { width: 100%; }
+/* line 127, _src/scss/components/_boutons.scss */ .c-btn--upper, .c-btn-form--upper button, .boutons .submit { padding-top: 9px; text-transform: uppercase; }
 
-/* line 137, _src/scss/components/_boutons.scss */ .c-btn--achat-numero, .c-btn-form--achat-numero, .c-btn-form--achat-numero button { width: 100%; }
+/* line 136, _src/scss/components/_boutons.scss */ .c-btn--extended { width: 100%; }
 
-@media (min-width: 48em) { /* line 137, _src/scss/components/_boutons.scss */ .c-btn--achat-numero, .c-btn-form--achat-numero, .c-btn-form--achat-numero button { width: auto; } }
+/* line 144, _src/scss/components/_boutons.scss */ .c-btn--achat-numero, .c-btn-form--achat-numero, .c-btn-form--achat-numero button { width: 100%; }
 
-/* line 150, _src/scss/components/_boutons.scss */ .c-btn--annuler, .c-btn-form--annuler button { background-color: #e0e0e0; color: #fff; }
+@media (min-width: 48em) { /* line 144, _src/scss/components/_boutons.scss */ .c-btn--achat-numero, .c-btn-form--achat-numero, .c-btn-form--achat-numero button { width: auto; } }
 
-/* line 154, _src/scss/components/_boutons.scss */ .c-btn--annuler:hover, .c-btn-form--annuler button:hover, .c-btn--annuler:focus, .c-btn-form--annuler button:focus { background-color: #00bdd6; }
+/* line 157, _src/scss/components/_boutons.scss */ .c-btn--annuler, .c-btn-form--annuler button { background-color: #e0e0e0; color: #fff; }
 
-/* line 164, _src/scss/components/_boutons.scss */ .c-btn--round, .c-btn-form--round button, .boutons .submit { border-radius: 5px; }
+/* line 161, _src/scss/components/_boutons.scss */ .c-btn--annuler:hover, .c-btn-form--annuler button:hover, .c-btn--annuler:focus, .c-btn-form--annuler button:focus { background-color: #00bdd6; }
 
-/* line 173, _src/scss/components/_boutons.scss */ .c-btn--logout { display: -webkit-box; display: -ms-flexbox; display: flex; margin-bottom: auto; }
+/* line 171, _src/scss/components/_boutons.scss */ .c-btn--round, .c-btn-form--round button, .boutons .submit { border-radius: 5px; }
 
-@media (max-width: 27.4275em) { /* line 173, _src/scss/components/_boutons.scss */ .c-btn--logout { padding-top: 3px; }
-  /* line 179, _src/scss/components/_boutons.scss */ .c-btn--logout span { border: 0 !important; clip: rect(0 0 0 0) !important; -webkit-clip-path: inset(50%) !important; clip-path: inset(50%) !important; height: 1px !important; margin: -1px !important; overflow: hidden !important; padding: 0 !important; position: absolute !important; white-space: nowrap !important; width: 1px !important; } }
+/* line 180, _src/scss/components/_boutons.scss */ .c-btn--logout { display: -webkit-box; display: -ms-flexbox; display: flex; margin-bottom: auto; }
 
-/* line 190, _src/scss/components/_boutons.scss */ .c-btn--square, .c-btn-form--square button { padding: 3px 0 0; width: 24px; height: 24px; }
+@media (max-width: 27.4275em) { /* line 180, _src/scss/components/_boutons.scss */ .c-btn--logout { padding-top: 3px; }
+  /* line 186, _src/scss/components/_boutons.scss */ .c-btn--logout span { border: 0 !important; clip: rect(0 0 0 0) !important; -webkit-clip-path: inset(50%) !important; clip-path: inset(50%) !important; height: 1px !important; margin: -1px !important; overflow: hidden !important; padding: 0 !important; position: absolute !important; white-space: nowrap !important; width: 1px !important; } }
 
-/* line 201, _src/scss/components/_boutons.scss */ .c-btn--link, .c-btn-form--link button { border-bottom: 1px solid transparent; padding: 0; background-color: transparent; color: #00bdd6; -webkit-transition: border-color 0.35s ease-out; transition: border-color 0.35s ease-out; }
+/* line 197, _src/scss/components/_boutons.scss */ .c-btn--square, .c-btn-form--square button { padding: 3px 0 0; width: 24px; height: 24px; }
 
-/* line 208, _src/scss/components/_boutons.scss */ .c-btn--link:hover, .c-btn-form--link button:hover { border-bottom-color: #00bdd6; }
+/* line 208, _src/scss/components/_boutons.scss */ .c-btn--link, .c-btn-form--link button { border-bottom: 1px solid transparent; padding: 0; background-color: transparent; color: #00bdd6; -webkit-transition: border-color 0.35s ease-out; transition: border-color 0.35s ease-out; }
 
-/* line 271, _src/scss/components/_boutons.scss */ .c-btn-form--achat-numero { margin-top: 6px; margin-bottom: 6px; }
+/* line 215, _src/scss/components/_boutons.scss */ .c-btn--link:hover, .c-btn-form--link button:hover { border-bottom-color: #00bdd6; }
 
-@media (min-width: 48em) { /* line 271, _src/scss/components/_boutons.scss */ .c-btn-form--achat-numero { margin-top: 0; margin-bottom: 0; } }
+/* line 278, _src/scss/components/_boutons.scss */ .c-btn-form--achat-numero { margin-top: 6px; margin-bottom: 6px; }
 
-/* line 295, _src/scss/components/_boutons.scss */ .boutons .submit { width: 100%; }
+@media (min-width: 48em) { /* line 278, _src/scss/components/_boutons.scss */ .c-btn-form--achat-numero { margin-top: 0; margin-bottom: 0; } }
 
-/* line 358, _src/scss/components/_boutons.scss */ .c-btn-multiples, .boutons--multiples { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-flow: column wrap; flex-flow: column wrap; }
+/* line 302, _src/scss/components/_boutons.scss */ .boutons .submit { width: 100%; }
 
-@media (min-width: 40em) { /* line 358, _src/scss/components/_boutons.scss */ .c-btn-multiples, .boutons--multiples { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; } }
+/* line 319, _src/scss/components/_boutons.scss */ .c-btn-multiples, .boutons--multiples { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-flow: column wrap; flex-flow: column wrap; }
 
-/* line 369, _src/scss/components/_boutons.scss */ .c-btn--primaire, .c-btn-form--primaire, .submit--primaire { -webkit-box-ordinal-group: 2; -ms-flex-order: 1; order: 1; -webkit-box-flex: 1; -ms-flex: 1 1 auto; flex: 1 1 auto; margin-bottom: 24px; }
+@media (min-width: 40em) { /* line 319, _src/scss/components/_boutons.scss */ .c-btn-multiples, .boutons--multiples { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; } }
 
-@media (min-width: 40em) { /* line 369, _src/scss/components/_boutons.scss */ .c-btn--primaire, .c-btn-form--primaire, .submit--primaire { -webkit-box-ordinal-group: 3; -ms-flex-order: 2; order: 2; -webkit-box-flex: 1; -ms-flex: 1 1 58%; flex: 1 1 58%; margin-bottom: 0; } }
+/* line 330, _src/scss/components/_boutons.scss */ .c-btn--primaire, .c-btn-form--primaire, .submit--primaire { -webkit-box-ordinal-group: 2; -ms-flex-order: 1; order: 1; -webkit-box-flex: 1; -ms-flex: 1 1 auto; flex: 1 1 auto; margin-bottom: 24px; }
 
-/* line 383, _src/scss/components/_boutons.scss */ .c-btn--secondaire, .c-btn-form--secondaire, .submit--secondaire { -webkit-box-ordinal-group: 3; -ms-flex-order: 2; order: 2; -webkit-box-flex: 1; -ms-flex: 1 1 auto; flex: 1 1 auto; }
+@media (min-width: 40em) { /* line 330, _src/scss/components/_boutons.scss */ .c-btn--primaire, .c-btn-form--primaire, .submit--primaire { -webkit-box-ordinal-group: 3; -ms-flex-order: 2; order: 2; -webkit-box-flex: 1; -ms-flex: 1 1 58%; flex: 1 1 58%; margin-bottom: 0; } }
 
-@media (min-width: 40em) { /* line 383, _src/scss/components/_boutons.scss */ .c-btn--secondaire, .c-btn-form--secondaire, .submit--secondaire { -webkit-box-ordinal-group: 2; -ms-flex-order: 1; order: 1; -webkit-box-flex: 1; -ms-flex: 1 1 30%; flex: 1 1 30%; margin-right: 48px; } }
+/* line 344, _src/scss/components/_boutons.scss */ .c-btn--secondaire, .c-btn-form--secondaire, .submit--secondaire { -webkit-box-ordinal-group: 3; -ms-flex-order: 2; order: 2; -webkit-box-flex: 1; -ms-flex: 1 1 auto; flex: 1 1 auto; }
 
-/* line 397, _src/scss/components/_boutons.scss */ .c-btn-form--secondaire .submit { width: 100%; }
+@media (min-width: 40em) { /* line 344, _src/scss/components/_boutons.scss */ .c-btn--secondaire, .c-btn-form--secondaire, .submit--secondaire { -webkit-box-ordinal-group: 2; -ms-flex-order: 1; order: 1; -webkit-box-flex: 1; -ms-flex: 1 1 30%; flex: 1 1 30%; margin-right: 48px; } }
+
+/* line 358, _src/scss/components/_boutons.scss */ .c-btn-form--secondaire .submit { width: 100%; }
 
 /* line 16, _src/scss/components/_formulaire_spip.scss */ .formulaire_spip form { border: 1px solid #000; margin-bottom: 24px; padding: 24px 24px 0; font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
@@ -2728,7 +2734,7 @@
 
 /* line 271, _src/scss/components/_commande.scss */ .c-commande-adresse__info .c-btn, .c-commande-adresse__info .c-btn-form button, .c-btn-form .c-commande-adresse__info button, .c-commande-adresse__info .boutons .submit, .boutons .c-commande-adresse__info .submit { margin-top: 6px; }
 
-/* line 277, _src/scss/components/_commande.scss */ .c-commande-actions { padding: 12px 0 24px; }
+/* line 281, _src/scss/components/_commande.scss */ .c-commande-actions { padding: 12px 0 24px; }
 
 /* line 6, _src/scss/components/_panier-mini.scss */ .c-panier-mini { position: fixed; top: 0; right: calc(calc(100vw - calc(24px * 3)) * -1); z-index: 200; height: 100%; width: calc(100vw - calc(24px * 3)); padding: 24px; visibility: hidden; background-color: #fff; -webkit-transition: visibility ease-in-out .5s, -webkit-transform ease-in-out 0.5s; transition: visibility ease-in-out .5s, -webkit-transform ease-in-out 0.5s; transition: transform ease-in-out 0.5s, visibility ease-in-out .5s; transition: transform ease-in-out 0.5s, visibility ease-in-out .5s, -webkit-transform ease-in-out 0.5s; }
 

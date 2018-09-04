@@ -23,10 +23,10 @@
 	<necessite nom="vpaniers_options" />
 	<necessite nom="vprofils" />
 	<necessite nom="vnumeros" />
+	<necessite nom="commandes" />
 	
 	<utilise nom="bank" />
 	<utilise nom="prix" />
-	<utilise nom="commandes" />
 	<utilise nom="paniers" />
     <utilise nom="a2a" compatibilite="[2.2.2;[" />
     <utilise nom="bellespuces" compatibilite="[0.1.7;[" />
