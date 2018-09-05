@@ -1,23 +1,10 @@
-#CACHE{0}
-<BOUCLE_commande(COMMANDES){id_commande=#ENV{id_commande}}{statut IN encours, poubelle}>
-	<BOUCLE_transaction(TRANSACTIONS){id_commande}>#SET{transaction, #ID_TRANSACTION}</BOUCLE_transaction>
-	[(#STATUT|=={encours}|oui)
-		[<section class="c-section c-commande-section c-commande-paiement">
-			(#FORMULAIRE_PAYER_ACTE{#PRIX*,
-				#ARRAY{
-					montant_ht, #PRIX_HT*,
-					id_commande, #ID_COMMANDE,
-					id_auteur, #ID_AUTEUR,
-					id_panier, #SESSION{id_panier}
-				}
-			})
-			[(#BOUTON_ACTION{<:vacarme:commande_bouton_annuler:>, 
-				#URL_ACTION_AUTEUR{abandonner_transaction, #GET{transaction}, #SELF},
-				c-commande-bouton__annuler c-btn-form c-btn-form--black c-btn-form--upper u-typo-font-vacarme})]
-		</section>]
-	][(#STATUT|=={poubelle}|oui)
-		<p class="c-message c-message--ok"><:vacarme:commande_message_annulation:>.</p>
-	]
-</BOUCLE_commande>
-	<p class="c-message c-message--erreur"><:vacarme:commande_inexistante:></p>
+<section class="c-section c-commande-section c-commande-paiement">
+	<BOUCLE_commande(COMMANDES){id_commande=#ENV{id_commande}}{statut IN encours, poubelle}>
+		<INCLURE{fond=inclure/commande/paiement-commande, id_commande, env}/>
+		<INCLURE{fond=inclure/commande/paiement-annuler, id_commande, env}/>
+	</BOUCLE_commande>
+	<div class="c-commande-articles est-vide">
+		<p class="c-message c-message--erreur"><:vacarme:commande_inexistante:></p>
+	</div>
+</section>
 <//B_commande>

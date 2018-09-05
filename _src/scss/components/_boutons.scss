@@ -349,7 +349,7 @@
 		
 		@include mq(tablet) {
 			order: 1;
-			flex: 1 1 30%;
+			flex: 0 1 30%;
 			margin-right: $spacing-unit-large;
 		}
 	}

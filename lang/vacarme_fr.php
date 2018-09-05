@@ -43,6 +43,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'commande_adresse_bouton_ajouter' => "Ajouter votre adresse postale",
 	'commande_bouton_annuler' => "Annuler votre commande",
 	'commande_bouton_payer' => "Payer votre commande",
+	'commande_contenu_titre' => "Articles commandés",
 	'commande_erreur_hash'       => "Aucune commande n'est disponible.",
 	'commande_erreur_adresse_inexistante' => "Votre adresse postale est manquante.",
 	'commande_inexistante'       => "Cette commande n'existe pas.",

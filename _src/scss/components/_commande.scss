@@ -281,3 +281,25 @@ c.commande-section {}
 .c-commande-actions {
 	padding: $spacing-unit-small 0 $spacing-unit;
 }
+
+
+//
+// c-commande-paiement
+// -------------------------------------
+
+.c-commande-paiement {
+	margin-top: $spacing-unit-large;
+}
+
+	// ----- c-commande-paiement__modes ----- //
+	
+	.c-commande-paiement__modes {
+		display: flex;
+		flex-direction: column;
+		
+		@include mq(tabletPlus) {
+			flex-direction: row;
+			justify-content: space-between;
+			margin: $spacing-unit-large 0;
+		}
+	}

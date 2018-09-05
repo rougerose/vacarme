@@ -1,5 +1,5 @@
 #CACHE{0}
-<BOUCLE_commande(COMMANDES){id_commande=#ENV{id_commande}}{statut IN encours, poubelle}>
+<BOUCLE_commande(COMMANDES){id_commande=#ENV{id_commande}}>
 	#SET{articles_offerts, #ARRAY}
 	#SET{articles_perso, #ARRAY}
 	#SET{id_adresse, ''}
@@ -38,10 +38,10 @@
 		[(#GET{articles_offerts}|oui) [(#GET{articles_perso}|non) [(#SET{valider, ' '})] ]]
 		[(#GET{valider}|oui)
 			<div class="c-btn-multiples c-commande-actions">
+				[<a href="(#SELF|parametre_url{etape, paiement})" class="c-btn c-btn--submit c-btn--round c-btn--primaire u-typo-font-vacarme c-btn--upper"><:vacarme:commande_bouton_payer:></a>]
 				[(#BOUTON_ACTION{<:vacarme:commande_bouton_annuler:>, 
 					#URL_ACTION_AUTEUR{abandonner_commande, #ID_COMMANDE, #SELF},
 					c-btn-form c-btn-form--secondaire c-btn-form--annuler c-btn-form--round c-btn-form--upper u-typo-font-vacarme})]
-				[<a href="(#SELF|parametre_url{etape, paiement})" class="c-btn c-btn--submit c-btn--round c-btn--primaire u-typo-font-vacarme c-btn--upper"><:vacarme:commande_bouton_payer:></a>]
 			</div>
 		][(#GET{valider}|non)
 			<p class="c-message c-message--erreur"><:vacarme:commande_erreur_adresse_inexistante:><br>[<a href="(#URL_PAGE{compte}|parametre_url{section, informations}|parametre_url{retour, #SELF})" class="c-btn c-btn--black c-btn--margin u-typo-font-vacarme u-typo-upper"><:vacarme:commande_adresse_bouton_ajouter:></a>]</p>

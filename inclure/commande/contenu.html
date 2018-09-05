@@ -1,16 +1,16 @@
 <BOUCLE_commande(COMMANDES){id_commande}>
 	<section class="c-section c-commande-section c-commande-articles">
-		<h2 class="c-section__titre--small c-commande-section__titre u-typo-font-vacarme">Articles commandés</h2>
+		<h2 class="c-section__titre--small c-commande-section__titre u-typo-font-vacarme"><:vacarme:commande_contenu_titre:></h2>
 		<div class="c-commande-articles">
 			<B_contenu_commande>
 				<ul class="o-list-bare c-commande__liste">
 					<BOUCLE_contenu_commande(COMMANDES_DETAILS){id_commande}>
 						[(#OBJET|=={rubrique}|oui)
-							#INCLURE{fond=inclure/commande/contenu-numero, id_commandes_detail}
+							<INCLURE{fond=inclure/commande/contenu-numero, id_commandes_detail}/>
 						][(#OBJET|=={abonnements_offre}|oui)
-							#INCLURE{fond=inclure/commande/contenu-abonnement, id_commandes_detail}
+							<INCLURE{fond=inclure/commande/contenu-abonnement, id_commandes_detail}/>
 						][(#OBJET|=={produit}|oui)
-							#INCLURE{fond=inclure/commande/contenu-cadeau, id_commandes_detail}
+							<INCLURE{fond=inclure/commande/contenu-cadeau, id_commandes_detail}/>
 						]
 					</BOUCLE_contenu_commande>
 				</ul>
