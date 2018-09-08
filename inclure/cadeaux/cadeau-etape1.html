@@ -2,7 +2,9 @@
 	<header class="c-cadeau-section__header">
 		<h2 class="c-cadeau-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:cadeau_etape_code_titre:></h2>
 	</header>
-	<div class="ajax">
-		[(#FORMULAIRE_VALIDER_CODE_CADEAU{#URL_PAGE{cadeau}|parametre_url{etape,2}})]
+	<div class="c-cadeau__content">
+		[<div class="ajax">
+			(#FORMULAIRE_VALIDER_CODE_CADEAU{#URL_PAGE{cadeau}|parametre_url{etape,2}})
+		</div>]
 	</div>
 </section>

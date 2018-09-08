@@ -273,8 +273,6 @@
 	}
 }
 
-
-
 .c-btn-form--achat-numero {
 	margin-top: $spacing-unit-tiny;
 	margin-bottom: $spacing-unit-tiny;
@@ -290,6 +288,11 @@
 	}
 }
 
+.c-btn-form--submit {
+	button {
+		@extend .c-btn--submit;
+	}
+}
 
 
 //

@@ -1,0 +1,35 @@
+#SET{data, #ARRAY} #SET{numeros, #ARRAY} #SET{surtitre, #ARRAY} #SET{logo, #ARRAY}
+<BOUCLE_epuise(RUBRIQUES){id_parent=115}{id_mot=108}{doublons}> </BOUCLE_epuise>
+<BOUCLE_derniers_numeros(RUBRIQUES){id_parent=115}{!par titre}{0,2}{doublons}>
+	[(#SET{numeros, #GET{numeros}|push{#ID_RUBRIQUE}})]
+</BOUCLE_derniers_numeros>
+<BOUCLE_numeros(RUBRIQUES){id_rubrique IN #GET{numeros}}{par titre}>
+	[(#SET{data, #GET{data}|plus{#ARRAY{#REFERENCE, #TITRE}}})]
+	[(#SET{surtitre, #GET{surtitre}|plus{#ARRAY{#REFERENCE, <:abonnement:{=info_numero_debut_rang_#COMPTEUR_BOUCLE}:>}}})]
+	[(#SET{logo, #GET{logo}|plus{#ARRAY{#REFERENCE, #LOGO_RUBRIQUE|extraire_attribut{src}}}})]
+	[(#COMPTEUR_BOUCLE|=={2}|oui)
+		[(#SET{prochain_reference, #REFERENCE|calculer_numero_futur_reference})]
+		[(#SET{prochain_titre, #REFERENCE|calculer_numero_futur_titre})]
+		[(#SET{data, #GET{data}|plus{#ARRAY{#GET{prochain_reference}, #GET{prochain_titre}}}})]
+		[(#SET{surtitre, #GET{surtitre}|plus{#ARRAY{#GET{prochain_reference}, <:abonnement:info_numero_debut_rang_3:>}}})]
+		[(#SET{logo, #GET{logo}|plus{#ARRAY{#GET{prochain_reference}, #CHEMIN{images/vacarme-couverture-prochain.jpg}}}})]
+	]
+</BOUCLE_numeros>
+
+<B_afficher_numeros>
+	<ul class="c-abonner-numeros">
+		<BOUCLE_afficher_numeros(DATA){source tableau, #GET{data}}>
+			<li class="c-card c-abonner-numero c-abonner-couleur c-abonner-couleur--bgc-abonnement">
+				<p class="c-abonner-numero__surtitre u-typo-font-vacarme u-typo-upper">#GET{surtitre/#CLE}</p>
+				[(#INCLURE{fond=inclure/logo/numero-abonnement, logo=#GET{logo/#CLE}, class='c-card__img'})]
+				<div class="c-card__body">
+					<h3 class="c-card__titre c-abonner-numero__titre u-typo-font-vacarme u-typo-upper">#VALEUR</h3>
+					[(#BOUTON_ACTION{Choisir ce numéro,
+						[(#URL_ACTION_AUTEUR{modifier_numero_debut, #VAL{abonnement/}|concat{#ID_ABONNEMENT}|concat{/}|concat{#CLE}, #URL_PAGE{cadeau}|parametre_url{etape, 4}})],
+						c-btn-form c-btn-form--white c-btn-form--upper u-typo-font-vacarme ajax})
+					]
+				</div>
+			</li>
+		</BOUCLE_afficher_numeros>
+	</ul>
+</B_afficher_numeros>

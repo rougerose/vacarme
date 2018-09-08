@@ -1,74 +1,29 @@
 <BOUCLE_auteur(AUTEURS){id_auteur=#SESSION{id_auteur}}{tout}>
-	<BOUCLE_abonnement(ABONNEMENTS){id_auteur}>
-	[(#SET{id_abonnement, #ID_ABONNEMENT})]
-	[(#SET{cle, #ID_AUTEUR|vabonnements_calcul_hash_abonnement{#ID_ABONNEMENT, #DATE}})]
-	</BOUCLE_abonnement>
-	<BOUCLE_condition_hash(CONDITION){si #GET{cle}|=={#ENV{cadeau_hash}}}>
-		#SET{numeros, #ARRAY}
-		<section class="c-cadeau-section">
-			<header class="c-cadeau-section__header">
-				<h2 class="c-cadeau-section__titre u-typo-font-vacarme u-typo-upper">3. <:vacarme:abonnement_etape_numero_titre:></h2>
-			</header>
-			<BOUCLE_epuise(RUBRIQUES){id_parent=115}{id_mot=108}{doublons}> </BOUCLE_epuise>
-			<BOUCLE_derniers_numeros(RUBRIQUES){id_parent=115}{!par titre}{0,2}{doublons}>
-				[(#SET{numeros, #GET{numeros}|push{#ID_RUBRIQUE}})]
-			</BOUCLE_derniers_numeros>
-
-			<ul class="c-abonner-numeros">
-				<BOUCLE_numeros(RUBRIQUES){id_rubrique IN #GET{numeros}}{par titre}>
-					<li class="c-card c-abonner-numero c-abonner-couleur c-abonner-couleur--bgc-abonnement">
-						<p class="c-abonner-numero__surtitre u-typo-font-vacarme u-typo-upper"><:vacarme:{=abonnement_numero_#COMPTEUR_BOUCLE}:></p>
-						[(#SET{logo, #LOGO_RUBRIQUE|extraire_attribut{src}})]
-						[(#INCLURE{fond=inclure/logo/abonnements-numero, logo=#GET{logo}, class=c-card__img})]
-						<div class="c-card__body">
-							<h3 class="c-card__titre c-abonner-numero__titre u-typo-font-vacarme u-typo-upper">#TITRE <small>[(#DATE_NUMERO|vacarme_saison_annee)]</small></h3>
-							<p><a href="#URL_RUBRIQUE" class="suite-lien"><:vacarme:sommaire_consulter:></a></p>
-							[(#REM)
-								<!-- 
-								Données attendues pour arg :
-								abonnement-id_abonnement-numero
-								-->
-							]
-							[(#SET{arg, 
-								#VAL{abonnement-}|concat{#GET{id_abonnement}}|concat{-#REFERENCE}})]
-
-							[(#BOUTON_ACTION{<:vacarme:choisir:>, 
-								#URL_ACTION_AUTEUR{ajouter_numero_abonnement, #GET{arg}, #URL_PAGE{cadeau}|parametre_url{etape, 4}},
-								c-btn-form c-btn-form--white c-btn-form--upper u-typo-font-vacarme ajax})]
-						</div>
-					</li>
-					[(#REM) <!-- La date, le titre et la référence du numéro actuel --> ]
-					[(#SET{numero_prochain, #ARRAY})]
-					[(#SET{numero_prochain, #GET{numero_prochain}|array_merge{#ARRAY{titre, #REFERENCE|calculer_numero_futur_titre}}})]
-					[(#SET{numero_prochain, #GET{numero_prochain}|array_merge{#ARRAY{reference, #REFERENCE|calculer_numero_futur_reference}}})]
-					[(#SET{numero_prochain, #GET{numero_prochain}|array_merge{#ARRAY{date, #DATE_NUMERO|calculer_numero_futur_date}}})]
-				</BOUCLE_numeros>
-				[(#REM) <!-- Le prochain numéro --> ]
-				<li class="c-card c-abonner-numero c-abonner-couleur c-abonner-couleur--bgc-abonnement">
-					<p class="c-abonner-numero__surtitre u-typo-font-vacarme u-typo-upper"><:vacarme:abonnement_numero_3:></p>
-					[(#SET{logo, #CHEMIN{images/vacarme-couverture-prochain.jpg}})]
-					[(#INCLURE{fond=inclure/logo/abonnements-numero, logo=#GET{logo}, class=c-card__img})]
-					<div class="c-card__body">
-						<h3 class="c-card__title c-abonner-numero__titre u-typo-font-vacarme u-typo-upper">[
-							(#GET{numero_prochain}|table_valeur{titre})] <small>[(#GET{numero_prochain}|table_valeur{date}|vacarme_saison_annee)]</small>
-						</h3>
-						<p>&nbsp;</p>
-						[(#REM)
-							<!-- 
-							Données attendues pour arg :
-							abonnement-id_abonnement-numero
-							-->
-						][(#SET{arg, 
-							#VAL{abonnement-}|concat{#GET{id_abonnement}}|concat{-#GET{numero_prochain}|table_valeur{reference}}})]
-						[(#BOUTON_ACTION{<:vacarme:choisir:>, 
-							#URL_ACTION_AUTEUR{ajouter_numero_abonnement, #GET{arg}, #URL_PAGE{cadeau}|parametre_url{etape, 4}},
-							c-btn-form c-btn-form--white c-btn-form--upper u-typo-font-vacarme ajax})]
+	<BOUCLE_abonnement(ABONNEMENTS){id_auteur}{id_abonnement=#ENV{id_abonnement}}>
+		[(#SET{cle, #ID_AUTEUR|vabonnements_calcul_hash_abonnement{#ID_ABONNEMENT, #DATE}})]
+		[(#SET{titre_numero_debut, #NUMERO_DEBUT|calculer_numero_futur_titre{0}})]
+		[(#GET{cle}|=={#ENV{cadeau_hash}}|oui)
+			<section class="c-cadeau-section">
+				<header class="c-cadeau-section__header">
+					<h2 class="c-cadeau-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:cadeau_etape_numero_titre:></h2>
+					<div class="c-cadeau__intro">
+						<p class="">Votre abonnement débute avec [<strong>(#GET{titre_numero_debut})</strong>].<br />Veuillez confirmer ce choix ou bien, si vous souhaitez le modifier, choisissez votre premier numéro parmi ceux présentés ci-dessous.</p>
+						[(#BOUTON_ACTION{[Confirmer votre abonnement à partir de (#GET{titre_numero_debut})],
+							[(#URL_ACTION_AUTEUR{modifier_numero_debut,
+							#VAL{abonnement/}|concat{#ID_ABONNEMENT}|concat{/}|concat{#NUMERO_DEBUT}, #URL_PAGE{cadeau}|parametre_url{etape, 4}})],
+							c-btn-form XXXc-btn-form--black c-btn-form--submit c-btn-form--upper u-typo-font-vacarme ajax})
+						]
 					</div>
-				</li>
-			</ul>
-		</section>
-	</BOUCLE_condition_hash>
-		<p class="c-message c-message--erreur"><:vacarme:cadeau_erreur_hash:></p>
-	<//B_condition_hash>
+				</header>
+				<div class="c-cadeau__content">
+					<INCLURE{fond=inclure/cadeaux/cadeau-etape3-numeros, id_abonnement, env} />
+				</div>
+			</section>
+		][(#GET{cle}|=={#ENV{cadeau_hash}}|non)
+			<div class="c-cadeau__content">
+				<p class="c-message c-message--erreur"><:vacarme:cadeau_erreur_hash:></p>
+			</div>
+		]
+	</BOUCLE_abonnement>
 </BOUCLE_auteur>
 #FILTRE{mini_html}

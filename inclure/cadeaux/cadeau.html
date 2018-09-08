@@ -5,18 +5,10 @@
 	<div class="o-layout__item">
 		<header class="c-cadeau-header">
 			<h1 class="c-cadeau-header__titre u-typo-font-vacarme u-typo-upper"><:vacarme:cadeau_titre_abonnement:></h1>
-			<!-- TODO: Mettre le bloc ci-dessous dans le fichier inclus, afin qu'il ne soit pas visible à l'étape 4 ? -->
-			<p class="c-cadeau-header__intro">
-				Pour bénéficier de l'abonnement à Vacarme qui vous a été offert, c'est ici et cela se déroule en 3 étapes : 
-				<ol>
-					<li>Validez votre code cadeau.</li>
-					<li>Confirmez votre compte abonné.</li>
-					<li>Choisissez le premier numéro de votre abonnement.</li>
-				</ol>
-			</p>
+			<p>progression</p>
 		</header>
 	</div>
 	<div class="o-layout__item">
-		[(#INCLURE{fond=inclure/cadeaux/cadeau-etape#GET{etape}, env})]
+		<INCLURE{fond=inclure/cadeaux/cadeau-etape#GET{etape}, env} />
 	</div>
 </div>
