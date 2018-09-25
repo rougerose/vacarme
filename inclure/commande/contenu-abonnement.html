@@ -25,7 +25,7 @@
 					[<h3 class="c-commande-article__intitule"><:vpaniers:abonnement_resume_label_abonnement:> (#GET{titre})[ / (#GET{numeros})]</h3>]
 					[<span>(#GET{prix})</span>]
 				</div>
-				[<p class="c-commande-article__designation"><span><:vpaniers:abonnement_resume_label_numero:></span> (#VALEUR{numero_debut}|calculer_numero_futur_titre{0})</p>]
+				[<p class="c-commande-article__designation"><span><:vpaniers:abonnement_resume_label_numero:></span> Vacarme (#VALEUR{numero_debut})</p>]
 				<p class="c-commande-article__designation">
 					<span><:vpaniers:abonnement_resume_label_cadeau:></span> [ (#VALEUR{cadeau}|?{#INFO_TITRE{produit, #VALEUR{cadeau}},<:vpaniers:abonnement_resume_cadeau_vide:>})]
 				</p>

@@ -8,8 +8,8 @@
 	[(#SET{surtitre, #GET{surtitre}|plus{#ARRAY{#REFERENCE, <:abonnement:{=info_numero_debut_rang_#COMPTEUR_BOUCLE}:>}}})]
 	[(#SET{logo, #GET{logo}|plus{#ARRAY{#REFERENCE, #LOGO_RUBRIQUE|extraire_attribut{src}}}})]
 	[(#COMPTEUR_BOUCLE|=={2}|oui)
-		[(#SET{prochain_reference, #REFERENCE|calculer_numero_futur_reference})]
-		[(#SET{prochain_titre, #REFERENCE|calculer_numero_futur_titre})]
+		[(#SET{prochain_reference, #REFERENCE|plus{1}})]
+		[(#SET{prochain_titre, #VAL{Vacarme }|concat{#GET{prochain_reference}}})]
 		[(#SET{data, #GET{data}|plus{#ARRAY{#GET{prochain_reference}, #GET{prochain_titre}}}})]
 		[(#SET{surtitre, #GET{surtitre}|plus{#ARRAY{#GET{prochain_reference}, <:abonnement:info_numero_debut_rang_3:>}}})]
 		[(#SET{logo, #GET{logo}|plus{#ARRAY{#GET{prochain_reference}, #CHEMIN{images/vacarme-couverture-prochain.jpg}}}})]
