@@ -1,6 +1,6 @@
 [(#SET{prix_ht, #ENV{id_commande}|prix_ht_objet{commande}})]
 <BOUCLE_transaction_annuler(TRANSACTIONS){id_commande}{statut=commande}{montant_ht=#GET{prix_ht}}>
 [(#BOUTON_ACTION{<:vacarme:commande_bouton_annuler:>, 
-	#URL_ACTION_AUTEUR{abandonner_transaction, #ID_TRANSACTION, #SELF},
-	c-btn-form xxc-btn-form--secondaire c-btn-form--annuler c-btn-form--round c-btn-form--upper u-typo-font-vacarme})]
+	#URL_ACTION_AUTEUR{abandonner_transaction, #ID_TRANSACTION, #SELF|parametre_url{resultat, annulation}},
+	c-btn-form c-btn-form--annuler c-btn-form--round c-btn-form--upper u-typo-font-vacarme})]
 </BOUCLE_transaction_annuler>

@@ -40,7 +40,7 @@
 			<div class="c-btn-multiples c-commande-actions">
 				[<a href="(#SELF|parametre_url{etape, paiement})" class="c-btn c-btn--submit c-btn--round c-btn--primaire u-typo-font-vacarme c-btn--upper"><:vacarme:commande_bouton_payer:></a>]
 				[(#BOUTON_ACTION{<:vacarme:commande_bouton_annuler:>, 
-					#URL_ACTION_AUTEUR{abandonner_commande, #ID_COMMANDE, #SELF},
+					#URL_ACTION_AUTEUR{abandonner_commande, #ID_COMMANDE, #SELF|parametre_url{resultat, annulation}},
 					c-btn-form c-btn-form--secondaire c-btn-form--annuler c-btn-form--round c-btn-form--upper u-typo-font-vacarme})]
 			</div>
 		][(#GET{valider}|non)
@@ -48,7 +48,10 @@
 		]
 	]
 </BOUCLE_commande>
-	<div class="c-commande-articles est-vide">
-		<p class="c-message c-message--erreur"><:vacarme:commande_inexistante:></p>
-	</div>
+	[<div class="c-commande-articles est-vide">
+		(#ENV{resultat}|=={annulation}|?{
+			<p class="c-message c-message--ok"><:vacarme:commande_message_annulation:></p>,
+			<p class="c-message c-message--erreur"><:vacarme:commande_inexistante:></p>
+		})
+	</div>]
 <//B_commande>
