@@ -2846,6 +2846,8 @@
   /* line 96, _src/scss/components/_compte.scss */ .c-compte-identification__section:nth-of-type(2) { border-top: none; margin-left: 10%; padding-top: 24px; }
   /* line 101, _src/scss/components/_compte.scss */ .c-compte-identification__section:nth-of-type(2):before { position: absolute; top: 0; left: 50%; height: 100%; border-left: 1px solid #e0e0e0; content: ''; } }
 
+/* line 121, _src/scss/components/_compte.scss */ .c-compte__mentions { font-size: 15px; font-size: 0.9375rem; line-height: 1.4; }
+
 /* line 11, _src/scss/components/_progression.scss */ .c-progression { margin-bottom: 36px; }
 
 /* line 18, _src/scss/components/_progression.scss */ .c-progression__liste { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; list-style: none; margin: 0; font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase; }
