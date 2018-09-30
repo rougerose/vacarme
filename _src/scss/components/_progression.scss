@@ -2,14 +2,12 @@
 // c-progression
 // =====================================
 
-//
-// WARNING: barre de progression adaptée pour deux éléments (largeur 50%)
-// Il faudra modifier pour d'autres situations que le formulaire d'abonnement.
-//
-
-
 .c-progression {
-	margin-bottom: $spacing-unit + $spacing-unit-small;
+	margin: $spacing-unit + $spacing-unit-small 0;
+	
+	@include mq(tablet) {
+		margin-bottom: $spacing-unit + $spacing-unit-small;
+	}
 }
 
 
@@ -59,28 +57,17 @@
 				background-color: $color-white;
 			}
 			
-			&.est-actuel,
-			&.est-passe {
+			&.est-actuel {
 				&:after {
-					border-width: 2px;
 					border-color: $color-orange-500;
-					transform: scale3d(1.3, 1.3, 1);
-				}
-			}
-			
-			&.est-passe {
-				&:before {
 					background-color: $color-orange-500;
-				}
-				
-				&:after {
-					transform: scale3d(1,1,1);
+					transform: scale3d(1.3, 1.3, 1);
 				}
 			}
 			
 			@include mq(tablet) {
 				height: auto;
-				width: 50%; // WARNING: uniquement pour 2 éléments 
+				width: 50%;
 				text-align: center;
 				
 				&:not(:last-child) {
@@ -114,8 +101,7 @@
 				white-space: nowrap;
 				color: $color-gray-400;
 				
-				.est-actuel &,
-				.est-passe & {
+				.est-actuel & {
 					color: $color-orange-500;
 				}
 				

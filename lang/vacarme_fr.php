@@ -54,6 +54,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'commande_message_adresse_articles_perso' => "Les articles qui vous sont destinés seront expédiés ",
 	'commande_message_adresse_article_offert' => "L’abonnement offert sera expédié à l'adresse du bénéficiaire",
 	'commande_message_adresse_articles_offerts' => "Les abonnements offerts seront expédiés à l'adresse du/des bénéficiaire/s",
+	'commande_page_paiement_titre' => "Votre paiement",
 	'commande_page_titre' => "Votre commande",
 	'commande_recapitulatif_titre' => "Rappel de votre commande",
 	

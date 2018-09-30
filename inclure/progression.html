@@ -1,0 +1,11 @@
+<B_etapes>
+	<nav class="c-progression">
+		<ol class="c-progression__liste">
+			<BOUCLE_etapes(DATA){source tableau, #ENV{progression_etapes}}>
+				<li class="c-progression__liste-item[(#ENV{progression_etape}|=={#COMPTEUR_BOUCLE}|oui) est-actuel][(#COMPTEUR_BOUCLE|<{#ENV{progression_etape}}|oui) est-passe]">
+					<span class="c-progression__item">#VALEUR</span>
+				</li>
+			</BOUCLE_etapes>
+		</ol>
+	</nav>
+</B_etapes>

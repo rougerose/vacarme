@@ -2866,34 +2866,32 @@
 
 /* line 156, _src/scss/components/_compte.scss */ .c-compte-commande__info { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
 
-/* line 11, _src/scss/components/_progression.scss */ .c-progression { margin-bottom: 36px; }
+/* line 5, _src/scss/components/_progression.scss */ .c-progression { margin: 36px 0; }
 
-/* line 18, _src/scss/components/_progression.scss */ .c-progression__liste { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; list-style: none; margin: 0; font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase; }
+@media (min-width: 40em) { /* line 5, _src/scss/components/_progression.scss */ .c-progression { margin-bottom: 36px; } }
 
-@media (min-width: 40em) { /* line 18, _src/scss/components/_progression.scss */ .c-progression__liste { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; } }
+/* line 16, _src/scss/components/_progression.scss */ .c-progression__liste { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; list-style: none; margin: 0; font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform: uppercase; }
 
-/* line 33, _src/scss/components/_progression.scss */ .c-progression__liste-item { position: relative; height: 3em; }
+@media (min-width: 40em) { /* line 16, _src/scss/components/_progression.scss */ .c-progression__liste { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; } }
 
-/* line 39, _src/scss/components/_progression.scss */ .c-progression__liste-item:not(:last-child):before { position: absolute; left: 8px; top: calc(3em - 27px); height: 3em; width: 2px; content: ''; background-color: #e0e0e0; }
+/* line 31, _src/scss/components/_progression.scss */ .c-progression__liste-item { position: relative; height: 3em; }
 
-/* line 50, _src/scss/components/_progression.scss */ .c-progression__liste-item:after { border: 2px solid #e0e0e0; border-radius: 50%; position: absolute; left: 0; top: calc(50% - 12px); height: 18px; width: 18px; content: ''; background-color: #fff; }
+/* line 37, _src/scss/components/_progression.scss */ .c-progression__liste-item:not(:last-child):before { position: absolute; left: 8px; top: calc(3em - 27px); height: 3em; width: 2px; content: ''; background-color: #e0e0e0; }
 
-/* line 64, _src/scss/components/_progression.scss */ .c-progression__liste-item.est-actuel:after, .c-progression__liste-item.est-passe:after { border-width: 2px; border-color: #ff9800; -webkit-transform: scale3d(1.3, 1.3, 1); transform: scale3d(1.3, 1.3, 1); }
+/* line 48, _src/scss/components/_progression.scss */ .c-progression__liste-item:after { border: 2px solid #e0e0e0; border-radius: 50%; position: absolute; left: 0; top: calc(50% - 12px); height: 18px; width: 18px; content: ''; background-color: #fff; }
 
-/* line 72, _src/scss/components/_progression.scss */ .c-progression__liste-item.est-passe:before { background-color: #ff9800; }
+/* line 61, _src/scss/components/_progression.scss */ .c-progression__liste-item.est-actuel:after { border-color: #ff9800; background-color: #ff9800; -webkit-transform: scale3d(1.3, 1.3, 1); transform: scale3d(1.3, 1.3, 1); }
 
-/* line 76, _src/scss/components/_progression.scss */ .c-progression__liste-item.est-passe:after { -webkit-transform: scale3d(1, 1, 1); transform: scale3d(1, 1, 1); }
+@media (min-width: 40em) { /* line 31, _src/scss/components/_progression.scss */ .c-progression__liste-item { height: auto; width: 50%; text-align: center; }
+  /* line 73, _src/scss/components/_progression.scss */ .c-progression__liste-item:not(:last-child) { margin-right: 100px; }
+  /* line 76, _src/scss/components/_progression.scss */ .c-progression__liste-item:not(:last-child):before { top: auto; left: 50%; bottom: 8px; height: 2px; width: calc(100% + 100px); }
+  /* line 85, _src/scss/components/_progression.scss */ .c-progression__liste-item:after { left: 50%; top: auto; bottom: 0; -webkit-transform: translateX(-50%); transform: translateX(-50%); } }
 
-@media (min-width: 40em) { /* line 33, _src/scss/components/_progression.scss */ .c-progression__liste-item { height: auto; width: 50%; text-align: center; }
-  /* line 86, _src/scss/components/_progression.scss */ .c-progression__liste-item:not(:last-child) { margin-right: 100px; }
-  /* line 89, _src/scss/components/_progression.scss */ .c-progression__liste-item:not(:last-child):before { top: auto; left: 50%; bottom: 8px; height: 2px; width: calc(100% + 100px); }
-  /* line 98, _src/scss/components/_progression.scss */ .c-progression__liste-item:after { left: 50%; top: auto; bottom: 0; -webkit-transform: translateX(-50%); transform: translateX(-50%); } }
+/* line 97, _src/scss/components/_progression.scss */ .c-progression__item { padding-left: 30px; display: block; line-height: 3em; white-space: nowrap; color: #bdbdbd; }
 
-/* line 110, _src/scss/components/_progression.scss */ .c-progression__item { padding-left: 30px; display: block; line-height: 3em; white-space: nowrap; color: #bdbdbd; }
+/* line 104, _src/scss/components/_progression.scss */ .est-actuel .c-progression__item { color: #ff9800; }
 
-/* line 117, _src/scss/components/_progression.scss */ .est-actuel .c-progression__item, .est-passe .c-progression__item { color: #ff9800; }
-
-@media (min-width: 40em) { /* line 110, _src/scss/components/_progression.scss */ .c-progression__item { padding-left: 0; padding-bottom: 12px; } }
+@media (min-width: 40em) { /* line 97, _src/scss/components/_progression.scss */ .c-progression__item { padding-left: 0; padding-bottom: 12px; } }
 
 /* line 9, _src/scss/components/_numeros.scss */ .c-numeros__liste { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin-left: auto; margin-right: auto; padding-top: 24px; width: 85%; }
 
