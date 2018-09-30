@@ -1,0 +1,29 @@
+<BOUCLE_facture_detail_abonnement(COMMANDES_DETAILS){id_commandes_detail}>
+	[(#SET{options, #OPTIONS|vpaniers_options_expliquer_options})]
+	<BOUCLE_abonnement(ABONNEMENTS_OFFRES){id_abonnements_offre=#ID_OBJET}>
+		[(#SET{titre, #TITRE})]
+		[(#SET{numeros, #DUREE|numeros_nombre_en_clair})]
+		[(#SET{duree_nb, #DUREE|numeros_nombre})]
+		[(#SET{prix_abonnement, #PRIX})]
+	</BOUCLE_abonnement>
+	<BOUCLE_data(DATA){source tableau, #GET{options}}>
+		[(#SET{prix, [(#VALEUR{prix_souscripteur}|?{
+			[(#VALEUR{prix_souscripteur}|prix_formater)],
+			[(#GET{prix_abonnement})]})] 
+		})]
+		<tr>
+			<td class="descriptif">
+				[Abonnement (#GET{titre})[ / (#GET{numeros})]]
+				[<br/>(#VALEUR{nom_inscription}|oui)
+					<:vpaniers:abonnement_resume_label_beneficiaire:>[ (#VALEUR{prenom})][ (#VALEUR{nom_inscription})]
+				]
+			</td>
+			<td class="quantite[ (#QUANTITE*|>{0}|non)null]">[(#QUANTITE)]</td>
+			<td class="prix_unitaire">[(#PRIX_HT*{#OBJET,#ID_OBJET}|prix_formater)]</td>
+			[(#ENV{afficher_reduction}|oui)
+			<td class="reduction">[(#REDUCTION|commandes_afficher_reduction_si)]</td>]
+			<td class="taxe[ (#TAXE*|floatval|>{0.0}|non)null]">[(#TAXE*|mult{100}|number_format{1})%]</td>
+			<td class="montant">[(#PRIX_HT*{#OBJET,#ID_OBJET}|mult{#QUANTITE}|prix_formater)]</td>
+		</tr>
+	</BOUCLE_data>
+</BOUCLE_facture_detail_abonnement>

@@ -121,3 +121,43 @@
 .c-compte__mentions {
 	@include inuit-font-size(15px, 1.4);
 }
+
+
+//
+// c-compte-commande
+// -------------------------------------
+
+.c-compte-commande {
+	display: flex;
+	flex-direction: column;
+	
+	@include mq(tablet) {
+		flex-direction: row;
+	}
+}
+
+	// ----- c-compte-commande__articles ----- //
+	.c-compte-commande__articles {
+		@include mq(tablet) {
+			flex: 1 1 70%;
+			padding-right: $spacing-unit-large;
+		}
+	}
+	
+	
+	// ----- c-compte-commande__paiement ----- //
+	.c-compte-commande__paiement {
+		@include mq(tablet) {
+			flex: 1 1 30%;
+		}
+	}
+	
+	
+	.c-compte-commande__info {
+		display: flex;
+		justify-content: space-between;
+	}
+	
+	.c-compte-commande__intitule {}
+	
+	.c-compte-commande__mode-paiement {}

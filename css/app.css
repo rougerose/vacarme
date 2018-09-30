@@ -412,45 +412,45 @@
 /*=============================
 =            table            =
 =============================*/
-/* line 5, _src/scss/elements/_table.scss */ .table { display: table; margin-left: -24px; }
+/* line 5, _src/scss/elements/deprecie/_table.scss */ .table { display: table; margin-left: -24px; }
 
-/* line 10, _src/scss/elements/_table.scss */ .table-100 { width: 100%; }
+/* line 10, _src/scss/elements/deprecie/_table.scss */ .table-100 { width: 100%; }
 
-/* line 13, _src/scss/elements/_table.scss */ .table--row { display: table-row; }
+/* line 13, _src/scss/elements/deprecie/_table.scss */ .table--row { display: table-row; }
 
-/* line 16, _src/scss/elements/_table.scss */ .table--cell { display: table-cell; padding-left: 24px; vertical-align: top; }
+/* line 16, _src/scss/elements/deprecie/_table.scss */ .table--cell { display: table-cell; padding-left: 24px; vertical-align: top; }
 
 /*==========  table--cell size  ==========*/
-/* line 23, _src/scss/elements/_table.scss */ .table--cell-25 { width: 25%; }
+/* line 23, _src/scss/elements/deprecie/_table.scss */ .table--cell-25 { width: 25%; }
 
-/* line 26, _src/scss/elements/_table.scss */ .table--cell-37 { width: 37.5%; }
+/* line 26, _src/scss/elements/deprecie/_table.scss */ .table--cell-37 { width: 37.5%; }
 
-/* line 29, _src/scss/elements/_table.scss */ .table--cell-50 { width: 50%; }
+/* line 29, _src/scss/elements/deprecie/_table.scss */ .table--cell-50 { width: 50%; }
 
-/* line 32, _src/scss/elements/_table.scss */ .table--cell-75 { width: 75%; }
+/* line 32, _src/scss/elements/deprecie/_table.scss */ .table--cell-75 { width: 75%; }
 
-@media only screen and (min-width: 481px) { /* line 37, _src/scss/elements/_table.scss */ .lap-and-up-table { display: table; margin-left: -24px; }
-  /* line 40, _src/scss/elements/_table.scss */ .lap-and-up-table > .lap-and-up-table--row { display: table-row; }
-  /* line 44, _src/scss/elements/_table.scss */ .lap-and-up-table-100 { width: 100%; }
-  /* line 47, _src/scss/elements/_table.scss */ .lap-and-up-table--cell { display: table-cell; padding-left: 24px; vertical-align: bottom; }
-  /* line 52, _src/scss/elements/_table.scss */ .lap-and-up-table--cell-25 { width: 25%; }
-  /* line 55, _src/scss/elements/_table.scss */ .lap-and-up-table--cell-50 { width: 50%; }
-  /* line 58, _src/scss/elements/_table.scss */ .lap-and-up-table--cell-75 { width: 75%; } }
+@media only screen and (min-width: 481px) { /* line 37, _src/scss/elements/deprecie/_table.scss */ .lap-and-up-table { display: table; margin-left: -24px; }
+  /* line 40, _src/scss/elements/deprecie/_table.scss */ .lap-and-up-table > .lap-and-up-table--row { display: table-row; }
+  /* line 44, _src/scss/elements/deprecie/_table.scss */ .lap-and-up-table-100 { width: 100%; }
+  /* line 47, _src/scss/elements/deprecie/_table.scss */ .lap-and-up-table--cell { display: table-cell; padding-left: 24px; vertical-align: bottom; }
+  /* line 52, _src/scss/elements/deprecie/_table.scss */ .lap-and-up-table--cell-25 { width: 25%; }
+  /* line 55, _src/scss/elements/deprecie/_table.scss */ .lap-and-up-table--cell-50 { width: 50%; }
+  /* line 58, _src/scss/elements/deprecie/_table.scss */ .lap-and-up-table--cell-75 { width: 75%; } }
 
 /*==========  tableaux spip  ==========*/
-/* line 64, _src/scss/elements/_table.scss */ table.spip { font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; max-width: 100%; }
+/* line 64, _src/scss/elements/deprecie/_table.scss */ table.spip { font-family: "HelveticaNeueCd", "Helvetica Neue", Helvetica, Arial, sans-serif; max-width: 100%; }
 
-/* line 69, _src/scss/elements/_table.scss */ table.spip th { color: #000; font-weight: normal; }
+/* line 69, _src/scss/elements/deprecie/_table.scss */ table.spip th { color: #000; font-weight: normal; }
 
-/* line 73, _src/scss/elements/_table.scss */ table.spip td { color: #666; }
+/* line 73, _src/scss/elements/deprecie/_table.scss */ table.spip td { color: #666; }
 
-/* line 76, _src/scss/elements/_table.scss */ table.spip th, table.spip td { border-color: #ddd; border-width: 1px 0 0; }
+/* line 76, _src/scss/elements/deprecie/_table.scss */ table.spip th, table.spip td { border-color: #ddd; border-width: 1px 0 0; }
 
-/* line 81, _src/scss/elements/_table.scss */ table.spip tr:last-child th, table.spip tr:last-child td { border-bottom-width: 1px; }
+/* line 81, _src/scss/elements/deprecie/_table.scss */ table.spip tr:last-child th, table.spip tr:last-child td { border-bottom-width: 1px; }
 
-/* line 85, _src/scss/elements/_table.scss */ table.spip tbody tr:nth-of-type(odd), table.spip .row_odd { background: #f9f9f9; }
+/* line 85, _src/scss/elements/deprecie/_table.scss */ table.spip tbody tr:nth-of-type(odd), table.spip .row_odd { background: #f9f9f9; }
 
-/* line 89, _src/scss/elements/_table.scss */ table.spip caption { color: #999; margin-bottom: 1em; text-transform: uppercase; }
+/* line 89, _src/scss/elements/deprecie/_table.scss */ table.spip caption { color: #999; margin-bottom: 1em; text-transform: uppercase; }
 
 /*-----  End of table  ------*/
 /* ========================================================================== form ========================================================================== */
@@ -585,6 +585,8 @@
 /* line 1, _src/scss/elements/_blockquote.scss */ blockquote { quotes: none; text-indent: -0.41em; }
 
 /* line 5, _src/scss/elements/_blockquote.scss */ blockquote p:last-of-type { margin-bottom: 0; }
+
+/* line 5, _src/scss/elements/_table.scss */ table { width: 100%; }
 
 /*------------------------------------*\ $GRIDS \*------------------------------------*/
 /** Fluid and nestable grid system, e.g.: <div class="grid"> <div class="grid__item  one-third"> <p>One third grid</p> </div><!-- --><div class="grid__item  two-thirds"> <p>Two thirds grid</p> </div><!-- --><div class="grid__item  one-half"> <p>One half grid</p> </div><!-- --><div class="grid__item  one-quarter"> <p>One quarter grid</p> </div><!-- --><div class="grid__item  one-quarter"> <p>One quarter grid</p> </div> </div> Demo: jsfiddle.net/inuitcss/CLYUC */
@@ -2526,7 +2528,7 @@
 @media (min-width: 40em) { /* line 231, _src/scss/components/_formulaire_abonnement.scss */ .fa__choix--medium { -webkit-box-flex: 0; -ms-flex: 0 1 49%; flex: 0 1 49%; }
   /* line 235, _src/scss/components/_formulaire_abonnement.scss */ .fa__choix--small { -webkit-box-flex: 0; -ms-flex: 0 1 31%; flex: 0 1 31%; } }
 
-/* line 6, _src/scss/components/_lien.scss */ .c-lien { border-bottom: 1px dotted #000; color: #000; font-style: italic; }
+/* line 6, _src/scss/components/_lien.scss */ .c-lien { border-bottom: 1px dotted #00bdd6; color: #000; font-style: italic; }
 
 /* line 11, _src/scss/components/_lien.scss */ .c-lien em { color: currentColor; font-style: normal; -webkit-transition: all 0.35s ease-out; transition: all 0.35s ease-out; }
 
@@ -2563,6 +2565,12 @@
 @media (max-width: 63.99em) { /* line 103, _src/scss/components/_pagination.scss */ .c-pagination--numeros .c-pagination__item { display: none; } }
 
 /* line 109, _src/scss/components/_pagination.scss */ .c-pagination--numeros .c-pagination__item--prev, .c-pagination--numeros .c-pagination__item--next { display: inline-block; }
+
+/* line 12, _src/scss/components/_table.scss */ .c-table__head { font-weight: bold; }
+
+/* line 15, _src/scss/components/_table.scss */ .c-table__head > tr { border-bottom: 1px solid #000; }
+
+/* line 26, _src/scss/components/_table.scss */ .c-table__body > tr { border-bottom: 1px solid #e0e0e0; }
 
 /* line 5, _src/scss/components/_card.scss */ .c-card { margin-bottom: 24px; padding: 12px; color: #000; -webkit-box-shadow: -1px 0 2px 0 rgba(0, 0, 0, 0.12), 1px 0 2px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); box-shadow: -1px 0 2px 0 rgba(0, 0, 0, 0.12), 1px 0 2px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); -webkit-transform: translate(0, 0); transform: translate(0, 0); -webkit-transition: -webkit-transform 0.15s cubic-bezier(0.33, 0.66, 0.66, 1); transition: -webkit-transform 0.15s cubic-bezier(0.33, 0.66, 0.66, 1); transition: transform 0.15s cubic-bezier(0.33, 0.66, 0.66, 1); transition: transform 0.15s cubic-bezier(0.33, 0.66, 0.66, 1), -webkit-transform 0.15s cubic-bezier(0.33, 0.66, 0.66, 1); }
 
@@ -2673,76 +2681,76 @@
 
 /* line 54, _src/scss/components/_commande.scss */ .c-commande__liste { padding-bottom: 12px; margin-bottom: 0; }
 
-/* line 65, _src/scss/components/_commande.scss */ .c-commande-article { border-top: 1px solid #e0e0e0; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding: 24px 0; width: 100%; }
+/* line 64, _src/scss/components/_commande.scss */ .c-commande-article { border-top: 1px solid #e0e0e0; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-align: center; -ms-flex-align: center; align-items: center; padding: 24px 0; width: 100%; }
 
-/* line 74, _src/scss/components/_commande.scss */ .c-commande-article:first-child { border-top: none; }
+/* line 72, _src/scss/components/_commande.scss */ .c-commande-article:first-child { border-top: none; }
 
-@media (min-width: 40em) { /* line 65, _src/scss/components/_commande.scss */ .c-commande-article { padding: 24px 12px; } }
+@media (min-width: 40em) { /* line 64, _src/scss/components/_commande.scss */ .c-commande-article { padding: 24px 12px; } }
 
-/* line 86, _src/scss/components/_commande.scss */ .c-commande-article__img { -ms-flex-item-align: start; align-self: flex-start; width: 35%; padding-right: 12px; }
+/* line 84, _src/scss/components/_commande.scss */ .c-commande-article__img { -ms-flex-item-align: start; align-self: flex-start; width: 35%; padding-right: 12px; }
 
-@media (min-width: 64em) { /* line 86, _src/scss/components/_commande.scss */ .c-commande-article__img { padding-right: 24px; width: 200px; } }
+@media (min-width: 64em) { /* line 84, _src/scss/components/_commande.scss */ .c-commande-article__img { padding-right: 24px; width: 200px; } }
 
-/* line 100, _src/scss/components/_commande.scss */ .c-commande-article__descriptif { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; }
+/* line 98, _src/scss/components/_commande.scss */ .c-commande-article__descriptif { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; }
 
-/* line 108, _src/scss/components/_commande.scss */ .c-commande-article__titre { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin-bottom: 12px; }
+/* line 105, _src/scss/components/_commande.scss */ .c-commande-article__titre { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin-bottom: 12px; }
 
-/* line 117, _src/scss/components/_commande.scss */ .c-commande-article__intitule { margin-bottom: 0; margin-right: 12px; }
+/* line 114, _src/scss/components/_commande.scss */ .c-commande-article__intitule { margin-bottom: 0; margin-right: 12px; }
 
-/* line 121, _src/scss/components/_commande.scss */ .c-commande-article__intitule, .c-commande-article__intitule + span { font-size: 16px; font-size: 1rem; line-height: 1.2; font-weight: bold; }
+/* line 118, _src/scss/components/_commande.scss */ .c-commande-article__intitule, .c-commande-article__intitule + span { font-size: 16px; font-size: 1rem; line-height: 1.2; font-weight: bold; }
 
-@media (min-width: 40em) { /* line 128, _src/scss/components/_commande.scss */ .c-commande-article__intitule, .c-commande-article__intitule + span { font-size: 18px; font-size: 1.125rem; } }
+@media (min-width: 40em) { /* line 125, _src/scss/components/_commande.scss */ .c-commande-article__intitule, .c-commande-article__intitule + span { font-size: 18px; font-size: 1.125rem; } }
 
-/* line 138, _src/scss/components/_commande.scss */ .c-commande-article__designation { margin-bottom: 6px; font-size: 15px; font-size: 0.9375rem; line-height: 1.2; }
+/* line 135, _src/scss/components/_commande.scss */ .c-commande-article__designation { margin-bottom: 6px; font-size: 15px; font-size: 0.9375rem; line-height: 1.2; }
 
-/* line 142, _src/scss/components/_commande.scss */ .c-commande-article__designation > span:first-child { font-style: italic; }
+/* line 139, _src/scss/components/_commande.scss */ .c-commande-article__designation > span:first-child { font-style: italic; }
 
-@media (min-width: 40em) { /* line 138, _src/scss/components/_commande.scss */ .c-commande-article__designation { font-size: 16px; font-size: 1rem; } }
+@media (min-width: 40em) { /* line 135, _src/scss/components/_commande.scss */ .c-commande-article__designation { font-size: 16px; font-size: 1rem; } }
 
-/* line 154, _src/scss/components/_commande.scss */ .c-commande-article__quantite-modifier { display: -webkit-box; display: -ms-flexbox; display: flex; margin: 12px 0; }
+/* line 151, _src/scss/components/_commande.scss */ .c-commande-article__quantite-modifier { display: -webkit-box; display: -ms-flexbox; display: flex; margin: 12px 0; }
 
-/* line 162, _src/scss/components/_commande.scss */ .c-commande-article__quantite { display: inline-block; }
+/* line 159, _src/scss/components/_commande.scss */ .c-commande-article__quantite { display: inline-block; }
 
-/* line 165, _src/scss/components/_commande.scss */ .c-commande-article__quantite > span { font-style: italic; }
+/* line 162, _src/scss/components/_commande.scss */ .c-commande-article__quantite > span { font-style: italic; }
 
-/* line 169, _src/scss/components/_commande.scss */ form + .c-commande-article__quantite { margin: 0 12px; }
+/* line 166, _src/scss/components/_commande.scss */ form + .c-commande-article__quantite { margin: 0 12px; }
 
-/* line 179, _src/scss/components/_commande.scss */ .c-commande-total { border-top: 1px solid #000; padding-top: 6px; }
+/* line 176, _src/scss/components/_commande.scss */ .c-commande-total { border-top: 1px solid #000; padding-top: 6px; }
 
-/* line 187, _src/scss/components/_commande.scss */ .c-commande-total__item { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin-bottom: 6px; font-size: 18px; font-size: 1.125rem; line-height: 1.33333; font-weight: bold; }
+/* line 184, _src/scss/components/_commande.scss */ .c-commande-total__item { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin-bottom: 6px; font-size: 18px; font-size: 1.125rem; line-height: 1.33333; font-weight: bold; }
 
-/* line 194, _src/scss/components/_commande.scss */ .c-commande-total__item--total { font-size: 22px; font-size: 1.375rem; line-height: 1.36364; }
+/* line 191, _src/scss/components/_commande.scss */ .c-commande-total__item--total { font-size: 22px; font-size: 1.375rem; line-height: 1.36364; }
 
-/* line 198, _src/scss/components/_commande.scss */ .c-commande-total__item--tva { -ms-flex-line-pack: end; align-content: flex-end; color: #9e9e9e; font-size: 16px; font-size: 1rem; line-height: 1.5; font-weight: normal; }
+/* line 195, _src/scss/components/_commande.scss */ .c-commande-total__item--tva { -ms-flex-line-pack: end; align-content: flex-end; color: #9e9e9e; font-size: 16px; font-size: 1rem; line-height: 1.5; font-weight: normal; }
 
-/* line 212, _src/scss/components/_commande.scss */ .c-commande-identification { border-top: 1px solid #000; padding: 48px 0 24px; }
+/* line 209, _src/scss/components/_commande.scss */ .c-commande-identification { border-top: 1px solid #000; padding: 48px 0 24px; }
 
-@media (min-width: 40em) { /* line 212, _src/scss/components/_commande.scss */ .c-commande-identification { padding: 48px 0; } }
+@media (min-width: 40em) { /* line 209, _src/scss/components/_commande.scss */ .c-commande-identification { padding: 48px 0; } }
 
-/* line 224, _src/scss/components/_commande.scss */ .c-commande-identification__titre { font-size: 18px; font-size: 1.125rem; line-height: 1.2; text-align: center; }
+/* line 221, _src/scss/components/_commande.scss */ .c-commande-identification__titre { font-size: 18px; font-size: 1.125rem; line-height: 1.2; text-align: center; }
 
-@media (min-width: 40em) { /* line 224, _src/scss/components/_commande.scss */ .c-commande-identification__titre { font-size: 20px; font-size: 1.25rem; } }
+@media (min-width: 40em) { /* line 221, _src/scss/components/_commande.scss */ .c-commande-identification__titre { font-size: 20px; font-size: 1.25rem; } }
 
-/* line 235, _src/scss/components/_commande.scss */ .c-commande-identification__actions { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+/* line 232, _src/scss/components/_commande.scss */ .c-commande-identification__actions { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
 
-/* line 239, _src/scss/components/_commande.scss */ .c-commande-identification__actions > a { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; margin-bottom: 24px; }
+/* line 236, _src/scss/components/_commande.scss */ .c-commande-identification__actions > a { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; margin-bottom: 24px; }
 
-@media (min-width: 40em) { /* line 235, _src/scss/components/_commande.scss */ .c-commande-identification__actions { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
-  /* line 248, _src/scss/components/_commande.scss */ .c-commande-identification__actions > a { -webkit-box-flex: 0; -ms-flex: 0 0 48%; flex: 0 0 48%; margin-bottom: 0; } }
+@media (min-width: 40em) { /* line 232, _src/scss/components/_commande.scss */ .c-commande-identification__actions { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
+  /* line 245, _src/scss/components/_commande.scss */ .c-commande-identification__actions > a { -webkit-box-flex: 0; -ms-flex: 0 0 48%; flex: 0 0 48%; margin-bottom: 0; } }
 
-/* line 260, _src/scss/components/_commande.scss */ .c-commande-adresse { margin: 48px 0; }
+/* line 257, _src/scss/components/_commande.scss */ .c-commande-adresse { margin: 48px 0; }
 
-/* line 267, _src/scss/components/_commande.scss */ .c-commande-adresse__info { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+/* line 264, _src/scss/components/_commande.scss */ .c-commande-adresse__info { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
 
-/* line 271, _src/scss/components/_commande.scss */ .c-commande-adresse__info .c-btn, .c-commande-adresse__info .c-btn-form button, .c-btn-form .c-commande-adresse__info button, .c-commande-adresse__info .boutons .submit, .boutons .c-commande-adresse__info .submit { margin-top: 6px; }
+/* line 268, _src/scss/components/_commande.scss */ .c-commande-adresse__info .c-btn, .c-commande-adresse__info .c-btn-form button, .c-btn-form .c-commande-adresse__info button, .c-commande-adresse__info .boutons .submit, .boutons .c-commande-adresse__info .submit { margin-top: 6px; }
 
-/* line 281, _src/scss/components/_commande.scss */ .c-commande-actions { padding: 12px 0 24px; }
+/* line 278, _src/scss/components/_commande.scss */ .c-commande-actions { padding: 12px 0 24px; }
 
-/* line 290, _src/scss/components/_commande.scss */ .c-commande-paiement { margin-top: 48px; }
+/* line 287, _src/scss/components/_commande.scss */ .c-commande-paiement { margin-top: 48px; }
 
-/* line 296, _src/scss/components/_commande.scss */ .c-commande-paiement__modes { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+/* line 293, _src/scss/components/_commande.scss */ .c-commande-paiement__modes { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
 
-@media (min-width: 48em) { /* line 296, _src/scss/components/_commande.scss */ .c-commande-paiement__modes { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin: 48px 0; } }
+@media (min-width: 48em) { /* line 293, _src/scss/components/_commande.scss */ .c-commande-paiement__modes { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin: 48px 0; } }
 
 /* line 13, _src/scss/components/_cadeau.scss */ .c-cadeau-section { margin-bottom: 48px; }
 
@@ -2847,6 +2855,16 @@
   /* line 101, _src/scss/components/_compte.scss */ .c-compte-identification__section:nth-of-type(2):before { position: absolute; top: 0; left: 50%; height: 100%; border-left: 1px solid #e0e0e0; content: ''; } }
 
 /* line 121, _src/scss/components/_compte.scss */ .c-compte__mentions { font-size: 15px; font-size: 0.9375rem; line-height: 1.4; }
+
+/* line 130, _src/scss/components/_compte.scss */ .c-compte-commande { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+
+@media (min-width: 40em) { /* line 130, _src/scss/components/_compte.scss */ .c-compte-commande { -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; } }
+
+@media (min-width: 40em) { /* line 140, _src/scss/components/_compte.scss */ .c-compte-commande__articles { -webkit-box-flex: 1; -ms-flex: 1 1 70%; flex: 1 1 70%; padding-right: 48px; } }
+
+@media (min-width: 40em) { /* line 149, _src/scss/components/_compte.scss */ .c-compte-commande__paiement { -webkit-box-flex: 1; -ms-flex: 1 1 30%; flex: 1 1 30%; } }
+
+/* line 156, _src/scss/components/_compte.scss */ .c-compte-commande__info { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
 
 /* line 11, _src/scss/components/_progression.scss */ .c-progression { margin-bottom: 36px; }
 

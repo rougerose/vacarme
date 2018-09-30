@@ -52,7 +52,6 @@ c.commande-section {}
 // -------------------------------------
 
 .c-commande__liste {
-	// padding: 0 $spacing-unit-small 0;
 	padding-bottom: $spacing-unit-small;
 	margin-bottom: 0;
 }
@@ -67,7 +66,6 @@ c.commande-section {}
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	// justify-content: space-between;
 	padding: $spacing-unit 0;
 	width: 100%;
 	
@@ -99,7 +97,6 @@ c.commande-section {}
 	
 	.c-commande-article__descriptif {
 		flex: 1;
-		// flex: 0 0 66%;
 	}
 	
 	

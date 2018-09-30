@@ -100,7 +100,7 @@
 
 @import "inuit.css/base/tables"; // TODO: obsolète
 @import "inuit.css/base/paragraphs"; // TODO: obsolète
-@import "elements/table"; // TODO: obsolète
+@import "elements/deprecie/table"; // TODO: obsolète
 @import "elements/form"; // TODO: obsolète
 @import "elements/liens"; // TODO: obsolète
 @import "elements/list"; // TODO: obsolète
@@ -110,6 +110,8 @@
 
 // @import "elements/formulaire";
 // @import "elements/headings";
+
+@import "elements/table";
 
 // OBJECTS
 
@@ -216,6 +218,7 @@
 
 @import "components/lien";
 @import "components/pagination";
+@import "components/table";
 
 @import "components/card";
 

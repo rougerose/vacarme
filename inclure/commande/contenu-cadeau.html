@@ -6,13 +6,13 @@
 			</div>
 			<div class="c-commande-article__descriptif">
 				<div class="c-commande-article__titre u-typo-font-vacarme">
-					[<h3 class="c-commande-article__intitule">(#TITRE)[ / (#DATE_NUMERO|saison)[&nbsp;(#DATE_NUMERO|annee)]]</h3>]
+					[<h3 class="c-commande-article__intitule">(#TITRE)</h3>]
 					[<span>(#PRIX*{#OBJET,#ID_OBJET}|mult{#QUANTITE}|prix_formater)</span>]
 				</div>
 				<p class="c-commande-article__designation"><span><:vacarme:cadeau_abonnement_label:></span></p>
 				<p class="c-commande-article__designation c-commande-article__prix-unitaire">[(#PRIX{#OBJET,#ID_OBJET})]</p>
 				<div class="c-commande-article__quantite-modifier">
-					<span class="c-commande-article__quantite"><span><:vpaniers:info_quantite:></span> 1</span>
+					<span class="c-commande-article__quantite"><span><:vpaniers:info_quantite:></span>[ (#QUANTITE)]</span>
 				</div>
 			</div>
 		</li>
