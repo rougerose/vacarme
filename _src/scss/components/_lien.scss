@@ -4,7 +4,7 @@
 
 
 .c-lien {
-	border-bottom: 1px dotted $color-lien; // $color-black;
+	border-bottom: 1px dotted $color-lien;
 	color: $color-black;
 	font-style: italic;
 	
@@ -22,4 +22,10 @@
 			color: $color-lien;
 		}
 	}
+}
+
+.c-lien--primaire {}
+
+.c-lien--secondaire {
+	border-bottom-color: $color-black;
 }

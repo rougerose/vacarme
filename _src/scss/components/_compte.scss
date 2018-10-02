@@ -152,12 +152,29 @@
 		}
 	}
 	
+	// ----- c-compte-commande__info ----- //
 	
 	.c-compte-commande__info {
 		display: flex;
 		justify-content: space-between;
 	}
 	
-	.c-compte-commande__intitule {}
+	//.c-compte-commande__intitule {}
 	
-	.c-compte-commande__mode-paiement {}
+	//.c-compte-commande__mode-paiement {}
+	
+	
+	//
+	// c-compte-abonnements
+	// -------------------------------------
+	
+	.c-compte-abonnements {}
+	
+	
+		// ----- c-compte-abonnements__liste ----- //
+		
+		.c-compte-abonnements__liste {
+			> li {
+				margin-left: $spacing-unit;
+			}
+		}
