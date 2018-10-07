@@ -1,0 +1,18 @@
+// =====================================
+// c-mentions
+// =====================================
+
+.c-mentions {
+	
+	&--etroit {
+		@include mq(tablet) {
+			width: 40em;
+			margin: 0 auto;
+		}
+	}
+}
+
+	// ----- c-mentions__texte ----- //
+	.c-mentions__texte {
+		@include inuit-font-size(15px, 1.4);
+	}
