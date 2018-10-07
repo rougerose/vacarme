@@ -3,26 +3,7 @@
 	[(#SET{saison, #DATE_NUMERO|saison})][(#SET{annee, #DATE_NUMERO|annee})]
 	<main id="main" role="main">
 		<article class="c-numero">
-			<header class="c-numero-header">
-				<div class="o-wrapper">
-					<div class="c-numero-header__conteneur c-numero-header__conteneur--titre">
-						<h1 class="c-numero-header__titre u-typo-font-vacarme">#TITRE</h1>
-						[<p class="c-numero-header__saison u-typo-font-vacarme">(#GET{saison})[ (#GET{annee})]</p>]
-					</div>
-					<div class="c-numero-header__conteneur c-numero-header__conteneur--intro">
-						[(#SET{logo, #LOGO_RUBRIQUE|image_reduire{1004,0}})]
-						[<figure class="c-numero-header__couverture">
-							<img src="(#GET{logo}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]">
-						</figure>]
-						<div class="c-numero-header__intro">
-							[<div class="c-numero-header__texte">
-								(#TEXTE)
-							</div>]
-							<INCLURE{fond=inclure/numero/acheter, id_rubrique, ajax, env}/>
-						</div>
-					</div>
-				</div>
-			</header>
+			<INCLURE{fond=inclure/numero/section_header, id_rubrique, saison=#GET{saison}, annee=#GET{annee}}/>
 			
 			<INCLURE{fond=inclure/numero/section_gratuite, titre=#TITRE, saison=#GET{saison}, annee=#GET{annee}, mode_article=#GET{mode_article}} />
 			

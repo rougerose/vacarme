@@ -60,20 +60,26 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	
 	// I
 	'info_article_apercu' => "L’intégralité de cet article est actuellement disponible dans l’édition imprimée de <em>@titre_numero@</em>. Pour vous procurer un exemplaire, Vacarme est disponible en librairies, <a href='@url_vente@' class='c-lien'>en ligne</a>, <a href='@url_abonnement@' class='c-lien'>par abonnement</a> et sur <a href='https://www.cairn.info/revue-vacarme.htm' class='c-lien'>Cairn.info</a>.",
+	
+	'info_lien_lire_suite' => "Lire&nbsp;<em>&#8594;</em>",
+	
+	'info_numero_acheter' => "Acheter",
+	
 	'info_numero_apercu' => "<em>Vacarme</em> aime la gratuité, mais avant d’être un site, <em>Vacarme</em> est d’abord une revue imprimée disponible en librairies et <a href='@url_abonnement@' class='c-lien'>par abonnement</a>. Pour vous permettre de découvrir ce numéro <em>@numero_titre@ (@numero_saison@ @numero_annee@)</em>, quelques articles sont d’ores et déjà accessibles dans leur intégralité et repérables par ce symbole ",
+	
 	'info_numero_complet' => "Ce numéro, <em>@numero_titre@ (@numero_saison@ @numero_annee@)</em>, est désormais archivé et tous ses articles sont accessibles dans leur intégralité. Vacarme aime la gratuité, mais une revue existe grâce à ces abonné&middot;es. <a href='@url_abonnement@' class='c-lien'>Abonnez-vous</a>.",
 	
-	'info_numero_redaction_en_chef' => "Rédaction en chef",
 	'info_numero_date_parution' => "Parution le",
-	'info_numero_edition' => "Édition",
-	'info_numero_pagination' => "Pages",
-	'info_numero_format' => "Format",
-	'info_numero_isbn' => "ISBN",
 	'info_numero_diffusion_librairies' => "Diffusion en librairies",
 	'info_numero_diffusion_numerique' => "Diffusion numérique",
+	'info_numero_edition' => "Édition",
+	'info_numero_format' => "Format",
+	'info_numero_isbn' => "ISBN",
+	'info_numero_pagination' => "Pages",
+	'info_numero_redaction_en_chef' => "Rédaction en chef",
+	'info_numero_revenir_sommaire_complet' => "Cette page n'affiche qu'une partie du sommaire de <em>@titre_numero@</em>. <a href='@url_numero@' class='c-lien'>Afficher le sommaire complet</a>.",
+	
 	'info_numero_sommaire' => "Sommaire",
-	'info_lien_lire_suite' => "Lire&nbsp;<em>&#8594;</em>",
-	'info_numero_acheter' => "Acheter",
 	
 	// M
 	'message_erreur_souscription_abonnement' => "Nous sommes désolés, un problème technique ne permet pas de poursuivre la souscription de votre abonnement. Pour résoudre ce problème, veuillez <a href='@url@' class='suite-lien'>nous contacter <em>&#8594;</em></a>",

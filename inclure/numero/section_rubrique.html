@@ -1,6 +1,11 @@
 <BOUCLE_section_rubrique(RUBRIQUES){id_rubrique}>
 	<section class="c-numero-section">
 		<div class="o-wrapper">
+			[(#ENV{sommaire_partiel}|oui)
+				#SET{titre_numero, #INFO_TITRE{rubrique, #ID_PARENT}}
+				#SET{url_numero, #URL_RUBRIQUE{#ID_PARENT}}
+				<footer class="c-numero__retour-sommaire c-numero__retour-sommaire--haut"><:vacarme:info_numero_revenir_sommaire_complet{titre_numero=#GET{titre_numero}, url_numero=#GET{url_numero}}:></footer>
+			]
 			<header class="c-numero-section__header">
 				#SET{titre_rubrique, #TITRE}
 				[(#REM)
@@ -34,6 +39,11 @@
 					<img src="(#LOGO_RUBRIQUE|extraire_attribut{src})" alt="[(#TITRE)]">
 				</figure>]
 			</div>
+			[(#ENV{sommaire_partiel}|oui)
+				#SET{titre_numero, #INFO_TITRE{rubrique, #ID_PARENT}}
+				#SET{url_numero, #URL_RUBRIQUE{#ID_PARENT}}
+				<footer class="c-numero__retour-sommaire c-numero__retour-sommaire--bas"><:vacarme:info_numero_revenir_sommaire_complet{titre_numero=#GET{titre_numero}, url_numero=#GET{url_numero}}:></footer>
+			]
 		</div>
 	</section>
 </BOUCLE_section_rubrique>

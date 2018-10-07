@@ -7,6 +7,19 @@
 	margin-bottom: $spacing-unit-huge;
 }
 
+	// ----- c-numero__retour-sommaire ----- //
+	.c-numero__retour-sommaire {
+		text-align: center;
+		
+		&--haut {
+			margin-bottom: $spacing-unit-large;
+		}
+		
+		&--bas {
+			margin-top: $spacing-unit-large;
+		}
+	}
+
 
 //
 // c-numero-header
