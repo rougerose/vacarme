@@ -1,0 +1,30 @@
+// =====================================
+// c-article
+// =====================================
+
+
+
+//
+// c-article-apercu
+// -------------------------------------
+
+	// ----- c-article-apercu__info ----- //
+	.c-article-apercu__info {
+		margin: $spacing-unit 0;
+		padding: $spacing-unit $spacing-unit $spacing-unit-tiny;
+		position: relative;
+		background-color: $color-chocolat-500;
+		color: $color-black;
+		@include inuit-font-size(20px);
+		text-align: center;
+	}
+	
+	// ----- c-article-article__degrade ----- //
+	.c-article-apercu__degrade {
+		position: absolute;
+		left: 0;
+		top: -150px;
+		height: 150px;
+		width: 100%;
+		background-image: linear-gradient(to bottom, rgba($color-white, 0) 0%, $color-white 63%, $color-white 100%);
+	}

@@ -1,20 +1,26 @@
 <BOUCLE_article(ARTICLES){id_article}>
-#SET{type,''} #SET{type-titre,''} #SET{id_numero,''} #SET{format_logo,''} #SET{taille_logo,''} #SET{integral,' '}
-
-[(#REM) Est-ce un article d'un numéro ?
-		On cherche tous les rubriques parentes de l'article.
-		Le plugin polyhierarchie est nécessaire.
-]
-<BOUCLE_branche(RUBRIQUES){parents}>
+#SET{type,''} #SET{type-titre,''} #SET{id_numero,''} #SET{format_logo,''} #SET{taille_logo,''} #SET{mode_article, complet}
+[(#REM)
+	<!-- 
+		Si la rubrique correspondant à un numéro papier est dans la hiérarchie
+		(attention : utilisation du plugin polyhierachie ) de l'article, 
+		vérifier si l'article doit être affiché en aperçu ou en complet.
+	-->
+]<BOUCLE_branche(RUBRIQUES){parents}>
 	<BOUCLE_secteur_numeros(RUBRIQUES){id_rubrique}{si #ID_SECTEUR|=={115}}>
 		[(#REM)
-			Le numéro a-t-il plus de 364 jours ? Si oui, l'article est en version intégrale,
-			sauf si le mot-clé adhoc a été ajouté.
-			Au passage, récupération de l'identifiant de la rubrique du numéro.
-		]
-		#SET{integral,''}
-		<BOUCLE_age_numero(HIERARCHIE){id_article}{1,1}>
-			[(#DATE_NUMERO|date_comparaison{365}|?{#SET{integral,' '},''})]
+			<!-- L'article dépend d'un numéro papier, il est en mode aperçu, a priori. -->
+		][(#SET{mode_article, apercu})]
+		[(#REM)
+			<!-- 
+				- Vérifier le mode en fonction de la date du numéro
+				- Récupérer ID du numéro et son TITRE
+			-->
+		]<BOUCLE_age_numero(HIERARCHIE){id_article}{1,1}>
+			[(#DATE_NUMERO|article_complet_ou_partiel|?{
+				#SET{mode_article, complet},
+				#SET{mode_article, apercu}
+			})]
 			[(#SET{id_numero,#ID_RUBRIQUE})][(#SET{titre_numero,#TITRE})]
 		</BOUCLE_age_numero>
 		[(#REM)
@@ -24,7 +30,7 @@
 		]
 		<BOUCLE_mots_techniques(MOTS){id_article}{id_groupe=5}{tout}>
 		[(#REM) 1- ][(#ID_MOT|match{75|240}|oui) [(#SET{type,entretien})] [(#SET{type-titre,#TITRE})] ]
-		[(#REM) 2- ][(#ID_MOT|=={7}|?{#SET{integral,' '}})]
+		[(#REM) 2- ][(#GET{mode_article}|=={apercu}|et{#ID_MOT|=={7}}|oui) #SET{mode_article, complet} ]
 		</BOUCLE_mots_techniques>
 	</BOUCLE_secteur_numeros>
 </BOUCLE_branche>
@@ -96,26 +102,24 @@
 		]
 		<div class="grid__item lap-and-up-three-quarters float--right">
 			<div class="self__body self__body--article">
-				[(#GET{integral}|non)
-				  [(#SESSION{statut}|=={0minirezo}|oui)
-					#SET{integral,' '}
+				[(#GET{mode_article}|=={apercu}|oui)
+					[(#SESSION{statut}|=={0minirezo}|oui)
+					#SET{mode_article, complet}
 					<p class="message message__important"><:local:article_integral_admin:></p>
-				  ]
-				]
-
-				[(#REM) version apercu ]
-				[(#GET{integral}|non)
-				   [<div class="#EDIT{texte} self__texte landmark surlignable liens">
-					   (#TEXTE*|intro|propre)
-					   <div class="apercu__info">
-							<div class="apercu__fade"></div>
-							<p><span class="icon icon--lock"></span></p>
-							<p><:local:apercu_info_article{titre_numero=#GET{titre_numero}}:></p>
-					   </div>
-				   </div>]
-				]
-				[(#REM) version intégrale ]
-				[(#GET{integral}|oui)
+					]
+				][(#REM)
+					<!-- Article en mode Aperçu -->
+				][(#GET{mode_article}|=={apercu}|oui)
+					[<div class="self__texte landmark surlignable liens">
+						(#TEXTE*|intro|propre)
+					</div>]
+					<div class="c-article-apercu__info">
+						<div class="c-article-apercu__degrade"></div>
+						<p><:vacarme:info_article_apercu{titre_numero=#GET{titre_numero}, url_vente=#URL_RUBRIQUE{115}, url_abonnement=#URL_RUBRIQUE{117}}:></p>
+					</div>
+				][(#REM)
+					<!-- Article en mode Complet -->
+				][(#GET{mode_article}|=={complet}|oui)
 					[<div class="#EDIT{texte} self__texte landmark surlignable liens">
 						(#TEXTE)
 					</div>]
@@ -124,7 +128,7 @@
 					[<div class="self__texte landmark surlignable">
 						(#FORMULAIRE_ECRIRE_AUTEUR)
 					</div>]
-				][(#GET{integral}|non)
+				][(#GET{mode_article}|=={apercu}|oui)
 					[<section class="#EDIT{ps} self__ps landmark ps surlignable">
 						<h2 class="hN intertitre-section intertitre-section--first"><:info_ps:></h2>
 						(#PS)
@@ -135,7 +139,7 @@
 							(#NOTES)
 						</div>
 					</section>]
-				][(#GET{integral}|oui)
+				][(#GET{mode_article}|=={complet}|oui)
 					[(#COMPOSITION|match{diaporama}|oui)
 						[<div class="landmark">
 							(#INCLURE{fond=inclure/article-diaporama,id_article})
