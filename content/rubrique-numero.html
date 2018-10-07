@@ -1,46 +1,47 @@
 <BOUCLE_numero(RUBRIQUES){id_rubrique}>
+	[(#DATE_NUMERO|article_complet_ou_partiel|?{#SET{mode_article, complet}, #SET{mode_article, apercu}})]
+	[(#SET{saison, #DATE_NUMERO|saison})][(#SET{annee, #DATE_NUMERO|annee})]
 	<main id="main" role="main">
 		<article class="c-numero">
-			<div class="o-wrapper">
-				<header class="c-numero__header">
-					<div class="c-numero__titre-conteneur">
-						<h1 class="c-numero__titre u-typo-font-vacarme">#TITRE</h1>
-						[<p class="c-numero__saison u-typo-font-vacarme">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</p>]
+			<header class="c-numero-header">
+				<div class="o-wrapper">
+					<div class="c-numero-header__conteneur c-numero-header__conteneur--titre">
+						<h1 class="c-numero-header__titre u-typo-font-vacarme">#TITRE</h1>
+						[<p class="c-numero-header__saison u-typo-font-vacarme">(#GET{saison})[ (#GET{annee})]</p>]
 					</div>
-					<div class="c-numero__intro-conteneur">
+					<div class="c-numero-header__conteneur c-numero-header__conteneur--intro">
 						[(#SET{logo, #LOGO_RUBRIQUE|image_reduire{1004,0}})]
-						[<figure class="c-numero__couverture">
+						[<figure class="c-numero-header__couverture">
 							<img src="(#GET{logo}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]">
 						</figure>]
-						<div class="c-numero__intro">
-							<div class="c-numero__texte">
-								[(#TEXTE)]
-							</div>
-							<BOUCLE_numero_epuise(MOTS){id_rubrique}{id_mot=108}{technique=oui}>
-								#SET{numero_epuise, ' '} #SET{label_epuise, #TITRE}
-							</BOUCLE_numero_epuise>
-							<div class="c-numero__achat">
-								<div class="c-numero__achat-item u-typo-font-vacarme">
-									[(#GET{numero_epuise}|non)
-										<h3 class="c-numero__achat-label"><:vacarme:numero_acheter:></h3>
-										<p class="c-numero__achat-info c-numero__prix">#PRIX</p>
-										[(#BOUTON_ACTION{<:vacarme:panier_ajouter:>, 
-											#URL_ACTION_AUTEUR{remplir_panier, rubrique-#ID_RUBRIQUE-1, #SELF},
-											c-btn-form c-btn-form--achat-numero c-btn-form--black c-btn-form--round c-btn-form--upper ajax, 'ok ?', '', '$(function(){PanierMini.updatePanier();return true;})'})]
-									][(#GET{numero_epuise}|oui)
-										<h3 class="c-numero__achat-label"><:vacarme:numero_acheter:></h3>
-										<p class="c-numero__achat-info c-numero__achat-info--epuise">#GET{label_epuise}</p>
-									]
-								</div>
-								<div class="c-numero__achat-item">
-									<h3 class="c-numero__achat-label u-typo-font-vacarme"><:abonnement:info_abonner:></h3>
-									<p class="c-numero__achat-info"><a href="#URL_RUBRIQUE{517}" class="c-lien"><:abonnement:info_voir_formules:></a></p>
-								</div>
-							</div>
+						<div class="c-numero-header__intro">
+							[<div class="c-numero-header__texte">
+								(#TEXTE)
+							</div>]
+							<INCLURE{fond=inclure/numero/acheter, id_rubrique, ajax, env}/>
 						</div>
 					</div>
-				</header>
-			</div>
+				</div>
+			</header>
+			
+			<INCLURE{fond=inclure/numero/section_gratuite, titre=#TITRE, saison=#GET{saison}, annee=#GET{annee}, mode_article=#GET{mode_article}} />
+			
+			[(#REM)
+				<!-- 
+					Les articles publiés au 1er niveau d'un numéro, 
+					le plus souvent il s'agit d'un éditorial (parfois deux).
+				-->
+			]<BOUCLE_section_editorial(ARTICLES){id_rubrique}{par num titre, date}{0,1}>
+				<INCLURE{fond=inclure/numero/section_editorial, id_rubrique, id_article, mode_article=#GET{mode_article}}/>
+			</BOUCLE_section_editorial>
+			[(#REM)
+				<!--
+					Les rubriques du numéro.
+				-->
+			]<BOUCLE_section_rubrique(RUBRIQUES){id_parent}{par num titre, titre}>
+				<INCLURE{fond=inclure/numero/section_rubrique, id_rubrique, mode_article=#GET{mode_article}}/>
+			</BOUCLE_section_rubrique>
+			<INCLURE{fond=inclure/numero/ours, id_rubrique, ajax, env}/>
 		</article>
 	</main>
 </BOUCLE_numero>

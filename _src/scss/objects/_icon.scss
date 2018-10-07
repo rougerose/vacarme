@@ -120,11 +120,23 @@
 .o-icon--logout {
 	width: 18px;
 	height: 18px;
-	
 	stroke: currentColor;
-	
 	@include mq(mobilePlus) {
 		margin-top: -2px;
 		margin-right: $spacing-unit-tiny;
 	} 
+}
+
+
+//
+// o-icon--article-complet
+// -------------------------------------
+.o-icon--article-complet {
+	height: 16px;
+	width: 16px;
+	vertical-align: middle;
+	> circle {
+		stroke: $color-light-blue-500;
+		fill: $color-red-500;
+	}
 }

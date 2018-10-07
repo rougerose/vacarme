@@ -1,0 +1,30 @@
+<BOUCLE_ours(RUBRIQUES){id_rubrique}>
+	<section class="c-numero-section c-numero-section--bg">
+		<div class="o-wrapper">
+			<div class="c-numero-ours">
+				[(#SET{logo, #LOGO_RUBRIQUE|image_reduire{1004,0}})]
+				[<figure class="c-numero-ours__couverture">
+					<img src="(#GET{logo}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]">
+				</figure>]
+				<div class="c-numero-ours__info">
+					<h2 class="c-numero-ours__titre u-typo-font-vacarme">#TITRE[ / <span>(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</span>]</h2>
+					<p class="c-numero-ours__texte">
+						<span><:vacarme:info_numero_redaction_en_chef:></span> <INCLURE{fond=inclure/numero/ours_chefs, id_rubrique}/>
+					</p>
+					<p class="c-numero-ours__texte">
+						<span><:vacarme:info_numero_date_parution:></span>[ (#DATE_NUMERO|affdate) ]
+						<span><:vacarme:info_numero_edition:></span> Vacarme
+					</p>
+					<p class="c-numero-ours__texte">
+						[<span><:vacarme:info_numero_pagination:></span> (#PAGES_TOTAL) ]
+						[<span><:vacarme:info_numero_format:></span> (#DIMENSION_LARGEUR|et{#DIMENSION_HAUTEUR}|oui) #DIMENSION_LARGEUR &times; #DIMENSION_HAUTEUR ]
+						[<span><:vacarme:info_numero_isbn:></span> (#ISBN)]
+					</p>
+					<p class="c-numero-ours__texte"><span><:vacarme:info_numero_diffusion_librairies:></span> <a href="http://www.pollen-difpop.com/article-8288-vacarme.aspx" class="c-lien">Difpop</a> </p>
+					<p class="c-numero-ours__texte"><span><:vacarme:info_numero_diffusion_numerique:></span> <a href="http://www.cairn.info/revue-vacarme.htm" class="c-lien">Cairn</a></p>
+					<INCLURE{fond=inclure/numero/acheter, id_rubrique, env}/>
+				</div>
+			</div>
+		</div>
+	</section>
+</BOUCLE_ours>

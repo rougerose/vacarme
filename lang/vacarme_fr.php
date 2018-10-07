@@ -58,13 +58,24 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'commande_page_titre' => "Votre commande",
 	'commande_recapitulatif_titre' => "Rappel de votre commande",
 	
+	'info_numero_redaction_en_chef' => "Rédaction en chef",
+	'info_numero_date_parution' => "Parution le",
+	'info_numero_edition' => "Édition",
+	'info_numero_pagination' => "Pages",
+	'info_numero_format' => "Format",
+	'info_numero_isbn' => "ISBN",
+	'info_numero_diffusion_librairies' => "Diffusion en librairies",
+	'info_numero_diffusion_numerique' => "Diffusion numérique",
+	'info_numero_sommaire' => "Sommaire",
+	'info_lien_lire_suite' => "Lire&nbsp;<em>&#8594;</em>",
+	'info_numero_acheter' => "Acheter",
+	
 	// M
 	'message_erreur_souscription_abonnement' => "Nous sommes désolés, un problème technique ne permet pas de poursuivre la souscription de votre abonnement. Pour résoudre ce problème, veuillez <a href='@url@' class='suite-lien'>nous contacter <em>&#8594;</em></a>",
 	'message_identification_prealable' => "Veuillez vous identifier avant de poursuivre",
 	
 	// N
-	'numero_acheter' => "Acheter ce numéro",
-	'numero_voir' => "Consulter le numéro <em>&#8594;</em>",
+	'numero_voir' => "Consulter le sommaire&nbsp;<em>&#8594;</em>",
 	
 	// P
 	'paiement_titre' => "Votre commande est maintenant prête",

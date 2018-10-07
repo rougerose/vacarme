@@ -4,9 +4,8 @@
 
 
 .c-lien {
-	border-bottom: 1px dotted $color-lien;
+	border-bottom: 1px solid $color-lien;
 	color: $color-black;
-	font-style: italic;
 	
 	em {
 		color: currentColor;
@@ -16,7 +15,6 @@
 	
 	&:hover {
 		color: $color-lien;
-		border-bottom: 1px solid $color-lien;
 		em {
 			padding-left: 0.5em;
 			color: $color-lien;
@@ -24,8 +22,14 @@
 	}
 }
 
-.c-lien--primaire {}
+.c-lien--primaire {
+	font-style: italic;
+}
 
 .c-lien--secondaire {
 	border-bottom-color: $color-black;
+}
+
+.c-lien--paragraphe {
+	margin-left: $spacing-unit-small;
 }

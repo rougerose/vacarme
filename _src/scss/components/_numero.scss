@@ -9,183 +9,288 @@
 
 
 //
-// c-numero__header
+// c-numero-header
 // -------------------------------------
+.c-numero-header {}
 
-.c-numero__header {}
 
-
-	//
-	// c-numero__titre-conteneur
-	// -------------------------------------
-
-	.c-numero__titre-conteneur {
-		border-bottom: 1px solid $color-black;
+	// ----- c-numero-header__conteneur ----- //
+	.c-numero-header__conteneur {
 		display: flex;
-		align-items: baseline;
 		justify-content: space-between;
-		margin-bottom: $spacing-unit-large;
-	}
-
-
-		//
-		// c-numero__titre
-		// -------------------------------------
-
-		.c-numero__titre {
-			@include inuit-font-size(28px, 1);
-			
-			@include mq(mobilePlus) {
-				@include inuit-font-size(36px, false);
-				
+		
+		&--titre {
+			border-bottom: 1px solid $color-black;
+			align-items: baseline;
+			margin-bottom: $spacing-unit;
+		}
+		
+		&--intro {
+			flex-direction: column;
+			@include mq(tablet) {
+				flex-direction: row;
 			}
-			
 			@include mq(desktop) {
-				@include inuit-font-size(48px, false);
+				align-items: flex-end;
 			}
-		}
-
-		.c-numero__saison {
-			@include inuit-font-size(16px, 1);
-			font-weight: 300;
-			
-			@include mq(mobilePlus) {
-				@include inuit-font-size(24px, false);
-			}
-		}
-		
-		.c-numero__titre,
-		.c-numero__saison {
-			margin-bottom: $spacing-unit-tiny;
-			text-transform: uppercase;
-		}
-	
-	
-	
-	//
-	// c-numero__intro-conteneur
-	// -------------------------------------
-	
-	.c-numero__intro-conteneur {
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		
-		@include mq(tablet) {
-			flex-direction: row;
 		}
 	}
 	
+	// ----- c-numero-header__titre, c-numero-header__saison ----- //
+	.c-numero-header__titre,
+	.c-numero-header__saison {
+		margin-bottom: $spacing-unit-tiny;
+		text-transform: uppercase;
+	}
 	
-		//
-		// c-numero__couverture
-		// -------------------------------------
-
-		.c-numero__couverture {
-			
-			@include mq(tablet) {
-				margin-bottom: 0;
-				width: 45%;
-			}
+	// ----- c-numero-header__titre ----- //
+	.c-numero-header__titre {
+		@include inuit-font-size(28px, 1);
+		@include mq(mobilePlus) {
+			@include inuit-font-size(36px, false);
 		}
-		
-		
-		//
-		// c-numero__intro
-		// -------------------------------------
-		
-		.c-numero__intro {
-			@include mq(tablet) {
-				display: flex;
-				flex-direction: column;
-				justify-content: flex-end;
-				width: 50%;
-			}
+		@include mq(desktop) {
+			@include inuit-font-size(48px, false);
 		}
-
-
-//
-// c-numero__texte
-// -------------------------------------
-
-.c-numero__texte {
-	margin-bottom: $spacing-unit;
-	@include inuit-font-size(16px);
+	}
 	
-	@include mq(tabletPlus) {
+	// ----- c-numero-header__saison ----- //
+	.c-numero-header__saison {
+		@include inuit-font-size(16px, 1);
+		font-weight: 300;
+		
+		@include mq(mobilePlus) {
+			@include inuit-font-size(24px, false);
+		}
+	}
+	
+	// ----- c-numero-header__couverture ----- //
+	.c-numero-header__couverture {
+		flex: 0 1 auto;
+		margin-bottom: $spacing-unit-large;
+		@include mq(tablet) {
+			margin-bottom: 0;
+			flex-basis: 45%;
+		}
+		@include mq(tabletPlus) {
+			flex-basis: 35%;
+		}
+	}
+	
+	// ----- c-numero-header__intro ----- //
+	.c-numero-header__intro {
+		flex: 0 1 auto;
+		@include mq(tablet) {
+			align-self: flex-end;
+			display: flex;
+			flex-direction: column;
+			flex: 0 1 50%;
+		}
+		@include mq(tabletPlus) {
+			flex-basis: 60%;
+		}
+	}
+	
+	// ----- c-numero-header__texte ----- //
+	.c-numero-header__texte {
+		margin-bottom: $spacing-unit;
 		@include inuit-font-size(18px);
 	}
-}
+	
+	// ----- c-numero-header__achat ----- //
+	.c-numero-header__achat {
+		border-top: 1px solid $color-black;
+	}
 
 
 //
-// c-numero__achat
+// c-numero-section
 // -------------------------------------
-
-.c-numero__achat {
-	border-top: 1px solid $color-black;
+.c-numero-section {
+	margin: ($spacing-unit-large + $spacing-unit) 0;
 	
-	.c-numero-resume & {
-		border-top-width: 0;
+	&--bg {
+		margin-bottom: 0;
+		padding: $spacing-unit-large 0;
+		background-color: #F0F2F2;
 	}
 }
 
-
-	//
-	// c-numero__achat-item
-	// -------------------------------------
-
-	.c-numero__achat-item {
+	// ----- c-numero-section__header ----- //
+	.c-numero-section__header {
+		margin-bottom: $spacing-unit-large;
+	}
+	
+	// ----- c-numero-section__surtitre ----- //
+	.c-numero-section__surtitre {
+		margin-bottom: $spacing-unit-large;
 		border-bottom: 1px solid $color-black;
+		@include inuit-font-size(24px, 1.1);
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	
+	// ----- c-numero-section__titre ----- //
+	.c-numero-section__titre {
+		margin-bottom: $spacing-unit;
+		@include inuit-font-size(28px, 1.1);
+		font-weight: normal;
+		@include mq(tablet) {
+			@include inuit-font-size(38px, 1.1);
+		}
+	}
+	
+	// ----- c-numero-section__desc ----- //
+	.c-numero-section__desc {
+		margin-bottom: $spacing-unit-large;
+		@include inuit-font-size(28px);
+		font-style: italic;
+	}
+	
+	// ----- c-numero-section__body ----- //
+	.c-numero-section__body {
 		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		flex-wrap: wrap;
-		padding: $spacing-unit-small 0;
-	}
-	
-	
-	//
-	// c-numero__achat-info
-	// -------------------------------------
-	
-	.c-numero__achat-info {
-		margin-bottom: 0;
-		margin-top: $spacing-unit-tiny;
-		text-transform: uppercase;
-		
-		> a {
-			text-transform: none;
+		flex-direction: column;
+		@include mq(tabletPlus) {
+			flex-direction: row;
+			justify-content: space-between;
 		}
 	}
 	
-	.c-numero__achat-info--epuise {
-		@include inuit-font-size(22px);
-		
-		.c-numero-resume & {
-			margin-left: auto;
-			margin-right: auto;
+	// ----- c-numero-section__articles ----- //
+	.c-numero-section__articles {
+		@include mq(tabletPlus) {
+			flex: 0 1 45%;
 		}
 	}
 	
-	
-	//
-	// c-numero__achat-label
-	// -------------------------------------
-	
-	.c-numero__achat-label {
-		margin-bottom: 0;
-		margin-top: $spacing-unit-tiny;
-		@include inuit-font-size(18px, 1);
-		text-transform: uppercase;
+	// ----- c-numero-section__illustration ----- //
+	.c-numero-section__illustration {
+		@include mq(tabletPlus) {
+			flex: 0 1 50%;
+		}
 	}
 
 
 //
-// c-numero__prix
+// c-numero-article
+// -------------------------------------
+.c-numero-article {
+	margin-bottom: $spacing-unit-large;
+	line-height: 1.3;
+}
+
+	// ----- c-numero-article__header ----- //
+	.c-numero-article__header {
+		margin-bottom: $spacing-unit-small;
+	}
+	
+	// ----- c-numero-article__titre ----- //
+	.c-numero-article__titre {
+		margin-bottom: $spacing-unit-small;
+		@include inuit-font-size(20px, false);
+		font-weight: normal;
+	}
+	
+	// ----- c-numero-article__auteur ----- //
+	.c-numero-article__auteur {
+		margin-bottom: 0;
+		color: $color-gray-500;
+		@include inuit-font-size(18px, false);
+	}
+	
+	// ----- c-numero-article__desc ----- //
+	.c-numero-article__desc {
+		@include inuit-font-size(18px, false);
+		font-style: italic;
+	}
+
+
+//
+// c-numero-ours
+// -------------------------------------
+.c-numero-ours {
+	display: flex;
+	flex-direction: column;
+	@include mq(tablet) {
+		flex-direction: row;
+		justify-content: center;
+		align-items: flex-end;
+	}
+}
+
+	// ----- c-numero-ours__couverture ----- //
+	.c-numero-ours__couverture {
+		@include mq(tablet) {
+			flex: 0 1 45%;
+			margin-bottom: 0;
+			margin-right: $spacing-unit;
+		}
+		@include mq(desktop) {
+			flex-basis: 30%;
+		}
+	}
+	
+	// ----- c-numero-ours__info ----- //
+	.c-numero-ours__info {
+		@include mq(tablet) {
+			flex: 0 1 45%;
+		}
+		
+		& .c-acheter {
+			margin-top: $spacing-unit;
+		}
+	}
+	
+	// ----- c-numero-ours__titre ----- //
+	.c-numero-ours__titre {
+		margin-bottom: $spacing-unit-small;
+		@include inuit-font-size(20px, 1.1);
+		text-transform: uppercase;
+	}
+	
+	// ----- c-numero-ours__texte ----- //
+	.c-numero-ours__texte {
+		margin-bottom: $spacing-unit-tiny;
+		line-height: 1.2;
+		span {
+			font-style: italic;
+			& + span {
+				&:before {
+					content: ' / ';
+				}
+			}
+		}
+	}
+
+
+//
+// c-numero-gratuite
 // -------------------------------------
 
-.c-numero__prix {
-	font-weight: bold;
-	@include inuit-font-size(22px, 1);
+.c-numero-gratuite {
+	line-height: 1.3;
+	@include mq(tablet) {
+		margin-right: $spacing-unit-large;
+	}
+	@include mq(tabletPlus) {
+		margin-right: $spacing-unit-huge + $spacing-unit;
+	}
+	@include mq(desktop) {
+		margin-right: 0;
+		width: 60%;
+	}
 }
+
+	// ----- c-numero-gratuite__titre ----- //
+	.c-numero-gratuite__titre {
+		@include inuit-font-size(22px, false);
+		font-style: italic;
+		font-weight: normal;
+	}
+
+	// ----- c-numero-gratuite__info ----- //
+	.c-numero-gratuite__info {
+		margin-bottom: 0;
+		@include inuit-font-size(18px, false);
+	}

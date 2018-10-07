@@ -1,0 +1,12 @@
+<section class="c-numero-section c-numero-section--bg">
+	<div class="o-wrapper">
+		<div class="c-numero-gratuite">
+			<h2 class="c-numero-gratuite__titre">À nos lectrices et lecteurs</h2>
+			[(#ENV{mode_article}|=={apercu}|oui)
+				<p class="c-numero-gratuite__info"><em>Vacarme</em> aime la gratuité, mais avant d’être un site, <em>Vacarme</em> est d’abord une revue imprimée disponible en librairies et <a href="#URL_RUBRIQUE{117}" class="c-lien">par abonnement</a>. Pour vous permettre de découvrir ce numéro [<em>(#ENV{titre}) \([(#ENV{saison})][ (#ENV{annee})]\)</em>], quelques articles sont d’ores et déjà accessibles dans leur intégralité et repérables par ce symbole <INCLURE{fond=img/svg/icon-article-complet-16.svg}/></p>
+			][(#ENV{mode_article}|=={complet}|oui)
+				<p class="c-numero-gratuite__info">Ce numéro, [<em>(#ENV{titre}) \([(#ENV{saison})][ (#ENV{annee})]\)</em>], est désormais archivé et tous ses articles sont accessibles dans leur intégralité. Vacarme aime la gratuité, mais une revue existe grâce à ces abonné&middot;es. <a href="#URL_RUBRIQUE{117}" class="c-lien">Abonnez-vous</a>.</p>
+			]
+		</div>
+	</div>
+</section>

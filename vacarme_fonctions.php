@@ -2,6 +2,19 @@
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
 
+function filtre_article_complet_ou_partiel($date) {
+	$nbre_jours_payants = _VACARME_GRATUITE;
+	$debut_gratuite = new DateTime("now -$nbre_jours_payants days");
+	$date_article = new DateTime($date);
+	if ($date_article < $debut_gratuite) {
+		return true;
+	} else {
+		return false;
+	}
+	
+}
+
+
 // Supprimer les caractères accentués sur la première lettre d'une chaîne.
 // Si couper = non, la chaîne est reconstituée sur 31 caractères.
 function desaccentuer($texte,$couper='oui') {
