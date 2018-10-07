@@ -1,11 +1,9 @@
 #SET{etapes, #ARRAY{code, 1, compte, 2, numero, 3, confirmation, 4}}
 #SET{etape, #ENV{etape}|in_array{#GET{etapes}}|?{#ENV{etape}, 1}}
-
 <div class="o-layout">
 	<div class="o-layout__item">
 		<header class="c-cadeau-header">
 			<h1 class="c-cadeau-header__titre u-typo-font-vacarme u-typo-upper"><:vacarme:cadeau_titre_abonnement:></h1>
-			<p>progression</p>
 		</header>
 	</div>
 	<div class="o-layout__item">

@@ -1,3 +1,4 @@
+<INCLURE{fond=inclure/cadeaux/progression, page=code} />
 <section class="c-cadeau-section">
 	<header class="c-cadeau-section__header">
 		<h2 class="c-cadeau-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:cadeau_etape_code_titre:></h2>
@@ -6,5 +7,9 @@
 		[<div class="ajax">
 			(#FORMULAIRE_VALIDER_CODE_CADEAU{#URL_PAGE{cadeau}|parametre_url{etape,2}})
 		</div>]
+		<div class="c-mentions">
+			[(#SET{label_bouton, <:bouton_valider:>})]
+			<p class="c-mentions__texte"><:vprofils:mentions_confidentialite{url=#URL_PAGE{confidentialite}, label_bouton=#GET{label_bouton}}:></p>
+		</div>
 	</div>
 </section>
