@@ -3056,9 +3056,9 @@
 @media (min-width: 64em) { /* line 75, _src/scss/components/_numero-resume.scss */ .c-numero-resume__couverture { width: 50%; }
   /* line 80, _src/scss/components/_numero-resume.scss */ .c-numero-resume__couverture img { width: 90%; } }
 
-/* line 12, _src/scss/components/_article.scss */ .c-article-apercu__info { margin: 24px 0; padding: 24px 24px 6px; position: relative; background-color: #df7020; color: #000; font-size: 20px; font-size: 1.25rem; line-height: 1.5; text-align: center; }
+/* line 12, _src/scss/components/_article.scss */ .c-article-apercu__info { margin: 48px 0 24px; padding: 24px 24px 6px; position: relative; background-color: #df7020; color: #000; font-size: 20px; font-size: 1.25rem; line-height: 1.5; text-align: center; }
 
-/* line 23, _src/scss/components/_article.scss */ .c-article-apercu__degrade { position: absolute; left: 0; top: -150px; height: 150px; width: 100%; background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), color-stop(63%, #fff), to(#fff)); background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 63%, #fff 100%); }
+/* line 23, _src/scss/components/_article.scss */ .c-article-apercu__degrade { position: absolute; left: 0; top: -150px; height: 150px; width: 100%; background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), color-stop(80%, #fff), to(#fff)); background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #fff 80%, #fff 100%); }
 
 /* line 5, _src/scss/components/_spip-admin.scss */ .spip-admin-float { right: 0 !important; top: auto !important; bottom: 0; z-index: 210 !important; }
 

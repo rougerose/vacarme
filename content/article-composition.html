@@ -113,6 +113,14 @@
 					[<div class="self__texte landmark surlignable liens">
 						(#TEXTE*|intro|propre)
 					</div>]
+					[(#REM)
+						<!-- 
+							Afficher la première image en mode "portfolio".
+							Les autres types de documents sont ignorés.
+						-->
+					]
+					<INCLURE{fond=inclure/documents/article-apercu, id_article} />
+					
 					<div class="c-article-apercu__info">
 						<div class="c-article-apercu__degrade"></div>
 						<p><:vacarme:info_article_apercu{titre_numero=#GET{titre_numero}, url_vente=#URL_RUBRIQUE{115}, url_abonnement=#URL_RUBRIQUE{117}}:></p>
@@ -140,11 +148,14 @@
 						</div>
 					</section>]
 				][(#GET{mode_article}|=={complet}|oui)
-					[(#COMPOSITION|match{diaporama}|oui)
-						[<div class="landmark">
-							(#INCLURE{fond=inclure/article-diaporama,id_article})
-						</div>]
+					[(#REM)
+						<!-- TODO: Abandonnez le format album pour ne gérer que les images en mode document ? -->
 					]
+					[(#COMPOSITION|match{diaporama}|?{
+						[<div class="landmark">(#INCLURE{fond=inclure/article-diaporama,id_article})</div>],
+						[<section>(#INCLURE{fond=inclure/documents,id_article})</section>]
+					})]
+					
 					[<section class="#EDIT{ps} self__ps landmark ps surlignable">
 						<h2 class="hN intertitre-section intertitre-section--first"><:info_ps:></h2>
 						(#PS)
@@ -155,11 +166,8 @@
 							(#NOTES)
 						</div>
 					</section>]
-					[<section>
-						(#INCLURE{fond=inclure/documents,id_article})
-					</section>]
 				]
-			</div>
+			</div><!-- /.self__body -->
 		</div><!-- /.grid__item -->
 		<div class="grid__item lap-and-up-one-quarter float--left">
 			[   (#REM) auteurs article/entretien

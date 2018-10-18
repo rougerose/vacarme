@@ -10,7 +10,7 @@
 
 	// ----- c-article-apercu__info ----- //
 	.c-article-apercu__info {
-		margin: $spacing-unit 0;
+		margin: $spacing-unit-large 0 $spacing-unit;
 		padding: $spacing-unit $spacing-unit $spacing-unit-tiny;
 		position: relative;
 		background-color: $color-chocolat-500;
@@ -26,5 +26,5 @@
 		top: -150px;
 		height: 150px;
 		width: 100%;
-		background-image: linear-gradient(to bottom, rgba($color-white, 0) 0%, $color-white 63%, $color-white 100%);
+		background-image: linear-gradient(to bottom, rgba($color-white, 0) 0%, $color-white 80%, $color-white 100%);
 	}
