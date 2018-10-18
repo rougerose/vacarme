@@ -104,7 +104,7 @@
 			<div class="self__body self__body--article">
 				[(#GET{mode_article}|=={apercu}|oui)
 					[(#SESSION{statut}|=={0minirezo}|oui)
-					#SET{mode_article, apercu}
+					#SET{mode_article, complet}
 					<p class="message message__important"><:local:article_integral_admin:></p>
 					]
 				][(#REM)
