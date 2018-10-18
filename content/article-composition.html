@@ -104,7 +104,7 @@
 			<div class="self__body self__body--article">
 				[(#GET{mode_article}|=={apercu}|oui)
 					[(#SESSION{statut}|=={0minirezo}|oui)
-					#SET{mode_article, complet}
+					#SET{mode_article, apercu}
 					<p class="message message__important"><:local:article_integral_admin:></p>
 					]
 				][(#REM)
@@ -113,6 +113,9 @@
 					[<div class="self__texte landmark surlignable liens">
 						(#TEXTE*|intro|propre)
 					</div>]
+					[(#COMPOSITION|match{diaporama}|oui)
+						<INCLURE{fond=inclure/article-diaporama-apercu, id_article}/>
+					]
 					[(#REM)
 						<!-- 
 							Afficher la première image en mode "portfolio".
@@ -148,14 +151,10 @@
 						</div>
 					</section>]
 				][(#GET{mode_article}|=={complet}|oui)
-					[(#REM)
-						<!-- TODO: Abandonnez le format album pour ne gérer que les images en mode document ? -->
-					]
 					[(#COMPOSITION|match{diaporama}|?{
 						[<div class="landmark">(#INCLURE{fond=inclure/article-diaporama,id_article})</div>],
 						[<section>(#INCLURE{fond=inclure/documents,id_article})</section>]
 					})]
-					
 					[<section class="#EDIT{ps} self__ps landmark ps surlignable">
 						<h2 class="hN intertitre-section intertitre-section--first"><:info_ps:></h2>
 						(#PS)
