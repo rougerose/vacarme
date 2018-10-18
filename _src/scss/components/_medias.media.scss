@@ -2,6 +2,11 @@
     media
     ========================================================================== */
     /* logo paysage pleine largeur */
+	
+	.media {
+		margin-bottom: $spacing-unit;
+	}
+	
     .media--full {
         width: 100%;
         display: block;
