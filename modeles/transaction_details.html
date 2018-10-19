@@ -1,0 +1,56 @@
+<BOUCLE_transaction(TRANSACTIONS){id_transaction}>
+[(#REM)
+  Montant total de la facture : si c'est le montant de la transaction
+   ce qui couvre tous les cas d'usage : 1ere transaction d'une facture ou Xeme transaction (paiement en plusieurs fois, paiements recurrents)
+	Sur la premiere transaction d'une commande on detail les prix unitaires car ils sont OK, sur les transactions suivantes on ne met pas de detail, uniquement le prix total
+   en general on a 1 seul article (abonnement) donc ca va, sinon tant pis...
+]
+#SET{ttc,#MONTANT}
+#SET{ht,#MONTANT_HT}
+#SET{afficher_prix_detail,' '}
+#SET{afficher_reduction,''}
+<BOUCLE_ligne_avec_reduction(COMMANDES_DETAILS){id_commande}{reduction>0.0}{0,1}>#SET{afficher_reduction,' '}</BOUCLE_ligne_avec_reduction>
+<BOUCLE_nbtrans(TRANSACTIONS){id_commande}{statut=ok}{1,1}>#SET{afficher_prix_detail,''}</BOUCLE_nbtrans>
+<BOUCLE_commande(COMMANDES){id_commande}>
+<B_liste>
+<table>
+	<thead>
+		<tr>
+			<th class="descriptif"><:commandes:designation:></th>
+			<th class="quantite"><:vpaniers:info_quantite:></th>
+			<th class="prix_unitaire"><:vpaniers:info_prix_unitaire_ht:></th>
+			[(#GET{afficher_reduction}|oui)
+			<th class="reduction"><:commandes:label_reduction:></th>]
+			<th class="taxe"><:vpaniers:info_tva:></th>
+			<th class="montant"><:vpaniers:info_total_ht:></th>
+		</tr>
+		</thead>
+	<tbody>
+		<BOUCLE_liste(COMMANDES_DETAILS){id_commande}{par id_commandes_detail}>
+			[(#OBJET|=={rubrique}|oui)
+				<INCLURE{fond=inclure/facture/detail-numero, id_commandes_detail, afficher_reduction=#GET{afficher_reduction}}/>
+			][(#OBJET|=={abonnements_offre}|oui)
+				<INCLURE{fond=inclure/facture/detail-abonnement, id_commandes_detail, afficher_reduction=#GET{afficher_reduction}}/>
+			][(#OBJET|=={produit}|oui)
+				<INCLURE{fond=inclure/facture/detail-cadeau, id_commandes_detail, afficher_reduction=#GET{afficher_reduction}}/>
+			]
+		</BOUCLE_liste>
+	</tbody>
+	<tfoot>
+		<tr>
+			<td class="def" colspan="[(#GET{afficher_reduction}|?{5,4})]"><:prix:label_total_ht:></td>
+			<td class="montant">[(#GET{ht}|sinon{#PRIX_HT*}|prix_formater)]</td>
+		</tr>
+		<tr>
+			<td class="def" colspan="[(#GET{afficher_reduction}|?{5,4})]"><:vpaniers:info_total_tva:></td>
+			<td class="montant">[(#GET{ttc}|moins{#GET{ht}}|prix_formater)]</td>
+		</tr>
+		<tr class="total_ttc">
+			<td class="def" colspan="[(#GET{afficher_reduction}|?{5,4})]"><:prix:label_total_ttc:></td>
+			<td class="montant">[(#GET{ttc}|sinon{#PRIX*}|prix_formater)]</td>
+		</tr>
+	</tfoot>
+</table>
+</B_liste>
+</BOUCLE_commande>
+</BOUCLE_transaction>

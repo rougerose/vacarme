@@ -1,0 +1,6 @@
+<li class="c-site-nav__item c-shortcuts__item c-shortcuts__item--rev">
+	<?php if (isset($GLOBALS["visiteur_session"]['id_auteur']) AND $GLOBALS["visiteur_session"]['id_auteur']) {$session = true;}?>
+	<a class="c-shortcuts__link c-shortcuts__account <?php if ($session) {echo 'is-logon';}?>" href="#URL_PAGE{compte}">
+		<INCLURE{fond=img/svg/icon-account-24.svg}/>
+	</a>
+</li>

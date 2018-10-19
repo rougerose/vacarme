@@ -1,0 +1,22 @@
+<BOUCLE_article_editorial(ARTICLES){id_article}>
+	#SET{afficher_auteur, ' '}
+	#SET{mode_archive, ''}
+	[(#ENV{mode_article}|=={complet}|oui) #SET{mode_archive, ' '}]
+	[(#SET{mode_article, #ENV{mode_article, apercu}})]
+	<BOUCLE_article_gratuit(MOTS){id_article}{id_mot=7}{tout}>[
+		(#GET{mode_archive}|non) #SET{mode_article, complet}
+	]</BOUCLE_article_gratuit>
+	<BOUCLE_categorie_entretien(MOTS){id_article}{id_mot=11}>#SET{afficher_auteur, ''}
+	</BOUCLE_categorie_entretien>
+	<article class="c-numero-article">
+		<header class="c-numero-article__header">
+			<h2 class="c-numero-article__titre"><a href="#URL_ARTICLE">#TITRE</a></h2>
+			[(#GET{afficher_auteur}|oui)
+				[<p class="c-numero-article__auteur"><:par_auteur:>(#MODELE{authors,id_article=#ENV{id_article},contexte=resume})</p>]
+			]
+		</header>
+		[<div class="c-numero-article__desc">
+			<p>(#DESCRIPTIF|sinon{#INTRODUCTION}|PtoBR)[(#GET{mode_archive}|non)[(#GET{mode_article}|=={complet}|oui) <INCLURE{fond=img/svg/icon-article-complet-16.svg}/> ]]<a href="#URL_ARTICLE" class="c-lien c-lien--primaire c-lien--paragraphe"><:vacarme:info_lien_lire_suite:></a></p>
+		</div>]
+	</article>
+</BOUCLE_article_editorial>

@@ -1,0 +1,115 @@
+// =====================================
+// c-progress
+// =====================================
+
+
+.c-progress {
+	margin-left: 0;
+	font-family: $font-helvetica;
+	list-style-position: inside;
+	
+	&--colorbg-1074 {
+		.c-progress__item {
+			&.is-active {
+				background-color: $color-amber-500;
+				
+				&:nth-child(2) {
+					background-color: $color-amber-400;
+				}
+				
+				&:nth-child(3) {
+					background-color: $color-amber-300;
+				}
+				
+				&:nth-child(4) {
+					background-color: $color-amber-200;
+				}
+			}
+			
+			&.c-progress__item--action {
+				background-color: $color-amber-100;
+			}
+		}
+	}
+	
+	&--colorbg-1075 {
+		.c-progress__item {
+			&.is-active {
+				background-color: $color-orange-500;
+				
+				&:nth-child(2) {
+					background-color: $color-orange-400;
+				}
+				
+				&:nth-child(3) {
+					background-color: $color-orange-300;
+				}
+				
+				&:nth-child(4) {
+					background-color: $color-orange-200;
+				}
+			}
+			
+			&.c-progress__item--action {
+				background-color: $color-orange-100;
+			}
+		}
+	}
+	
+	&--colorbg-1076 {
+		.c-progress__item {
+			&.is-active {
+				background-color: $color-deep-orange-500;
+				
+				&:nth-child(2) {
+					background-color: $color-deep-orange-400;
+				}
+				
+				&:nth-child(3) {
+					background-color: $color-deep-orange-300;
+				}
+				
+				&:nth-child(4) {
+					background-color: $color-deep-orange-200;
+				}
+			}
+			
+			&.c-progress__item--action {
+				background-color: $color-deep-orange-100;
+			}
+		}
+	}
+}
+	
+	
+	.c-progress__item {
+		padding: $spacing-unit-small;
+		background-color: $color-gray-500;
+		color: $color-gray-100;
+		
+		&:nth-child(2) {
+			background-color: $color-gray-400;
+		}
+		
+		&:nth-child(3) {
+			background-color: $color-gray-300;
+		}
+		
+		&.c-progress__item--action {
+			background-color: $color-gray-200;
+		}
+		
+		&.is-active {
+			color: $color-black;
+		}
+		
+		span {
+			text-transform: uppercase;
+		}
+	}
+	
+	.c-progress__item--action {
+		display: flex;
+		justify-content: space-between;
+		list-style-type: none;
+	}

@@ -1,6 +1,55 @@
-<div class="site-logo-container"><a href="#URL_SITE_SPIP" class="site-logo">#NOM_SITE_SPIP</a></div>
-<div class="btn-shortcut-container">
-    <a id="btn-nav-open" href="#nav" class="btn btn-nav btn-nav-open visuallyhidden--desk">#INCLURE{fond=img/ic_menu_48px.svg}</a>
-    <a id="btn-search" href="#search" class="btn btn-nav btn-nav-search visuallyhidden--desk">#INCLURE{fond=img/ic_search_48px.svg}</a>
-</div>
-    
+<nav class="c-site-nav js-site-nav">
+	<div class="c-site-nav__shortcuts">
+		<div class="o-wrapper c-shortcuts">
+			<ul class="c-site-nav__list c-shortcuts__group c-shortcuts__group--review u-hide-until-desktop">
+				<li class="c-site-nav__item c-shortcuts__item"><a class="c-shortcuts__link" href="#URL_RUBRIQUE{10}"><:vacarme:navigation_desktop_revue_titre:></a></li>
+				<li class="c-site-nav__item c-shortcuts__item"><a class="c-shortcuts__link" href="#URL_RUBRIQUE{115}">#INFO_TITRE{rubrique, 115}</a></li>
+				<li class="c-site-nav__item c-shortcuts__item"><a class="c-shortcuts__link" href="#URL_RUBRIQUE{517}"><:vacarme:navigation_desktop_abonner_titre:></a></li>
+				<li class="c-site-nav__item c-shortcuts__item"><a class="c-shortcuts__link" href="#URL_RUBRIQUE{115}"><:vacarme:navigation_desktop_acheter_titre:></a></li>
+			</ul>
+			<ul class="c-site-nav__list c-shortcuts__group c-shortcuts__group--user">
+				<li class="c-site-nav__item c-shortcuts__item c-shortcuts__item--rev"><a class="c-shortcuts__link" href="#">#INCLURE{fond=img/svg/icon-search-24.svg}</a></li>
+				<INCLURE{fond=inclure/site-nav/compte}/>
+				<li class="c-site-nav__item c-shortcuts__item c-shortcuts__item--rev [(#ENV{type-page}|=={panier}|?{'',js-icone-panier})]">
+					<INCLURE{fond=inclure/site-nav/panier, ajax=iconePanier, env}/>
+				</li>
+			</ul>
+			<div class="c-shortcuts__group u-hide-from-desktop">
+				<button type="button" class="c-btn c-btn--burger js-menu-toggle" aria-label="Menu" aria-controls="sitenavMenu">
+					<span class="o-icon o-icon--burger"></span>
+				</button>
+			</div>
+		</div>
+	</div>
+	<div class="c-site-nav__main">
+		<div class="o-wrapper">
+			<div class="o-layout">
+				<div class="o-layout__item c-site-nav__logo">
+					<a href="#URL_SITE_SPIP" class="c-site-nav__home" rel="home">
+						<span class="u-hidden-visually">#NOM_SITE_SPIP</span>
+						[<span class="c-site-nav__logo-img">(#INCLURE{fond=img/svg/logo-vacarme-392x74.svg})</span>]
+					</a>
+				</div>
+				<div class="c-site-nav__menu-overlay"></div>
+				<div id="sitenavMenu" class="o-layout__item c-site-nav__menu">
+					<div class="o-layout c-site-nav__group u-hide-from-desktop">
+						<h2 class="o-layout__item c-site-nav__group-title"><:vacarme:navigation_mobile_categorie_revue_titre:></h2>
+						<ul class="o-layout__item c-site-nav__list">
+							<li class="c-site-nav__item"><a href="#URL_RUBRIQUE{10}"><:vacarme:navigation_mobile_revue_titre:></a></li>
+							<li class="c-site-nav__item"><a href="#URL_RUBRIQUE{115}">#INFO_TITRE{rubrique, 115}</a></li>
+							<li class="c-site-nav__item"><a href="#URL_RUBRIQUE{517}"><:vacarme:navigation_mobile_abonner_titre:></a></li>
+							<li class="c-site-nav__item"><a href="#URL_RUBRIQUE{115}"><:vacarme:navigation_mobile_acheter_titre:></a></li>
+						</ul>
+					</div>
+					<div class="o-layout c-site-nav__group">
+						<h2 class="o-layout__item c-site-nav__group-title"><:vacarme:navigation_mobile_categorie_themes_titre:></h2>
+						[(#INCLURE{fond=inclure/menu,env,identifiant=nav_cat_1})]
+						[(#INCLURE{fond=inclure/menu,env,identifiant=nav_cat_2})]
+						[(#INCLURE{fond=inclure/menu,env,identifiant=nav_cat_3})]
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>
+#FILTRE{mini_html}

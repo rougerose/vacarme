@@ -1,0 +1,15 @@
+// =====================================
+// formulaire_menu_lang
+// =====================================
+
+.formulaire_menu_lang {
+	form {
+		border: none;
+		margin-bottom: $spacing-unit;
+	}
+	
+	label {
+		display: block;
+		@include inuit-font-size(18px);
+	}
+}

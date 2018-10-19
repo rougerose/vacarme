@@ -1,0 +1,142 @@
+// =====================================
+// o-icon
+// =====================================
+
+
+.o-icon {}
+
+
+//
+// tailles
+// -------------------------------------
+
+.o-icon--s {
+	height: 16px;
+	width: 16px;
+}
+
+.o-icon--m {
+	height: 24px;
+	width: 24px;
+}
+
+
+//
+// o-icon--burger
+// -------------------------------------
+// 
+// Animation bouton repris de
+// https://github.com/jonsuh/hamburgers/blob/master/_sass/hamburgers/types/_squeeze.scss
+// 
+.o-icon--burger {
+	display: block;
+	top: 50%;
+	margin-top: -1px;
+	transition-duration: 0.075s;
+	transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+	
+	&,
+	&:before,
+	&:after {
+		position: absolute;
+		left: 0;
+		right: 0;
+		height: $baseline / 12;
+		width: $spacing-unit-small + $spacing-unit-tiny;
+		margin-left: auto;
+		margin-right: auto;
+		content: '';
+		background-color: currentColor;
+		transition: transform .15s ease;
+	}
+	
+	&:before {
+		top: -$baseline / 6;
+		transition: top 0.075s 0.12s ease, opacity 0.075s ease;
+	}
+	
+	&:after {
+		bottom: -$baseline / 6;
+		transition: bottom 0.075s 0.12s ease, transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+	}
+	
+	.is-open & {
+		transform: rotate(45deg);
+		transition-delay: 0.12s;
+		transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+		
+		&:before {
+			top: 0;
+			opacity: 0;
+			transition: top 0.075s ease, opacity 0.075s 0.12s ease;
+		}
+		
+		&:after {
+			bottom: 0;
+			transform: rotate(-90deg);
+			transition: bottom 0.075s ease, transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+		}
+	}
+}
+
+
+//
+// o-icon--croix
+// -------------------------------------
+
+.o-icon--croix {
+	display: block;
+	top: 50%;
+	margin-top: -1px;
+	transform: rotate(45deg);
+	
+	&,
+	&:after {
+		position: absolute;
+		left: 0;
+		right: 0;
+		height: $baseline / 12;
+		width: $spacing-unit-small + $spacing-unit-tiny;
+		margin-left: auto;
+		margin-right: auto;
+		content: '';
+		background-color: currentColor;
+		transition: transform .15s ease;
+	}
+	
+	&:after {
+		bottom: 0;
+		transform: rotate(-90deg);
+		transition: bottom 0.075s ease, transform 0.075s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+	}
+}
+
+
+
+//
+// o-icon--logout
+// -------------------------------------
+
+.o-icon--logout {
+	width: 18px;
+	height: 18px;
+	stroke: currentColor;
+	@include mq(mobilePlus) {
+		margin-top: -2px;
+		margin-right: $spacing-unit-tiny;
+	} 
+}
+
+
+//
+// o-icon--article-complet
+// -------------------------------------
+.o-icon--article-complet {
+	height: 16px;
+	width: 16px;
+	vertical-align: middle;
+	> circle {
+		stroke: $color-light-blue-500;
+		fill: $color-red-500;
+	}
+}

@@ -1,0 +1,29 @@
+// =====================================
+// c-table
+// =====================================
+
+
+.c-table {}
+
+//
+// c-table__head
+// -------------------------------------
+
+.c-table__head {
+	font-weight: bold;
+	
+	> tr {
+		border-bottom: 1px solid $color-black;
+	}
+}
+
+
+//
+// c-table__body
+// -------------------------------------
+
+.c-table__body {
+	> tr {
+		border-bottom: 1px solid $color-gray-300;
+	}
+}

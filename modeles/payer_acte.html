@@ -1,0 +1,40 @@
+[(#REM)
+/*
+ * Paiement Bancaire
+ * module de paiement bancaire multi prestataires
+ * stockage des transactions
+ *
+ * Auteurs :
+ * Cedric Morin, Nursit.com
+ * (c) 2012-2015 - Distribue sous licence GNU/GPL
+ *
+ */
+]#CACHE{0}
+<BOUCLE_si(CONDITION){si #VAL{confirm}|_request|oui}>
+	<!-- #EVAL{session_start()} -->
+	<INCLURE{fond=modeles/confirmer_payer_acte,id_transaction=#EVAL{$_SESSION}|table_valeur{id_transaction},order_resume=#EVAL{$_SESSION}|table_valeur{order_resume},checkout=#VAL{checkout}|_request} />
+</BOUCLE_si>
+	<BOUCLE_macommande(TRANSACTIONS){id_transaction=#ENV{id_transaction}}{statut IN commande,attente}>
+		[(#REM) choix du mode de paiement]
+		<BOUCLE_payant(CONDITION){si #MONTANT|floatval|>{0.0}}>
+			<B_modes>
+				<h2 class="c-section__titre c-commande-section__titre u-typo-font-vacarme"><:vacarme:paiement_titre_section:></h2>
+				<div class="c-commande-paiement__modes payer_modes">
+					<BOUCLE_modes(POUR){tableau #VAL{acte}|bank_lister_configs}>
+						[(#VALEUR{actif}|oui)
+							#PAYER_ACTE{#VALEUR,#ID_TRANSACTION,#TRANSACTION_HASH,#ENV{title,''}}]
+					</BOUCLE_modes>
+				</div>
+			</B_modes>
+				<p class="error"><:bank:erreur_aucun_moyen_paiement:></p>
+			<//B_modes>
+		</BOUCLE_payant>
+			<h2 class='c-section__titre c-commande-section__titre u-typo-font-vacarme'>
+				[(#ENV{title,<:bank:titre_rien_a_payer:>})]
+			</h2>
+			<div class="c-commande-paiement__modes payer_modes">
+				#PAYER_ACTE{gratuit,#ID_TRANSACTION,#TRANSACTION_HASH,#ENV{title,''}}
+			</div>
+		<//B_payant>
+	</BOUCLE_macommande>
+<//B_si>

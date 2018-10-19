@@ -1,0 +1,13 @@
+<BOUCLE_facture_detail_numero(COMMANDES_DETAILS){id_commandes_detail}>
+	<BOUCLE_numero(RUBRIQUES){id_rubrique=#ID_OBJET}>
+		<tr>
+			<td class="descriptif">[(#TITRE)[ / (#DATE_NUMERO|saison)[&nbsp;(#DATE_NUMERO|annee)]]]</td>
+			<td class="quantite[ (#QUANTITE*|>{0}|non)null]">[(#QUANTITE)]</td>
+			<td class="prix_unitaire">#PRIX_HT</td>
+			[(#ENV{afficher_reduction}|oui)
+			<td class="reduction">[(#REDUCTION|commandes_afficher_reduction_si)]</td>]
+			<td class="taxe[ (#TAXE*|floatval|>{0.0}|non)null]">[(#TAXE*|mult{100}|number_format{1})%]</td>
+			<td class="montant">[(#PRIX_HT*|mult{#QUANTITE}|prix_formater)]</td>
+		</tr>
+	</BOUCLE_numero>
+</BOUCLE_facture_detail_numero>

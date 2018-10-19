@@ -1,0 +1,13 @@
+<BOUCLE_adresse(ADRESSES){id_adresse=#ENV{id_adresse}}>
+	<section class="c-section c-commande-section c-commande-adresse">
+		<h2 class="c-section__titre--small c-commande-section__titre u-typo-font-vacarme"><:vacarme:commande_adresse_titre:></h2>
+		[(#REM) article(s) perso ]
+		[(#ENV{articles_perso}|count|>{0}|oui)
+			[<p class="c-commande-adresse__info"><span>(#ENV{articles_perso}|count|singulier_ou_pluriel{vacarme:commande_message_adresse_article_perso, vacarme:commande_message_adresse_articles_perso})<strong>[(#ORGANISATION)][ (#SERVICE),][ (#VOIE)][, (#COMPLEMENT)][, (#BOITE_POSTALE)][ (#CODE_POSTAL)][ (#VILLE)][ (#REGION)][ (#PAYS)].</strong></span>[ <span><a href="(#URL_PAGE{compte}|parametre_url{section, informations}|parametre_url{retour, #SELF})" class="c-btn c-btn--black u-typo-font-vacarme u-typo-upper"><:vacarme:commande_adresse_bouton_modifier:></a></span>]</p>]
+		]
+		[(#REM) article(s) offert(s) ]
+		[(#ENV{articles_offerts}|count|>{0}|oui)
+			[<p class"c-commande-adresse__info">(#ENV{articles_offerts}|count|singulier_ou_pluriel{vacarme:commande_message_adresse_article_offert,vacarme:commande_message_adresse_articles_offerts}).</p>]
+		]
+	</section>
+</BOUCLE_adresse>

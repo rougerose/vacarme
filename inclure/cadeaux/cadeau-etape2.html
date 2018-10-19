@@ -1,0 +1,30 @@
+<BOUCLE_auteur(AUTEURS){id_auteur=#SESSION{id_auteur}}{tout}>
+	<BOUCLE_abonnement(ABONNEMENTS){id_auteur}{id_abonnement=#ENV{id_abonnement}}>
+	[(#SET{cle, #ID_AUTEUR|vabonnements_calcul_hash_abonnement{#ID_ABONNEMENT, #DATE}})]
+	</BOUCLE_abonnement>
+	<INCLURE{fond=inclure/cadeaux/progression, page=profil} />
+	<section class="c-cadeau-section">
+		[(#GET{cle}|=={#ENV{cadeau_hash}}|oui)
+			<header class="c-cadeau-section__header">
+				<h2 class="c-cadeau-section__titre u-typo-font-vacarme u-typo-upper"><:vacarme:cadeau_etape_profil_titre:></h2>
+			</header>
+			<div class="c-cadeau__content">
+				[(#SET{retour, 
+					#URL_PAGE{cadeau}|parametre_url{etape, 3}
+						|parametre_url{id_abonnement, #ENV{id_abonnement}}
+						|parametre_url{cadeau_hash, #ENV{cadeau_hash}}
+				})]
+				[<div class="ajax">
+					(#FORMULAIRE_MODIFIER_PROFIL{#SESSION{id_auteur}, #GET{retour}, password})
+				</div>]
+				<div class="c-mentions c-mentions--etroit">
+					<p class="c-mentions__texte"><:vprofils:mentions_cadeaux_profil:></p>
+				</div>
+			</div>
+		][(#GET{cle}|=={#ENV{cadeau_hash}}|non)
+			<div class="c-cadeau__content">
+				<p class="c-message c-message--erreur"><:vacarme:cadeau_erreur_hash:></p>
+			</div>
+		]
+	</section>
+</BOUCLE_auteur>

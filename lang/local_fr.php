@@ -85,6 +85,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'keyword_number'                              => '1 mot-clé',
     'keywords_all'                                => 'Tous les mots-clés',
     'keywords_number'                             => '@nb@ mot-clés',
+	
+	'login_login2' => "Votre adresse email",
+	'login_pass2' => "Votre mot de passe",
 
     // M
     'message_404_title'                           => "Page indisponible.",
@@ -168,7 +171,30 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     'vacarme_about'                               => "À propos de Vacarme",
     'vacarme_infos_desabonnement'                 => "Se désabonner de Vacarme-infos",
     'version_online'                              => "Version en ligne",
-    'version_print'                               => "Version imprimée"
-
-   );
-?>
+    'version_print'                               => "Version imprimée",
+	
+	// *********************
+	// Surcharge plugin Bank
+	// *********************
+	'info_virement_etablir' => "Afin de faciliter le traitement de votre paiement, veuillez indiquer la référence <b>Transaction numéro @transaction@</b> avec votre virement.
+	
+	Le montant attendu est de @montant@
+	
+	Nos coordonnées bancaires :
+-* Bénéficiaire : « @ordre@ »
+-* Banque : @banque@<br/>@adressebanque@
+-* IBAN : @iban@
+-* BIC : @bic@",
+	
+	// Info paiement chèque
+	// --------------------
+	'info_cheque_imprimer' => 'Les instructions concernant l’établissement du chèque seront fournies après avoir cliqué sur «Régler par chèque».
+	Transaction : #@transaction@
+	Montant : @montant@',
+	
+	// Info paiement virement
+	// ----------------------
+	'info_virement' => 'Les instructions concernant l’établissement du virement seront fournies après avoir cliqué sur «Régler par virement bancaire».
+	Transaction: #@transaction@
+	Montant : @montant@',
+);

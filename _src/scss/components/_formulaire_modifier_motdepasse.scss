@@ -1,0 +1,24 @@
+// =====================================
+// formulaire_modifier_motdepasse
+// =====================================
+
+
+.formulaire_modifier_motdepasse {
+
+	.editer-groupe {
+		display: flex;
+		flex-direction: column;
+		
+		@include mq(tablet) {
+			flex-direction: row;
+			justify-content: space-between;
+			margin-left: $spacing-unit * -1;
+		}
+	}
+	
+	.editer {
+		flex: 1;
+		padding-left: $spacing-unit;
+	}
+	
+}

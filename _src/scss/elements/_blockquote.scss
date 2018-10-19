@@ -1,3 +1,8 @@
 blockquote {
 	quotes: none;
+	text-indent: -0.41em;
+
+	p:last-of-type {
+		margin-bottom: 0;
+	}
 }

@@ -6,47 +6,51 @@
 ]</BOUCLE_liste_alpha>[
 (#SET{debut,#GET{auteurs_alpha}|array_sort|table_valeur{0}})
 ]
-<div class="grid">
-    <article class="self auteurs">
-        <div class="grid__item">
-            <header class="self__header self__header--rubrique">
-                <h1 class="hN titre"><:local:authors:></h1>
-            </header>
-        </div><!-- /.grid__item -->
-        <div class="grid__item desk-three-quarters push--desk-one-quarter">
-            <B_pagination_abc>
-            <nav class="pagination pagination--top pagination--abc nav--position nav--is-top">
-                <ul class="inline-list">
-                    <BOUCLE_pagination_abc(POUR){tableau #GET{alphabet}}>[(#SET{active,#VALEUR|=={#ENV{lettre,#GET{debut}}}|?{' ',''}})][(#SET{indisponible,#VALEUR|in_array{#GET{auteurs_alpha}}|?{'',' '}})
-                    ]<li class="inline-list__item pagination__item pagination--abc__item[ (#GET{indisponible}|oui)pagination__item--is-disabled nav-item--is-disabled][ (#GET{active}|?{pagination__item--is-active nav-item--is-active})]"
-                    >[(#GET{indisponible}|?{<span>,<a[ class="(#GET{active}|?{on})"] href="[(#SELF|parametre_url{lettre,#VALEUR})]">})]#VALEUR[(#GET{content}|?{</span>,</a>})]</li
-                    ></BOUCLE_pagination_abc>
-                </ul>
-            </nav>
-            </B_pagination_abc>
+<main id="main" class="page-content" role="main">
+	<div class="page-block">
+		<div class="grid">
+		    <article class="self auteurs">
+		        <div class="grid__item">
+		            <header class="self__header self__header--rubrique">
+		                <h1 class="hN titre"><:local:authors:></h1>
+		            </header>
+		        </div><!-- /.grid__item -->
+		        <div class="grid__item desk-three-quarters push--desk-one-quarter">
+		            <B_pagination_abc>
+		            <nav class="pagination pagination--top pagination--abc nav--position nav--is-top">
+		                <ul class="inline-list">
+		                    <BOUCLE_pagination_abc(POUR){tableau #GET{alphabet}}>[(#SET{active,#VALEUR|=={#ENV{lettre,#GET{debut}}}|?{' ',''}})][(#SET{indisponible,#VALEUR|in_array{#GET{auteurs_alpha}}|?{'',' '}})
+		                    ]<li class="inline-list__item pagination__item pagination--abc__item[ (#GET{indisponible}|oui)pagination__item--is-disabled nav-item--is-disabled][ (#GET{active}|?{pagination__item--is-active nav-item--is-active})]"
+		                    >[(#GET{indisponible}|?{<span>,<a[ class="(#GET{active}|?{on})"] href="[(#SELF|parametre_url{lettre,#VALEUR})]">})]#VALEUR[(#GET{content}|?{</span>,</a>})]</li
+		                    ></BOUCLE_pagination_abc>
+		                </ul>
+		            </nav>
+		            </B_pagination_abc>
 
-            <B_artlettre>
-            <section class="index index-auteurs resume-auteur resume-auteur--list">
-                <h2 class="hN index-auteurs__titre">#ENV{lettre,#GET{debut}}</h2>
-                <ul id="accordeon" class="list">
-                    <BOUCLE_artlettre(AUTEURS){id_auteur IN #GET{commence_par#ENV{lettre,#GET{debut}}}}{par nom}>
-                    <li>
-                        <h3 class="hN resume-auteur__nom">[(#NOM|prenom_nom)] <span class="more more--inline"><a href="#URL_AUTEUR"><:local:more_arrow:></a></span></h3>
-                        <B_articles>
-                        <ul class="list accordeon">
-                            <BOUCLE_articles(ARTICLES){id_auteur}{!par date}>
-                            [<li>
-                                (#INCLURE{fond=inclure/resumes/article-list,contexte=accordeon,id_article})
-                            </li>]
-                            </BOUCLE_articles>
-                        </ul>
-                        </B_articles>
-                    </li>
-                    </BOUCLE_artlettre>
-                </ul>
-            </section>
-            </B_artlettre>
-        </div><!-- /.grid__item -->
-    </article><!-- /.self auteurs -->
-</div><!-- /.grid -->
+		            <B_artlettre>
+		            <section class="index index-auteurs resume-auteur resume-auteur--list">
+		                <h2 class="hN index-auteurs__titre">#ENV{lettre,#GET{debut}}</h2>
+		                <ul id="accordeon" class="list">
+		                    <BOUCLE_artlettre(AUTEURS){id_auteur IN #GET{commence_par#ENV{lettre,#GET{debut}}}}{par nom}>
+		                    <li>
+		                        <h3 class="hN resume-auteur__nom">[(#NOM|prenom_nom)] <span class="more more--inline"><a href="#URL_AUTEUR"><:local:more_arrow:></a></span></h3>
+		                        <B_articles>
+		                        <ul class="list accordeon">
+		                            <BOUCLE_articles(ARTICLES){id_auteur}{!par date}>
+		                            [<li>
+		                                (#INCLURE{fond=inclure/resumes/article-list,contexte=accordeon,id_article})
+		                            </li>]
+		                            </BOUCLE_articles>
+		                        </ul>
+		                        </B_articles>
+		                    </li>
+		                    </BOUCLE_artlettre>
+		                </ul>
+		            </section>
+		            </B_artlettre>
+		        </div><!-- /.grid__item -->
+		    </article><!-- /.self auteurs -->
+		</div><!-- /.grid -->
+	</div>
+</main>
 #FILTRE{mini_html}

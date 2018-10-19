@@ -1,0 +1,21 @@
+// =====================================
+// c-numeros
+// =====================================
+
+
+.c-numeros {}
+
+
+.c-numeros__liste {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: $spacing-unit;
+	width: 85%;
+	
+	@include mq(tablet) {
+		width: 100%;
+	}
+}

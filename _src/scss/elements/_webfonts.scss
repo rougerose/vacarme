@@ -5,110 +5,123 @@
 // ----- Plantin ----- //
 
 @font-face {
-	font-family: 'Plantin';
-	src: url('webfonts/PlantinStd-Bold.eot');
-	src: url('webfonts/PlantinStd-Bold.eot?#iefix') format('embedded-opentype'),
-		url('webfonts/PlantinStd-Bold.woff2') format('woff2'),
-		url('webfonts/PlantinStd-Bold.woff') format('woff'),
-		url('webfonts/PlantinStd-Bold.ttf') format('truetype'),
-		url('webfonts/PlantinStd-Bold.svg#PlantinStd-Bold') format('svg');
+	font-family: "Plantin";
+	src: url("webfonts/PlantinStd-Bold.eot");
+	src: url("webfonts/PlantinStd-Bold.eot?#iefix") format("embedded-opentype"),
+		url("webfonts/PlantinStd-Bold.woff2") format("woff2"),
+		url("webfonts/PlantinStd-Bold.woff") format("woff"),
+		url("webfonts/PlantinStd-Bold.ttf") format("truetype"),
+		url("webfonts/PlantinStd-Bold.svg#PlantinStd-Bold") format("svg");
 	font-weight: bold;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'Plantin';
-	src: url('webfonts/PlantinStd-BoldItalic.eot');
-	src: url('webfonts/PlantinStd-BoldItalic.eot?#iefix') format('embedded-opentype'),
-		url('webfonts/PlantinStd-BoldItalic.woff2') format('woff2'),
-		url('webfonts/PlantinStd-BoldItalic.woff') format('woff'),
-		url('webfonts/PlantinStd-BoldItalic.ttf') format('truetype'),
-		url('webfonts/PlantinStd-BoldItalic.svg#PlantinStd-BoldItalic') format('svg');
+	font-family: "Plantin";
+	src: url("webfonts/PlantinStd-BoldItalic.eot");
+	src: url("webfonts/PlantinStd-BoldItalic.eot?#iefix")
+			format("embedded-opentype"),
+		url("webfonts/PlantinStd-BoldItalic.woff2") format("woff2"),
+		url("webfonts/PlantinStd-BoldItalic.woff") format("woff"),
+		url("webfonts/PlantinStd-BoldItalic.ttf") format("truetype"),
+		url("webfonts/PlantinStd-BoldItalic.svg#PlantinStd-BoldItalic")
+			format("svg");
 	font-weight: bold;
 	font-style: italic;
 }
 
 @font-face {
-	font-family: 'Plantin';
-	src: url('webfonts/PlantinStd.eot');
-	src: url('webfonts/PlantinStd.eot?#iefix') format('embedded-opentype'),
-		url('webfonts/PlantinStd.woff2') format('woff2'),
-		url('webfonts/PlantinStd.woff') format('woff'),
-		url('webfonts/PlantinStd.ttf') format('truetype'),
-		url('webfonts/PlantinStd.svg#PlantinStd') format('svg');
+	font-family: "Plantin";
+	src: url("webfonts/PlantinStd.eot");
+	src: url("webfonts/PlantinStd.eot?#iefix") format("embedded-opentype"),
+		url("webfonts/PlantinStd.woff2") format("woff2"),
+		url("webfonts/PlantinStd.woff") format("woff"),
+		url("webfonts/PlantinStd.ttf") format("truetype"),
+		url("webfonts/PlantinStd.svg#PlantinStd") format("svg");
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'Plantin';
-	src: url('webfonts/PlantinStd-SemiboldItalic.eot');
-	src: url('webfonts/PlantinStd-SemiboldItalic.eot?#iefix') format('embedded-opentype'),
-		url('webfonts/PlantinStd-SemiboldItalic.woff2') format('woff2'),
-		url('webfonts/PlantinStd-SemiboldItalic.woff') format('woff'),
-		url('webfonts/PlantinStd-SemiboldItalic.ttf') format('truetype'),
-		url('webfonts/PlantinStd-SemiboldItalic.svg#PlantinStd-SemiboldItalic') format('svg');
+	font-family: "Plantin";
+	src: url("webfonts/PlantinStd-SemiboldItalic.eot");
+	src: url("webfonts/PlantinStd-SemiboldItalic.eot?#iefix")
+			format("embedded-opentype"),
+		url("webfonts/PlantinStd-SemiboldItalic.woff2") format("woff2"),
+		url("webfonts/PlantinStd-SemiboldItalic.woff") format("woff"),
+		url("webfonts/PlantinStd-SemiboldItalic.ttf") format("truetype"),
+		url("webfonts/PlantinStd-SemiboldItalic.svg#PlantinStd-SemiboldItalic")
+			format("svg");
 	font-weight: 600;
 	font-style: italic;
 }
 
 @font-face {
-	font-family: 'Plantin';
-	src: url('webfonts/PlantinStd-Semibold.eot');
-	src: url('webfonts/PlantinStd-Semibold.eot?#iefix') format('embedded-opentype'),
-		url('webfonts/PlantinStd-Semibold.woff2') format('woff2'),
-		url('webfonts/PlantinStd-Semibold.woff') format('woff'),
-		url('webfonts/PlantinStd-Semibold.ttf') format('truetype'),
-		url('webfonts/PlantinStd-Semibold.svg#PlantinStd-Semibold') format('svg');
+	font-family: "Plantin";
+	src: url("webfonts/PlantinStd-Semibold.eot");
+	src: url("webfonts/PlantinStd-Semibold.eot?#iefix")
+			format("embedded-opentype"),
+		url("webfonts/PlantinStd-Semibold.woff2") format("woff2"),
+		url("webfonts/PlantinStd-Semibold.woff") format("woff"),
+		url("webfonts/PlantinStd-Semibold.ttf") format("truetype"),
+		url("webfonts/PlantinStd-Semibold.svg#PlantinStd-Semibold")
+			format("svg");
 	font-weight: 600;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'Plantin';
-	src: url('webfonts/PlantinStd-Italic.eot');
-	src: url('webfonts/PlantinStd-Italic.eot?#iefix') format('embedded-opentype'),
-		url('webfonts/PlantinStd-Italic.woff2') format('woff2'),
-		url('webfonts/PlantinStd-Italic.woff') format('woff'),
-		url('webfonts/PlantinStd-Italic.ttf') format('truetype'),
-		url('webfonts/PlantinStd-Italic.svg#PlantinStd-Italic') format('svg');
+	font-family: "Plantin";
+	src: url("webfonts/PlantinStd-Italic.eot");
+	src: url("webfonts/PlantinStd-Italic.eot?#iefix")
+			format("embedded-opentype"),
+		url("webfonts/PlantinStd-Italic.woff2") format("woff2"),
+		url("webfonts/PlantinStd-Italic.woff") format("woff"),
+		url("webfonts/PlantinStd-Italic.ttf") format("truetype"),
+		url("webfonts/PlantinStd-Italic.svg#PlantinStd-Italic") format("svg");
 	font-weight: normal;
 	font-style: italic;
 }
 
 // ----- HelveticaNeue ----- //
 @font-face {
-	font-family: 'HelveticaNeueCd';
-	src: url('webfonts/HelveticaNeueLTStd-Cn.eot');
-	src: url('webfonts/HelveticaNeueLTStd-Cn.eot?#iefix') format('embedded-opentype'),
-		url('webfonts/HelveticaNeueLTStd-Cn.woff2') format('woff2'),
-		url('webfonts/HelveticaNeueLTStd-Cn.woff') format('woff'),
-		url('webfonts/HelveticaNeueLTStd-Cn.ttf') format('truetype'),
-		url('webfonts/HelveticaNeueLTStd-Cn.svg#HelveticaNeueLTStd-Cn') format('svg');
+	font-family: "HelveticaNeueCd";
+	src: url("webfonts/HelveticaNeueLTStd-Cn.eot");
+	src: url("webfonts/HelveticaNeueLTStd-Cn.eot?#iefix")
+			format("embedded-opentype"),
+		url("webfonts/HelveticaNeueLTStd-Cn.woff2") format("woff2"),
+		url("webfonts/HelveticaNeueLTStd-Cn.woff") format("woff"),
+		url("webfonts/HelveticaNeueLTStd-Cn.ttf") format("truetype"),
+		url("webfonts/HelveticaNeueLTStd-Cn.svg#HelveticaNeueLTStd-Cn")
+			format("svg");
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'HelveticaNeueCd';
-	src: url('webfonts/HelveticaNeueLTStd-LtCn.eot');
-	src: url('webfonts/HelveticaNeueLTStd-LtCn.eot?#iefix') format('embedded-opentype'),
-		url('webfonts/HelveticaNeueLTStd-LtCn.woff2') format('woff2'),
-		url('webfonts/HelveticaNeueLTStd-LtCn.woff') format('woff'),
-		url('webfonts/HelveticaNeueLTStd-LtCn.ttf') format('truetype'),
-		url('webfonts/HelveticaNeueLTStd-LtCn.svg#HelveticaNeueLTStd-LtCn') format('svg');
+	font-family: "HelveticaNeueCd";
+	src: url("webfonts/HelveticaNeueLTStd-LtCn.eot");
+	src: url("webfonts/HelveticaNeueLTStd-LtCn.eot?#iefix")
+			format("embedded-opentype"),
+		url("webfonts/HelveticaNeueLTStd-LtCn.woff2") format("woff2"),
+		url("webfonts/HelveticaNeueLTStd-LtCn.woff") format("woff"),
+		url("webfonts/HelveticaNeueLTStd-LtCn.ttf") format("truetype"),
+		url("webfonts/HelveticaNeueLTStd-LtCn.svg#HelveticaNeueLTStd-LtCn")
+			format("svg");
 	font-weight: 300;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: 'HelveticaNeueCd';
-	src: url('webfonts/HelveticaNeueLTStd-BdCn.eot');
-	src: url('webfonts/HelveticaNeueLTStd-BdCn.eot?#iefix') format('embedded-opentype'),
-		url('webfonts/HelveticaNeueLTStd-BdCn.woff2') format('woff2'),
-		url('webfonts/HelveticaNeueLTStd-BdCn.woff') format('woff'),
-		url('webfonts/HelveticaNeueLTStd-BdCn.ttf') format('truetype'),
-		url('webfonts/HelveticaNeueLTStd-BdCn.svg#HelveticaNeueLTStd-BdCn') format('svg');
+	font-family: "HelveticaNeueCd";
+	src: url("webfonts/HelveticaNeueLTStd-BdCn.eot");
+	src: url("webfonts/HelveticaNeueLTStd-BdCn.eot?#iefix")
+			format("embedded-opentype"),
+		url("webfonts/HelveticaNeueLTStd-BdCn.woff2") format("woff2"),
+		url("webfonts/HelveticaNeueLTStd-BdCn.woff") format("woff"),
+		url("webfonts/HelveticaNeueLTStd-BdCn.ttf") format("truetype"),
+		url("webfonts/HelveticaNeueLTStd-BdCn.svg#HelveticaNeueLTStd-BdCn")
+			format("svg");
 	font-weight: bold;
 	font-style: normal;
 }

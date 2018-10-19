@@ -1,0 +1,61 @@
+#CACHE{0}
+<BOUCLE_commande(COMMANDES){id_commande=#ENV{id_commande}}>
+	#SET{articles_offerts, #ARRAY}
+	#SET{articles_perso, #ARRAY}
+	#SET{id_adresse, ''}
+	#SET{valider, ''}
+	#SET{statut, #STATUT}
+	<BOUCLE_tests_contenu_commande(COMMANDES_DETAILS){id_commande}>
+		[(#OBJET|=={abonnements_offre}|oui)
+			[(#DESCRIPTIF|match{offert@}|?{
+				[(#SET{articles_offerts, #GET{articles_offerts}|push{#ID_OBJET}})],
+				[(#SET{articles_perso, #GET{articles_perso}|push{#ID_OBJET}})]
+			})]
+		]
+		[(#OBJET|match{produit|rubrique}|oui)
+			#SET{articles_perso, #GET{articles_perso}|push{#ID_OBJET}}
+		]
+	</BOUCLE_tests_contenu_commande>
+	
+	<INCLURE{fond=inclure/commande/progression, page=commande} />
+	
+	<BOUCLE_adresse(ADRESSES){id_auteur}{type=pref}{0,1}{si #GET{statut}|=={encours}}>
+		#SET{id_adresse, #ID_ADRESSE}
+		<INCLURE{fond=inclure/commande/adresse, id_adresse=#ID_ADRESSE, articles_offerts=#GET{articles_offerts}, articles_perso=#GET{articles_perso},env}/>
+	</BOUCLE_adresse>
+		<section class="c-section c-commande-section c-commande-adresse">
+			<h2 class="c-section__titre--small c-commande-section__titre u-typo-font-vacarme"><:vacarme:commande_adresse_titre:></h2>
+			<p class="c-message c-message--erreur"><:vacarme:commande_erreur_adresse_inexistante:><br>[<a href="(#URL_PAGE{compte}|parametre_url{section, informations}|parametre_url{retour, #SELF})" class="c-btn c-btn--black c-btn--margin u-typo-font-vacarme u-typo-upper"><:vacarme:commande_adresse_bouton_ajouter:></a>]</p>
+		</section>
+	<//B_adresse>
+	
+	[(#STATUT|=={poubelle}|oui)
+		<div class="c-commande-articles est-vide">
+			<p class="c-message c-message--ok"><:vacarme:commande_message_annulation:>.</p>
+		</div>
+	][(#STATUT|=={encours}|oui)
+		<INCLURE{fond=inclure/commande/contenu, id_commande}/>
+		
+		[(#REM)
+			<!-- 
+				Tester si l'adresse postale existe pour les articles destinés au payeur.
+			-->
+		][(#GET{articles_perso}|et{#GET{id_adresse}}|?{[(#SET{valider, ' '})]})]
+		[(#GET{articles_offerts}|oui) [(#GET{articles_perso}|non) [(#SET{valider, ' '})] ]]
+		[(#GET{valider}|oui)
+			<div class="c-btn-multiples c-commande-actions">
+				[<a href="(#SELF|parametre_url{etape, paiement})" class="c-btn c-btn--submit c-btn--round c-btn--primaire u-typo-font-vacarme c-btn--upper"><:vacarme:commande_bouton_payer:></a>]
+				[(#BOUTON_ACTION{<:vacarme:commande_bouton_annuler:>, 
+					#URL_ACTION_AUTEUR{abandonner_commande, #ID_COMMANDE, #SELF|parametre_url{resultat, annulation}},
+					c-btn-form c-btn-form--secondaire c-btn-form--annuler c-btn-form--round c-btn-form--upper u-typo-font-vacarme})]
+			</div>
+		]
+	]
+</BOUCLE_commande>
+	[<div class="c-commande-articles est-vide">
+		(#ENV{resultat}|=={annulation}|?{
+			<p class="c-message c-message--ok"><:vacarme:commande_message_annulation:></p>,
+			<p class="c-message c-message--erreur"><:vacarme:commande_inexistante:></p>
+		})
+	</div>]
+<//B_commande>

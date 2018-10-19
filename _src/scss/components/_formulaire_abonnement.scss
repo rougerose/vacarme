@@ -1,0 +1,239 @@
+// =====================================
+// formulaire_abonnement (fa)
+// =====================================
+
+.formulaire_abonnement {
+	margin-top: $spacing-unit + $spacing-unit-small;
+	
+	& > form {
+		border-width: 0;
+		padding: 0;
+	}
+	
+	.editer {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 0;
+		
+		@include mq(tablet) {
+			flex-direction: row;
+			justify-content: space-between;
+			
+			&.editer_abonnements_offre,
+			&.editer_soutien__montant {
+				flex-direction: column;
+				position: relative;
+			}
+		}
+	}
+	
+	input[type="radio"] {
+		margin: .18em .18em .18em (.18em * 2);
+	}
+	
+	.erreur_message {
+		display: block;
+		margin-bottom: $spacing-unit;
+		@include inuit-font-size(18px, false);
+	}
+}
+
+
+//
+// fa__choix
+// -------------------------------------
+
+	.fa__choix {
+		border: 1px solid $color-gray-300;
+		border-radius: 3px;
+		margin-bottom: $spacing-unit-small;
+		padding: $spacing-unit-small $spacing-unit-small $spacing-unit-tiny 0;
+		transition: background-color ease-in .3s, border-color ease-in .3s;
+		
+		&:hover {
+			border-color: $color-orange-500;
+			background-color: $color-orange-500;
+		}
+		
+		&.is-selected {
+			border-color: $color-orange-500;
+			background-color: $color-orange-500;
+		}
+	}
+
+
+//
+// fa__label
+// -------------------------------------
+
+		.fa__label {
+			display: block;
+			position: relative;
+			line-height: 1.4;
+			cursor: pointer;
+		}
+
+
+//
+// fa__radio
+// -------------------------------------
+
+			.fa__radio {
+				position: absolute;
+				z-index: 1;
+			}
+
+
+//
+// fa__label-text
+// -------------------------------------
+
+			.fa__label-text {
+				display: flex;
+				padding-left: $spacing-unit + $spacing-unit-tiny;
+				pointer-events: none;
+				
+				&--vertical {
+					flex-direction: column;
+				}
+			}
+
+//
+// fa-text
+// -------------------------------------
+
+				.fa-text {}
+				
+				
+				// ----- fa-text__surtitre ----- //
+				
+				.fa-text__surtitre {
+					margin-top: $spacing-unit-small;
+					// margin: $spacing-unit-tiny 0 0;
+					color: $color-gray-700;
+					@include inuit-font-size(14px, false);
+					text-transform: uppercase;
+				}
+				
+				
+				// ----- fa-text__titre ----- //
+				
+				.fa-text__titre {
+					@include inuit-font-size(18px, false);
+					font-weight: bold;
+				}
+			
+			
+				// ----- fa-text__desc ----- //
+				
+				.fa-text__desc {
+					margin: $spacing-unit-small 0;
+					font-family: $base-font-family;
+					color: $color-gray-700;
+					
+					> p {
+						margin-bottom: 0;
+					}
+				}
+				
+				
+				// ----- fa-text__img ----- //
+				
+				.fa-text__img {
+					margin: $spacing-unit-small 0;
+				}
+
+
+//
+// fa__extra
+// -------------------------------------
+
+		.fa__extra {
+			padding-left: $spacing-unit + $spacing-unit-tiny;
+			margin: $spacing-unit-small 0 $spacing-unit-tiny;
+			// position: relative;
+			// z-index: 10;
+		}
+
+
+//
+// fa-offres
+// -------------------------------------
+
+.fa-offres {
+	display: flex;
+	flex-direction: column;
+	transition: opacity ease-in .4s, visibility ease-in .4s;
+	position: relative;
+	
+	// si le js est actif
+	// les blocs sont rendus invisibles et sont superposés
+	.js & {
+		opacity: 0;
+	}
+	
+	&.is-stacked {
+		position: absolute;
+	}
+	
+	@include mq(tablet) {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
+
+
+
+//
+// fa-offre
+// -------------------------------------
+
+.fa-offre {}
+
+	
+	// ----- fa-offre__text ----- //
+	
+	.fa-offre__text { flex-direction: column; }
+
+	
+	// ----- fa-offre__titre ----- //
+	
+	.fa-offre__titre {}
+	
+	
+	// ----- fa-offre__desc ----- //
+	
+	.fa-offre__desc {}
+	
+	
+	// ----- fa-offre__prix ----- //
+	
+	.fa-offre__prix {
+		@include inuit-font-size(20px, false);
+		font-weight: bold;
+	}
+	
+	
+	// ----- fa-offre__prix-client ----- //
+	
+	.fa-offre__prix-client {
+		input { width: 4rem; }
+	}
+
+
+//
+// mise en page
+// -------------------------------------
+
+@include mq(tablet) {
+	
+	.fa__choix {
+		&--medium {
+			flex: 0 1 49%;
+		}
+		
+		&--small {
+			flex: 0 1 31%;
+		}
+	}
+}

@@ -1,0 +1,101 @@
+// =====================================
+// c-card
+// =====================================
+
+.c-card {
+	margin-bottom: $spacing-unit;
+	padding: $spacing-unit-small;
+	color: $color-black;
+	box-shadow: -1px 0 2px 0 rgba(0,0,0,0.12), 1px 0 2px 0 rgba(0,0,0,0.12), 0 1px 1px 0 rgba(0,0,0,0.24);
+	transform: translate(0, 0);
+	transition: $transform-transition;
+	
+	&:hover {
+		box-shadow: -2px 0 2px 0 rgba(0,0,0,0.16),2px 0 2px 0 rgba(0,0,0,0.16),0 2px 2px 0 rgba(0,0,0,0.23);
+		transform: translate(0, -3px);
+	}
+}
+
+
+
+//
+// c-card__img
+// -------------------------------------
+.c-card__img {
+	margin-bottom: $spacing-unit;
+}
+
+
+//
+// c-card__body
+// -------------------------------------
+.c-card__body {}
+
+	.c-card__body--push {
+		@include mq(tabletPlus) {
+			margin-left: 50%;
+			padding-left: $spacing-unit;
+		}
+	}
+
+
+//
+// c-card__titre
+// -------------------------------------
+.c-card__titre {}
+
+
+
+//
+// c-card__desc
+// -------------------------------------
+.c-card__desc {}
+
+
+
+//
+// c-card__prix
+// -------------------------------------
+.c-card__prix {}
+
+
+
+//
+// font-size commune 
+// pour titre, desc et prix
+// -------------------------------------
+.c-card__titre,
+.c-card__desc,
+.c-card__prix {
+	@include inuit-font-size(22px);
+}
+
+
+//
+// variante c-card--media
+// -------------------------------------
+.c-card--media {
+	
+	@include mq(tablet) {
+		@include inuit-clearfix();
+		display: block;
+	}
+	
+	.c-card__img {
+		@include mq(tablet) {
+			float: left;
+			margin-right: $spacing-unit;
+			width: 50%;
+			
+			> img {
+				display: block;
+			}
+		}
+	}
+	
+	.c-card__body {
+		@include mq(tablet) {
+			overflow: hidden;
+		}
+	}
+}

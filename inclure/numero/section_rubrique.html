@@ -1,0 +1,49 @@
+<BOUCLE_section_rubrique(RUBRIQUES){id_rubrique}>
+	<section class="c-numero-section">
+		<div class="o-wrapper">
+			[(#ENV{sommaire_partiel}|oui)
+				#SET{titre_numero, #INFO_TITRE{rubrique, #ID_PARENT}}
+				#SET{url_numero, #URL_RUBRIQUE{#ID_PARENT}}
+				<footer class="c-numero__retour-sommaire c-numero__retour-sommaire--haut"><:vacarme:info_numero_revenir_sommaire_complet{titre_numero=#GET{titre_numero}, url_numero=#GET{url_numero}}:></footer>
+			]
+			<header class="c-numero-section__header">
+				#SET{titre_rubrique, #TITRE}
+				[(#REM)
+					<!-- 
+						Si la rubrique a un mot-clé dans "@rubriques", c'est 
+						lui qui est utilisé en surtitre de section. Exemples : 
+						Chantier, Entretien, etc.
+						Sinon c'est le titre de la rubrique qui est affiché,
+						sans surtitre. Exemple : Cahier.
+					-->
+				]<BOUCLE_titre_rubrique(MOTS){id_rubrique}{type=@rubriques}>
+					[(#TITRE|mb_strtolower|!={#GET{titre_rubrique}|mb_strtolower}|?{
+						[<p class="c-numero-section__surtitre u-typo-font-vacarme">#TITRE</p>
+						<h1 class="c-numero-section__titre">(#GET{titre_rubrique})</h1>],
+						[<h1 class="c-numero-section__surtitre u-typo-font-vacarme">(#TITRE)</h1>]
+					})]
+				</BOUCLE_titre_rubrique>
+					<h1 class="c-numero-section__surtitre u-typo-font-vacarme">#TITRE</h1>
+				<//B_titre_rubrique>
+				[<div class="c-numero-section__desc">
+					(#DESCRIPTIF)
+				</div>]
+			</header>
+			<div class="c-numero-section__body">
+				<div class="c-numero-section__articles">
+					<BOUCLE_articles_section(ARTICLES){id_rubrique}{par num titre, titre, date}>
+						<INCLURE{fond=inclure/resume/numero/article, id_article, mode_article=#ENV{mode_article}}/>
+					</BOUCLE_articles_section>
+				</div>
+				[<figure class="c-numero-section__illustration">
+					<img src="(#LOGO_RUBRIQUE|extraire_attribut{src})" alt="[(#TITRE)]">
+				</figure>]
+			</div>
+			[(#ENV{sommaire_partiel}|oui)
+				#SET{titre_numero, #INFO_TITRE{rubrique, #ID_PARENT}}
+				#SET{url_numero, #URL_RUBRIQUE{#ID_PARENT}}
+				<footer class="c-numero__retour-sommaire c-numero__retour-sommaire--bas"><:vacarme:info_numero_revenir_sommaire_complet{titre_numero=#GET{titre_numero}, url_numero=#GET{url_numero}}:></footer>
+			]
+		</div>
+	</section>
+</BOUCLE_section_rubrique>

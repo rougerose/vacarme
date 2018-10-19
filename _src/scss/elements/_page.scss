@@ -1,27 +1,30 @@
 /* ==========================================================================
-   .page
+   #PAGE
    ========================================================================== */
 
+/**
+ * Simple page-level setup.
+ *
+ * 1. Set the default `font-size` and `line-height` for the entire project,
+ *    sourced from our default variables. The `font-size` is calculated to exist
+ *    in ems, the `line-height` is calculated to exist unitlessly.
+ * 2. Force scrollbars to always be visible to prevent awkward ‘jumps’ when
+ *    navigating between pages that do/do not have enough content to produce
+ *    scrollbars naturally.
+ * 3. Ensure the page always fills at least the entire height of the viewport.
+ */
+
 html {
-    color: $text-color; //#252525;
-}
-
-    .wrap-out {
-        position: relative;
-        overflow: hidden;
-        width: 100%;
-    }
-
-        .wrap-in {
-            position: relative;
-            width: 100%;
-            // -webkit-transition: -webkit-transform 0.5s;
-            // transition: transform 0.5s;
-        }
-
-.page-block {
-    margin: 0 auto;
-    max-width: 68.750em;
-    padding-left: $base-spacing-unit;
-    padding-right: $base-spacing-unit;
+	
+	// ----- INUITCSS ----- //
+	font-size: ($inuit-global-font-size / 16px) * 1em; /* [1] */
+	line-height: $inuit-global-line-height / $inuit-global-font-size; /* [1] */
+	// 14/08/2018 : désactiver le scroll afin de rendre disponible un scroll
+	// dans le mini-panier lorsque nécessaire. 
+	// overflow-y: scroll; /* [2] */
+	min-height: 100%; /* [3] */
+	
+	// ----- VACARME ----- //
+	font-family: $base-font-family;
+	color: $text-color;
 }

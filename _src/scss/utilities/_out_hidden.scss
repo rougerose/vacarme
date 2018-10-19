@@ -1,0 +1,13 @@
+// OBSOLÈTE
+//
+// INUITCSS V5
+.accessibility,
+.visuallyhidden {
+	@include accessibility;
+}
+
+.visuallyhidden--desk {
+	@include media-query(desk) {
+		@include accessibility;
+	}
+}

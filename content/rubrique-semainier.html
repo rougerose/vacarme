@@ -1,46 +1,50 @@
 <BOUCLE_rubrique_semainier(RUBRIQUES){id_rubrique}>
-<div class="grid">
-    <article class="rubrique self">
-        <div class="grid__item">
-            <header class="self__header self__header--timeline">
-                <h1 class="hN"><span class="#EDIT{titre} titre">#TITRE</span></h1>
-            </header>
-            <div class="timeline timeline--2col">
-                <BOUCLE_sousrubriques_semainier(RUBRIQUES){id_parent}{par num titre}>
-                #SET{liste_auteurs,''}
-                [(#REM) Les auteurs des articles du semainier ]
-                    <BOUCLE_articles_semainier(ARTICLES){id_rubrique}>
-                        <BOUCLE_liste_auteurs(AUTEURS){id_article}>[(#SET_PUSH{liste_auteurs,#ID_AUTEUR})]</BOUCLE_liste_auteurs>
-                    </BOUCLE_articles_semainier>
-                <div class="timeline__item[ timeline__item--(#COMPTEUR_BOUCLE|alterner{pair,impair})] timeline-dot">
-                    <article class="resume-semainier mb+ cf">
-                        <div class="resume-semainier__img">
-                            [<a href="[(#URL_RUBRIQUE)]"><img src="(#LOGO_RUBRIQUE|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]"></a>]
-                        </div>
-                        <div class="resume-semainier__body">
-                            <header>
-                                <h1 class="hN resume__titre"><a href="[(#URL_RUBRIQUE)]">#TITRE</a></h1>
-                                <B_auteurs>
-                                <p class="resume__auteur"><:par_auteur:><BOUCLE_auteurs(AUTEURS){id_auteur IN #GET{liste_auteurs}}{', '}>[(#NOM|prenom_nom)]</BOUCLE_auteurs></p>
-                                </B_auteurs>
-                            </header>
-                            [<div class="resume-article__desc">
-                                <div class="resume__desc">
-                                    (#DESCRIPTIF)
-                                </div>
-                            </div>]
-                            <ul class="bare-list">
-                                <BOUCLE_articles_jour(ARTICLES){id_rubrique}{par num titre, date}>
-                                <li class=""><h2 class="hN resume__titre--jour timeline-dot timeline-dot--s timeline-dot--gris"><a href="#URL_ARTICLE">#TITRE</a></h2></li>
-                                </BOUCLE_articles_jour>
-                            </ul>
-                        </div><!-- /.resume-semainier__text -->
-                    </article><!-- /.resume-semainier -->
-                </div><!-- /.timeline__item -->
-                </BOUCLE_sousrubriques_semainier>
-            </div><!-- /.timeline -->
-        </div><!-- /.grid__item -->
-    </article>
-</div><!-- /.grid -->
+<main id="main" class="page-content" role="main">
+	<div class="page-block">
+		<div class="grid">
+		    <article class="rubrique self">
+		        <div class="grid__item">
+		            <header class="self__header self__header--timeline">
+		                <h1 class="hN"><span class="#EDIT{titre} titre">#TITRE</span></h1>
+		            </header>
+		            <div class="timeline timeline--2col">
+		                <BOUCLE_sousrubriques_semainier(RUBRIQUES){id_parent}{par num titre}>
+		                #SET{liste_auteurs,''}
+		                [(#REM) Les auteurs des articles du semainier ]
+		                    <BOUCLE_articles_semainier(ARTICLES){id_rubrique}>
+		                        <BOUCLE_liste_auteurs(AUTEURS){id_article}>[(#SET_PUSH{liste_auteurs,#ID_AUTEUR})]</BOUCLE_liste_auteurs>
+		                    </BOUCLE_articles_semainier>
+		                <div class="timeline__item[ timeline__item--(#COMPTEUR_BOUCLE|alterner{pair,impair})] timeline-dot">
+		                    <article class="resume-semainier mb+ cf">
+		                        <div class="resume-semainier__img">
+		                            [<a href="[(#URL_RUBRIQUE)]"><img src="(#LOGO_RUBRIQUE|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]"></a>]
+		                        </div>
+		                        <div class="resume-semainier__body">
+		                            <header>
+		                                <h1 class="hN resume__titre"><a href="[(#URL_RUBRIQUE)]">#TITRE</a></h1>
+		                                <B_auteurs>
+		                                <p class="resume__auteur"><:par_auteur:><BOUCLE_auteurs(AUTEURS){id_auteur IN #GET{liste_auteurs}}{', '}>[(#NOM|prenom_nom)]</BOUCLE_auteurs></p>
+		                                </B_auteurs>
+		                            </header>
+		                            [<div class="resume-article__desc">
+		                                <div class="resume__desc">
+		                                    (#DESCRIPTIF)
+		                                </div>
+		                            </div>]
+		                            <ul class="bare-list">
+		                                <BOUCLE_articles_jour(ARTICLES){id_rubrique}{par num titre, date}>
+		                                <li class=""><h2 class="hN resume__titre--jour timeline-dot timeline-dot--s timeline-dot--gris"><a href="#URL_ARTICLE">#TITRE</a></h2></li>
+		                                </BOUCLE_articles_jour>
+		                            </ul>
+		                        </div><!-- /.resume-semainier__text -->
+		                    </article><!-- /.resume-semainier -->
+		                </div><!-- /.timeline__item -->
+		                </BOUCLE_sousrubriques_semainier>
+		            </div><!-- /.timeline -->
+		        </div><!-- /.grid__item -->
+		    </article>
+		</div><!-- /.grid -->
+	</div>
+</main>
 </BOUCLE_rubrique_semainier>
 #FILTRE{mini_html}

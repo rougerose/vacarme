@@ -1,56 +1,60 @@
 <BOUCLE_sousrubrique_semainier(RUBRIQUES){id_rubrique}>
 <BOUCLE_auteurs_articles(ARTICLES){id_rubrique}><BOUCLE_liste_auteurs(AUTEURS){id_article}>[(#SET_PUSH{liste_auteurs,#ID_AUTEUR})]</BOUCLE_liste_auteurs></BOUCLE_auteurs_articles>
-<div class="grid">
-    <article class="rubrique self">
-        <div class="grid__item">
-            [<div class="meta self-meta self-meta--head self-meta--head-timeline">
-                <p class="self-meta__item"><span class="self-meta__item--titre">(#INFO_TITRE{rubrique,#ID_PARENT})</span></p>
-            </div><!-- /.self-meta--head-timeline -->]
-            <header class="self__header self__header--timeline">
-                <h1 class="hN"><span class="#EDIT{titre} titre">#TITRE</span></h1>
-                <B_auteurs>
-                    <p class="resume__auteur"><:par_auteur:><BOUCLE_auteurs(AUTEURS){id_auteur IN #GET{liste_auteurs}}{', '}>[(#NOM|prenom_nom)]</BOUCLE_auteurs></p>
-                </B_auteurs>
-            </header>
-            [<div class="self__body self__body--timeline self__body-rubrique--timeline">
-                <div class="self__texte surlignable">
-                    (#DESCRIPTIF)
-                </div>
-            </div>]
-            <div class="timeline timeline--2col">
-                <BOUCLE_articles_semainier(ARTICLES){id_rubrique}{par num titre, date}>
-                <div class="timeline__item[ timeline__item--(#COMPTEUR_BOUCLE|alterner{pair,impair})] timeline-dot">
-                    <article class="resume-semainier mb+ cf">
-                        <div class="resume-semainier__img">
-                            [<a href="[(#URL_ARTICLE)]"><img src="(#LOGO_ARTICLE|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]"></a>]
-                        </div>
-                        <div class="resume-semainier__body">
-                            <header>
-                                <h1 class="hN resume__titre"><a href="[(#URL_ARTICLE)]">#TITRE</a></h1>
-                            </header>
-                            [<div class="resume-article__desc">
-                                <div class="resume__desc">
-                                    (#DESCRIPTIF|sinon{#INTRODUCTION{400}|wrap{<p>}})
-                                </div>
-                                <p class="more more--read"><a href="#URL_ARTICLE"><:local:more_read:></a></p>
-                            </div>]
-                        </div><!-- /.resume-semainier__body -->
-                    </article><!-- /.resume-semainier -->
-                </div><!-- /.timeline__item -->
-                </BOUCLE_articles_semainier>
-            </div><!-- /.timeline -->
-            <div class="timeline timeline--1col">
-                <nav class="timeline-nav mb++">
-                    <BOUCLE_precedent(RUBRIQUES){meme_parent}{precedent}>
-                    <a class="timeline-nav__item timeline-nav__item--prev timeline-dot" href="#URL_RUBRIQUE" rel="prev" data-sequence-title="[(#TITRE|attribut_html)]"><:semaine_precedente:></a>
-                    </BOUCLE_precedent>
-                    <BOUCLE_suivant(RUBRIQUES){meme_parent}{suivant}>
-                    <a class="timeline-nav__item timeline-nav__item--next timeline-dot" href="#URL_RUBRIQUE" rel="next" data-sequence-title="[(#TITRE|attribut_html)]"><:semaine_suivante:></a>
-                    </BOUCLE_suivant>
-                </nav>
-            </div>
-        </div><!-- /.grid__item -->
-    </article>
-</div><!-- /.grid -->
+<main id="main" class="page-content" role="main">
+	<div class="page-block">
+		<div class="grid">
+		    <article class="rubrique self">
+		        <div class="grid__item">
+		            [<div class="meta self-meta self-meta--head self-meta--head-timeline">
+		                <p class="self-meta__item"><span class="self-meta__item--titre">(#INFO_TITRE{rubrique,#ID_PARENT})</span></p>
+		            </div><!-- /.self-meta--head-timeline -->]
+		            <header class="self__header self__header--timeline">
+		                <h1 class="hN"><span class="#EDIT{titre} titre">#TITRE</span></h1>
+		                <B_auteurs>
+		                    <p class="resume__auteur"><:par_auteur:><BOUCLE_auteurs(AUTEURS){id_auteur IN #GET{liste_auteurs}}{', '}>[(#NOM|prenom_nom)]</BOUCLE_auteurs></p>
+		                </B_auteurs>
+		            </header>
+		            [<div class="self__body self__body--timeline self__body-rubrique--timeline">
+		                <div class="self__texte surlignable">
+		                    (#DESCRIPTIF)
+		                </div>
+		            </div>]
+		            <div class="timeline timeline--2col">
+		                <BOUCLE_articles_semainier(ARTICLES){id_rubrique}{par num titre, date}>
+		                <div class="timeline__item[ timeline__item--(#COMPTEUR_BOUCLE|alterner{pair,impair})] timeline-dot">
+		                    <article class="resume-semainier mb+ cf">
+		                        <div class="resume-semainier__img">
+		                            [<a href="[(#URL_ARTICLE)]"><img src="(#LOGO_ARTICLE|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]"></a>]
+		                        </div>
+		                        <div class="resume-semainier__body">
+		                            <header>
+		                                <h1 class="hN resume__titre"><a href="[(#URL_ARTICLE)]">#TITRE</a></h1>
+		                            </header>
+		                            [<div class="resume-article__desc">
+		                                <div class="resume__desc">
+		                                    (#DESCRIPTIF|sinon{#INTRODUCTION{400}|wrap{<p>}})
+		                                </div>
+		                                <p class="more more--read"><a href="#URL_ARTICLE"><:local:more_read:></a></p>
+		                            </div>]
+		                        </div><!-- /.resume-semainier__body -->
+		                    </article><!-- /.resume-semainier -->
+		                </div><!-- /.timeline__item -->
+		                </BOUCLE_articles_semainier>
+		            </div><!-- /.timeline -->
+		            <div class="timeline timeline--1col">
+		                <nav class="timeline-nav mb++">
+		                    <BOUCLE_precedent(RUBRIQUES){meme_parent}{precedent}>
+		                    <a class="timeline-nav__item timeline-nav__item--prev timeline-dot" href="#URL_RUBRIQUE" rel="prev" data-sequence-title="[(#TITRE|attribut_html)]"><:semaine_precedente:></a>
+		                    </BOUCLE_precedent>
+		                    <BOUCLE_suivant(RUBRIQUES){meme_parent}{suivant}>
+		                    <a class="timeline-nav__item timeline-nav__item--next timeline-dot" href="#URL_RUBRIQUE" rel="next" data-sequence-title="[(#TITRE|attribut_html)]"><:semaine_suivante:></a>
+		                    </BOUCLE_suivant>
+		                </nav>
+		            </div>
+		        </div><!-- /.grid__item -->
+		    </article>
+		</div><!-- /.grid -->
+	</div>
+</main>
 </BOUCLE_sousrubrique_semainier>
 #FILTRE{mini_html}

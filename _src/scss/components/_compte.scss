@@ -1,0 +1,171 @@
+// =====================================
+// compte
+// =====================================
+
+
+.c-compte {}
+
+
+	//
+	// c-compte-header
+	// -------------------------------------
+	
+	.c-compte-header {
+		margin-bottom: $spacing-unit-large;
+	}
+
+		//
+		// c-compte-header__titre
+		// -------------------------------------
+		
+		.c-compte-header__titre {
+			margin-bottom: $spacing-unit;
+		}
+		
+		
+		//
+		// c-compte-header__bonjour
+		// -------------------------------------
+		
+		.c-compte-header__bonjour {
+			display: flex;
+			justify-content: space-between;
+			
+			p {
+				margin-bottom: 0;
+				padding-top: 9px;
+			}
+		}
+	
+	
+	//
+	// c-compte-section
+	// -------------------------------------
+	
+	.c-compte-section {
+		@include mq(tablet) {
+			margin-bottom: $spacing-unit;
+		}
+	}
+	
+	
+		//
+		// c-compte-section__titre
+		// -------------------------------------
+		
+		.c-compte-section__titre {
+			@include inuit-font-size(24px, 1.2);
+		}
+		
+		.c-compte-section__titre--s {
+			@include inuit-font-size(20px, false);
+		}
+		
+	
+	
+	//
+	// c-compte-identification
+	// -------------------------------------
+	
+	.c-compte-identification {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		
+		@include mq(tablet) {
+			flex-direction: row;
+		}
+	}
+	
+	
+		.c-compte-identification__section {
+			flex: 1;
+			margin-bottom: $spacing-unit-large;
+			padding-top: $spacing-unit;
+			
+			&:nth-of-type(2) {
+				border-top: 1px solid $color-gray-300;
+				padding-top: $spacing-unit-large;
+			}
+			
+			@include mq(tablet) {
+				padding-top: $spacing-unit;
+				padding-bottom: $spacing-unit;
+				margin-bottom: 0;
+				
+				&:nth-of-type(2) {
+					border-top: none;
+					margin-left: 10%;
+					padding-top: $spacing-unit;
+					
+					&:before {
+						position: absolute;
+						top: 0;
+						left: 50%;
+						height: 100%;
+						border-left: 1px solid $color-gray-300;
+						content: '';
+					}
+				}
+			}
+		}
+		
+		.c-compte-identification__section--login {}
+		
+		.c-compte-identification__section--inscription {}
+
+//
+// c-compte-commande
+// -------------------------------------
+
+.c-compte-commande {
+	display: flex;
+	flex-direction: column;
+	
+	@include mq(tablet) {
+		flex-direction: row;
+	}
+}
+
+	// ----- c-compte-commande__articles ----- //
+	.c-compte-commande__articles {
+		@include mq(tablet) {
+			flex: 1 1 70%;
+			padding-right: $spacing-unit-large;
+		}
+	}
+	
+	
+	// ----- c-compte-commande__paiement ----- //
+	.c-compte-commande__paiement {
+		@include mq(tablet) {
+			flex: 1 1 30%;
+		}
+	}
+	
+	// ----- c-compte-commande__info ----- //
+	
+	.c-compte-commande__info {
+		display: flex;
+		justify-content: space-between;
+	}
+	
+	//.c-compte-commande__intitule {}
+	
+	//.c-compte-commande__mode-paiement {}
+	
+	
+	//
+	// c-compte-abonnements
+	// -------------------------------------
+	
+	.c-compte-abonnements {}
+	
+	
+		// ----- c-compte-abonnements__liste ----- //
+		
+		.c-compte-abonnements__liste {
+			> li {
+				margin-left: $spacing-unit;
+			}
+		}

@@ -1,60 +1,73 @@
-<BOUCLE_index(RUBRIQUES){id_rubrique=115}><BOUCLE_nums(RUBRIQUES){id_parent}{!par titre}>[
-(#ENV{premier}|=={#COMPTEUR_BOUCLE}|oui) #SET{premier,#TITRE|replace{vacarme\s*,'',i}}
-][(#COMPTEUR_BOUCLE|>={#ENV{premier}}|oui)[(#SET_PUSH{numeros,#TITRE|replace{vacarme\s*,'',i}})]
-]</BOUCLE_nums></BOUCLE_index>
+#SET{_premier, #ENV{premier, 1}} #SET{numeros, #ARRAY}
+<BOUCLE_nums(RUBRIQUES){id_parent=115}{!par titre}>
+	[(#GET{_premier}|=={#COMPTEUR_BOUCLE}|oui) #SET{premier, #TITRE|replace{vacarme\s*, '', i}}]
+	[(#COMPTEUR_BOUCLE|>={#GET{_premier}}|oui) #SET{numeros, #GET{numeros}|push{#TITRE|replace{vacarme\s*, '', i}}}]
+</BOUCLE_nums>
 #ENV*{bloc_ancre}
-#SET{bornes,#ENV{page_courante}|bornes_pagination{#ENV{nombre_pages},10}}
+#SET{bornes, #ENV{page_courante}|bornes_pagination{#ENV{nombre_pages},10}}
 #SET{premiere, #GET{bornes}|reset}
 #SET{derniere, #GET{bornes}|end}
-#SET{pages,#GET{premiere}|range{#GET{derniere}}}
-#SET{sep,#ENV{separateur,' | '}}
-#SET{fleche,#ENV{fleche,' → '}}
-[(#SET{taille_tableau,#GET{numeros}|count})][(#SET{modulo,#GET{taille_tableau}|modulo{#ENV{pas}}})]
+#SET{pages, #GET{premiere}|range{#GET{derniere}}}
+#SET{sep, #ENV{separateur,' | '}}
+#SET{fleche, #ENV{fleche, ' &#8594; '}}
+[(#SET{taille_tableau, #GET{numeros}|count})]
+[(#SET{modulo, #GET{taille_tableau}|modulo{#ENV{pas}}})]
+
 <B_numeros>
-    [<h1 class="pagination__label">(#ENV{label,''})</h1>][
-    (#SET{d,#GET{premier}})][(#SET{f,#GET{fleche}|concat{#GET{numeros}|table_valeur{#ENV{pas}|moins{1}}}})
-    ][
-
-    (#SET{item, #ENV{page_courante}|moins{2}|mult{#ENV{pas}} })
-
-    ]
-    <ul class="nav">
-        [<li class="pagination__item"><a href='[(#ENV{url}|parametre_url{#ENV{debut},''})]##ENV{ancre}' rel='nofollow'>(#GET{premiere}|>{1}|?{#GET{d}#GET{f}})</a></li>
-        <li class="pagination__item"><span class="tbc">&hellip;</span></li
-        >]<BOUCLE_numeros(POUR){tableau #GET{pages}}>[
-        (#SET{item, #VALEUR|moins{1}|mult{#ENV{pas}} })
-        ][
-        (#SET{d,#GET{numeros}|table_valeur{#GET{item}}})
-        ][(#SET{f,#GET{numeros}|table_valeur{#GET{item}|plus{#ENV{pas}}|moins{1}}})
-        ][
-        (#GET{f}|non) [(#SET{f,#GET{numeros}|table_valeur{#GET{item}|plus{#GET{modulo}}|moins{1}}})] ][
-        (#GET{d}|=={#GET{f}}|?{
-            [(#SET{n,#GET{d}})],
-            [(#SET{n,#GET{d}|concat{#GET{fleche}}|concat{#GET{f}}})]
-        })][
-        <li class="pagination__item[ (#VALEUR|=={#ENV{page_courante}})]">(#ENV{url}
-        |parametre_url{#ENV{debut},#GET{item}|?{#GET{item}}}
-        |ancre_url{#ENV{ancre}}
-        |lien_ou_expose{#GET{n},#VALEUR|=={#ENV{page_courante}},lien_pagination pagination-element,'',nofollow})</li
-        >]</BOUCLE_numeros>[
-        (#GET{modulo}|=={0}|?{
-            [(#SET{i,#GET{taille_tableau}|moins{#ENV{pas}}})],
-            [(#SET{i,#GET{taille_tableau}|moins{#GET{modulo}}})]
-        })][
-        (#SET{d,#GET{numeros}|table_valeur{#GET{i}}})][
-        (#SET{f,#GET{numeros}|end})][
-        (#GET{d}|=={#GET{f}}|?{
-            [(#SET{f,#GET{f}})],
-            [(#SET{f,#GET{d}|concat{#GET{fleche}|concat{#GET{f}}}})]
-        })
-        ][
-        <li class="pagination__item"><span class="tbc">&hellip;</span></li>
-        <li class="pagination__item"><a
-    href='[(#ENV{url}|parametre_url{#ENV{debut},#ENV{nombre_pages}|moins{1}|mult{#ENV{pas}}})]##ENV{ancre}'
-    class='lien_pagination'
-    rel='nofollow'>(#GET{derniere}|<{#ENV{nombre_pages}}|?{#GET{f}})</a></li>
-        ][
-    (#SET{item, #ENV{page_courante}|mult{#ENV{pas}} })
-    ]
-    </ul>
+    [<h1 class="c-pagination__label">(#ENV{label,''})</h1>]
+	[(#SET{d, #GET{premier}})]
+	[(#SET{f, #GET{fleche}|concat{#GET{numeros}|table_valeur{#ENV{pas}|moins{1}}}})]
+	[(#SET{item, #ENV{page_courante}|moins{2}|mult{#ENV{pas}} })]
+    <ul class="c-pagination__liste">
+		[<li class="c-pagination__item c-pagination__item--prev[ (#ENV{page_courante}|<={1}|oui)is-disabled]">
+			(#ENV{url_precedent,#ENV{url}
+				|parametre_url{#ENV{debut},#GET{item}|?{#GET{item}}}}
+				|ancre_url{#ENV{ancre}}
+				|lien_ou_expose{#ENV{label_precedent,<:vacarme:pagination_numeros_prev:>},#ENV{page_courante}|<={1},'c-pagination__lien','',nofollow}
+				|inserer_attribut{rel,prev})
+		</li>]
+		[<li class="c-pagination__item">
+			<a href='[(#ENV{url}|parametre_url{#ENV{debut},''})]##ENV{ancre}' rel='nofollow'>(#GET{premiere}|>{1}|?{#GET{d}#GET{f}})</a>
+		</li>
+		<li class="c-pagination__item"><span class="c-pagination__tbc">&hellip;</span></li>]
+		<BOUCLE_numeros(DATA){source table, #GET{pages}}>
+			[(#SET{item, #VALEUR|moins{1}|mult{#ENV{pas}} })]
+			[(#SET{d, #GET{numeros}|table_valeur{#GET{item}}})]
+			[(#SET{f, #GET{numeros}|table_valeur{#GET{item}|plus{#ENV{pas}}|moins{1}}})]
+			[(#GET{f}|non) [(#SET{f, #GET{numeros}|table_valeur{#GET{item}|plus{#GET{modulo}}|moins{1}}})] ]
+			[(#GET{d}|=={#GET{f}}|?{
+				[(#SET{n,#GET{d}})],
+				[(#SET{n,#GET{d}|concat{#GET{fleche}}|concat{#GET{f}}})]
+			})]
+			[<li class="c-pagination__item">
+				(#ENV{url}
+					|parametre_url{#ENV{debut},#GET{item}|?{#GET{item}}}
+					|ancre_url{#ENV{ancre}}
+					|lien_ou_expose{#GET{n},#VALEUR|=={#ENV{page_courante}},'c-pagination__lien','',nofollow})
+			</li>]
+		</BOUCLE_numeros>
+		[(#GET{modulo}|=={0}|?{
+			[(#SET{i,#GET{taille_tableau}|moins{#ENV{pas}}})],
+			[(#SET{i,#GET{taille_tableau}|moins{#GET{modulo}}})]
+		})]
+		[(#SET{d,#GET{numeros}|table_valeur{#GET{i}}})]
+		[(#SET{f,#GET{numeros}|end})]
+		[(#GET{d}|=={#GET{f}}|?{
+			[(#SET{f,#GET{f}})],
+			[(#SET{f,#GET{d}|concat{#GET{fleche}|concat{#GET{f}}}})]
+		})]
+		[<li class="c-pagination__item"><span class="c-pagination__tbc">&hellip;</span></li>
+		<li class="c-pagination__item">
+			<a href='[(#ENV{url}|parametre_url{#ENV{debut},#ENV{nombre_pages}|moins{1}|mult{#ENV{pas}}})]##ENV{ancre}' class='c-pagination__lien' rel='nofollow'>(#GET{derniere}|<{#ENV{nombre_pages}}|?{#GET{f}})</a>
+		</li>]
+		[(#SET{item, #ENV{page_courante}|mult{#ENV{pas}} })]
+		[<li class="c-pagination__item c-pagination__item--next[ (#ENV{page_courante}|>={#ENV{nombre_pages}}|oui)is-disabled]">
+			(#ENV{url_suivant,#ENV{url}
+				|parametre_url{#ENV{debut},#GET{item}|?{#GET{item}}}}
+				|ancre_url{#ENV{ancre}}
+				|lien_ou_expose{#ENV{label_suivant,<:vacarme:pagination_numeros_next:>},#ENV{page_courante}|>={#ENV{nombre_pages}},'c-pagination__lien','',nofollow}
+				|inserer_attribut{rel,next})
+		</li>]
+	</ul>
 </B_numeros>
+#FILTRE{mini_html}
