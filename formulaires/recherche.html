@@ -1,10 +1,16 @@
-[(#ENV{class}|=={s--recherche}|?{#SET{id_formulaire,search--recherche},#SET{id_formulaire,search}})]
-<div class="formulaire_spip formulaire_recherche s[ (#ENV{class})]"[ id="(#GET{id_formulaire})"]>
-<form action="[(#ENV{action})]" method="get" class="search__form"><div>
-    [(#ENV{action}|form_hidden)]
-    [<input type="hidden" name="lang" value="(#ENV{lang})" />]
-    <label class="search__label" for="#ENV{_id_champ}"><:info_rechercher:></label>
-    <input type="[(#HTML5|?{search,text})]" class="search text search__field" size="30" name="recherche" id="#ENV{_id_champ}"[ (#HTML5|?{[placeholder="(#ENV{recherche,<:info_rechercher:>})"],[value="(#ENV{recherche,<:info_rechercher:>})"]})] accesskey="4" autocapitalize="off" autocorrect="off"
-    /><input type="submit" class="submit search__submit" value="OK" title="<:info_rechercher:>" />
-</div></form>
+<div class="formulaire_spip formulaire_recherche js-formulaire_recherche[ (#ENV{class})]" id="formulaire_recherche">
+	[<button class="c-btn c-btn--modal-close" aria-label="<:vacarme:rechercher_btn_fermer:>">
+		(#INCLURE{fond=img/svg/icon-close-50.svg})
+	</button>]
+	<div>
+		<div class="o-wrapper">
+			<form action="[(#ENV{action})]" method="get" role="search">
+				[(#ENV{action}|form_hidden)]
+				[<input type="hidden" name="lang" value="(#ENV{lang})" />]
+				<label for="#ENV{_id_champ}"><:vacarme:rechercher_label:></label>
+				<input type="[(#HTML5|?{search,text})]" aria-label="<:vacarme:rechercher_aria_label:>" placeholder="<:vacarme:rechercher_placeholder:>" class="search text" size="10" name="recherche" id="#ENV{_id_champ}" value="" accesskey="4" autocapitalize="off" autocorrect="off" role="searchbox"/>
+				<input type="submit" class="c-btn c-btn--submit c-btn--upper" value="<:vacarme:rechercher_submit:>" />
+			</form>
+		</div>
+	</div>
 </div>

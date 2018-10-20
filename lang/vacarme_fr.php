@@ -111,6 +111,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'navigation_mobile_categorie_revue_titre' => "La Revue",
 	'navigation_mobile_categorie_themes_titre' => "Nos articles par thèmes",
 	
+	// R
+	'rechercher_label' => "Votre recherche",
+	'rechercher_aria_label' => "Que recherchez-vous ?",
+	'rechercher_placeholder' => "Que recherchez-vous ?",
+	'rechercher_submit' => "Rechercher",
+	'rechercher_btn_fermer' => "Fermer",
+	
 	// S
 	'sommaire_consulter' => "Le sommaire <em>&#8594;</em>",
 	
