@@ -1,24 +1,28 @@
-[(#REM)
-    Est-ce qu'on se connecte a l'espace prive ou pas ?
-]
-[(#ENV{url}|=={''}|?{#SET{prive,' '}})]
-[(#ENV{url}|match{^#EVAL{_DIR_RESTREINT_ABS}}|?{#SET{prive,' '}})]
-<div class="grid">
-    <article class="self login">
-        <div class="grid__item">
-            <header class="self__header self__header--rubrique">
-                <h1 class="hN titre">[(#GET{prive}|?{<:login_acces_prive:>,<:lien_connecter:>})]</h1>
-            </header>
-        </div><!-- /.grid__item -->
-        <div class="grid__item desk-three-quarters push--desk-one-quarter">
-            <div class="self__body self__body--rubrique landmark">
-                <div class="self__texte">
-                    #MENU_LANG_ECRIRE
+<main id="main" class="page-content" role="main">
+	<div class="page-block">
+		[(#REM)
+		    Est-ce qu'on se connecte a l'espace prive ou pas ?
+		]
+		[(#ENV{url}|=={''}|?{#SET{prive,' '}})]
+		[(#ENV{url}|match{^#EVAL{_DIR_RESTREINT_ABS}}|?{#SET{prive,' '}})]
+		<div class="grid">
+		    <article class="self login">
+		        <div class="grid__item">
+		            <header class="self__header self__header--rubrique">
+		                <h1 class="hN titre">[(#GET{prive}|?{<:login_acces_prive:>,<:lien_connecter:>})]</h1>
+		            </header>
+		        </div><!-- /.grid__item -->
+		        <div class="grid__item desk-three-quarters push--desk-one-quarter">
+		            <div class="self__body self__body--rubrique landmark">
+		                <div class="self__texte">
+		                    #MENU_LANG_ECRIRE
 
-                    [(#FORMULAIRE_LOGIN{#ENV{url}|sinon{#URL_ECRIRE{accueil}}})]
-                </div>
-            </div>
-        </div><!-- /.grid__item -->
-    </article>
-</div><!-- /.grid -->
+		                    [(#FORMULAIRE_LOGIN{#ENV{url}|sinon{#URL_ECRIRE{accueil}}})]
+		                </div>
+		            </div>
+		        </div><!-- /.grid__item -->
+		    </article>
+		</div><!-- /.grid -->
+	</div>
+</main>
 #FILTRE{mini_html}

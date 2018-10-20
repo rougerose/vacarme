@@ -1,0 +1,94 @@
+// =====================================
+// c-shortcuts
+// =====================================
+
+.c-shortcuts {
+	display: flex;
+	justify-content: flex-end;
+	padding-top: $spacing-unit-small;
+}
+
+
+//
+// c-shortcuts__group
+// -------------------------------------
+.c-shortcuts__group {
+	display: flex;
+	align-items: center;
+	
+	&:first-child {
+		@include mq(desktop) {
+			flex: 1;
+		}
+	}
+}
+
+.c-shortcuts__group--user {
+	svg {
+		@include mq(desktop) {
+			width: 18px;
+		}
+	}
+}
+
+
+//
+// c-shortcuts__item
+// -------------------------------------
+.c-shortcuts__item {
+	margin-right: $spacing-unit-small;
+	
+	&--rev {
+		margin-left: $spacing-unit-small;
+		margin-right: 0;
+	}
+}
+
+
+//
+// c-shortcuts__link
+// -------------------------------------
+.c-shortcuts__link {}
+
+
+//
+// c-shortcuts__cart
+// -------------------------------------
+
+.c-shortcuts__cart {
+	svg {
+		fill: currentColor;
+	}
+	
+	&.is-filled {
+		color: $color-lien;
+	}
+}
+
+
+//
+// c-shortcuts__cart-quantity
+// -------------------------------------
+
+.c-shortcuts__cart-quantity {
+	position: relative;
+	top: $spacing-unit-small * -1;
+	
+	@include mq(desktop) {
+		@include inuit-font-size(14px);
+	}
+}
+
+//
+// c-shortcuts__account
+// -------------------------------------
+
+.c-shortcuts__account {
+	svg g {
+		stroke: currentColor;
+	}
+	
+	&.is-logon {
+		color: $color-lien;
+	}
+}

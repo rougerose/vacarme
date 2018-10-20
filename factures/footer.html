@@ -1,0 +1,8 @@
+<footer class="c-facture__footer">
+	<address>
+		#CONFIG{factures/raison_sociale}
+		[<br/>(#CONFIG{factures/adresse})][ (#CONFIG{factures/code_postal}|concat{' ',#CONFIG{factures/ville}}) ][(#CONFIG{factures/pays})]
+		[<br/>(#CONFIG{factures/telephone})][ - (#CONFIG{factures/email})]
+	</address>
+	[<p class="no_tva_intra"><:factures:label_no_intra_tva:> (#CONFIG{factures/no_intra_tva})</p>]
+</footer>

@@ -1,0 +1,9 @@
+[(#SET{etapes, #ARRAY{code, 1, profil, 2, numero, 3, confirmation, 4}})]
+[(#SET{progression_etape, #ENV{page}|in_array{#GET{etapes}|array_keys}|?{#GET{etapes/#ENV{page}}, 1}})]
+[(#SET{progression_etapes, #ARRAY{
+	1,<:vacarme:info_progression_page_cadeau:>,
+	2,<:vacarme:info_progression_page_profil:>,
+	3,<:vacarme:info_progression_page_numero:>,
+	4,<:vacarme:info_progression_page_confirmation:>
+}})]
+<INCLURE{fond=inclure/progression, progression_etapes=#GET{progression_etapes}, progression_etape=#GET{progression_etape}, total=t4} />

@@ -1,0 +1,36 @@
+// =====================================
+// .formulaire
+// =====================================
+
+
+//
+// formulaire__intertitre
+// -------------------------------------
+.formulaire__intertitre {
+	font-family: $font-helvetica;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+
+.formulaire__groupe {
+	> .editer {
+		
+ 		&.saisie_radio {
+			margin-bottom: $spacing-unit;
+		}
+		
+		&.saisie_input,
+		&.saisie_pays,
+		&.saisie_email {
+			margin-bottom: $spacing-unit;
+			
+			> label {
+				display: block
+			}
+		}
+	}
+}
+
+
+.formulaire_spip {}

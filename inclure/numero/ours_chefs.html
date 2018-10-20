@@ -1,0 +1,5 @@
+<BOUCLE_ours_chefs(RUBRIQUES){id_rubrique}>
+	[(#SET{chefs, #LISTER_VALEURS**{redacteurchef}})]
+	<BOUCLE_liste(DATA){source tableau, #GET{chefs}}>[(#COMPTEUR_BOUCLE|=={1}|?{'',[(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|?{' &amp;&nbsp;',', '})]})][(#INFO_NOM{auteur, #VALEUR}|prenom_nom)]</BOUCLE_liste>
+</BOUCLE_ours_chefs>
+#FILTRE{mini_html}

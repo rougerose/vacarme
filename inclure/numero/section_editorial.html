@@ -1,0 +1,23 @@
+<BOUCLE_rubrique_numero(RUBRIQUES){id_rubrique}>
+	<section class="c-numero-section">
+		<div class="o-wrapper">
+			[(#REM)
+				<!-- 
+					La section prend le titre du mot-clé (éditorial, ouverture, 
+					etc...) du premier article
+				-->
+			]<BOUCLE_motcle_rubrique(MOTS){id_article=#ENV{id_article}}{type=@rubriques}{0,1}>
+				<header class="c-numero-section__header">
+					<h1 class="c-numero-section__surtitre u-typo-font-vacarme">#TITRE</h1>
+				</header>
+			</BOUCLE_motcle_rubrique>
+			<div class="c-numero-section__body">
+				<div class="c-numero-section__articles">
+					<BOUCLE_article(ARTICLES){id_rubrique}{par num titre, titre, date}>
+						<INCLURE{fond=inclure/resume/numero/article, id_article, mode_article=#ENV{mode_article}}/>
+					</BOUCLE_article>
+				</div>
+			</div>
+		</div>
+	</section>
+</BOUCLE_rubrique_numero>

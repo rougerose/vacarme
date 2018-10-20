@@ -1,0 +1,15 @@
+// =====================================
+// V85 : thème pour Vacarme 85
+// =====================================
+
+
+.t-v85-texte__code {
+	padding: $spacing-unit;
+	font-family: $font-mono;
+	font-size: 1em;
+	
+	&--inverse {
+		background-color: $color-black;
+		color: $color-white;
+	}
+}

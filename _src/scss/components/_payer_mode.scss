@@ -1,0 +1,41 @@
+// =====================================
+// payer_mode
+// =====================================
+
+// 
+// Classes définies par le plugin Bank
+// 
+
+.payer_mode {
+	border: 1px solid $color-black;
+	border-radius: 5px;
+	margin-bottom: $spacing-unit;
+	padding: 10px;
+	background-color: $color-white;
+	
+	@include mq(tabletPlus) {
+		flex: 0 1 25%;
+		margin-bottom: 0;
+	}
+	
+	.titre {
+		font-family: $font-helvetica;
+		@include inuit-font-size(18px);
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	
+	p {
+		margin-bottom: $spacing-unit-small;
+		line-height: 1.3;
+	}
+	
+	.boutons {
+		font-family: $font-helvetica;
+	}
+	
+	.submit {
+		margin: $spacing-unit-tiny 0;
+		width: auto;
+	}
+}

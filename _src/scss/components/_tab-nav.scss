@@ -1,0 +1,48 @@
+// =====================================
+// c-tab-nav
+// =====================================
+
+
+.c-tab-nav {
+	border-bottom: 1px solid $color-black;
+	margin: $spacing-unit-large 0 $spacing-unit;
+	font-family: $font-helvetica;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+
+//
+// c-tab-nav__list
+// -------------------------------------
+.c-tab-nav__list {
+	list-style: none;
+	margin: 0;
+}
+
+
+//
+// c-tab-nav__item
+// -------------------------------------
+.c-tab-nav__item {
+	display: inline-block;
+}
+
+
+//
+// c-tab-nav__link
+// -------------------------------------
+.c-tab-nav__link {
+	border: 1px solid transparent;
+	border-width: 1px 1px 0;
+	margin-bottom: -1px;
+	display: block;
+	padding: $spacing-unit-small;
+	color: $color-gray;
+	
+	&.is-selected {
+		border-color: $color-black;
+		color: $color-black;
+		background-color: $color-white;
+	}
+}

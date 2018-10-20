@@ -1,0 +1,84 @@
+// =====================================
+// c-numero-resume
+// =====================================
+
+.c-numero-resume {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-bottom: $spacing-unit-large;
+	
+	@include mq(tablet) {
+		width: 48%;
+	}
+}
+
+
+
+//
+// c-numero-resume__contenu
+// -------------------------------------
+
+.c-numero-resume__contenu {
+	margin-bottom: $spacing-unit;
+	@include inuit-font-size(17px);
+	
+	@include mq(desktop) {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 0;
+	}
+}
+
+
+
+//
+// c-numero-resume__intro
+// -------------------------------------
+
+.c-numero-resume__intro {
+	
+	@include mq(desktop) {
+		width: 50%;
+	}
+	
+	.c-numero__titre {
+		@include inuit-font-size(32px, 1);
+		margin-bottom: $spacing-unit;
+	}
+	
+	.c-numero__saison {
+		font-size: 80%;
+		text-transform: none;
+	}
+}
+
+
+
+//
+// c-numero-resume__desc 
+// -------------------------------------
+
+.c-numero-resume__desc {
+	
+	p, ul {
+		margin-bottom: $spacing-unit-small;
+	}
+}
+
+
+
+//
+// c-numero-resume__couverture
+// -------------------------------------
+
+.c-numero-resume__couverture {
+	
+	@include mq(desktop) {
+		width: 50%;
+		
+		img {
+			width: 90%;
+		}
+	}
+}

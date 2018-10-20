@@ -1,0 +1,12 @@
+<section class="c-numero-section c-numero-section--bg">
+	<div class="o-wrapper">
+		<div class="c-numero-gratuite">
+			<h2 class="c-numero-gratuite__titre">À nos lectrices et lecteurs</h2>
+			[(#ENV{mode_article}|=={apercu}|oui)
+				<p class="c-numero-gratuite__info"><:vacarme:info_numero_apercu{url_abonnement=#URL_RUBRIQUE{117}, numero_titre=#ENV{titre}, numero_saison=#ENV{saison}, numero_annee=#ENV{annee}}:> <INCLURE{fond=img/svg/icon-article-complet-16.svg}/></p>
+			][(#ENV{mode_article}|=={complet}|oui)
+				<p class="c-numero-gratuite__info"><:vacarme:info_numero_complet{url_abonnement=#URL_RUBRIQUE{117}, numero_titre=#ENV{titre}, numero_saison=#ENV{saison}, numero_annee=#ENV{annee}}:></p>
+			]
+		</div>
+	</div>
+</section>

@@ -1,0 +1,16 @@
+<BOUCLE_paiement_commande(COMMANDES){id_commande}{statut IN encours, poubelle}>
+	[(#STATUT|=={encours}|oui)
+		[(#FORMULAIRE_PAYER_ACTE{#PRIX*,
+			#ARRAY{
+				montant_ht, #PRIX_HT*,
+				id_commande, #ID_COMMANDE,
+				id_auteur, #ID_AUTEUR,
+				id_panier, #SESSION{id_panier}
+			}
+		})]
+	][(#STATUT|=={poubelle}|oui)
+		<div>
+			<p class="c-message c-message--ok"><:vacarme:commande_message_annulation:>.</p>
+		</div>
+	]
+</BOUCLE_paiement_commande>

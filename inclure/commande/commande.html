@@ -1,0 +1,9 @@
+#SET{etapes, #ARRAY{1, livraison, 2, paiement}}
+[(#SET{etape, #ENV{etape}|in_array{#GET{etapes}}|?{#ENV{etape}, livraison}})]
+[(#AUTORISER{voir, commande, #ID_COMMANDE}|oui)
+	<INCLURE{fond=inclure/commande/#GET{etape}, id_commande, env}/>
+][(#AUTORISER{voir, commande, #ID_COMMANDE}|non)
+	<div class="c-commande-articles est-vide">
+		<p class="c-message c-message--erreur"><:vacarme:commande_inexistante:></p>
+	</div>
+]

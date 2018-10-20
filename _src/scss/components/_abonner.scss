@@ -1,0 +1,355 @@
+// *************************************
+//
+// c-abonner
+// 
+// c-abonner-header
+// 
+// c-abonner-section
+// 
+// c-abonner-offres
+// 
+// c-abonner-formulaire
+//
+// *************************************
+
+
+.c-abonner {}
+
+	//
+	// c-abonner-header
+	// -------------------------------------
+
+	.c-abonner-header {}
+
+
+		// ----- c-abonner-header__titre ----- //
+		
+		.c-abonner-header__titre {}
+		
+		
+		// ----- c-abonner-header__intro ----- //
+		
+		.c-abonner-header__intro {
+			display: flex;
+			flex-direction: column;
+			
+			@include mq(tablet) {
+				flex-direction: row;
+			}
+		}
+		
+		
+		// ----- c-abonner-header__intro-texte ----- //
+		
+		.c-abonner-header__intro-texte {
+			// margin-bottom: $spacing-unit-large;
+			padding-right: $spacing-unit-large;
+			@include inuit-font-size(18px);
+			
+			@include mq(tablet) {
+				flex: 0 1 50%;
+				// flex: 1;
+			}
+		}
+		
+		
+		// ----- c-abonner-header__list ----- //
+		
+		.c-abonner-header__list {
+			@include mq(tablet) {
+				flex: 0 1 50%;
+			}
+		}
+	
+		// ----- c-abonner-intro__list-item ----- //
+		
+		.c-abonner-header__list-item {}
+
+
+
+	//
+	// c-abonner-section
+	// -------------------------------------
+	
+	.c-abonner-section {
+		margin-bottom: $spacing-unit-large;
+	}
+	
+	
+		// ----- c-abonner-section__titre ----- //
+		.c-abonner-section__titre {
+			border-bottom: 1px solid $color-black;
+		}
+		
+		
+		// ----- c-abonner-section__intro ----- //
+		.c-abonner-section__intro {
+			padding-right: $spacing-unit-large;
+			@include inuit-font-size(18px);
+		}
+
+
+
+	//
+	// c-abonner-couleur
+	// -------------------------------------
+	.c-abonner-couleur {
+		
+		a {
+			color: $color-white;
+			border-bottom-color: currentColor;
+			&:hover {
+				color: $color-black;
+			}
+		}
+		
+		// ----- variantes ----- //
+		&--bgc-1074 {
+			background-color: $color-amber-500;
+		}
+		
+		&--bgc-1075 {
+			background-color: $color-orange-500;
+		}
+		
+		&--bgc-1076 {
+			background-color: $color-deep-orange-500;
+		}
+		
+		&--bgc-abonnement {
+			background-color: $color-yellow-800;
+		}
+	}
+
+
+
+	//
+	// c-abonner-liste-offres
+	// -------------------------------------
+	
+	.c-abonner-liste-offres {
+		display: flex;
+		flex-direction: column;
+		font-family: $font-helvetica;
+		text-transform: uppercase;
+		
+		@include mq(desktop) {
+			flex-flow: row wrap;
+			justify-content: space-between;
+		}
+	}
+	
+		.c-abonner-liste-offres__header {
+			width: 100%;
+			margin-top: $spacing-unit;
+		}
+		
+		.c-abonner-liste-offres__titre {
+			> .o-icon {
+				margin: 0 $spacing-unit-tiny;
+				vertical-align: middle;
+			}
+		}
+	
+	
+	
+	//
+	// c-abonner-offre
+	// -------------------------------------
+	
+	.c-abonner-offre {
+		display: flex;
+		
+	}
+	
+	
+	// .c-abonner-offre {
+	// 	@include mq(desktop) {
+	// 		width: 30%;
+	// 	}
+	// }
+	// 
+	// .c-abonner-offre--pack-couvertures {
+	// 	position: relative;
+	// 	overflow: hidden;
+	// 	padding-left: 90px;
+	// 
+	// 	@include mq(desktop) {
+	// 		padding-left: 60px;
+	// 	}
+	// 
+	// 	img {
+	// 		display: block;
+	// 		position: absolute;
+	// 		top: 15%;
+	// 		left: -180px;
+	// 		box-shadow: 5px 5px 5px rgba(34, 34, 34, 0.1);
+	// 		@include rotate(-1.5, 8);
+	// 		transform-origin: 50% 100%;
+	// 		width: 250px;
+	// 
+	// 		@include mq(desktop) {
+	// 			left: -160px;
+	// 		}
+	// 	}
+	// }
+	// 
+	// .c-abonner-offre__titre {
+	// 	margin-bottom: $spacing-unit-tiny;
+	// }
+	// 
+	// .c-abonner-offre__desc {
+	// 	text-transform: none;
+	// 	@include inuit-font-size(15px, 1.2);
+	// }
+	// 
+	// .c-abonner-offre__prix {
+	// 	font-weight: bold;
+	// }
+	
+	
+	
+	//
+	// c-abonner-numeros
+	// -------------------------------------
+	
+	.c-abonner-numeros {
+		display: flex;
+		flex-direction: column;
+		list-style: none;
+		margin-left: 0;
+		
+		@include mq(tablet) {
+			flex-flow: row wrap;
+			justify-content: space-between;
+		}
+	}
+
+
+	//
+	// c-abonner-numero
+	// -------------------------------------
+	
+	.c-abonner-numero {	
+		@include mq(tablet) {
+			width: 30%;
+		}
+	}
+	
+		.c-abonner-numero__surtitre {
+			margin-bottom: $spacing-unit-small;
+			@include inuit-font-size(22px);
+			font-weight: bold;
+			
+			@include mq(tabletPlus) {
+				@include inuit-font-size(16px);
+			}
+		}
+		
+		.c-abonner-numero__titre {
+			small {
+				display: block;
+				font-weight: 300;
+			}
+		}
+	
+	
+	
+	//
+	// c-abonner-cadeaux
+	// -------------------------------------
+	
+	.c-abonner-cadeaux {
+		display: flex;
+		flex-direction: column;
+		list-style: none;
+		margin-left: 0;
+	}
+	
+	
+	
+	// 
+	// c-abonner-cadeau
+	// -------------------------------------
+
+	.c-abonner-cadeau {
+		padding: $spacing-unit;
+	}
+
+
+
+//
+// c-abonner-formulaire
+// -------------------------------------
+/*
+.c-abonner-formulaire,
+.formulaire_souscrire_abonnement {
+	&.formulaire_spip {
+		form {
+			border-width: 0;
+			border-top: 1px solid $color-yellow-800;
+			padding: $spacing-unit-large 0 0;
+		}
+		
+		fieldset {
+			margin-bottom: $spacing-unit + $spacing-unit-small;
+		}
+		
+		legend,
+		.legend {
+			margin-bottom: $spacing-unit-small;
+		}
+		
+		input[type="radio"] {
+			margin: 9px 6px;
+		}
+		
+		.editer {
+			margin-bottom: 0;
+		}
+	}
+	
+	
+}
+
+	// .c-abonner-formulaire__form {}
+	
+		// .c-abonner-formulaire__fieldset {}
+		
+			.c-abonner-formulaire__choix {
+				margin-bottom: $spacing-unit-tiny;
+			}
+				
+				.c-abonner-formulaire__radio-label {
+					cursor: pointer;
+					display: block;
+					position: relative;
+				}
+					
+					.c-abonner-formulaire__radio-input {
+						position: absolute;
+						z-index: 1;
+						
+						&:hover {
+							+ .c-abonner-formulaire__radio-label-texte {
+								background-color: $color-yellow-700;
+							}
+						}
+						
+						&:checked {
+							+ .c-abonner-formulaire__radio-label-texte {
+								background-color: $color-yellow-800;
+								border-color: $color-yellow-800;
+							}
+						}
+					}
+				
+					.c-abonner-formulaire__radio-label-texte {
+						border: 1px solid $color-yellow-700;
+						border-radius: 3px;
+						display: flex;
+						padding: $spacing-unit-tiny $spacing-unit-tiny ($spacing-unit-tiny / 2) $spacing-unit;
+						pointer-events: none;
+						transition: background-color ease-in .3s;
+					}
+*/

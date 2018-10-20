@@ -1,0 +1,364 @@
+// =====================================
+// c-btn
+// =====================================
+
+.c-btn {
+	border: 1px solid $color-gray;
+	border-color: transparent;
+	display: inline-block;
+	overflow: visible;
+	padding: $spacing-unit-tiny $spacing-unit-tiny ($spacing-unit-tiny / 2);
+	vertical-align: middle;
+	line-height: normal;
+	text-align: center;
+	font-family: inherit;
+	font-size: 100%;
+	cursor: pointer;
+	transition: all $lien-transition;
+}
+
+	//
+	// c-btn-margin
+	// -------------------------------------
+	.c-btn--margin {
+		margin: $spacing-unit;
+	}
+
+
+	//
+	// c-btn--burger
+	// -------------------------------------
+	.c-btn--burger {
+		position: relative;
+		z-index: $zindex-site-nav__menu-button;
+		top: -2px;
+		padding: 0;
+		border: none;
+		border-radius: 50%;
+		margin: auto 0 auto $spacing-unit-small;
+		height: $btn-burger-height;
+		width: $btn-burger-width;
+		background-color: $color-lien;
+		color: $color-white;
+	}
+	
+	//
+	// c-btn--croix
+	// -------------------------------------
+	
+	.c-btn--croix {
+		position: absolute;
+		z-index: $zindex-panier-mini + 1;
+		top: 18px;
+		left: -28px;
+		padding: 0;
+		border: none;
+		border-radius: 50%;
+		margin: auto 0 auto $spacing-unit-small;
+		height: $btn-burger-height;
+		width: $btn-burger-width;
+		background-color: $color-lien;
+		color: $color-white;
+	}
+	
+	//
+	// c-btn--submit
+	// -------------------------------------
+	.c-btn--submit {
+		background-color: $color-cyan-600; //$color-blue-grey-600;
+		color: $color-white;
+		
+		&:hover,
+		&:focus {
+			color: $color-white;
+			background-color: $color-cyan-400;
+		}
+	}
+	
+	
+	//
+	// c-btn--delete
+	// -------------------------------------
+	.c-btn--delete {
+		padding: 0;
+		margin: 0;
+		color: $color-lien;
+	}
+
+
+	//
+	// c-btn--white
+	// -------------------------------------
+	.c-btn--white {
+		border: 1px solid $color-white;
+		background-color: transparent;
+		color: $color-white;
+		transition: all $lien-transition;
+		
+		&:hover,
+		&:focus {
+			color: $color-black;
+			border-color: $color-black;
+		}
+	}
+	
+	
+	//
+	// c-btn--black
+	// -------------------------------------
+	.c-btn--black {
+		border: 1px solid $color-black;
+		background-color: transparent;
+		color: $color-black;
+		transition: all $lien-transition;
+		
+		&:hover,
+		&:focus {
+			color: $color-white;
+			background-color: $color-lien;
+			border-color: $color-lien;
+		}
+	}
+
+
+	//
+	// c-btn--upper
+	// -------------------------------------
+	.c-btn--upper {
+		padding-top: $spacing-unit-tiny + ($spacing-unit-tiny / 2);
+		text-transform: uppercase;
+	}
+
+
+	//
+	// c-btn--extended
+	// -------------------------------------
+	.c-btn--extended {
+		width: 100%;
+	}
+	
+	
+	//
+	// c-btn--achat-numero
+	// -------------------------------------
+	.c-btn--achat-numero {
+		width: 100%;
+		
+		@include mq(tabletPlus) {
+			width: auto;
+		}
+	}
+	
+	
+	//
+	// c-btn--annuler
+	// -------------------------------------
+	
+	.c-btn--annuler {
+		background-color: $color-gray-300;
+		color: $color-white;
+		
+		&:hover,
+		&:focus {
+			background-color: $color-lien;
+		}
+	}
+
+
+	//
+	// c-btn--round
+	// -------------------------------------
+	.c-btn--round {
+		border-radius: 5px;
+	}
+	
+	
+	//
+	// c-btn--logout
+	// -------------------------------------
+	
+	.c-btn--logout {
+		display: flex;
+		margin-bottom: auto;
+		
+		@include mq($until: mobilePlus) {
+			padding-top: $spacing-unit-tiny / 2;
+			span {
+				@include inuit-hidden-visually;
+			}
+		}
+	}
+	
+	
+	//
+	// c-btn--square
+	// -------------------------------------
+	
+	.c-btn--square {
+		padding: 3px 0 0;
+		width: 24px;
+		height: 24px;
+	}
+	
+	
+	//
+	// c-btn--link
+	// -------------------------------------
+	
+	.c-btn--link {
+		border-bottom: 1px solid transparent;
+		padding: 0;
+		background-color: transparent;
+		color: $color-lien;
+		transition: border-color $lien-transition;
+		
+		&:hover {
+			border-bottom-color: $color-lien;
+		}
+	}
+
+
+// c-btn-form
+// -------------------------------------
+// 
+// Avec une balise #BOUTON_ACTION, la classe du bouton n'est
+// pas accessible, seul celle du conteneur <form> l'est.
+// 
+
+.c-btn-form {
+	button {
+		@extend .c-btn;
+	}
+}
+
+.c-btn-form--white {
+	button {
+		@extend .c-btn--white;
+	}
+}
+
+.c-btn-form--black {
+	button {
+		@extend .c-btn--black;
+	}
+}
+
+.c-btn-form--upper {
+	button {
+		@extend .c-btn--upper;
+	}
+}
+
+.c-btn-form--round {
+	button {
+		@extend .c-btn--round;
+	}
+}
+
+.c-btn-form--square {
+	button {
+		@extend .c-btn--square;
+	}
+}
+
+.c-btn-form--link {
+	button {
+		@extend .c-btn--link;
+	}
+}
+
+.c-btn-form--annuler {
+	button {
+		@extend .c-btn--annuler;
+	}
+}
+
+.c-btn-form--achat-numero {
+	margin-top: $spacing-unit-tiny;
+	margin-bottom: $spacing-unit-tiny;
+	
+	&,
+	button {
+		@extend .c-btn--achat-numero;
+	}
+	
+	@include mq(tabletPlus) {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
+
+.c-btn-form--submit {
+	button {
+		@extend .c-btn--submit;
+	}
+}
+
+
+//
+// .boutons .submit
+// -------------------------------------
+//
+// bouton submit des formulaires SPIP
+// 
+.boutons {
+	.submit {
+		@extend .c-btn;
+		@extend .c-btn--submit;
+		@extend .c-btn--round;
+		@extend .c-btn--upper;
+		width: 100%;
+	}
+}
+
+
+//
+// boutons multiples variante hétérogène
+// -------------------------------------
+// 
+// Cf. page validation de commande.
+// 
+
+.c-btn-multiples,
+.boutons--multiples {
+	display: flex;
+	flex-flow: column wrap;
+	
+	@include mq(tablet) {
+		flex-flow: row wrap;
+		justify-content: space-between;
+	}
+}
+
+	.c-btn--primaire,
+	.c-btn-form--primaire,
+	.submit--primaire {
+		order: 1;
+		flex: 1 1 auto;
+		margin-bottom: $spacing-unit;
+		
+		@include mq(tablet) {
+			order: 2;
+			flex: 1 1 58%;
+			margin-bottom: 0;
+		}
+	}
+	
+	.c-btn--secondaire,
+	.c-btn-form--secondaire,
+	.submit--secondaire {
+		order: 2;
+		flex: 1 1 auto;
+		
+		@include mq(tablet) {
+			order: 1;
+			flex: 0 1 30%;
+			margin-right: $spacing-unit-large;
+		}
+	}
+	
+	.c-btn-form--secondaire {
+		.submit {
+			width: 100%;
+		}
+	}

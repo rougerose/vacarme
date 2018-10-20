@@ -1,0 +1,302 @@
+// =====================================
+// Commande
+// =====================================
+
+
+.c-commande {}
+
+
+//
+// c-commande-header
+// -------------------------------------
+
+.c-commande-header {}
+
+	// ----- c-commande-header__titre ----- //
+	
+	.c-commande-header__titre {
+		border-bottom: 1px solid $color-black;
+		margin-bottom: 0;
+	}
+
+
+//
+// c-commande-section
+// -------------------------------------
+
+c.commande-section {}
+
+
+	// ----- c-commande-section__titre ----- //
+	
+	.c-commande-section__titre {
+		border-bottom: 1px solid $color-black;
+	}
+
+
+//
+// c-commande-articles
+// -------------------------------------
+
+.c-commande-articles {
+	margin-bottom: 0;
+	
+	&.est-vide {
+		padding: $spacing-unit-large 0;
+	}
+}
+
+
+//
+// c-commande__liste
+// -------------------------------------
+
+.c-commande__liste {
+	padding-bottom: $spacing-unit-small;
+	margin-bottom: 0;
+}
+
+
+//
+// c-commande-article
+// -------------------------------------
+
+.c-commande-article {
+	border-top: 1px solid $color-gray-300;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: $spacing-unit 0;
+	width: 100%;
+	
+	&:first-child {
+		border-top: none;
+	}
+	
+	@include mq(tablet) {
+		padding: $spacing-unit $spacing-unit-small;
+	}
+}
+
+
+	// ----- c-commande-article__img ----- //
+	
+	.c-commande-article__img {
+		align-self: flex-start;
+		width: 35%;
+		padding-right: $spacing-unit-small;
+		
+		@include mq(desktop) {
+			padding-right: $spacing-unit;
+			width: 200px;
+		}
+	}
+	
+	
+	// ----- c-commande-article__descriptif ----- //
+	
+	.c-commande-article__descriptif {
+		flex: 1;
+	}
+	
+	
+	// ----- c-commande-article__titre ----- //
+	
+	.c-commande-article__titre {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: $spacing-unit-small;
+	}
+	
+	
+		// ----- c-commande-article__intitule ----- //
+		
+		.c-commande-article__intitule {
+			margin-bottom: 0;
+			margin-right: $spacing-unit-small;
+			
+			&,
+			+ span {
+				@include inuit-font-size(16px, 1.2);
+				font-weight: bold;
+			}
+			
+			@include mq(tablet) {
+				&,
+				+ span {
+					@include inuit-font-size(18px, false);
+				}
+			}
+		}
+		
+	
+	// ----- c-commande-article__designation ----- //
+	
+	.c-commande-article__designation {
+		margin-bottom: $spacing-unit-tiny;
+		@include inuit-font-size(15px, 1.2);
+		
+		> span:first-child {
+			font-style: italic;
+		}
+		
+		@include mq(tablet) {
+			@include inuit-font-size(16px, false);
+		}
+	}
+	
+	
+	// ----- c-commande-article__quantite-modifier ----- //
+	
+	.c-commande-article__quantite-modifier {
+		display: flex;
+		margin: $spacing-unit-small 0;
+	}
+	
+	
+	// ----- c-commande-article__quantite ----- //
+	
+	.c-commande-article__quantite {
+		display: inline-block;
+		
+		> span {
+			font-style: italic;
+		}
+		
+		form + & {
+			margin: 0 $spacing-unit-small;
+		}
+	}
+
+
+//
+// c-commande-total
+// -------------------------------------
+
+.c-commande-total {
+	border-top: 1px solid $color-black;
+	padding-top: $spacing-unit-tiny;
+}
+
+
+	// ----- c-commande-total__item ----- //
+	
+	.c-commande-total__item {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: $spacing-unit-tiny;
+		@include inuit-font-size(18px);
+		font-weight: bold;
+		
+		&--total {
+			@include inuit-font-size(22px);
+		}
+		
+		&--tva {
+			align-content: flex-end;
+			color: $color-gray-500;
+			@include inuit-font-size(16px);
+			font-weight: normal;
+			
+		}
+	}
+
+
+//
+// c-commande-identification
+// -------------------------------------
+
+.c-commande-identification {
+	border-top: 1px solid $color-black;
+	padding: $spacing-unit-large 0 $spacing-unit;
+	
+	@include mq(tablet) {
+		padding: $spacing-unit-large 0;
+	}
+}
+
+
+	// ----- c-commande-identification__titre ----- //
+	
+	.c-commande-identification__titre {
+		@include inuit-font-size(18px, 1.2);
+		text-align: center;
+		
+		@include mq(tablet) {
+			@include inuit-font-size(20px, false);
+		}
+	}
+
+	// ----- c-commande-identification__actions ----- //
+	
+	.c-commande-identification__actions {
+		display: flex;
+		flex-direction: column;
+		
+		> a {
+			flex: 1;
+			margin-bottom: $spacing-unit;
+		}
+		
+		@include mq(tablet) {
+			flex-direction: row;
+			justify-content: space-between;
+			
+			> a {
+				flex: 0 0 48%;
+				margin-bottom: 0;
+			}
+		}
+	}
+
+
+//
+// c-commande-adresse
+// -------------------------------------
+
+.c-commande-adresse {
+	margin: $spacing-unit-large 0;
+}
+
+
+	// ----- c-commande-article__info ----- //
+	
+	.c-commande-adresse__info {
+		display: flex;
+		flex-direction: column;
+		
+		.c-btn {
+			margin-top: $spacing-unit-tiny;
+		}
+	}
+
+
+//
+// c-commande-actions
+// -------------------------------------
+
+.c-commande-actions {
+	padding: $spacing-unit-small 0 $spacing-unit;
+}
+
+
+//
+// c-commande-paiement
+// -------------------------------------
+
+.c-commande-paiement {
+	margin-top: $spacing-unit-large;
+}
+
+	// ----- c-commande-paiement__modes ----- //
+	
+	.c-commande-paiement__modes {
+		display: flex;
+		flex-direction: column;
+		
+		@include mq(tabletPlus) {
+			flex-direction: row;
+			justify-content: space-between;
+			margin: $spacing-unit-large 0;
+		}
+	}

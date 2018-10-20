@@ -1,0 +1,12 @@
+// =====================================
+// o-wrapper
+// =====================================
+
+.o-wrapper {
+	@include inuit-clearfix();
+	padding-right: $inuit-global-spacing-unit;
+	padding-left: $inuit-global-spacing-unit;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: $inuit-wrapper-width;
+}

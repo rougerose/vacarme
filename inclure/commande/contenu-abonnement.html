@@ -1,0 +1,46 @@
+<BOUCLE_commande_abonnement(COMMANDES_DETAILS){id_commandes_detail}>
+	[(#SET{options, #OPTIONS|vpaniers_options_expliquer_options})]
+	<BOUCLE_abonnement(ABONNEMENTS_OFFRES){id_abonnements_offre=#ID_OBJET}>
+		[(#SET{titre, #TITRE})]
+		[(#SET{numeros, #DUREE|numeros_nombre_en_clair})]
+		[(#SET{duree_nb, #DUREE|numeros_nombre})]
+		[(#SET{prix_abonnement, #PRIX})]
+	</BOUCLE_abonnement>
+	<BOUCLE_data(DATA){source tableau, #GET{options}}>
+		[(#SET{prix, [(#VALEUR{prix_souscripteur}|?{
+			[(#VALEUR{prix_souscripteur}|prix_formater)],
+			[(#GET{prix_abonnement})]})] 
+		})]
+		<li class="o-list-bare__item c-commande-article">
+			<div class="c-commande-article__img">
+				<BOUCLE_couverture(RUBRIQUES){reference=#VALEUR{numero_debut}}>
+					[(#INCLURE{fond=inclure/logo/numero-couverture-thumbnail, largeur=200, image=#LOGO_RUBRIQUE|extraire_attribut{src}})]
+				</BOUCLE_couverture>
+					[(#SET{image_prochain, #CHEMIN{images/vacarme-couverture-prochain.jpg}})]
+					[(#INCLURE{fond=inclure/logo/numero-couverture-thumbnail, image=#GET{image_prochain}, largeur=200})]
+				<//B_couverture>
+			</div>
+			<div class="c-commande-article__descriptif">
+				<div class="c-commande-article__titre u-typo-font-vacarme">
+					[<h3 class="c-commande-article__intitule"><:vpaniers:abonnement_resume_label_abonnement:> (#GET{titre})[ / (#GET{numeros})]</h3>]
+					[<span>(#GET{prix})</span>]
+				</div>
+				[<p class="c-commande-article__designation"><span><:vpaniers:abonnement_resume_label_numero:></span> Vacarme (#VALEUR{numero_debut})</p>]
+				<p class="c-commande-article__designation">
+					<span><:vpaniers:abonnement_resume_label_cadeau:></span> [ (#VALEUR{cadeau}|?{#INFO_TITRE{produit, #VALEUR{cadeau}},<:vpaniers:abonnement_resume_cadeau_vide:>})]
+				</p>
+				[(#VALEUR{nom_inscription}|oui)
+					<p class="c-commande-article__designation"><span><:vpaniers:abonnement_resume_label_beneficiaire:></span>[ (#VALEUR{prenom})][ (#VALEUR{nom_inscription})]</p>
+					[<p class="c-commande-article__designation"><span><:vpaniers:abonnement_resume_label_date_message_beneficaire:></span> (#VALEUR{date_message}|vpaniers_timestamp_vers_date|affdate)</p>]
+					[(#VALEUR{message}|oui)
+						<p class="c-commande-article__designation"><span><:vpaniers:abonnement_resume_label_message_beneficaire:></span> [<span>(#VALEUR{message})</span></p>]
+					]
+				]
+				<p class="c-commande-article__designation">[ (#GET{prix})]</p>
+				<div class="c-commande-article__quantite-modifier">
+					<span class="c-commande-article__quantite"><span><:vpaniers:info_quantite:></span> 1</span>
+				</div>
+			</div>
+		</li>
+	</BOUCLE_data>
+</BOUCLE_commande_abonnement>

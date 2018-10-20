@@ -1,0 +1,35 @@
+// =====================================
+// lien
+// =====================================
+
+
+.c-lien {
+	border-bottom: 1px solid $color-lien;
+	color: $color-black;
+	
+	em {
+		color: currentColor;
+		font-style: normal;
+		transition: all $lien-transition;
+	}
+	
+	&:hover {
+		color: $color-lien;
+		em {
+			padding-left: 0.5em;
+			color: $color-lien;
+		}
+	}
+}
+
+.c-lien--primaire {
+	font-style: italic;
+}
+
+.c-lien--secondaire {
+	border-bottom-color: $color-black;
+}
+
+.c-lien--paragraphe {
+	margin-left: $spacing-unit-small;
+}

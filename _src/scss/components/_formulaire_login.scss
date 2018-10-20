@@ -1,0 +1,28 @@
+// =====================================
+// formulaire_login
+// =====================================
+
+.formulaire_login {
+	legend {
+		margin-bottom: $spacing-unit-small;
+		@include inuit-font-size(16px);
+	}
+	
+	
+	#pass_securise {
+		position: absolute;
+		margin-top: $spacing-unit-small;
+		margin-left: $spacing-unit * -1;
+	}
+	
+	.details {
+		margin-top: $spacing-unit-small;
+		
+		a {
+			color: $color-blue-500;
+			&:hover {
+				color: $link-color;
+			}
+		}
+	}
+}

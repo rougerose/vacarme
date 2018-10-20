@@ -1,0 +1,11 @@
+<INCLURE{fond=inclure/commande/progression, page=paiement} />
+<section class="c-section c-commande-section c-commande-paiement">
+	<BOUCLE_commande(COMMANDES){id_commande=#ENV{id_commande}}{statut IN encours, poubelle}>
+		<INCLURE{fond=inclure/commande/paiement-commande, id_commande, env}/>
+		<INCLURE{fond=inclure/commande/paiement-annuler, id_commande, env}/>
+	</BOUCLE_commande>
+	<div class="c-commande-articles est-vide">
+		<p class="c-message c-message--erreur"><:vacarme:commande_inexistante:></p>
+	</div>
+	<//B_commande>
+</section>

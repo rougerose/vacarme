@@ -1,0 +1,72 @@
+/*================================
+=            headings            =
+================================*/
+
+.hN {
+    font-weight: normal;
+    .navigation & {
+        margin-bottom: 0;
+        padding-left: 24px;
+        border-bottom: 2px solid #fff;
+        font-family: $Helvetica-font;
+		font-weight: bold;
+        @include font-size(16px);
+        text-transform: uppercase;
+        color: #fff;
+    }
+}
+.soustitre {
+    display: block;
+    font-style: italic;
+    line-height: inherit;
+    .related & {
+        font-size: 100%;
+    }
+}
+
+.numero-titre {
+	font-family: $Helvetica-font;
+	font-weight: normal;
+    text-transform: uppercase;
+	
+	a {
+		font-weight:normal;
+	}
+	
+	.self__header--rubrique &,
+    .index-feature & {
+        // font-family: $HCReg-font;
+        @include font-size(48px);
+    }
+    
+	.index-issues & {
+        @include font-size(28px);
+    }
+}
+.numero-soustitre {
+    font-style: normal;
+    color: $gris-soustitre;
+    .self__header--rubrique &,
+    .index-feature & {
+        font-size: .7em;
+    }
+}
+
+/*==========  intertitres texte (spip)  ==========*/
+h2.spip,
+h3.spip,
+h4.spip,
+h5.spip,
+h6.spip {
+    font-weight: normal;
+    line-height: 1;
+    color: #000;
+    p + & {
+        margin-top:2 * $base-spacing-unit;
+        margin-top:(2 * $base-spacing-unit / $base-font-size)*1rem;
+    }
+}
+
+
+
+/*-----  End of headings  ------*/

@@ -1,18 +1,22 @@
-<div class="grid">
-    <article class="self 404">
-        <div class="grid__item">
-            <header class="self__header self__header--rubrique">
-                <h1 class="hN titre"><:pass_erreur:> 404</h1>
-            </header>
-        </div><!-- /.grid__item -->
-        <div class="grid__item desk-three-quarters push--desk-one-quarter">
-            <div class="#EDIT{bio} self__chapo landmark surlignable">
-                [(#ENV{erreur})][
-                (#ENV{erreur}|non)
-                    <h2 class="hN spip"><:local:message_404_title:></h2>
-                    <p class="spip"><:local:message_404_desc{urlsite=#URL_SITE_SPIP}:></p>]
-            </div>
-        </div><!-- /.grid__item -->
-    </article>
-</div><!-- /.grid -->
+<main id="main" class="page-content" role="main">
+	<div class="page-block">
+		<div class="grid">
+			<article class="self 404">
+				<div class="grid__item">
+					<header class="self__header self__header--rubrique">
+						<h1 class="hN titre"><:pass_erreur:> 404</h1>
+					</header>
+				</div><!-- /.grid__item -->
+				<div class="grid__item desk-three-quarters push--desk-one-quarter">
+					<div class="#EDIT{bio} self__chapo landmark surlignable">
+						[(#ENV{erreur})][
+						(#ENV{erreur}|non)
+							<h2 class="hN spip"><:local:message_404_title:></h2>
+							<p class="spip"><:local:message_404_desc{urlsite=#URL_SITE_SPIP}:></p>]
+					</div>
+				</div><!-- /.grid__item -->
+			</article>
+		</div><!-- /.grid -->
+	</div>
+</main>
 #FILTRE{mini_html}

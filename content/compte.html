@@ -1,0 +1,9 @@
+<main id="main" class="c-compte" role="main">
+	<div class="o-wrapper">
+		<BOUCLE_auteur(AUTEURS){id_auteur=#SESSION{id_auteur}}{tout}>
+			<INCLURE{fond=inclure/compte/sections, section=#ENV{section}, retour=#ENV{retour}, id_auteur, objet=#ENV{objet}, id_objet=#ENV{id_objet}} />
+		</BOUCLE_auteur>
+			<INCLURE{fond=inclure/compte/identification, id_auteur, retour=#ENV{retour}, formulaire=#ENV{formulaire}, section=#ENV{section}} />
+		<//B_auteur>
+	</div>
+</main>

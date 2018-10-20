@@ -1,0 +1,8 @@
+[(#SET{etapes, #ARRAY{panier, 1, commande, 2, paiement, 3}})]
+[(#SET{progression_etape, #ENV{page}|in_array{#GET{etapes}|array_keys}|?{#GET{etapes/#ENV{page}}, 1}})]
+[(#SET{progression_etapes, #ARRAY{
+	1,<:vpaniers:page_panier_titre:>,
+	2,<:vacarme:commande_page_titre:>,
+	3,<:vacarme:commande_page_paiement_titre:>
+}})]
+<INCLURE{fond=inclure/progression, progression_etapes=#GET{progression_etapes}, progression_etape=#GET{progression_etape}, total=t3} />
