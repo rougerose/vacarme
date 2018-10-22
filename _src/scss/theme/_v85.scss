@@ -4,12 +4,10 @@
 
 
 .t-v85-texte__code {
-	padding: $spacing-unit;
+	margin-bottom: $spacing-unit-large;
+	padding: $spacing-unit $spacing-unit 1px;
+	background-color: $color-black;
+	color: $color-white;
 	font-family: $font-mono;
 	font-size: 1em;
-	
-	&--inverse {
-		background-color: $color-black;
-		color: $color-white;
-	}
 }

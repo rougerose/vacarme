@@ -3066,9 +3066,7 @@
 
 /* line 11, _src/scss/components/_spip-admin.scss */ .spip-admin-float .spip-admin-boutons { border-radius: 5px 5px 0 0; font-family: "Menlo", monospace; font-size: 10px; font-size: 0.625rem; line-height: 1; font-weight: normal; text-align: left; }
 
-/* line 6, _src/scss/theme/_v85.scss */ .t-v85-texte__code { padding: 24px; font-family: "Menlo", monospace; font-size: 1em; }
-
-/* line 11, _src/scss/theme/_v85.scss */ .t-v85-texte__code--inverse { background-color: #000; color: #fff; }
+/* line 6, _src/scss/theme/_v85.scss */ .t-v85-texte__code { margin-bottom: 48px; padding: 24px 24px 1px; background-color: #000; color: #fff; font-family: "Menlo", monospace; font-size: 1em; }
 
 /* ========================================================================== #WIDTHS ========================================================================== */
 /** inuitcss generates a series of utility classes that give a fluid width to whichever element they’re applied, e.g.: <img src="" alt="" class="u-1/2" /> These classes are most commonly used in conjunction with our layout system, e.g.: <div class="o-layout__item  u-1/2"> By default, inuitcss will also generate responsive variants of each of these classes by using your Sass MQ configuration, e.g.: <div class="o-layout__item  u-1/1  u-1/2@tablet  u-1/3@desktop"> Optionally, inuitcss can generate offset classes which can push and pull elements left and right by a specified amount, e.g.: <div class="o-layout__item  u-2/3  u-pull-1/3"> This is useful for making very granular changes to the rendered order of items in a layout. N.B. This option is turned off by default. */
