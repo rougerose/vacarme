@@ -13,7 +13,9 @@ $GLOBALS['z_blocs'] = array('content', 'head', 'head_js', 'header', 'panier', 'f
 $GLOBALS['debut_intertitre'] = "\n<h2>";
 $GLOBALS['fin_intertitre'] = "</h2>\n";
 
-// Nombre de jours à partir desquels les articles sont gratuits (complets)
+// Barrière mobile : nombre de jours à partir desquels les articles sont gratuits (complets)
 define('_VACARME_GRATUITE', 730);
 
+// Désactiver héritage des logos de rubrique
+define('_LOGO_RUBRIQUE_DESACTIVER_HERITAGE', true); 
 ?>
