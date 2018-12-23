@@ -35,7 +35,7 @@ var options = {
 	},
 	
 	scss: {
-		paths: ['./node_modules/', './bower_components'],
+		paths: ['./node_modules/'],
 		file: '_src/scss/app.scss',
 		files: '_src/scss/**/*.scss',
 		destination: 'css'

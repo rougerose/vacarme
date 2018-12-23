@@ -196,7 +196,7 @@
 
 /*------------------------------------*\ $CLEARFIX \*------------------------------------*/
 /** Micro clearfix, as per: css-101.org/articles/clearfix/latest-new-clearfix-so-far.php Extend the clearfix class with Sass to avoid the `.cf` class appearing over and over in your markup. */
-/* line 10, bower_components/inuit.css/generic/_clearfix.scss */ .cf:after, .island:after, .islet:after, .media:after, .accordeon__body:after, .timeline:after, .self-meta:after { content: ""; display: table; clear: both; }
+/* line 10, node_modules/inuit.css/generic/_clearfix.scss */ .cf:after, .island:after, .islet:after, .media:after, .accordeon__body:after, .timeline:after, .self-meta:after { content: ""; display: table; clear: both; }
 
 @font-face { font-family: "Plantin"; src: url("webfonts/PlantinStd-Bold.eot"); src: url("webfonts/PlantinStd-Bold.eot?#iefix") format("embedded-opentype"), url("webfonts/PlantinStd-Bold.woff2") format("woff2"), url("webfonts/PlantinStd-Bold.woff") format("woff"), url("webfonts/PlantinStd-Bold.ttf") format("truetype"), url("webfonts/PlantinStd-Bold.svg#PlantinStd-Bold") format("svg"); font-weight: bold; font-style: normal; }
 
@@ -313,101 +313,101 @@
 
 /*------------------------------------*\ $TABLES \*------------------------------------*/
 /** We have a lot at our disposal for making very complex table constructs, e.g.: <table class="table--bordered  table--striped  table--data"> <colgroup> <col class=t10> <col class=t10> <col class=t10> <col> </colgroup> <thead> <tr> <th colspan=3>Foo</th> <th>Bar</th> </tr> <tr> <th>Lorem</th> <th>Ipsum</th> <th class=numerical>Dolor</th> <th>Sit</th> </tr> </thead> <tbody> <tr> <th rowspan=3>Sit</th> <td>Dolor</td> <td class=numerical>03.788</td> <td>Lorem</td> </tr> <tr> <td>Dolor</td> <td class=numerical>32.210</td> <td>Lorem</td> </tr> <tr> <td>Dolor</td> <td class=numerical>47.797</td> <td>Lorem</td> </tr> <tr> <th rowspan=2>Sit</th> <td>Dolor</td> <td class=numerical>09.640</td> <td>Lorem</td> </tr> <tr> <td>Dolor</td> <td class=numerical>12.117</td> <td>Lorem</td> </tr> </tbody> </table> */
-/* line 58, bower_components/inuit.css/base/_tables.scss */ table { width: 100%; }
+/* line 58, node_modules/inuit.css/base/_tables.scss */ table { width: 100%; }
 
-/* line 61, bower_components/inuit.css/base/_tables.scss */ th, td { padding: 6px; text-align: left; }
+/* line 61, node_modules/inuit.css/base/_tables.scss */ th, td { padding: 6px; text-align: left; }
 
-@media screen and (min-width: 480px) { /* line 61, bower_components/inuit.css/base/_tables.scss */ th, td { padding: 12px; } }
+@media screen and (min-width: 480px) { /* line 61, node_modules/inuit.css/base/_tables.scss */ th, td { padding: 12px; } }
 
 /** Cell alignments */
-/* line 74, bower_components/inuit.css/base/_tables.scss */ [colspan] { text-align: center; }
+/* line 74, node_modules/inuit.css/base/_tables.scss */ [colspan] { text-align: center; }
 
-/* line 77, bower_components/inuit.css/base/_tables.scss */ [colspan="1"] { text-align: left; }
+/* line 77, node_modules/inuit.css/base/_tables.scss */ [colspan="1"] { text-align: left; }
 
-/* line 80, bower_components/inuit.css/base/_tables.scss */ [rowspan] { vertical-align: middle; }
+/* line 80, node_modules/inuit.css/base/_tables.scss */ [rowspan] { vertical-align: middle; }
 
-/* line 83, bower_components/inuit.css/base/_tables.scss */ [rowspan="1"] { vertical-align: top; }
+/* line 83, node_modules/inuit.css/base/_tables.scss */ [rowspan="1"] { vertical-align: top; }
 
-/* line 86, bower_components/inuit.css/base/_tables.scss */ .numerical { text-align: right; }
+/* line 86, node_modules/inuit.css/base/_tables.scss */ .numerical { text-align: right; }
 
 /** In the HTML above we see several `col` elements with classes whose numbers represent a percentage width for that column. We leave one column free of a class so that column can soak up the effects of any accidental breakage in the table. */
-/* line 96, bower_components/inuit.css/base/_tables.scss */ .t5 { width: 5%; }
+/* line 96, node_modules/inuit.css/base/_tables.scss */ .t5 { width: 5%; }
 
-/* line 97, bower_components/inuit.css/base/_tables.scss */ .t10 { width: 10%; }
+/* line 97, node_modules/inuit.css/base/_tables.scss */ .t10 { width: 10%; }
 
-/* line 98, bower_components/inuit.css/base/_tables.scss */ .t12 { width: 12.5%; }
+/* line 98, node_modules/inuit.css/base/_tables.scss */ .t12 { width: 12.5%; }
 
 /* 1/8 */
-/* line 99, bower_components/inuit.css/base/_tables.scss */ .t15 { width: 15%; }
+/* line 99, node_modules/inuit.css/base/_tables.scss */ .t15 { width: 15%; }
 
-/* line 100, bower_components/inuit.css/base/_tables.scss */ .t20 { width: 20%; }
+/* line 100, node_modules/inuit.css/base/_tables.scss */ .t20 { width: 20%; }
 
-/* line 101, bower_components/inuit.css/base/_tables.scss */ .t25 { width: 25%; }
+/* line 101, node_modules/inuit.css/base/_tables.scss */ .t25 { width: 25%; }
 
 /* 1/4 */
-/* line 102, bower_components/inuit.css/base/_tables.scss */ .t30 { width: 30%; }
+/* line 102, node_modules/inuit.css/base/_tables.scss */ .t30 { width: 30%; }
 
-/* line 103, bower_components/inuit.css/base/_tables.scss */ .t33 { width: 33.333%; }
+/* line 103, node_modules/inuit.css/base/_tables.scss */ .t33 { width: 33.333%; }
 
 /* 1/3 */
-/* line 104, bower_components/inuit.css/base/_tables.scss */ .t35 { width: 35%; }
+/* line 104, node_modules/inuit.css/base/_tables.scss */ .t35 { width: 35%; }
 
-/* line 105, bower_components/inuit.css/base/_tables.scss */ .t37 { width: 37.5%; }
+/* line 105, node_modules/inuit.css/base/_tables.scss */ .t37 { width: 37.5%; }
 
 /* 3/8 */
-/* line 106, bower_components/inuit.css/base/_tables.scss */ .t40 { width: 40%; }
+/* line 106, node_modules/inuit.css/base/_tables.scss */ .t40 { width: 40%; }
 
-/* line 107, bower_components/inuit.css/base/_tables.scss */ .t45 { width: 45%; }
+/* line 107, node_modules/inuit.css/base/_tables.scss */ .t45 { width: 45%; }
 
-/* line 108, bower_components/inuit.css/base/_tables.scss */ .t50 { width: 50%; }
+/* line 108, node_modules/inuit.css/base/_tables.scss */ .t50 { width: 50%; }
 
 /* 1/2 */
-/* line 109, bower_components/inuit.css/base/_tables.scss */ .t55 { width: 55%; }
+/* line 109, node_modules/inuit.css/base/_tables.scss */ .t55 { width: 55%; }
 
-/* line 110, bower_components/inuit.css/base/_tables.scss */ .t60 { width: 60%; }
+/* line 110, node_modules/inuit.css/base/_tables.scss */ .t60 { width: 60%; }
 
-/* line 111, bower_components/inuit.css/base/_tables.scss */ .t62 { width: 62.5%; }
+/* line 111, node_modules/inuit.css/base/_tables.scss */ .t62 { width: 62.5%; }
 
 /* 5/8 */
-/* line 112, bower_components/inuit.css/base/_tables.scss */ .t65 { width: 65%; }
+/* line 112, node_modules/inuit.css/base/_tables.scss */ .t65 { width: 65%; }
 
-/* line 113, bower_components/inuit.css/base/_tables.scss */ .t66 { width: 66.666%; }
+/* line 113, node_modules/inuit.css/base/_tables.scss */ .t66 { width: 66.666%; }
 
 /* 2/3 */
-/* line 114, bower_components/inuit.css/base/_tables.scss */ .t70 { width: 70%; }
+/* line 114, node_modules/inuit.css/base/_tables.scss */ .t70 { width: 70%; }
 
-/* line 115, bower_components/inuit.css/base/_tables.scss */ .t75 { width: 75%; }
+/* line 115, node_modules/inuit.css/base/_tables.scss */ .t75 { width: 75%; }
 
 /* 3/4*/
-/* line 116, bower_components/inuit.css/base/_tables.scss */ .t80 { width: 80%; }
+/* line 116, node_modules/inuit.css/base/_tables.scss */ .t80 { width: 80%; }
 
-/* line 117, bower_components/inuit.css/base/_tables.scss */ .t85 { width: 85%; }
+/* line 117, node_modules/inuit.css/base/_tables.scss */ .t85 { width: 85%; }
 
-/* line 118, bower_components/inuit.css/base/_tables.scss */ .t87 { width: 87.5%; }
+/* line 118, node_modules/inuit.css/base/_tables.scss */ .t87 { width: 87.5%; }
 
 /* 7/8 */
-/* line 119, bower_components/inuit.css/base/_tables.scss */ .t90 { width: 90%; }
+/* line 119, node_modules/inuit.css/base/_tables.scss */ .t90 { width: 90%; }
 
-/* line 120, bower_components/inuit.css/base/_tables.scss */ .t95 { width: 95%; }
+/* line 120, node_modules/inuit.css/base/_tables.scss */ .t95 { width: 95%; }
 
 /** Bordered tables */
-/* line 128, bower_components/inuit.css/base/_tables.scss */ .table--bordered th, table.spip th, .table--bordered td, table.spip td { border: 1px solid #ccc; }
+/* line 128, node_modules/inuit.css/base/_tables.scss */ .table--bordered th, table.spip th, .table--bordered td, table.spip td { border: 1px solid #ccc; }
 
-/* line 132, bower_components/inuit.css/base/_tables.scss */ .table--bordered th:empty, table.spip th:empty, .table--bordered td:empty, table.spip td:empty { border: none; }
+/* line 132, node_modules/inuit.css/base/_tables.scss */ .table--bordered th:empty, table.spip th:empty, .table--bordered td:empty, table.spip td:empty { border: none; }
 
-/* line 137, bower_components/inuit.css/base/_tables.scss */ .table--bordered thead tr:last-child th, table.spip thead tr:last-child th { border-bottom-width: 2px; }
+/* line 137, node_modules/inuit.css/base/_tables.scss */ .table--bordered thead tr:last-child th, table.spip thead tr:last-child th { border-bottom-width: 2px; }
 
-/* line 141, bower_components/inuit.css/base/_tables.scss */ .table--bordered tbody tr th:last-of-type, table.spip tbody tr th:last-of-type { border-right-width: 2px; }
+/* line 141, node_modules/inuit.css/base/_tables.scss */ .table--bordered tbody tr th:last-of-type, table.spip tbody tr th:last-of-type { border-right-width: 2px; }
 
 /** Striped tables */
-/* line 152, bower_components/inuit.css/base/_tables.scss */ .table--striped tbody tr:nth-of-type(odd), table.spip tbody tr:nth-of-type(odd) { background-color: #ffc; /* Override this color in your theme stylesheet */ }
+/* line 152, node_modules/inuit.css/base/_tables.scss */ .table--striped tbody tr:nth-of-type(odd), table.spip tbody tr:nth-of-type(odd) { background-color: #ffc; /* Override this color in your theme stylesheet */ }
 
 /** Data table */
-/* line 161, bower_components/inuit.css/base/_tables.scss */ .table--data { font: 12px/1.5 sans-serif; }
+/* line 161, node_modules/inuit.css/base/_tables.scss */ .table--data { font: 12px/1.5 sans-serif; }
 
 /*------------------------------------*\ $PARAGRAPHS \*------------------------------------*/
 /** The `.lede` class is used to make the introductory text (usually a paragraph) of a document slightly larger. */
-/* line 8, bower_components/inuit.css/base/_paragraphs.scss */ .lede, .lead { font-size: 18px; font-size: 1.125rem; line-height: 1.33333; }
+/* line 8, node_modules/inuit.css/base/_paragraphs.scss */ .lede, .lead { font-size: 18px; font-size: 1.125rem; line-height: 1.33333; }
 
 /*=============================
 =            table            =
@@ -591,64 +591,64 @@
 /*------------------------------------*\ $GRIDS \*------------------------------------*/
 /** Fluid and nestable grid system, e.g.: <div class="grid"> <div class="grid__item  one-third"> <p>One third grid</p> </div><!-- --><div class="grid__item  two-thirds"> <p>Two thirds grid</p> </div><!-- --><div class="grid__item  one-half"> <p>One half grid</p> </div><!-- --><div class="grid__item  one-quarter"> <p>One quarter grid</p> </div><!-- --><div class="grid__item  one-quarter"> <p>One quarter grid</p> </div> </div> Demo: jsfiddle.net/inuitcss/CLYUC */
 /** Grid wrapper */
-/* line 41, bower_components/inuit.css/objects/_grids.scss */ .grid { margin-left: -24px; list-style: none; margin-bottom: 0; }
+/* line 41, node_modules/inuit.css/objects/_grids.scss */ .grid { margin-left: -24px; list-style: none; margin-bottom: 0; }
 
 /** Very infrequently occuring grid wrappers as children of grid wrappers. */
-/* line 51, bower_components/inuit.css/objects/_grids.scss */ .grid > .grid { margin-left: 0; }
+/* line 51, node_modules/inuit.css/objects/_grids.scss */ .grid > .grid { margin-left: 0; }
 
 /** Grid */
-/* line 59, bower_components/inuit.css/objects/_grids.scss */ .grid__item { display: inline-block; width: 100%; padding-left: 24px; vertical-align: top; }
+/* line 59, node_modules/inuit.css/objects/_grids.scss */ .grid__item { display: inline-block; width: 100%; padding-left: 24px; vertical-align: top; }
 
 /*------------------------------------*\ $ISLAND \*------------------------------------*/
 /** Simple, boxed off content, as per: csswizardry.com/2011/10/the-island-object E.g.: <div class=island> I am boxed off. </div> Demo: jsfiddle.net/inuitcss/u8pV3 */
-/* line 17, bower_components/inuit.css/objects/_island.scss */ .island, .islet { display: block; }
+/* line 17, node_modules/inuit.css/objects/_island.scss */ .island, .islet { display: block; }
 
-/* line 22, bower_components/inuit.css/objects/_island.scss */ .island { padding: 24px; }
+/* line 22, node_modules/inuit.css/objects/_island.scss */ .island { padding: 24px; }
 
-/* line 25, bower_components/inuit.css/objects/_island.scss */ .island > :last-child, .islet > :last-child { margin-bottom: 0; }
+/* line 25, node_modules/inuit.css/objects/_island.scss */ .island > :last-child, .islet > :last-child { margin-bottom: 0; }
 
 /** Just like `.island`, only smaller. */
-/* line 34, bower_components/inuit.css/objects/_island.scss */ .islet { padding: 12px; }
+/* line 34, node_modules/inuit.css/objects/_island.scss */ .islet { padding: 12px; }
 
 /*------------------------------------*\ $MEDIA \*------------------------------------*/
 /** Place any image- and text-like content side-by-side, as per: stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code E.g.: <div class=media> <img src=http://placekitten.com/200/300 alt="" class=media__img> <p class=media__body>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> </div> Demo: jsfiddle.net/inuitcss/cf4Qs */
-/* line 20, bower_components/inuit.css/objects/_media.scss */ .media { display: block; }
+/* line 20, node_modules/inuit.css/objects/_media.scss */ .media { display: block; }
 
-/* line 24, bower_components/inuit.css/objects/_media.scss */ .media__img { float: left; margin-right: 24px; }
+/* line 24, node_modules/inuit.css/objects/_media.scss */ .media__img { float: left; margin-right: 24px; }
 
 /** Reversed image location (right instead of left). */
-/* line 31, bower_components/inuit.css/objects/_media.scss */ .media__img--rev { float: right; margin-left: 24px; }
+/* line 31, node_modules/inuit.css/objects/_media.scss */ .media__img--rev { float: right; margin-left: 24px; }
 
-/* line 36, bower_components/inuit.css/objects/_media.scss */ .media__img img, .media__img--rev img { display: block; }
+/* line 36, node_modules/inuit.css/objects/_media.scss */ .media__img img, .media__img--rev img { display: block; }
 
-/* line 41, bower_components/inuit.css/objects/_media.scss */ .media__body { overflow: hidden; }
+/* line 41, node_modules/inuit.css/objects/_media.scss */ .media__body { overflow: hidden; }
 
-/* line 44, bower_components/inuit.css/objects/_media.scss */ .media__body, .media__body > :last-child { margin-bottom: 0; }
+/* line 44, node_modules/inuit.css/objects/_media.scss */ .media__body, .media__body > :last-child { margin-bottom: 0; }
 
 /** `.img`s in `.islet`s need an appropriately sized margin. */
-/* line 53, bower_components/inuit.css/objects/_media.scss */ .islet .media__img { margin-right: 12px; }
+/* line 53, node_modules/inuit.css/objects/_media.scss */ .islet .media__img { margin-right: 12px; }
 
-/* line 56, bower_components/inuit.css/objects/_media.scss */ .islet .media__img--rev { margin-left: 12px; }
+/* line 56, node_modules/inuit.css/objects/_media.scss */ .islet .media__img--rev { margin-left: 12px; }
 
 /*------------------------------------*\ $SPRITE \*------------------------------------*/
 /** Giving an element a class of `.sprite` will throw it into ‘sprite’ mode and apply a background image e.g.: <a class="sprite  sprite--question-mark">More info&hellip;</a> or <a href=#><i class="sprite  sprite--question-mark"></i> Help and FAQ</a> Giving an element a class of `.icon` will throw it into ‘icon’ mode and will not add a background, but should be used for icon fonts and is populated through a `data-icon` attribute and the `:after` pseudo-element, e.g.: <a href=#><i class=icon data-icon="&#xF000;"></i> View your favourites</a> Where ‘&#xF000;’ might map to a star in your particular icon font. These all require extension in your theme stylesheet, e.g. in your own CSS: .sprite{ background-image:url(path/to/your/sprite.png); } .sprite--link{ background-position:0   0  ; } .sprite--star{ background-position:0 -16px; } Demo: jsfiddle.net/inuitcss/6TKuS */
-/* line 35, bower_components/inuit.css/objects/_sprite.scss */ .sprite, .icon { display: inline-block; line-height: 1; position: relative; vertical-align: middle; zoom: 1; /** So using `.icon` on certain elements doesn’t make a visual difference. */ font-style: normal; font-weight: normal; /** So icons added using `.icon` sit in the centre of the element. */ text-align: center; }
+/* line 35, node_modules/inuit.css/objects/_sprite.scss */ .sprite, .icon { display: inline-block; line-height: 1; position: relative; vertical-align: middle; zoom: 1; /** So using `.icon` on certain elements doesn’t make a visual difference. */ font-style: normal; font-weight: normal; /** So icons added using `.icon` sit in the centre of the element. */ text-align: center; }
 
-/* line 52, bower_components/inuit.css/objects/_sprite.scss */ .sprite { /** The typical size of most icons. Override in your theme stylesheet. */ width: 16px; height: 16px; top: -1px; /* H5BP method image replacement: github.com/h5bp/html5-boilerplate/commit/adecc5da035d6d76b77e3fa95c6abde841073da2 */ overflow: hidden; *text-indent: -9999px; }
+/* line 52, node_modules/inuit.css/objects/_sprite.scss */ .sprite { /** The typical size of most icons. Override in your theme stylesheet. */ width: 16px; height: 16px; top: -1px; /* H5BP method image replacement: github.com/h5bp/html5-boilerplate/commit/adecc5da035d6d76b77e3fa95c6abde841073da2 */ overflow: hidden; *text-indent: -9999px; }
 
-/* line 67, bower_components/inuit.css/objects/_sprite.scss */ .sprite:before { content: ""; display: block; width: 0; height: 100%; }
+/* line 67, node_modules/inuit.css/objects/_sprite.scss */ .sprite:before { content: ""; display: block; width: 0; height: 100%; }
 
 /** Set up icon font */
-/* line 78, bower_components/inuit.css/objects/_sprite.scss */ .icon { font-size: 16px; /** Place the icon in a box the exact same dimensions as the icon itself. */ width: 1em; height: 1em; }
+/* line 78, node_modules/inuit.css/objects/_sprite.scss */ .icon { font-size: 16px; /** Place the icon in a box the exact same dimensions as the icon itself. */ width: 1em; height: 1em; }
 
-/* line 86, bower_components/inuit.css/objects/_sprite.scss */ .icon:before { content: attr(data-icon); }
+/* line 86, node_modules/inuit.css/objects/_sprite.scss */ .icon:before { content: attr(data-icon); }
 
 /** Icon size modifiers. */
-/* line 94, bower_components/inuit.css/objects/_sprite.scss */ .icon--large { font-size: 32px; }
+/* line 94, node_modules/inuit.css/objects/_sprite.scss */ .icon--large { font-size: 32px; }
 
-/* line 95, bower_components/inuit.css/objects/_sprite.scss */ .icon--huge { font-size: 64px; }
+/* line 95, node_modules/inuit.css/objects/_sprite.scss */ .icon--huge { font-size: 64px; }
 
-/* line 96, bower_components/inuit.css/objects/_sprite.scss */ .icon--natural { font-size: inherit; }
+/* line 96, node_modules/inuit.css/objects/_sprite.scss */ .icon--natural { font-size: inherit; }
 
 /* line 5, _src/scss/objects/_wrapper.scss */ .o-wrapper { padding-right: 24px; padding-left: 24px; margin-right: auto; margin-left: auto; max-width: 1100px; }
 
@@ -2528,6 +2528,14 @@
 @media (min-width: 40em) { /* line 231, _src/scss/components/_formulaire_abonnement.scss */ .fa__choix--medium { -webkit-box-flex: 0; -ms-flex: 0 1 49%; flex: 0 1 49%; }
   /* line 235, _src/scss/components/_formulaire_abonnement.scss */ .fa__choix--small { -webkit-box-flex: 0; -ms-flex: 0 1 31%; flex: 0 1 31%; } }
 
+/* line 6, _src/scss/components/_formulaire_contact.scss */ .formulaire_contact > form { border: none; padding-left: 0; padding-top: 0; }
+
+/* line 12, _src/scss/components/_formulaire_contact.scss */ .formulaire_contact .bugajaxie { display: none; }
+
+/* line 16, _src/scss/components/_formulaire_contact.scss */ .formulaire_contact legend { font-size: 24px; font-size: 1.5rem; line-height: 1; font-family: "Plantin", "Palatino", serif; font-weight: normal; color: #000; text-transform: none; }
+
+/* line 24, _src/scss/components/_formulaire_contact.scss */ .formulaire_contact .editer-groupe { list-style: none; margin-left: 0; }
+
 /* line 6, _src/scss/components/_lien.scss */ .c-lien { border-bottom: 1px solid #00bdd6; color: #000; }
 
 /* line 10, _src/scss/components/_lien.scss */ .c-lien em { color: currentColor; font-style: normal; -webkit-transition: all 0.35s ease-out; transition: all 0.35s ease-out; }
@@ -3245,232 +3253,232 @@
 /*------------------------------------*\ $WIDTHS \*------------------------------------*/
 /** Sizes in human readable format. These are used in conjunction with other objects and abstractions found in inuit.css, most commonly the grid system and faux flexbox. We have a mixin to generate our widths and their breakpoint-specific variations. */
 /** Whole */
-/* line 17, bower_components/inuit.css/generic/_widths.scss */ .one-whole { width: 100%; }
+/* line 17, node_modules/inuit.css/generic/_widths.scss */ .one-whole { width: 100%; }
 
 /** Halves */
-/* line 23, bower_components/inuit.css/generic/_widths.scss */ .one-half, .two-quarters, .three-sixths, .four-eighths, .five-tenths, .six-twelfths { width: 50%; }
+/* line 23, node_modules/inuit.css/generic/_widths.scss */ .one-half, .two-quarters, .three-sixths, .four-eighths, .five-tenths, .six-twelfths { width: 50%; }
 
 /** Thirds */
-/* line 29, bower_components/inuit.css/generic/_widths.scss */ .one-third, .two-sixths, .four-twelfths { width: 33.333%; }
+/* line 29, node_modules/inuit.css/generic/_widths.scss */ .one-third, .two-sixths, .four-twelfths { width: 33.333%; }
 
-/* line 30, bower_components/inuit.css/generic/_widths.scss */ .two-thirds, .four-sixths, .eight-twelfths { width: 66.666%; }
+/* line 30, node_modules/inuit.css/generic/_widths.scss */ .two-thirds, .four-sixths, .eight-twelfths { width: 66.666%; }
 
 /** Quarters */
-/* line 36, bower_components/inuit.css/generic/_widths.scss */ .one-quarter, .two-eighths, .three-twelfths { width: 25%; }
+/* line 36, node_modules/inuit.css/generic/_widths.scss */ .one-quarter, .two-eighths, .three-twelfths { width: 25%; }
 
-/* line 38, bower_components/inuit.css/generic/_widths.scss */ .three-quarters, .six-eighths, .nine-twelfths { width: 75%; }
+/* line 38, node_modules/inuit.css/generic/_widths.scss */ .three-quarters, .six-eighths, .nine-twelfths { width: 75%; }
 
 /** Fifths */
-/* line 44, bower_components/inuit.css/generic/_widths.scss */ .one-fifth, .two-tenths { width: 20%; }
+/* line 44, node_modules/inuit.css/generic/_widths.scss */ .one-fifth, .two-tenths { width: 20%; }
 
-/* line 45, bower_components/inuit.css/generic/_widths.scss */ .two-fifths, .four-tenths { width: 40%; }
+/* line 45, node_modules/inuit.css/generic/_widths.scss */ .two-fifths, .four-tenths { width: 40%; }
 
-/* line 46, bower_components/inuit.css/generic/_widths.scss */ .three-fifths, .six-tenths { width: 60%; }
+/* line 46, node_modules/inuit.css/generic/_widths.scss */ .three-fifths, .six-tenths { width: 60%; }
 
-/* line 47, bower_components/inuit.css/generic/_widths.scss */ .four-fifths, .eight-tenths { width: 80%; }
+/* line 47, node_modules/inuit.css/generic/_widths.scss */ .four-fifths, .eight-tenths { width: 80%; }
 
 /** Sixths */
-/* line 53, bower_components/inuit.css/generic/_widths.scss */ .one-sixth, .two-twelfths { width: 16.666%; }
+/* line 53, node_modules/inuit.css/generic/_widths.scss */ .one-sixth, .two-twelfths { width: 16.666%; }
 
-/* line 57, bower_components/inuit.css/generic/_widths.scss */ .five-sixths, .ten-twelfths { width: 83.333%; }
+/* line 57, node_modules/inuit.css/generic/_widths.scss */ .five-sixths, .ten-twelfths { width: 83.333%; }
 
 /** Eighths */
-/* line 63, bower_components/inuit.css/generic/_widths.scss */ .one-eighth { width: 12.5%; }
+/* line 63, node_modules/inuit.css/generic/_widths.scss */ .one-eighth { width: 12.5%; }
 
-/* line 65, bower_components/inuit.css/generic/_widths.scss */ .three-eighths { width: 37.5%; }
+/* line 65, node_modules/inuit.css/generic/_widths.scss */ .three-eighths { width: 37.5%; }
 
-/* line 67, bower_components/inuit.css/generic/_widths.scss */ .five-eighths { width: 62.5%; }
+/* line 67, node_modules/inuit.css/generic/_widths.scss */ .five-eighths { width: 62.5%; }
 
-/* line 69, bower_components/inuit.css/generic/_widths.scss */ .seven-eighths { width: 87.5%; }
+/* line 69, node_modules/inuit.css/generic/_widths.scss */ .seven-eighths { width: 87.5%; }
 
 /** Tenths */
-/* line 75, bower_components/inuit.css/generic/_widths.scss */ .one-tenth { width: 10%; }
+/* line 75, node_modules/inuit.css/generic/_widths.scss */ .one-tenth { width: 10%; }
 
-/* line 77, bower_components/inuit.css/generic/_widths.scss */ .three-tenths { width: 30%; }
+/* line 77, node_modules/inuit.css/generic/_widths.scss */ .three-tenths { width: 30%; }
 
-/* line 81, bower_components/inuit.css/generic/_widths.scss */ .seven-tenths { width: 70%; }
+/* line 81, node_modules/inuit.css/generic/_widths.scss */ .seven-tenths { width: 70%; }
 
-/* line 83, bower_components/inuit.css/generic/_widths.scss */ .nine-tenths { width: 90%; }
+/* line 83, node_modules/inuit.css/generic/_widths.scss */ .nine-tenths { width: 90%; }
 
 /** Twelfths */
-/* line 89, bower_components/inuit.css/generic/_widths.scss */ .one-twelfth { width: 8.333%; }
+/* line 89, node_modules/inuit.css/generic/_widths.scss */ .one-twelfth { width: 8.333%; }
 
-/* line 93, bower_components/inuit.css/generic/_widths.scss */ .five-twelfths { width: 41.666%; }
+/* line 93, node_modules/inuit.css/generic/_widths.scss */ .five-twelfths { width: 41.666%; }
 
-/* line 95, bower_components/inuit.css/generic/_widths.scss */ .seven-twelfths { width: 58.333%; }
+/* line 95, node_modules/inuit.css/generic/_widths.scss */ .seven-twelfths { width: 58.333%; }
 
-/* line 99, bower_components/inuit.css/generic/_widths.scss */ .eleven-twelfths { width: 91.666%; }
+/* line 99, node_modules/inuit.css/generic/_widths.scss */ .eleven-twelfths { width: 91.666%; }
 
 /** If you have set `$responsive` to ‘true’ in `_vars.scss` then you now have access to these classes. You can define at which breakpoint you’d like an element to be a certain size, e.g.: `<div class="g  one-quarter  lap-one-half  palm-one-whole"> ... </div>` This would create a `div` that, at ‘desktop’ sizes, takes up a quarter of the horizontal space, a half of that space at ‘tablet’ sizes, and goes full width at ‘mobile’ sizes. Demo: jsfiddle.net/inuitcss/WS4Ge */
 @media only screen and (max-width: 480px) { /** Whole */
-  /* line 17, bower_components/inuit.css/generic/_widths.scss */ .palm-one-whole { width: 100%; }
+  /* line 17, node_modules/inuit.css/generic/_widths.scss */ .palm-one-whole { width: 100%; }
   /** Halves */
-  /* line 23, bower_components/inuit.css/generic/_widths.scss */ .palm-one-half, .palm-two-quarters, .palm-three-sixths, .palm-four-eighths, .palm-five-tenths, .palm-six-twelfths { width: 50%; }
+  /* line 23, node_modules/inuit.css/generic/_widths.scss */ .palm-one-half, .palm-two-quarters, .palm-three-sixths, .palm-four-eighths, .palm-five-tenths, .palm-six-twelfths { width: 50%; }
   /** Thirds */
-  /* line 29, bower_components/inuit.css/generic/_widths.scss */ .palm-one-third, .palm-two-sixths, .palm-four-twelfths { width: 33.333%; }
-  /* line 30, bower_components/inuit.css/generic/_widths.scss */ .palm-two-thirds, .palm-four-sixths, .palm-eight-twelfths { width: 66.666%; }
+  /* line 29, node_modules/inuit.css/generic/_widths.scss */ .palm-one-third, .palm-two-sixths, .palm-four-twelfths { width: 33.333%; }
+  /* line 30, node_modules/inuit.css/generic/_widths.scss */ .palm-two-thirds, .palm-four-sixths, .palm-eight-twelfths { width: 66.666%; }
   /** Quarters */
-  /* line 36, bower_components/inuit.css/generic/_widths.scss */ .palm-one-quarter, .palm-two-eighths, .palm-three-twelfths { width: 25%; }
-  /* line 38, bower_components/inuit.css/generic/_widths.scss */ .palm-three-quarters, .palm-six-eighths, .palm-nine-twelfths { width: 75%; }
+  /* line 36, node_modules/inuit.css/generic/_widths.scss */ .palm-one-quarter, .palm-two-eighths, .palm-three-twelfths { width: 25%; }
+  /* line 38, node_modules/inuit.css/generic/_widths.scss */ .palm-three-quarters, .palm-six-eighths, .palm-nine-twelfths { width: 75%; }
   /** Fifths */
-  /* line 44, bower_components/inuit.css/generic/_widths.scss */ .palm-one-fifth, .palm-two-tenths { width: 20%; }
-  /* line 45, bower_components/inuit.css/generic/_widths.scss */ .palm-two-fifths, .palm-four-tenths { width: 40%; }
-  /* line 46, bower_components/inuit.css/generic/_widths.scss */ .palm-three-fifths, .palm-six-tenths { width: 60%; }
-  /* line 47, bower_components/inuit.css/generic/_widths.scss */ .palm-four-fifths, .palm-eight-tenths { width: 80%; }
+  /* line 44, node_modules/inuit.css/generic/_widths.scss */ .palm-one-fifth, .palm-two-tenths { width: 20%; }
+  /* line 45, node_modules/inuit.css/generic/_widths.scss */ .palm-two-fifths, .palm-four-tenths { width: 40%; }
+  /* line 46, node_modules/inuit.css/generic/_widths.scss */ .palm-three-fifths, .palm-six-tenths { width: 60%; }
+  /* line 47, node_modules/inuit.css/generic/_widths.scss */ .palm-four-fifths, .palm-eight-tenths { width: 80%; }
   /** Sixths */
-  /* line 53, bower_components/inuit.css/generic/_widths.scss */ .palm-one-sixth, .palm-two-twelfths { width: 16.666%; }
-  /* line 57, bower_components/inuit.css/generic/_widths.scss */ .palm-five-sixths, .palm-ten-twelfths { width: 83.333%; }
+  /* line 53, node_modules/inuit.css/generic/_widths.scss */ .palm-one-sixth, .palm-two-twelfths { width: 16.666%; }
+  /* line 57, node_modules/inuit.css/generic/_widths.scss */ .palm-five-sixths, .palm-ten-twelfths { width: 83.333%; }
   /** Eighths */
-  /* line 63, bower_components/inuit.css/generic/_widths.scss */ .palm-one-eighth { width: 12.5%; }
-  /* line 65, bower_components/inuit.css/generic/_widths.scss */ .palm-three-eighths { width: 37.5%; }
-  /* line 67, bower_components/inuit.css/generic/_widths.scss */ .palm-five-eighths { width: 62.5%; }
-  /* line 69, bower_components/inuit.css/generic/_widths.scss */ .palm-seven-eighths { width: 87.5%; }
+  /* line 63, node_modules/inuit.css/generic/_widths.scss */ .palm-one-eighth { width: 12.5%; }
+  /* line 65, node_modules/inuit.css/generic/_widths.scss */ .palm-three-eighths { width: 37.5%; }
+  /* line 67, node_modules/inuit.css/generic/_widths.scss */ .palm-five-eighths { width: 62.5%; }
+  /* line 69, node_modules/inuit.css/generic/_widths.scss */ .palm-seven-eighths { width: 87.5%; }
   /** Tenths */
-  /* line 75, bower_components/inuit.css/generic/_widths.scss */ .palm-one-tenth { width: 10%; }
-  /* line 77, bower_components/inuit.css/generic/_widths.scss */ .palm-three-tenths { width: 30%; }
-  /* line 81, bower_components/inuit.css/generic/_widths.scss */ .palm-seven-tenths { width: 70%; }
-  /* line 83, bower_components/inuit.css/generic/_widths.scss */ .palm-nine-tenths { width: 90%; }
+  /* line 75, node_modules/inuit.css/generic/_widths.scss */ .palm-one-tenth { width: 10%; }
+  /* line 77, node_modules/inuit.css/generic/_widths.scss */ .palm-three-tenths { width: 30%; }
+  /* line 81, node_modules/inuit.css/generic/_widths.scss */ .palm-seven-tenths { width: 70%; }
+  /* line 83, node_modules/inuit.css/generic/_widths.scss */ .palm-nine-tenths { width: 90%; }
   /** Twelfths */
-  /* line 89, bower_components/inuit.css/generic/_widths.scss */ .palm-one-twelfth { width: 8.333%; }
-  /* line 93, bower_components/inuit.css/generic/_widths.scss */ .palm-five-twelfths { width: 41.666%; }
-  /* line 95, bower_components/inuit.css/generic/_widths.scss */ .palm-seven-twelfths { width: 58.333%; }
-  /* line 99, bower_components/inuit.css/generic/_widths.scss */ .palm-eleven-twelfths { width: 91.666%; } }
+  /* line 89, node_modules/inuit.css/generic/_widths.scss */ .palm-one-twelfth { width: 8.333%; }
+  /* line 93, node_modules/inuit.css/generic/_widths.scss */ .palm-five-twelfths { width: 41.666%; }
+  /* line 95, node_modules/inuit.css/generic/_widths.scss */ .palm-seven-twelfths { width: 58.333%; }
+  /* line 99, node_modules/inuit.css/generic/_widths.scss */ .palm-eleven-twelfths { width: 91.666%; } }
 
 @media only screen and (min-width: 481px) and (max-width: 1023px) { /** Whole */
-  /* line 17, bower_components/inuit.css/generic/_widths.scss */ .lap-one-whole { width: 100%; }
+  /* line 17, node_modules/inuit.css/generic/_widths.scss */ .lap-one-whole { width: 100%; }
   /** Halves */
-  /* line 23, bower_components/inuit.css/generic/_widths.scss */ .lap-one-half, .lap-two-quarters, .lap-three-sixths, .lap-four-eighths, .lap-five-tenths, .lap-six-twelfths { width: 50%; }
+  /* line 23, node_modules/inuit.css/generic/_widths.scss */ .lap-one-half, .lap-two-quarters, .lap-three-sixths, .lap-four-eighths, .lap-five-tenths, .lap-six-twelfths { width: 50%; }
   /** Thirds */
-  /* line 29, bower_components/inuit.css/generic/_widths.scss */ .lap-one-third, .lap-two-sixths, .lap-four-twelfths { width: 33.333%; }
-  /* line 30, bower_components/inuit.css/generic/_widths.scss */ .lap-two-thirds, .lap-four-sixths, .lap-eight-twelfths { width: 66.666%; }
+  /* line 29, node_modules/inuit.css/generic/_widths.scss */ .lap-one-third, .lap-two-sixths, .lap-four-twelfths { width: 33.333%; }
+  /* line 30, node_modules/inuit.css/generic/_widths.scss */ .lap-two-thirds, .lap-four-sixths, .lap-eight-twelfths { width: 66.666%; }
   /** Quarters */
-  /* line 36, bower_components/inuit.css/generic/_widths.scss */ .lap-one-quarter, .lap-two-eighths, .lap-three-twelfths { width: 25%; }
-  /* line 38, bower_components/inuit.css/generic/_widths.scss */ .lap-three-quarters, .lap-six-eighths, .lap-nine-twelfths { width: 75%; }
+  /* line 36, node_modules/inuit.css/generic/_widths.scss */ .lap-one-quarter, .lap-two-eighths, .lap-three-twelfths { width: 25%; }
+  /* line 38, node_modules/inuit.css/generic/_widths.scss */ .lap-three-quarters, .lap-six-eighths, .lap-nine-twelfths { width: 75%; }
   /** Fifths */
-  /* line 44, bower_components/inuit.css/generic/_widths.scss */ .lap-one-fifth, .lap-two-tenths { width: 20%; }
-  /* line 45, bower_components/inuit.css/generic/_widths.scss */ .lap-two-fifths, .lap-four-tenths { width: 40%; }
-  /* line 46, bower_components/inuit.css/generic/_widths.scss */ .lap-three-fifths, .lap-six-tenths { width: 60%; }
-  /* line 47, bower_components/inuit.css/generic/_widths.scss */ .lap-four-fifths, .lap-eight-tenths { width: 80%; }
+  /* line 44, node_modules/inuit.css/generic/_widths.scss */ .lap-one-fifth, .lap-two-tenths { width: 20%; }
+  /* line 45, node_modules/inuit.css/generic/_widths.scss */ .lap-two-fifths, .lap-four-tenths { width: 40%; }
+  /* line 46, node_modules/inuit.css/generic/_widths.scss */ .lap-three-fifths, .lap-six-tenths { width: 60%; }
+  /* line 47, node_modules/inuit.css/generic/_widths.scss */ .lap-four-fifths, .lap-eight-tenths { width: 80%; }
   /** Sixths */
-  /* line 53, bower_components/inuit.css/generic/_widths.scss */ .lap-one-sixth, .lap-two-twelfths { width: 16.666%; }
-  /* line 57, bower_components/inuit.css/generic/_widths.scss */ .lap-five-sixths, .lap-ten-twelfths { width: 83.333%; }
+  /* line 53, node_modules/inuit.css/generic/_widths.scss */ .lap-one-sixth, .lap-two-twelfths { width: 16.666%; }
+  /* line 57, node_modules/inuit.css/generic/_widths.scss */ .lap-five-sixths, .lap-ten-twelfths { width: 83.333%; }
   /** Eighths */
-  /* line 63, bower_components/inuit.css/generic/_widths.scss */ .lap-one-eighth { width: 12.5%; }
-  /* line 65, bower_components/inuit.css/generic/_widths.scss */ .lap-three-eighths { width: 37.5%; }
-  /* line 67, bower_components/inuit.css/generic/_widths.scss */ .lap-five-eighths { width: 62.5%; }
-  /* line 69, bower_components/inuit.css/generic/_widths.scss */ .lap-seven-eighths { width: 87.5%; }
+  /* line 63, node_modules/inuit.css/generic/_widths.scss */ .lap-one-eighth { width: 12.5%; }
+  /* line 65, node_modules/inuit.css/generic/_widths.scss */ .lap-three-eighths { width: 37.5%; }
+  /* line 67, node_modules/inuit.css/generic/_widths.scss */ .lap-five-eighths { width: 62.5%; }
+  /* line 69, node_modules/inuit.css/generic/_widths.scss */ .lap-seven-eighths { width: 87.5%; }
   /** Tenths */
-  /* line 75, bower_components/inuit.css/generic/_widths.scss */ .lap-one-tenth { width: 10%; }
-  /* line 77, bower_components/inuit.css/generic/_widths.scss */ .lap-three-tenths { width: 30%; }
-  /* line 81, bower_components/inuit.css/generic/_widths.scss */ .lap-seven-tenths { width: 70%; }
-  /* line 83, bower_components/inuit.css/generic/_widths.scss */ .lap-nine-tenths { width: 90%; }
+  /* line 75, node_modules/inuit.css/generic/_widths.scss */ .lap-one-tenth { width: 10%; }
+  /* line 77, node_modules/inuit.css/generic/_widths.scss */ .lap-three-tenths { width: 30%; }
+  /* line 81, node_modules/inuit.css/generic/_widths.scss */ .lap-seven-tenths { width: 70%; }
+  /* line 83, node_modules/inuit.css/generic/_widths.scss */ .lap-nine-tenths { width: 90%; }
   /** Twelfths */
-  /* line 89, bower_components/inuit.css/generic/_widths.scss */ .lap-one-twelfth { width: 8.333%; }
-  /* line 93, bower_components/inuit.css/generic/_widths.scss */ .lap-five-twelfths { width: 41.666%; }
-  /* line 95, bower_components/inuit.css/generic/_widths.scss */ .lap-seven-twelfths { width: 58.333%; }
-  /* line 99, bower_components/inuit.css/generic/_widths.scss */ .lap-eleven-twelfths { width: 91.666%; } }
+  /* line 89, node_modules/inuit.css/generic/_widths.scss */ .lap-one-twelfth { width: 8.333%; }
+  /* line 93, node_modules/inuit.css/generic/_widths.scss */ .lap-five-twelfths { width: 41.666%; }
+  /* line 95, node_modules/inuit.css/generic/_widths.scss */ .lap-seven-twelfths { width: 58.333%; }
+  /* line 99, node_modules/inuit.css/generic/_widths.scss */ .lap-eleven-twelfths { width: 91.666%; } }
 
 @media only screen and (min-width: 481px) { /** Whole */
-  /* line 17, bower_components/inuit.css/generic/_widths.scss */ .lap-and-up-one-whole { width: 100%; }
+  /* line 17, node_modules/inuit.css/generic/_widths.scss */ .lap-and-up-one-whole { width: 100%; }
   /** Halves */
-  /* line 23, bower_components/inuit.css/generic/_widths.scss */ .lap-and-up-one-half, .lap-and-up-two-quarters, .lap-and-up-three-sixths, .lap-and-up-four-eighths, .lap-and-up-five-tenths, .lap-and-up-six-twelfths { width: 50%; }
+  /* line 23, node_modules/inuit.css/generic/_widths.scss */ .lap-and-up-one-half, .lap-and-up-two-quarters, .lap-and-up-three-sixths, .lap-and-up-four-eighths, .lap-and-up-five-tenths, .lap-and-up-six-twelfths { width: 50%; }
   /** Thirds */
-  /* line 29, bower_components/inuit.css/generic/_widths.scss */ .lap-and-up-one-third, .lap-and-up-two-sixths, .lap-and-up-four-twelfths { width: 33.333%; }
-  /* line 30, bower_components/inuit.css/generic/_widths.scss */ .lap-and-up-two-thirds, .lap-and-up-four-sixths, .lap-and-up-eight-twelfths { width: 66.666%; }
+  /* line 29, node_modules/inuit.css/generic/_widths.scss */ .lap-and-up-one-third, .lap-and-up-two-sixths, .lap-and-up-four-twelfths { width: 33.333%; }
+  /* line 30, node_modules/inuit.css/generic/_widths.scss */ .lap-and-up-two-thirds, .lap-and-up-four-sixths, .lap-and-up-eight-twelfths { width: 66.666%; }
   /** Quarters */
-  /* line 36, bower_components/inuit.css/generic/_widths.scss */ .lap-and-up-one-quarter, .lap-and-up-two-eighths, .lap-and-up-three-twelfths { width: 25%; }
-  /* line 38, bower_components/inuit.css/generic/_widths.scss */ .lap-and-up-three-quarters, .lap-and-up-six-eighths, .lap-and-up-nine-twelfths { width: 75%; }
+  /* line 36, node_modules/inuit.css/generic/_widths.scss */ .lap-and-up-one-quarter, .lap-and-up-two-eighths, .lap-and-up-three-twelfths { width: 25%; }
+  /* line 38, node_modules/inuit.css/generic/_widths.scss */ .lap-and-up-three-quarters, .lap-and-up-six-eighths, .lap-and-up-nine-twelfths { width: 75%; }
   /** Fifths */
-  /* line 44, bower_components/inuit.css/generic/_widths.scss */ .lap-and-up-one-fifth, .lap-and-up-two-tenths { width: 20%; }
-  /* line 45, bower_components/inuit.css/generic/_widths.scss */ .lap-and-up-two-fifths, .lap-and-up-four-tenths { width: 40%; }
-  /* line 46, bower_components/inuit.css/generic/_widths.scss */ .lap-and-up-three-fifths, .lap-and-up-six-tenths { width: 60%; }
-  /* line 47, bower_components/inuit.css/generic/_widths.scss */ .lap-and-up-four-fifths, .lap-and-up-eight-tenths { width: 80%; }
+  /* line 44, node_modules/inuit.css/generic/_widths.scss */ .lap-and-up-one-fifth, .lap-and-up-two-tenths { width: 20%; }
+  /* line 45, node_modules/inuit.css/generic/_widths.scss */ .lap-and-up-two-fifths, .lap-and-up-four-tenths { width: 40%; }
+  /* line 46, node_modules/inuit.css/generic/_widths.scss */ .lap-and-up-three-fifths, .lap-and-up-six-tenths { width: 60%; }
+  /* line 47, node_modules/inuit.css/generic/_widths.scss */ .lap-and-up-four-fifths, .lap-and-up-eight-tenths { width: 80%; }
   /** Sixths */
-  /* line 53, bower_components/inuit.css/generic/_widths.scss */ .lap-and-up-one-sixth, .lap-and-up-two-twelfths { width: 16.666%; }
-  /* line 57, bower_components/inuit.css/generic/_widths.scss */ .lap-and-up-five-sixths, .lap-and-up-ten-twelfths { width: 83.333%; }
+  /* line 53, node_modules/inuit.css/generic/_widths.scss */ .lap-and-up-one-sixth, .lap-and-up-two-twelfths { width: 16.666%; }
+  /* line 57, node_modules/inuit.css/generic/_widths.scss */ .lap-and-up-five-sixths, .lap-and-up-ten-twelfths { width: 83.333%; }
   /** Eighths */
-  /* line 63, bower_components/inuit.css/generic/_widths.scss */ .lap-and-up-one-eighth { width: 12.5%; }
-  /* line 65, bower_components/inuit.css/generic/_widths.scss */ .lap-and-up-three-eighths { width: 37.5%; }
-  /* line 67, bower_components/inuit.css/generic/_widths.scss */ .lap-and-up-five-eighths { width: 62.5%; }
-  /* line 69, bower_components/inuit.css/generic/_widths.scss */ .lap-and-up-seven-eighths { width: 87.5%; }
+  /* line 63, node_modules/inuit.css/generic/_widths.scss */ .lap-and-up-one-eighth { width: 12.5%; }
+  /* line 65, node_modules/inuit.css/generic/_widths.scss */ .lap-and-up-three-eighths { width: 37.5%; }
+  /* line 67, node_modules/inuit.css/generic/_widths.scss */ .lap-and-up-five-eighths { width: 62.5%; }
+  /* line 69, node_modules/inuit.css/generic/_widths.scss */ .lap-and-up-seven-eighths { width: 87.5%; }
   /** Tenths */
-  /* line 75, bower_components/inuit.css/generic/_widths.scss */ .lap-and-up-one-tenth { width: 10%; }
-  /* line 77, bower_components/inuit.css/generic/_widths.scss */ .lap-and-up-three-tenths { width: 30%; }
-  /* line 81, bower_components/inuit.css/generic/_widths.scss */ .lap-and-up-seven-tenths { width: 70%; }
-  /* line 83, bower_components/inuit.css/generic/_widths.scss */ .lap-and-up-nine-tenths { width: 90%; }
+  /* line 75, node_modules/inuit.css/generic/_widths.scss */ .lap-and-up-one-tenth { width: 10%; }
+  /* line 77, node_modules/inuit.css/generic/_widths.scss */ .lap-and-up-three-tenths { width: 30%; }
+  /* line 81, node_modules/inuit.css/generic/_widths.scss */ .lap-and-up-seven-tenths { width: 70%; }
+  /* line 83, node_modules/inuit.css/generic/_widths.scss */ .lap-and-up-nine-tenths { width: 90%; }
   /** Twelfths */
-  /* line 89, bower_components/inuit.css/generic/_widths.scss */ .lap-and-up-one-twelfth { width: 8.333%; }
-  /* line 93, bower_components/inuit.css/generic/_widths.scss */ .lap-and-up-five-twelfths { width: 41.666%; }
-  /* line 95, bower_components/inuit.css/generic/_widths.scss */ .lap-and-up-seven-twelfths { width: 58.333%; }
-  /* line 99, bower_components/inuit.css/generic/_widths.scss */ .lap-and-up-eleven-twelfths { width: 91.666%; } }
+  /* line 89, node_modules/inuit.css/generic/_widths.scss */ .lap-and-up-one-twelfth { width: 8.333%; }
+  /* line 93, node_modules/inuit.css/generic/_widths.scss */ .lap-and-up-five-twelfths { width: 41.666%; }
+  /* line 95, node_modules/inuit.css/generic/_widths.scss */ .lap-and-up-seven-twelfths { width: 58.333%; }
+  /* line 99, node_modules/inuit.css/generic/_widths.scss */ .lap-and-up-eleven-twelfths { width: 91.666%; } }
 
 @media only screen and (max-width: 1023px) { /** Whole */
-  /* line 17, bower_components/inuit.css/generic/_widths.scss */ .portable-one-whole { width: 100%; }
+  /* line 17, node_modules/inuit.css/generic/_widths.scss */ .portable-one-whole { width: 100%; }
   /** Halves */
-  /* line 23, bower_components/inuit.css/generic/_widths.scss */ .portable-one-half, .portable-two-quarters, .portable-three-sixths, .portable-four-eighths, .portable-five-tenths, .portable-six-twelfths { width: 50%; }
+  /* line 23, node_modules/inuit.css/generic/_widths.scss */ .portable-one-half, .portable-two-quarters, .portable-three-sixths, .portable-four-eighths, .portable-five-tenths, .portable-six-twelfths { width: 50%; }
   /** Thirds */
-  /* line 29, bower_components/inuit.css/generic/_widths.scss */ .portable-one-third, .portable-two-sixths, .portable-four-twelfths { width: 33.333%; }
-  /* line 30, bower_components/inuit.css/generic/_widths.scss */ .portable-two-thirds, .portable-four-sixths, .portable-eight-twelfths { width: 66.666%; }
+  /* line 29, node_modules/inuit.css/generic/_widths.scss */ .portable-one-third, .portable-two-sixths, .portable-four-twelfths { width: 33.333%; }
+  /* line 30, node_modules/inuit.css/generic/_widths.scss */ .portable-two-thirds, .portable-four-sixths, .portable-eight-twelfths { width: 66.666%; }
   /** Quarters */
-  /* line 36, bower_components/inuit.css/generic/_widths.scss */ .portable-one-quarter, .portable-two-eighths, .portable-three-twelfths { width: 25%; }
-  /* line 38, bower_components/inuit.css/generic/_widths.scss */ .portable-three-quarters, .portable-six-eighths, .portable-nine-twelfths { width: 75%; }
+  /* line 36, node_modules/inuit.css/generic/_widths.scss */ .portable-one-quarter, .portable-two-eighths, .portable-three-twelfths { width: 25%; }
+  /* line 38, node_modules/inuit.css/generic/_widths.scss */ .portable-three-quarters, .portable-six-eighths, .portable-nine-twelfths { width: 75%; }
   /** Fifths */
-  /* line 44, bower_components/inuit.css/generic/_widths.scss */ .portable-one-fifth, .portable-two-tenths { width: 20%; }
-  /* line 45, bower_components/inuit.css/generic/_widths.scss */ .portable-two-fifths, .portable-four-tenths { width: 40%; }
-  /* line 46, bower_components/inuit.css/generic/_widths.scss */ .portable-three-fifths, .portable-six-tenths { width: 60%; }
-  /* line 47, bower_components/inuit.css/generic/_widths.scss */ .portable-four-fifths, .portable-eight-tenths { width: 80%; }
+  /* line 44, node_modules/inuit.css/generic/_widths.scss */ .portable-one-fifth, .portable-two-tenths { width: 20%; }
+  /* line 45, node_modules/inuit.css/generic/_widths.scss */ .portable-two-fifths, .portable-four-tenths { width: 40%; }
+  /* line 46, node_modules/inuit.css/generic/_widths.scss */ .portable-three-fifths, .portable-six-tenths { width: 60%; }
+  /* line 47, node_modules/inuit.css/generic/_widths.scss */ .portable-four-fifths, .portable-eight-tenths { width: 80%; }
   /** Sixths */
-  /* line 53, bower_components/inuit.css/generic/_widths.scss */ .portable-one-sixth, .portable-two-twelfths { width: 16.666%; }
-  /* line 57, bower_components/inuit.css/generic/_widths.scss */ .portable-five-sixths, .portable-ten-twelfths { width: 83.333%; }
+  /* line 53, node_modules/inuit.css/generic/_widths.scss */ .portable-one-sixth, .portable-two-twelfths { width: 16.666%; }
+  /* line 57, node_modules/inuit.css/generic/_widths.scss */ .portable-five-sixths, .portable-ten-twelfths { width: 83.333%; }
   /** Eighths */
-  /* line 63, bower_components/inuit.css/generic/_widths.scss */ .portable-one-eighth { width: 12.5%; }
-  /* line 65, bower_components/inuit.css/generic/_widths.scss */ .portable-three-eighths { width: 37.5%; }
-  /* line 67, bower_components/inuit.css/generic/_widths.scss */ .portable-five-eighths { width: 62.5%; }
-  /* line 69, bower_components/inuit.css/generic/_widths.scss */ .portable-seven-eighths { width: 87.5%; }
+  /* line 63, node_modules/inuit.css/generic/_widths.scss */ .portable-one-eighth { width: 12.5%; }
+  /* line 65, node_modules/inuit.css/generic/_widths.scss */ .portable-three-eighths { width: 37.5%; }
+  /* line 67, node_modules/inuit.css/generic/_widths.scss */ .portable-five-eighths { width: 62.5%; }
+  /* line 69, node_modules/inuit.css/generic/_widths.scss */ .portable-seven-eighths { width: 87.5%; }
   /** Tenths */
-  /* line 75, bower_components/inuit.css/generic/_widths.scss */ .portable-one-tenth { width: 10%; }
-  /* line 77, bower_components/inuit.css/generic/_widths.scss */ .portable-three-tenths { width: 30%; }
-  /* line 81, bower_components/inuit.css/generic/_widths.scss */ .portable-seven-tenths { width: 70%; }
-  /* line 83, bower_components/inuit.css/generic/_widths.scss */ .portable-nine-tenths { width: 90%; }
+  /* line 75, node_modules/inuit.css/generic/_widths.scss */ .portable-one-tenth { width: 10%; }
+  /* line 77, node_modules/inuit.css/generic/_widths.scss */ .portable-three-tenths { width: 30%; }
+  /* line 81, node_modules/inuit.css/generic/_widths.scss */ .portable-seven-tenths { width: 70%; }
+  /* line 83, node_modules/inuit.css/generic/_widths.scss */ .portable-nine-tenths { width: 90%; }
   /** Twelfths */
-  /* line 89, bower_components/inuit.css/generic/_widths.scss */ .portable-one-twelfth { width: 8.333%; }
-  /* line 93, bower_components/inuit.css/generic/_widths.scss */ .portable-five-twelfths { width: 41.666%; }
-  /* line 95, bower_components/inuit.css/generic/_widths.scss */ .portable-seven-twelfths { width: 58.333%; }
-  /* line 99, bower_components/inuit.css/generic/_widths.scss */ .portable-eleven-twelfths { width: 91.666%; } }
+  /* line 89, node_modules/inuit.css/generic/_widths.scss */ .portable-one-twelfth { width: 8.333%; }
+  /* line 93, node_modules/inuit.css/generic/_widths.scss */ .portable-five-twelfths { width: 41.666%; }
+  /* line 95, node_modules/inuit.css/generic/_widths.scss */ .portable-seven-twelfths { width: 58.333%; }
+  /* line 99, node_modules/inuit.css/generic/_widths.scss */ .portable-eleven-twelfths { width: 91.666%; } }
 
 @media only screen and (min-width: 1024px) { /** Whole */
-  /* line 17, bower_components/inuit.css/generic/_widths.scss */ .desk-one-whole { width: 100%; }
+  /* line 17, node_modules/inuit.css/generic/_widths.scss */ .desk-one-whole { width: 100%; }
   /** Halves */
-  /* line 23, bower_components/inuit.css/generic/_widths.scss */ .desk-one-half, .desk-two-quarters, .desk-three-sixths, .desk-four-eighths, .desk-five-tenths, .desk-six-twelfths { width: 50%; }
+  /* line 23, node_modules/inuit.css/generic/_widths.scss */ .desk-one-half, .desk-two-quarters, .desk-three-sixths, .desk-four-eighths, .desk-five-tenths, .desk-six-twelfths { width: 50%; }
   /** Thirds */
-  /* line 29, bower_components/inuit.css/generic/_widths.scss */ .desk-one-third, .desk-two-sixths, .desk-four-twelfths { width: 33.333%; }
-  /* line 30, bower_components/inuit.css/generic/_widths.scss */ .desk-two-thirds, .desk-four-sixths, .desk-eight-twelfths { width: 66.666%; }
+  /* line 29, node_modules/inuit.css/generic/_widths.scss */ .desk-one-third, .desk-two-sixths, .desk-four-twelfths { width: 33.333%; }
+  /* line 30, node_modules/inuit.css/generic/_widths.scss */ .desk-two-thirds, .desk-four-sixths, .desk-eight-twelfths { width: 66.666%; }
   /** Quarters */
-  /* line 36, bower_components/inuit.css/generic/_widths.scss */ .desk-one-quarter, .desk-two-eighths, .desk-three-twelfths { width: 25%; }
-  /* line 38, bower_components/inuit.css/generic/_widths.scss */ .desk-three-quarters, .desk-six-eighths, .desk-nine-twelfths { width: 75%; }
+  /* line 36, node_modules/inuit.css/generic/_widths.scss */ .desk-one-quarter, .desk-two-eighths, .desk-three-twelfths { width: 25%; }
+  /* line 38, node_modules/inuit.css/generic/_widths.scss */ .desk-three-quarters, .desk-six-eighths, .desk-nine-twelfths { width: 75%; }
   /** Fifths */
-  /* line 44, bower_components/inuit.css/generic/_widths.scss */ .desk-one-fifth, .desk-two-tenths { width: 20%; }
-  /* line 45, bower_components/inuit.css/generic/_widths.scss */ .desk-two-fifths, .desk-four-tenths { width: 40%; }
-  /* line 46, bower_components/inuit.css/generic/_widths.scss */ .desk-three-fifths, .desk-six-tenths { width: 60%; }
-  /* line 47, bower_components/inuit.css/generic/_widths.scss */ .desk-four-fifths, .desk-eight-tenths { width: 80%; }
+  /* line 44, node_modules/inuit.css/generic/_widths.scss */ .desk-one-fifth, .desk-two-tenths { width: 20%; }
+  /* line 45, node_modules/inuit.css/generic/_widths.scss */ .desk-two-fifths, .desk-four-tenths { width: 40%; }
+  /* line 46, node_modules/inuit.css/generic/_widths.scss */ .desk-three-fifths, .desk-six-tenths { width: 60%; }
+  /* line 47, node_modules/inuit.css/generic/_widths.scss */ .desk-four-fifths, .desk-eight-tenths { width: 80%; }
   /** Sixths */
-  /* line 53, bower_components/inuit.css/generic/_widths.scss */ .desk-one-sixth, .desk-two-twelfths { width: 16.666%; }
-  /* line 57, bower_components/inuit.css/generic/_widths.scss */ .desk-five-sixths, .desk-ten-twelfths { width: 83.333%; }
+  /* line 53, node_modules/inuit.css/generic/_widths.scss */ .desk-one-sixth, .desk-two-twelfths { width: 16.666%; }
+  /* line 57, node_modules/inuit.css/generic/_widths.scss */ .desk-five-sixths, .desk-ten-twelfths { width: 83.333%; }
   /** Eighths */
-  /* line 63, bower_components/inuit.css/generic/_widths.scss */ .desk-one-eighth { width: 12.5%; }
-  /* line 65, bower_components/inuit.css/generic/_widths.scss */ .desk-three-eighths { width: 37.5%; }
-  /* line 67, bower_components/inuit.css/generic/_widths.scss */ .desk-five-eighths { width: 62.5%; }
-  /* line 69, bower_components/inuit.css/generic/_widths.scss */ .desk-seven-eighths { width: 87.5%; }
+  /* line 63, node_modules/inuit.css/generic/_widths.scss */ .desk-one-eighth { width: 12.5%; }
+  /* line 65, node_modules/inuit.css/generic/_widths.scss */ .desk-three-eighths { width: 37.5%; }
+  /* line 67, node_modules/inuit.css/generic/_widths.scss */ .desk-five-eighths { width: 62.5%; }
+  /* line 69, node_modules/inuit.css/generic/_widths.scss */ .desk-seven-eighths { width: 87.5%; }
   /** Tenths */
-  /* line 75, bower_components/inuit.css/generic/_widths.scss */ .desk-one-tenth { width: 10%; }
-  /* line 77, bower_components/inuit.css/generic/_widths.scss */ .desk-three-tenths { width: 30%; }
-  /* line 81, bower_components/inuit.css/generic/_widths.scss */ .desk-seven-tenths { width: 70%; }
-  /* line 83, bower_components/inuit.css/generic/_widths.scss */ .desk-nine-tenths { width: 90%; }
+  /* line 75, node_modules/inuit.css/generic/_widths.scss */ .desk-one-tenth { width: 10%; }
+  /* line 77, node_modules/inuit.css/generic/_widths.scss */ .desk-three-tenths { width: 30%; }
+  /* line 81, node_modules/inuit.css/generic/_widths.scss */ .desk-seven-tenths { width: 70%; }
+  /* line 83, node_modules/inuit.css/generic/_widths.scss */ .desk-nine-tenths { width: 90%; }
   /** Twelfths */
-  /* line 89, bower_components/inuit.css/generic/_widths.scss */ .desk-one-twelfth { width: 8.333%; }
-  /* line 93, bower_components/inuit.css/generic/_widths.scss */ .desk-five-twelfths { width: 41.666%; }
-  /* line 95, bower_components/inuit.css/generic/_widths.scss */ .desk-seven-twelfths { width: 58.333%; }
-  /* line 99, bower_components/inuit.css/generic/_widths.scss */ .desk-eleven-twelfths { width: 91.666%; } }
+  /* line 89, node_modules/inuit.css/generic/_widths.scss */ .desk-one-twelfth { width: 8.333%; }
+  /* line 93, node_modules/inuit.css/generic/_widths.scss */ .desk-five-twelfths { width: 41.666%; }
+  /* line 95, node_modules/inuit.css/generic/_widths.scss */ .desk-seven-twelfths { width: 58.333%; }
+  /* line 99, node_modules/inuit.css/generic/_widths.scss */ .desk-eleven-twelfths { width: 91.666%; } }
 
 /** If you have set the additional `$responsive-extra` variable to ‘true’ in `_vars.scss` then you now have access to the following class available to accomodate much larger screen resolutions. */
 /* endif */

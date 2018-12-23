@@ -18,6 +18,7 @@
 		"gulp-sass": "*",
 		"gulp-uglify": "*",
 		"gulp-wrap": "*",
+		"inuit.css": "https://github.com/csswizardry/inuit.css.git",
 		"inuitcss": "^6.0.0-beta.5",
 		"pump": "^3.0.0",
 		"stylelint-config-prettier": "*",
