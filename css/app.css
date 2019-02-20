@@ -3536,15 +3536,17 @@
 
 /* line 9, _src/scss/utilities/_text.scss */ .u-textLeft { text-align: left; }
 
-/* line 16, _src/scss/utilities/_text.scss */ .u-textSizeS { font-size: smaller; }
+/* line 13, _src/scss/utilities/_text.scss */ .u-textRight { text-align: right; }
 
-/* line 20, _src/scss/utilities/_text.scss */ .u-text-size-xl { font-size: x-large; }
+/* line 20, _src/scss/utilities/_text.scss */ .u-textSizeS { font-size: smaller; }
 
-/* line 24, _src/scss/utilities/_text.scss */ .u-text-size-l { font-size: large; }
+/* line 24, _src/scss/utilities/_text.scss */ .u-text-size-xl { font-size: x-large; }
 
-/* line 31, _src/scss/utilities/_text.scss */ .u-text-color-lb500 { color: #02a6f2; }
+/* line 28, _src/scss/utilities/_text.scss */ .u-text-size-l { font-size: large; }
 
-/* line 38, _src/scss/utilities/_text.scss */ .u-text-font-monospace { font-family: monospace; }
+/* line 35, _src/scss/utilities/_text.scss */ .u-text-color-lb500 { color: #02a6f2; }
+
+/* line 42, _src/scss/utilities/_text.scss */ .u-text-font-monospace { font-family: monospace; }
 
 @media print { @page { margin: 0.5cm; }
   /* line 14, _src/scss/utilities/_print.scss */ html { font: 12pt/1.4 "Plantin", "Palatino", serif; }
