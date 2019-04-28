@@ -1,7 +1,7 @@
 [(#REM)
 
     Résumé d'un article, version archive (page d'accueil), avec image.
-    
+
     **********************************************************
     Variables environnement
     **********************************************************
@@ -10,9 +10,12 @@
 
     afficher_auteur     oui|''
 
-]
+][(#SET{logo, ''})]
 <BOUCLE_resume_article_archive(ARTICLES){id_article}>
 #SET{focal,center}
+	<BOUCLE_logo_rubrique(RUBRIQUES){id_rubrique}>
+		[(#LOGO_ARTICLE|non)  ]
+	</BOUCLE_logo_rubrique>
 <article class="resume-article">
     <a href="#URL_ARTICLE">
         <div class="resume-article__logo thumbnail[ is--(#ENV{logo_format})]">

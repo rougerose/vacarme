@@ -10,6 +10,8 @@
 	<auteur lien="http://rouge-rose.net">christophe le drean</auteur>
 	<licence>GNU/GPL</licence>
 
+	<pipeline nom="autoriser" inclure="vacarme_autorisations.php" />
+
 	<necessite nom="Zcore" compatibilite="[2.6.5;[" />
 	<necessite nom="IntertitresTdm" compatibilite="[0.9.12;[" />
 	<necessite nom="suivant_precedent" compatibilite="[1.4.4;[" />
