@@ -16,7 +16,7 @@
     <footer class="accordeon__footer filtres--selection">
         <ul class="inline-list">
             <BOUCLE_selection(MOTS){id_mot IN #ENV{mots}}{par titre}>[(#SET{lesautresmots,[(#ENV{mots}|critere_mots_enleve_mot_de_liste{#ID_MOT})]})]
-            <li class="inline-list__item"><a class="filtre-mot filtre-mot--selection filtre-mot--is-selected[ is-couleur-(#ID_GROUPE)-bg-selected] ajax" href="[(#INFO_URL{mot,#ENV{id_mot_reference}}|parametre_url{mots,#GET{lesautresmots}})]"[ title="Supprimer (#TITRE|attribut_html)"]>[(#TITRE|prenom_nom)]</a></li>
+            <li class="inline-list__item"><a class="filtre-mot filtre-mot--selection filtre-mot--is-selected[ is-couleur-(#ID_GROUPE)-bg-selected] ajax" href="[(#INFO_URL{mot,#ENV{id_mot_reference}}|parametre_url{mots,#GET{lesautresmots}})]"[ title="Supprimer (#TITRE|attribut_html)"] rel="nofollow">[(#TITRE|prenom_nom)]</a></li>
             </BOUCLE_selection>
         </ul>
     </footer>

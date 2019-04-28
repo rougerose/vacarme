@@ -1,7 +1,7 @@
 [(#REM)
 
     Logo d'un article
-    
+
     **********************************************************
     Variables environnement
     **********************************************************
@@ -12,13 +12,20 @@
 
     orientation         paysage|portrait
 
-]
+]#SET{logo, ''}
 <BOUCLE_article_logo(ARTICLES){id_article}>
-[(#ENV{logo_format}|=={1/4}|oui)
-	[<img class="" src="(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|image_passe_partout{630}|image_recadre{450,630,center,000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
-][(#ENV{logo_format}|=={1/2}|oui)
-    [<img src="(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
-][(#ENV{logo_format}|=={1/1}|oui)
-	[<img class="" src="(#LOGO_ARTICLE|sinon{#LOGO_RUBRIQUE}|image_passe_partout{1399}|image_recadre{1000,1399,center,000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
-]
+	#SET{logo, #LOGO_ARTICLE}
+	<BOUCLE_rubrique_logo(RUBRIQUES){id_rubrique}{si #GET{logo}|=={''}}>
+		#SET{logo, #LOGO_RUBRIQUE}
+	</BOUCLE_rubrique_logo>
+	<BOUCLE_numero_logo(HIERARCHIE){id_rubrique}{profondeur=1}{si #GET{logo}|=={''}}>
+		#SET{logo, #LOGO_RUBRIQUE}
+	</BOUCLE_numero_logo>
+	[(#ENV{logo_format}|=={1/4}|oui)
+		[<img class="" src="(#GET{logo}|image_passe_partout{630}|image_recadre{450,630,center,000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
+	][(#ENV{logo_format}|=={1/2}|oui)
+	    [<img src="(#GET{logo}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
+	][(#ENV{logo_format}|=={1/1}|oui)
+		[<img class="" src="(#GET{logo}|image_passe_partout{1399}|image_recadre{1000,1399,center,000}|extraire_attribut{src})" alt="[(#TITRE|attribut_html)]">]
+	]
 </BOUCLE_article_logo>

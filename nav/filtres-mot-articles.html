@@ -1,5 +1,5 @@
 <BOUCLE_recherche_par(ARTICLES){mots_selon_id}{id_mot=#ENV{id_mot_reference}}>
-[(#ENV{id_mot}|unique|oui)<li class="inline-list__item"><a class="filtre-mot filtre-mot--list filtre-mot--link[ is-couleur-(#ID_GROUPE)-bg] ajax" href="[(#SELF|parametre_url{mots\[\],#ENV{id_mot}})]">[(#INFO_TITRE{mot,#ENV{id_mot}}|prenom_nom)]</a></li>]
+[(#ENV{id_mot}|unique|oui)<li class="inline-list__item"><a class="filtre-mot filtre-mot--list filtre-mot--link[ is-couleur-(#ID_GROUPE)-bg] ajax" href="[(#SELF|parametre_url{mots\[\],#ENV{id_mot}})]" rel="nofollow">[(#INFO_TITRE{mot,#ENV{id_mot}}|prenom_nom)]</a></li>]
 </BOUCLE_recherche_par>
 [<li class="inline-list__item"><span class="filtre-mot filtre-mot--liste[ (#ENV{id_mot}|in_array{#ENV{critere_mots}}|oui)[ is-couleur-(#ID_GROUPE)-selected] filtre-mot--is-selected ][ (#ENV{id_mot}|in_array{#ENV{critere_mots}}|non)filtre-mot--is-disabled]">(#INFO_TITRE{mot,#ENV{id_mot}}|prenom_nom)</span></li>]
 <//B_recherche_par>

@@ -4,11 +4,13 @@
   etat="dev"
   logo="img/vacarme-128.png"
   prefix="vacarme"
-  version="3.5.6"
+  version="3.5.7"
 >
 	<nom>Vacarme</nom>
 	<auteur lien="http://rouge-rose.net">christophe le drean</auteur>
 	<licence>GNU/GPL</licence>
+
+	<pipeline nom="autoriser" inclure="vacarme_autorisations.php" />
 
 	<necessite nom="Zcore" compatibilite="[2.6.5;[" />
 	<necessite nom="IntertitresTdm" compatibilite="[0.9.12;[" />

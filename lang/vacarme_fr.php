@@ -26,7 +26,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'abonnement_region_International'                => "International",
 	'abonnement_sans_cadeau_desc'                    => "Si aucun de ces cadeaux ne vous intéressent. Vous pouvez poursuivre la sélection de votre abonnement sans cadeau.",
 	// 'abonnement_sans_cadeau_titre'                   => "Pas de cadeau",
-	
+
 	// C
 	'cadeau_abonnement_label' => "Offert avec votre abonnement",
 	'cadeau_erreur_hash' => "La page que vous demandez n'est pas disponible",
@@ -36,6 +36,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'cadeau_etape_profil_intro'  => "Veuillez saisir votre mot de passe et confirmer (ou modifier) vos coordonnées.",
 	'cadeau_etape_numero_titre' => "Le premier numéro de votre abonnement",
 	'cadeau_titre_abonnement'    => "Votre abonnement offert",
+	// cfg
+	'cfg_gratuite_explication' => "Délai <strong>en jours</strong> pendant lequel les articles d'un numéro sont partiellement accessible.",
+	'cfg_gratuite_label' => "Barrière mobile",
+	'cfg_titre_parametrages' => "Paramètres du plugin Vacarme",
+	'cfg_titre_page_configurer' => "Configuration Vacarme",
+	//
 	'choisir'                    => "Choisir",
 	'choisir_avec_cadeau'        => "Choisir ce cadeau",
 	'choisir_sans_cadeau'        => "Poursuivre sans cadeau",
@@ -57,18 +63,18 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'commande_page_paiement_titre' => "Votre paiement",
 	'commande_page_titre' => "Votre commande",
 	'commande_recapitulatif_titre' => "Rappel de votre commande",
-	
+
 	// I
 	'info_article_apercu' => "L’intégralité de cet article est actuellement disponible dans l’édition imprimée de <em>@titre_numero@</em>. Pour vous procurer un exemplaire, Vacarme est disponible en librairies, <a href='@url_vente@' class='c-lien'>en ligne</a>, <a href='@url_abonnement@' class='c-lien'>par abonnement</a> et sur <a href='https://www.cairn.info/revue-vacarme.htm' class='c-lien'>Cairn.info</a>.",
-	
+
 	'info_lien_lire_suite' => "Lire&nbsp;<em>&#8594;</em>",
-	
+
 	'info_numero_acheter' => "Acheter",
-	
+
 	'info_numero_apercu' => "<em>Vacarme</em> aime la gratuité, mais avant d’être un site, <em>Vacarme</em> est d’abord une revue imprimée disponible en librairies et <a href='@url_abonnement@' class='c-lien'>par abonnement</a>. Pour vous permettre de découvrir ce numéro <em>@numero_titre@ (@numero_saison@ @numero_annee@)</em>, quelques articles sont d’ores et déjà accessibles dans leur intégralité et repérables par ce symbole ",
-	
+
 	'info_numero_complet' => "Ce numéro, <em>@numero_titre@ (@numero_saison@ @numero_annee@)</em>, est désormais archivé et tous ses articles sont accessibles dans leur intégralité. Vacarme aime la gratuité, mais une revue existe grâce à ces abonné&middot;es. <a href='@url_abonnement@' class='c-lien'>Abonnez-vous</a>.",
-	
+
 	'info_numero_date_parution' => "Parution le",
 	'info_numero_diffusion_librairies' => "Diffusion en librairies",
 	'info_numero_diffusion_numerique' => "Diffusion numérique",
@@ -78,22 +84,22 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_numero_pagination' => "Pages",
 	'info_numero_redaction_en_chef' => "Rédaction en chef",
 	'info_numero_revenir_sommaire_complet' => "Cette page n'affiche qu'une partie du sommaire de <em>@titre_numero@</em>. <a href='@url_numero@' class='c-lien'>Afficher le sommaire complet</a>.",
-	
+
 	'info_numero_sommaire' => "Sommaire",
-	
+
 	'info_progression_page_cadeau' => "Code",
 	'info_progression_page_profil' => "Coordonnées",
 	'info_progression_page_numero' => "Premier numéro",
 	'info_progression_page_confirmation' => "Confirmation",
-	
-	
+
+
 	// M
 	'message_erreur_souscription_abonnement' => "Nous sommes désolés, un problème technique ne permet pas de poursuivre la souscription de votre abonnement. Pour résoudre ce problème, veuillez <a href='@url@' class='suite-lien'>nous contacter <em>&#8594;</em></a>",
 	'message_identification_prealable' => "Veuillez vous identifier avant de poursuivre",
-	
+
 	// N
 	'numero_voir' => "Consulter le sommaire&nbsp;<em>&#8594;</em>",
-	
+
 	// P
 	'paiement_titre' => "Votre commande est maintenant prête",
 	'paiement_titre_section' => "Choisissez un mode paiement sécurisé",
@@ -101,7 +107,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'pagination_numeros_prev' => "&#8592; Précédente",
 	'panier_ajouter' => "Ajouter au panier",
 	'panier_titre' => "Vos achats",
-	
+
 	'navigation_desktop_revue_titre' => "La Revue",
 	'navigation_desktop_abonner_titre' => "Vous abonner",
 	'navigation_desktop_acheter_titre' => "Acheter",
@@ -110,10 +116,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'navigation_mobile_acheter_titre' => "Acheter",
 	'navigation_mobile_categorie_revue_titre' => "La Revue",
 	'navigation_mobile_categorie_themes_titre' => "Nos articles par thèmes",
-	
+
 	// S
 	'sommaire_consulter' => "Le sommaire <em>&#8594;</em>",
-	
+
 	// T
 	'titre_icone_recherche' => 'Recherche',
 );
