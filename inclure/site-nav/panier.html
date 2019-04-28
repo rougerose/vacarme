@@ -1,4 +1,4 @@
-<?php if (isset($GLOBALS["visiteur_session"]['id_panier']) AND $GLOBALS["visiteur_session"]['id_panier']) {
+<?php $panier=0; if (isset($GLOBALS["visiteur_session"]['id_panier']) AND $GLOBALS["visiteur_session"]['id_panier']) {
 	$panier = paniers_nombre_produits($GLOBALS["visiteur_session"]['id_panier'], true);
 }?>
 <a class="c-shortcuts__link c-shortcuts__cart <?php if ($panier > 0) {echo 'is-filled';} ?>" href="#URL_PAGE{panier}" aria-label="<:vpaniers:label_afficher_panier:>">
