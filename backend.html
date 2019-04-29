@@ -4,7 +4,7 @@
 
   Le flux récupère les éléments suivants:
     - les articles en version intégrale du dernier numéro publié.
-    - tous les articles d'un numéro paru il y a au moins un an (à partir de la date de consultation) et qui sont par conséquent tous en version intégrale.
+    - tous les articles d'un numéro paru après la barrière mobile et qui sont par conséquent tous en version intégrale.
     - les 10 derniers articles des rubriques Actualités et Travail en cours.
 
   Les articles sont récupérés dans un tableau, puis affichés dans le flux par ordre chronologique inverse.
@@ -43,10 +43,11 @@ version="1.0"[ encoding="(#CHARSET)"]?>
     </BOUCLE_articles_consultables>
   </BOUCLE_dernier_numero>
 
-  [(#REM) Numéro gratuit datant d'au moins un an ]
-  [(#SET{1an, #DATE|date_modif{'-1 year'}})]
+  [(#REM) Numéro accessible après la barrière mobile ]
+  #SET{barriere_mobile, #VAL{'-'}|concat{#CONFIG{vacarme/gratuite}}|concat{ days}}
+  [(#SET{date_bm, #DATE|date_modif{#GET{barriere_mobile}}})]
 
-  <BOUCLE_numero_gratuit(RUBRIQUES){id_parent}{date_numero < #GET{1an}}{0,1}{par date_numero}{inverse}>
+  <BOUCLE_numero_gratuit(RUBRIQUES){id_parent}{date_numero <= #GET{date_bm}}{0,1}{par date_numero}{inverse}>
     <BOUCLE_articles_gratuits(ARTICLES){branche}{par id_rubrique, num titre}>
       [(#SET{articles,#GET{articles}|push{#ID_ARTICLE}})]
     </BOUCLE_articles_gratuits>
