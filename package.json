@@ -26,7 +26,8 @@
 		"gulp-postcss": "^8.0.0"
 	},
 	"scripts": {
-		"gulp-build": "gulp"
+		"gulp-build": "NODE_ENV='development' gulp",
+		"gulp-compile": "NODE_ENV='production' gulp"
 	},
 	"browserslist": [
 		"last 2 versions"
