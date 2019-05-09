@@ -102,5 +102,4 @@ if (process.env.NODE_ENV === 'production') {
   exports.build = series(clean, compileCSS, exports.js);
 }
 
-// exports.build = series(clean, compileCSS, minifyCSS, exports.js);
 exports.default = exports.build;

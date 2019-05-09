@@ -44,7 +44,7 @@
 				flex-direction: row;
 			}
 			@include mq(desktop) {
-				align-items: flex-end;
+				align-items: flex-start;
 			}
 		}
 	}
@@ -94,7 +94,7 @@
 	.c-numero-header__intro {
 		flex: 0 1 auto;
 		@include mq(tablet) {
-			align-self: flex-start;
+			align-self: flex-end;
 			display: flex;
 			flex-direction: column;
 			flex: 0 1 50%;
