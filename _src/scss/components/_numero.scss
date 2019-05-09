@@ -108,6 +108,14 @@
 	.c-numero-header__texte {
 		margin-bottom: $spacing-unit;
 		@include inuit-font-size(18px);
+
+		a {
+			border-bottom: 1px solid $color-lien;
+			color: $color-black;
+			&:hover {
+				color: $color-lien;
+			}
+		}
 	}
 
 	// ----- c-numero-header__achat ----- //

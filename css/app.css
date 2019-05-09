@@ -3019,6 +3019,10 @@ form + .c-commande-article__quantite { margin: 0 12px; }
 
 .c-numero-header__texte { margin-bottom: 24px; font-size: 18px; font-size: 1.125rem; line-height: 1.33333; }
 
+.c-numero-header__texte a { border-bottom: 1px solid #00bdd6; color: #000; }
+
+.c-numero-header__texte a:hover { color: #00bdd6; }
+
 .c-numero-header__achat { border-top: 1px solid #000; }
 
 .c-numero-section { margin: 72px 0; }
