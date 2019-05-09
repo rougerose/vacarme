@@ -135,6 +135,7 @@
 // @import "inuitcss/objects/objects.table";
 // @import "inuitcss/objects/objects.pack";
 @import "objects/icon";
+@import "objects/objects.media";
 
 
 // COMPONENTS
@@ -195,12 +196,12 @@
 @import "components/site-nav";
 @import "components/tab-nav";
 
-// 
-// Définitions communes pour le contenu : 
+//
+// Définitions communes pour le contenu :
 //    - header
 //    - section
 // Ces styles peuvent éventuellement être surchargés plus bas.
-// 
+//
 @import "components/header";
 @import "components/section";
 
@@ -243,6 +244,7 @@
 @import "components/numero-resume";
 
 @import "components/article";
+@import "components/doc-download";
 
 @import "components/spip-admin";
 

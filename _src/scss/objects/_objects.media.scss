@@ -1,0 +1,158 @@
+/* ==========================================================================
+   #MEDIA
+   ========================================================================== */
+
+/**
+ * Place any image- and text-like content side-by-side, as per:
+ * http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
+ */
+
+//
+// Note:
+// Il s'agit de la version flexbox d'Inuitcss, à venir
+// https://github.com/inuitcss/inuitcss/blob/d78dd5ff7381ed33e6082bd0f13ef4a2e3d1875c/objects/_objects.media.scss
+//
+
+
+.o-media {
+  display: flex;
+}
+
+  .o-media__img {
+    margin-right: $inuit-global-spacing-unit;
+  }
+
+  .o-media__body {
+    flex: 1 1 0%;
+
+    &,
+    > :last-child {
+      margin-bottom: 0;
+    }
+
+  }
+
+
+
+
+
+/* Vertical alignment modifiers.
+   ========================================================================== */
+
+.o-media--middle {
+  align-items: center;
+}
+
+.o-media--bottom {
+  align-items: flex-end;
+}
+
+
+
+
+
+/* Reversed media objects
+   ========================================================================== */
+
+.o-media--reverse {
+
+  > .o-media__img {
+    order: 1;
+    margin-right: 0;
+    margin-left: $inuit-global-spacing-unit;
+  }
+
+}
+
+
+
+
+
+/* Size variants
+   ========================================================================== */
+
+/**
+ * Modify the amount of space between our image and our text. We also have
+ * reversible options for all available sizes.
+ */
+
+.o-media--flush {
+
+  > .o-media__img {
+    margin-right: 0;
+    margin-left: 0;
+ }
+
+}
+
+
+.o-media--tiny {
+
+  > .o-media__img {
+    margin-right: $inuit-global-spacing-unit-tiny;
+  }
+
+  &.o-media--reverse {
+
+    > .o-media__img {
+      margin-right: 0;
+      margin-left: $inuit-global-spacing-unit-tiny;
+    }
+
+  }
+
+}
+
+
+.o-media--small {
+
+  > .o-media__img {
+    margin-right: $inuit-global-spacing-unit-small;
+  }
+
+  &.o-media--reverse {
+
+    > .o-media__img {
+      margin-right: 0;
+      margin-left: $inuit-global-spacing-unit-small;
+    }
+
+  }
+
+}
+
+
+.o-media--large {
+
+  > .o-media__img {
+    margin-right: $inuit-global-spacing-unit-large;
+  }
+
+  &.o-media--reverse {
+
+    > .o-media__img {
+      margin-right: 0;
+      margin-left: $inuit-global-spacing-unit-large;
+    }
+
+  }
+
+}
+
+
+.o-media--huge {
+
+  > .o-media__img {
+    margin-right: $inuit-global-spacing-unit-huge;
+  }
+
+  &.o-media--reverse {
+
+    > .o-media__img {
+      margin-right: 0;
+      margin-left: $inuit-global-spacing-unit-huge;
+    }
+
+  }
+
+}

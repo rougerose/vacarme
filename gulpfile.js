@@ -1,145 +1,105 @@
-// *************************************
-//
-// Gulpfile
-// (cf. https://github.com/drewbarontini/noise/blob/master/gulpfile.js)
-//
-// *************************************
+const {src, dest, series, watch} = require('gulp');
+const sass = require('gulp-sass');
+const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
+const del = require('del');
+const rename = require('gulp-rename');
+const concat = require('gulp-concat');
+const wrap = require('gulp-wrap');
+const pump = require('pump');
+const uglify = require('gulp-uglify');
 
-"use strict";
+sass.compiler = require('node-sass');
 
-// =====================================
-// plugins
-// =====================================
-
-var gulp            = require("gulp");
-var autoprefixer    = require("gulp-autoprefixer");
-var sass            = require("gulp-sass");
-var cleanCSS        = require("clean-css");
-var map             = require("vinyl-map");
-var rename          = require("gulp-rename");
-var plumberNotifier = require("gulp-plumber-notifier");
-var uglify          = require("gulp-uglify");
-var concat          = require("gulp-concat");
-var wrap            = require("gulp-wrap");
-var pump = require("pump");
-
-// =====================================
-// options
-// =====================================
-
-var options = {
-	
-	// ----- task default ----- //
-	default: {
-		tasks: ['compile:js', 'compile:scss']
-	},
-	
-	scss: {
-		paths: ['./node_modules/'],
-		file: '_src/scss/app.scss',
-		files: '_src/scss/**/*.scss',
-		destination: 'css'
-	},
-	
-	css: {
-		file: "css/app.css",
-		destination: "css"
-	},
-	
-	js: {
-		files: '_src/js/*.js',
-		fileName: 'app.js',
-		destination: 'js'
-	},
-	
-	watch: {
-		files: function() {
-			return [
-				options.js.files, 
-				options.scss.files
-			]
+const options = {
+	sass: {
+		src: '_src/scss/app.scss',
+		dest: 'css/',
+		options: {
+			includePaths: './node_modules',
+			outputStyle: 'compact',
+			errLogToConsole: true
 		},
-		run: function() {
-			return [ 
-				['compile:js', 'minify:js'], 
-				['compile:scss', 'minify:css']
-			]
-		}
+		watch: '_src/scss/**/*.scss'
+	},
+	css: {
+		src: 'css/app.css',
+		dest: 'css/'
+	},
+	js: {
+		src: '_src/js/*.js',
+		minify_src: 'js/',
+		dest: 'js/',
+		fileName: 'app.js',
 	}
-};
+}
 
-
-// =====================================
-// task: default
-// =====================================
-gulp.task("default", options.default.tasks);
-
+function clean(cb) {
+	del(['css/app.css', 'css/app.min.css', 'js/app.js', 'js/app.min.js']);
+	cb();
+}
 
 // =====================================
-// task: compile:js
+// SCSS
 // =====================================
-gulp.task( 'compile:js', function () {
-	gulp.src([options.js.files] )
-		.pipe(concat(options.js.fileName))
-		.pipe(wrap('$(function(){\n\'use strict\';\n<%= contents %>\n});'))
-		.pipe( gulp.dest(options.js.destination));
-});
 
+function compileCSS(cb) {
+	let plugins = [autoprefixer()];
 
-// =====================================
-// task: compile:scss
-// =====================================
-gulp.task("compile:scss", function() {
-	gulp.src(options.scss.file)
-		.pipe(plumberNotifier())
-		.pipe(sass({
-			includePaths: options.scss.paths,
-			sourceComments: true,
-			outputStyle: "compact"
-		}))
-		.pipe(autoprefixer({
-			browsers: ["last 2 versions"]
-		}))
-		.pipe(gulp.dest(options.scss.destination));
-});
+	src(options.sass.src)
+		.pipe(sass(options.sass.options)).on('error', sass.logError)
+		.pipe(postcss(plugins))
+		.pipe(dest(options.sass.dest));
 
+	cb();
+}
+
+function minifyCSS(cb) {
+	let plugins = [cssnano()];
+
+	src(options.css.src)
+		.pipe(postcss(plugins))
+		.pipe(rename({suffix: '.min'}))
+		.pipe(dest(options.css.dest));
+
+	cb();
+}
 
 // =====================================
-// task: minify:css
+// JS
 // =====================================
-gulp.task("minify:css", function() {
-	var minify = map(function(buff, filename) {
-		return new cleanCSS({
-			keepBreaks: false
-		}).minify(buff.toString()).styles;
-	});
 
-	return gulp.src(options.css.file)
-		.pipe(minify)
-		.pipe(rename({ suffix: ".min" }))
-		.pipe(gulp.dest(options.css.destination));
-});
+function compileJS(cb) {
+	return pump([
+		src(options.js.src),
+		concat(options.js.fileName),
+		wrap('$(function(){\n\'use strict\';\n<%= contents %>\n});'),
+		dest(options.js.dest)
+	], cb);
+}
 
-
-// =====================================
-// task: minify:js
-// =====================================
-gulp.task("minify:js", function(cb) {
-	pump([
-		gulp.src(options.js.destination + '/' + options.js.fileName),
+function minifyJS(cb) {
+	return pump([
+		src(options.js.minify_src + options.js.fileName),
 		uglify(),
 		rename({suffix: '.min'}),
-		gulp.dest(options.js.destination)
+		dest(options.js.dest)
 	], cb);
-});
+}
 
+exports.js = series(compileJS, minifyJS);
 
 // =====================================
-// task: watch
+// watch
 // =====================================
-gulp.task('watch', function() {
-	var watchFiles = options.watch.files();
-	watchFiles.forEach(function(files, index) {
-		gulp.watch(files, options.watch.run()[index]);
-	});
-});
+watch(options.sass.watch, compileCSS);
+watch(options.js.src, exports.js);
+
+if (process.env.NODE_ENV === 'production') {
+  exports.build = series(minifyCSS);
+} else {
+  exports.build = series(clean, compileCSS, exports.js);
+}
+
+exports.default = exports.build;

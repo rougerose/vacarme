@@ -1,0 +1,112 @@
+// =====================================
+// c-doc-download
+// =====================================
+
+
+$mq-doc-download: 480px;
+
+
+.c-doc-download {
+	margin: $spacing-unit 0;
+}
+
+
+//
+// c-doc-download__link
+// -------------------------------------
+
+.c-doc-download__link {
+	flex-direction: column;
+	border: 1px solid $color-gray-300 !important; // surcharger la classe .liens a
+	border-radius: 4px;
+	padding: $spacing-unit-small;
+	transition: all .5s ease;
+
+	&:hover {
+		// background-color: lighten($link-color, 15%);
+		border-color: $link-color !important; // surcharger la classe .liens a
+
+		.c-doc-download__img {
+			border-right-color: $link-color;
+		}
+
+		img {
+			mix-blend-mode: multiply;
+		}
+	}
+
+	@include mq($mq-doc-download) {
+		flex-direction: row;
+	}
+}
+
+
+//
+// c-doc-download__img
+// -------------------------------------
+
+.c-doc-download__img {
+	display: flex;
+	justify-content: center;
+	margin: 0 0 $spacing-unit-small;
+	transition: border-color .5s ease;
+
+	img {
+		transition: all .5s ease;
+	}
+
+	@include mq($mq-doc-download) {
+		border-right: 1px dotted $color-gray-400;
+		margin: 0 $spacing-unit 0 0;
+		width: 150px;
+		padding: $spacing-unit;
+	}
+}
+
+
+//
+// c-doc-download__body
+// -------------------------------------
+
+.c-doc-download__body {}
+
+
+//
+// c-doc-download__text
+// -------------------------------------
+
+.c-doc-download__text {
+	margin-bottom: 0;
+	color: $color-black;
+}
+
+
+//
+// c-doc-download__title
+// -------------------------------------
+
+.c-doc-download__title {
+	color: $color-gray-700;
+	font-weight: normal;
+	// font-family: $font-text;
+	@include font-size(18px, 1.3);
+}
+
+
+//
+// c-doc-download__desc
+// -------------------------------------
+
+.c-doc-download__desc {}
+
+
+//
+// c-doc-download__infos
+// -------------------------------------
+
+.c-doc-download__infos {
+	margin-top: $spacing-unit-tiny;
+	color: $color-gray-500;
+	@include font-size(15px, 1.3);
+	transition: color .3s ease;
+}

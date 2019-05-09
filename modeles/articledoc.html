@@ -1,0 +1,14 @@
+<BOUCLE_articledoc(DOCUMENTS){id_document}{tout}>
+	<div class="c-article__document c-doc-download">
+		<a href="[(#URL_DOCUMENT)]" class="o-media o-media--middle c-doc-download__link">
+			<div class="o-media__img c-doc-download__img">
+				[(#LOGO_DOCUMENT|image_reduire{102,0}|inserer_attribut{alt, #TITRE|sinon{#FICHIER|basename}})]
+			</div>
+			<div class="o-media__body c-doc-download__body">
+				<h3 class="c-doc-download__text c-doc-download__title">[(#TITRE|sinon{#FICHIER|basename})]</h3>
+				[<p class="c-doc-download__text c-doc-download__desc">(#DESCRIPTIF|PtoBR)[ <span class="c-doc-download__text c-doc-download__credits">(#CREDITS)</span>]</p>]
+				<p class="c-doc-download__text c-doc-download__infos">[(#DATE|affdate)][ | (#EXTENSION|strtoupper) - [(#TAILLE|taille_en_octets)]]</p>
+			</div>
+		</a>
+	</div>
+</BOUCLE_articledoc>

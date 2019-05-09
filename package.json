@@ -9,26 +9,27 @@
 	},
 	"author": "christophe le drean",
 	"devDependencies": {
-		"clean-css": "*",
-		"gulp": "^3.9.1",
-		"gulp-autoprefixer": "*",
-		"gulp-concat": "*",
-		"gulp-plumber-notifier": "*",
-		"gulp-rename": "*",
-		"gulp-sass": "*",
-		"gulp-uglify": "*",
-		"gulp-wrap": "*",
+		"cssnano": "^4.1.10",
+		"del": "^4.1.1",
+		"gulp": "^4.0.2",
+		"gulp-concat": "^2.6.1",
+		"gulp-rename": "^1.4.0",
+		"gulp-sass": "^4.0.2",
+		"gulp-uglify": "^3.0.2",
+		"gulp-wrap": "^0.15.0",
 		"inuit.css": "https://github.com/csswizardry/inuit.css.git",
 		"inuitcss": "^6.0.0-beta.5",
-		"pump": "^3.0.0",
-		"stylelint-config-prettier": "*",
-		"vinyl-map": "*"
+		"pump": "^3.0.0"
 	},
-	"prettier": {},
-	"stylelint": {
-		"extends": [
-			"stylelint-config-prettier"
-		]
+	"dependencies": {
+		"autoprefixer": "^9.5.1",
+		"gulp-postcss": "^8.0.0"
 	},
-	"dependencies": {}
+	"scripts": {
+		"gulp-build": "NODE_ENV='development' gulp",
+		"gulp-compile": "NODE_ENV='production' gulp"
+	},
+	"browserslist": [
+		"last 2 versions"
+	]
 }
