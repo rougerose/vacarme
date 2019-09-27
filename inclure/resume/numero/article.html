@@ -8,7 +8,7 @@
 	]</BOUCLE_article_gratuit>
 	<BOUCLE_categorie_entretien(MOTS){id_article}{id_mot=11}>#SET{afficher_auteur, ''}
 	</BOUCLE_categorie_entretien>
-	<article class="c-numero-article">
+	<article id="[article-(#ID_ARTICLE)]" class="c-numero-article">
 		<header class="c-numero-article__header">
 			<h2 class="c-numero-article__titre"><a href="#URL_ARTICLE">#TITRE</a></h2>
 			[(#GET{afficher_auteur}|oui)

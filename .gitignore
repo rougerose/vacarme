@@ -5,4 +5,5 @@
 node_modules/
 bower_components/
 css/*.map
-yarn.lock
+yarn.*
+yarn-error.log

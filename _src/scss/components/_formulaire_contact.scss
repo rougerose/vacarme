@@ -1,0 +1,28 @@
+// =====================================
+// formulaire_contact
+// =====================================
+
+.formulaire_contact {
+	& > form {
+		border: none;
+		padding-left: 0;
+		padding-top: 0;
+	}
+	
+	.bugajaxie {
+		display: none;
+	}
+	
+	legend {
+		@include inuit-font-size(24px, 1);
+		font-family: $base-font-family;
+		font-weight: normal;
+		color: #000;
+		text-transform: none;
+	}
+	
+	.editer-groupe {
+		list-style: none;
+		margin-left: 0;
+	}
+}

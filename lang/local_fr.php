@@ -4,7 +4,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
     // A
     'abonner'                                     => "S’abonner",
     'abonnez'                                     => "Abonnez-vous",
-    'abonnez_newsletter_argu'                     => "La pr&eacute;rennit&eacute; d&#8217;une revue d&eacute;pend de ses abonn&eacute;-e-s. <br>Pour tout abonnement &agrave; Vacarme, vous recevrez un cadeau&nbsp;: <span style='color: #e7c900;'>1 cadeau</span> offert pour un abonnement d&#8217;<span style='color: @span_color;'>1 an</span>&nbsp;; <span style='color: #e7c900;'>2 cadeaux</span> offerts pour un abonnement de <span style='color: #e7c900;'>2 ans</span>.",
+    'abonnez_newsletter_argu'                     => "La pr&eacute;rennit&eacute; d&#8217;une revue d&eacute;pend de ses abonn&eacute;-e-s. <br>Pour tout abonnement &agrave; Vacarme, <span style='color: #e7c900;'>nous vous offrons un cadeau</span>.",
     'abonnez_newsletter_bouton'                   => 'Je m&#8217;abonne',
     'acheter'                                     => "Acheter",
     'apercu_info_article'                         => "L'intégralité de cet article est disponible dans <em>@titre_numero@</em> actuellement en vente dans votre librairie ou <a href='http://commande.vacarme.org'>en ligne</a>.",

@@ -4,8 +4,8 @@
     afin qu'ils soient en version intégrale.
     Premier bloc, article issu des catégories Fronts ou Mouvements.
     Deuxième bloc, article issu de la catégorie Entretiens.
-]
-<BOUCLE_archives_fronts_mouvements(ARTICLES){id_secteur=115}{id_mot IN 521,522}{age>365}{par hasard}{0,1}>
+]#SET{barriere_mobile, #CONFIG{vacarme/gratuite}}
+<BOUCLE_archives_fronts_mouvements(ARTICLES){id_secteur=115}{id_mot IN 521,522}{age>#GET{barriere_mobile}}{par hasard}{0,1}>
 <div class="grid__item lap-and-up-one-quarter">
 	[(#INCLURE{fond=resume/article-archive,id_article,logo_format='1/4',recadrage=portrait})]
 </div><!-- /.grid__item -->
