@@ -65,15 +65,15 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'commande_recapitulatif_titre' => "Rappel de votre commande",
 
 	// I
-	'info_article_apercu' => "L’intégralité de cet article est actuellement disponible dans l’édition imprimée de <em>@titre_numero@</em>. Pour vous procurer un exemplaire, Vacarme est disponible en librairies, <a href='@url_vente@' class='c-lien'>en ligne</a>, <a href='@url_abonnement@' class='c-lien'>par abonnement</a> et sur <a href='https://www.cairn.info/revue-vacarme.htm' class='c-lien'>Cairn.info</a>.",
+	'info_article_apercu' => "L’intégralité de cet article est actuellement disponible dans l’édition imprimée de <em>@titre_numero@</em>. Pour vous procurer un exemplaire, Vacarme est disponible en librairies, <a href='@url_vente@' class='c-lien'>en ligne</a> et sur <a href='https://www.cairn.info/revue-vacarme.htm' class='c-lien'>Cairn.info</a>.",
 
 	'info_lien_lire_suite' => "Lire&nbsp;<em>&#8594;</em>",
 
 	'info_numero_acheter' => "Acheter",
 
-	'info_numero_apercu' => "<em>Vacarme</em> aime la gratuité, mais avant d’être un site, <em>Vacarme</em> est d’abord une revue imprimée disponible en librairies et <a href='@url_abonnement@' class='c-lien'>par abonnement</a>. Pour vous permettre de découvrir ce numéro <em>@numero_titre@ (@numero_saison@ @numero_annee@)</em>, quelques articles sont d’ores et déjà accessibles dans leur intégralité et repérables par ce symbole ",
+	'info_numero_apercu' => "<em>Vacarme</em> aime la gratuité, mais avant d’être un site, <em>Vacarme</em> est d’abord une revue imprimée disponible en librairies et par correspondance. Pour vous permettre de découvrir ce numéro <em>@numero_titre@ (@numero_saison@ @numero_annee@)</em>, quelques articles sont d’ores et déjà accessibles dans leur intégralité et repérables par ce symbole ",
 
-	'info_numero_complet' => "Ce numéro, <em>@numero_titre@ (@numero_saison@ @numero_annee@)</em>, est désormais archivé et tous ses articles sont accessibles dans leur intégralité. Vacarme aime la gratuité, mais une revue existe grâce à ces abonné&middot;es. <a href='@url_abonnement@' class='c-lien'>Abonnez-vous</a>.",
+	'info_numero_complet' => "Ce numéro, <em>@numero_titre@ (@numero_saison@ @numero_annee@)</em>, est désormais archivé et tous ses articles sont accessibles dans leur intégralité. Vacarme aime la gratuité, mais une revue existe grâce à ces abonné&middot;es.",
 
 	'info_numero_date_parution' => "Parution le",
 	'info_numero_diffusion_librairies' => "Diffusion en librairies",
