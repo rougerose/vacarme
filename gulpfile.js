@@ -24,7 +24,7 @@ const options = {
 		watch: '_src/scss/**/*.scss'
 	},
 	css: {
-		src: ['css/app.css'],
+		src: 'css/app.css',
 		dest: 'css/'
 	},
 	js: {
