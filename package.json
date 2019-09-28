@@ -9,25 +9,28 @@
 	},
 	"author": "christophe le drean",
 	"devDependencies": {
+		"a11y-dialog": "^5.2.0",
+		"body-scroll-lock": "^2.6.4",
 		"cssnano": "^4.1.10",
 		"del": "^4.1.1",
 		"gulp": "^4.0.2",
 		"gulp-concat": "^2.6.1",
+		"gulp-if": "^3.0.0",
 		"gulp-rename": "^1.4.0",
 		"gulp-sass": "^4.0.2",
 		"gulp-uglify": "^3.0.2",
 		"gulp-wrap": "^0.15.0",
 		"inuit.css": "https://github.com/csswizardry/inuit.css.git",
-		"inuitcss": "^6.0.0-beta.5",
-		"pump": "^3.0.0"
+		"inuitcss": "^6.0.0-beta.5"
 	},
 	"dependencies": {
 		"autoprefixer": "^9.5.1",
 		"gulp-postcss": "^8.0.0"
 	},
 	"scripts": {
-		"gulp-build": "NODE_ENV='development' gulp",
-		"gulp-compile": "NODE_ENV='production' gulp"
+		"dev": "NODE_ENV='development' gulp",
+		"prod": "NODE_ENV='production' gulp",
+		"watch": "NODE_ENV='development' gulp watch"
 	},
 	"browserslist": [
 		"last 2 versions"
