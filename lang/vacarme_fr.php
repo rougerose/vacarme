@@ -123,6 +123,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'rechercher_placeholder' => "Que recherchez-vous ?",
 	'rechercher_submit' => "Rechercher",
 	'rechercher_btn_fermer' => "Fermer",
+	'rechercher_titre' => "Rechercher sur le site",
 
 	// S
 	'sommaire_consulter' => "Le sommaire <em>&#8594;</em>",
