@@ -1,0 +1,80 @@
+// =====================================
+// c-dialog
+// =====================================
+
+.c-dialog {
+  display: none;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: $zindex-site-nav__menu;
+
+  &[aria-hidden="true"] {
+    display: none;
+  }
+
+  &:not([aria-hidden="true"]) {
+	display: flex;
+    > .c-dialog__overlay {
+      animation: fade-in .5s 1 both;
+    }
+  }
+}
+
+  //
+  // c-dialog__overlay
+  // -------------------------------------
+
+  .c-dialog__overlay {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: $zindex-site-nav__menu;
+    background-color: $color-dialog-overlay-default;
+  }
+
+
+  //
+  // c-dialog__content
+  // -------------------------------------
+
+  .c-dialog__content {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    justify-content: center;
+    max-width: (600px / $inuit-global-font-size) * 1em;
+    width: 100%;
+    z-index: $zindex-site-nav__menu + 1;
+
+	// Position du bouton de fermeture
+	> .c-btn--croix {
+		right: $spacing-unit-large;
+		top: $spacing-unit-large;
+	}
+  }
+
+
+    //
+    // c-dialog__title
+    // -------------------------------------
+
+    .c-dialog__title {
+      color: $color-gray-500;
+      // font-family: $font-heading;
+      @include font-size(22px);
+      text-align: center;
+    }
+
+	//
+	// Animation fade-in
+	// -------------------------------------
+	@keyframes fade-in {
+	  from {opacity: 0;}
+	  to {opacity: 1;}
+	}
