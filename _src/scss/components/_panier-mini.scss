@@ -14,24 +14,30 @@
 	visibility: hidden;
 	background-color: $color-white;
 	transition: transform ease-in-out 0.5s, visibility ease-in-out .5s;
-	
+
 	&.est-ouvert {
 		display: block;
 		visibility: visible;
 		transform: translateX(-100%);
 	}
-	
+
+	> .c-btn--croix {
+		z-index: $zindex-panier-mini + 1;
+		top: 18px;
+		left: -28px;
+	}
+
 	> div {
 		// le div ajax ajouté par SPIP doit avoir une hauteur explicite
 		// et le scroll du bloc .c-panier-mini-contenu devient disponible.
 		height: 100%;
 	}
-	
+
 	@include mq(tablet) {
 		right: calc(calc(100vw - calc(#{$spacing-unit} * 6)) * -1);
 		width: calc(100vw - calc(#{$spacing-unit} * 6));
 	}
-	
+
 	@include mq(tabletPlus) {
 		right: -470px;
 		width: 470px;
@@ -47,8 +53,8 @@
 		margin-bottom: $spacing-unit-small;
 		@include inuit-font-size(18px);
 	}
-	
-	
+
+
 	// ----- c-panier-mini__contenu ----- //
 	.c-panier-mini__contenu {
 		display: flex;
@@ -56,58 +62,58 @@
 		height: calc(100% - calc(#{$spacing-unit}));
 		width: 100%;
 	}
-	
-	
+
+
 //
 // items
 // --------------------------------------------------------------------------
-// 
-// Définitions des styles pour tous les items : 
+//
+// Définitions des styles pour tous les items :
 // articles et totaux
-// 
-	
+//
+
 		// ----- c-panier-mini__liste-items ----- //
 		.c-panier-mini__liste-items {
 			border-top: 1px solid $color-black;
 			margin-bottom: 0;
 		}
-		
-		
+
+
 		// ----- c-panier-mini-item ----- //
 		.c-panier-mini-item {
 			display: flex;
 			flex-flow: row wrap;
 			justify-content: space-between;
 			width: 100%;
-			
+
 			&--vide {
 				display: block;
 				padding-top: $spacing-unit-large;
 			}
 		}
-		
-		
+
+
 			// ----- c-panier-mini-item__descriptif ----- //
 			.c-panier-mini-item__descriptif {}
-			
-			
+
+
 				// ----- c-panier-mini-item__titre ----- //
 				.c-panier-mini-item__titre {
 					display: flex;
 					justify-content: space-between;
 				}
-				
-				
+
+
 					// ----- c-panier-mini-item__intitule ----- //
 					.c-panier-mini-item__intitule {
 						margin-bottom: 0;
-						
+
 						&,
 						+ span {
 							@include inuit-font-size(14px, 1.2);
 							font-weight: bold;
 						}
-						
+
 						@include mq(tablet) {
 							&,
 							+ span {
@@ -115,17 +121,17 @@
 							}
 						}
 					}
-				
-				
+
+
 				// ----- c-panier-mini-item__designation ----- //
 				.c-panier-mini-item__designation {
 					margin-bottom: $spacing-unit-tiny;
 					@include inuit-font-size(13px, 1.2);
-					
+
 					> span:first-child {
 						font-style: italic;
 					}
-					
+
 					@include mq(tablet) {
 						@include inuit-font-size(15px, false);
 					}
@@ -152,17 +158,17 @@
 			border-top: 1px solid $color-gray-300;
 			align-items: center;
 			padding: $spacing-unit 0;
-			
+
 			&:first-child {
 				border-top: none;
 			}
-			
+
 			@include mq(tablet) {
 				padding: $spacing-unit $spacing-unit-small;
 			}
 		}
-		
-		
+
+
 		//
 		// c-panier-mini-article__img
 		// -------------------------------------
@@ -170,12 +176,12 @@
 			align-self: flex-start;
 			flex: 0 0 30%;
 			padding-right: $spacing-unit-small;
-			
+
 			// &--collection {
 			// 	align-self: flex-start;
 			// 	position: relative;
 			// 	width: 30%;
-			// 
+			//
 			// 	> img {
 			// 		position: absolute;
 			// 		top: 0;
@@ -186,8 +192,8 @@
 			// 	}
 			// }
 		}
-		
-		
+
+
 		//
 		// c-panier-mini-article__descriptif
 		// -------------------------------------
@@ -195,30 +201,30 @@
 			flex: 0 0 66%;
 			// width: 66%;
 		}
-		
-		
+
+
 			//
 			// c-panier-mini-article__titre
 			// -------------------------------------
 			.c-panier-mini-article__titre {
 				margin-bottom: $spacing-unit-small;
 			}
-			
-			
+
+
 				//
 				// c-panier-mini-article__intitule
 				// -------------------------------------
 				.c-panier-mini-article__intitule {
 					margin-right: $spacing-unit-small;
 				}
-				
-				
+
+
 				//
 				// c-panier-mini-article__designation
 				// -------------------------------------
 				.c-panier-mini-article__designation {}
-				
-				
+
+
 				//
 				// c-panier-mini-article__prix-unitaire
 				// -------------------------------------
@@ -228,10 +234,10 @@
 //
 // footer
 // ---------------------------------------------------------------------------
-	
+
 	// ----- c-panier-mini__footer ----- //
 	.c-panier-mini__footer {}
-	
+
 
 
 //
@@ -242,8 +248,8 @@
 		.c-panier-mini-totaux {
 			padding-top: $spacing-unit-tiny;
 		}
-		
-		
+
+
 		// ----- c-panier-mini-total ----- //
 		.c-panier-mini-total {
 			padding: $spacing-unit-tiny 0;
@@ -264,7 +270,7 @@
 	opacity: 0;
 	visibility: hidden;
 	transition: opacity ease-in-out 0.3s, visibility ease-in-out 0.3s;
-	
+
 	&.est-visible {
 		display: block;
 		visibility: visible;
