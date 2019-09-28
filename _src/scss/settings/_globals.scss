@@ -49,7 +49,7 @@ $font-base: Helvetica, Arial, sans-serif;
 $font-mono: "Menlo", monospace;
 $font-helvetica: "HelveticaNeueCd", "Helvetica Neue", $font-base;
 
-// V5 
+// V5
 // TODO: obsolète
 $mono-font: $font-mono;
 $Helvetica-font: $font-helvetica;
@@ -94,7 +94,7 @@ $couleur-print: #000;
 
 	$color-black: #000;
 	$color-white: #fff;
-	
+
 	// color-gray
 	$color-gray: #ccc;
 	$color-gray-light: #ddd;
@@ -107,7 +107,7 @@ $couleur-print: #000;
 	$color-gray-300: #e0e0e0;
 	$color-gray-200: #eeeeee;
 	$color-gray-100: #f5f5f5;
-	
+
 	// color-orange
 	$color-orange: #e88e0e;
 	$color-orange-dark: #e65100;
@@ -117,21 +117,21 @@ $couleur-print: #000;
 	$color-orange-300: #ffb74d;
 	$color-orange-200: #ffcc80;
 	$color-orange-100: #ffe0b2;
-	
+
 	// color-deep-orange
 	$color-deep-orange-500: #ff8022; // #ff5722;
 	$color-deep-orange-400: #ff9245; //#ff7043;
 	$color-deep-orange-300: #ffa769; //#ff8a65;
 	$color-deep-orange-200: #ffbc8c; //#ffab91;
 	$color-deep-orange-100: #ffd1b0; //#ffccbc;
-	
+
 	// color-amber
 	$color-amber-500: #ffc107;
 	$color-amber-400: #ffca28;
 	$color-amber-300: #ffd54f;
 	$color-amber-200: #ffe082;
 	$color-amber-100: #ffecb3;
-	
+
 	// color-yellow
 	$color-yellow-900: #f57f17;
 	$color-yellow-800: #f9a825;
@@ -142,12 +142,12 @@ $couleur-print: #000;
 	$color-yellow-300: #fff176;
 	$color-yellow-200: #fff59d;
 	$color-yellow-100: #fff9c4;
-	
+
 	// color-chocolat
 	$color-chocolat-500: hsl(25, 75%, 50%);
 	$color-chocolat-400: hsl(25, 75%, 38%);
-	
-	
+
+
 	// color-blue-grey
 	// $color-blue-grey-400: #6767c2;
 	// $color-blue-grey-300: #8282c2;
@@ -161,15 +161,15 @@ $couleur-print: #000;
 	$color-blue-grey-700: hsl(240, 25%, 25%);
 	$color-blue-grey-800: hsl(240, 25%, 13%);
 	$color-blue-grey-900: hsl(240, 25%, 0%);
-	
+
 	// color-blue
 	$color-blue-500: hsl(240, 50%, 50%);
 	$color-blue-600: hsl(240, 50%, 38%);
-	
+
 	// color-light-blue-500
 	$color-light-blue-500: hsl(199, 98%, 48%);
-	
-	
+
+
 	// color-cyan
 	$color-cyan-300: hsl(187,100%,50%);
 	$color-cyan-400: hsl(187,100%,46%);
@@ -178,34 +178,35 @@ $couleur-print: #000;
 	$color-cyan-700: hsl(187,100%,33%);
 	$color-cyan-800: hsl(187,100%,30%);
 	$color-cyan-900: hsl(182,100%,20%);
-	
-	
+
+
 	// color-lime
 	$color-lime-500: #c1e732;
-	
-	// color-red: 
+
+	// color-red:
 	$color-red: #e75d32;
 	$color-red-500: hsl(4, 90%, 58%);
-	
+
 	// alias
 	$color-error: $color-red;
-	
-	
+
+
 	// ----- color-lien ----- //
 	$color-lien: $color-cyan-500;
-	
-	
-	// ----- site-nav ----- //
-	
-	
+
+
+	// ----- dialog ----- //
+	$color-dialog-overlay-default: rgba(255,255,255, 0.95);
+	$color-dialog-overlay-site-nav: rgba(0,0,0, 0.95);
+
 	// ----- btn--burger ----- //
 	$btn-burger-height: $inuit-global-spacing-unit + $inuit-global-spacing-unit-tiny;
 	$btn-burger-width: $btn-burger-height;
-	
+
 	// ----- transitions ----- //
 	$transform-transition: transform 0.15s cubic-bezier(0.33, 0.66, 0.66, 1);
 	$lien-transition: 0.35s ease-out;
-	
+
 	// ----- message et reponse_formulaire ----- //
 	$message-padding: $inuit-global-spacing-unit-tiny $inuit-global-spacing-unit-tiny $inuit-global-spacing-unit-tiny / 2;
 	$message-border-erreur: 2px solid $color-red;
@@ -213,15 +214,16 @@ $couleur-print: #000;
 	$message-border-attention: 2px solid $color-lime-500;
 	$message-border-info: 2px solid $color-black;
 	$message-border-lien: 1px dotted $color-lien;
-	
+
 	// ----- z-index ----- //
 	// site-nav
 	$zindex-site-nav__menu: 100;
 	$zindex-site-nav__menu-button: 101;
-	
+	$zindex-recherche: 102;
+
 	// panier-mini
 	$zindex-panier-mini: 200;
 	$zindex-panier-mini-overlay: $zindex-panier-mini - 1;
-	
+
 	// spip-admin-float
 	$zindex-spip-admin-float: 210;

@@ -2,7 +2,7 @@
 
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
-$GLOBALS['z_blocs'] = array('content', 'head', 'head_js', 'header', 'panier', 'footer');
+$GLOBALS['z_blocs'] = array('content', 'head', 'head_js', 'header', 'panier', 'aside', 'footer');
 
 // debug
 // error_reporting(E_ALL^E_NOTICE);
@@ -17,5 +17,5 @@ $GLOBALS['fin_intertitre'] = "</h2>\n";
 define('_VACARME_GRATUITE', 730);
 
 // Désactiver héritage des logos de rubrique
-define('_LOGO_RUBRIQUE_DESACTIVER_HERITAGE', true); 
+define('_LOGO_RUBRIQUE_DESACTIVER_HERITAGE', true);
 ?>

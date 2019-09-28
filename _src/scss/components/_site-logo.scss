@@ -17,7 +17,7 @@
     color: $color-black;
     text-transform: uppercase;
     white-space: nowrap;
-    
+
 	&,
 	&:hover {border:none;}
     // taille du logo
@@ -29,8 +29,10 @@
         }
     }
     .page-foot & {
-        @include font-size(60px,$line-height:false);
-        line-height: 1;
+		display: block;
+		width: 234px;
+        // @include font-size(60px,$line-height:false);
+        // line-height: 1;
     }
 }
 

@@ -1,10 +1,15 @@
-[(#ENV{class}|=={s--recherche}|?{#SET{id_formulaire,search--recherche},#SET{id_formulaire,search}})]
-<div class="formulaire_spip formulaire_recherche s[ (#ENV{class})]"[ id="(#GET{id_formulaire})"]>
-<form action="[(#ENV{action})]" method="get" class="search__form"><div>
-    [(#ENV{action}|form_hidden)]
-    [<input type="hidden" name="lang" value="(#ENV{lang})" />]
-    <label class="search__label" for="#ENV{_id_champ}"><:info_rechercher:></label>
-    <input type="[(#HTML5|?{search,text})]" class="search text search__field" size="30" name="recherche" id="#ENV{_id_champ}"[ (#HTML5|?{[placeholder="(#ENV{recherche,<:info_rechercher:>})"],[value="(#ENV{recherche,<:info_rechercher:>})"]})] accesskey="4" autocapitalize="off" autocorrect="off"
-    /><input type="submit" class="submit search__submit" value="OK" title="<:info_rechercher:>" />
-</div></form>
+<div class="formulaire_spip formulaire_recherche c-search-box[ c-search-box--(#ENV{class})]">
+  <form action="[(#ENV{action})]" method="get" role="search">
+    <div class="editer-groupe">
+      [(#ENV{action}|form_hidden)]
+      [<input type="hidden" name="lang" value="(#ENV{lang})" />]
+      <div class="c-search-box__group[ c-search-box__group--(#ENV{class})]">
+        <label class="u-hidden-visually" for="#ENV{_id_champ}"><:vacarme:rechercher_label:></label>
+        <input type="[(#HTML5|?{search,text})]" class="search text" size="10" placeholder="<:vacarme:rechercher_label:>" name="recherche" id="#ENV{_id_champ}"[ value="(#ENV{recherche})"] accesskey="4" autocapitalize="off" autocorrect="off"/>
+        <button type="submit" class="c-btn c-btn--search" aria-label="<:info_rechercher:>">
+          #INCLURE{fond=img/icon-search.svg, variante=#ENV{class}}
+        </button>
+      </div>
+    </div>
+  </form>
 </div>
