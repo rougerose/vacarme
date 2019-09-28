@@ -62,7 +62,8 @@ select,
 textarea,
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="search"] {
 	border: 1px solid $color-blue-grey-100;
 	margin: $spacing-unit-tiny 0 0;
 	padding: $spacing-unit-tiny $spacing-unit-tiny $spacing-unit-tiny/2;

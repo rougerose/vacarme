@@ -1,4 +1,4 @@
-const {src, dest, series, watch} = require('gulp');
+const {src, dest, series, parallel, watch} = require('gulp');
 const sass = require('gulp-sass');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
@@ -7,14 +7,14 @@ const del = require('del');
 const rename = require('gulp-rename');
 const concat = require('gulp-concat');
 const wrap = require('gulp-wrap');
-const pump = require('pump');
 const uglify = require('gulp-uglify');
+const gulpif = require('gulp-if');
 
 sass.compiler = require('node-sass');
 
 const options = {
-	sass: {
-		src: '_src/scss/app.scss',
+	scss: {
+		src: ['_src/scss/app.scss'],
 		dest: 'css/',
 		options: {
 			includePaths: './node_modules',
@@ -32,74 +32,70 @@ const options = {
 		minify_src: 'js/',
 		dest: 'js/',
 		fileName: 'app.js',
+	},
+	jsLib : {
+		src: [
+			'node_modules/a11y-dialog/a11y-dialog.min.js',
+			'node_modules/body-scroll-lock/lib/bodyScrollLock.min.js'
+		]
 	}
 }
+var production = false;
 
-function clean(cb) {
-	del(['css/app.css', 'css/app.min.css', 'js/app.js', 'js/app.min.js']);
-	cb();
+if (process.env.NODE_ENV === 'production') {
+	var production = true;
 }
 
-// =====================================
-// SCSS
-// =====================================
-
-function compileCSS(cb) {
-	let plugins = [autoprefixer()];
-
-	src(options.sass.src)
-		.pipe(sass(options.sass.options)).on('error', sass.logError)
-		.pipe(postcss(plugins))
-		.pipe(dest(options.sass.dest));
-
-	cb();
+//
+// Clean
+// -------------------------------------
+function cleanTask() {
+	return del([options.css.src, options.js.dest + options.js.fileName, options.js.dest + 'lib.js']);
 }
 
-function minifyCSS(cb) {
-	let plugins = [cssnano()];
 
-	src(options.css.src)
-		.pipe(postcss(plugins))
-		.pipe(rename({suffix: '.min'}))
-		.pipe(dest(options.css.dest));
+//
+// Scss
+// -------------------------------------
+function scssTask(cb) {
+	src(options.scss.src)
+		.pipe(sass(options.scss.options)).on('error', sass.logError)
+		.pipe(postcss([ autoprefixer() ]))
+		.pipe(gulpif(production, postcss([ cssnano() ])))
+		.pipe(dest(options.scss.dest));
 
 	cb();
 }
 
-// =====================================
+//
 // JS
-// =====================================
-
-function compileJS(cb) {
-	return pump([
-		src(options.js.src),
-		concat(options.js.fileName),
-		wrap('$(function(){\n\'use strict\';\n<%= contents %>\n});'),
-		dest(options.js.dest)
-	], cb);
+// -------------------------------------
+function jsTask(cb) {
+	src(options.js.src)
+		.pipe(concat(options.js.fileName))
+		.pipe(wrap('$(function(){\n\'use strict\';\n<%= contents %>\n});'))
+		.pipe(gulpif(production, uglify()))
+		.pipe(dest(options.js.dest));
+	cb();
 }
 
-function minifyJS(cb) {
-	return pump([
-		src(options.js.minify_src + options.js.fileName),
-		uglify(),
-		rename({suffix: '.min'}),
-		dest(options.js.dest)
-	], cb);
-}
+function jsLibTask(cb) {
+	src(options.jsLib.src)
+		.pipe(concat('lib.js'))
+		.pipe(dest(options.js.dest));
 
-exports.js = series(compileJS, minifyJS);
+	cb();
+}
 
 // =====================================
 // watch
 // =====================================
-watch(options.sass.watch, compileCSS);
-watch(options.js.src, exports.js);
-
-if (process.env.NODE_ENV === 'production') {
-  exports.build = series(minifyCSS);
-} else {
-  exports.build = series(clean, compileCSS, exports.js);
+function watchFiles() {
+  watch(options.scss.watch, scssTask);
+  watch(options.js.src, jsTask);
 }
+
+exports.build = series(cleanTask, parallel(scssTask, jsLibTask, jsTask));
+exports.watch = series(cleanTask, parallel(scssTask, jsLibTask, jsTask), watchFiles);
 
 exports.default = exports.build;

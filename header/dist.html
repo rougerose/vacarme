@@ -8,7 +8,7 @@
 				<li class="c-site-nav__item c-shortcuts__item"><a class="c-shortcuts__link" href="#URL_RUBRIQUE{115}"><:vacarme:navigation_desktop_acheter_titre:></a></li>
 			</ul>
 			<ul class="c-site-nav__list c-shortcuts__group c-shortcuts__group--user">
-				<!-- <li class="c-site-nav__item c-shortcuts__item c-shortcuts__item--rev"><a class="c-shortcuts__link" href="#">#INCLURE{fond=img/svg/icon-search-24.svg}</a></li> -->
+				<li class="c-site-nav__item c-shortcuts__item c-shortcuts__item--rev u-hide-until-desktop"><a class="c-shortcuts__link" href="#" data-a11y-dialog-show="dialogSearchBox">#INCLURE{fond=img/svg/icon-search-24.svg}</a></li>
 				<INCLURE{fond=inclure/site-nav/compte}/>
 				<li class="c-site-nav__item c-shortcuts__item c-shortcuts__item--rev [(#ENV{type-page}|=={panier}|?{'',js-icone-panier})]">
 					<INCLURE{fond=inclure/site-nav/panier, ajax=iconePanier, env}/>
@@ -46,6 +46,9 @@
 						[(#INCLURE{fond=inclure/menu,env,identifiant=nav_cat_1})]
 						[(#INCLURE{fond=inclure/menu,env,identifiant=nav_cat_2})]
 						[(#INCLURE{fond=inclure/menu,env,identifiant=nav_cat_3})]
+					</div>
+					<div class="o-layout c-site-nav__group u-hide-from-desktop">
+						#FORMULAIRE_RECHERCHE{'', mobile}
 					</div>
 				</div>
 			</div>

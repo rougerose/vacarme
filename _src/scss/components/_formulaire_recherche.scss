@@ -1,0 +1,76 @@
+// =====================================
+// formulaire_recherche
+// =====================================
+
+.formulaire_recherche {
+	
+	// ----- Styles de base ----- //
+	form {
+		border: none;
+		display: flex;
+		justify-content: center;
+		margin-bottom: $spacing-unit-large;
+		padding-bottom: $spacing-unit;
+		text-align: center;
+	}
+	
+	label {
+		flex: 1;
+		margin: $spacing-unit-tiny 0 0;
+		padding: $spacing-unit-tiny $spacing-unit-tiny $spacing-unit-tiny/2;
+		@include inuit-font-size(18px, normal);
+		font-weight: bold;
+	}
+	
+	input {
+		margin: 0;
+	}
+	
+	input[type="search"] {
+		flex: 2;
+	}
+	
+	input[type="submit"] {
+		flex: 1;
+		margin: 0 $spacing-unit-small;
+		@include inuit-font-size(18px);
+	}
+	
+	// ----- Styles avec javascript ----- //
+	.js &.js-formulaire_recherche {
+		display: flex;
+		flex-direction: column;
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		z-index: $zindex-recherche;
+		background-color: $color-orange-dark;
+		// opacity: 0;
+		// pointer-events: none;
+		// visibility: hidden;
+		
+		> div {
+			margin: auto 0;
+		}
+		
+		form {
+			padding: 0;
+		}
+	}
+	
+	// ----- Icone close ----- //
+	.c-btn--modal-close {
+		position: fixed;
+		right: $spacing-unit;
+		top: $spacing-unit;
+	}
+	
+	.icon-close {
+		width: 3em;
+		height: 3em;
+		fill: transparent;
+		stroke: $color-white;
+	}
+}

@@ -208,6 +208,7 @@
 @import "components/boutons";
 
 @import "components/formulaire_spip";
+// @import "components/formulaire_recherche";
 @import "components/formulaire_login";
 @import "components/formulaire_modifier_profil";
 @import "components/formulaire_modifier_motdepasse";
@@ -217,6 +218,11 @@
 @import "components/formulaire_menu_lang";
 @import "components/formulaire_abonnement";
 @import "components/formulaire_contact";
+
+// formulaire recherche
+@import "components/search-box";
+
+@import "components/dialog";
 
 @import "components/lien";
 @import "components/pagination";
