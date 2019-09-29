@@ -11,7 +11,7 @@ var html = document.documentElement,
 
 if (dialogSearchBox != null) {
 	var dialogSBInstance = new A11yDialog(dialogSearchBox, html);
-	console.log(dialogSBInstance);
+
 	dialogSBInstance.on('show', function (dialogSearchBox, triggerEl) {
 		bodyScrollLock.disableBodyScroll(dialogSearchBox);
 	});

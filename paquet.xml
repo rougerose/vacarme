@@ -4,7 +4,7 @@
   etat="dev"
   logo="img/vacarme-128.png"
   prefix="vacarme"
-  version="3.7.1"
+  version="3.8.0"
 >
 	<nom>Vacarme</nom>
 	<auteur lien="http://rouge-rose.net">christophe le drean</auteur>
@@ -35,8 +35,6 @@
 	<utilise nom="a2a" compatibilite="[2.2.2;[" />
 	<utilise nom="bellespuces" compatibilite="[0.1.7;[" />
 	<utilise nom="cairn" />
-	<utilise nom="grappes" compatibilite="[1.1.5;[" />
-	<utilise nom="grappes_rang" compatibilite="[1.0.0;]" />
 	<utilise nom="medias" />
 	<utilise nom="menus" compatibilite="[1.6.10;[" />
 	<utilise nom="mots_techniques" compatibilite="[1.0.4;[" />
