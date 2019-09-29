@@ -24,17 +24,17 @@
 //
 // o-icon--burger
 // -------------------------------------
-// 
+//
 // Animation bouton repris de
 // https://github.com/jonsuh/hamburgers/blob/master/_sass/hamburgers/types/_squeeze.scss
-// 
+//
 .o-icon--burger {
 	display: block;
 	top: 50%;
 	margin-top: -1px;
 	transition-duration: 0.075s;
 	transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-	
+
 	&,
 	&:before,
 	&:after {
@@ -49,28 +49,28 @@
 		background-color: currentColor;
 		transition: transform .15s ease;
 	}
-	
+
 	&:before {
 		top: -$baseline / 6;
 		transition: top 0.075s 0.12s ease, opacity 0.075s ease;
 	}
-	
+
 	&:after {
 		bottom: -$baseline / 6;
 		transition: bottom 0.075s 0.12s ease, transform 0.075s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 	}
-	
+
 	.is-open & {
 		transform: rotate(45deg);
 		transition-delay: 0.12s;
 		transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-		
+
 		&:before {
 			top: 0;
 			opacity: 0;
 			transition: top 0.075s ease, opacity 0.075s 0.12s ease;
 		}
-		
+
 		&:after {
 			bottom: 0;
 			transform: rotate(-90deg);
@@ -89,7 +89,7 @@
 	top: 50%;
 	margin-top: -1px;
 	transform: rotate(45deg);
-	
+
 	&,
 	&:after {
 		position: absolute;
@@ -103,7 +103,7 @@
 		background-color: currentColor;
 		transition: transform .15s ease;
 	}
-	
+
 	&:after {
 		bottom: 0;
 		transform: rotate(-90deg);
@@ -124,7 +124,7 @@
 	@include mq(mobilePlus) {
 		margin-top: -2px;
 		margin-right: $spacing-unit-tiny;
-	} 
+	}
 }
 
 
@@ -139,4 +139,13 @@
 		stroke: $color-light-blue-500;
 		fill: $color-red-500;
 	}
+}
+
+
+//
+// o-icon--search
+// -------------------------------------
+.o-icon--search {
+	height: 24px;
+	width: 24px;
 }
