@@ -46,10 +46,14 @@
 	<!-- <utilise nom="tickets" compatibilite="[4.1.3;[" /> -->
 
 	<spip compatibilite="[3.2.0;3.2.*]">
+		<script type="public" source="js/lib.js" />
+		<script type="public" source="js/flexslider/jquery.flexslider-min.js" />
+		<script type="public" source="js/owl-carousel/owl.carousel.min.js" />
+		<script type="public" source="js/accordeon.min.js" />
+		<script type="public" source="js/app.js" />
 		<style type="public" source="js/flexslider/flexslider.css" />
 		<style type="public" source="js/owl-carousel/owl.carousel.css" />
 		<style type="public" source="css/app.css" />
 		<style type="prive" source="css/vacarme_prive.css" />
-		<script type="public" source="js/lib.js" />
 	</spip>
 </paquet>
