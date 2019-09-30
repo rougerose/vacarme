@@ -5,20 +5,20 @@
 #SET{pages,#GET{premiere}|range{#GET{derniere}}}
 #SET{sep,#ENV{separateur,' | '}}
 <B_pages>
-<h1 class="hN pagination__label"><:local:info_page:> #ENV{page_courante}/[(#GET{derniere}|<{#ENV{nombre_pages}}|?{#ENV{nombre_pages},#GET{derniere}})]</h1>
+<h1 class="c-pagination__label"><:local:info_page:> #ENV{page_courante}/[(#GET{derniere}|<{#ENV{nombre_pages}}|?{#ENV{nombre_pages},#GET{derniere}})]</h1>
 [(#SET{item, #ENV{page_courante}|moins{2}|mult{#ENV{pas}} })]
-<ul class="inline-list">
-   [<li class="inline-list__item pagination__item">
+<ul class="c-pagination__liste">
+   [<li class="c-pagination__item">
    <a href='[(#ENV{url}|parametre_url{#ENV{debut},''})]##ENV{ancre}' class='lien_pagination' rel='nofollow'>(#GET{premiere}|>{1}|?{1})</a>
-   </li>][<li class="inline-list__item pagination__item">(#GET{premiere}|>{2}|oui)<span class="tbc">&hellip;</span></li>]<BOUCLE_pages(POUR){tableau #GET{pages}}>[(#SET{item, #VALEUR|moins{1}|mult{#ENV{pas}} })][<li class="inline-list__item pagination__item[ (#VALEUR|=={#ENV{page_courante}}|oui)nav-item--is-active]">
+   </li>][<li class="c-pagination__item">(#GET{premiere}|>{2}|oui)<span class="c-pagination__tbc">&hellip;</span></li>]<BOUCLE_pages(POUR){tableau #GET{pages}}>[(#SET{item, #VALEUR|moins{1}|mult{#ENV{pas}} })][<li class="c-pagination__item">
       (#ENV{url}
          |parametre_url{#ENV{debut},#GET{item}|?{#GET{item}}}
          |ancre_url{#ENV{ancre}}
-         |lien_ou_expose{#VALEUR,#VALEUR|=={#ENV{page_courante}},lien_pagination,'',nofollow})
-   </li>]</BOUCLE_pages>[<li class="inline-list__item pagination__item">
-      <span class="tbc">&hellip;</span>
-   </li><li class="inline-list__item pagination__item">
-      <a href='[(#ENV{url}|parametre_url{#ENV{debut},#ENV{nombre_pages}|moins{1}|mult{#ENV{pas}}})]##ENV{ancre}' class='lien_pagination' rel='nofollow'>(#GET{derniere}|<{#ENV{nombre_pages}}|?{#ENV{nombre_pages}})</a>
+         |lien_ou_expose{#VALEUR,#VALEUR|=={#ENV{page_courante}},c-pagination__lien,'',nofollow})
+   </li>]</BOUCLE_pages>[<li class="c-pagination__item">
+      <span class="c-pagination__tbc">&hellip;</span>
+   </li><li class="c-pagination__item">
+      <a href='[(#ENV{url}|parametre_url{#ENV{debut},#ENV{nombre_pages}|moins{1}|mult{#ENV{pas}}})]##ENV{ancre}' class='c-pagination__lien' rel='nofollow'>(#GET{derniere}|<{#ENV{nombre_pages}}|?{#ENV{nombre_pages}})</a>
    </li>][(#SET{item, #ENV{page_courante}|mult{#ENV{pas}} })]
 </ul>
 </B_pages>

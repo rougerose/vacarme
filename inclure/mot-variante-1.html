@@ -30,7 +30,9 @@
             [(#INCLURE{fond=resume/article-complet,id_article,logo_format=1/4,recadrage=portrait})]
         </BOUCLE_articles_tri>
     </div><!-- /.grid__item -->
-    [<nav class="pagination pagination--bottom pagination--page nav--position nav--is-bottom">(#PAGINATION{li})</nav>]
+	[<nav class="pagination c-pagination c-pagination--li c-pagination--bottom">
+		(#PAGINATION{li})
+	</nav>]
     </B_articles_tri>
     [
         (#REM) Les articles triés par date, défaut
@@ -43,7 +45,9 @@
         </BOUCLE_articles>
     </div><!-- /.grid__item -->
     [<div class="grid__item">
-        <nav class="pagination pagination--page nav--position nav--is-bottom">(#PAGINATION{li})</nav>
+		<nav class="pagination c-pagination c-pagination--li c-pagination--bottom">
+			(#PAGINATION{li})
+		</nav>
     </div><!-- /.grid__item -->]
     </B_articles>
     <//B_articles_tri>
