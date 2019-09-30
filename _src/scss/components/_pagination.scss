@@ -36,7 +36,7 @@
 
 .c-pagination__item {
 	display: inline-block;
-	
+
 	& a,
 	& span,
 	& strong {
@@ -44,7 +44,7 @@
 		padding: 0 0.35em;
 		margin: 0 0.15em;
 	}
-	
+
 	&.is-disabled {
 		strong.on {
 			font-weight: normal;
@@ -68,22 +68,22 @@
 
 .c-pagination--bottom {
 	border-top: 1px solid $color-gray-300;
-	
+
 	.c-pagination__item {
 		margin-top: -1px;
-		
+
 		& a,
 		& span,
 		& strong {
 			border-top: 1px solid transparent;
 			padding-top: $spacing-unit-tiny;
 		}
-		
+
 		& strong.on {
 			border-top-color: $color-cyan-800;
 			color: $color-cyan-600;
 		}
-		
+
 		&.is-disabled strong.on {
 			border-top-color: transparent;
 			color: $color-gray-400;
@@ -98,20 +98,20 @@
 
 .c-pagination--numeros {
 	text-align: center;
-	
-	
+
+
 	.c-pagination__item {
-		
+
 		@include mq($until: desktop) {
 			display: none;
 		}
-		
+
 		&--prev,
 		&--next {
 			display: inline-block;
 		}
 	}
-	
+
 }
 
 
@@ -121,9 +121,17 @@
 // -------------------------------------
 
 .c-pagination__item {
-	
+
 	// &--prev,
 	// &--next {
-	// 
+	//
 	// }
+}
+
+
+//
+// c-pagination--li
+// -------------------------------------
+.c-pagination--li {
+	text-align: center;
 }
