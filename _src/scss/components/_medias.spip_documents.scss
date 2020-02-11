@@ -20,8 +20,7 @@
 /*  images insérées dans le texte. Version standard.
     ========================================================================== */
     .media--illustration {
-        margin-top: 4px;
-        margin-bottom: 1em;
+        margin: 1.5em 0;
         img {
             display: block;
         }
@@ -34,6 +33,9 @@
             }
         }
     }
+	.media__legende--illustration {
+		padding-top: .5em;
+	}
     /*.media__legende--illustration {
         .spip_doc_titre,
         .spip_doc_descriptif {
@@ -54,10 +56,10 @@
     .media--center {
         margin-top: 3em;
         margin-bottom: 3em;
-        img {
-            margin-left: auto;
-            margin-right: auto;
-        }
+        // img {
+        //     margin-left: auto;
+        //     margin-right: auto;
+        // }
         .spip_doc_legende {
             margin: .5em auto 0;
         }
