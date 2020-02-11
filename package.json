@@ -10,7 +10,7 @@
 	"author": "christophe le drean",
 	"devDependencies": {
 		"a11y-dialog": "^5.2.0",
-		"autoprefixer": "^9.6.1",
+		"autoprefixer": "^9.7.4",
 		"body-scroll-lock": "^2.6.4",
 		"cssnano": "^4.1.10",
 		"del": "^5.1.0",
@@ -18,12 +18,13 @@
 		"gulp-concat": "^2.6.1",
 		"gulp-if": "^3.0.0",
 		"gulp-postcss": "^8.0.0",
-		"gulp-rename": "^1.4.0",
+		"gulp-rename": "^2.0.0",
 		"gulp-sass": "^4.0.2",
 		"gulp-uglify": "^3.0.2",
 		"gulp-wrap": "^0.15.0",
 		"inuit.css": "https://github.com/csswizardry/inuit.css.git",
-		"inuitcss": "^6.0.0-beta.5"
+		"inuitcss": "^6.0.0-beta.5",
+		"node-sass": "^4.13.1"
 	},
 	"dependencies": {},
 	"scripts": {
