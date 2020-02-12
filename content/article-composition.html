@@ -1,9 +1,20 @@
 <BOUCLE_article(ARTICLES){id_article}>
-#SET{type,''} #SET{type-titre,''} #SET{id_numero,''} #SET{format_logo,''} #SET{taille_logo,''} #SET{mode_article, complet}
+#SET{type,''}
+#SET{type-titre,''}
+#SET{id_numero,''}
+#SET{format_logo,''}
+#SET{taille_logo,''}
+#SET{mode_article, complet}
+#SET{compo, #COMPOSITION}
+[(#REM) <!-- Différencier les compositions Diaporama (diaporama, diaporama-logo et diaporama-haut) --> ]
+[(#COMPOSITION|=={diaporama}|oui)#SET{compo, diaporama}]
+[(#COMPOSITION|=={diaporama-logo}|oui)#SET{compo, diaporamaLogo}]
+[(#COMPOSITION|=={diaporama-haut}|oui)#SET{compo, diaporamaHaut}]
+
 [(#REM)
-	<!-- 
+	<!--
 		Si la rubrique correspondant à un numéro papier est dans la hiérarchie
-		(attention : utilisation du plugin polyhierachie ) de l'article, 
+		(attention : utilisation du plugin polyhierachie ) de l'article,
 		vérifier si l'article doit être affiché en aperçu ou en complet.
 	-->
 ]<BOUCLE_branche(RUBRIQUES){parents}>
@@ -12,7 +23,7 @@
 			<!-- L'article dépend d'un numéro papier, il est en mode aperçu, a priori. -->
 		][(#SET{mode_article, apercu})]
 		[(#REM)
-			<!-- 
+			<!--
 				- Vérifier le mode en fonction de la date du numéro
 				- Récupérer ID du numéro et son TITRE
 			-->
@@ -36,7 +47,7 @@
 </BOUCLE_branche>
 [(#REM) Le format du logo ]
 [(#LOGO_ARTICLE|oui)
-	[(#COMPOSITION|=={numero-nologo}|non)
+	[(#GET{compo}|=={numero-nologo}|non)
 		[(#LOGO_ARTICLE|largeur|>{#LOGO_ARTICLE|hauteur}|?{#SET{format_logo,paysage},#SET{format_logo,portrait}})]
 	]
 ]
@@ -70,10 +81,10 @@
 		[(#REM) schema/article : description
 		][<meta itemprop="description" content="(#DESCRIPTIF|sinon{#INTRODUCTION{300}}|textebrut)" />]
 		[(#GET{format_logo}|match{paysage}|oui)
-			[(#COMPOSITION|non) #SET{taille_logo,L} ]
-			[(#COMPOSITION|match{numero}|oui) #SET{taille_logo,L} ]
-			[(#COMPOSITION|match{numero-logo_XL}|oui) #SET{taille_logo,XL} ]
-			[(#COMPOSITION|=={diaporama-logo}|oui) #SET{taille_logo,L} ]
+			[(#GET{compo}|non) #SET{taille_logo,L} ]
+			[(#GET{compo}|match{numero}|oui) #SET{taille_logo,L} ]
+			[(#GET{compo}|match{numero-logo_XL}|oui) #SET{taille_logo,XL} ]
+			[(#GET{compo}|=={diaporamaLogo}|oui) #SET{taille_logo,L} ]
 		<div class="grid__item[(#GET{taille_logo}|=={L}|oui) lap-and-up-three-quarters push--lap-and-up-one-quarter]">
 				<div class="media landmark">
 					[(#GET{taille_logo}|=={L}|oui)
@@ -84,7 +95,7 @@
 					]
 				</div>
 		</div><!-- /.grid__item -->]
-		[(#COMPOSITION|=={numero-logo_vertical}|oui)
+		[(#GET{compo}|=={numero-logo_vertical}|oui)
 		<div class="grid__item">
 			<div class="chapo-logo--vertical">
 				[<img src="(#LOGO_ARTICLE|image_reduire{350,0}|extraire_attribut{src})" alt="[(#TITRE|textebrut)]" class="logo--vertical">]
@@ -93,7 +104,7 @@
 				(#CHAPO)
 			</div>]
 		</div><!-- /.grid__item -->]
-		[(#COMPOSITION|=={numero-logo_vertical}|non)
+		[(#GET{compo}|=={numero-logo_vertical}|non)
 			[<div class="grid__item lap-and-up-three-quarters push--lap-and-up-one-quarter">
 				<div class="#EDIT{chapo} self__chapo landmark surlignable">
 					(#CHAPO)
@@ -110,20 +121,23 @@
 				][(#REM)
 					<!-- Article en mode Aperçu -->
 				][(#GET{mode_article}|=={apercu}|oui)
+					[(#LISTE{diaporamaHaut}|find{#GET{compo}}|oui)
+						<INCLURE{fond=inclure/article-diaporama-apercu, id_article}/>
+					]
 					[<div class="self__texte landmark surlignable liens">
 						(#TEXTE*|intro|propre)
 					</div>]
-					[(#COMPOSITION|match{diaporama}|oui)
+					[(#LISTE{diaporama, diaporamaLogo}|find{#GET{compo}}|oui)
 						<INCLURE{fond=inclure/article-diaporama-apercu, id_article}/>
 					]
 					[(#REM)
-						<!-- 
+						<!--
 							Afficher la première image en mode "portfolio".
 							Les autres types de documents sont ignorés.
 						-->
 					]
 					<INCLURE{fond=inclure/documents/article-apercu, id_article} />
-					
+
 					<div class="c-article-apercu__info">
 						<div class="c-article-apercu__degrade"></div>
 						<p><:vacarme:info_article_apercu{titre_numero=#GET{titre_numero}, url_vente=#URL_RUBRIQUE{115}, url_abonnement=#URL_RUBRIQUE{117}}:></p>
@@ -131,6 +145,9 @@
 				][(#REM)
 					<!-- Article en mode Complet -->
 				][(#GET{mode_article}|=={complet}|oui)
+					[(#LISTE{diaporamaHaut}|find{#GET{compo}}|oui)
+						[<div class="landmark">(#INCLURE{fond=inclure/article-diaporama,id_article})</div>]
+					]
 					[<div class="#EDIT{texte} self__texte landmark surlignable liens">
 						(#TEXTE)
 					</div>]
@@ -151,10 +168,12 @@
 						</div>
 					</section>]
 				][(#GET{mode_article}|=={complet}|oui)
-					[(#COMPOSITION|match{diaporama}|?{
-						[<div class="landmark">(#INCLURE{fond=inclure/article-diaporama,id_article})</div>],
+					[(#LISTE{diaporama, diaporamaLogo}|find{#GET{compo}}|oui)
+						[<div class="landmark">(#INCLURE{fond=inclure/article-diaporama,id_article})</div>]
+					]
+					[(#LISTE{diaporama, diaporamaHaut, diaporamaLogo}|find{#GET{compo}}|non)
 						[<section>(#INCLURE{fond=inclure/documents,id_article})</section>]
-					})]
+					]
 					[<section class="#EDIT{ps} self__ps landmark ps surlignable">
 						<h2 class="hN intertitre-section intertitre-section--first"><:info_ps:></h2>
 						(#PS)

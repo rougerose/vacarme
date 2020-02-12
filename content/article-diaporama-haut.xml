@@ -1,0 +1,5 @@
+<composition>
+    <nom>Article Diaporama Haut</nom>
+    <description>Composition pour afficher un diaporama d'images au-dessus du texte de l'article.</description>
+    <icon>img/composition-article-diaporama.png</icon>
+</composition>
