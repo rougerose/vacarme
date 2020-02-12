@@ -65,7 +65,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'commande_recapitulatif_titre' => "Rappel de votre commande",
 
 	// I
-	'info_article_apercu' => "L’intégralité de cet article est actuellement disponible dans l’édition imprimée de <em>@titre_numero@</em>. Pour vous procurer un exemplaire, Vacarme est disponible en librairies, <a href='@url_vente@' class='c-lien'>en ligne</a> et sur <a href='https://www.cairn.info/revue-vacarme.htm' class='c-lien'>Cairn.info</a>.",
+	'info_article_apercu' => "L’intégralité de cet article est actuellement disponible dans l’édition imprimée de <em>@titre_numero@</em>. Pour vous procurer un exemplaire, Vacarme est vente en librairies, <a href='@url_vente@' class='c-lien'>en ligne</a> et sur <a href='https://www.cairn.info/revue-vacarme.htm' class='c-lien'>Cairn.info</a>.",
 
 	'info_lien_lire_suite' => "Lire&nbsp;<em>&#8594;</em>",
 
