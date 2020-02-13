@@ -1,5 +1,5 @@
 <composition>
     <nom>Article Diaporama Haut</nom>
-    <description>Composition pour afficher un diaporama d'images au-dessus du texte de l'article.</description>
+    <description>Composition pour afficher un diaporama d'images au-dessus du texte de l'article. Les images horizontales et verticales ont la même largeur (780px).</description>
     <icon>img/composition-article-diaporama.png</icon>
 </composition>
