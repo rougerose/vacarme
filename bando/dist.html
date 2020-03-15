@@ -3,25 +3,24 @@
 	<BOUCLE_obj(spip_albums_liens){id_album}>
 		#SET{objet, #OBJET} #SET{id_objet, #ID_OBJET}
 	</BOUCLE_obj>
-	<B_bando>
-		<div class="page-block">
-			<div class="grid">
-				<div class="grid__item">
-					<BOUCLE_bando(DOCUMENTS){id_album}{extension IN jpg, png, gif}{!par date}{descriptif LIKE bando%}>
-						[(#LARGEUR|=={1100}|?{#SET{img_xl, #FICHIER}})]
-						[(#LARGEUR|=={640}|?{#SET{img_l, #FICHIER}})]
-						[(#LARGEUR|=={320}|?{#SET{img_s, #FICHIER}})]
-						[(#TITRE|?{#SET{titre, #TITRE|textebrut}})]
-					</BOUCLE_bando>
-					[<a href="(#INFO_URL{#GET{objet}, #GET{id_objet}})">
-						<picture class="mb+" style="display:flex;">
-							<source media="(max-width: 39em)" srcset="[(#GET{img_s})]">
-							<source media="(max-width: 48em)" srcset="[(#GET{img_l})]">
-							[<img src="(#GET{img_xl})" alt="[(#GET{titre})]" style="margin:auto;">]
-						</picture>
-					</a>]
-				</div>
+	<BOUCLE_bando(DOCUMENTS){id_album}{extension IN jpg, png, gif}{!par date}{descriptif LIKE bando%}>
+		[(#LARGEUR|=={1100}|?{#SET{img_xl, #FICHIER}})][
+		(#LARGEUR|=={640}|?{#SET{img_l, #FICHIER}})][
+		(#LARGEUR|=={320}|?{#SET{img_s, #FICHIER}})][
+		(#TITRE|?{#SET{titre, #TITRE|textebrut}})]
+	</BOUCLE_bando>
+	<div class="page-block">
+		<div class="grid">
+			<div class="grid__item">
+				[<a href="(#INFO_URL{#GET{objet}, #GET{id_objet}})">
+					<picture class="mb+" style="display:flex;">
+						<source media="(max-width: 39em)" srcset="[(#GET{img_s})]">
+						<source media="(max-width: 48em)" srcset="[(#GET{img_l})]">
+						[<img src="(#GET{img_xl})" alt="[(#GET{titre})]" style="margin:auto;">]
+					</picture>
+				</a>]
 			</div>
 		</div>
+	</div>
 	</B_bando>
 </BOUCLE_album>
