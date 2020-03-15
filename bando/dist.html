@@ -8,10 +8,10 @@
 			<div class="grid">
 				<div class="grid__item">
 					<BOUCLE_bando(DOCUMENTS){id_album}{extension IN jpg, png, gif}{!par date}{descriptif LIKE bando%}>
-						[(#LARGEUR|=={1100}|?{#SET{img_xl, #FICHIER}})]
-						[(#LARGEUR|=={640}|?{#SET{img_l, #FICHIER}})]
-						[(#LARGEUR|=={320}|?{#SET{img_s, #FICHIER}})]
-						[(#TITRE|?{#SET{titre, #TITRE|textebrut}})]
+						[(#LARGEUR|=={1100}|?{#SET{img_xl, #FICHIER}})][
+						(#LARGEUR|=={640}|?{#SET{img_l, #FICHIER}})][
+						(#LARGEUR|=={320}|?{#SET{img_s, #FICHIER}})][
+						(#TITRE|?{#SET{titre, #TITRE|textebrut}})]
 					</BOUCLE_bando>
 					[<a href="(#INFO_URL{#GET{objet}, #GET{id_objet}})">
 						<picture class="mb+" style="display:flex;">
