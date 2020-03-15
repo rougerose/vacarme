@@ -2,7 +2,7 @@
 
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
-$GLOBALS['z_blocs'] = array('content', 'head', 'head_js', 'header', 'panier', 'aside', 'footer');
+$GLOBALS['z_blocs'] = array('content', 'bando', 'head', 'head_js', 'header', 'panier', 'aside', 'footer');
 
 // debug
 // error_reporting(E_ALL^E_NOTICE);
