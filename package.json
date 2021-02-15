@@ -1,0 +1,28 @@
+{
+  "name": "vacarme",
+  "version": "4.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/rougerose/vacarme.git",
+  "author": "christophe le drean <christophe@rouge-rose.net>",
+  "license": "GNU/GPL",
+  "private": true,
+  "browserslist": [
+    "defaults"
+  ],
+  "scripts": {
+    "start": "gulp",
+    "build": "NODE_ENV=production gulp build"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.4",
+    "browser-sync": "^2.26.14",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-csso": "^4.0.1",
+    "gulp-postcss": "^9.0.0",
+    "gulp-size": "^3.0.0",
+    "postcss": "^8.2.6",
+    "rollup": "^2.39.0",
+    "tailwindcss": "^2.0.3"
+  }
+}
