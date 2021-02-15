@@ -1,0 +1,10 @@
+@charset "utf-8";
+
+/* Base */
+@tailwind base;
+
+/* Components */
+@tailwind components;
+
+/* Utilities */
+@tailwind utilities;
