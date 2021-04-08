@@ -5,10 +5,11 @@ module.exports = {
   },
   tailwind: "tailwind.config.js",
   css: {
-    src: "src/css/**/*.css",
+    src: "src/css/vacarme.css",
     dist: "dist/css/",
+    watch: "src/css/**/*.css",
   },
-  clean: ["dist/**/*", "!dist/"],
+  clean: ["dist/css/*", "!dist/"],
   tasks: {
     css: true,
     clean: true,

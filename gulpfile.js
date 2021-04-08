@@ -13,7 +13,7 @@ const css = function (done) {
 
   return src(config.css.src)
     .pipe(postcss())
-    .pipe(csso())
+    // .pipe(csso())
     .pipe(size({ title: "CSS", gzip: true, showFiles: true }))
     .pipe(dest(config.css.dist))
     .pipe(browserSync.stream());
@@ -72,7 +72,7 @@ const reloadBrowser = function (done) {
 
 // Watch for changes
 const watchSource = function (done) {
-  watch(config.css.src, series(css));
+  watch(config.css.watch, series(css));
   watch(config.tailwind, series(css));
   // watch(config.js.src, series(js, reloadBrowser));
   // watch(config.fonts.src, series(fonts));

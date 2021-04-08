@@ -9,6 +9,7 @@
 	<nom>Vacarme</nom>
 	<auteur lien="http://rouge-rose.net">christophe le drean</auteur>
 	<licence>GNU/GPL</licence>
+
 	<necessite nom="Zcore" compatibilite="[2.6.5;[" />
 	<necessite nom="porte_plume_intertitres" compatibilite="[1.2.0;[" />
 	<necessite nom="suivant_precedent" compatibilite="[1.4.4;[" />
@@ -19,10 +20,14 @@
 	<necessite nom="compositions" compatibilite="[3.6.0;[" />
 	<necessite nom="contact" compatibilite="[0.16.5;[" />
 	<necessite nom="iextras" compatibilite="[3.5.8;[" />
-	<utilise nom="a2a" compatibilite="[2.2.2;[" />
+	<necessite nom="roles_auteurs" compatibilite="[1.0.4;[" />
+
+  <utilise nom="a2a" compatibilite="[2.2.2;[" />
 	<utilise nom="bellespuces" compatibilite="[0.1.7;[" />
 	<utilise nom="mots_techniques" compatibilite="[1.0.4;[" />
 	<utilise nom="oembed" compatibilite="[2.0.1;[" />
 	<utilise nom="pb_selection" compatibilite="[3.2.0;[" />
 	<utilise nom="selections_editoriales" compatibilite="[1.7.6;[" />
+
+  <pipeline nom="declarer_tables_objets_sql"  inclure="vacarme_pipelines.php" />
 </paquet>

@@ -14,15 +14,17 @@
     "build": "NODE_ENV=production gulp build"
   },
   "devDependencies": {
-    "autoprefixer": "^10.2.4",
+    "autoprefixer": "^10.2.5",
     "browser-sync": "^2.26.14",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-csso": "^4.0.1",
     "gulp-postcss": "^9.0.0",
     "gulp-size": "^3.0.0",
-    "postcss": "^8.2.6",
-    "rollup": "^2.39.0",
-    "tailwindcss": "^2.0.3"
+    "postcss": "^8.2.9",
+    "postcss-import": "^14.0.1",
+    "postcss-nesting": "^7.0.1",
+    "rollup": "^2.44.0",
+    "tailwindcss": "^2.0.4"
   }
 }
