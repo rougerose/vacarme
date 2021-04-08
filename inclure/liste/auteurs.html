@@ -1,0 +1,3 @@
+<B_liste_auteurs>
+  <p[ class="(#ENV{class})"]><BOUCLE_liste_auteurs(AUTEURS){id_article}{par nom}{role!=intervieweur}>[(#COMPTEUR_BOUCLE|=={1}|?{'', [(#COMPTEUR_BOUCLE|=={#TOTAL_BOUCLE}|?{' &amp;&nbsp;', ', '})]})][(#NOM|prenom_nom)]</BOUCLE_liste_auteurs></p>
+</B_liste_auteurs>

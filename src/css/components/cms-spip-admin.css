@@ -1,0 +1,23 @@
+.spip-admin-float {
+	display: flex;
+	flex-direction: column;
+	top: 0 !important;
+	right: auto !important;
+	bottom: auto !important;
+	left: 0 !important;
+}
+
+.spip-admin-float .spip-admin-boutons {
+  margin: 0.25rem 0 0;
+  border-radius: 0;
+  @apply font-mono;
+  @apply text-2xs;
+  @apply bg-yellow-400;
+  @apply text-black;
+  text-align: left;
+  opacity: 1;
+}
+
+.spip-admin-float .spip-admin-boutons:hover {
+  @apply bg-yellow-600;
+}

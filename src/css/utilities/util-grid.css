@@ -1,0 +1,25 @@
+.util-grid-background {
+  background-image: linear-gradient(to top, rgba(242, 201, 76, 0.5) 0, rgba(242, 201, 76, 0.5) 1px, transparent 1px);
+  background-size: 100% 8px;
+}
+
+.util-grid-toggle {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  line-height: 48px;
+  text-align: center;
+  text-transform: uppercase;
+  @apply font-mono;
+  @apply text-2xs;
+  @apply bg-yellow-400;
+  @apply text-black;
+}
+
+.util-grid-toggle:hover {
+  @apply bg-yellow-600;
+}

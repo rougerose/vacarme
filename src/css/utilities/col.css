@@ -1,0 +1,12 @@
+/* layout */
+.col-3 {
+  @apply w-1/4;
+}
+
+.col-4 {
+  @apply w-1/3;
+}
+
+.col-6 {
+  @apply w-1/2;
+}

@@ -1,0 +1,102 @@
+/*
+  ****
+  ct-resume-article-sommaire
+  ****
+
+  Articles (résumé) page sommaire
+
+*/
+
+.ct-resume-article-sommaire {
+  background-color: #ccc;
+}
+
+.ct-resume-article-sommaire--texte {
+
+  & .ct-resume-article-sommaire_contenu {
+    border-top: 1px solid #000;
+    @apply pt-8;
+  }
+}
+
+.ct-resume-article-sommaire--v {
+
+  & .ct-resume-article-sommaire_texte {
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+.ct-resume-article-sommaire_contenu {
+  position: relative;
+  flex: 1;
+}
+
+.ct-resume-article-sommaire_ancre {
+
+}
+
+.ct-resume-article-sommaire_logo {
+  display: block;
+  margin-bottom: 32px;
+}
+
+.ct-resume-article-sommaire_texte {
+  &::after {
+    display: block;
+    content: "";
+    width: calc(100% - 112px);
+    height: 2px;
+    @apply bg-black;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+.ct-resume-article-sommaire_titre {
+  @apply font-display;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 32px;
+  padding-bottom: 8px;
+}
+
+.ct-resume-article-sommaire_soustitre {
+  @apply font-display;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  margin-top: 8px;
+  padding-bottom: 8px;
+}
+
+.ct-resume-article-sommaire_auteurs {
+  @apply font-display;
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 8px;
+  padding-bottom: 8px;
+
+  &::before {
+    content: "\2014\00A0"
+  }
+}
+
+.ct-resume-article-sommaire_intro {
+  font-size: 18px;
+  line-height: 24px;
+  margin-top: 8px;
+  margin-bottom: 64px;
+}
+
+.ct-resume-article-sommaire_numero {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  @apply font-sans;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 20px;
+}

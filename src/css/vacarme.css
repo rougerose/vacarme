@@ -1,10 +1,15 @@
 @charset "utf-8";
 
 /* Base */
-@tailwind base;
+@import "tailwindcss/base";
+@import "./base/webfonts";
 
 /* Components */
-@tailwind components;
+@import "tailwindcss/components";
+@import "./components/cms-spip-admin";
+@import "./components/ct-resume-article-sommaire";
 
 /* Utilities */
-@tailwind utilities;
+@import "tailwindcss/utilities";
+@import "./utilities/col";
+@import "./utilities/util-grid";
