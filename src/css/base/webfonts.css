@@ -1,0 +1,346 @@
+
+/* @font-face {
+  font-family: "Plantin";
+  src: url("../webfonts/PlantinStd-Bold.woff2") format("woff2"),
+  url("../webfonts/PlantinStd-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Plantin";
+  src: url("../webfonts/PlantinStd-BoldItalic.woff2") format("woff2"),
+  url("../webfonts/PlantinStd-BoldItalic.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Plantin";
+  src:  url("../webfonts/PlantinStd.woff2") format("woff2"),
+  url("../webfonts/PlantinStd.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Plantin";
+  src: url("../webfonts/PlantinStd-Italic.woff2") format("woff2"),
+  url("../webfonts/PlantinStd-Italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Plantin";
+  src: url("../webfonts/PlantinStd-SemiboldItalic.woff2") format("woff2"),
+  url("../webfonts/PlantinStd-SemiboldItalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Plantin";
+  src: url("../webfonts/PlantinStd-Semibold.woff2") format("woff2"),
+  url("../webfonts/PlantinStd-Semibold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+} */
+
+@font-face {
+  font-family: "HNC";
+  src: url("../webfonts/HelveticaNeueLTStd-Cn.woff2") format("woff2"),
+  url("../webfonts/HelveticaNeueLTStd-Cn.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HNC";
+  src: url("../webfonts/HelveticaNeueLTStd-LtCn.woff2") format("woff2"),
+  url("../webfonts/HelveticaNeueLTStd-LtCn.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "HNC";
+  src: url("../webfonts/HelveticaNeueLTStd-BdCn.woff2") format("woff2"),
+  url("../webfonts/HelveticaNeueLTStd-BdCn.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "newsreader-caption";
+  src: url("../webfonts/newsreader/NewsreaderCaption-Bold.woff2") format("woff2"),
+  url("../webfonts/newsreader/NewsreaderCaption-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "newsreader-caption";
+  src: url("../webfonts/newsreader/NewsreaderCaption-BoldItalic.woff2") format("woff2"),
+  url("../webfonts/newsreader/NewsreaderCaption-BoldItalic.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "newsreader-caption";
+  src: url("../webfonts/newsreader/NewsreaderCaption-ExtraBold.woff2") format("woff2"),
+  url("../webfonts/newsreader/NewsreaderCaption-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "newsreader-caption";
+  src: url("../webfonts/newsreader/NewsreaderCaption-ExtraBoldItalic.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderCaption-ExtraBoldItalic.woff") format("woff");
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "newsreader-caption";
+  src: url("../webfonts/newsreader/NewsreaderCaption-ExtraLight.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderCaption-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "newsreader-caption";
+  src: url("../webfonts/newsreader/NewsreaderCaption-ExtraLightItalic.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderCaption-ExtraLightItalic.woff") format("woff");
+  font-weight: 200;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "newsreader-caption";
+  src: url("../webfonts/newsreader/NewsreaderCaption-Italic.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderCaption-Italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "newsreader-caption";
+  src: url("../webfonts/newsreader/NewsreaderCaption-Light.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderCaption-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "newsreader-caption";
+  src: url("../webfonts/newsreader/NewsreaderCaption-LightItalic.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderCaption-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "newsreader-caption";
+  src: url("../webfonts/newsreader/NewsreaderCaption-Medium.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderCaption-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "newsreader-caption";
+  src: url("../webfonts/newsreader/NewsreaderCaption-MediumItalic.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderCaption-MediumItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "newsreader-caption";
+  src: url("../webfonts/newsreader/NewsreaderCaption-Regular.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderCaption-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "newsreader-caption";
+  src: url("../webfonts/newsreader/NewsreaderCaption-SemiBold.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderCaption-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "newsreader-caption";
+  src: url("../webfonts/newsreader/NewsreaderCaption-SemiBoldItalic.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderCaption-SemiBoldItalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "newsreader-display";
+  src: url("../webfonts/newsreader/NewsreaderDisplay-Bold.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderDisplay-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "newsreader-displaybolditalic";
+  src: url("../webfonts/newsreader/NewsreaderDisplay-BoldItalic.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderDisplay-BoldItalic.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "newsreader-display";
+  src: url("../webfonts/newsreader/NewsreaderDisplay-ExtraBold.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderDisplay-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "newsreader-display";
+  src: url("../webfonts/newsreader/NewsreaderDisplay-ExtraBoldItalic.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderDisplay-ExtraBoldItalic.woff") format("woff");
+  font-weight: 800;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "newsreader-display";
+  src: url("../webfonts/newsreader/NewsreaderDisplay-ExtraLight.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderDisplay-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: "newsreader-display";
+  src: url("../webfonts/newsreader/NewsreaderDisplay-ExtraLightItalic.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderDisplay-ExtraLightItalic.woff") format("woff");
+  font-weight: 200;
+  font-style: italic;
+}
+@font-face {
+  font-family: "newsreader-displayitalic";
+  src: url("../webfonts/newsreader/NewsreaderDisplay-Italic.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderDisplay-Italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "newsreader-display";
+  src: url("../webfonts/newsreader/NewsreaderDisplay-Light.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderDisplay-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "newsreader-display";
+  src: url("../webfonts/newsreader/NewsreaderDisplay-LightItalic.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderDisplay-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "newsreader-display";
+  src: url("../webfonts/newsreader/NewsreaderDisplay-Medium.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderDisplay-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "newsreader-display";
+  src: url("../webfonts/newsreader/NewsreaderDisplay-MediumItalic.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderDisplay-MediumItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: "newsreader-display";
+  src: url("../webfonts/newsreader/NewsreaderDisplay-Regular.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderDisplay-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "newsreader-display";
+  src: url("../webfonts/newsreader/NewsreaderDisplay-SemiBold.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderDisplay-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "newsreader-display";
+  src: url("../webfonts/newsreader/NewsreaderDisplay-SemiBoldItalic.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderDisplay-SemiBoldItalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+}
+@font-face {
+  font-family: "newsreader";
+  src: url("../webfonts/newsreader/NewsreaderText-Bold.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderText-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "newsreader";
+  src: url("../webfonts/newsreader/NewsreaderText-BoldItalic.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderText-BoldItalic.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: "newsreader";
+  src: url("../webfonts/newsreader/NewsreaderText-ExtraBold.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderText-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "newsreader";
+  src: url("../webfonts/newsreader/NewsreaderText-ExtraBoldItalic.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderText-ExtraBoldItalic.woff") format("woff");
+  font-weight: 800;
+  font-style: italic;
+}
+@font-face {
+  font-family: "newsreader";
+  src: url("../webfonts/newsreader/NewsreaderText-ExtraLight.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderText-ExtraLight.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: "newsreader";
+  src: url("../webfonts/newsreader/NewsreaderText-ExtraLightItalic.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderText-ExtraLightItalic.woff") format("woff");
+  font-weight: 200;
+  font-style: italic;
+}
+@font-face {
+  font-family: "newsreader";
+  src: url("../webfonts/newsreader/NewsreaderText-Italic.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderText-Italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "newsreader";
+  src: url("../webfonts/newsreader/NewsreaderText-Light.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderText-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "newsreader";
+  src: url("../webfonts/newsreader/NewsreaderText-LightItalic.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderText-LightItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+}
+@font-face {
+  font-family: "newsreader";
+  src: url("../webfonts/newsreader/NewsreaderText-Medium.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderText-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "newsreader";
+  src: url("../webfonts/newsreader/NewsreaderText-MediumItalic.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderText-MediumItalic.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: "newsreader";
+  src: url("../webfonts/newsreader/NewsreaderText-Regular.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderText-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "newsreader";
+  src: url("../webfonts/newsreader/NewsreaderText-SemiBold.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderText-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "newsreader";
+  src: url("../webfonts/newsreader/NewsreaderText-SemiBoldItalic.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderText-SemiBoldItalic.woff") format("woff");
+  font-weight: 600;
+  font-style: italic;
+}
