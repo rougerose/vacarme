@@ -1,0 +1,15 @@
+<meta http-equiv="Content-Type" content="text/html; charset=#CHARSET">
+<meta name="generator" content="SPIP[ (#SPIP_VERSION)]">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+[<link rel="alternate" type="application/rss+xml" title="[(#NOM_SITE_SPIP) : ]<:syndiquer_site:>"
+  href="(#URL_PAGE{backend})">]
+
+[(#REM)<!--  Balise permettant aux plugins d'inserer des fichiers CSS -->]
+#INSERT_HEAD_CSS
+
+[<link rel="stylesheet" href="(#CHEMIN{dist/css/vacarme.css}|timestamp)">]
+
+[(#CHEMIN{inc-theme-head.html}|oui) #INCLURE{fond=inc-theme-head,env}]
+
+[(#REM)<!-- Balise permettant aux plugins d'inserer des appels javascript ou css ; c'est ici que SPIP va inserer l'appel de la librairie jQuery. Et appeler a la fin compacte_head pour agreger et compacter tout le head dans des fichiers statiques si l'option est cochee dans Configuration -->]
+#INSERT_HEAD
