@@ -11,11 +11,15 @@ module.exports = {
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    screens: {
+      "sm": "636px",
+      "md": "768px",
+      "lg": "1020px",
+      "xl": "1272px",
+      "2xl": "1344px",
+    },
     container: {
       center: true,
-      screens: {
-        xl: "1344px", // 1312px + (16px*2)
-      },
     },
     extend: {
       fontFamily: {

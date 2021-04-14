@@ -2,14 +2,15 @@
 
 /* Base */
 @import "tailwindcss/base";
+@import "./base/html";
 @import "./base/webfonts";
 
 /* Components */
 @import "tailwindcss/components";
 @import "./components/cms-spip-admin";
-@import "./components/ct-resume-article-sommaire";
+@import "./components/ct-articles-resumes";
+@import "./components/ct-article-resume";
 
 /* Utilities */
 @import "tailwindcss/utilities";
-@import "./utilities/col";
 @import "./utilities/util-grid";

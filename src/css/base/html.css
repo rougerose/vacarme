@@ -1,0 +1,4 @@
+html {
+  @apply font-serif;
+  @apply leading-none;
+}

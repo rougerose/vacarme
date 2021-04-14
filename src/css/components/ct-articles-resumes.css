@@ -1,0 +1,54 @@
+/* .ct-articles-resumes {} */
+
+.ct-articles-resumes_groupe {
+  @apply grid;
+
+  &.varia6-6,
+  &.varia3-3-3-3,
+  &.varia3-6-3,
+  &.varia6-3-3,
+  &.varia3-3-6 {
+    @screen sm {
+      @apply grid-cols-2;
+    }
+  }
+
+  &.varia3-3-3-3 {
+    @screen lg {
+      @apply grid-cols-4;
+    }
+  }
+
+  &.varia3-6-3,
+  &.varia6-3-3,
+  &.varia3-3-6 {
+    @screen sm {
+      & .ct-article-resume--varia3 {
+        @apply order-1;
+      }
+
+      & .ct-article-resume--varia6 {
+        @apply order-2 col-span-full;
+      }
+    }
+
+    @screen lg {
+      @apply grid-cols-4;
+
+      & .ct-article-resume--varia3 {
+        order: initial;
+      }
+
+      & .ct-article-resume--varia6 {
+        @apply col-span-2;
+        order: initial;
+      }
+    }
+  }
+
+  &.varia4-4-4 {
+    @screen lg {
+      @apply grid-cols-3;
+    }
+  }
+}

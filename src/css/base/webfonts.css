@@ -49,17 +49,17 @@
 
 @font-face {
   font-family: "HNC";
-  src: url("../webfonts/HelveticaNeueLTStd-Cn.woff2") format("woff2"),
-  url("../webfonts/HelveticaNeueLTStd-Cn.woff") format("woff");
-  font-weight: 400;
+  src: url("../webfonts/HelveticaNeueLTStd-LtCn.woff2") format("woff2"),
+  url("../webfonts/HelveticaNeueLTStd-LtCn.woff") format("woff");
+  font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: "HNC";
-  src: url("../webfonts/HelveticaNeueLTStd-LtCn.woff2") format("woff2"),
-  url("../webfonts/HelveticaNeueLTStd-LtCn.woff") format("woff");
-  font-weight: 300;
+  src: url("../webfonts/HelveticaNeueLTStd-Cn.woff2") format("woff2"),
+  url("../webfonts/HelveticaNeueLTStd-Cn.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -213,12 +213,6 @@
   font-style: italic;
 }
 @font-face {
-  font-family: "newsreader-displayitalic";
-  src: url("../webfonts/newsreader/NewsreaderDisplay-Italic.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderDisplay-Italic.woff") format("woff");
-  font-weight: 400;
-  font-style: italic;
-}
-@font-face {
   font-family: "newsreader-display";
   src: url("../webfonts/newsreader/NewsreaderDisplay-Light.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderDisplay-Light.woff") format("woff");
   font-weight: 300;
@@ -232,6 +226,18 @@
 }
 @font-face {
   font-family: "newsreader-display";
+  src: url("../webfonts/newsreader/NewsreaderDisplay-Italic.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderDisplay-Italic.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "newsreader-display";
+  src: url("../webfonts/newsreader/NewsreaderDisplay-Regular.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderDisplay-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "newsreader-display";
   src: url("../webfonts/newsreader/NewsreaderDisplay-Medium.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderDisplay-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
@@ -241,12 +247,6 @@
   src: url("../webfonts/newsreader/NewsreaderDisplay-MediumItalic.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderDisplay-MediumItalic.woff") format("woff");
   font-weight: 500;
   font-style: italic;
-}
-@font-face {
-  font-family: "newsreader-display";
-  src: url("../webfonts/newsreader/NewsreaderDisplay-Regular.woff2") format("woff2"), url("../webfonts/newsreader/NewsreaderDisplay-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
 }
 @font-face {
   font-family: "newsreader-display";

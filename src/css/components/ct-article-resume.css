@@ -1,0 +1,189 @@
+.ct-article-resume {
+  @apply p-4 mb-12 flex flex-col;
+
+  &.ct-article-resume--texte {
+    & .ct-article-resume_contenu {
+      @apply pt-8;
+    }
+  }
+}
+
+.ct-article-resume_contenu {
+  @apply flex-1 relative;
+
+  &::before {
+    @apply absolute top-0 h-2;
+    content: "";
+    width: calc((25% - 2rem) / 2);
+    background-color: blue;
+  }
+
+  &::after {
+    @apply absolute bottom-0 right-0;
+    display: block;
+    content: "";
+    width: calc(100% - 3rem);
+    height: 1px;
+    background-color: #00c;
+  }
+
+  @screen xl {
+    &::after {
+      width: calc(100% - 3.5rem);
+    }
+  }
+}
+
+/*
+  Variations de .ct-article-resume_contenu::before
+
+  défaut jusqu'à sm : total 4 colonnes
+  de sm à lg : total 8 colonnes
+  de xl : total 12 colonnes
+*/
+.varia3-3-6,
+.varia6-3-3,
+.varia3-6-3,
+.varia3-3-3-3 {
+  & .ct-article-resume--varia3 {
+    & .ct-article-resume_contenu {
+      &::before {
+        @screen sm {
+          width: calc((25% - 2rem) / 2);
+        }
+        @screen lg {
+          width: calc((33% - 2rem) / 2);
+        }
+      }
+    }
+  }
+
+  & .ct-article-resume--varia6 {
+    & .ct-article-resume_contenu {
+      &::before {
+        @screen sm {
+          width: calc((12.5% - 2rem) / 2);
+        }
+        @screen lg {
+          width: calc((16.66% - 2rem) / 2);
+        }
+      }
+    }
+  }
+}
+
+.varia6-6 {
+  & .ct-article-resume {
+    & .ct-article-resume_contenu {
+      &::before {
+        @screen sm {
+          width: calc((25% - 2rem) / 2);
+        }
+        @screen lg {
+          width: calc((16.66% - 2rem) / 2);
+        }
+      }
+    }
+  }
+}
+
+.varia4-4-4 {
+  & .ct-article-resume {
+    & .ct-article-resume_contenu {
+      &::before {
+        @screen sm {
+          width: calc((12.5% - 2rem) / 2);
+        }
+        @screen lg {
+          width: calc((25% - 2rem) / 2);
+        }
+      }
+    }
+  }
+}
+
+.ct-article-resume_logo {
+  @apply block mb-4;
+}
+
+.ct-article-resume_titre {
+  @apply font-display font-bold pb-2;
+  font-size: 24px;
+  line-height: 28px;
+  color: blue;
+}
+
+.ct-article-resume_soustitre {
+  @apply font-display mb-6;
+  font-size: 18px;
+  line-height: 24px;
+  color: blue;
+}
+
+.ct-article-resume_auteurs {
+  @apply font-display font-normal italic;
+  font-size: 16px;
+  line-height: 24px;
+  color: blue;
+
+  &::before {
+    content: "\2014\00A0"
+  }
+}
+
+.ct-article-resume_intro {
+  @apply mt-6 mb-16;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.ct-article-resume_numero {
+  @apply absolute left-0 bottom-0 font-sans font-normal;
+  z-index: 2;
+  font-size: 30px;
+  line-height: 1;
+  background-color: white;
+  color: #00c;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+  }
+
+  &::before {
+    @apply mt-0;
+  }
+
+  &::after {
+    margin-bottom: -9px;
+  }
+
+  @screen xl {
+    font-size: 40px;
+    line-height: 1;
+
+    &::after {
+      margin-bottom: -12px;
+    }
+  }
+}
+
+.ct-article-resume_numero--icone {
+  @apply pr-0;
+  width: 24px;
+  height: 24px;
+
+  &::after {
+    @apply mb-0;
+  }
+
+  & svg {
+    fill: #00c;
+  }
+
+  @screen xl {
+    width: 28px;
+    height: 28px;
+  }
+}

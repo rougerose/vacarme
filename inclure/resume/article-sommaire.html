@@ -10,28 +10,27 @@
     [(#SOUSTITRE|strtolower|textebrut|=={#GET{introduction}|strtolower|textebrut}|oui)
       [(#SET{introduction, #CHAPO|sinon{#TEXTE}|couper{150}})]
     ]
-  ][(#SET{article_vacarme, ''})][
-    (#ID_ARTICLE|=={295}|oui) #SET{article_vacarme, ' '}
+  ][(#SET{vacarme, ''})][
+    (#ID_ARTICLE|=={295}|oui) #SET{vacarme, ' '}
   ][(#ENV{logo}|=={oui}|?{
-    #SET{variante, ct-resume-article-sommaire--logo}, #SET{variante, ct-resume-article-sommaire--texte}
+    #SET{variante, ct-article-resume--logo}, #SET{variante, ct-article-resume--texte}
   })]
-  <article class="ct-resume-article-sommaire[ (#GET{article_vacarme}|oui)ct-resume-article-sommaire--v][ (#GET{variante}) ][col-(#ENV{colonnes})] px-4 py-10 my-4 flex flex-col">
-    <div class="ct-resume-article-sommaire_contenu">
-      <div class="ct-resume-article-sommaire_ancre [w-1/(#ENV{colonnes})]"></div>
-      [<a href="#URL_ARTICLE" class="ct-resume-article-sommaire_logo">
-        (#LOGO_ARTICLE|image_recadre{3:2, -, focus}|image_passe_partout{640,320})
+  <article class="ct-article-resume[ (#GET{vacarme}|oui)ct-article-resume--revue][ (#GET{variante}) ][ct-article-resume--varia(#ENV{colonnes})]">
+    <div class="ct-article-resume_contenu">
+      [<a href="#URL_ARTICLE" class="ct-article-resume_logo">
+        (#LOGO_ARTICLE|image_recadre{3:2, -, focus}|image_passe_partout{704,470})
       </a>]
-      <div class="ct-resume-article-sommaire_texte">
-        <h2 class="ct-resume-article-sommaire_titre"><a href="#URL_ARTICLE">#TITRE</a></h2>
-        [<p class="ct-resume-article-sommaire_soustitre"><a href="#URL_ARTICLE">(#SOUSTITRE)</a></p>]
-        <INCLURE{fond=inclure/liste/auteurs, id_article, class=ct-resume-article-sommaire_auteurs}/>
-        [<div class="ct-resume-article-sommaire_intro">(#GET{introduction})</div>]
+      <div class="ct-article-resume_texte">
+        <h2 class="ct-article-resume_titre"><a href="#URL_ARTICLE">#TITRE</a></h2>
+        [<p class="ct-article-resume_soustitre"><a href="#URL_ARTICLE">(#SOUSTITRE)</a></p>]
+        <INCLURE{fond=inclure/liste/auteurs, id_article, class=ct-article-resume_auteurs}/>
+        [<div class="ct-article-resume_intro">(#GET{introduction})</div>]
         <BOUCLE_test_numero(CONDITION){si #ID_SECTEUR|=={115}}>
           <BOUCLE_numero(HIERARCHIE){id_article}{1,1}>
-            <div class="ct-resume-article-sommaire_numero [v-1/(#ENV{colonnes})]">[(#TITRE|replace{Vacarme\s})]</div>
+            <div class="ct-article-resume_numero">[(#TITRE|replace{Vacarme\s})]</div>
           </BOUCLE_numero>
         </BOUCLE_test_numero>
-          <div class="ct-resume-article-sommaire_numero [v-1/(#ENV{colonnes})]">&#42;</div>
+          <div class="ct-article-resume_numero ct-article-resume_numero--icone"><INCLURE{fond=img/icone-asterisque-128.svg}/></div>
         <//B_test_numero>
       </div>
     </div>

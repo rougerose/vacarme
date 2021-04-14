@@ -4,6 +4,7 @@
 }
 
 .util-grid-toggle {
+  @apply font-mono text-2xs bg-yellow-400 text-black;
   position: fixed;
   left: 20px;
   bottom: 20px;
@@ -14,10 +15,6 @@
   line-height: 48px;
   text-align: center;
   text-transform: uppercase;
-  @apply font-mono;
-  @apply text-2xs;
-  @apply bg-yellow-400;
-  @apply text-black;
 }
 
 .util-grid-toggle:hover {
