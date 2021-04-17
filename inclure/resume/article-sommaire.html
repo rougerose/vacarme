@@ -26,14 +26,16 @@
         <INCLURE{fond=inclure/liste/auteurs, id_article, class=ct-article-resume_auteurs}/>
         [<div class="ct-article-resume_intro">(#GET{introduction})</div>]
         <INCLURE{fond=inclure/liste/mots-article-resume, id_article}/>
-        <BOUCLE_test_numero(CONDITION){si #ID_SECTEUR|=={115}}>
-          <BOUCLE_numero(HIERARCHIE){id_article}{1,1}>
-            <div class="ct-article-resume_numero">[(#TITRE|replace{Vacarme\s})]</div>
-          </BOUCLE_numero>
-        </BOUCLE_test_numero>
-          <div class="ct-article-resume_numero ct-article-resume_numero--icone"><INCLURE{fond=img/icone-asterisque-128.svg}/></div>
-        <//B_test_numero>
       </div>
+      <BOUCLE_test_numero(CONDITION){si #ID_SECTEUR|=={115}}>
+        <BOUCLE_numero(HIERARCHIE){id_article}{1,1}>
+          <div class="ct-article-resume_numero">[(#TITRE|replace{Vacarme\s})]</div>
+        </BOUCLE_numero>
+      </BOUCLE_test_numero>
+        <div class="ct-article-resume_numero ct-article-resume_numero--icone">
+          <INCLURE{fond=img/icone-asterisque-128.svg} />
+        </div>
+      <//B_test_numero>
     </div>
   </article>
 </BOUCLE_article-sommaire>

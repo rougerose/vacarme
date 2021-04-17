@@ -1,0 +1,10 @@
+#SET{mots, #ARRAY}
+<BOUCLE_mots_categories(MOTS){id_article}{id_groupe=19}{par titre}>[(#SET{mots, #GET{mots}|push{#ID_MOT}})]</BOUCLE_mots_categories>
+<BOUCLE_mots_themes(MOTS){id_article}{id_groupe IN 1, 12}{par titre}>[(#SET{mots, #GET{mots}|push{#ID_MOT}})]</BOUCLE_mots_themes>
+<B_mots_article_resume>
+  <p class="ct-article-resume_tags">
+    <BOUCLE_mots_article_resume(MOTS){id_mot IN #GET{mots}}>
+      <span class="ct-article-resume_tag">#TITRE</span>
+    </BOUCLE_mots_article_resume>
+  </p>
+</B_mots_article_resume>

@@ -106,6 +106,10 @@
   @apply block mb-4;
 }
 
+.ct-article-resume_texte {
+  @apply mb-16;
+}
+
 .ct-article-resume_titre {
   @apply font-display font-bold pb-2;
   font-size: 24px;
@@ -132,7 +136,7 @@
 }
 
 .ct-article-resume_intro {
-  @apply mt-6 mb-16;
+  @apply mt-6;
   font-size: 18px;
   line-height: 24px;
 }
@@ -185,5 +189,21 @@
   @screen xl {
     width: 28px;
     height: 28px;
+  }
+}
+
+
+.ct-article-resume_tags {
+  @apply mt-6;
+  font-family: "newsreader-caption";
+  font-size: 0.75rem; /* 12px */
+  line-height: 1rem;
+  color: #00c;
+}
+
+.ct-article-resume_tag {
+  @apply mr-1;
+  &::before {
+    content: "#";
   }
 }
