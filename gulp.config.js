@@ -9,10 +9,22 @@ module.exports = {
     dist: "dist/css/",
     watch: "src/css/**/*.css",
   },
-  clean: ["dist/css/*", "!dist/"],
+  js: {
+    src: ["src/js/vacarme.js"],
+    dist: "dist/js/",
+    name: "vacarme.min.js",
+  },
+  jsConcat: {
+    src: ["src/lib/swiper/swiper-bundle.min.js"],
+    dist: "dist/lib/",
+    name: "libs.min.js",
+  },
+  clean: ["dist/lib/*.js", "dist/css/*.css", "dist/js/*.js", "!dist/"],
   tasks: {
     css: true,
+    js: true,
+    jsConcat: true,
     clean: true,
-    reload: true,
+    reload: false,
   },
 };

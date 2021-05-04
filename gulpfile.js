@@ -5,6 +5,12 @@ const del = require("del");
 const postcss = require("gulp-postcss");
 const csso = require("gulp-csso");
 const size = require("gulp-size");
+const rollup = require("rollup");
+const { terser } = require("rollup-plugin-terser");
+const { nodeResolve } = require("@rollup/plugin-node-resolve");
+const { babel } = require("@rollup/plugin-babel");
+const concat = require("gulp-concat");
+
 
 // Task: CSS
 const css = function (done) {
@@ -20,21 +26,29 @@ const css = function (done) {
 };
 
 // Task: JS
-// const js = function (done) {
-//   if (!config.tasks.js) return done();
+const js = function (done) {
+  if (!config.tasks.js) return done();
 
-//   return rollup
-//     .rollup({
-//       input: config.js.src,
-//       plugins: [multiEntry(), commonjs(), nodeResolve(), terser()],
-//     })
-//     .then((bundle) => {
-//       return bundle.write({
-//         file: config.js.dist + config.js.name,
-//         format: "iife",
-//       });
-//     });
-// };
+  return rollup
+    .rollup({
+      input: config.js.src,
+      plugins: [nodeResolve(), babel({ babelHelpers: "bundled" }), terser()],
+    })
+    .then((bundle) => {
+      return bundle.write({
+        file: config.js.dist + config.js.name,
+        format: "iife",
+      });
+    });
+};
+
+// Task: JS concat
+const jsConcat = function (done) {
+  if (!config.tasks.jsConcat) return done();
+  return src(config.jsConcat.src)
+    .pipe(concat(config.jsConcat.name, { newline: ";" }))
+    .pipe(dest(config.jsConcat.dist))
+};
 
 // Task: Clean
 const clean = function (done) {
@@ -74,7 +88,7 @@ const reloadBrowser = function (done) {
 const watchSource = function (done) {
   watch(config.css.watch, series(css));
   watch(config.tailwind, series(css));
-  // watch(config.js.src, series(js, reloadBrowser));
+  watch(config.js.src, series(js, reloadBrowser));
   // watch(config.fonts.src, series(fonts));
 
   // Signal completion
@@ -82,7 +96,7 @@ const watchSource = function (done) {
 };
 
 // Default task
-exports.default = series(clean, parallel(css), startServer, watchSource);
+exports.default = series(clean, jsConcat, parallel(css, js), startServer, watchSource);
 
 // Build task
-exports.build = series(clean, parallel(css));
+exports.build = series(clean, jsConcat, parallel(css, js));
