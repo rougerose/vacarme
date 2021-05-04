@@ -1,0 +1,55 @@
+[(#REM)
+  <!-- Variantes de mise en page : 2, 3 ou 4 colonnes -->
+][(#SET{layouts, #LISTE{2, 3, 4}})]
+[(#REM)
+  <!-- Deux variantes d'articles, avec et sans logo -->
+][(#SET{critere_logo, #LISTE{!logo, logo}|array_flip})]
+[(#REM)
+<!-- Les articles sont répartis sur 3 lignes -->
+]<BOUCLE_lignes(DATA){enum 1,3}>
+  [(#REM)
+  <!-- Sélection aléatoire d'une variante de mise en page -->
+  ][(#SET{index_layout, #GET{layouts}|array_rand{1}})]
+  [(#SET{nbre_colonnes, #GET{layouts}|table_valeur{#GET{index_layout}}})]
+  [(#REM)
+    <!--
+      En fonction du nombre de colonnes sélectionnés,
+      déterminer la distribution des articles :
+        - 2 colonnes : 2 modules de 6 ;
+        - 3 colonnes : choisir aléatoirement entre 3 modules de 4, ou 3 variantes de 2 modules de 3 et un module de 6 ;
+        - 4 colonnes : 4 modules de 3.
+    -->
+  ][(#GET{nbre_colonnes}|=={2}|oui)
+    [(#SET{colonnes, #LISTE{6, 6}})]
+    [(#SET{class, varia6-6})]
+  ][(#GET{nbre_colonnes}|=={3}|oui)
+    [(#SET{variantes, #LISTE{4-4-4, 4-4-4, 3-3-6, 3-6-3, 6-3-3}})]
+    [(#SET{index_variantes, #GET{variantes}|array_rand{1}})]
+    [(#SET{class, #VAL{varia}|concat{#GET{variantes}|table_valeur{#GET{index_variantes}}}})]
+    [(#SET{colonnes, #GET{variantes}|table_valeur{#GET{index_variantes}}|explode{-}})]
+  ][(#GET{nbre_colonnes}|=={4}|oui)
+    [(#SET{colonnes, #LISTE{3, 3, 3, 3}})]
+    [(#SET{class, varia3-3-3-3})]
+  ]<div class="ct-articles-resumes_groupe[ (#GET{class})]">
+    <BOUCLE_colonnes(DATA){source table, #GET{colonnes}}>
+      [(#REM)
+      <!--
+        Si l'article est contenu dans un module de 3, on sélectionne aléatoirement
+        dans la série d'articles avec logo ou sans logo.
+        Sinon c'est un article de la série avec logo.
+      -->
+      ][(#VALEUR|=={3}|?{
+      [(#SET{logo, #GET{critere_logo}|array_rand{1}})], [(#SET{logo, logo})]
+      })]
+      <BOUCLE_condition_logo(CONDITION){si #GET{logo}|==={logo}}>
+        <BOUCLE_article_logo(ARTICLES){id_article IN #ENV{articles_logo}}{0,1}{doublons}>
+          <INCLURE{fond=inclure/resume/article-sommaire, id_article, colonnes=#VALEUR, logo=oui} />
+        </BOUCLE_article_logo>
+      </BOUCLE_condition_logo>
+        <BOUCLE_article_texte(ARTICLES){id_article IN #ENV{articles_texte}}{0,1}{doublons}>
+          <INCLURE{fond=inclure/resume/article-sommaire, id_article, colonnes=#VALEUR, logo=non} />
+        </BOUCLE_article_texte>
+      <//B_condition_logo>
+    </BOUCLE_colonnes>
+  </div>
+</BOUCLE_lignes>

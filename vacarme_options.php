@@ -11,6 +11,9 @@ ini_set('display_errors', 'On');
 // Afficher toutes les erreurs dans SPIP
 define('SPIP_ERREUR_REPORT', E_ALL);
 
+// Héritage des logos de rubrique => off
+define('_LOGO_RUBRIQUE_DESACTIVER_HERITAGE', true);
+
 // zcore
 if (!isset($GLOBALS['z_blocs'])) {
 	$GLOBALS['z_blocs'] = array(

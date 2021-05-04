@@ -1,3 +1,4 @@
+<div class="container">
 <BOUCLE_numero(RUBRIQUES){id_secteur=115}{profondeur=1}{par pseudo_hasard}>
   <h1>#TITRE</h1>
   [(#REM)
@@ -9,8 +10,10 @@
   <B_ouverture>
     <BOUCLE_ouverture(RUBRIQUES){id_parent}{titre_mot=tribunes}>
       <h2>Ouverture : #TITRE</h2>
+      <p>#DESCRIPTIF</p>
       <BOUCLE_article_ouverture(ARTICLES){id_rubrique}{titre_mot=tribunes}>
         <h3>#TITRE</h3>
+        [(#LOGO_ARTICLE|image_recadre{3:2, -, focus}|image_reduire{300,200})]
       </BOUCLE_article_ouverture>
     </BOUCLE_ouverture>
     <hr>
@@ -18,19 +21,25 @@
   <B_chantier>
     <BOUCLE_chantier(RUBRIQUES){id_parent}{titre_mot=chantier}>
       <h2>Chantier : #TITRE</h2>
+      <p>#DESCRIPTIF</p>
+      [(#LOGO_RUBRIQUE|image_recadre{3:2, -, focus}|image_reduire{300,200})]
+      <br><br>
     </BOUCLE_chantier>
     <hr>
   </B_chantier>
   <B_entretien>
     <BOUCLE_entretien(RUBRIQUES){id_parent}{titre_mot=entretien}>
-      <h2>Entretien : #TITRE / #SOUSTITRE</h2>
+      <h2>Entretien : #TITRE</h2>
       <p>#DESCRIPTIF</p>
+      [(#LOGO_RUBRIQUE|image_recadre{3:2, -, focus}|image_reduire{300,200})]
+      <br><br>
     </BOUCLE_entretien>
     <hr>
   </B_entretien>
   <B_cahier>
     <BOUCLE_cahier(RUBRIQUES){id_parent}{titre_mot=cahier}>
       <h2>Cahier</h2>
+      [(#LOGO_RUBRIQUE|image_recadre{3:2, -, focus}|image_reduire{300,200})]
       <ul>
         <BOUCLE_cahier_articles(ARTICLES){id_rubrique}{par pseudo_hasard}{0,5}>
           <li>#TITRE</li>
@@ -40,3 +49,4 @@
     <hr>
   </B_cahier>
 </BOUCLE_numero>
+</div>

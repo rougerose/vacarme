@@ -1,0 +1,9 @@
+/* Surcharges css swiper.js */
+:root {
+  --swiper-theme-color: red;
+}
+
+/* pagination */
+.swiper-container-horizontal > .swiper-pagination-bullets {
+  bottom: 0;
+}

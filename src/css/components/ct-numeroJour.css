@@ -1,0 +1,32 @@
+.ct-numeroJour {
+  margin-bottom: 3rem;
+  position: relative;
+  padding: 2rem 0 1rem;
+  background-color: #00c;
+  color: #fff;
+}
+
+.ct-numeroJour_section {
+  @apply font-display font-bold;
+  padding-bottom: 1rem;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.ct-numeroJour_numero {
+  @apply font-sans font-bold uppercase;
+  margin-right: 2rem;
+
+  &::before {
+    content: "\2014\00A0"
+  }
+}
+
+.ct-numeroJour_sommaire {
+  font-family: "newsreader-caption";
+  font-size: 0.75rem; /* 12px */
+  font-weight: 400;
+  font-style: italic;
+  white-space: nowrap;
+  letter-spacing: 0.025em;
+}

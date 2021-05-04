@@ -5,11 +5,17 @@
 @import "./base/html";
 @import "./base/webfonts";
 
+/* lib Swiper */
+@import "../lib/swiper/swiper-bundle.css";
+@import "./components/swiper";
+
 /* Components */
 @import "tailwindcss/components";
 @import "./components/cms-spip-admin";
 @import "./components/ct-articles-resumes";
 @import "./components/ct-article-resume";
+@import "./components/ct-numeroJour.css";
+@import "./components/ct-slider";
 
 /* Utilities */
 @import "tailwindcss/utilities";
