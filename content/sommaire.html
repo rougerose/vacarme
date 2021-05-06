@@ -22,7 +22,12 @@
   </div>
 </div>
 <section class="ct-numeroJour">
-  <INCLURE{fond=inclure/resume/numero-jour-sommaire} />
+  <BOUCLE_numero_jour(RUBRIQUES){id_secteur=115}{profondeur=1}{par pseudo_hasard}{0,1}>
+    #SET{titre_rubrique, #TITRE}
+    <BOUCLE_album(ALBUMS){id_rubrique}{titre LIKE %extraits%}{0,1}>
+      <INCLURE{fond=inclure/resume/numero-jour-sommaire, id_rubrique, id_album, titre_rubrique=#GET{titre_rubrique}} />
+    </BOUCLE_album>
+  </BOUCLE_numero_jour>
 </section>
 
 [(#REM)

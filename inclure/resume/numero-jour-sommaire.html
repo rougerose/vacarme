@@ -1,30 +1,24 @@
-<BOUCLE_numero_jour(RUBRIQUES){id_secteur=115}{profondeur=1}{par pseudo_hasard}{0,1}>
+<BOUCLE_album(ALBUMS){id_album}>
+  #SET{titre_album, #TITRE}
   <div class="container px-8">
-    <h2 class="ct-numeroJour_section">Un jour, un numéro
-      <a href="#URL_RUBRIQUE" class=""><span
-          class="ct-numeroJour_numero">#TITRE</span> <span class="ct-numeroJour_sommaire">lire le sommaire</span></a>
+    <h2 class="ct-numeroJour_section">
+      <:vacarme:jour_numero_titre:>
+        <a href="[(#URL_RUBRIQUE{#ENV{id_rubrique}})]"><span class="ct-numeroJour_numero">#ENV{titre_rubrique}</span> <span
+            class="ct-numeroJour_sommaire">
+            <:vacarme:lire_numero:>
+          </span></a>
     </h2>
   </div>
   <div class="swiper-container ct-slider">
     <div class="swiper-wrapper ct-slider_slides">
-      <div class="swiper-slide ct-slider_slide">
-        [<img src="(#CHEMIN{img/1100x1466.png}|image_reduire{278,0}|extraire_attribut{src})" alt="" class="ct-slider_image ct-slider_image--vertical">]
-      </div>
-      <div class="swiper-slide ct-slider_slide">
-        [<img src="(#CHEMIN{img/2200x1466.png}|image_reduire{556,0}|extraire_attribut{src})" alt="" class="ct-slider_image">]
-      </div>
-      <div class="swiper-slide ct-slider_slide">
-        [<img src="(#CHEMIN{img/2200x1466.png}|image_reduire{556,0}|extraire_attribut{src})" alt="" class="ct-slider_image">]
-      </div>
-      <div class="swiper-slide ct-slider_slide">
-        [<img src="(#CHEMIN{img/2200x1466.png}|image_reduire{556,0}|extraire_attribut{src})" alt="" class="ct-slider_image">]
-      </div>
-      <div class="swiper-slide ct-slider_slide">
-        [<img src="(#CHEMIN{img/2200x1466.png}|image_reduire{556,0}|extraire_attribut{src})" alt="" class="ct-slider_image">]
-      </div>
-      <div class="swiper-slide ct-slider_slide">
-        [<img src="(#CHEMIN{img/2200x1466.png}|image_reduire{556,0}|extraire_attribut{src})" alt="" class="ct-slider_image">]
-      </div>
+      <BOUCLE_doc(DOCUMENTS){id_album}{par rang_lien, id_document, num titre}>
+        <div class="swiper-slide ct-slider_slide">
+          [(#FICHIER|hauteur|>{#FICHIER|largeur}|?{
+            [<img src="(#FICHIER|image_reduire{278,0}|extraire_attribut{src})" alt="[(#GET{titre_album}|concat{' ', \#, #COMPTEUR_BOUCLE})]">],
+            [<img src="(#FICHIER|image_reduire{556,0}|extraire_attribut{src})" alt="[(#GET{titre_album}|concat{' ', \#, #COMPTEUR_BOUCLE})]">]
+          })]
+        </div>
+      </BOUCLE_doc>
     </div>
     <div class="swiper-pagination"></div>
     <div class="ct-slider_navigation">
@@ -34,4 +28,4 @@
       </div>
     </div>
   </div>
-</BOUCLE_numero_jour>
+</BOUCLE_album>
