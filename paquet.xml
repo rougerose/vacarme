@@ -31,7 +31,7 @@
 
   <pipeline nom="declarer_tables_objets_sql"  inclure="vacarme_pipelines.php" />
   <spip compatibilite="[3.3.0-dev;3.3.*]">
-		<script type="public" source="dist/lib/vacarme-lib.min.js" />
+		<script type="public" source="dist/lib/libs.min.js" />
 		<script type="public" source="dist/js/vacarme.min.js" />
 	</spip>
 </paquet>
