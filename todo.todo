@@ -1,6 +1,9 @@
 # Rubriques
 -Vérifier si la colonne saison_année est bien totalement inutilisée -> supprimer.
 
+Chantier Iran : la liste des articles ne s'affiche pas. Problème avec polyhiérarchie ?
+http://localhost:8888/vacarme.dev/rubrique443.html
+
 Backend:
  ☐ revoir le backend : article d'un numéro à parution qui sont réellement disponible.
 
