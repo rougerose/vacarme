@@ -25,7 +25,7 @@
                         <dl class="simple-def-list">
                             <dt class="meta-article__titre"><:local:version_print:></dt>
                             <dd>
-                                <p class="liens"><:local:published_in:> <a href="#URL_RUBRIQUE" itemprop="name">#TITRE</a>[, <span itemprop="datePublished" content="[(#SAISON_ANNEE|affdate{Y-m-d})]">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</span>][, (#PAGE_DEBUT|>{0}|oui)
+                                <p class="liens"><:local:published_in:> <a href="#URL_RUBRIQUE" itemprop="name">#TITRE</a>[, <span itemprop="datePublished" content="[(#DATE_NUMERO|affdate{Y-m-d})]">(#DATE_NUMERO|saison)[ (#DATE_NUMERO|annee)]</span>][, (#PAGE_DEBUT|>{0}|oui)
                                     [(#PAGE_DEBUT|=={#PAGE_FIN}|?{<:local:page_number{debut=#PAGE_DEBUT}:>,<:local:page_abrev{debut=#PAGE_DEBUT,fin=#PAGE_FIN}:>})]
                                 ]</p>
                             </dd>
