@@ -1,2 +1,3 @@
 # Revue Vacarme
-Plugin Spip 3
+
+Plugin Spip 4.2.x
