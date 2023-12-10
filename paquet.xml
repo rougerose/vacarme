@@ -12,35 +12,36 @@
 
 	<pipeline nom="autoriser" inclure="vacarme_autorisations.php" />
 
-	<necessite nom="Zcore" compatibilite="[2.6.5;[" />
-	<necessite nom="IntertitresTdm" compatibilite="[0.9.12;[" />
-	<necessite nom="suivant_precedent" compatibilite="[1.4.4;[" />
-	<necessite nom="polyhier" compatibilite="[2.3.8;[" />
-	<necessite nom="critere_mots" compatibilite="[4.1.2;[" />
-	<necessite nom="albums" compatibilite="[3.5.5;[" />
+	<necessite nom="Zcore" />
+	<necessite nom="porte_plume_intertitres" />
+	<!-- <necessite nom="IntertitresTdm" compatibilite="[0.9.12;[" /> -->
+	<necessite nom="suivant_precedent" />
+	<necessite nom="polyhier" />
+	<necessite nom="critere_mots" />
+	<necessite nom="albums" />
 	<necessite nom="newsletters" compatibilite="[1.5.3;[" />
-	<necessite nom="compositions" compatibilite="[3.6.0;[" />
+	<necessite nom="compositions" />
 	<necessite nom="contact" compatibilite="[0.16.5;[" />
+	<necessite nom="pb_selection" />
+	<necessite nom="selections_editoriales" />
 
-	<necessite nom="vabonnements" />
-	<necessite nom="vpaniers_options" />
-	<necessite nom="vprofils" />
-	<necessite nom="vnumeros" />
-	<necessite nom="commandes" />
+	<!-- <necessite nom="vabonnements" /> -->
+	<!-- <necessite nom="vpaniers_options" /> -->
+	<!-- <necessite nom="vprofils" /> -->
+	<!-- <necessite nom="vnumeros" /> -->
+	<!-- <necessite nom="commandes" /> -->
 
-	<utilise nom="bank" />
-	<utilise nom="factures" />
-	<utilise nom="prix" />
-	<utilise nom="paniers" />
-	<utilise nom="a2a" compatibilite="[2.2.2;[" />
-	<utilise nom="bellespuces" compatibilite="[0.1.7;[" />
-	<utilise nom="cairn" />
+	<!-- <utilise nom="bank" /> -->
+	<!-- <utilise nom="factures" /> -->
+	<!-- <utilise nom="prix" /> -->
+	<!-- <utilise nom="paniers" /> -->
+	<utilise nom="a2a" />
+	<utilise nom="bellespuces" />
+	<!-- <utilise nom="cairn" /> -->
 	<utilise nom="medias" />
-	<utilise nom="menus" compatibilite="[1.6.10;[" />
-	<utilise nom="mots_techniques" compatibilite="[1.0.4;[" />
-	<utilise nom="oembed" compatibilite="[2.0.1;[" />
-	<utilise nom="pb_selection" compatibilite="[3.2.0;[" />
-	<utilise nom="selections_editoriales" compatibilite="[1.7.6;[" />
+	<utilise nom="menus" />
+	<utilise nom="mots_techniques" />
+	<utilise nom="oembed" />
 	<!-- <utilise nom="tickets" compatibilite="[4.1.3;[" /> -->
 
 	<spip compatibilite="[3.2.0;3.2.*]">
