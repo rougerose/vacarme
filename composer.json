@@ -1,0 +1,19 @@
+{
+  "repositories": {
+    "spip": {
+      "type": "composer",
+      "url": "https://get.spip.net/composer"
+    }
+  },
+  "require-dev": {
+    "spip-league/easy-coding-standard": "^1.1",
+    "rector/rector": "^2.0",
+    "spip-league/rector": "dev-main"
+  },
+  "scripts": {
+    "check-cs": "vendor/bin/ecs check --ansi",
+    "fix-cs": "vendor/bin/ecs check --fix --ansi",
+    "rector": "vendor/bin/rector process --ansi",
+    "rector-dry-run": "vendor/bin/rector process --dry-run --ansi"
+  }
+}
