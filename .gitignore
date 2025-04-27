@@ -1,9 +1,5 @@
 # fichiers systemes
 .DS_Store
 
-.sass-cache
 node_modules/
-bower_components/
-css/*.map
-yarn.*
-yarn-error.log
+vendor/
