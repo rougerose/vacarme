@@ -1,7 +1,7 @@
 <?php
 
 if (!defined('_ECRIRE_INC_VERSION')) {
-  return;
+	return;
 }
 
 $GLOBALS['z_blocs'] = ['content', 'bando', 'head', 'head_js', 'header', 'panier', 'aside', 'footer'];
@@ -24,4 +24,3 @@ define('_VACARME_GRATUITE', 730);
 
 // Désactiver héritage des logos de rubrique
 define('_LOGO_RUBRIQUE_DESACTIVER_HERITAGE', true);
-?>
