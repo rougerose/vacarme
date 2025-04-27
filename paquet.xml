@@ -1,10 +1,10 @@
 <paquet
   categorie="squelette"
-  compatibilite="[4.2.6;4.2.*]"
+  compatibilite="[4.2.6;4.4.*]"
   etat="dev"
   logo="img/vacarme-128.png"
   prefix="vacarme"
-  version="4.0.1"
+  version="4.0.2"
 >
 	<nom>Vacarme</nom>
 	<auteur lien="http://rouge-rose.net">christophe le drean</auteur>
@@ -37,7 +37,7 @@
 	<utilise nom="medias" />
 	<utilise nom="oembed" />
 
-	<spip compatibilite="[4.2.6;4.2.*]">
+	<spip compatibilite="[4.2.6;4.4.*]">
 		<script type="public" source="js/lib.js" />
 		<script type="public" source="js/flexslider/jquery.flexslider-min.js" />
 		<script type="public" source="js/owl-carousel/owl.carousel.min.js" />
