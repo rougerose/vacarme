@@ -1,10 +1,10 @@
-#SET{total,''} #SET{total_articles,''} #SET{total_auteurs,''} #SET{total_mots,''}
+#SET{total,0} #SET{total_articles,0} #SET{total_auteurs,0} #SET{total_mots,0}
 
 <BOUCLE_articles(ARTICLES){recherche}{!par points}{lang}> </BOUCLE_articles>[(#SET{total_articles,#TOTAL_BOUCLE})]</B_articles>
 <BOUCLE_auteurs(AUTEURS){recherche}> </BOUCLE_auteurs>[(#SET{total_auteurs,#TOTAL_BOUCLE})]</B_auteurs>
 <BOUCLE_mots(MOTS){recherche}{!par points}> </BOUCLE_mots>[(#SET{total_mots,#TOTAL_BOUCLE})]</B_mots>
 
-[(#SET{total, #VAL{0}|plus{#GET{total_articles}}|plus{#GET{total_auteurs}}|plus{#GET{total_mots}}})]
+[(#SET{total, #GET{total}|plus{#GET{total_articles}}|plus{#GET{total_auteurs}}|plus{#GET{total_mots}}})]
 
 <main id="main" class="page-content" role="main">
 	<div class="page-block">
